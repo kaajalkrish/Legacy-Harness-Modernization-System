@@ -192,7 +192,8 @@ Scans the repo and catalogs every source file, then resolves `COPY`/`CALL`/`CICS
 flowchart LR
     S["Raw COBOL folder"] --> D["Discovery scanner<br/>(regex + fixed-column rules)"]
     D --> O["inventory.json<br/>(file registry, call graph, issues)"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;class D d;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    class D d;
 ```
 
 ### Agent 2 — Parser
@@ -202,7 +203,8 @@ Opens each program and extracts its structural skeleton — divisions, sections,
 flowchart LR
     I["inventory.json + raw COBOL"] --> P["Parser<br/>(engine + orchestrator)"]
     P --> O["raw_structure/PROGRAM.json<br/>+ parser_artifact.json"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;class P d;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    class P d;
 ```
 
 ### Agent 3 — Topology
@@ -212,7 +214,8 @@ Merges the inventory edges + parsed structure into one system graph of nodes (pr
 flowchart LR
     I["inventory.json + parser AST"] --> T["Topology / graph builder"]
     T --> O["graph.json<br/>(nodes + edges)"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;class T d;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    class T d;
 ```
 
 ### Agent 4 — Context
@@ -222,7 +225,8 @@ Pre-digests each program's raw AST into a compact, **human-readable briefing she
 flowchart LR
     I["graph.json + parser AST"] --> C["Context builder"]
     C --> O["PROGRAM_context.txt<br/>+ system_index.json"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;class C d;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    class C d;
 ```
 
 ### Agent 5 — Data
@@ -232,7 +236,8 @@ Turns the cryptic DATA DIVISION into a clean data dictionary: expands `COPY` stu
 flowchart LR
     I["inventory.json + parser AST + copybooks"] --> DA["Data builder<br/>(100% rule-based)"]
     DA --> O["data_artifact.json<br/>+ data_layouts/*"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;class DA d;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    class DA d;
 ```
 
 ### Agent 6 — Logic
@@ -244,7 +249,8 @@ flowchart LR
     PREP --> LLM["LLM: paragraph → pseudocode"]
     LLM --> WRITE["Python: write files"]
     WRITE --> O["program_logic/PROGRAM_logic.json<br/>+ logic_artifact.json"]
-    classDef l fill:#fff3e0,stroke:#e08a17;class LLM l;
+    classDef l fill:#fff3e0,stroke:#e08a17;
+    class LLM l;
 ```
 
 ### Agent 7 — Rules
@@ -255,7 +261,8 @@ flowchart LR
     I["logic_artifact + data_artifact"] --> FIND["Python: find + classify + dedupe"]
     FIND --> NAME["LLM (optional): name + describe"]
     NAME --> O["rules_artifact.json<br/>+ classified_conditions.json"]
-    classDef l fill:#fff3e0,stroke:#e08a17;class NAME l;
+    classDef l fill:#fff3e0,stroke:#e08a17;
+    class NAME l;
 ```
 
 ### Agent 8 — Diagram + BRD
@@ -263,17 +270,19 @@ The **Diagram** part is deterministic — it redraws the graph/data/logic into M
 
 ```mermaid
 flowchart LR
-    subgraph DiagramAgent["Diagram (deterministic)"]
+    subgraph DiagramAgent["Diagram - deterministic"]
         G["graph + data + logic"] --> MMD["*.mmd diagrams"]
     end
-    subgraph BRDAgent["BRD (hybrid)"]
+    subgraph BRDAgent["BRD - hybrid"]
         ART["all artifacts + diagrams"] --> ASM["Python: assemble chapters + gaps"]
         ASM --> NAR["LLM: exec summary + narratives"]
         NAR --> DOC["brd.md + brd_summary.md<br/>+ gaps_register"]
     end
     MMD --> ART
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;classDef l fill:#fff3e0,stroke:#e08a17;
-    class MMD,ASM d;class NAR l;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    classDef l fill:#fff3e0,stroke:#e08a17;
+    class MMD,ASM d;
+    class NAR l;
 ```
 
 ### Agent 9 — Judge
@@ -285,8 +294,10 @@ flowchart LR
     V --> J["Judge (LLM)<br/>score 5 dimensions + feedback"]
     J --> G["Python: apply gate → weight → rate"]
     G --> O["brd_judge.md / .json<br/>PASS / REVISE"]
-    classDef d fill:#e8f1ff,stroke:#3b7dd8;classDef l fill:#fff3e0,stroke:#e08a17;
-    class V,G d;class J l;
+    classDef d fill:#e8f1ff,stroke:#3b7dd8;
+    classDef l fill:#fff3e0,stroke:#e08a17;
+    class V,G d;
+    class J l;
 ```
 
 ---
