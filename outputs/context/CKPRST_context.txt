@@ -1,0 +1,28 @@
+# System Context: CKPRST
+## 📝 Summary
+CKPRST is a batch-type COBOL program, entered at PROC-INIT, with 4 paragraph(s) across 0 section(s), reading/writing 1 data file(s), sharing 3 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CKPRST
+- **Source Path**: programs/batch/CKPRST.cbl
+- **Main Entry Point**: PROC-INIT
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- CHECKPOINT-FILE
+### 📚 Shared Logic (Copybooks)
+- CKPRST
+- CKPRST
+- RETHND
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-FILE-STATUS PIC X(2)
+## Procedure Summary
+- **Entry Point(s)**: PROC-INIT
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 4 / 0
+- **Terminal Statements**: GOBACK (line 40)
+- **Paragraph List**:
+- PROC-INIT
+- PROC-TAKE-CHECKPOINT
+- PROC-COMMIT-CHECKPOINT
+- PROC-RESTART

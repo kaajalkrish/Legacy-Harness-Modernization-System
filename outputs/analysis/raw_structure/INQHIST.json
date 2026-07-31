@@ -1,0 +1,908 @@
+{
+  "meta": {
+    "program_id": "INQHIST",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\online\\INQHIST.cbl",
+    "total_lines": 193
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": null,
+    "end_line": null,
+    "program_id": "INQHIST"
+  },
+  "environment_division": {
+    "start_line": 10,
+    "end_line": 11,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 12,
+    "end_line": 68,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-COMMAREA",
+          "line": 14,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "INQCOM",
+              "library": null,
+              "line": 15,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-DB2-AREA",
+          "line": 17,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "WS-HISTORY-TABLE",
+          "line": 20,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-HISTORY-ENTRY",
+              "line": 21,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 10,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-TRANS-DATE",
+                  "line": 22,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TRANS-TYPE",
+                  "line": 23,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TRANS-UNITS",
+                  "line": 24,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TRANS-PRICE",
+                  "line": 25,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TRANS-AMOUNT",
+                  "line": 26,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-FLAGS",
+          "line": 28,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-RESPONSE-CODE",
+              "line": 29,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MORE-HISTORY",
+              "line": 30,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "MORE-ROWS",
+                  "line": 31,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NO-MORE-ROWS",
+                  "line": 32,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ROW-COUNT",
+              "line": 33,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-DB2-REQUEST",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "DB2-REQUEST-TYPE",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "DB2-RESPONSE-CODE",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "DB2-CONNECTION-TOKEN",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "DB2-ERROR-INFO",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "DB2-SQLCODE",
+                  "line": 40,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "DB2-ERROR-MSG",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-CURSOR-REQUEST",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CURS-REQUEST-TYPE",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-NAME",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(18)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'HISTORY_CURSOR'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-STMT",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "X(240)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-ARRAY-FETCH",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-RESPONSE-CODE",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-DATA-AREA",
+              "line": 49,
+              "section": "WORKING-STORAGE",
+              "pic": "X(3000)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CURS-DATA-LENGTH",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-RECOVERY-REQUEST",
+          "line": 52,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "RECV-REQUEST-TYPE",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "RECV-RESPONSE-CODE",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "RECV-SQLCODE",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "RECV-ERROR-INFO",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "RECV-PROGRAM",
+                  "line": 57,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "RECV-CURSOR",
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(18)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "RECV-MESSAGE",
+                  "line": 59,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "RECV-STATUS",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "RECV-SUCCESS",
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'S'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RECV-FAILED",
+                  "line": 62,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'F'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RECV-RETRY",
+                  "line": 63,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 13
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 66,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "INQCOM",
+              "library": null,
+              "line": 67,
+              "section": "LINKAGE",
+              "parent_level": "01"
+            }
+          ]
+        }
+      ],
+      "start_line": 65
+    }
+  },
+  "procedure_division": {
+    "start_line": 69,
+    "end_line": 193,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "P100-INIT-PROGRAM",
+        "section": null,
+        "start_line": 81,
+        "end_line": 91,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "P100-EXIT",
+        "section": null,
+        "start_line": 92,
+        "end_line": 94,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P150-DB2-CONNECT",
+        "section": null,
+        "start_line": 95,
+        "end_line": 125,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P150-EXIT",
+        "section": null,
+        "start_line": 126,
+        "end_line": 128,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P200-GET-HISTORY",
+        "section": null,
+        "start_line": 129,
+        "end_line": 160,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P200-EXIT",
+        "section": null,
+        "start_line": 161,
+        "end_line": 163,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P250-FETCH-HISTORY",
+        "section": null,
+        "start_line": 164,
+        "end_line": 173,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P250-EXIT",
+        "section": null,
+        "start_line": 174,
+        "end_line": 176,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P300-FORMAT-DISPLAY",
+        "section": null,
+        "start_line": 177,
+        "end_line": 184,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P300-EXIT",
+        "section": null,
+        "start_line": 185,
+        "end_line": 187,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P999-ERROR-ROUTINE",
+        "section": null,
+        "start_line": 188,
+        "end_line": 191,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "P999-EXIT",
+        "section": null,
+        "start_line": 192,
+        "end_line": 193,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "INQCOM",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 15
+    },
+    {
+      "copybook": "INQCOM",
+      "division": "DATA",
+      "section": "LINKAGE",
+      "line": 67
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "P100-INIT-PROGRAM"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "P100-INIT-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 81,
+        "end_line": 91,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "P100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 92,
+        "end_line": 94,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P150-DB2-CONNECT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 95,
+        "end_line": 125,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "P150-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 126,
+        "end_line": 128,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P200-GET-HISTORY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 129,
+        "end_line": 160,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "P200-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 161,
+        "end_line": 163,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P250-FETCH-HISTORY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 164,
+        "end_line": 173,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P250-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 174,
+        "end_line": 176,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P300-FORMAT-DISPLAY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 177,
+        "end_line": 184,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P300-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 185,
+        "end_line": 187,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P999-ERROR-ROUTINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 188,
+        "end_line": 191,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "P999-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 192,
+        "end_line": 193,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "P100-INIT-PROGRAM",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 90,
+        "unstructured": true,
+        "to": "P150-DB2-CONNECT",
+        "implicit_thru_range": [
+          "P150-DB2-CONNECT",
+          "P150-EXIT"
+        ]
+      },
+      {
+        "from": "P150-DB2-CONNECT",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 103,
+        "unstructured": true,
+        "to": "P150-DB2-CONNECT",
+        "implicit_thru_range": [
+          "P150-DB2-CONNECT",
+          "P150-EXIT"
+        ]
+      },
+      {
+        "from": "P200-GET-HISTORY",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 143,
+        "unstructured": true,
+        "to": "P250-FETCH-HISTORY",
+        "implicit_thru_range": [
+          "P250-FETCH-HISTORY",
+          "P250-EXIT"
+        ]
+      }
+    ],
+    "dead_code_candidates": [
+      "P100-EXIT",
+      "P200-GET-HISTORY",
+      "P200-EXIT",
+      "P300-FORMAT-DISPLAY",
+      "P300-EXIT",
+      "P999-ERROR-ROUTINE",
+      "P999-EXIT"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "P100-INIT-PROGRAM",
+        "target": "P150-DB2-CONNECT",
+        "line": 90,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "P150-DB2-CONNECT",
+        "target": "P150-DB2-CONNECT",
+        "line": 103,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "P200-GET-HISTORY",
+        "target": "P250-FETCH-HISTORY",
+        "line": 143,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

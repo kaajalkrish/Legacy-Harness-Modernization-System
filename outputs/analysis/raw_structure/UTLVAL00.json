@@ -1,0 +1,794 @@
+{
+  "meta": {
+    "program_id": "UTLVAL00",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\utility\\UTLVAL00.cbl",
+    "total_lines": 190
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 1,
+    "end_line": 13,
+    "program_id": "UTLVAL00",
+    "author": "CLAUDE",
+    "date_written": "2024-04-09"
+  },
+  "environment_division": {
+    "start_line": 14,
+    "end_line": 41,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 42,
+    "end_line": 94,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "VALIDATION-CONTROL",
+          "line": 47,
+          "end_line": 53,
+          "recording_mode": "F",
+          "record_contains": null,
+          "block_contains": "0"
+        },
+        {
+          "type": "FD",
+          "file_name": "ERROR-REPORT",
+          "line": 54,
+          "end_line": 58,
+          "recording_mode": "F",
+          "record_contains": null,
+          "block_contains": "0"
+        }
+      ],
+      "start_line": 43
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "RTNCODE",
+          "library": null,
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "ERRHAND",
+          "library": null,
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "WS-FILE-STATUS",
+          "line": 63,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-VAL-STATUS",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": "XX",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-POS-STATUS",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "XX",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-STATUS",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": "XX",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RPT-STATUS",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": "XX",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-VALIDATION-TYPES",
+          "line": 69,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-INTEGRITY",
+              "line": 70,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'INTEGRITY'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF",
+              "line": 71,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'XREF'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-FORMAT",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'FORMAT'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-BALANCE",
+              "line": 73,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'BALANCE'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-PROCESSING-FLAGS",
+          "line": 75,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-END-OF-VAL",
+              "line": 76,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "END-OF-VALIDATION",
+                  "line": 77,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ERROR-FOUND",
+              "line": 78,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERROR-FOUND",
+                  "line": 79,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-VALIDATION-TOTALS",
+          "line": 81,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-RECORDS-READ",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": "9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RECORDS-VALID",
+              "line": 83,
+              "section": "WORKING-STORAGE",
+              "pic": "9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RECORDS-ERROR",
+              "line": 84,
+              "section": "WORKING-STORAGE",
+              "pic": "9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TOTAL-AMOUNT",
+              "line": 85,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(15)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CONTROL-TOTAL",
+              "line": 86,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(15)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-ERROR-LINE",
+          "line": 88,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-ERR-TYPE",
+              "line": 89,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 90,
+              "section": "WORKING-STORAGE",
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-KEY",
+              "line": 91,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 92,
+              "section": "WORKING-STORAGE",
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-DESC",
+              "line": 93,
+              "section": "WORKING-STORAGE",
+              "pic": "X(98)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 59
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 95,
+    "end_line": 190,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 96,
+        "end_line": 101,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE",
+        "section": null,
+        "start_line": 102,
+        "end_line": 105,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-OPEN-FILES",
+        "section": null,
+        "start_line": 106,
+        "end_line": 134,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-INIT-PROCESSING",
+        "section": null,
+        "start_line": 135,
+        "end_line": 137,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-PROCESS",
+        "section": null,
+        "start_line": 138,
+        "end_line": 147,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-PROCESS-VALIDATION",
+        "section": null,
+        "start_line": 148,
+        "end_line": 163,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-CHECK-INTEGRITY",
+        "section": null,
+        "start_line": 164,
+        "end_line": 167,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2300-CHECK-XREF",
+        "section": null,
+        "start_line": 168,
+        "end_line": 171,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2400-CHECK-FORMAT",
+        "section": null,
+        "start_line": 172,
+        "end_line": 175,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2500-CHECK-BALANCE",
+        "section": null,
+        "start_line": 176,
+        "end_line": 179,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-CLEANUP",
+        "section": null,
+        "start_line": 180,
+        "end_line": 185,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ERROR-HANDLER",
+        "section": null,
+        "start_line": 186,
+        "end_line": 190,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 100
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "RTNCODE",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 60
+    },
+    {
+      "copybook": "ERRHAND",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 61
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [
+      "0000-MAIN"
+    ],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 96,
+        "end_line": 101,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-INITIALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 102,
+        "end_line": 105,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-OPEN-FILES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 106,
+        "end_line": 134,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-INIT-PROCESSING",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 135,
+        "end_line": 137,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-PROCESS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 138,
+        "end_line": 147,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-PROCESS-VALIDATION",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 148,
+        "end_line": 163,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-CHECK-INTEGRITY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 164,
+        "end_line": 167,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2300-CHECK-XREF",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 168,
+        "end_line": 171,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2400-CHECK-FORMAT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 172,
+        "end_line": 175,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2500-CHECK-BALANCE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 176,
+        "end_line": 179,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-CLEANUP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 180,
+        "end_line": 185,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ERROR-HANDLER",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 186,
+        "end_line": 190,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 97,
+        "unstructured": false,
+        "to": "1000-INITIALIZE"
+      },
+      {
+        "from": "1000-INITIALIZE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 103,
+        "unstructured": false,
+        "to": "1100-OPEN-FILES"
+      },
+      {
+        "from": "1100-OPEN-FILES",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 107,
+        "unstructured": false,
+        "to": "9999-ERROR-HANDLER"
+      },
+      {
+        "from": "2000-PROCESS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 139,
+        "unstructured": false,
+        "to": "2000-PROCESS",
+        "inline": true,
+        "condition_text": "PERFORM UNTIL END-OF-VALIDATION READ VALIDATION-CONTROL AT END SET END-OF-VALIDATION TO TRUE NOT AT END PERFORM 2100-PROCESS-VALIDATION END-READ END-PERFORM.",
+        "loop_start_line": 139,
+        "loop_end_line": 146
+      },
+      {
+        "from": "2100-PROCESS-VALIDATION",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 149,
+        "unstructured": false,
+        "to": "2200-CHECK-INTEGRITY"
+      },
+      {
+        "from": "2200-CHECK-INTEGRITY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": false,
+        "source_line": 165,
+        "unstructured": false,
+        "to": "2210-CHECK-POSITION-INTEGRITY"
+      },
+      {
+        "from": "2300-CHECK-XREF",
+        "type": "PERFORM_SIMPLE",
+        "resolved": false,
+        "source_line": 169,
+        "unstructured": false,
+        "to": "2310-CHECK-POSITION-XREF"
+      },
+      {
+        "from": "2400-CHECK-FORMAT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": false,
+        "source_line": 173,
+        "unstructured": false,
+        "to": "2410-CHECK-POSITION-FORMAT"
+      },
+      {
+        "from": "2500-CHECK-BALANCE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": false,
+        "source_line": 177,
+        "unstructured": false,
+        "to": "2510-ACCUMULATE-POSITIONS"
+      }
+    ],
+    "dead_code_candidates": [
+      "1200-INIT-PROCESSING",
+      "2100-PROCESS-VALIDATION",
+      "2300-CHECK-XREF",
+      "2400-CHECK-FORMAT",
+      "2500-CHECK-BALANCE",
+      "3000-CLEANUP"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": [
+      {
+        "severity": "warning",
+        "type": "unresolved_target",
+        "message": "PERFORM target '2210-CHECK-POSITION-INTEGRITY' not found",
+        "paragraph": "2200-CHECK-INTEGRITY",
+        "line": 165
+      },
+      {
+        "severity": "warning",
+        "type": "unresolved_target",
+        "message": "PERFORM target '2310-CHECK-POSITION-XREF' not found",
+        "paragraph": "2300-CHECK-XREF",
+        "line": 169
+      },
+      {
+        "severity": "warning",
+        "type": "unresolved_target",
+        "message": "PERFORM target '2410-CHECK-POSITION-FORMAT' not found",
+        "paragraph": "2400-CHECK-FORMAT",
+        "line": 173
+      },
+      {
+        "severity": "warning",
+        "type": "unresolved_target",
+        "message": "PERFORM target '2510-ACCUMULATE-POSITIONS' not found",
+        "paragraph": "2500-CHECK-BALANCE",
+        "line": 177
+      }
+    ]
+  }
+}

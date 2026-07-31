@@ -1,0 +1,1779 @@
+{
+  "meta": {
+    "generated_at": "2026-07-28T06:09:25Z",
+    "total_gaps": 253
+  },
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-006",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-007",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-008",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-009",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-010",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-011",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQPUT1' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-012",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-013",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-014",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-015",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-016",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-017",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-018",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-019",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-020",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-021",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-022",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-023",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-024",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-025",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-026",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'DCLTRTYP' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-027",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'SQLCA' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-028",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'DCLTRTYP' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-029",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-030",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-031",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-032",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-033",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'DCLTRTYP' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-034",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'DCLTRCAT' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-035",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-036",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-037",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-038",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-039",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-040",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-041",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-042",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-043",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-044",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'REPLACING' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-045",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-046",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-047",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-048",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-049",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-050",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-051",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-052",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-053",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-054",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-055",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-056",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-057",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-058",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-059",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-060",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'REPLACING' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-061",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-062",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-063",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-064",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-065",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-066",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-067",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'COBDATFT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-068",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-069",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-070",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-071",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-072",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-073",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-074",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-075",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-076",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-077",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-078",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-079",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-080",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-081",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-082",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-083",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-084",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-085",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-086",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-087",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'MVSWAIT' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-088",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-089",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-090",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-091",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-092",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-093",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-094",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-095",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-096",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-097",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-098",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-099",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-100",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-101",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-102",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-103",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-104",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-105",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-106",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-107",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-108",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-109",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-110",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-111",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-112",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-113",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-114",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'CEEDAYS' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-115",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-004 \u201cValidate Account Id\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-116",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-005 \u201cValidate Account Id\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-117",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-006 \u201cValidate Account Id\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-118",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-009 \u201cValidate Account Record\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-119",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-010 \u201cValidate Account Records Exported\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-120",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-012 \u201cValidate Actidini\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-121",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-013 \u201cValidate Actidini\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-122",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-033 \u201cValidate Card Record\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-123",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-034 \u201cValidate Card Records Exported\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-124",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-049 \u201cValidate Cdemo Menu Opt\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-125",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-050 \u201cValidate Cdemo Menu Opt\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-126",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-053 \u201cValidate Change Flg\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-127",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-065 \u201cValidate Customer Records Exported\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-128",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-147 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-129",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-148 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-130",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-149 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-131",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-150 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-132",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-151 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-133",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-152 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-134",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-153 \u201cValidate Eibcalen\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-135",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-157 \u201cValidate End Of Db\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-136",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-158 \u201cValidate End Of Db\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-137",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-159 \u201cValidate End Of Db\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-138",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-160 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-139",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-161 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-140",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-162 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-141",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-163 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-142",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-164 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-143",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-165 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-144",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-166 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-145",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-167 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-146",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-168 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-147",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-169 \u201cValidate End Of File\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-148",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-171 \u201cValidate Error Flg\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-149",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-172 \u201cValidate Error Flg On\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-150",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-173 \u201cValidate Error Flg On\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-151",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-174 \u201cValidate Error Flg On\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-152",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-175 \u201cValidate Error Flg On\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-153",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-176 \u201cValidate Error Flg On\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-154",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-190 \u201cValidate First Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-155",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-191 \u201cValidate First Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-156",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-192 \u201cValidate First Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-157",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-193 \u201cValidate First Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-158",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-194 \u201cValidate First Time\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-159",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-198 \u201cValidate Fnamei\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-160",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-209 \u201cValidate Last Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-161",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-210 \u201cValidate Last Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-162",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-211 \u201cValidate Last Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-163",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-212 \u201cValidate Last Key\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-164",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-217 \u201cValidate Lk Date\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-165",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-229 \u201cValidate Optioni\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-166",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-230 \u201cValidate Optioni\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-167",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-237 \u201cValidate Pending Authorisation Details\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-168",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-238 \u201cValidate Pending Authorisation Summary\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-169",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-240 \u201cValidate Psaptr\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-170",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-241 \u201cValidate Psaptr\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-171",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-249 \u201cValidate Request Qname\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-172",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-259 \u201cValidate Sel Flg\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-173",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-260 \u201cValidate Sel Flg\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-174",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-261 \u201cValidate Sel Flg\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-175",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-264 \u201cValidate Total Records Read\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-176",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-265 \u201cValidate Tran Process Ts\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-177",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-266 \u201cValidate Tran Process Ts\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-178",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-267 \u201cValidate Tran Process Ts\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-179",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-298 \u201cValidate Transaction Records Exported\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-180",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-301 \u201cValidate Trnx Table\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-181",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-306 \u201cValidate Update Count\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-182",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-307 \u201cValidate Update Count\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-183",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-315 \u201cValidate Useridi\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-184",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-316 \u201cValidate Useridi\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-185",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-319 \u201cValidate Xref Account Id\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-186",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-323 \u201cValidate Xref Records Exported\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-187",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQGMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-188",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQPMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-189",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQMDV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-190",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQODV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-191",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-192",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQTML not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-193",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-194",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-195",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-196",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-197",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-198",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-199",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-200",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-201",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-202",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-203",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-204",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-205",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-206",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-207",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQGMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-208",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQPMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-209",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQMDV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-210",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQODV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-211",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-212",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQTML not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-213",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-214",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-215",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQODV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-216",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQMDV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-217",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQODV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-218",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQMDV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-219",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-220",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQTML not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-221",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQPMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-222",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY CMQGMOV not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-223",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-224",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-225",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-226",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-227",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-228",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-229",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-230",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-231",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-232",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-233",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-234",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-235",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-236",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-237",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-238",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-239",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-240",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-241",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-242",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-243",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-244",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-245",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-246",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-247",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHAID not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-248",
+      "severity": "medium",
+      "type": "unresolved_copy_stub",
+      "description": "COPY DFHBMSCA not found in copybook registry",
+      "source": "data"
+    },
+    {
+      "gap_id": "GAP-249",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBACT04C: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-250",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBIMPORT: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-251",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBSTM03A: 3 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-252",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "COACCT01: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-253",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CODATE01: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "generated_at": "2026-07-18T23:40:09Z"
+  },
+  "diagrams": [
+    {
+      "id": "COMP-OVERVIEW",
+      "file": "component_overview.mmd",
+      "type": "component",
+      "title": "System component overview"
+    },
+    {
+      "id": "ERD-MAIN",
+      "file": "erd.mmd",
+      "type": "erd",
+      "title": "Data model \u2014 key entities and relationships"
+    },
+    {
+      "id": "FLOW-INQPORT",
+      "file": "diagrams/flow_INQPORT.mmd",
+      "type": "flow",
+      "title": "INQPORT process/call flow",
+      "program_id": "INQPORT"
+    },
+    {
+      "id": "FLOW-INQHIST",
+      "file": "diagrams/flow_INQHIST.mmd",
+      "type": "flow",
+      "title": "INQHIST process/call flow",
+      "program_id": "INQHIST"
+    },
+    {
+      "id": "FLOW-INQONLN",
+      "file": "diagrams/flow_INQONLN.mmd",
+      "type": "flow",
+      "title": "INQONLN process/call flow",
+      "program_id": "INQONLN"
+    },
+    {
+      "id": "FLOW-PORTADD",
+      "file": "diagrams/flow_PORTADD.mmd",
+      "type": "flow",
+      "title": "PORTADD process/call flow",
+      "program_id": "PORTADD"
+    },
+    {
+      "id": "FLOW-PORTREAD",
+      "file": "diagrams/flow_PORTREAD.mmd",
+      "type": "flow",
+      "title": "PORTREAD process/call flow",
+      "program_id": "PORTREAD"
+    },
+    {
+      "id": "FLOW-PORTMSTR",
+      "file": "diagrams/flow_PORTMSTR.mmd",
+      "type": "flow",
+      "title": "PORTMSTR process/call flow",
+      "program_id": "PORTMSTR"
+    },
+    {
+      "id": "FLOW-PORTUPDT",
+      "file": "diagrams/flow_PORTUPDT.mmd",
+      "type": "flow",
+      "title": "PORTUPDT process/call flow",
+      "program_id": "PORTUPDT"
+    },
+    {
+      "id": "FLOW-BCHCTL00",
+      "file": "diagrams/flow_BCHCTL00.mmd",
+      "type": "flow",
+      "title": "BCHCTL00 process/call flow",
+      "program_id": "BCHCTL00"
+    },
+    {
+      "id": "FLOW-CKPRST",
+      "file": "diagrams/flow_CKPRST.mmd",
+      "type": "flow",
+      "title": "CKPRST process/call flow",
+      "program_id": "CKPRST"
+    },
+    {
+      "id": "FLOW-HISTLD00",
+      "file": "diagrams/flow_HISTLD00.mmd",
+      "type": "flow",
+      "title": "HISTLD00 process/call flow",
+      "program_id": "HISTLD00"
+    },
+    {
+      "id": "FLOW-POSUPDT",
+      "file": "diagrams/flow_POSUPDT.mmd",
+      "type": "flow",
+      "title": "POSUPDT process/call flow",
+      "program_id": "POSUPDT"
+    },
+    {
+      "id": "FLOW-PRCSEQ00",
+      "file": "diagrams/flow_PRCSEQ00.mmd",
+      "type": "flow",
+      "title": "PRCSEQ00 process/call flow",
+      "program_id": "PRCSEQ00"
+    },
+    {
+      "id": "FLOW-AUDPROC",
+      "file": "diagrams/flow_AUDPROC.mmd",
+      "type": "flow",
+      "title": "AUDPROC process/call flow",
+      "program_id": "AUDPROC"
+    },
+    {
+      "id": "FLOW-ERRPROC",
+      "file": "diagrams/flow_ERRPROC.mmd",
+      "type": "flow",
+      "title": "ERRPROC process/call flow",
+      "program_id": "ERRPROC"
+    },
+    {
+      "id": "FLOW-DB2CONN",
+      "file": "diagrams/flow_DB2CONN.mmd",
+      "type": "flow",
+      "title": "DB2CONN process/call flow",
+      "program_id": "DB2CONN"
+    },
+    {
+      "id": "FLOW-DB2CMT",
+      "file": "diagrams/flow_DB2CMT.mmd",
+      "type": "flow",
+      "title": "DB2CMT process/call flow",
+      "program_id": "DB2CMT"
+    },
+    {
+      "id": "FLOW-DB2ERR",
+      "file": "diagrams/flow_DB2ERR.mmd",
+      "type": "flow",
+      "title": "DB2ERR process/call flow",
+      "program_id": "DB2ERR"
+    },
+    {
+      "id": "FLOW-DB2STAT",
+      "file": "diagrams/flow_DB2STAT.mmd",
+      "type": "flow",
+      "title": "DB2STAT process/call flow",
+      "program_id": "DB2STAT"
+    },
+    {
+      "id": "FLOW-CURSMGR",
+      "file": "diagrams/flow_CURSMGR.mmd",
+      "type": "flow",
+      "title": "CURSMGR process/call flow",
+      "program_id": "CURSMGR"
+    },
+    {
+      "id": "FLOW-TSTVAL00",
+      "file": "diagrams/flow_TSTVAL00.mmd",
+      "type": "flow",
+      "title": "TSTVAL00 process/call flow",
+      "program_id": "TSTVAL00"
+    },
+    {
+      "id": "FLOW-UTLVAL00",
+      "file": "diagrams/flow_UTLVAL00.mmd",
+      "type": "flow",
+      "title": "UTLVAL00 process/call flow",
+      "program_id": "UTLVAL00"
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "program": "PORTUPDT",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-CONSTANTS",
+      "line": 54,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-PROGRAM-NAME",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PORTUPDT '",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-SUCCESS",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERROR",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+8",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-SWITCHES",
+      "line": 59,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-FILE-STATUS",
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-SUCCESS-STATUS",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-EOF-STATUS",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-REC-NOT-FND",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'23'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-UPDT-STATUS",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-UPDT-SUCCESS",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-UPDT-EOF",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-END-OF-FILE-SW",
+          "line": 69,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-FILE",
+              "line": 70,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NOT-END-OF-FILE",
+              "line": 71,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-WORK-AREAS",
+      "line": 76,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-UPDATE-COUNT",
+          "line": 77,
+          "section": "WORKING-STORAGE",
+          "pic": "9(7)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERROR-COUNT",
+          "line": 78,
+          "section": "WORKING-STORAGE",
+          "pic": "9(7)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RETURN-CODE",
+          "line": 79,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NUMERIC-WORK",
+          "line": 80,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(13)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "PORTFOLIO-FILE",
+      "line": 36,
+      "end_line": 38,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "UPDATE-FILE",
+      "line": 39,
+      "end_line": 49,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

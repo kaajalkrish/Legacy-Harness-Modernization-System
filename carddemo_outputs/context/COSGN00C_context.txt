@@ -1,0 +1,35 @@
+# System Context: COSGN00C
+## 📝 Summary
+COSGN00C is a online-type COBOL program, entered at MAIN-PARA, with 6 paragraph(s) across 0 section(s), sharing 8 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COSGN00C
+- **Source Path**: app/cbl/COSGN00C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COSGN00
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CSUSR01Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 9 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 6 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- SEND-SIGNON-SCREEN
+- SEND-PLAIN-TEXT
+- POPULATE-HEADER-INFO
+- READ-USER-SEC-FILE

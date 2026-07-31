@@ -1,0 +1,341 @@
+{
+  "copybook": "RTNCODE",
+  "used_by": [
+    "RPTAUD00",
+    "RPTPOS00",
+    "RPTSTA00",
+    "RTNCDE00",
+    "TSTGEN00",
+    "TSTVAL00",
+    "UTLMNT00",
+    "UTLMON00",
+    "UTLVAL00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "RETURN-CODE-AREA",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "RC-REQUEST-TYPE",
+          "line": 5,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "RC-INITIALIZE",
+              "line": 6,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'I'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-SET-CODE",
+              "line": 7,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-GET-CODE",
+              "line": 8,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'G'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-LOG-CODE",
+              "line": 9,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'L'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-ANALYZE",
+              "line": 10,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-PROGRAM-ID",
+          "line": 11,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-CODES-AREA",
+          "line": 12,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-CURRENT-CODE",
+              "line": 13,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-HIGHEST-CODE",
+              "line": 14,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-NEW-CODE",
+              "line": 15,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-STATUS",
+              "line": 16,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-SUCCESS",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'S'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-WARNING",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'W'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-ERROR",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'E'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-SEVERE",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'F'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-MESSAGE",
+          "line": 21,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-RESPONSE-CODE",
+          "line": 22,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-ANALYSIS-DATA",
+          "line": 23,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-START-TIME",
+              "line": 24,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-END-TIME",
+              "line": 25,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-TOTAL-CODES",
+              "line": 26,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-MAX-CODE",
+              "line": 27,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-MIN-CODE",
+              "line": 28,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-RETURN-DATA",
+          "line": 29,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-RETURN-VALUE",
+              "line": 30,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-HIGHEST-RETURN",
+              "line": 31,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-RETURN-STATUS",
+              "line": 32,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

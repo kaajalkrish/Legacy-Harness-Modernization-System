@@ -1,0 +1,1015 @@
+{
+  "program": "CKPRST",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-FILE-STATUS",
+      "line": 20,
+      "section": "WORKING-STORAGE",
+      "pic": "X(2)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "CK-HEADER",
+      "line": 7,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-PROGRAM-ID",
+          "line": 8,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RUN-DATE",
+          "line": 9,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RUN-TIME",
+          "line": 10,
+          "pic": "X(6)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-STATUS",
+          "line": 11,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-INITIAL",
+              "line": 12,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'I'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-ACTIVE",
+              "line": 13,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-COMPLETE",
+              "line": 14,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-FAILED",
+              "line": 15,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'F'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-RESTARTED",
+              "line": 16,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-COUNTERS",
+      "line": 18,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-RECORDS-READ",
+          "line": 19,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RECORDS-PROC",
+          "line": 20,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RECORDS-ERROR",
+          "line": 21,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RESTART-COUNT",
+          "line": 22,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-POSITION",
+      "line": 24,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-LAST-KEY",
+          "line": 25,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-LAST-TIME",
+          "line": 26,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-PHASE",
+          "line": 27,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-PHASE-INIT",
+              "line": 28,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-READ",
+              "line": 29,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-PROC",
+              "line": 30,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'20'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-UPDT",
+              "line": 31,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'30'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-TERM",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'40'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-RESOURCES",
+      "line": 34,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-FILE-STATUS",
+          "line": 35,
+          "pic": null,
+          "occurs": 5,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 15,
+              "name": "CK-FILE-NAME",
+              "line": 36,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 15,
+              "name": "CK-FILE-POS",
+              "line": 37,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 15,
+              "name": "CK-FILE-STATUS",
+              "line": 38,
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-CONTROL-INFO",
+      "line": 40,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-COMMIT-FREQ",
+          "line": 41,
+          "pic": "9(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "1000",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-MAX-ERRORS",
+          "line": 42,
+          "pic": "9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": "100",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-MAX-RESTARTS",
+          "line": 43,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "3",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RESTART-MODE",
+          "line": 44,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-MODE-NORMAL",
+              "line": 45,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-MODE-RESTART",
+              "line": 46,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-MODE-RECOVER",
+              "line": 47,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CHECKPOINT-RECORD",
+      "line": 52,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CKR-KEY",
+          "line": 53,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CKR-PROGRAM-ID",
+              "line": 54,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CKR-RUN-DATE",
+              "line": 55,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CKR-DATA",
+          "line": 56,
+          "pic": "X(400)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "RETURN-HANDLING",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "RETURN-STATUS",
+          "line": 7,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RETURN-CODE",
+              "line": 8,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "RC-SUCCESS",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+0",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-WARNING",
+                  "line": 10,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+4",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-ERROR",
+                  "line": 11,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+8",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-SEVERE",
+                  "line": 12,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+12",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-CRITICAL",
+                  "line": 13,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+16",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "REASON-CODE",
+              "line": 14,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "MODULE-ID",
+              "line": 15,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FUNCTION-ID",
+              "line": 16,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RETURN-DETAILS",
+          "line": 18,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ERROR-LOCATION",
+              "line": 19,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "PROGRAM-NAME",
+                  "line": 20,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PARAGRAPH-NAME",
+                  "line": 21,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "ERROR-ROUTINE",
+                  "line": 22,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "ERROR-INFO",
+              "line": 23,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "ERROR-TYPE",
+                  "line": 24,
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "ERR-VALIDATION",
+                      "line": 25,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'V'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "ERR-PROCESSING",
+                      "line": 26,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'P'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "ERR-DATABASE",
+                      "line": 27,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'D'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "ERR-FILE",
+                      "line": 28,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'F'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "ERR-SECURITY",
+                      "line": 29,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'S'",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "ERROR-CODE",
+                  "line": 30,
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "ERROR-TEXT",
+                  "line": 31,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "SYSTEM-INFO",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "SYSTEM-CODE",
+                  "line": 33,
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "SYSTEM-MSG",
+                  "line": 34,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RETURN-ACTIONS",
+          "line": 36,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ACTION-FLAG",
+              "line": 37,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ACTION-CONTINUE",
+                  "line": 38,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ACTION-ABORT",
+                  "line": 39,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ACTION-RETRY",
+                  "line": 40,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "RETRY-COUNT",
+              "line": 41,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "MAX-RETRIES",
+              "line": 42,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "STD-ERROR-CODES",
+      "line": 46,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-INVALID-DATA",
+          "line": 47,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E001'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-NOT-FOUND",
+          "line": 48,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E002'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-DUPLICATE",
+          "line": 49,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E003'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-FILE-ERROR",
+          "line": 50,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E004'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-DB-ERROR",
+          "line": 51,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E005'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SECURITY",
+          "line": 52,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E006'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-PROCESSING",
+          "line": 53,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E007'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VALIDATION",
+          "line": 54,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E008'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VERSION",
+          "line": 55,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E009'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-TIMEOUT",
+          "line": 56,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'E010'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "CHECKPOINT-FILE",
+      "line": 16,
+      "end_line": 18,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

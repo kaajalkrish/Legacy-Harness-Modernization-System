@@ -1,0 +1,9 @@
+{
+  "meta": {"program_id": "COPAUS2C", "source_file": "carddemo_input/app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl", "model": "ai-host", "agent_version": "4_logic_python@1.0"},
+  "summary": "CICS online 'Mark Authorization as Fraud' action program. For a selected pending authorization it sets the fraud indicator on the IMS authorization record (and/or writes a fraud marker), so the authorization is flagged as fraudulent for downstream handling. Small action program.",
+  "paragraphs": [
+    {"name": "MAIN-PARA", "pseudocode": "Read the selected pending-authorization record from IMS, set its fraud flag (mark it as fraud), rewrite/replace the segment, and return to the detail screen with a confirmation message.", "branches": ["IF authorization found -> mark fraud ELSE error"], "calls_made": ["MARK-FRAUD"], "field_references": ["PENDING-AUTH-DETAILS", "WS-FRAUD-FLAG", "WS-COMMAREA"], "complexity_score": 3, "ambiguous": false, "annotations": [{"line": 1, "note": "BUSINESS RULE: marks a pending authorization as fraudulent (sets the fraud indicator on the IMS authorization record)."}], "notes": "BUSINESS-CRITICAL: fraud marking."},
+    {"name": "MARK-FRAUD", "pseudocode": "Set the fraud indicator on the authorization detail segment and replace (REPL) it in the IMS database; on error report it.", "branches": ["IF IMS replace error -> error"], "calls_made": [], "field_references": ["PENDING-AUTH-DETAILS", "WS-FRAUD-FLAG"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "IMS fraud-flag update."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

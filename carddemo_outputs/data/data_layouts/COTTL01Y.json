@@ -1,0 +1,73 @@
+{
+  "copybook": "COTTL01Y",
+  "used_by": [
+    "COPAUS0C",
+    "COPAUS1C",
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COADM01C",
+    "COBIL00C",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC",
+    "COMEN01C",
+    "CORPT00C",
+    "COSGN00C",
+    "COTRN00C",
+    "COTRN01C",
+    "COTRN02C",
+    "COUSR00C",
+    "COUSR01C",
+    "COUSR02C",
+    "COUSR03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CCDA-SCREEN-TITLE",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CCDA-TITLE01",
+          "line": 18,
+          "pic": "X(40)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'      AWS Mainframe Modernization       '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CCDA-TITLE02",
+          "line": 20,
+          "pic": "X(40)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'              CardDemo                  '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CCDA-THANK-YOU",
+          "line": 23,
+          "pic": "X(40)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Thank you for using CCDA application... '",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

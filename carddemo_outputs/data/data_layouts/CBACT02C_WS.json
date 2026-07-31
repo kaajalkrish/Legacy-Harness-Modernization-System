@@ -1,0 +1,317 @@
+{
+  "program": "CBACT02C",
+  "records": [
+    {
+      "level": 1,
+      "name": "CARD-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CARD-NUM",
+          "line": 5,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACCT-ID",
+          "line": 6,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-CVV-CD",
+          "line": 7,
+          "pic": "9(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EMBOSSED-NAME",
+          "line": 8,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EXPIRAION-DATE",
+          "line": 9,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACTIVE-STATUS",
+          "line": 10,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 11,
+          "pic": "X(59)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CARDFILE-STATUS",
+      "line": 46,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CARDFILE-STAT1",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARDFILE-STAT2",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "IO-STATUS",
+      "line": 50,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "IO-STAT1",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "IO-STAT2",
+          "line": 52,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TWO-BYTES-BINARY",
+      "line": 53,
+      "section": "WORKING-STORAGE",
+      "pic": "9(4)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "TWO-BYTES-ALPHA",
+      "line": 54,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": "TWO-BYTES-BINARY",
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TWO-BYTES-LEFT",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TWO-BYTES-RIGHT",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "IO-STATUS-04",
+      "line": 57,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "IO-STATUS-0401",
+          "line": 58,
+          "section": "WORKING-STORAGE",
+          "pic": "9",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "IO-STATUS-0403",
+          "line": 59,
+          "section": "WORKING-STORAGE",
+          "pic": "999",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "APPL-RESULT",
+      "line": 61,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "APPL-AOK",
+          "line": 62,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "APPL-EOF",
+          "line": 63,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "16",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "END-OF-FILE",
+      "line": 65,
+      "section": "WORKING-STORAGE",
+      "pic": "X(01)",
+      "occurs": null,
+      "redefines": null,
+      "value": "'N'",
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "ABCODE",
+      "line": 66,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "TIMING",
+      "line": 67,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "type": "FD",
+      "file_name": "CARDFILE-FILE",
+      "line": 37,
+      "end_line": 41,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

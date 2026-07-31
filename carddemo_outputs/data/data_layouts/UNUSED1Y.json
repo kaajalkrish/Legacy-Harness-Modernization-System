@@ -1,0 +1,84 @@
+{
+  "copybook": "UNUSED1Y",
+  "used_by": [],
+  "records": [
+    {
+      "level": 1,
+      "name": "UNUSED-DATA",
+      "line": 1,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "UNUSED-ID",
+          "line": 2,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "UNUSED-FNAME",
+          "line": 3,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "UNUSED-LNAME",
+          "line": 4,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "UNUSED-PWD",
+          "line": 5,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "UNUSED-TYPE",
+          "line": 6,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "UNUSED-FILLER",
+          "line": 7,
+          "pic": "X(23)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

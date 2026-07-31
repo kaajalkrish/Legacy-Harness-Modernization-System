@@ -1,0 +1,33 @@
+# System Context: BCHCTL00
+## 📝 Summary
+BCHCTL00 is a batch-type COBOL program, entered at 0000-MAIN, with 6 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 1 data file(s), sharing 3 copybook(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: BCHCTL00
+- **Source Path**: programs/batch/BCHCTL00.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- BATCH-CONTROL-FILE
+### 📚 Shared Logic (Copybooks)
+- BCHCTL
+- BCHCON
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ERRPROC
+## Key Data Structures
+- COPY BCHCON (external structure, expanded via copybook)
+- COPY ERRHAND (external structure, expanded via copybook)
+- 01 WS-FILE-STATUS (group item, 1 sub-field(s))
+- 01 WS-WORK-AREAS (group item, 3 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 6 / 0
+- **Terminal Statements**: GOBACK (line 80)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-PROCESS-INITIALIZE
+- 2000-CHECK-PREREQUISITES
+- 3000-UPDATE-STATUS
+- 4000-PROCESS-TERMINATE
+- 9000-ERROR-ROUTINE

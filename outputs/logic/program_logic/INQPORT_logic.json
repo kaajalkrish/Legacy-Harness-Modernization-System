@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "program_id": "INQPORT",
+    "source_file": "input/src_sample/programs/online/INQPORT.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "INQPORT is an online CICS program that handles a Portfolio Position Inquiry. When invoked, it initialises working storage and copies the passed communication area (DFHCOMMAREA), then reads the customer's position record from the POSFILE VSAM file via CICS, keyed by the account number. If a position is found it formats and sends the position details to the user's screen using CICS map POSMAP (mapset INQSET); if none is found it returns a 'Position not found' message to the caller. A CICS HANDLE CONDITION traps errors and not-found conditions, routing to dedicated error and not-found paragraphs that place a descriptive message (and, for errors, the response code) back into the communication area before returning control. Error conditions handled: record not found (NOTFND) and general access errors (ERROR).",
+  "paragraphs": [
+    {
+      "name": "MAINLINE",
+      "line_range": [40, 55],
+      "pseudocode": "-- Program driver (runs first)\nCALL P100-INIT-PROGRAM        -- set up\nCALL P200-GET-POSITION        -- read the position record\nIF position exists THEN\n  CALL P300-FORMAT-DISPLAY    -- show it on screen\nELSE\n  CALL P900-NOT-FOUND        -- report 'not found'\nEND IF\nCICS RETURN TO caller",
+      "branches": ["IF POSITION-EXISTS  -> P300-FORMAT-DISPLAY else P900-NOT-FOUND"],
+      "calls_made": ["P100-INIT-PROGRAM", "P200-GET-POSITION", "P300-FORMAT-DISPLAY", "P900-NOT-FOUND"],
+      "field_references": ["WS-POSITION-FOUND (88 POSITION-EXISTS)"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 41, "note": "PERFORM ... THRU is used for every call — an unstructured COBOL idiom; each range is one logical sub-routine."}
+      ],
+      "notes": "The mainline (statements after PROCEDURE DIVISION, before the first named paragraph) is the true entry driver even though it is unnamed."
+    },
+    {
+      "name": "P100-INIT-PROGRAM",
+      "line_range": [57, 64],
+      "pseudocode": "CLEAR WS-POSITION-RECORD          -- MOVE LOW-VALUES: blank the record buffer\nSET WS-COMMAREA = DFHCOMMAREA     -- copy the caller's comm-area into working storage\nCICS HANDLE CONDITION:\n  on ERROR  -> jump to P999-ERROR-ROUTINE\n  on NOTFND -> jump to P900-NOT-FOUND",
+      "branches": ["CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE", "CICS HANDLE CONDITION: NOTFND -> P900-NOT-FOUND"],
+      "calls_made": ["P999-ERROR-ROUTINE", "P900-NOT-FOUND"],
+      "field_references": ["WS-POSITION-RECORD", "WS-COMMAREA", "DFHCOMMAREA"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 61, "note": "CICS HANDLE CONDITION registers implicit jumps that fire automatically on later CICS errors/not-found — control-flow that is not visible as a normal PERFORM."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "P100-EXIT",
+      "line_range": [65, 66],
+      "pseudocode": "EXIT paragraph  -- structured exit point for the P100 THRU range",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "P200-GET-POSITION",
+      "line_range": [68, 82],
+      "pseudocode": "SET position_account (in WS-POSITION-RECORD) = ws_commarea_account_no   -- the key to read by\nCICS READ file POSFILE\n  KEY: position_account\n  INTO: WS-POSITION-RECORD\n  RESPONSE CODE -> ws_response_code\nIF ws_response_code = NORMAL THEN\n  SET POSITION-EXISTS = true    -- record found\nELSE\n  SET NO-POSITION = true        -- record not found\nEND IF",
+      "branches": ["IF WS-RESPONSE-CODE = DFHRESP(NORMAL)  -> POSITION-EXISTS else NO-POSITION"],
+      "calls_made": [],
+      "field_references": ["WS-COMMAREA-ACCOUNT-NO", "POSITION-ACCOUNT", "WS-POSITION-RECORD", "WS-RESPONSE-CODE", "WS-POSITION-FOUND"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 72, "note": "CICS READ (not a plain COBOL READ) — this is online VSAM access through CICS; the RESP field carries the success/fail code instead of AT END."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "P200-EXIT",
+      "line_range": [83, 84],
+      "pseudocode": "EXIT paragraph  -- structured exit point for the P200 THRU range",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "P300-FORMAT-DISPLAY",
+      "line_range": [86, 92],
+      "pseudocode": "CICS SEND MAP POSMAP (mapset INQSET)\n  FROM: WS-POSITION-RECORD\n  ERASE the screen first\n  RESPONSE CODE -> ws_response_code\n-- sends the retrieved position data to the user's 3270 screen",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-POSITION-RECORD", "WS-RESPONSE-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 91, "note": "RESP(WS-RESPONSE-CODE) is captured here but never checked in this paragraph — a send failure would go unhandled locally (the outer HANDLE CONDITION may still catch it)."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "P300-EXIT",
+      "line_range": [93, 94],
+      "pseudocode": "EXIT paragraph  -- structured exit point for the P300 THRU range",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "P900-NOT-FOUND",
+      "line_range": [96, 99],
+      "pseudocode": "SET inqcom_error_msg (in WS-COMMAREA) = 'Position not found for account'\nSET DFHCOMMAREA = WS-COMMAREA    -- hand the error message back to the caller",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["INQCOM-ERROR-MSG", "WS-COMMAREA", "DFHCOMMAREA"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Reached either from the mainline ELSE branch or automatically via the NOTFND HANDLE CONDITION."
+    },
+    {
+      "name": "P900-EXIT",
+      "line_range": [100, 101],
+      "pseudocode": "EXIT paragraph  -- structured exit point for the P900 THRU range",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "P999-ERROR-ROUTINE",
+      "line_range": [103, 108],
+      "pseudocode": "SET inqcom_error_msg (in WS-COMMAREA) = 'Error accessing position data'\nSET inqcom_response_code (in WS-COMMAREA) = ws_response_code\nSET DFHCOMMAREA = WS-COMMAREA    -- hand the error details back to the caller",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["INQCOM-ERROR-MSG", "INQCOM-RESPONSE-CODE", "WS-RESPONSE-CODE", "WS-COMMAREA", "DFHCOMMAREA"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 103, "note": "Reached automatically via the ERROR HANDLE CONDITION registered in P100, not by a normal PERFORM."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "P999-EXIT",
+      "line_range": [109, 110],
+      "pseudocode": "EXIT paragraph  -- structured exit point for the P999 THRU range",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

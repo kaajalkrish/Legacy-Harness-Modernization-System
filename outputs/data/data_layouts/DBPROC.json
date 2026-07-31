@@ -1,0 +1,146 @@
+{
+  "copybook": "DBPROC",
+  "used_by": [
+    "HISTLD00",
+    "DB2CMT",
+    "DB2CONN",
+    "DB2ERR",
+    "DB2STAT"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "DB2-ERROR-HANDLING",
+      "line": 10,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "DB2-ERROR-MESSAGE",
+          "line": 11,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 12,
+              "pic": "X(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'SQLCODE: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-SQLCODE-TXT",
+              "line": 13,
+              "pic": "X(6)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 14,
+              "pic": "X(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' STATE: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-STATE",
+              "line": 15,
+              "pic": "X(5)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 16,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' ERROR: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-ERROR-TEXT",
+              "line": 17,
+              "pic": "X(70)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "DB2-SAVE-STATUS",
+          "line": 18,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-RETRY-COUNT",
+          "line": 19,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-MAX-RETRIES",
+          "line": 20,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "3",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-RETRY-WAIT",
+          "line": 21,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "100",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

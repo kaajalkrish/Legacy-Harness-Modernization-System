@@ -1,0 +1,924 @@
+{
+  "meta": {
+    "program_id": "CBSTM03B",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBSTM03B.CBL",
+    "total_lines": 230
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 1,
+    "end_line": 27,
+    "program_id": "CBSTM03B",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 28,
+    "end_line": 55,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 56,
+    "end_line": 113,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "TRNX-FILE",
+          "line": 58,
+          "end_line": 64,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "XREF-FILE",
+          "line": 65,
+          "end_line": 69,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "CUST-FILE",
+          "line": 70,
+          "end_line": 74,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "ACCT-FILE",
+          "line": 75,
+          "end_line": 79,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 57
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "TRNXFILE-STATUS",
+          "line": 83,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TRNXFILE-STAT1",
+              "line": 84,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TRNXFILE-STAT2",
+              "line": 85,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "XREFFILE-STATUS",
+          "line": 87,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "XREFFILE-STAT1",
+              "line": 88,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "XREFFILE-STAT2",
+              "line": 89,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "CUSTFILE-STATUS",
+          "line": 91,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT1",
+              "line": 92,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT2",
+              "line": 93,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "ACCTFILE-STATUS",
+          "line": 95,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT1",
+              "line": 96,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT2",
+              "line": 97,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 80
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "LK-M03B-AREA",
+          "line": 100,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-M03B-DD",
+              "line": 101,
+              "section": "LINKAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LK-M03B-OPER",
+              "line": 102,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "M03B-OPEN",
+                  "line": 103,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'O'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-CLOSE",
+                  "line": 104,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-READ",
+                  "line": 105,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-READ-K",
+                  "line": 106,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'K'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-WRITE",
+                  "line": 107,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'W'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-REWRITE",
+                  "line": 108,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Z'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "LK-M03B-RC",
+              "line": 109,
+              "section": "LINKAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LK-M03B-KEY",
+              "line": 110,
+              "section": "LINKAGE",
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LK-M03B-KEY-LN",
+              "line": 111,
+              "section": "LINKAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LK-M03B-FLDT",
+              "line": 112,
+              "section": "LINKAGE",
+              "pic": "X(1000)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 99
+    }
+  },
+  "procedure_division": {
+    "start_line": 114,
+    "end_line": 230,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-START",
+        "section": null,
+        "start_line": 116,
+        "end_line": 129,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "9999-GOBACK",
+        "section": null,
+        "start_line": 130,
+        "end_line": 132,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-TRNXFILE-PROC",
+        "section": null,
+        "start_line": 133,
+        "end_line": 150,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1900-EXIT",
+        "section": null,
+        "start_line": 151,
+        "end_line": 153,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1999-EXIT",
+        "section": null,
+        "start_line": 154,
+        "end_line": 156,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-XREFFILE-PROC",
+        "section": null,
+        "start_line": 157,
+        "end_line": 174,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2900-EXIT",
+        "section": null,
+        "start_line": 175,
+        "end_line": 177,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2999-EXIT",
+        "section": null,
+        "start_line": 178,
+        "end_line": 180,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-CUSTFILE-PROC",
+        "section": null,
+        "start_line": 181,
+        "end_line": 199,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3900-EXIT",
+        "section": null,
+        "start_line": 200,
+        "end_line": 202,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3999-EXIT",
+        "section": null,
+        "start_line": 203,
+        "end_line": 205,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-ACCTFILE-PROC",
+        "section": null,
+        "start_line": 206,
+        "end_line": 224,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4900-EXIT",
+        "section": null,
+        "start_line": 225,
+        "end_line": 227,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4999-EXIT",
+        "section": null,
+        "start_line": 228,
+        "end_line": 230,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 128
+      },
+      {
+        "type": "GOBACK",
+        "line": 130
+      },
+      {
+        "type": "GOBACK",
+        "line": 131
+      }
+    ]
+  },
+  "copy_stubs": [],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-START"
+    ],
+    "terminal_nodes": [
+      "0000-START",
+      "9999-GOBACK"
+    ],
+    "nodes": [
+      {
+        "id": "0000-START",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 116,
+        "end_line": 129,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "9999-GOBACK",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 130,
+        "end_line": 132,
+        "is_entry_point": false,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-TRNXFILE-PROC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 133,
+        "end_line": 150,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO",
+          "GOTO",
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1900-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 151,
+        "end_line": 153,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1999-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 154,
+        "end_line": 156,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-XREFFILE-PROC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 157,
+        "end_line": 174,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO",
+          "GOTO",
+          "GOTO"
+        ]
+      },
+      {
+        "id": "2900-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 175,
+        "end_line": 177,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2999-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 178,
+        "end_line": 180,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-CUSTFILE-PROC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 181,
+        "end_line": 199,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO",
+          "GOTO",
+          "GOTO"
+        ]
+      },
+      {
+        "id": "3900-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 200,
+        "end_line": 202,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3999-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 203,
+        "end_line": 205,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-ACCTFILE-PROC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 206,
+        "end_line": 224,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO",
+          "GOTO",
+          "GOTO"
+        ]
+      },
+      {
+        "id": "4900-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 225,
+        "end_line": 227,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4999-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 228,
+        "end_line": 230,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-START",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 118,
+        "unstructured": true,
+        "to": "9999-GOBACK"
+      },
+      {
+        "from": "1000-TRNXFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 135,
+        "unstructured": true,
+        "to": "1900-EXIT"
+      },
+      {
+        "from": "1000-TRNXFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 140,
+        "unstructured": true,
+        "to": "1900-EXIT"
+      },
+      {
+        "from": "1000-TRNXFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 146,
+        "unstructured": true,
+        "to": "1900-EXIT"
+      },
+      {
+        "from": "2000-XREFFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 159,
+        "unstructured": true,
+        "to": "2900-EXIT"
+      },
+      {
+        "from": "2000-XREFFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 164,
+        "unstructured": true,
+        "to": "2900-EXIT"
+      },
+      {
+        "from": "2000-XREFFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 170,
+        "unstructured": true,
+        "to": "2900-EXIT"
+      },
+      {
+        "from": "3000-CUSTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 183,
+        "unstructured": true,
+        "to": "3900-EXIT"
+      },
+      {
+        "from": "3000-CUSTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 188,
+        "unstructured": true,
+        "to": "3900-EXIT"
+      },
+      {
+        "from": "3000-CUSTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 195,
+        "unstructured": true,
+        "to": "3900-EXIT"
+      },
+      {
+        "from": "4000-ACCTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 208,
+        "unstructured": true,
+        "to": "4900-EXIT"
+      },
+      {
+        "from": "4000-ACCTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 213,
+        "unstructured": true,
+        "to": "4900-EXIT"
+      },
+      {
+        "from": "4000-ACCTFILE-PROC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 220,
+        "unstructured": true,
+        "to": "4900-EXIT"
+      }
+    ],
+    "dead_code_candidates": [
+      "1000-TRNXFILE-PROC",
+      "1999-EXIT",
+      "2000-XREFFILE-PROC",
+      "2999-EXIT",
+      "3000-CUSTFILE-PROC",
+      "3999-EXIT",
+      "4000-ACCTFILE-PROC",
+      "4999-EXIT"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "GOTO",
+        "paragraph": "0000-START",
+        "target": "9999-GOBACK",
+        "line": 118,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1000-TRNXFILE-PROC",
+        "target": "1900-EXIT",
+        "line": 135,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1000-TRNXFILE-PROC",
+        "target": "1900-EXIT",
+        "line": 140,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1000-TRNXFILE-PROC",
+        "target": "1900-EXIT",
+        "line": 146,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "2000-XREFFILE-PROC",
+        "target": "2900-EXIT",
+        "line": 159,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "2000-XREFFILE-PROC",
+        "target": "2900-EXIT",
+        "line": 164,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "2000-XREFFILE-PROC",
+        "target": "2900-EXIT",
+        "line": 170,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "3000-CUSTFILE-PROC",
+        "target": "3900-EXIT",
+        "line": 183,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "3000-CUSTFILE-PROC",
+        "target": "3900-EXIT",
+        "line": 188,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "3000-CUSTFILE-PROC",
+        "target": "3900-EXIT",
+        "line": 195,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "4000-ACCTFILE-PROC",
+        "target": "4900-EXIT",
+        "line": 208,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "4000-ACCTFILE-PROC",
+        "target": "4900-EXIT",
+        "line": 213,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "4000-ACCTFILE-PROC",
+        "target": "4900-EXIT",
+        "line": 220,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

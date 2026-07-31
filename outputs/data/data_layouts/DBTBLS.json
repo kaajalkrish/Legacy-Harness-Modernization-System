@@ -1,0 +1,420 @@
+{
+  "copybook": "DBTBLS",
+  "used_by": [
+    "HISTLD00",
+    "DB2ERR"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "POSHIST-RECORD",
+      "line": 10,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PH-ACCOUNT-NO",
+          "line": 11,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PORTFOLIO-ID",
+          "line": 12,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-DATE",
+          "line": 13,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-TIME",
+          "line": 14,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-TYPE",
+          "line": 15,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-SECURITY-ID",
+          "line": 16,
+          "pic": "X(12)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-QUANTITY",
+          "line": 17,
+          "pic": "S9(12)V9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PRICE",
+          "line": 18,
+          "pic": "S9(12)V9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-AMOUNT",
+          "line": 19,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-FEES",
+          "line": 20,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TOTAL-AMOUNT",
+          "line": 21,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-COST-BASIS",
+          "line": 22,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-GAIN-LOSS",
+          "line": 23,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROCESS-DATE",
+          "line": 24,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROCESS-TIME",
+          "line": 25,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROGRAM-ID",
+          "line": 26,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-USER-ID",
+          "line": 27,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-AUDIT-TIMESTAMP",
+          "line": 28,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERRLOG-RECORD",
+      "line": 33,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "EL-ERROR-TIMESTAMP",
+          "line": 34,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROGRAM-ID",
+          "line": 35,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-TYPE",
+          "line": 36,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "EL-TYPE-SYSTEM",
+              "line": 37,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-TYPE-APP",
+              "line": 38,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-TYPE-DATA",
+              "line": 39,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-SEVERITY",
+          "line": 40,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "EL-SEV-INFO",
+              "line": 41,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-WARN",
+              "line": 42,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "2",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-ERROR",
+              "line": 43,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-SEVERE",
+              "line": 44,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "4",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-CODE",
+          "line": 45,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-MESSAGE",
+          "line": 46,
+          "pic": "X(200)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROCESS-DATE",
+          "line": 47,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROCESS-TIME",
+          "line": 48,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-USER-ID",
+          "line": 49,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ADDITIONAL-INFO",
+          "line": 50,
+          "pic": "X(500)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

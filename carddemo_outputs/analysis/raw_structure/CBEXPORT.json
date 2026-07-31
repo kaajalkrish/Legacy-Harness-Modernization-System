@@ -1,0 +1,1226 @@
+{
+  "meta": {
+    "program_id": "CBEXPORT",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBEXPORT.cbl",
+    "total_lines": 582
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 1,
+    "end_line": 31,
+    "program_id": "CBEXPORT",
+    "author": "CARDDEMO TEAM"
+  },
+  "environment_division": {
+    "start_line": 32,
+    "end_line": 70,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 71,
+    "end_line": 145,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "CUSTOMER-INPUT",
+          "line": 74,
+          "end_line": 76,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "ACCOUNT-INPUT",
+          "line": 77,
+          "end_line": 79,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "XREF-INPUT",
+          "line": 80,
+          "end_line": 82,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "TRANSACTION-INPUT",
+          "line": 83,
+          "end_line": 85,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "CARD-INPUT",
+          "line": 86,
+          "end_line": 88,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "EXPORT-OUTPUT",
+          "line": 89,
+          "end_line": 93,
+          "recording_mode": "F",
+          "record_contains": "500",
+          "block_contains": null
+        }
+      ],
+      "start_line": 72
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "CVEXPORT",
+          "library": null,
+          "line": 96,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "WS-FILE-STATUS-AREA",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CUSTOMER-STATUS",
+              "line": 100,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-CUSTOMER-EOF",
+                  "line": 101,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-CUSTOMER-OK",
+                  "line": 102,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCOUNT-STATUS",
+              "line": 103,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-ACCOUNT-EOF",
+                  "line": 104,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-ACCOUNT-OK",
+                  "line": 105,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF-STATUS",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-XREF-EOF",
+                  "line": 107,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-XREF-OK",
+                  "line": 108,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACTION-STATUS",
+              "line": 109,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-TRANSACTION-EOF",
+                  "line": 110,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-TRANSACTION-OK",
+                  "line": 111,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-CARD-STATUS",
+              "line": 112,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-CARD-EOF",
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-CARD-OK",
+                  "line": 114,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EXPORT-STATUS",
+              "line": 115,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-EXPORT-OK",
+                  "line": 116,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-EXPORT-CONTROL",
+          "line": 119,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-EXPORT-DATE",
+              "line": 120,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-EXPORT-TIME",
+              "line": 121,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-FORMATTED-TIMESTAMP",
+              "line": 122,
+              "section": "WORKING-STORAGE",
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SEQUENCE-COUNTER",
+              "line": 123,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-TIMESTAMP-FIELDS",
+          "line": 126,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CURRENT-DATE",
+              "line": 127,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CURR-YEAR",
+                  "line": 128,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CURR-MONTH",
+                  "line": 129,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CURR-DAY",
+                  "line": 130,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-CURRENT-TIME",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CURR-HOUR",
+                  "line": 132,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CURR-MINUTE",
+                  "line": 133,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CURR-SECOND",
+                  "line": 134,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CURR-HUNDREDTH",
+                  "line": 135,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-EXPORT-STATISTICS",
+          "line": 138,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CUSTOMER-RECORDS-EXPORTED",
+              "line": 139,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCOUNT-RECORDS-EXPORTED",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF-RECORDS-EXPORTED",
+              "line": 141,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-RECORDS-EXPORTED",
+              "line": 142,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CARD-RECORDS-EXPORTED",
+              "line": 143,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TOTAL-RECORDS-EXPORTED",
+              "line": 144,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 94
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 146,
+    "end_line": 582,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN-PROCESSING",
+        "section": null,
+        "start_line": 149,
+        "end_line": 160,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE",
+        "section": null,
+        "start_line": 161,
+        "end_line": 171,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1050-GENERATE-TIMESTAMP",
+        "section": null,
+        "start_line": 172,
+        "end_line": 197,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-OPEN-FILES",
+        "section": null,
+        "start_line": 198,
+        "end_line": 242,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-EXPORT-CUSTOMERS",
+        "section": null,
+        "start_line": 243,
+        "end_line": 257,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-READ-CUSTOMER-RECORD",
+        "section": null,
+        "start_line": 258,
+        "end_line": 268,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-CREATE-CUSTOMER-EXP-REC",
+        "section": null,
+        "start_line": 269,
+        "end_line": 311,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-EXPORT-ACCOUNTS",
+        "section": null,
+        "start_line": 312,
+        "end_line": 326,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3100-READ-ACCOUNT-RECORD",
+        "section": null,
+        "start_line": 327,
+        "end_line": 337,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3200-CREATE-ACCOUNT-EXP-REC",
+        "section": null,
+        "start_line": 338,
+        "end_line": 375,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-EXPORT-XREFS",
+        "section": null,
+        "start_line": 376,
+        "end_line": 390,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4100-READ-XREF-RECORD",
+        "section": null,
+        "start_line": 391,
+        "end_line": 401,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4200-CREATE-XREF-EXPORT-RECORD",
+        "section": null,
+        "start_line": 402,
+        "end_line": 430,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-EXPORT-TRANSACTIONS",
+        "section": null,
+        "start_line": 431,
+        "end_line": 445,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-READ-TRANSACTION-RECORD",
+        "section": null,
+        "start_line": 446,
+        "end_line": 456,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-CREATE-TRAN-EXP-REC",
+        "section": null,
+        "start_line": 457,
+        "end_line": 495,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5500-EXPORT-CARDS",
+        "section": null,
+        "start_line": 496,
+        "end_line": 510,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5600-READ-CARD-RECORD",
+        "section": null,
+        "start_line": 511,
+        "end_line": 521,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5700-CREATE-CARD-EXPORT-RECORD",
+        "section": null,
+        "start_line": 522,
+        "end_line": 553,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "6000-FINALIZE",
+        "section": null,
+        "start_line": 554,
+        "end_line": 575,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 576,
+        "end_line": 582,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 158
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVEXPORT",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 96
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN-PROCESSING"
+    ],
+    "terminal_nodes": [
+      "0000-MAIN-PROCESSING"
+    ],
+    "nodes": [
+      {
+        "id": "0000-MAIN-PROCESSING",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 149,
+        "end_line": 160,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-INITIALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 161,
+        "end_line": 171,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1050-GENERATE-TIMESTAMP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 172,
+        "end_line": 197,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-OPEN-FILES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 198,
+        "end_line": 242,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-EXPORT-CUSTOMERS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 243,
+        "end_line": 257,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-READ-CUSTOMER-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 258,
+        "end_line": 268,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-CREATE-CUSTOMER-EXP-REC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 269,
+        "end_line": 311,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-EXPORT-ACCOUNTS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 312,
+        "end_line": 326,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3100-READ-ACCOUNT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 327,
+        "end_line": 337,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3200-CREATE-ACCOUNT-EXP-REC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 338,
+        "end_line": 375,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-EXPORT-XREFS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 376,
+        "end_line": 390,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4100-READ-XREF-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 391,
+        "end_line": 401,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4200-CREATE-XREF-EXPORT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 402,
+        "end_line": 430,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5000-EXPORT-TRANSACTIONS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 431,
+        "end_line": 445,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5100-READ-TRANSACTION-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 446,
+        "end_line": 456,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-CREATE-TRAN-EXP-REC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 457,
+        "end_line": 495,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5500-EXPORT-CARDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 496,
+        "end_line": 510,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5600-READ-CARD-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 511,
+        "end_line": 521,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5700-CREATE-CARD-EXPORT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 522,
+        "end_line": 553,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "6000-FINALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 554,
+        "end_line": 575,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 576,
+        "end_line": 582,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN-PROCESSING",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 151,
+        "unstructured": false,
+        "to": "1000-INITIALIZE"
+      },
+      {
+        "from": "1000-INITIALIZE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 163,
+        "unstructured": false,
+        "to": "1050-GENERATE-TIMESTAMP"
+      },
+      {
+        "from": "1100-OPEN-FILES",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 200,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "2000-EXPORT-CUSTOMERS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 245,
+        "unstructured": false,
+        "to": "2000-EXPORT-CUSTOMERS",
+        "inline": true,
+        "condition_text": "DISPLAY 'CBEXPORT: Processing customer records' PERFORM 2100-READ-CUSTOMER-RECORD PERFORM UNTIL WS-CUSTOMER-EOF PERFORM 2200-CREATE-CUSTOMER-EXP-REC PERFORM 2100-READ-CUSTOMER-RECORD END-PERFORM DISPLAY 'CBEXPORT: Customers exported: ' WS-CUSTOMER-RECORDS-EXPORTED.",
+        "loop_start_line": 245,
+        "loop_end_line": 252
+      },
+      {
+        "from": "2100-READ-CUSTOMER-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 260,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "2200-CREATE-CUSTOMER-EXP-REC",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 271,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "3000-EXPORT-ACCOUNTS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 314,
+        "unstructured": false,
+        "to": "3000-EXPORT-ACCOUNTS",
+        "inline": true,
+        "condition_text": "DISPLAY 'CBEXPORT: Processing account records' PERFORM 3100-READ-ACCOUNT-RECORD PERFORM UNTIL WS-ACCOUNT-EOF PERFORM 3200-CREATE-ACCOUNT-EXP-REC PERFORM 3100-READ-ACCOUNT-RECORD END-PERFORM DISPLAY 'CBEXPORT: Accounts exported: ' WS-ACCOUNT-RECORDS-EXPORTED.",
+        "loop_start_line": 314,
+        "loop_end_line": 321
+      },
+      {
+        "from": "3100-READ-ACCOUNT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 329,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "3200-CREATE-ACCOUNT-EXP-REC",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 340,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "4000-EXPORT-XREFS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 378,
+        "unstructured": false,
+        "to": "4000-EXPORT-XREFS",
+        "inline": true,
+        "condition_text": "DISPLAY 'CBEXPORT: Processing cross-reference records' PERFORM 4100-READ-XREF-RECORD PERFORM UNTIL WS-XREF-EOF PERFORM 4200-CREATE-XREF-EXPORT-RECORD PERFORM 4100-READ-XREF-RECORD END-PERFORM DISPLAY 'CBEXPORT: Cross-references exported: ' WS-XREF-RECORDS-EXPORTED.",
+        "loop_start_line": 378,
+        "loop_end_line": 385
+      },
+      {
+        "from": "4100-READ-XREF-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 393,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "4200-CREATE-XREF-EXPORT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 404,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "5000-EXPORT-TRANSACTIONS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 433,
+        "unstructured": false,
+        "to": "5000-EXPORT-TRANSACTIONS",
+        "inline": true,
+        "condition_text": "DISPLAY 'CBEXPORT: Processing transaction records' PERFORM 5100-READ-TRANSACTION-RECORD PERFORM UNTIL WS-TRANSACTION-EOF PERFORM 5200-CREATE-TRAN-EXP-REC PERFORM 5100-READ-TRANSACTION-RECORD END-PERFORM DISPLAY 'CBEXPORT: Transactions exported: ' WS-TRAN-RECORDS-EXPORTED.",
+        "loop_start_line": 433,
+        "loop_end_line": 440
+      },
+      {
+        "from": "5100-READ-TRANSACTION-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 448,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "5200-CREATE-TRAN-EXP-REC",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 459,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "5500-EXPORT-CARDS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 498,
+        "unstructured": false,
+        "to": "5500-EXPORT-CARDS",
+        "inline": true,
+        "condition_text": "DISPLAY 'CBEXPORT: Processing card records' PERFORM 5600-READ-CARD-RECORD PERFORM UNTIL WS-CARD-EOF PERFORM 5700-CREATE-CARD-EXPORT-RECORD PERFORM 5600-READ-CARD-RECORD END-PERFORM DISPLAY 'CBEXPORT: Cards exported: ' WS-CARD-RECORDS-EXPORTED.",
+        "loop_start_line": 498,
+        "loop_end_line": 505
+      },
+      {
+        "from": "5600-READ-CARD-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 513,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "5700-CREATE-CARD-EXPORT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 524,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      }
+    ],
+    "dead_code_candidates": [
+      "1100-OPEN-FILES",
+      "2100-READ-CUSTOMER-RECORD",
+      "2200-CREATE-CUSTOMER-EXP-REC",
+      "3100-READ-ACCOUNT-RECORD",
+      "3200-CREATE-ACCOUNT-EXP-REC",
+      "4100-READ-XREF-RECORD",
+      "4200-CREATE-XREF-EXPORT-RECORD",
+      "5100-READ-TRANSACTION-RECORD",
+      "5200-CREATE-TRAN-EXP-REC",
+      "5600-READ-CARD-RECORD",
+      "5700-CREATE-CARD-EXPORT-RECORD",
+      "6000-FINALIZE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

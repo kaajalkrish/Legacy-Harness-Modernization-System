@@ -1,0 +1,76 @@
+{
+  "copybook": "CVTRA04Y",
+  "used_by": [
+    "CBTRN03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "TRAN-CAT-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRAN-CAT-KEY",
+          "line": 5,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRAN-TYPE-CD",
+              "line": 6,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRAN-CAT-CD",
+              "line": 7,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CAT-TYPE-DESC",
+          "line": 8,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 9,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

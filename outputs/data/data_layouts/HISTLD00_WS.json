@@ -1,0 +1,1600 @@
+{
+  "program": "HISTLD00",
+  "records": [
+    {
+      "level": 1,
+      "name": "POSHIST-RECORD",
+      "line": 10,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PH-ACCOUNT-NO",
+          "line": 11,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PORTFOLIO-ID",
+          "line": 12,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-DATE",
+          "line": 13,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-TIME",
+          "line": 14,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TRANS-TYPE",
+          "line": 15,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-SECURITY-ID",
+          "line": 16,
+          "pic": "X(12)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-QUANTITY",
+          "line": 17,
+          "pic": "S9(12)V9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PRICE",
+          "line": 18,
+          "pic": "S9(12)V9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-AMOUNT",
+          "line": 19,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-FEES",
+          "line": 20,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-TOTAL-AMOUNT",
+          "line": 21,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-COST-BASIS",
+          "line": 22,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-GAIN-LOSS",
+          "line": 23,
+          "pic": "S9(13)V9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROCESS-DATE",
+          "line": 24,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROCESS-TIME",
+          "line": 25,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-PROGRAM-ID",
+          "line": 26,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-USER-ID",
+          "line": 27,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PH-AUDIT-TIMESTAMP",
+          "line": 28,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERRLOG-RECORD",
+      "line": 33,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "EL-ERROR-TIMESTAMP",
+          "line": 34,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROGRAM-ID",
+          "line": 35,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-TYPE",
+          "line": 36,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "EL-TYPE-SYSTEM",
+              "line": 37,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-TYPE-APP",
+              "line": 38,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-TYPE-DATA",
+              "line": 39,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-SEVERITY",
+          "line": 40,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "EL-SEV-INFO",
+              "line": 41,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-WARN",
+              "line": 42,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "2",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-ERROR",
+              "line": 43,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "EL-SEV-SEVERE",
+              "line": 44,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "4",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-CODE",
+          "line": 45,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ERROR-MESSAGE",
+          "line": 46,
+          "pic": "X(200)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROCESS-DATE",
+          "line": 47,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-PROCESS-TIME",
+          "line": 48,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-USER-ID",
+          "line": 49,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EL-ADDITIONAL-INFO",
+          "line": 50,
+          "pic": "X(500)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "SQL-STATUS-CODES",
+      "line": 8,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "SQL-SUCCESS",
+          "line": 9,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'00000'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-NOT-FOUND",
+          "line": 10,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'02000'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DUP-KEY",
+          "line": 11,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'23505'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DEADLOCK",
+          "line": 12,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'40001'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-TIMEOUT",
+          "line": 13,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'40003'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-CONNECTION-ERROR",
+          "line": 14,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'08001'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DB-ERROR",
+          "line": 15,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'58004'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DB2-ERROR-HANDLING",
+      "line": 10,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "DB2-ERROR-MESSAGE",
+          "line": 11,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 12,
+              "pic": "X(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'SQLCODE: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-SQLCODE-TXT",
+              "line": 13,
+              "pic": "X(6)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 14,
+              "pic": "X(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' STATE: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-STATE",
+              "line": 15,
+              "pic": "X(5)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 16,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' ERROR: '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-ERROR-TEXT",
+              "line": 17,
+              "pic": "X(70)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "DB2-SAVE-STATUS",
+          "line": 18,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-RETRY-COUNT",
+          "line": 19,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-MAX-RETRIES",
+          "line": 20,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "3",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-RETRY-WAIT",
+          "line": 21,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "100",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-CATEGORIES",
+      "line": 11,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-CAT-VSAM",
+          "line": 12,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'VS'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-VALID",
+          "line": 13,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'VL'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-PROC",
+          "line": 14,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PR'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-SYSTEM",
+          "line": 15,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'SY'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-RETURN-CODES",
+      "line": 20,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-SUCCESS",
+          "line": 21,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-WARNING",
+          "line": 22,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+4",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-ERROR",
+          "line": 23,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+8",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SEVERE",
+          "line": 24,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+12",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-TERMINAL",
+          "line": 25,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+16",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-MESSAGE",
+      "line": 30,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-TIMESTAMP",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ERR-DATE",
+              "line": 32,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ERR-TIME",
+              "line": 33,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ERR-PROGRAM",
+          "line": 34,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CATEGORY",
+          "line": 35,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CODE",
+          "line": 36,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SEVERITY",
+          "line": 37,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-TEXT",
+          "line": 38,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-DETAILS",
+          "line": 39,
+          "pic": "X(256)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-VSAM-STATUSES",
+      "line": 44,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-VSAM-SUCCESS",
+          "line": 45,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'00'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-DUPKEY",
+          "line": 46,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'22'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-NOTFND",
+          "line": 47,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'23'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-EOF",
+          "line": 48,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'10'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-VSAM-MSGS",
+      "line": 50,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-VSAM-22",
+          "line": 51,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Duplicate record key'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-23",
+          "line": 53,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Record not found'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-OTHER",
+          "line": 55,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Unexpected VSAM error'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "BATCH-CONTROL-CONSTANTS",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "BCT-STAT-VALUES",
+          "line": 8,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-STAT-READY",
+              "line": 9,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-ACTIVE",
+              "line": 10,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-WAITING",
+              "line": 11,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'W'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-DONE",
+              "line": 12,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-ERROR",
+              "line": 13,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'E'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-RC-THRESHOLDS",
+          "line": 16,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-RC-SUCCESS",
+              "line": 17,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+0",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-WARNING",
+              "line": 18,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+4",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-ERROR",
+              "line": 19,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+8",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-SEVERE",
+              "line": 20,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+12",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-CRITICAL",
+              "line": 21,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+16",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-CTRL-VALUES",
+          "line": 24,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-MAX-PREREQ",
+              "line": 25,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "10",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MAX-RESTARTS",
+              "line": 26,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-WAIT-INTERVAL",
+              "line": 27,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "300",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MAX-WAIT-TIME",
+              "line": 28,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3600",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-PROC-TYPES",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-TYPE-INITIAL",
+              "line": 32,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'INI'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-UPDATE",
+              "line": 33,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'UPD'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-REPORT",
+              "line": 34,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'RPT'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-CLEANUP",
+              "line": 35,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CLN'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-DEP-TYPES",
+          "line": 38,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-DEP-REQUIRED",
+              "line": 39,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-DEP-OPTIONAL",
+              "line": 40,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'O'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-DEP-EXCLUSIVE",
+              "line": 41,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'X'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-PROC-NAMES",
+          "line": 44,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-START-OF-DAY",
+              "line": 45,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'STARTDAY'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-END-OF-DAY",
+              "line": 46,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ENDDAY  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-EMERGENCY",
+              "line": 47,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'EMERGENCY'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-REC-TYPES",
+          "line": 50,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-REC-CONTROL",
+              "line": 51,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-PROCESS",
+              "line": 52,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'P'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-DEPEND",
+              "line": 53,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-HISTORY",
+              "line": 54,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'H'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-MESSAGES",
+          "line": 57,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-MSG-STARTING",
+              "line": 58,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process starting...           '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-COMPLETE",
+              "line": 60,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process completed successfully'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-FAILED",
+              "line": 62,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process failed - check errors '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-WAITING",
+              "line": 64,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Waiting for prerequisites     '",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-FILE-STATUS",
+      "line": 49,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-TH-STATUS",
+          "line": 50,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-BCT-STATUS",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-COUNTERS",
+      "line": 53,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RECORDS-READ",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RECORDS-WRITTEN",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERROR-COUNT",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-COMMIT-COUNT",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-COMMIT-THRESHOLD",
+      "line": 59,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(4)",
+      "occurs": null,
+      "redefines": null,
+      "value": "1000",
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-SWITCHES",
+      "line": 61,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-END-OF-FILE-SW",
+          "line": 62,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-FILE",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "MORE-RECORDS",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "TRANSACTION-HISTORY",
+      "line": 33,
+      "end_line": 35,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "BATCH-CONTROL-FILE",
+      "line": 36,
+      "end_line": 38,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

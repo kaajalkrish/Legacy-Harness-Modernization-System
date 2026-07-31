@@ -1,0 +1,1434 @@
+{
+  "meta": {
+    "generated_at": "2026-07-27T23:48:25.285560",
+    "total_nodes": 75,
+    "total_edges": 145,
+    "node_types": {
+      "PROGRAM": 40,
+      "COPYBOOK": 19,
+      "FILE_CONTROL": 15,
+      "OTHER": 1
+    }
+  },
+  "nodes": [
+    {
+      "id": "BCHCTL00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/BCHCTL00.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CKPRST",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/CKPRST.cbl",
+      "entry_points": [
+        "PROC-INIT"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "HISTLD00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/HISTLD00.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "POSUPDT",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/POSUPDT.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "PRCSEQ00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/PRCSEQ00.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RCVPRC00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RCVPRC00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RPTAUD00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RPTAUD00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RPTPOS00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RPTPOS00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RPTSTA00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RPTSTA00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RTNANA00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RTNANA00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "RTNCDE00",
+      "type": "PROGRAM",
+      "source_path": "programs/batch/RTNCDE00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "AUDPROC",
+      "type": "PROGRAM",
+      "source_path": "programs/common/AUDPROC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "DB2CMT",
+      "type": "PROGRAM",
+      "source_path": "programs/common/DB2CMT.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "DB2CONN",
+      "type": "PROGRAM",
+      "source_path": "programs/common/DB2CONN.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "DB2ERR",
+      "type": "PROGRAM",
+      "source_path": "programs/common/DB2ERR.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "DB2STAT",
+      "type": "PROGRAM",
+      "source_path": "programs/common/DB2STAT.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "ERRPROC",
+      "type": "PROGRAM",
+      "source_path": "programs/common/ERRPROC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "common"
+      }
+    },
+    {
+      "id": "CURSMGR",
+      "type": "PROGRAM",
+      "source_path": "programs/online/CURSMGR.cbl",
+      "entry_points": [
+        "P100-DECLARE-CURSOR"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "DB2ONLN",
+      "type": "PROGRAM",
+      "source_path": "programs/online/DB2ONLN.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "DB2RECV",
+      "type": "PROGRAM",
+      "source_path": "programs/online/DB2RECV.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "ERRHNDL",
+      "type": "PROGRAM",
+      "source_path": "programs/online/ERRHNDL.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "INQHIST",
+      "type": "PROGRAM",
+      "source_path": "programs/online/INQHIST.cbl",
+      "entry_points": [
+        "P100-INIT-PROGRAM"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "INQONLN",
+      "type": "PROGRAM",
+      "source_path": "programs/online/INQONLN.cbl",
+      "entry_points": [
+        "P100-PROCESS-REQUEST"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "INQPORT",
+      "type": "PROGRAM",
+      "source_path": "programs/online/INQPORT.cbl",
+      "entry_points": [
+        "P100-INIT-PROGRAM"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "SECMGR",
+      "type": "PROGRAM",
+      "source_path": "programs/online/SECMGR.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "PORTADD",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTADD.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTDEL",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTDEL.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTMSTR",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTMSTR.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTREAD",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTREAD.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTTEST",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTTEST.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTTRAN",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTTRAN.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTUPDT",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTUPDT.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "PORTVALD",
+      "type": "PROGRAM",
+      "source_path": "programs/portfolio/PORTVALD.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "portfolio"
+      }
+    },
+    {
+      "id": "TSTGEN00",
+      "type": "PROGRAM",
+      "source_path": "programs/test/TSTGEN00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "test"
+      }
+    },
+    {
+      "id": "TSTVAL00",
+      "type": "PROGRAM",
+      "source_path": "programs/test/TSTVAL00.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "test"
+      }
+    },
+    {
+      "id": "UTLMNT00",
+      "type": "PROGRAM",
+      "source_path": "programs/utility/UTLMNT00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "utility"
+      }
+    },
+    {
+      "id": "UTLMON00",
+      "type": "PROGRAM",
+      "source_path": "programs/utility/UTLMON00.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "utility"
+      }
+    },
+    {
+      "id": "UTLVAL00",
+      "type": "PROGRAM",
+      "source_path": "programs/utility/UTLVAL00.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "utility"
+      }
+    },
+    {
+      "id": "BCHCTL",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "BCHCON",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "ERRHAND",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "RETHND",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "HISTREC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DBTBLS",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "SQLCA",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DBPROC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PRCSEQ",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "AUDITLOG",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "RTNCODE",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "POSREC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "TRNREC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DELAY",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "ERRHND",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DB2REQ",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "INQCOM",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "SQLPOS",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PORTFLIO",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PORTREC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PORTVAL",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "ILBOABN0",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "AUDIT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside AUDPROC"
+    },
+    {
+      "id": "BATCH-CONTROL-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside BCHCTL00"
+    },
+    {
+      "id": "CHECKPOINT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CKPRST"
+    },
+    {
+      "id": "ERROR-LOG",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside ERRPROC"
+    },
+    {
+      "id": "TRANSACTION-HISTORY",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside HISTLD00"
+    },
+    {
+      "id": "PORTFOLIO-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PORTADD"
+    },
+    {
+      "id": "INPUT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PORTADD"
+    },
+    {
+      "id": "UPDATE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PORTUPDT"
+    },
+    {
+      "id": "PROCESS-SEQ-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PRCSEQ00"
+    },
+    {
+      "id": "TEST-CASES",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside TSTVAL00"
+    },
+    {
+      "id": "EXPECTED-RESULTS",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside TSTVAL00"
+    },
+    {
+      "id": "ACTUAL-RESULTS",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside TSTVAL00"
+    },
+    {
+      "id": "TEST-REPORT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside TSTVAL00"
+    },
+    {
+      "id": "VALIDATION-CONTROL",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside UTLVAL00"
+    },
+    {
+      "id": "ERROR-REPORT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside UTLVAL00"
+    }
+  ],
+  "edges": [
+    {
+      "source": "BCHCTL00",
+      "target": "BCHCTL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 27
+    },
+    {
+      "source": "BCHCTL00",
+      "target": "BCHCON",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 30
+    },
+    {
+      "source": "BCHCTL00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 31
+    },
+    {
+      "source": "BCHCTL00",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 114
+    },
+    {
+      "source": "CKPRST",
+      "target": "CKPRST",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 17
+    },
+    {
+      "source": "CKPRST",
+      "target": "CKPRST",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 23
+    },
+    {
+      "source": "CKPRST",
+      "target": "RETHND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 24
+    },
+    {
+      "source": "HISTLD00",
+      "target": "HISTREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 34
+    },
+    {
+      "source": "HISTLD00",
+      "target": "BCHCTL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "HISTLD00",
+      "target": "DBTBLS",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 41
+    },
+    {
+      "source": "HISTLD00",
+      "target": "SQLCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "HISTLD00",
+      "target": "DBPROC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "HISTLD00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 46
+    },
+    {
+      "source": "HISTLD00",
+      "target": "BCHCON",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 47
+    },
+    {
+      "source": "HISTLD00",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 228
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "PRCSEQ",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 34
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "BCHCTL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "BCHCON",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 40
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 41
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 122
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "BCHCTL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 34
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "PRCSEQ",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "BCHCON",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 40
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 41
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 113
+    },
+    {
+      "source": "RCVPRC00",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 290
+    },
+    {
+      "source": "RPTAUD00",
+      "target": "AUDITLOG",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 35
+    },
+    {
+      "source": "RPTAUD00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 36
+    },
+    {
+      "source": "RPTAUD00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "RPTPOS00",
+      "target": "POSREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 35
+    },
+    {
+      "source": "RPTPOS00",
+      "target": "TRNREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 36
+    },
+    {
+      "source": "RPTPOS00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "RPTPOS00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "RPTSTA00",
+      "target": "DB2STAT",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 35
+    },
+    {
+      "source": "RPTSTA00",
+      "target": "BCHCTL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 36
+    },
+    {
+      "source": "RPTSTA00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "RPTSTA00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "RTNANA00",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 32
+    },
+    {
+      "source": "RTNCDE00",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 26
+    },
+    {
+      "source": "RTNCDE00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 30
+    },
+    {
+      "source": "AUDPROC",
+      "target": "AUDITLOG",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 27
+    },
+    {
+      "source": "DB2CMT",
+      "target": "SQLCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 21
+    },
+    {
+      "source": "DB2CMT",
+      "target": "DBPROC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 22
+    },
+    {
+      "source": "DB2CMT",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 23
+    },
+    {
+      "source": "DB2CMT",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 165
+    },
+    {
+      "source": "DB2CMT",
+      "target": "DB2ERR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 169
+    },
+    {
+      "source": "DB2CONN",
+      "target": "SQLCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 22
+    },
+    {
+      "source": "DB2CONN",
+      "target": "DBPROC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 23
+    },
+    {
+      "source": "DB2CONN",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 24
+    },
+    {
+      "source": "DB2CONN",
+      "target": "DELAY",
+      "type": "CALLS_PROGRAM",
+      "line_number": 86
+    },
+    {
+      "source": "DB2CONN",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 153
+    },
+    {
+      "source": "DB2ERR",
+      "target": "DBTBLS",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 19
+    },
+    {
+      "source": "DB2ERR",
+      "target": "SQLCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 24
+    },
+    {
+      "source": "DB2ERR",
+      "target": "DBPROC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 25
+    },
+    {
+      "source": "DB2ERR",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 26
+    },
+    {
+      "source": "DB2ERR",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 199
+    },
+    {
+      "source": "DB2STAT",
+      "target": "SQLCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 32
+    },
+    {
+      "source": "DB2STAT",
+      "target": "DBPROC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 33
+    },
+    {
+      "source": "DB2STAT",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 34
+    },
+    {
+      "source": "DB2STAT",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 227
+    },
+    {
+      "source": "ERRPROC",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 31
+    },
+    {
+      "source": "CURSMGR",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 16
+    },
+    {
+      "source": "DB2ONLN",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 16
+    },
+    {
+      "source": "DB2ONLN",
+      "target": "ERRHND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 25
+    },
+    {
+      "source": "DB2RECV",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 16
+    },
+    {
+      "source": "DB2RECV",
+      "target": "ERRHND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 25
+    },
+    {
+      "source": "DB2RECV",
+      "target": "DB2REQ",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 28
+    },
+    {
+      "source": "DB2RECV",
+      "target": "DB2ONLN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 88
+    },
+    {
+      "source": "DB2RECV",
+      "target": "ERRHNDL",
+      "type": "CALLS_PROGRAM",
+      "line_number": 132
+    },
+    {
+      "source": "INQHIST",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 15
+    },
+    {
+      "source": "INQHIST",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 18
+    },
+    {
+      "source": "INQHIST",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "INQHIST",
+      "target": "DB2ONLN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 98
+    },
+    {
+      "source": "INQHIST",
+      "target": "DB2RECV",
+      "type": "CALLS_PROGRAM",
+      "line_number": 108
+    },
+    {
+      "source": "INQHIST",
+      "target": "CURSMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 138
+    },
+    {
+      "source": "INQHIST",
+      "target": "CURSMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 145
+    },
+    {
+      "source": "INQHIST",
+      "target": "CURSMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 157
+    },
+    {
+      "source": "INQHIST",
+      "target": "CURSMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 166
+    },
+    {
+      "source": "INQONLN",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 16
+    },
+    {
+      "source": "INQONLN",
+      "target": "ERRHND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 25
+    },
+    {
+      "source": "INQONLN",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "INQONLN",
+      "target": "INQPORT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 102
+    },
+    {
+      "source": "INQONLN",
+      "target": "INQHIST",
+      "type": "CALLS_PROGRAM",
+      "line_number": 111
+    },
+    {
+      "source": "INQONLN",
+      "target": "ERRHNDL",
+      "type": "CALLS_PROGRAM",
+      "line_number": 126
+    },
+    {
+      "source": "INQONLN",
+      "target": "SECMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 146
+    },
+    {
+      "source": "INQONLN",
+      "target": "SECMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 156
+    },
+    {
+      "source": "INQONLN",
+      "target": "SECMGR",
+      "type": "CALLS_PROGRAM",
+      "line_number": 164
+    },
+    {
+      "source": "INQPORT",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 15
+    },
+    {
+      "source": "INQPORT",
+      "target": "POSREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 18
+    },
+    {
+      "source": "INQPORT",
+      "target": "SQLPOS",
+      "type": "INCLUDES_DB2",
+      "line_number": 21
+    },
+    {
+      "source": "INQPORT",
+      "target": "INQCOM",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 38
+    },
+    {
+      "source": "SECMGR",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 16
+    },
+    {
+      "source": "SECMGR",
+      "target": "ERRHND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 27
+    },
+    {
+      "source": "PORTADD",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "PORTADD",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 40
+    },
+    {
+      "source": "PORTDEL",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 42
+    },
+    {
+      "source": "PORTMSTR",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 262
+    },
+    {
+      "source": "PORTMSTR",
+      "target": "AUDPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 287
+    },
+    {
+      "source": "PORTREAD",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 32
+    },
+    {
+      "source": "PORTTEST",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 25
+    },
+    {
+      "source": "PORTTEST",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 28
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "TRNREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 35
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "PORTREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 40
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 43
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "AUDITLOG",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "AUDPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 294
+    },
+    {
+      "source": "PORTTRAN",
+      "target": "ERRPROC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 316
+    },
+    {
+      "source": "PORTUPDT",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 37
+    },
+    {
+      "source": "PORTVALD",
+      "target": "PORTVAL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 18
+    },
+    {
+      "source": "TSTGEN00",
+      "target": "PORTFLIO",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 52
+    },
+    {
+      "source": "TSTGEN00",
+      "target": "TRNREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 58
+    },
+    {
+      "source": "TSTGEN00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 66
+    },
+    {
+      "source": "TSTGEN00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 68
+    },
+    {
+      "source": "UTLMNT00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 56
+    },
+    {
+      "source": "UTLMNT00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 57
+    },
+    {
+      "source": "UTLMON00",
+      "target": "DB2STAT",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 43
+    },
+    {
+      "source": "UTLMON00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 75
+    },
+    {
+      "source": "UTLMON00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 76
+    },
+    {
+      "source": "UTLMON00",
+      "target": "ILBOABN0",
+      "type": "CALLS_PROGRAM",
+      "line_number": 186
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "POSREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 44
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "TRNREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "RTNCODE",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 60
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "ERRHAND",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 61
+    },
+    {
+      "source": "AUDPROC",
+      "target": "AUDIT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "BCHCTL00",
+      "target": "BATCH-CONTROL-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CKPRST",
+      "target": "CHECKPOINT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "ERRPROC",
+      "target": "ERROR-LOG",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "HISTLD00",
+      "target": "TRANSACTION-HISTORY",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "HISTLD00",
+      "target": "BATCH-CONTROL-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTADD",
+      "target": "PORTFOLIO-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTADD",
+      "target": "INPUT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTMSTR",
+      "target": "PORTFOLIO-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTREAD",
+      "target": "PORTFOLIO-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTUPDT",
+      "target": "PORTFOLIO-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PORTUPDT",
+      "target": "UPDATE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "PROCESS-SEQ-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PRCSEQ00",
+      "target": "BATCH-CONTROL-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "TEST-CASES",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "EXPECTED-RESULTS",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "ACTUAL-RESULTS",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "TSTVAL00",
+      "target": "TEST-REPORT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "VALIDATION-CONTROL",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "UTLVAL00",
+      "target": "ERROR-REPORT",
+      "type": "USES_FILE"
+    }
+  ]
+}

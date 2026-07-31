@@ -1,0 +1,482 @@
+{
+  "copybook": "CKPRST",
+  "used_by": [
+    "CKPRST",
+    "CKPRST"
+  ],
+  "records": [
+    {
+      "level": 5,
+      "name": "CK-HEADER",
+      "line": 7,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-PROGRAM-ID",
+          "line": 8,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RUN-DATE",
+          "line": 9,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RUN-TIME",
+          "line": 10,
+          "pic": "X(6)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-STATUS",
+          "line": 11,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-INITIAL",
+              "line": 12,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'I'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-ACTIVE",
+              "line": 13,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-COMPLETE",
+              "line": 14,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-FAILED",
+              "line": 15,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'F'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-RESTARTED",
+              "line": 16,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-COUNTERS",
+      "line": 18,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-RECORDS-READ",
+          "line": 19,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RECORDS-PROC",
+          "line": 20,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RECORDS-ERROR",
+          "line": 21,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RESTART-COUNT",
+          "line": 22,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-POSITION",
+      "line": 24,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-LAST-KEY",
+          "line": 25,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-LAST-TIME",
+          "line": 26,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-PHASE",
+          "line": 27,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-PHASE-INIT",
+              "line": 28,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-READ",
+              "line": 29,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-PROC",
+              "line": 30,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'20'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-UPDT",
+              "line": 31,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'30'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-PHASE-TERM",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'40'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-RESOURCES",
+      "line": 34,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-FILE-STATUS",
+          "line": 35,
+          "pic": null,
+          "occurs": 5,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 15,
+              "name": "CK-FILE-NAME",
+              "line": 36,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 15,
+              "name": "CK-FILE-POS",
+              "line": 37,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 15,
+              "name": "CK-FILE-STATUS",
+              "line": 38,
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "CK-CONTROL-INFO",
+      "line": 40,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "CK-COMMIT-FREQ",
+          "line": 41,
+          "pic": "9(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "1000",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-MAX-ERRORS",
+          "line": 42,
+          "pic": "9(3)",
+          "occurs": null,
+          "redefines": null,
+          "value": "100",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-MAX-RESTARTS",
+          "line": 43,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "3",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "CK-RESTART-MODE",
+          "line": 44,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "CK-MODE-NORMAL",
+              "line": 45,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-MODE-RESTART",
+              "line": 46,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CK-MODE-RECOVER",
+              "line": 47,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CHECKPOINT-RECORD",
+      "line": 52,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CKR-KEY",
+          "line": 53,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CKR-PROGRAM-ID",
+              "line": 54,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CKR-RUN-DATE",
+              "line": 55,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CKR-DATA",
+          "line": 56,
+          "pic": "X(400)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

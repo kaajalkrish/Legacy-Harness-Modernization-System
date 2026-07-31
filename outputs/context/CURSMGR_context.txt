@@ -1,0 +1,27 @@
+# System Context: CURSMGR
+## 📝 Summary
+CURSMGR is a online-type COBOL program, entered at P100-DECLARE-CURSOR, with 3 paragraph(s) across 0 section(s). It defines 3 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CURSMGR
+- **Source Path**: programs/online/CURSMGR.cbl
+- **Main Entry Point**: P100-DECLARE-CURSOR
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-DB2-AREA (group item, 0 sub-field(s))
+- 01 WS-CURSOR-STATS (group item, 3 sub-field(s))
+- 01 WS-ARRAY-AREA (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: P100-DECLARE-CURSOR
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 3 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- P100-DECLARE-CURSOR
+- P100-EXIT
+- P200-OPEN-CURSOR

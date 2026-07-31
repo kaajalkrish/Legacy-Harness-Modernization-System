@@ -1,0 +1,88 @@
+{
+  "copybook": "CVTRA01Y",
+  "used_by": [
+    "CBACT04C",
+    "CBTRN02C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "TRAN-CAT-BAL-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRAN-CAT-KEY",
+          "line": 5,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRANCAT-ACCT-ID",
+              "line": 6,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRANCAT-TYPE-CD",
+              "line": 7,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRANCAT-CD",
+              "line": 8,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CAT-BAL",
+          "line": 9,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 10,
+          "pic": "X(22)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

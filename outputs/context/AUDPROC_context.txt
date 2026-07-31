@@ -1,0 +1,27 @@
+# System Context: AUDPROC
+## 📝 Summary
+AUDPROC is a common-type COBOL program, entered at 0000-MAIN, with 4 paragraph(s) across 0 section(s), reading/writing 1 data file(s), sharing 1 copybook(s). It defines 2 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: AUDPROC
+- **Source Path**: programs/common/AUDPROC.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- AUDIT-FILE
+### 📚 Shared Logic (Copybooks)
+- AUDITLOG
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-FILE-STATUS PIC X(2)
+- 01 WS-FORMATTED-TIME PIC X(26)
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 4 / 0
+- **Terminal Statements**: GOBACK (line 56), GOBACK (line 67)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 2000-PROCESS-AUDIT
+- 3000-TERMINATE

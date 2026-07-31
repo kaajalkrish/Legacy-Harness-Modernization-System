@@ -1,0 +1,232 @@
+{
+  "copybook": "PORTVAL",
+  "used_by": [
+    "PORTVALD"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "VAL-RETURN-CODES",
+      "line": 11,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "VAL-SUCCESS",
+          "line": 12,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-INVALID-ID",
+          "line": 13,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+1",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-INVALID-ACCT",
+          "line": 14,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+2",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-INVALID-TYPE",
+          "line": 15,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+3",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-INVALID-AMT",
+          "line": 16,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+4",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "VAL-ERROR-MESSAGES",
+      "line": 21,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "VAL-ERR-ID",
+          "line": 22,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Invalid Portfolio ID format'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ERR-ACCT",
+          "line": 24,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Invalid Account Number format'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ERR-TYPE",
+          "line": 26,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Invalid Investment Type'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ERR-AMT",
+          "line": 28,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Amount outside valid range'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "VAL-CONSTANTS",
+      "line": 34,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "VAL-MIN-AMOUNT",
+          "line": 35,
+          "pic": "S9(13)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "-9999999999999.99",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-MAX-AMOUNT",
+          "line": 36,
+          "pic": "S9(13)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "+9999999999999.99",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ID-PREFIX",
+          "line": 37,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PORT'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "VAL-WORK-AREAS",
+      "line": 42,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "VAL-NUMERIC-CHECK",
+          "line": 43,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-TEMP-NUM",
+          "line": 44,
+          "pic": "S9(13)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ERROR-CODE",
+          "line": 45,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "VAL-ERROR-MSG",
+          "line": 46,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

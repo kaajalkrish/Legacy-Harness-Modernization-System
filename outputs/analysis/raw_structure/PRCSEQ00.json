@@ -1,0 +1,980 @@
+{
+  "meta": {
+    "program_id": "PRCSEQ00",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\batch\\PRCSEQ00.cbl",
+    "total_lines": 345
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 7,
+    "end_line": 9,
+    "program_id": "PRCSEQ00"
+  },
+  "environment_division": {
+    "start_line": 10,
+    "end_line": 30,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 31,
+    "end_line": 73,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "PROCESS-SEQ-FILE",
+          "line": 33,
+          "end_line": 35,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "BATCH-CONTROL-FILE",
+          "line": 36,
+          "end_line": 38,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 32
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "BCHCON",
+          "library": null,
+          "line": 40,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "ERRHAND",
+          "library": null,
+          "line": 41,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "WS-FILE-STATUS",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PSR-STATUS",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-BCT-STATUS",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-WORK-AREAS",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CURRENT-TIME",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SEQUENCE-IX",
+              "line": 49,
+              "section": "WORKING-STORAGE",
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-PROCESS-COUNT",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACTIVE-COUNT",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERROR-COUNT",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-PROCESS-TABLE",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PROC-ENTRY",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 100,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-PROC-ID",
+                  "line": 57,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-PROC-SEQ",
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-PROC-STATUS",
+                  "line": 59,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-PROC-RC",
+                  "line": 60,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 39
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "LS-SEQUENCE-REQUEST",
+          "line": 63,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LS-FUNCTION",
+              "line": 64,
+              "section": "LINKAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FUNC-INIT",
+                  "line": 65,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INIT'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-NEXT",
+                  "line": 66,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'NEXT'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-STAT",
+                  "line": 67,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'STAT'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-TERM",
+                  "line": 68,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TERM'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "LS-PROCESS-DATE",
+              "line": 69,
+              "section": "LINKAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LS-SEQUENCE-TYPE",
+              "line": 70,
+              "section": "LINKAGE",
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LS-NEXT-PROCESS",
+              "line": 71,
+              "section": "LINKAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LS-RETURN-CODE",
+              "line": 72,
+              "section": "LINKAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 62
+    }
+  },
+  "procedure_division": {
+    "start_line": 74,
+    "end_line": 345,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 75,
+        "end_line": 93,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE-SEQUENCE",
+        "section": null,
+        "start_line": 94,
+        "end_line": 99,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-GET-NEXT-PROCESS",
+        "section": null,
+        "start_line": 100,
+        "end_line": 107,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-CHECK-STATUS",
+        "section": null,
+        "start_line": 108,
+        "end_line": 113,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-TERMINATE-SEQUENCE",
+        "section": null,
+        "start_line": 114,
+        "end_line": 118,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-ERROR-ROUTINE",
+        "section": null,
+        "start_line": 119,
+        "end_line": 140,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-OPEN-FILES",
+        "section": null,
+        "start_line": 141,
+        "end_line": 154,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-BUILD-SEQUENCE",
+        "section": null,
+        "start_line": 155,
+        "end_line": 179,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1210-ADD-TO-SEQUENCE",
+        "section": null,
+        "start_line": 180,
+        "end_line": 187,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1300-CREATE-CONTROL-RECORDS",
+        "section": null,
+        "start_line": 188,
+        "end_line": 205,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-FIND-NEXT-READY",
+        "section": null,
+        "start_line": 206,
+        "end_line": 220,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-CHECK-DEPENDENCIES",
+        "section": null,
+        "start_line": 221,
+        "end_line": 238,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2210-CHECK-DEP-STATUS",
+        "section": null,
+        "start_line": 239,
+        "end_line": 259,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2300-UPDATE-PROCESS-STATUS",
+        "section": null,
+        "start_line": 260,
+        "end_line": 280,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3100-READ-CONTROL-STATUS",
+        "section": null,
+        "start_line": 281,
+        "end_line": 291,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3200-UPDATE-SEQUENCE-TABLE",
+        "section": null,
+        "start_line": 292,
+        "end_line": 304,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3300-CHECK-COMPLETION",
+        "section": null,
+        "start_line": 305,
+        "end_line": 321,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4100-CHECK-FINAL-STATUS",
+        "section": null,
+        "start_line": 322,
+        "end_line": 335,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4200-CLOSE-FILES",
+        "section": null,
+        "start_line": 336,
+        "end_line": 345,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 91
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "BCHCON",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 40
+    },
+    {
+      "copybook": "ERRHAND",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 41
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [
+      "0000-MAIN"
+    ],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 75,
+        "end_line": 93,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-INITIALIZE-SEQUENCE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 94,
+        "end_line": 99,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-GET-NEXT-PROCESS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 100,
+        "end_line": 107,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-CHECK-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 108,
+        "end_line": 113,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-TERMINATE-SEQUENCE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 114,
+        "end_line": 118,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-ERROR-ROUTINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 119,
+        "end_line": 140,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-OPEN-FILES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 141,
+        "end_line": 154,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-BUILD-SEQUENCE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 155,
+        "end_line": 179,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1210-ADD-TO-SEQUENCE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 180,
+        "end_line": 187,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1300-CREATE-CONTROL-RECORDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 188,
+        "end_line": 205,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-FIND-NEXT-READY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 206,
+        "end_line": 220,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-CHECK-DEPENDENCIES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 221,
+        "end_line": 238,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2210-CHECK-DEP-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 239,
+        "end_line": 259,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2300-UPDATE-PROCESS-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 260,
+        "end_line": 280,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3100-READ-CONTROL-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 281,
+        "end_line": 291,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3200-UPDATE-SEQUENCE-TABLE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 292,
+        "end_line": 304,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3300-CHECK-COMPLETION",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 305,
+        "end_line": 321,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4100-CHECK-FINAL-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 322,
+        "end_line": 335,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4200-CLOSE-FILES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 336,
+        "end_line": 345,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 76,
+        "unstructured": false,
+        "to": "1000-INITIALIZE-SEQUENCE"
+      },
+      {
+        "from": "1000-INITIALIZE-SEQUENCE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 95,
+        "unstructured": false,
+        "to": "1100-OPEN-FILES"
+      },
+      {
+        "from": "2000-GET-NEXT-PROCESS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 101,
+        "unstructured": false,
+        "to": "2100-FIND-NEXT-READY"
+      },
+      {
+        "from": "3000-CHECK-STATUS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 109,
+        "unstructured": false,
+        "to": "3100-READ-CONTROL-STATUS"
+      },
+      {
+        "from": "4000-TERMINATE-SEQUENCE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 115,
+        "unstructured": false,
+        "to": "4100-CHECK-FINAL-STATUS"
+      },
+      {
+        "from": "1100-OPEN-FILES",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 142,
+        "unstructured": false,
+        "to": "9000-ERROR-ROUTINE"
+      },
+      {
+        "from": "1200-BUILD-SEQUENCE",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 156,
+        "unstructured": false,
+        "to": "1200-BUILD-SEQUENCE",
+        "inline": true,
+        "condition_text": "INITIALIZE WS-PROCESS-TABLE WS-PROCESS-COUNT SET WS-PROC-IX TO 1 MOVE LS-PROCESS-DATE TO PSR-KEY START PROCESS-SEQ-FILE KEY >= PSR-KEY INVALID KEY MOVE 'No sequence found for date' TO ERR-TEXT PERFORM 9000-ERROR-ROUTINE END-START PERFORM UNTIL WS-PSR-STATUS = '10' READ PROCESS-SEQ-FILE NEXT RECORD AT END MOVE '10' TO WS-PSR-STATUS NOT AT END IF PSR-TYPE = LS-SEQUENCE-TYPE PERFORM 1210-ADD-TO-SEQUENCE END-IF END-READ END-PERFORM .",
+        "loop_start_line": 156,
+        "loop_end_line": 177
+      },
+      {
+        "from": "1300-CREATE-CONTROL-RECORDS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 189,
+        "unstructured": false,
+        "to": "1300-CREATE-CONTROL-RECORDS",
+        "inline": true,
+        "condition_text": "PERFORM VARYING WS-SEQUENCE-IX FROM 1 BY 1 UNTIL WS-SEQUENCE-IX > WS-PROCESS-COUNT INITIALIZE BATCH-CONTROL-RECORD MOVE WS-PROC-ID(WS-SEQUENCE-IX) TO BCT-JOB-NAME MOVE LS-PROCESS-DATE TO BCT-PROCESS-DATE MOVE WS-PROC-SEQ(WS-SEQUENCE-IX) TO BCT-SEQUENCE-NO MOVE BCT-STAT-READY TO BCT-STATUS WRITE BATCH-CONTROL-RECORD INVALID KEY MOVE 'Error creating control record' TO ERR-TEXT PERFORM 9000-ERROR-ROUTINE END-WRITE END-PERFORM .",
+        "loop_start_line": 189,
+        "loop_end_line": 203
+      },
+      {
+        "from": "2100-FIND-NEXT-READY",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 207,
+        "unstructured": false,
+        "to": "2100-FIND-NEXT-READY",
+        "inline": true,
+        "condition_text": "PERFORM VARYING WS-SEQUENCE-IX FROM 1 BY 1 UNTIL WS-SEQUENCE-IX > WS-PROCESS-COUNT IF WS-PROC-STATUS(WS-SEQUENCE-IX) = BCT-STAT-READY MOVE WS-PROC-ID(WS-SEQUENCE-IX) TO LS-NEXT-PROCESS EXIT PERFORM END-IF END-PERFORM IF WS-SEQUENCE-IX > WS-PROCESS-COUNT MOVE SPACES TO LS-NEXT-PROCESS END-IF .",
+        "loop_start_line": 207,
+        "loop_end_line": 214
+      },
+      {
+        "from": "2200-CHECK-DEPENDENCIES",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 222,
+        "unstructured": false,
+        "to": "2200-CHECK-DEPENDENCIES",
+        "inline": true,
+        "condition_text": "MOVE LS-NEXT-PROCESS TO PSR-PROCESS-ID READ PROCESS-SEQ-FILE INVALID KEY MOVE 'Process definition not found' TO ERR-TEXT PERFORM 9000-ERROR-ROUTINE END-READ PERFORM VARYING WS-SUB FROM 1 BY 1 UNTIL WS-SUB > PSR-DEP-COUNT PERFORM 2210-CHECK-DEP-STATUS IF LS-RETURN-CODE NOT = ZERO EXIT PERFORM END-IF END-PERFORM .",
+        "loop_start_line": 222,
+        "loop_end_line": 236
+      },
+      {
+        "from": "2210-CHECK-DEP-STATUS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 240,
+        "unstructured": false,
+        "to": "9000-ERROR-ROUTINE"
+      },
+      {
+        "from": "2300-UPDATE-PROCESS-STATUS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 261,
+        "unstructured": false,
+        "to": "9000-ERROR-ROUTINE"
+      },
+      {
+        "from": "3100-READ-CONTROL-STATUS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 282,
+        "unstructured": false,
+        "to": "9000-ERROR-ROUTINE"
+      },
+      {
+        "from": "3200-UPDATE-SEQUENCE-TABLE",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 293,
+        "unstructured": false,
+        "to": "3200-UPDATE-SEQUENCE-TABLE",
+        "inline": true,
+        "condition_text": "PERFORM VARYING WS-SEQUENCE-IX FROM 1 BY 1 UNTIL WS-SEQUENCE-IX > WS-PROCESS-COUNT IF WS-PROC-ID(WS-SEQUENCE-IX) = BCT-JOB-NAME MOVE BCT-STATUS TO WS-PROC-STATUS(WS-SEQUENCE-IX) MOVE BCT-RETURN-CODE TO WS-PROC-RC(WS-SEQUENCE-IX) EXIT PERFORM END-IF END-PERFORM .",
+        "loop_start_line": 293,
+        "loop_end_line": 302
+      },
+      {
+        "from": "3300-CHECK-COMPLETION",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 306,
+        "unstructured": false,
+        "to": "3300-CHECK-COMPLETION",
+        "inline": true,
+        "condition_text": "MOVE ZERO TO WS-ACTIVE-COUNT WS-ERROR-COUNT PERFORM VARYING WS-SEQUENCE-IX FROM 1 BY 1 UNTIL WS-SEQUENCE-IX > WS-PROCESS-COUNT IF WS-PROC-STATUS(WS-SEQUENCE-IX) = BCT-STAT-ACTIVE ADD 1 TO WS-ACTIVE-COUNT END-IF IF WS-PROC-STATUS(WS-SEQUENCE-IX) = BCT-STAT-ERROR ADD 1 TO WS-ERROR-COUNT END-IF END-PERFORM .",
+        "loop_start_line": 306,
+        "loop_end_line": 319
+      },
+      {
+        "from": "4100-CHECK-FINAL-STATUS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 323,
+        "unstructured": false,
+        "to": "3300-CHECK-COMPLETION"
+      },
+      {
+        "from": "4200-CLOSE-FILES",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 337,
+        "unstructured": false,
+        "to": "9000-ERROR-ROUTINE"
+      }
+    ],
+    "dead_code_candidates": [
+      "2000-GET-NEXT-PROCESS",
+      "3000-CHECK-STATUS",
+      "4000-TERMINATE-SEQUENCE",
+      "1210-ADD-TO-SEQUENCE",
+      "2210-CHECK-DEP-STATUS",
+      "2300-UPDATE-PROCESS-STATUS",
+      "4200-CLOSE-FILES"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

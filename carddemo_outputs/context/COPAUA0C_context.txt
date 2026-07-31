@@ -1,0 +1,106 @@
+# System Context: COPAUA0C
+## 📝 Summary
+COPAUA0C is a online-type COBOL program, entered at MAIN-PARA, with 43 paragraph(s) across 0 section(s), calling 4 other program(s), sharing 16 copybook(s). It defines 24 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COPAUA0C
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CMQODV
+- CMQMDV
+- CMQODV
+- CMQMDV
+- CMQV
+- CMQTML
+- CMQPMOV
+- CMQGMOV
+- CCPAURQY
+- CCPAURLY
+- CCPAUERY
+- CIPAUSMY
+- CIPAUDTY
+- CVACT03Y
+- CVACT01Y
+- CVCUS01Y
+### 🔗 Execution Flow (Calls)
+- MQOPEN
+- MQGET
+- MQPUT1
+- MQCLOSE
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 34 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 4 sub-field(s))
+- 01 W01-HCONN-REQUEST PIC S9(9)
+- 01 W01-HOBJ-REQUEST PIC S9(9)
+- 01 W01-BUFFLEN PIC S9(9)
+- 01 W01-DATALEN PIC S9(9)
+- 01 W01-GET-BUFFER PIC X(500)
+- 01 W02-HCONN-REPLY PIC S9(9)
+- 01 W02-BUFFLEN PIC S9(9)
+- 01 W02-DATALEN PIC S9(9)
+- 01 W02-PUT-BUFFER PIC X(200)
+- 01 WS-SWITCHES (group item, 11 sub-field(s))
+- 01 MQM-OD-REQUEST (group item, 1 sub-field(s))
+- 01 MQM-MD-REQUEST (group item, 1 sub-field(s))
+- 01 MQM-OD-REPLY (group item, 1 sub-field(s))
+- 01 MQM-MD-REPLY (group item, 1 sub-field(s))
+- 01 MQM-CONSTANTS (group item, 1 sub-field(s))
+- 01 MQM-TRIGGER-DATA (group item, 1 sub-field(s))
+- 01 MQM-PUT-MESSAGE-OPTIONS (group item, 1 sub-field(s))
+- 01 MQM-GET-MESSAGE-OPTIONS (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-REQUEST (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-RESPONSE (group item, 2 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 4 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 43 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-INITIALIZE
+- 1000-EXIT
+- 1100-OPEN-REQUEST-QUEUE
+- 1100-EXIT
+- 1200-SCHEDULE-PSB
+- 1200-EXIT
+- 2000-MAIN-PROCESS
+- 2000-EXIT
+- 2100-EXTRACT-REQUEST-MSG
+- 2100-EXIT
+- 3100-READ-REQUEST-MQ
+- 3100-EXIT
+- 5000-PROCESS-AUTH
+- 5000-EXIT
+- 5100-READ-XREF-RECORD
+- 5100-EXIT
+- 5200-READ-ACCT-RECORD
+- 5200-EXIT
+- 5300-READ-CUST-RECORD
+- 5300-EXIT
+- 5500-READ-AUTH-SUMMRY
+- 5500-EXIT
+- 5600-READ-PROFILE-DATA
+- 5600-EXIT
+- 6000-MAKE-DECISION
+- 6000-EXIT
+- 7100-SEND-RESPONSE
+- 7100-EXIT
+- 8000-WRITE-AUTH-TO-DB
+- 8000-EXIT
+- 8400-UPDATE-SUMMARY
+- 8400-EXIT
+- 8500-INSERT-AUTH
+- 8500-EXIT
+- 9000-TERMINATE
+- 9000-EXIT
+- 9100-CLOSE-REQUEST-QUEUE
+- 9100-EXIT
+- 9500-LOG-ERROR
+- 9500-EXIT
+- 9990-END-ROUTINE
+- 9990-EXIT

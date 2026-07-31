@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "program_id": "PORTUPDT",
+    "source_file": "input/src_sample/programs/portfolio/PORTUPDT.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "PORTUPDT is a batch program that applies field-level updates to portfolio records from a sequential update file. For each update record it reads the matching portfolio record (by key) and, based on the update action code, changes exactly one field: status ('S'), client name ('N'), or total value ('V', converted to numeric). It then REWRITEs the record, counting successes and errors. Records that can't be found or rewritten are reported. At the end it closes both files, prints update/error totals, and sets the job return code. Error conditions handled: file-open failure, record-not-found, and rewrite failure.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [83, 91],
+      "pseudocode": "CALL 1000-INITIALIZE\nWHILE NOT end of file DO\n  CALL 2000-PROCESS\nEND WHILE\nCALL 3000-TERMINATE\nRETURN to caller (GOBACK)",
+      "branches": ["WHILE NOT END-OF-FILE (main update loop)"],
+      "calls_made": ["1000-INITIALIZE", "2000-PROCESS", "3000-TERMINATE"],
+      "field_references": ["WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1000-INITIALIZE",
+      "line_range": [93, 107],
+      "pseudocode": "CLEAR WS-WORK-AREAS\nOPEN PORTFOLIO-FILE for READ-WRITE (I-O)\nOPEN UPDATE-FILE for READ-ONLY\nIF portfolio open NOT success OR update open NOT success THEN\n  DISPLAY 'Error opening files' + statuses\n  SET WS-RETURN-CODE = error (8)\n  CALL 3000-TERMINATE\nEND IF",
+      "branches": ["IF either open failed -> terminate"],
+      "calls_made": ["3000-TERMINATE"],
+      "field_references": ["WS-WORK-AREAS", "WS-FILE-STATUS", "WS-UPDT-STATUS", "WS-RETURN-CODE"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 105, "note": "SME REVIEW: same non-stopping open-error pattern as PORTADD/PORTREAD — terminates (closes files) but control returns and the mainline then reads closed files."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "2000-PROCESS",
+      "line_range": [109, 116],
+      "pseudocode": "READ next record from UPDATE-FILE\nIF end of file THEN SET END-OF-FILE = true\nELSE CALL 2100-PROCESS-UPDATE\nEND IF",
+      "branches": ["READ ... AT END / NOT AT END"],
+      "calls_made": ["2100-PROCESS-UPDATE"],
+      "field_references": ["UPDATE-RECORD", "WS-UPDT-STATUS", "WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2100-PROCESS-UPDATE",
+      "line_range": [118, 129],
+      "pseudocode": "SET PORT-KEY = UPDT-KEY          -- the record to update\nREAD PORTFOLIO-FILE (by key)\nIF read success THEN\n  CALL 2200-APPLY-UPDATE\nELSE\n  INCREMENT WS-ERROR-COUNT\n  DISPLAY 'Record not found: ' + PORT-KEY\nEND IF",
+      "branches": ["IF portfolio read success -> apply update else count not-found"],
+      "calls_made": ["2200-APPLY-UPDATE"],
+      "field_references": ["UPDT-KEY", "PORT-KEY", "WS-FILE-STATUS", "WS-ERROR-COUNT"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2200-APPLY-UPDATE",
+      "line_range": [131, 150],
+      "pseudocode": "SELECT CASE update action (UPDT-ACTION)\n  WHEN 'S' (status): SET PORT-STATUS = UPDT-NEW-VALUE\n  WHEN 'N' (name):   SET PORT-CLIENT-NAME = UPDT-NEW-VALUE\n  WHEN 'V' (value):  SET WS-NUMERIC-WORK = UPDT-NEW-VALUE; SET PORT-TOTAL-VALUE = WS-NUMERIC-WORK\nEND SELECT\nREWRITE PORT-RECORD\nIF rewrite success THEN INCREMENT WS-UPDATE-COUNT\nELSE INCREMENT WS-ERROR-COUNT; DISPLAY 'Update failed for: ' + PORT-KEY\nEND IF",
+      "branches": ["EVALUATE UPDT-ACTION: status / name / value", "IF rewrite success -> count update else count error"],
+      "calls_made": [],
+      "field_references": ["UPDT-ACTION", "UPDT-NEW-VALUE", "PORT-STATUS", "PORT-CLIENT-NAME", "WS-NUMERIC-WORK", "PORT-TOTAL-VALUE", "WS-FILE-STATUS", "WS-UPDATE-COUNT", "WS-ERROR-COUNT", "PORT-KEY"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 138, "note": "The 'V' branch moves a text field into a numeric work field then into the packed COMP-3 total-value — an implicit alphanumeric-to-numeric conversion; malformed input could corrupt the value with no explicit validation."},
+        {"line": 132, "note": "EVALUATE has no WHEN OTHER — an unrecognised action code silently updates nothing but still REWRITEs the (unchanged) record and counts it as a success."}
+      ],
+      "notes": "Field-level update dispatcher."
+    },
+    {
+      "name": "3000-TERMINATE",
+      "line_range": [152, 160],
+      "pseudocode": "CLOSE PORTFOLIO-FILE and UPDATE-FILE\nDISPLAY 'Updates processed' and 'Errors occurred' with counts\nSET job RETURN-CODE = WS-RETURN-CODE",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-UPDATE-COUNT", "WS-ERROR-COUNT", "WS-RETURN-CODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

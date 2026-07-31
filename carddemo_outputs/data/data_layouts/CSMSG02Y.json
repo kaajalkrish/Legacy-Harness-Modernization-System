@@ -1,0 +1,70 @@
+{
+  "copybook": "CSMSG02Y",
+  "used_by": [
+    "COPAUS0C",
+    "COPAUS1C",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COCRDSLC",
+    "COCRDUPC"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "ABEND-DATA",
+      "line": 21,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ABEND-CODE",
+          "line": 22,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ABEND-CULPRIT",
+          "line": 24,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ABEND-REASON",
+          "line": 26,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ABEND-MSG",
+          "line": 28,
+          "pic": "X(72)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

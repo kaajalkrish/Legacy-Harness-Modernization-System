@@ -1,0 +1,26 @@
+# System Context: TSTGEN00
+## 📝 Summary
+TSTGEN00 is a test-type COBOL program, with 0 paragraph(s) across 0 section(s), sharing 4 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: TSTGEN00
+- **Source Path**: programs/test/TSTGEN00.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- PORTFLIO
+- TRNREC
+- RTNCODE
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

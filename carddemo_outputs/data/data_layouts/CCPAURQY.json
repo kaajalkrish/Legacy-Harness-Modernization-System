@@ -1,0 +1,206 @@
+{
+  "copybook": "CCPAURQY",
+  "used_by": [
+    "COPAUA0C"
+  ],
+  "records": [
+    {
+      "level": 5,
+      "name": "PA-RQ-AUTH-DATE",
+      "line": 19,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-AUTH-TIME",
+      "line": 20,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-CARD-NUM",
+      "line": 21,
+      "pic": "X(16)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-AUTH-TYPE",
+      "line": 22,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-CARD-EXPIRY-DATE",
+      "line": 23,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MESSAGE-TYPE",
+      "line": 24,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MESSAGE-SOURCE",
+      "line": 25,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-PROCESSING-CODE",
+      "line": 26,
+      "pic": "9(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-TRANSACTION-AMT",
+      "line": 27,
+      "pic": "+9(10).99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-CATAGORY-CODE",
+      "line": 28,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-ACQR-COUNTRY-CODE",
+      "line": 29,
+      "pic": "X(03)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-POS-ENTRY-MODE",
+      "line": 30,
+      "pic": "9(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-ID",
+      "line": 31,
+      "pic": "X(15)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-NAME",
+      "line": 32,
+      "pic": "X(22)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-CITY",
+      "line": 33,
+      "pic": "X(13)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-STATE",
+      "line": 34,
+      "pic": "X(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-MERCHANT-ZIP",
+      "line": 35,
+      "pic": "X(09)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RQ-TRANSACTION-ID",
+      "line": 36,
+      "pic": "X(15)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    }
+  ]
+}

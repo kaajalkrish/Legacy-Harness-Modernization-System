@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "program_id": "BCHCTL00",
+    "source_file": "input/src_sample/programs/batch/BCHCTL00.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "BCHCTL00 is a callable Batch Control Processor that manages job control records in an indexed control file. It is invoked with a control request carrying a 4-char function code and dispatches to one of four flows: INIT (open files, read/validate the control record, mark the job started), CHEK (read the control record, check prerequisite dependencies, return success or warning), UPDT (read, update and write the process status), or TERM (mark completion, close files). Any unknown function returns an error via ERRPROC. NOTE: this is a SKELETON — the low-level sub-paragraphs it PERFORMs (1100-OPEN-FILES, 1200-READ-CONTROL-RECORD, etc.) are listed in comments as 'to be implemented' and are NOT defined in the source, so most flows currently do nothing.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [60, 81],
+      "pseudocode": "SELECT CASE function (LS-FUNCTION)\n  WHEN 'INIT': SET mode=Initialize; CALL 1000-PROCESS-INITIALIZE\n  WHEN 'CHEK': SET mode=Check;      CALL 2000-CHECK-PREREQUISITES\n  WHEN 'UPDT': SET mode=Update;     CALL 3000-UPDATE-STATUS\n  WHEN 'TERM': SET mode=Finalize;   CALL 4000-PROCESS-TERMINATE\n  ELSE: SET error 'Invalid function code'; CALL 9000-ERROR-ROUTINE\nEND SELECT\nSET job RETURN-CODE = LS-RETURN-CODE\nRETURN to caller (GOBACK)",
+      "branches": ["EVALUATE function: INIT/CHEK/UPDT/TERM/OTHER"],
+      "calls_made": ["1000-PROCESS-INITIALIZE", "2000-CHECK-PREREQUISITES", "3000-UPDATE-STATUS", "4000-PROCESS-TERMINATE", "9000-ERROR-ROUTINE"],
+      "field_references": ["LS-FUNCTION", "WS-PROCESS-MODE", "LS-RETURN-CODE", "ERR-TEXT"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [{"line": 59, "note": "Called as a sub-routine (PROCEDURE DIVISION USING LS-CONTROL-REQUEST) — a job-control service invoked by other batch jobs."}],
+      "notes": ""
+    },
+    {
+      "name": "1000-PROCESS-INITIALIZE",
+      "line_range": [83, 88],
+      "pseudocode": "CALL 1100-OPEN-FILES\nCALL 1200-READ-CONTROL-RECORD\nCALL 1300-VALIDATE-PROCESS\nCALL 1400-UPDATE-START-STATUS",
+      "branches": [],
+      "calls_made": ["1100-OPEN-FILES", "1200-READ-CONTROL-RECORD", "1300-VALIDATE-PROCESS", "1400-UPDATE-START-STATUS"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": true,
+      "annotations": [{"line": 84, "note": "SME REVIEW: all four PERFORM targets (1100/1200/1300/1400) are undefined in the source — listed only in a trailing comment as 'to be implemented'. This flow is a stub."}],
+      "notes": "Skeleton — targets not implemented."
+    },
+    {
+      "name": "2000-CHECK-PREREQUISITES",
+      "line_range": [90, 98],
+      "pseudocode": "CALL 2100-READ-CONTROL-RECORD\nCALL 2200-CHECK-DEPENDENCIES\nIF prerequisites satisfied THEN\n  SET LS-RETURN-CODE = success\nELSE\n  SET LS-RETURN-CODE = warning\nEND IF",
+      "branches": ["IF PREREQS-SATISFIED -> success else warning"],
+      "calls_made": ["2100-READ-CONTROL-RECORD", "2200-CHECK-DEPENDENCIES"],
+      "field_references": ["WS-PREREQ-MET", "LS-RETURN-CODE", "BCT-RC-SUCCESS", "BCT-RC-WARNING"],
+      "complexity_score": 2,
+      "ambiguous": true,
+      "annotations": [{"line": 91, "note": "2100/2200 are undefined stubs — PREREQS-SATISFIED is never actually set, so this always returns warning."}],
+      "notes": ""
+    },
+    {
+      "name": "3000-UPDATE-STATUS",
+      "line_range": [100, 104],
+      "pseudocode": "CALL 3100-READ-CONTROL-RECORD\nCALL 3200-UPDATE-PROCESS-STATUS\nCALL 3300-WRITE-CONTROL-RECORD",
+      "branches": [],
+      "calls_made": ["3100-READ-CONTROL-RECORD", "3200-UPDATE-PROCESS-STATUS", "3300-WRITE-CONTROL-RECORD"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": true,
+      "annotations": [{"line": 101, "note": "Sub-paragraphs undefined — stub flow."}],
+      "notes": ""
+    },
+    {
+      "name": "4000-PROCESS-TERMINATE",
+      "line_range": [106, 109],
+      "pseudocode": "CALL 4100-UPDATE-COMPLETION\nCALL 4200-CLOSE-FILES",
+      "branches": [],
+      "calls_made": ["4100-UPDATE-COMPLETION", "4200-CLOSE-FILES"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": true,
+      "annotations": [{"line": 107, "note": "Sub-paragraphs undefined — stub flow."}],
+      "notes": ""
+    },
+    {
+      "name": "9000-ERROR-ROUTINE",
+      "line_range": [111, 115],
+      "pseudocode": "SET ERR-PROGRAM = 'BCHCTL00'\nSET LS-RETURN-CODE = error\nCALL 'ERRPROC' PASSING ERR-MESSAGE   -- central error logger",
+      "branches": [],
+      "calls_made": ["ERRPROC"],
+      "field_references": ["ERR-PROGRAM", "BCT-RC-ERROR", "LS-RETURN-CODE", "ERR-MESSAGE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

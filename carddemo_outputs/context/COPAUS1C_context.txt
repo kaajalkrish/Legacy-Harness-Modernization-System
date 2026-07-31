@@ -1,0 +1,51 @@
+# System Context: COPAUS1C
+## 📝 Summary
+COPAUS1C is a online-type COBOL program, entered at MAIN-PARA, with 15 paragraph(s) across 0 section(s), sharing 10 copybook(s). It defines 6 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COPAUS1C
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COPAU01
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CSMSG02Y
+- CIPAUSMY
+- CIPAUDTY
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 15 sub-field(s))
+- 01 WS-TABLES (group item, 2 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 4 sub-field(s))
+- 01 WS-FRAUD-DATA (group item, 4 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 3 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 15 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- MARK-AUTH-FRAUD
+- PROCESS-PF8-KEY
+- POPULATE-AUTH-DETAILS
+- RETURN-TO-PREV-SCREEN
+- SEND-AUTHVIEW-SCREEN
+- RECEIVE-AUTHVIEW-SCREEN
+- POPULATE-HEADER-INFO
+- READ-AUTH-RECORD
+- READ-NEXT-AUTH-RECORD
+- UPDATE-AUTH-DETAILS
+- TAKE-SYNCPOINT
+- ROLL-BACK
+- SCHEDULE-PSB

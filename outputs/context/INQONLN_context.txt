@@ -1,0 +1,44 @@
+# System Context: INQONLN
+## 📝 Summary
+INQONLN is a online-type COBOL program, entered at P100-PROCESS-REQUEST, with 12 paragraph(s) across 0 section(s), calling 6 other program(s), sharing 3 copybook(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: INQONLN
+- **Source Path**: programs/online/INQONLN.cbl
+- **Main Entry Point**: P100-PROCESS-REQUEST
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- INQCOM
+- ERRHND
+- INQCOM
+### 🔗 Execution Flow (Calls)
+- INQPORT
+- INQHIST
+- ERRHNDL
+- SECMGR
+- SECMGR
+- SECMGR
+## Key Data Structures
+- 01 WS-COMMAREA (group item, 1 sub-field(s))
+- 01 WS-FLAGS (group item, 2 sub-field(s))
+- 01 WS-ERROR-AREA (group item, 1 sub-field(s))
+- 01 WS-SECURITY-REQUEST (group item, 6 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: P100-PROCESS-REQUEST
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 12 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- P100-PROCESS-REQUEST
+- P100-EXIT
+- P200-DISPLAY-MENU
+- P200-EXIT
+- P300-PORTFOLIO-INQUIRY
+- P300-EXIT
+- P400-HISTORY-INQUIRY
+- P400-EXIT
+- P900-ERROR-ROUTINE
+- P900-EXIT
+- P050-SECURITY-CHECK
+- P050-EXIT

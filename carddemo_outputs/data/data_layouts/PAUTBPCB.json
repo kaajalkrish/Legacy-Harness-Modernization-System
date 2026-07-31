@@ -1,0 +1,121 @@
+{
+  "copybook": "PAUTBPCB",
+  "used_by": [
+    "DBUNLDGS",
+    "PAUDBLOD",
+    "PAUDBUNL"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "PAUTBPCB",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PAUT-DBDNAME",
+          "line": 18,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-SEG-LEVEL",
+          "line": 19,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-PCB-STATUS",
+          "line": 20,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-PCB-PROCOPT",
+          "line": 21,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 22,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-SEG-NAME",
+          "line": 23,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-KEYFB-NAME",
+          "line": 24,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-NUM-SENSEGS",
+          "line": 25,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PAUT-KEYFB",
+          "line": 26,
+          "pic": "X(255)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

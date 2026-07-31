@@ -1,0 +1,38 @@
+# System Context: INQPORT
+## 📝 Summary
+INQPORT is a online-type COBOL program, entered at P100-INIT-PROGRAM, with 10 paragraph(s) across 0 section(s), sharing 3 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: INQPORT
+- **Source Path**: programs/online/INQPORT.cbl
+- **Main Entry Point**: P100-INIT-PROGRAM
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- INQCOM
+- POSREC
+- INQCOM
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-COMMAREA (group item, 1 sub-field(s))
+- 01 WS-POSITION-RECORD (group item, 1 sub-field(s))
+- 01 WS-DB2-POSITION (group item, 0 sub-field(s))
+- 01 WS-FLAGS (group item, 2 sub-field(s))
+- 01 WS-MAP-FIELDS (group item, 5 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: P100-INIT-PROGRAM
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 10 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- P100-INIT-PROGRAM
+- P100-EXIT
+- P200-GET-POSITION
+- P200-EXIT
+- P300-FORMAT-DISPLAY
+- P300-EXIT
+- P900-NOT-FOUND
+- P900-EXIT
+- P999-ERROR-ROUTINE
+- P999-EXIT

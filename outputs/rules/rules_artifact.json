@@ -1,0 +1,4803 @@
+{
+  "meta": {
+    "generated_at": "2026-07-18T23:37:33Z",
+    "agent_version": "5_rules_python@1.0",
+    "total_rules": 110,
+    "total_rule_sets": 44,
+    "requires_sme_review": 4,
+    "duplicates_merged": 10,
+    "description_mode": "hybrid \u2014 business rules written by AI-host (no key); 88-level status validations use the deterministic template",
+    "ai_host_polished_rules": 13
+  },
+  "stats": {
+    "by_category": {
+      "VALIDATION": 97,
+      "COMPLIANCE": 2,
+      "LIMIT_CHECK": 2,
+      "ROUTING": 9
+    },
+    "by_confidence": {
+      "confirmed": 57,
+      "medium": 38,
+      "low": 4,
+      "high": 11
+    },
+    "noise_conditions": 76
+  },
+  "rule_sets": [
+    {
+      "rule_set_id": "RS-001",
+      "name": "Action validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-001"
+      ],
+      "programs": [
+        "CKPRST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-002",
+      "name": "Active validation rules",
+      "rule_count": 3,
+      "rule_ids": [
+        "BR-002",
+        "BR-003",
+        "BR-004"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-003",
+      "name": "Aud validation rules",
+      "rule_count": 3,
+      "rule_ids": [
+        "BR-005",
+        "BR-006",
+        "BR-007"
+      ],
+      "programs": [
+        "AUDPROC"
+      ]
+    },
+    {
+      "rule_set_id": "RS-004",
+      "name": "Command validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-008"
+      ],
+      "programs": [
+        "PORTMSTR"
+      ]
+    },
+    {
+      "rule_set_id": "RS-005",
+      "name": "Commarea validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-009"
+      ],
+      "programs": [
+        "INQONLN"
+      ]
+    },
+    {
+      "rule_set_id": "RS-006",
+      "name": "Compliance and audit rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-010",
+        "BR-011"
+      ],
+      "programs": [
+        "INQONLN"
+      ]
+    },
+    {
+      "rule_set_id": "RS-007",
+      "name": "Connection validation rules",
+      "rule_count": 4,
+      "rule_ids": [
+        "BR-012",
+        "BR-013",
+        "BR-014",
+        "BR-015"
+      ],
+      "programs": [
+        "DB2CONN"
+      ]
+    },
+    {
+      "rule_set_id": "RS-008",
+      "name": "Cursor validation rules",
+      "rule_count": 5,
+      "rule_ids": [
+        "BR-016",
+        "BR-017",
+        "BR-018",
+        "BR-019",
+        "BR-020"
+      ],
+      "programs": [
+        "CURSMGR",
+        "INQHIST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-009",
+      "name": "DB2 validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-021"
+      ],
+      "programs": [
+        "?"
+      ]
+    },
+    {
+      "rule_set_id": "RS-010",
+      "name": "Dep validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-022",
+        "BR-023"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-011",
+      "name": "El validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-024",
+        "BR-025"
+      ],
+      "programs": [
+        "HISTLD00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-012",
+      "name": "End validation rules",
+      "rule_count": 10,
+      "rule_ids": [
+        "BR-026",
+        "BR-027",
+        "BR-028",
+        "BR-029",
+        "BR-030",
+        "BR-031",
+        "BR-032",
+        "BR-033",
+        "BR-034",
+        "BR-035"
+      ],
+      "programs": [
+        "HISTLD00",
+        "INQONLN",
+        "PORTADD",
+        "PORTMSTR",
+        "PORTREAD",
+        "PORTUPDT",
+        "TSTVAL00",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-013",
+      "name": "Error validation rules",
+      "rule_count": 6,
+      "rule_ids": [
+        "BR-036",
+        "BR-037",
+        "BR-038",
+        "BR-039",
+        "BR-040",
+        "BR-041"
+      ],
+      "programs": [
+        "CKPRST",
+        "INQONLN",
+        "PRCSEQ00",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-014",
+      "name": "File validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-042",
+        "BR-043"
+      ],
+      "programs": [
+        "PORTADD",
+        "PORTMSTR",
+        "PORTREAD",
+        "PORTUPDT"
+      ]
+    },
+    {
+      "rule_set_id": "RS-015",
+      "name": "Force validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-044"
+      ],
+      "programs": [
+        "DB2CMT"
+      ]
+    },
+    {
+      "rule_set_id": "RS-016",
+      "name": "Freq validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-045"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-017",
+      "name": "Function validation rules",
+      "rule_count": 3,
+      "rule_ids": [
+        "BR-046",
+        "BR-047",
+        "BR-048"
+      ],
+      "programs": [
+        "BCHCTL00",
+        "DB2CMT",
+        "DB2CONN",
+        "DB2ERR",
+        "DB2STAT",
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-018",
+      "name": "Hist validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-049",
+        "BR-050"
+      ],
+      "programs": [
+        "HISTLD00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-019",
+      "name": "Holiday validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-051"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-020",
+      "name": "Input validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-052"
+      ],
+      "programs": [
+        "PORTADD"
+      ]
+    },
+    {
+      "rule_set_id": "RS-021",
+      "name": "Inqcom validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-053"
+      ],
+      "programs": [
+        "INQHIST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-022",
+      "name": "Limit and threshold rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-054",
+        "BR-055"
+      ],
+      "programs": [
+        "DB2CMT",
+        "HISTLD00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-023",
+      "name": "Month validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-056"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-024",
+      "name": "More validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-057"
+      ],
+      "programs": [
+        "INQHIST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-025",
+      "name": "Next validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-058",
+        "BR-059"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-026",
+      "name": "Phase validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-060"
+      ],
+      "programs": [
+        "CKPRST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-027",
+      "name": "Portfolio validation rules",
+      "rule_count": 8,
+      "rule_ids": [
+        "BR-061",
+        "BR-062",
+        "BR-063",
+        "BR-064",
+        "BR-065",
+        "BR-066",
+        "BR-067",
+        "BR-068"
+      ],
+      "programs": [
+        "PORTADD",
+        "PORTMSTR"
+      ]
+    },
+    {
+      "rule_set_id": "RS-028",
+      "name": "Position validation rules",
+      "rule_count": 3,
+      "rule_ids": [
+        "BR-069",
+        "BR-070",
+        "BR-071"
+      ],
+      "programs": [
+        "INQPORT"
+      ]
+    },
+    {
+      "rule_set_id": "RS-029",
+      "name": "Prereq validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-072",
+        "BR-073"
+      ],
+      "programs": [
+        "BCHCTL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-030",
+      "name": "Process validation rules",
+      "rule_count": 5,
+      "rule_ids": [
+        "BR-074",
+        "BR-075",
+        "BR-076",
+        "BR-077",
+        "BR-078"
+      ],
+      "programs": [
+        "BCHCTL00",
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-031",
+      "name": "Recv validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-079"
+      ],
+      "programs": [
+        "INQHIST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-032",
+      "name": "Response validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-080",
+        "BR-081"
+      ],
+      "programs": [
+        "TSTVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-033",
+      "name": "Restart validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-082",
+        "BR-083"
+      ],
+      "programs": [
+        "CKPRST",
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-034",
+      "name": "Retry validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-084"
+      ],
+      "programs": [
+        "DB2ERR"
+      ]
+    },
+    {
+      "rule_set_id": "RS-035",
+      "name": "Return validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-085",
+        "BR-086"
+      ],
+      "programs": [
+        "CKPRST",
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-036",
+      "name": "Sequence validation rules",
+      "rule_count": 4,
+      "rule_ids": [
+        "BR-087",
+        "BR-088",
+        "BR-089",
+        "BR-090"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-037",
+      "name": "Status validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-091",
+        "BR-092"
+      ],
+      "programs": [
+        "BCHCTL00",
+        "CKPRST"
+      ]
+    },
+    {
+      "rule_set_id": "RS-038",
+      "name": "Test validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-093"
+      ],
+      "programs": [
+        "TSTVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-039",
+      "name": "Transaction routing rules",
+      "rule_count": 9,
+      "rule_ids": [
+        "BR-094",
+        "BR-095",
+        "BR-096",
+        "BR-097",
+        "BR-098",
+        "BR-099",
+        "BR-100",
+        "BR-101",
+        "BR-102"
+      ],
+      "programs": [
+        "BCHCTL00",
+        "CKPRST",
+        "CURSMGR",
+        "DB2CMT",
+        "DB2CONN",
+        "DB2ERR",
+        "DB2STAT",
+        "PORTMSTR",
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-040",
+      "name": "Trn validation rules",
+      "rule_count": 2,
+      "rule_ids": [
+        "BR-103",
+        "BR-104"
+      ],
+      "programs": [
+        "UTLVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-041",
+      "name": "Type validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-105"
+      ],
+      "programs": [
+        "PRCSEQ00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-042",
+      "name": "Updt validation rules",
+      "rule_count": 3,
+      "rule_ids": [
+        "BR-106",
+        "BR-107",
+        "BR-108"
+      ],
+      "programs": [
+        "PORTUPDT"
+      ]
+    },
+    {
+      "rule_set_id": "RS-043",
+      "name": "Val validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-109"
+      ],
+      "programs": [
+        "UTLVAL00"
+      ]
+    },
+    {
+      "rule_set_id": "RS-044",
+      "name": "Valid validation rules",
+      "rule_count": 1,
+      "rule_ids": [
+        "BR-110"
+      ],
+      "programs": [
+        "PORTMSTR"
+      ]
+    }
+  ],
+  "business_rules": [
+    {
+      "rule_id": "BR-001",
+      "rule_set": "Action validation rules",
+      "name": "Validate Action Indicator is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Action Indicator field is constrained to a fixed set of allowed values (ACTION-CONTINUE, ACTION-ABORT, ACTION-RETRY). Used by CKPRST.",
+      "condition": {
+        "text": "88-level values on ACTION-FLAG: ACTION-CONTINUE, ACTION-ABORT, ACTION-RETRY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 37,
+        "condition_id": "COND88-ACTION-FLAG"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 37,
+          "condition_id": "COND88-ACTION-FLAG"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-002",
+      "rule_set": "Active validation rules",
+      "name": "Validate Active Count",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Active Count. Condition: \u201cPERFORM VARYING scan\u201d. Implemented in PRCSEQ00, paragraph 3300-CHECK-COMPLETION.",
+      "condition": {
+        "text": "PERFORM VARYING scan",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "3300-CHECK-COMPLETION",
+        "line": 305,
+        "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "3300-CHECK-COMPLETION",
+          "line": 305,
+          "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-003",
+      "rule_set": "Active validation rules",
+      "name": "Validate Active Count",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Active Count. Condition: \u201cIF status ACTIVE -> count\u201d. Implemented in PRCSEQ00, paragraph 3300-CHECK-COMPLETION.",
+      "condition": {
+        "text": "IF status ACTIVE -> count",
+        "pattern": "STATUS_CODE_CHECK"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "3300-CHECK-COMPLETION",
+        "line": 305,
+        "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "3300-CHECK-COMPLETION",
+          "line": 305,
+          "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-004",
+      "rule_set": "Active validation rules",
+      "name": "Validate Active Days is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Active Days field is constrained to a fixed set of allowed values (PSR-WEEKDAY, PSR-WEEKEND, PSR-ALL-DAYS). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-ACTIVE-DAYS: PSR-WEEKDAY, PSR-WEEKEND, PSR-ALL-DAYS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 40,
+        "condition_id": "COND88-PSR-ACTIVE-DAYS"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 40,
+          "condition_id": "COND88-PSR-ACTIVE-DAYS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-005",
+      "rule_set": "Aud validation rules",
+      "name": "Validate Aud Action is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Aud Action field is constrained to a fixed set of allowed values (AUD-CREATE, AUD-UPDATE, AUD-DELETE, AUD-INQUIRE, AUD-LOGIN, AUD-LOGOUT). Used by AUDPROC.",
+      "condition": {
+        "text": "88-level values on AUD-ACTION: AUD-CREATE, AUD-UPDATE, AUD-DELETE, AUD-INQUIRE, AUD-LOGIN, AUD-LOGOUT, AUD-STARTUP, AUD-SHUTDOWN",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "AUDPROC"
+      ],
+      "primary_source": {
+        "program_id": "AUDPROC",
+        "paragraph": null,
+        "line": 18,
+        "condition_id": "COND88-AUD-ACTION"
+      },
+      "sources": [
+        {
+          "program_id": "AUDPROC",
+          "paragraph": null,
+          "line": 18,
+          "condition_id": "COND88-AUD-ACTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-006",
+      "rule_set": "Aud validation rules",
+      "name": "Validate Aud Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Aud Status field is constrained to a fixed set of allowed values (AUD-SUCCESS, AUD-FAILURE, AUD-WARNING). Used by AUDPROC.",
+      "condition": {
+        "text": "88-level values on AUD-STATUS: AUD-SUCCESS, AUD-FAILURE, AUD-WARNING",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "AUDPROC"
+      ],
+      "primary_source": {
+        "program_id": "AUDPROC",
+        "paragraph": null,
+        "line": 27,
+        "condition_id": "COND88-AUD-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "AUDPROC",
+          "paragraph": null,
+          "line": 27,
+          "condition_id": "COND88-AUD-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-007",
+      "rule_set": "Aud validation rules",
+      "name": "Validate Aud Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Aud Type field is constrained to a fixed set of allowed values (AUD-TRANSACTION, AUD-USER-ACTION, AUD-SYSTEM-EVENT). Used by AUDPROC.",
+      "condition": {
+        "text": "88-level values on AUD-TYPE: AUD-TRANSACTION, AUD-USER-ACTION, AUD-SYSTEM-EVENT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "AUDPROC"
+      ],
+      "primary_source": {
+        "program_id": "AUDPROC",
+        "paragraph": null,
+        "line": 14,
+        "condition_id": "COND88-AUD-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "AUDPROC",
+          "paragraph": null,
+          "line": 14,
+          "condition_id": "COND88-AUD-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-008",
+      "rule_set": "Command validation rules",
+      "name": "Validate Command is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Command field is constrained to a fixed set of allowed values (CREATE-PORT, READ-PORT, UPDATE-PORT, DELETE-PORT). Used by PORTMSTR.",
+      "condition": {
+        "text": "88-level values on LS-COMMAND: CREATE-PORT, READ-PORT, UPDATE-PORT, DELETE-PORT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": null,
+        "line": 74,
+        "condition_id": "COND88-LS-COMMAND"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": null,
+          "line": 74,
+          "condition_id": "COND88-LS-COMMAND"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-009",
+      "rule_set": "Commarea validation rules",
+      "name": "Validate Commarea",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Commarea. Condition: \u201cEVALUATE WS-COMMAREA-FUNCTION (MENU/INQP/INQH/EXIT/OTHER)\u201d. Implemented in INQONLN, paragraph P100-PROCESS-REQUEST.",
+      "condition": {
+        "text": "EVALUATE WS-COMMAREA-FUNCTION (MENU/INQP/INQH/EXIT/OTHER)",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": "P100-PROCESS-REQUEST",
+        "line": 53,
+        "condition_id": "COND-INQONLN-P100-PROCESS-REQUEST-1"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": "P100-PROCESS-REQUEST",
+          "line": 53,
+          "condition_id": "COND-INQONLN-P100-PROCESS-REQUEST-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-010",
+      "rule_set": "Compliance and audit rules",
+      "name": "Authorize access only after successful user validation",
+      "category": "COMPLIANCE",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Access control runs in stages: the request proceeds to authorization only after the user-validation step succeeds (via SECMGR). If validation fails, authorization is not attempted.",
+      "condition": {
+        "text": "IF validate ok -> authorize",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": "P050-SECURITY-CHECK",
+        "line": 139,
+        "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-1"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": "P050-SECURITY-CHECK",
+          "line": 139,
+          "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-011",
+      "rule_set": "Compliance and audit rules",
+      "name": "Log access only after successful authorization",
+      "category": "COMPLIANCE",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Once a request is authorized, the access is written to the security log (via SECMGR). Logging is skipped when authorization fails, so only granted accesses are audited.",
+      "condition": {
+        "text": "IF authorize ok -> log",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": "P050-SECURITY-CHECK",
+        "line": 139,
+        "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-2"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": "P050-SECURITY-CHECK",
+          "line": 139,
+          "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-2"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-012",
+      "rule_set": "Connection validation rules",
+      "name": "Validate Connection State",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Connection State. Condition: \u201cWHILE NOT connected AND retries<3 (retry loop)\u201d. Implemented in DB2CONN, paragraph 1000-CONNECT.",
+      "condition": {
+        "text": "WHILE NOT connected AND retries<3 (retry loop)",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": "1000-CONNECT",
+        "line": 63,
+        "condition_id": "COND-DB2CONN-1000-CONNECT-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": "1000-CONNECT",
+          "line": 63,
+          "condition_id": "COND-DB2CONN-1000-CONNECT-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-013",
+      "rule_set": "Connection validation rules",
+      "name": "Validate Connection State",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Connection State. Condition: \u201cIF retries left AND not connected -> DELAY\u201d. Implemented in DB2CONN, paragraph 1000-CONNECT.",
+      "condition": {
+        "text": "IF retries left AND not connected -> DELAY",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": "1000-CONNECT",
+        "line": 63,
+        "condition_id": "COND-DB2CONN-1000-CONNECT-3"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": "1000-CONNECT",
+          "line": 63,
+          "condition_id": "COND-DB2CONN-1000-CONNECT-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-014",
+      "rule_set": "Connection validation rules",
+      "name": "Validate Connection State",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Connection State. Condition: \u201cIF connected -> commit + reset\u201d. Implemented in DB2CONN, paragraph 2000-DISCONNECT.",
+      "condition": {
+        "text": "IF connected -> commit + reset",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": "2000-DISCONNECT",
+        "line": 109,
+        "condition_id": "COND-DB2CONN-2000-DISCONNECT-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": "2000-DISCONNECT",
+          "line": 109,
+          "condition_id": "COND-DB2CONN-2000-DISCONNECT-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-015",
+      "rule_set": "Connection validation rules",
+      "name": "Validate Connection State is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Connection State field is constrained to a fixed set of allowed values (WS-CONNECTED, WS-DISCONNECTED). Used by DB2CONN.",
+      "condition": {
+        "text": "88-level values on WS-CONNECTION-STATE: WS-CONNECTED, WS-DISCONNECTED",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": null,
+        "line": 26,
+        "condition_id": "COND88-WS-CONNECTION-STATE"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": null,
+          "line": 26,
+          "condition_id": "COND88-WS-CONNECTION-STATE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-016",
+      "rule_set": "Cursor validation rules",
+      "name": "Validate Cursor Array Fetch is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Cursor Array Fetch field is constrained to a fixed set of allowed values (USE-ARRAY-FETCH, NO-ARRAY-FETCH). Used by CURSMGR.",
+      "condition": {
+        "text": "88-level values on CURS-ARRAY-FETCH: USE-ARRAY-FETCH, NO-ARRAY-FETCH",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CURSMGR"
+      ],
+      "primary_source": {
+        "program_id": "CURSMGR",
+        "paragraph": null,
+        "line": 36,
+        "condition_id": "COND88-CURS-ARRAY-FETCH"
+      },
+      "sources": [
+        {
+          "program_id": "CURSMGR",
+          "paragraph": null,
+          "line": 36,
+          "condition_id": "COND88-CURS-ARRAY-FETCH"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-017",
+      "rule_set": "Cursor validation rules",
+      "name": "Validate Cursor Request Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Cursor Request Type field is constrained to a fixed set of allowed values (CURS-DECLARE, CURS-OPEN, CURS-FETCH, CURS-CLOSE). Used by CURSMGR.",
+      "condition": {
+        "text": "88-level values on CURS-REQUEST-TYPE: CURS-DECLARE, CURS-OPEN, CURS-FETCH, CURS-CLOSE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CURSMGR"
+      ],
+      "primary_source": {
+        "program_id": "CURSMGR",
+        "paragraph": null,
+        "line": 29,
+        "condition_id": "COND88-CURS-REQUEST-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "CURSMGR",
+          "paragraph": null,
+          "line": 29,
+          "condition_id": "COND88-CURS-REQUEST-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-018",
+      "rule_set": "Cursor validation rules",
+      "name": "Validate Cursor Response Code",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Cursor Response Code. Condition: \u201cIF USE-ARRAY-FETCH -> size 20 else 1\u201d. Implemented in CURSMGR, paragraph P100-DECLARE-CURSOR.",
+      "condition": {
+        "text": "IF USE-ARRAY-FETCH -> size 20 else 1",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CURSMGR"
+      ],
+      "primary_source": {
+        "program_id": "CURSMGR",
+        "paragraph": "P100-DECLARE-CURSOR",
+        "line": 61,
+        "condition_id": "COND-CURSMGR-P100-DECLARE-CURSOR-1"
+      },
+      "sources": [
+        {
+          "program_id": "CURSMGR",
+          "paragraph": "P100-DECLARE-CURSOR",
+          "line": 61,
+          "condition_id": "COND-CURSMGR-P100-DECLARE-CURSOR-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-019",
+      "rule_set": "Cursor validation rules",
+      "name": "Validate Cursor Stmt",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Cursor Stmt. Condition: \u201cIF declare ok -> open\u201d. Implemented in INQHIST, paragraph P200-GET-HISTORY.",
+      "condition": {
+        "text": "IF declare ok -> open",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQHIST"
+      ],
+      "primary_source": {
+        "program_id": "INQHIST",
+        "paragraph": "P200-GET-HISTORY",
+        "line": 129,
+        "condition_id": "COND-INQHIST-P200-GET-HISTORY-1"
+      },
+      "sources": [
+        {
+          "program_id": "INQHIST",
+          "paragraph": "P200-GET-HISTORY",
+          "line": 129,
+          "condition_id": "COND-INQHIST-P200-GET-HISTORY-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-020",
+      "rule_set": "Cursor validation rules",
+      "name": "Validate Cursor Stmt",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Cursor Stmt. Condition: \u201cIF open ok -> fetch\u201d. Implemented in INQHIST, paragraph P200-GET-HISTORY.",
+      "condition": {
+        "text": "IF open ok -> fetch",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQHIST"
+      ],
+      "primary_source": {
+        "program_id": "INQHIST",
+        "paragraph": "P200-GET-HISTORY",
+        "line": 129,
+        "condition_id": "COND-INQHIST-P200-GET-HISTORY-2"
+      },
+      "sources": [
+        {
+          "program_id": "INQHIST",
+          "paragraph": "P200-GET-HISTORY",
+          "line": 129,
+          "condition_id": "COND-INQHIST-P200-GET-HISTORY-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-021",
+      "rule_set": "DB2 validation rules",
+      "name": "Validate DB2 Request Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The DB2 Request Type field is constrained to a fixed set of allowed values (DB2-CONNECT, DB2-DISCONNECT, DB2-STATUS). Used by .",
+      "condition": {
+        "text": "88-level values on DB2-REQUEST-TYPE: DB2-CONNECT, DB2-DISCONNECT, DB2-STATUS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "?"
+      ],
+      "primary_source": {
+        "program_id": "?",
+        "paragraph": null,
+        "line": 5,
+        "condition_id": "COND88-DB2-REQUEST-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "?",
+          "paragraph": null,
+          "line": 5,
+          "condition_id": "COND88-DB2-REQUEST-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-022",
+      "rule_set": "Dep validation rules",
+      "name": "Validate Dep Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Dep Id. Condition: \u201cIF NOT BCT-STATUS-DONE + IF hard dep -> warning\u201d. Implemented in PRCSEQ00, paragraph 2210-CHECK-DEP-STATUS.",
+      "condition": {
+        "text": "IF NOT BCT-STATUS-DONE + IF hard dep -> warning",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2210-CHECK-DEP-STATUS",
+        "line": 239,
+        "condition_id": "COND-PRCSEQ00-2210-CHECK-DEP-STATUS-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2210-CHECK-DEP-STATUS",
+          "line": 239,
+          "condition_id": "COND-PRCSEQ00-2210-CHECK-DEP-STATUS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-023",
+      "rule_set": "Dep validation rules",
+      "name": "Validate Dep Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Dep Type field is constrained to a fixed set of allowed values (PSR-DEP-HARD, PSR-DEP-SOFT). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-DEP-TYPE: PSR-DEP-HARD, PSR-DEP-SOFT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 28,
+        "condition_id": "COND88-PSR-DEP-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 28,
+          "condition_id": "COND88-PSR-DEP-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-024",
+      "rule_set": "El validation rules",
+      "name": "Validate El Error Severity is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The El Error Severity field is constrained to a fixed set of allowed values (EL-SEV-INFO, EL-SEV-WARN, EL-SEV-ERROR, EL-SEV-SEVERE). Used by HISTLD00, DB2ERR.",
+      "condition": {
+        "text": "88-level values on EL-ERROR-SEVERITY: EL-SEV-INFO, EL-SEV-WARN, EL-SEV-ERROR, EL-SEV-SEVERE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": null,
+        "line": 40,
+        "condition_id": "COND88-EL-ERROR-SEVERITY"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": null,
+          "line": 40,
+          "condition_id": "COND88-EL-ERROR-SEVERITY"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-025",
+      "rule_set": "El validation rules",
+      "name": "Validate El Error Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The El Error Type field is constrained to a fixed set of allowed values (EL-TYPE-SYSTEM, EL-TYPE-APP, EL-TYPE-DATA). Used by HISTLD00, DB2ERR.",
+      "condition": {
+        "text": "88-level values on EL-ERROR-TYPE: EL-TYPE-SYSTEM, EL-TYPE-APP, EL-TYPE-DATA",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": null,
+        "line": 36,
+        "condition_id": "COND88-EL-ERROR-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": null,
+          "line": 36,
+          "condition_id": "COND88-EL-ERROR-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-026",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of File Indicator",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate End Of File Indicator. Condition: \u201cWHILE NOT END-OF-FILE (main read loop)\u201d. Implemented in PORTADD, paragraph 0000-MAIN.",
+      "condition": {
+        "text": "WHILE NOT END-OF-FILE (main read loop)",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": true,
+      "implemented_in_programs": [
+        "PORTADD",
+        "PORTREAD"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": "0000-MAIN",
+        "line": 76,
+        "condition_id": "COND-PORTADD-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": "0000-MAIN",
+          "line": 76,
+          "condition_id": "COND-PORTADD-0000-MAIN-1"
+        },
+        {
+          "program_id": "PORTREAD",
+          "paragraph": "0000-MAIN",
+          "line": 64,
+          "condition_id": "COND-PORTREAD-0000-MAIN-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-027",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of File Indicator",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate End Of File Indicator. Condition: \u201cWHILE NOT END-OF-FILE (main update loop)\u201d. Implemented in PORTUPDT, paragraph 0000-MAIN.",
+      "condition": {
+        "text": "WHILE NOT END-OF-FILE (main update loop)",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "PORTUPDT",
+        "paragraph": "0000-MAIN",
+        "line": 83,
+        "condition_id": "COND-PORTUPDT-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": "0000-MAIN",
+          "line": 83,
+          "condition_id": "COND-PORTUPDT-0000-MAIN-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-028",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of File Indicator",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate End Of File Indicator. Condition: \u201cIF MORE-RECORDS -> load + commit-check\u201d. Implemented in HISTLD00, paragraph 2000-PROCESS.",
+      "condition": {
+        "text": "IF MORE-RECORDS -> load + commit-check",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": "2000-PROCESS",
+        "line": 86,
+        "condition_id": "COND-HISTLD00-2000-PROCESS-1"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": "2000-PROCESS",
+          "line": 86,
+          "condition_id": "COND-HISTLD00-2000-PROCESS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-029",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of File Indicator is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The End Of File Indicator field is constrained to a fixed set of allowed values (END-OF-FILE, MORE-RECORDS). Used by HISTLD00.",
+      "condition": {
+        "text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, MORE-RECORDS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": true,
+      "implemented_in_programs": [
+        "HISTLD00",
+        "PORTADD",
+        "PORTMSTR",
+        "PORTREAD",
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": null,
+        "line": 62,
+        "condition_id": "COND88-WS-END-OF-FILE-SW"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": null,
+          "line": 62,
+          "condition_id": "COND88-WS-END-OF-FILE-SW"
+        },
+        {
+          "program_id": "PORTADD",
+          "paragraph": null,
+          "line": 61,
+          "condition_id": "COND88-WS-END-OF-FILE-SW"
+        },
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": null,
+          "line": 61,
+          "condition_id": "COND88-WS-END-OF-FILE-SW"
+        },
+        {
+          "program_id": "PORTREAD",
+          "paragraph": null,
+          "line": 49,
+          "condition_id": "COND88-WS-END-OF-FILE-SW"
+        },
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": null,
+          "line": 69,
+          "condition_id": "COND88-WS-END-OF-FILE-SW"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-030",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Session (88 session Terminated)",
+      "category": "VALIDATION",
+      "confidence": "low",
+      "requires_sme_review": true,
+      "description": "Validate End Of Session (88 session Terminated). Condition: \u201cWHILE NOT SESSION-TERMINATED (main session loop)\u201d. Implemented in INQONLN, paragraph MAINLINE.",
+      "condition": {
+        "text": "WHILE NOT SESSION-TERMINATED (main session loop)",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": "MAINLINE",
+        "line": 39,
+        "condition_id": "COND-INQONLN-MAINLINE-2"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": "MAINLINE",
+          "line": 39,
+          "condition_id": "COND-INQONLN-MAINLINE-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-031",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Session is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The End Of Session field is constrained to a fixed set of allowed values (SESSION-ACTIVE, SESSION-TERMINATED). Used by INQONLN.",
+      "condition": {
+        "text": "88-level values on WS-END-OF-SESSION: SESSION-ACTIVE, SESSION-TERMINATED",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": null,
+        "line": 19,
+        "condition_id": "COND88-WS-END-OF-SESSION"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": null,
+          "line": 19,
+          "condition_id": "COND88-WS-END-OF-SESSION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-032",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Tests",
+      "category": "VALIDATION",
+      "confidence": "low",
+      "requires_sme_review": true,
+      "description": "Validate End Of Tests. Condition: \u201cPERFORM UNTIL END-OF-TESTS\u201d. Implemented in TSTVAL00, paragraph 2000-PROCESS.",
+      "condition": {
+        "text": "PERFORM UNTIL END-OF-TESTS",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "TSTVAL00"
+      ],
+      "primary_source": {
+        "program_id": "TSTVAL00",
+        "paragraph": "2000-PROCESS",
+        "line": 176,
+        "condition_id": "COND-TSTVAL00-2000-PROCESS-1"
+      },
+      "sources": [
+        {
+          "program_id": "TSTVAL00",
+          "paragraph": "2000-PROCESS",
+          "line": 176,
+          "condition_id": "COND-TSTVAL00-2000-PROCESS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-033",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Tests is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The End Of Tests field is constrained to a fixed set of allowed values (END-OF-TESTS). Used by TSTVAL00.",
+      "condition": {
+        "text": "88-level values on WS-END-OF-TESTS: END-OF-TESTS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "TSTVAL00"
+      ],
+      "primary_source": {
+        "program_id": "TSTVAL00",
+        "paragraph": null,
+        "line": 83,
+        "condition_id": "COND88-WS-END-OF-TESTS"
+      },
+      "sources": [
+        {
+          "program_id": "TSTVAL00",
+          "paragraph": null,
+          "line": 83,
+          "condition_id": "COND88-WS-END-OF-TESTS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-034",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Val",
+      "category": "VALIDATION",
+      "confidence": "low",
+      "requires_sme_review": true,
+      "description": "Validate End Of Val. Condition: \u201cPERFORM UNTIL END-OF-VALIDATION\u201d. Implemented in UTLVAL00, paragraph 2000-PROCESS.",
+      "condition": {
+        "text": "PERFORM UNTIL END-OF-VALIDATION",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": "2000-PROCESS",
+        "line": 138,
+        "condition_id": "COND-UTLVAL00-2000-PROCESS-1"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": "2000-PROCESS",
+          "line": 138,
+          "condition_id": "COND-UTLVAL00-2000-PROCESS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-035",
+      "rule_set": "End validation rules",
+      "name": "Validate End Of Val is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The End Of Val field is constrained to a fixed set of allowed values (END-OF-VALIDATION). Used by UTLVAL00.",
+      "condition": {
+        "text": "88-level values on WS-END-OF-VAL: END-OF-VALIDATION",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": null,
+        "line": 76,
+        "condition_id": "COND88-WS-END-OF-VAL"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": null,
+          "line": 76,
+          "condition_id": "COND88-WS-END-OF-VAL"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-036",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Action is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Error Action field is constrained to a fixed set of allowed values (ERR-RETURN, ERR-CONTINUE, ERR-ABEND). Used by INQONLN.",
+      "condition": {
+        "text": "88-level values on ERR-ACTION: ERR-RETURN, ERR-CONTINUE, ERR-ABEND",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": null,
+        "line": 15,
+        "condition_id": "COND88-ERR-ACTION"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": null,
+          "line": 15,
+          "condition_id": "COND88-ERR-ACTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-037",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Count",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Error Count. Condition: \u201cELSE IF any still active -> warning\u201d. Implemented in PRCSEQ00, paragraph 4100-CHECK-FINAL-STATUS.",
+      "condition": {
+        "text": "ELSE IF any still active -> warning",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "4100-CHECK-FINAL-STATUS",
+        "line": 322,
+        "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "4100-CHECK-FINAL-STATUS",
+          "line": 322,
+          "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-038",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Count",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Error Count. Condition: \u201cELSE -> success\u201d. Implemented in PRCSEQ00, paragraph 4100-CHECK-FINAL-STATUS.",
+      "condition": {
+        "text": "ELSE -> success",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "4100-CHECK-FINAL-STATUS",
+        "line": 322,
+        "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-3"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "4100-CHECK-FINAL-STATUS",
+          "line": 322,
+          "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-039",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Found is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Error Found field is constrained to a fixed set of allowed values (ERROR-FOUND). Used by UTLVAL00.",
+      "condition": {
+        "text": "88-level values on WS-ERROR-FOUND: ERROR-FOUND",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": null,
+        "line": 78,
+        "condition_id": "COND88-WS-ERROR-FOUND"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": null,
+          "line": 78,
+          "condition_id": "COND88-WS-ERROR-FOUND"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-040",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Severity is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Error Severity field is constrained to a fixed set of allowed values (ERR-FATAL, ERR-WARNING, ERR-INFO). Used by INQONLN.",
+      "condition": {
+        "text": "88-level values on ERR-SEVERITY: ERR-FATAL, ERR-WARNING, ERR-INFO",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQONLN"
+      ],
+      "primary_source": {
+        "program_id": "INQONLN",
+        "paragraph": null,
+        "line": 10,
+        "condition_id": "COND88-ERR-SEVERITY"
+      },
+      "sources": [
+        {
+          "program_id": "INQONLN",
+          "paragraph": null,
+          "line": 10,
+          "condition_id": "COND88-ERR-SEVERITY"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-041",
+      "rule_set": "Error validation rules",
+      "name": "Validate Error Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Error Type field is constrained to a fixed set of allowed values (ERR-VALIDATION, ERR-PROCESSING, ERR-DATABASE, ERR-FILE, ERR-SECURITY). Used by CKPRST.",
+      "condition": {
+        "text": "88-level values on ERROR-TYPE: ERR-VALIDATION, ERR-PROCESSING, ERR-DATABASE, ERR-FILE, ERR-SECURITY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 24,
+        "condition_id": "COND88-ERROR-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 24,
+          "condition_id": "COND88-ERROR-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-042",
+      "rule_set": "File validation rules",
+      "name": "Validate File Status",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate File Status. Condition: \u201cEVALUATE WS-FILE-STATUS: dupkey / notfnd / other\u201d. Implemented in PORTMSTR, paragraph 2100-HANDLE-VSAM-ERROR.",
+      "condition": {
+        "text": "EVALUATE WS-FILE-STATUS: dupkey / notfnd / other",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "2100-HANDLE-VSAM-ERROR",
+        "line": 243,
+        "condition_id": "COND-PORTMSTR-2100-HANDLE-VSAM-ERROR-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "2100-HANDLE-VSAM-ERROR",
+          "line": 243,
+          "condition_id": "COND-PORTMSTR-2100-HANDLE-VSAM-ERROR-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-043",
+      "rule_set": "File validation rules",
+      "name": "Validate File Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The File Status field is constrained to a fixed set of allowed values (WS-SUCCESS-STATUS, WS-DUP-STATUS, WS-EOF-STATUS). Used by PORTADD.",
+      "condition": {
+        "text": "88-level values on WS-FILE-STATUS: WS-SUCCESS-STATUS, WS-DUP-STATUS, WS-EOF-STATUS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": true,
+      "implemented_in_programs": [
+        "PORTADD",
+        "PORTREAD",
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": null,
+        "line": 52,
+        "condition_id": "COND88-WS-FILE-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": null,
+          "line": 52,
+          "condition_id": "COND88-WS-FILE-STATUS"
+        },
+        {
+          "program_id": "PORTREAD",
+          "paragraph": null,
+          "line": 44,
+          "condition_id": "COND88-WS-FILE-STATUS"
+        },
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": null,
+          "line": 60,
+          "condition_id": "COND88-WS-FILE-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-044",
+      "rule_set": "Force validation rules",
+      "name": "Validate Force Indicator is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Force Indicator field is constrained to a fixed set of allowed values (LS-FORCE-COMMIT). Used by DB2CMT.",
+      "condition": {
+        "text": "88-level values on LS-FORCE-FLAG: LS-FORCE-COMMIT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CMT"
+      ],
+      "primary_source": {
+        "program_id": "DB2CMT",
+        "paragraph": null,
+        "line": 45,
+        "condition_id": "COND88-LS-FORCE-FLAG"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CMT",
+          "paragraph": null,
+          "line": 45,
+          "condition_id": "COND88-LS-FORCE-FLAG"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-045",
+      "rule_set": "Freq validation rules",
+      "name": "Validate Freq is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Freq field is constrained to a fixed set of allowed values (PSR-DAILY, PSR-WEEKLY, PSR-MONTHLY). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-FREQ: PSR-DAILY, PSR-WEEKLY, PSR-MONTHLY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 18,
+        "condition_id": "COND88-PSR-FREQ"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 18,
+          "condition_id": "COND88-PSR-FREQ"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-046",
+      "rule_set": "Function validation rules",
+      "name": "Validate Function is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Function field is constrained to a fixed set of allowed values (FUNC-INIT, FUNC-CHEK, FUNC-UPDT, FUNC-TERM). Used by BCHCTL00.",
+      "condition": {
+        "text": "88-level values on LS-FUNCTION: FUNC-INIT, FUNC-CHEK, FUNC-UPDT, FUNC-TERM",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": true,
+      "implemented_in_programs": [
+        "BCHCTL00",
+        "DB2CMT",
+        "DB2STAT",
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": null,
+        "line": 49,
+        "condition_id": "COND88-LS-FUNCTION"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": null,
+          "line": 49,
+          "condition_id": "COND88-LS-FUNCTION"
+        },
+        {
+          "program_id": "DB2CMT",
+          "paragraph": null,
+          "line": 34,
+          "condition_id": "COND88-LS-FUNCTION"
+        },
+        {
+          "program_id": "DB2STAT",
+          "paragraph": null,
+          "line": 42,
+          "condition_id": "COND88-LS-FUNCTION"
+        },
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 64,
+          "condition_id": "COND88-LS-FUNCTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-047",
+      "rule_set": "Function validation rules",
+      "name": "Validate Function is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Function field is constrained to a fixed set of allowed values (FUNC-CONN, FUNC-DISC, FUNC-STAT). Used by DB2CONN.",
+      "condition": {
+        "text": "88-level values on LS-FUNCTION: FUNC-CONN, FUNC-DISC, FUNC-STAT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": null,
+        "line": 35,
+        "condition_id": "COND88-LS-FUNCTION"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": null,
+          "line": 35,
+          "condition_id": "COND88-LS-FUNCTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-048",
+      "rule_set": "Function validation rules",
+      "name": "Validate Function is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Function field is constrained to a fixed set of allowed values (FUNC-LOG, FUNC-DIAG, FUNC-RETR). Used by DB2ERR.",
+      "condition": {
+        "text": "88-level values on LS-FUNCTION: FUNC-LOG, FUNC-DIAG, FUNC-RETR",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2ERR"
+      ],
+      "primary_source": {
+        "program_id": "DB2ERR",
+        "paragraph": null,
+        "line": 40,
+        "condition_id": "COND88-LS-FUNCTION"
+      },
+      "sources": [
+        {
+          "program_id": "DB2ERR",
+          "paragraph": null,
+          "line": 40,
+          "condition_id": "COND88-LS-FUNCTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-049",
+      "rule_set": "Hist validation rules",
+      "name": "Validate Hist Action Code is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Hist Action Code field is constrained to a fixed set of allowed values (HIST-ACTION-ADD, HIST-ACTION-CHG, HIST-ACTION-DEL). Used by HISTLD00.",
+      "condition": {
+        "text": "88-level values on HIST-ACTION-CODE: HIST-ACTION-ADD, HIST-ACTION-CHG, HIST-ACTION-DEL",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": null,
+        "line": 17,
+        "condition_id": "COND88-HIST-ACTION-CODE"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": null,
+          "line": 17,
+          "condition_id": "COND88-HIST-ACTION-CODE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-050",
+      "rule_set": "Hist validation rules",
+      "name": "Validate Hist Record Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Hist Record Type field is constrained to a fixed set of allowed values (HIST-TYPE-PORT, HIST-TYPE-POS, HIST-TYPE-TRN). Used by HISTLD00.",
+      "condition": {
+        "text": "88-level values on HIST-RECORD-TYPE: HIST-TYPE-PORT, HIST-TYPE-POS, HIST-TYPE-TRN",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": null,
+        "line": 13,
+        "condition_id": "COND88-HIST-RECORD-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": null,
+          "line": 13,
+          "condition_id": "COND88-HIST-RECORD-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-051",
+      "rule_set": "Holiday validation rules",
+      "name": "Validate Holiday Run is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Holiday Run field is constrained to a fixed set of allowed values (PSR-SKIP-HOL, PSR-RUN-HOL). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-HOLIDAY-RUN: PSR-SKIP-HOL, PSR-RUN-HOL",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 46,
+        "condition_id": "COND88-PSR-HOLIDAY-RUN"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 46,
+          "condition_id": "COND88-PSR-HOLIDAY-RUN"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-052",
+      "rule_set": "Input validation rules",
+      "name": "Validate Input Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Input Status field is constrained to a fixed set of allowed values (WS-INPUT-SUCCESS, WS-INPUT-EOF). Used by PORTADD.",
+      "condition": {
+        "text": "88-level values on WS-INPUT-STATUS: WS-INPUT-SUCCESS, WS-INPUT-EOF",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTADD"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": null,
+        "line": 57,
+        "condition_id": "COND88-WS-INPUT-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": null,
+          "line": 57,
+          "condition_id": "COND88-WS-INPUT-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-053",
+      "rule_set": "Inqcom validation rules",
+      "name": "Validate Inqcom Function is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Inqcom Function field is constrained to a fixed set of allowed values (INQCOM-MENU, INQCOM-PORTFOLIO, INQCOM-HISTORY, INQCOM-EXIT). Used by INQHIST, INQHIST, INQONLN, INQONLN.",
+      "condition": {
+        "text": "88-level values on INQCOM-FUNCTION: INQCOM-MENU, INQCOM-PORTFOLIO, INQCOM-HISTORY, INQCOM-EXIT",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQHIST"
+      ],
+      "primary_source": {
+        "program_id": "INQHIST",
+        "paragraph": null,
+        "line": 5,
+        "condition_id": "COND88-INQCOM-FUNCTION"
+      },
+      "sources": [
+        {
+          "program_id": "INQHIST",
+          "paragraph": null,
+          "line": 5,
+          "condition_id": "COND88-INQCOM-FUNCTION"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-054",
+      "rule_set": "Limit and threshold rules",
+      "name": "Commit to DB2 every 1,000 rows and update the restart checkpoint",
+      "category": "LIMIT_CHECK",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "During the history load, the DB2 unit of work is committed whenever the running row counter reaches the commit threshold (1,000 rows), after which the restart checkpoint is updated. This bounds how much any rollback can undo and makes the load restartable.",
+      "condition": {
+        "text": "IF commit-count >= threshold -> commit + checkpoint",
+        "pattern": "RANGE_CHECK"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "HISTLD00"
+      ],
+      "primary_source": {
+        "program_id": "HISTLD00",
+        "paragraph": "2300-CHECK-COMMIT",
+        "line": 177,
+        "condition_id": "COND-HISTLD00-2300-CHECK-COMMIT-1"
+      },
+      "sources": [
+        {
+          "program_id": "HISTLD00",
+          "paragraph": "2300-CHECK-COMMIT",
+          "line": 177,
+          "condition_id": "COND-HISTLD00-2300-CHECK-COMMIT-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-055",
+      "rule_set": "Limit and threshold rules",
+      "name": "Commit when the records-processed count reaches the commit frequency (or is forced)",
+      "category": "LIMIT_CHECK",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The commit controller issues a DB2 COMMIT when the caller's processed-record count reaches the configured commit frequency, or when a force-commit flag is set \u2014 letting each caller control its own commit cadence.",
+      "condition": {
+        "text": "IF threshold reached OR forced -> commit",
+        "pattern": "MULTI_CONDITION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CMT"
+      ],
+      "primary_source": {
+        "program_id": "DB2CMT",
+        "paragraph": "2000-COMMIT",
+        "line": 80,
+        "condition_id": "COND-DB2CMT-2000-COMMIT-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CMT",
+          "paragraph": "2000-COMMIT",
+          "line": 80,
+          "condition_id": "COND-DB2CMT-2000-COMMIT-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-056",
+      "rule_set": "Month validation rules",
+      "name": "Validate Month End is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Month End field is constrained to a fixed set of allowed values (PSR-LAST-DAY). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-MONTH-END: PSR-LAST-DAY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 44,
+        "condition_id": "COND88-PSR-MONTH-END"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 44,
+          "condition_id": "COND88-PSR-MONTH-END"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-057",
+      "rule_set": "More validation rules",
+      "name": "Validate More History is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The More History field is constrained to a fixed set of allowed values (MORE-ROWS, NO-MORE-ROWS). Used by INQHIST.",
+      "condition": {
+        "text": "88-level values on WS-MORE-HISTORY: MORE-ROWS, NO-MORE-ROWS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQHIST"
+      ],
+      "primary_source": {
+        "program_id": "INQHIST",
+        "paragraph": null,
+        "line": 30,
+        "condition_id": "COND88-WS-MORE-HISTORY"
+      },
+      "sources": [
+        {
+          "program_id": "INQHIST",
+          "paragraph": null,
+          "line": 30,
+          "condition_id": "COND88-WS-MORE-HISTORY"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-058",
+      "rule_set": "Next validation rules",
+      "name": "Validate Next Process",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Next Process. Condition: \u201cPERFORM VARYING over dependencies\u201d. Implemented in PRCSEQ00, paragraph 2200-CHECK-DEPENDENCIES.",
+      "condition": {
+        "text": "PERFORM VARYING over dependencies",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2200-CHECK-DEPENDENCIES",
+        "line": 221,
+        "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2200-CHECK-DEPENDENCIES",
+          "line": 221,
+          "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-059",
+      "rule_set": "Next validation rules",
+      "name": "Validate Next Process",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Next Process. Condition: \u201cIF a dependency fails -> stop\u201d. Implemented in PRCSEQ00, paragraph 2200-CHECK-DEPENDENCIES.",
+      "condition": {
+        "text": "IF a dependency fails -> stop",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2200-CHECK-DEPENDENCIES",
+        "line": 221,
+        "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-3"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2200-CHECK-DEPENDENCIES",
+          "line": 221,
+          "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-060",
+      "rule_set": "Phase validation rules",
+      "name": "Validate Phase is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Phase field is constrained to a fixed set of allowed values (CK-PHASE-INIT, CK-PHASE-READ, CK-PHASE-PROC, CK-PHASE-UPDT, CK-PHASE-TERM). Used by CKPRST, CKPRST.",
+      "condition": {
+        "text": "88-level values on CK-PHASE: CK-PHASE-INIT, CK-PHASE-READ, CK-PHASE-PROC, CK-PHASE-UPDT, CK-PHASE-TERM",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 27,
+        "condition_id": "COND88-CK-PHASE"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 27,
+          "condition_id": "COND88-CK-PHASE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-061",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Portfolio. Condition: \u201cEVALUATE read status: success / not-found / other\u201d. Implemented in PORTMSTR, paragraph 3000-READ-PORTFOLIO.",
+      "condition": {
+        "text": "EVALUATE read status: success / not-found / other",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "3000-READ-PORTFOLIO",
+        "line": 163,
+        "condition_id": "COND-PORTMSTR-3000-READ-PORTFOLIO-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "3000-READ-PORTFOLIO",
+          "line": 163,
+          "condition_id": "COND-PORTMSTR-3000-READ-PORTFOLIO-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-062",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Client Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Portfolio Client Type field is constrained to a fixed set of allowed values (PORT-INDIVIDUAL, PORT-CORPORATE, PORT-TRUST). Used by PORTADD, PORTADD, PORTREAD, PORTUPDT.",
+      "condition": {
+        "text": "88-level values on PORT-CLIENT-TYPE: PORT-INDIVIDUAL, PORT-CORPORATE, PORT-TRUST",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTADD"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": null,
+        "line": 17,
+        "condition_id": "COND88-PORT-CLIENT-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": null,
+          "line": 17,
+          "condition_id": "COND88-PORT-CLIENT-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-063",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Portfolio Id. Condition: \u201cEVALUATE write status: success / duplicate / other\u201d. Implemented in PORTADD, paragraph 2100-VALIDATE-AND-ADD.",
+      "condition": {
+        "text": "EVALUATE write status: success / duplicate / other",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTADD"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": "2100-VALIDATE-AND-ADD",
+        "line": 113,
+        "condition_id": "COND-PORTADD-2100-VALIDATE-AND-ADD-2"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": "2100-VALIDATE-AND-ADD",
+          "line": 113,
+          "condition_id": "COND-PORTADD-2100-VALIDATE-AND-ADD-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-064",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Portfolio Id. Condition: \u201cIF ID format invalid -> fail\u201d. Implemented in PORTMSTR, paragraph 2100-VALIDATE-PORTFOLIO.",
+      "condition": {
+        "text": "IF ID format invalid -> fail",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "2100-VALIDATE-PORTFOLIO",
+        "line": 138,
+        "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "2100-VALIDATE-PORTFOLIO",
+          "line": 138,
+          "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-065",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Portfolio Id. Condition: \u201cIF name blank -> fail\u201d. Implemented in PORTMSTR, paragraph 2100-VALIDATE-PORTFOLIO.",
+      "condition": {
+        "text": "IF name blank -> fail",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "2100-VALIDATE-PORTFOLIO",
+        "line": 138,
+        "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-2"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "2100-VALIDATE-PORTFOLIO",
+          "line": 138,
+          "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-066",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Portfolio Id. Condition: \u201cIF status not A/I/C -> fail\u201d. Implemented in PORTMSTR, paragraph 2100-VALIDATE-PORTFOLIO.",
+      "condition": {
+        "text": "IF status not A/I/C -> fail",
+        "pattern": "NEGATION"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "2100-VALIDATE-PORTFOLIO",
+        "line": 138,
+        "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-3"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "2100-VALIDATE-PORTFOLIO",
+          "line": 138,
+          "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-067",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Portfolio Status field is constrained to a fixed set of allowed values (PORT-ACTIVE, PORT-CLOSED, PORT-SUSPENDED). Used by PORTADD, PORTADD, PORTREAD, PORTUPDT.",
+      "condition": {
+        "text": "88-level values on PORT-STATUS: PORT-ACTIVE, PORT-CLOSED, PORT-SUSPENDED",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTADD"
+      ],
+      "primary_source": {
+        "program_id": "PORTADD",
+        "paragraph": null,
+        "line": 24,
+        "condition_id": "COND88-PORT-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTADD",
+          "paragraph": null,
+          "line": 24,
+          "condition_id": "COND88-PORT-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-068",
+      "rule_set": "Portfolio validation rules",
+      "name": "Validate Portfolio Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Portfolio Status field is constrained to a fixed set of allowed values (PORT-SUCCESS, PORT-EOF, PORT-NOT-FOUND, PORT-DUP-KEY). Used by PORTMSTR.",
+      "condition": {
+        "text": "88-level values on WS-PORT-STATUS: PORT-SUCCESS, PORT-EOF, PORT-NOT-FOUND, PORT-DUP-KEY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": null,
+        "line": 52,
+        "condition_id": "COND88-WS-PORT-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": null,
+          "line": 52,
+          "condition_id": "COND88-WS-PORT-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-069",
+      "rule_set": "Position validation rules",
+      "name": "Validate Position Found (88 position Exists)",
+      "category": "VALIDATION",
+      "confidence": "low",
+      "requires_sme_review": true,
+      "description": "Validate Position Found (88 position Exists). Condition: \u201cIF POSITION-EXISTS  -> P300-FORMAT-DISPLAY else P900-NOT-FOUND\u201d. Implemented in INQPORT, paragraph MAINLINE.",
+      "condition": {
+        "text": "IF POSITION-EXISTS  -> P300-FORMAT-DISPLAY else P900-NOT-FOUND",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQPORT"
+      ],
+      "primary_source": {
+        "program_id": "INQPORT",
+        "paragraph": "MAINLINE",
+        "line": 40,
+        "condition_id": "COND-INQPORT-MAINLINE-1"
+      },
+      "sources": [
+        {
+          "program_id": "INQPORT",
+          "paragraph": "MAINLINE",
+          "line": 40,
+          "condition_id": "COND-INQPORT-MAINLINE-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-070",
+      "rule_set": "Position validation rules",
+      "name": "Validate Position Found is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Position Found field is constrained to a fixed set of allowed values (POSITION-EXISTS, NO-POSITION). Used by INQPORT.",
+      "condition": {
+        "text": "88-level values on WS-POSITION-FOUND: POSITION-EXISTS, NO-POSITION",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQPORT"
+      ],
+      "primary_source": {
+        "program_id": "INQPORT",
+        "paragraph": null,
+        "line": 25,
+        "condition_id": "COND88-WS-POSITION-FOUND"
+      },
+      "sources": [
+        {
+          "program_id": "INQPORT",
+          "paragraph": null,
+          "line": 25,
+          "condition_id": "COND88-WS-POSITION-FOUND"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-071",
+      "rule_set": "Position validation rules",
+      "name": "Validate Position Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Position Status field is constrained to a fixed set of allowed values (POS-STATUS-ACTIVE, POS-STATUS-CLOSED, POS-STATUS-PEND). Used by INQPORT, UTLVAL00.",
+      "condition": {
+        "text": "88-level values on POS-STATUS: POS-STATUS-ACTIVE, POS-STATUS-CLOSED, POS-STATUS-PEND",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQPORT"
+      ],
+      "primary_source": {
+        "program_id": "INQPORT",
+        "paragraph": null,
+        "line": 16,
+        "condition_id": "COND88-POS-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "INQPORT",
+          "paragraph": null,
+          "line": 16,
+          "condition_id": "COND88-POS-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-072",
+      "rule_set": "Prereq validation rules",
+      "name": "Validate Prereq Met",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Prereq Met. Condition: \u201cIF PREREQS-SATISFIED -> success else warning\u201d. Implemented in BCHCTL00, paragraph 2000-CHECK-PREREQUISITES.",
+      "condition": {
+        "text": "IF PREREQS-SATISFIED -> success else warning",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "BCHCTL00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": "2000-CHECK-PREREQUISITES",
+        "line": 90,
+        "condition_id": "COND-BCHCTL00-2000-CHECK-PREREQUISITES-1"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": "2000-CHECK-PREREQUISITES",
+          "line": 90,
+          "condition_id": "COND-BCHCTL00-2000-CHECK-PREREQUISITES-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-073",
+      "rule_set": "Prereq validation rules",
+      "name": "Validate Prereq Met is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Prereq Met field is constrained to a fixed set of allowed values (PREREQS-SATISFIED, PREREQS-PENDING). Used by BCHCTL00.",
+      "condition": {
+        "text": "88-level values on WS-PREREQ-MET: PREREQS-SATISFIED, PREREQS-PENDING",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "BCHCTL00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": null,
+        "line": 38,
+        "condition_id": "COND88-WS-PREREQ-MET"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": null,
+          "line": 38,
+          "condition_id": "COND88-WS-PREREQ-MET"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-074",
+      "rule_set": "Process validation rules",
+      "name": "Validate Process Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Process Id. Condition: \u201cPERFORM VARYING scan\u201d. Implemented in PRCSEQ00, paragraph 3200-UPDATE-SEQUENCE-TABLE.",
+      "condition": {
+        "text": "PERFORM VARYING scan",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+        "line": 292,
+        "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+          "line": 292,
+          "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-075",
+      "rule_set": "Process validation rules",
+      "name": "Validate Process Id",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Process Id. Condition: \u201cIF row matches -> update + exit\u201d. Implemented in PRCSEQ00, paragraph 3200-UPDATE-SEQUENCE-TABLE.",
+      "condition": {
+        "text": "IF row matches -> update + exit",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+        "line": 292,
+        "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+          "line": 292,
+          "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-076",
+      "rule_set": "Process validation rules",
+      "name": "Validate Process Mode is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Process Mode field is constrained to a fixed set of allowed values (MODE-INITIALIZE, MODE-CHECK-PREREQ, MODE-UPDATE-STATUS, MODE-FINALIZE). Used by BCHCTL00.",
+      "condition": {
+        "text": "88-level values on WS-PROCESS-MODE: MODE-INITIALIZE, MODE-CHECK-PREREQ, MODE-UPDATE-STATUS, MODE-FINALIZE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "BCHCTL00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": null,
+        "line": 41,
+        "condition_id": "COND88-WS-PROCESS-MODE"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": null,
+          "line": 41,
+          "condition_id": "COND88-WS-PROCESS-MODE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-077",
+      "rule_set": "Process validation rules",
+      "name": "Validate Process Table",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Process Table. Condition: \u201cPERFORM UNTIL status='10' (scan loop)\u201d. Implemented in PRCSEQ00, paragraph 1200-BUILD-SEQUENCE.",
+      "condition": {
+        "text": "PERFORM UNTIL status='10' (scan loop)",
+        "pattern": "STATUS_CODE_CHECK"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "1200-BUILD-SEQUENCE",
+        "line": 155,
+        "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "1200-BUILD-SEQUENCE",
+          "line": 155,
+          "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-078",
+      "rule_set": "Process validation rules",
+      "name": "Validate Process Table",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Process Table. Condition: \u201cIF PSR-TYPE matches -> add\u201d. Implemented in PRCSEQ00, paragraph 1200-BUILD-SEQUENCE.",
+      "condition": {
+        "text": "IF PSR-TYPE matches -> add",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "1200-BUILD-SEQUENCE",
+        "line": 155,
+        "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-3"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "1200-BUILD-SEQUENCE",
+          "line": 155,
+          "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-079",
+      "rule_set": "Recv validation rules",
+      "name": "Validate Recv Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Recv Status field is constrained to a fixed set of allowed values (RECV-SUCCESS, RECV-FAILED, RECV-RETRY). Used by INQHIST.",
+      "condition": {
+        "text": "88-level values on RECV-STATUS: RECV-SUCCESS, RECV-FAILED, RECV-RETRY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "INQHIST"
+      ],
+      "primary_source": {
+        "program_id": "INQHIST",
+        "paragraph": null,
+        "line": 60,
+        "condition_id": "COND88-RECV-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "INQHIST",
+          "paragraph": null,
+          "line": 60,
+          "condition_id": "COND88-RECV-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-080",
+      "rule_set": "Response validation rules",
+      "name": "Validate Response Request Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Response Request Type field is constrained to a fixed set of allowed values (RC-INITIALIZE, RC-SET-CODE, RC-GET-CODE, RC-LOG-CODE, RC-ANALYZE). Used by TSTVAL00, UTLVAL00.",
+      "condition": {
+        "text": "88-level values on RC-REQUEST-TYPE: RC-INITIALIZE, RC-SET-CODE, RC-GET-CODE, RC-LOG-CODE, RC-ANALYZE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "TSTVAL00"
+      ],
+      "primary_source": {
+        "program_id": "TSTVAL00",
+        "paragraph": null,
+        "line": 5,
+        "condition_id": "COND88-RC-REQUEST-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "TSTVAL00",
+          "paragraph": null,
+          "line": 5,
+          "condition_id": "COND88-RC-REQUEST-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-081",
+      "rule_set": "Response validation rules",
+      "name": "Validate Response Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Response Status field is constrained to a fixed set of allowed values (RC-STATUS-SUCCESS, RC-STATUS-WARNING, RC-STATUS-ERROR, RC-STATUS-SEVERE). Used by TSTVAL00, UTLVAL00.",
+      "condition": {
+        "text": "88-level values on RC-STATUS: RC-STATUS-SUCCESS, RC-STATUS-WARNING, RC-STATUS-ERROR, RC-STATUS-SEVERE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "TSTVAL00"
+      ],
+      "primary_source": {
+        "program_id": "TSTVAL00",
+        "paragraph": null,
+        "line": 16,
+        "condition_id": "COND88-RC-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "TSTVAL00",
+          "paragraph": null,
+          "line": 16,
+          "condition_id": "COND88-RC-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-082",
+      "rule_set": "Restart validation rules",
+      "name": "Validate Restart Mode is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Restart Mode field is constrained to a fixed set of allowed values (CK-MODE-NORMAL, CK-MODE-RESTART, CK-MODE-RECOVER). Used by CKPRST, CKPRST.",
+      "condition": {
+        "text": "88-level values on CK-RESTART-MODE: CK-MODE-NORMAL, CK-MODE-RESTART, CK-MODE-RECOVER",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 44,
+        "condition_id": "COND88-CK-RESTART-MODE"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 44,
+          "condition_id": "COND88-CK-RESTART-MODE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-083",
+      "rule_set": "Restart validation rules",
+      "name": "Validate Restart is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Restart field is constrained to a fixed set of allowed values (PSR-RESTARTABLE, PSR-NO-RESTART). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-RESTART: PSR-RESTARTABLE, PSR-NO-RESTART",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 36,
+        "condition_id": "COND88-PSR-RESTART"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 36,
+          "condition_id": "COND88-PSR-RESTART"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-084",
+      "rule_set": "Retry validation rules",
+      "name": "Validate Retry Indicator is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Retry Indicator field is constrained to a fixed set of allowed values (LS-SHOULD-RETRY, LS-NO-RETRY). Used by DB2ERR.",
+      "condition": {
+        "text": "88-level values on LS-RETRY-FLAG: LS-SHOULD-RETRY, LS-NO-RETRY",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2ERR"
+      ],
+      "primary_source": {
+        "program_id": "DB2ERR",
+        "paragraph": null,
+        "line": 51,
+        "condition_id": "COND88-LS-RETRY-FLAG"
+      },
+      "sources": [
+        {
+          "program_id": "DB2ERR",
+          "paragraph": null,
+          "line": 51,
+          "condition_id": "COND88-LS-RETRY-FLAG"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-085",
+      "rule_set": "Return validation rules",
+      "name": "Validate Return Code",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Return Code. Condition: \u201cIF dependencies satisfied (rc=0) -> mark active\u201d. Implemented in PRCSEQ00, paragraph 2000-GET-NEXT-PROCESS.",
+      "condition": {
+        "text": "IF dependencies satisfied (rc=0) -> mark active",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2000-GET-NEXT-PROCESS",
+        "line": 100,
+        "condition_id": "COND-PRCSEQ00-2000-GET-NEXT-PROCESS-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2000-GET-NEXT-PROCESS",
+          "line": 100,
+          "condition_id": "COND-PRCSEQ00-2000-GET-NEXT-PROCESS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-086",
+      "rule_set": "Return validation rules",
+      "name": "Validate Return Code is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Return Code field is constrained to a fixed set of allowed values (RC-SUCCESS, RC-WARNING, RC-ERROR, RC-SEVERE, RC-CRITICAL). Used by CKPRST.",
+      "condition": {
+        "text": "88-level values on RETURN-CODE: RC-SUCCESS, RC-WARNING, RC-ERROR, RC-SEVERE, RC-CRITICAL",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 8,
+        "condition_id": "COND88-RETURN-CODE"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 8,
+          "condition_id": "COND88-RETURN-CODE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-087",
+      "rule_set": "Sequence validation rules",
+      "name": "Validate Sequence Ix",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Sequence Ix. Condition: \u201cPERFORM VARYING over process table\u201d. Implemented in PRCSEQ00, paragraph 1300-CREATE-CONTROL-RECORDS.",
+      "condition": {
+        "text": "PERFORM VARYING over process table",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "1300-CREATE-CONTROL-RECORDS",
+        "line": 188,
+        "condition_id": "COND-PRCSEQ00-1300-CREATE-CONTROL-RECORDS-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "1300-CREATE-CONTROL-RECORDS",
+          "line": 188,
+          "condition_id": "COND-PRCSEQ00-1300-CREATE-CONTROL-RECORDS-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-088",
+      "rule_set": "Sequence validation rules",
+      "name": "Validate Sequence Ix",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Sequence Ix. Condition: \u201cPERFORM VARYING scan\u201d. Implemented in PRCSEQ00, paragraph 2100-FIND-NEXT-READY.",
+      "condition": {
+        "text": "PERFORM VARYING scan",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2100-FIND-NEXT-READY",
+        "line": 206,
+        "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2100-FIND-NEXT-READY",
+          "line": 206,
+          "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-089",
+      "rule_set": "Sequence validation rules",
+      "name": "Validate Sequence Ix",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Sequence Ix. Condition: \u201cIF row READY -> pick + exit\u201d. Implemented in PRCSEQ00, paragraph 2100-FIND-NEXT-READY.",
+      "condition": {
+        "text": "IF row READY -> pick + exit",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2100-FIND-NEXT-READY",
+        "line": 206,
+        "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-2"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2100-FIND-NEXT-READY",
+          "line": 206,
+          "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-2"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-090",
+      "rule_set": "Sequence validation rules",
+      "name": "Validate Sequence Ix",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Sequence Ix. Condition: \u201cIF none found -> blank\u201d. Implemented in PRCSEQ00, paragraph 2100-FIND-NEXT-READY.",
+      "condition": {
+        "text": "IF none found -> blank",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "2100-FIND-NEXT-READY",
+        "line": 206,
+        "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-3"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "2100-FIND-NEXT-READY",
+          "line": 206,
+          "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-3"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-091",
+      "rule_set": "Status validation rules",
+      "name": "Validate Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Status field is constrained to a fixed set of allowed values (BCT-STATUS-READY, BCT-STATUS-ACTIVE, BCT-STATUS-WAITING, BCT-STATUS-DONE, BCT-STATUS-ERROR). Used by BCHCTL00, HISTLD00, PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on BCT-STATUS: BCT-STATUS-READY, BCT-STATUS-ACTIVE, BCT-STATUS-WAITING, BCT-STATUS-DONE, BCT-STATUS-ERROR",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "BCHCTL00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": null,
+        "line": 15,
+        "condition_id": "COND88-BCT-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": null,
+          "line": 15,
+          "condition_id": "COND88-BCT-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-092",
+      "rule_set": "Status validation rules",
+      "name": "Validate Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Status field is constrained to a fixed set of allowed values (CK-INITIAL, CK-ACTIVE, CK-COMPLETE, CK-FAILED, CK-RESTARTED). Used by CKPRST, CKPRST.",
+      "condition": {
+        "text": "88-level values on CK-STATUS: CK-INITIAL, CK-ACTIVE, CK-COMPLETE, CK-FAILED, CK-RESTARTED",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": null,
+        "line": 11,
+        "condition_id": "COND88-CK-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": null,
+          "line": 11,
+          "condition_id": "COND88-CK-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-093",
+      "rule_set": "Test validation rules",
+      "name": "Validate Test Passed is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Test Passed field is constrained to a fixed set of allowed values (TEST-PASSED). Used by TSTVAL00.",
+      "condition": {
+        "text": "88-level values on WS-TEST-PASSED: TEST-PASSED",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "TSTVAL00"
+      ],
+      "primary_source": {
+        "program_id": "TSTVAL00",
+        "paragraph": null,
+        "line": 85,
+        "condition_id": "COND88-WS-TEST-PASSED"
+      },
+      "sources": [
+        {
+          "program_id": "TSTVAL00",
+          "paragraph": null,
+          "line": 85,
+          "condition_id": "COND88-WS-TEST-PASSED"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-094",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch checkpoint/restart operation by entry-point code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The checkpoint service selects its operation from the caller's entry-point code \u2014 INIT (initialise), TAKE (take a checkpoint), COMMIT, or RESTART \u2014 routing each to its handler.",
+      "condition": {
+        "text": "EVALUATE entry point: INIT/TAKE/COMMIT/RESTART",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CKPRST"
+      ],
+      "primary_source": {
+        "program_id": "CKPRST",
+        "paragraph": "MAINLINE",
+        "line": 26,
+        "condition_id": "COND-CKPRST-MAINLINE-1"
+      },
+      "sources": [
+        {
+          "program_id": "CKPRST",
+          "paragraph": "MAINLINE",
+          "line": 26,
+          "condition_id": "COND-CKPRST-MAINLINE-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-095",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch portfolio maintenance by CRUD command",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The portfolio master service routes each call by its single-letter command: C creates, R reads, U updates and D deletes a portfolio record; any other command is rejected as invalid.",
+      "condition": {
+        "text": "EVALUATE command: CREATE/READ/UPDATE/DELETE/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": "0000-MAIN",
+        "line": 83,
+        "condition_id": "COND-PORTMSTR-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": "0000-MAIN",
+          "line": 83,
+          "condition_id": "COND-PORTMSTR-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-096",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch cursor operation by request type",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The cursor manager selects a DB2 cursor lifecycle operation from the request type \u2014 Declare, Open, Fetch or Close \u2014 so callers drive a cursor through one shared service.",
+      "condition": {
+        "text": "EVALUATE request type: DECLARE/OPEN/FETCH/CLOSE",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "CURSMGR"
+      ],
+      "primary_source": {
+        "program_id": "CURSMGR",
+        "paragraph": "MAINLINE",
+        "line": 43,
+        "condition_id": "COND-CURSMGR-MAINLINE-1"
+      },
+      "sources": [
+        {
+          "program_id": "CURSMGR",
+          "paragraph": "MAINLINE",
+          "line": 43,
+          "condition_id": "COND-CURSMGR-MAINLINE-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-097",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch batch-control function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The batch control processor routes by a four-character function code: INIT initialises a job, CHEK checks prerequisites, UPDT updates status, TERM finalises; any other code is treated as an error.",
+      "condition": {
+        "text": "EVALUATE function: INIT/CHEK/UPDT/TERM/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "BCHCTL00"
+      ],
+      "primary_source": {
+        "program_id": "BCHCTL00",
+        "paragraph": "0000-MAIN",
+        "line": 60,
+        "condition_id": "COND-BCHCTL00-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "BCHCTL00",
+          "paragraph": "0000-MAIN",
+          "line": 60,
+          "condition_id": "COND-BCHCTL00-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-098",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch process-sequence function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The process sequence manager routes by function code: INIT builds the run sequence, NEXT selects the next ready process (checking its dependencies), STAT refreshes status, TERM computes the final status; any other code is rejected.",
+      "condition": {
+        "text": "EVALUATE function: INIT/NEXT/STAT/TERM/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": "0000-MAIN",
+        "line": 75,
+        "condition_id": "COND-PRCSEQ00-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": "0000-MAIN",
+          "line": 75,
+          "condition_id": "COND-PRCSEQ00-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-099",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch DB2 connection function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The DB2 connection manager routes by function code \u2014 CONN connects (with bounded retry), DISC commits and disconnects, STAT checks the live connection; any other code is an error.",
+      "condition": {
+        "text": "EVALUATE function: CONN/DISC/STAT/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CONN"
+      ],
+      "primary_source": {
+        "program_id": "DB2CONN",
+        "paragraph": "0000-MAIN",
+        "line": 47,
+        "condition_id": "COND-DB2CONN-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CONN",
+          "paragraph": "0000-MAIN",
+          "line": 47,
+          "condition_id": "COND-DB2CONN-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-100",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch DB2 commit-controller function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The commit controller routes by function code: INIT resets counters, CMIT commits (by frequency or force), RBAK rolls back, SAVE creates a savepoint, REST restores to one, STAT reports counts; any other code is an error.",
+      "condition": {
+        "text": "EVALUATE function: INIT/CMIT/RBAK/SAVE/REST/STAT/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2CMT"
+      ],
+      "primary_source": {
+        "program_id": "DB2CMT",
+        "paragraph": "0000-MAIN",
+        "line": 53,
+        "condition_id": "COND-DB2CMT-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2CMT",
+          "paragraph": "0000-MAIN",
+          "line": 53,
+          "condition_id": "COND-DB2CMT-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-101",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch DB2 error-handler function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The SQL error handler routes by function code \u2014 LOG records the error to the ERRLOG table, DIAG classifies a SQLCODE into a message and severity, RETR fetches the latest logged error; any other code is an error.",
+      "condition": {
+        "text": "EVALUATE function: LOG/DIAG/RETR/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2ERR"
+      ],
+      "primary_source": {
+        "program_id": "DB2ERR",
+        "paragraph": "0000-MAIN",
+        "line": 56,
+        "condition_id": "COND-DB2ERR-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2ERR",
+          "paragraph": "0000-MAIN",
+          "line": 56,
+          "condition_id": "COND-DB2ERR-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-102",
+      "rule_set": "Transaction routing rules",
+      "name": "Dispatch DB2 statistics function by function code",
+      "category": "ROUTING",
+      "confidence": "high",
+      "requires_sme_review": false,
+      "description": "The statistics collector routes by function code: INIT creates the session stats row, UPDT stores current counters, TERM finalises with elapsed/CPU time, DISP displays them; any other code is an error.",
+      "condition": {
+        "text": "EVALUATE function: INIT/UPDT/TERM/DISP/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "DB2STAT"
+      ],
+      "primary_source": {
+        "program_id": "DB2STAT",
+        "paragraph": "0000-MAIN",
+        "line": 58,
+        "condition_id": "COND-DB2STAT-0000-MAIN-1"
+      },
+      "sources": [
+        {
+          "program_id": "DB2STAT",
+          "paragraph": "0000-MAIN",
+          "line": 58,
+          "condition_id": "COND-DB2STAT-0000-MAIN-1"
+        }
+      ],
+      "description_source": "ai-host (hybrid)"
+    },
+    {
+      "rule_id": "BR-103",
+      "rule_set": "Trn validation rules",
+      "name": "Validate Trn Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Trn Status field is constrained to a fixed set of allowed values (TRN-STATUS-PEND, TRN-STATUS-DONE, TRN-STATUS-FAIL, TRN-STATUS-REV). Used by UTLVAL00.",
+      "condition": {
+        "text": "88-level values on TRN-STATUS: TRN-STATUS-PEND, TRN-STATUS-DONE, TRN-STATUS-FAIL, TRN-STATUS-REV",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": null,
+        "line": 23,
+        "condition_id": "COND88-TRN-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": null,
+          "line": 23,
+          "condition_id": "COND88-TRN-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-104",
+      "rule_set": "Trn validation rules",
+      "name": "Validate Trn Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Trn Type field is constrained to a fixed set of allowed values (TRN-TYPE-BUY, TRN-TYPE-SELL, TRN-TYPE-TRANS, TRN-TYPE-FEE). Used by UTLVAL00.",
+      "condition": {
+        "text": "88-level values on TRN-TYPE: TRN-TYPE-BUY, TRN-TYPE-SELL, TRN-TYPE-TRANS, TRN-TYPE-FEE",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": null,
+        "line": 14,
+        "condition_id": "COND88-TRN-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": null,
+          "line": 14,
+          "condition_id": "COND88-TRN-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-105",
+      "rule_set": "Type validation rules",
+      "name": "Validate Type is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Type field is constrained to a fixed set of allowed values (PSR-TYPE-INIT, PSR-TYPE-PROC, PSR-TYPE-RPT, PSR-TYPE-TERM). Used by PRCSEQ00.",
+      "condition": {
+        "text": "88-level values on PSR-TYPE: PSR-TYPE-INIT, PSR-TYPE-PROC, PSR-TYPE-RPT, PSR-TYPE-TERM",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PRCSEQ00"
+      ],
+      "primary_source": {
+        "program_id": "PRCSEQ00",
+        "paragraph": null,
+        "line": 12,
+        "condition_id": "COND88-PSR-TYPE"
+      },
+      "sources": [
+        {
+          "program_id": "PRCSEQ00",
+          "paragraph": null,
+          "line": 12,
+          "condition_id": "COND88-PSR-TYPE"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-106",
+      "rule_set": "Updt validation rules",
+      "name": "Validate Updt Action",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Updt Action. Condition: \u201cEVALUATE UPDT-ACTION: status / name / value\u201d. Implemented in PORTUPDT, paragraph 2200-APPLY-UPDATE.",
+      "condition": {
+        "text": "EVALUATE UPDT-ACTION: status / name / value",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "PORTUPDT",
+        "paragraph": "2200-APPLY-UPDATE",
+        "line": 131,
+        "condition_id": "COND-PORTUPDT-2200-APPLY-UPDATE-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": "2200-APPLY-UPDATE",
+          "line": 131,
+          "condition_id": "COND-PORTUPDT-2200-APPLY-UPDATE-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-107",
+      "rule_set": "Updt validation rules",
+      "name": "Validate Updt Key",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Updt Key. Condition: \u201cIF portfolio read success -> apply update else count not-found\u201d. Implemented in PORTUPDT, paragraph 2100-PROCESS-UPDATE.",
+      "condition": {
+        "text": "IF portfolio read success -> apply update else count not-found",
+        "pattern": "FIELD_VALUE_COMPARE"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "PORTUPDT",
+        "paragraph": "2100-PROCESS-UPDATE",
+        "line": 118,
+        "condition_id": "COND-PORTUPDT-2100-PROCESS-UPDATE-1"
+      },
+      "sources": [
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": "2100-PROCESS-UPDATE",
+          "line": 118,
+          "condition_id": "COND-PORTUPDT-2100-PROCESS-UPDATE-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-108",
+      "rule_set": "Updt validation rules",
+      "name": "Validate Updt Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Updt Status field is constrained to a fixed set of allowed values (WS-UPDT-SUCCESS, WS-UPDT-EOF). Used by PORTUPDT.",
+      "condition": {
+        "text": "88-level values on WS-UPDT-STATUS: WS-UPDT-SUCCESS, WS-UPDT-EOF",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTUPDT"
+      ],
+      "primary_source": {
+        "program_id": "PORTUPDT",
+        "paragraph": null,
+        "line": 65,
+        "condition_id": "COND88-WS-UPDT-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTUPDT",
+          "paragraph": null,
+          "line": 65,
+          "condition_id": "COND88-WS-UPDT-STATUS"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-109",
+      "rule_set": "Val validation rules",
+      "name": "Validate Val Type",
+      "category": "VALIDATION",
+      "confidence": "medium",
+      "requires_sme_review": false,
+      "description": "Validate Val Type. Condition: \u201cEVALUATE VAL-TYPE: INTEGRITY/XREF/FORMAT/BALANCE/OTHER\u201d. Implemented in UTLVAL00, paragraph 2100-PROCESS-VALIDATION.",
+      "condition": {
+        "text": "EVALUATE VAL-TYPE: INTEGRITY/XREF/FORMAT/BALANCE/OTHER",
+        "pattern": "SET_MEMBERSHIP"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "UTLVAL00"
+      ],
+      "primary_source": {
+        "program_id": "UTLVAL00",
+        "paragraph": "2100-PROCESS-VALIDATION",
+        "line": 148,
+        "condition_id": "COND-UTLVAL00-2100-PROCESS-VALIDATION-1"
+      },
+      "sources": [
+        {
+          "program_id": "UTLVAL00",
+          "paragraph": "2100-PROCESS-VALIDATION",
+          "line": 148,
+          "condition_id": "COND-UTLVAL00-2100-PROCESS-VALIDATION-1"
+        }
+      ]
+    },
+    {
+      "rule_id": "BR-110",
+      "rule_set": "Valid validation rules",
+      "name": "Validate Valid Status is a recognised value",
+      "category": "VALIDATION",
+      "confidence": "confirmed",
+      "requires_sme_review": false,
+      "description": "The Valid Status field is constrained to a fixed set of allowed values (VALID-STATUS). Used by PORTMSTR.",
+      "condition": {
+        "text": "88-level values on WS-VALID-STATUS: VALID-STATUS",
+        "pattern": "CONDITION_NAME"
+      },
+      "is_duplicated": false,
+      "implemented_in_programs": [
+        "PORTMSTR"
+      ],
+      "primary_source": {
+        "program_id": "PORTMSTR",
+        "paragraph": null,
+        "line": 58,
+        "condition_id": "COND88-WS-VALID-STATUS"
+      },
+      "sources": [
+        {
+          "program_id": "PORTMSTR",
+          "paragraph": null,
+          "line": 58,
+          "condition_id": "COND88-WS-VALID-STATUS"
+        }
+      ]
+    }
+  ],
+  "error_handling_catalogue": [
+    {
+      "error_id": "EH-001",
+      "condition_text": "CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE",
+      "program_id": "INQPORT",
+      "paragraph": "P100-INIT-PROGRAM",
+      "line": 57
+    },
+    {
+      "error_id": "EH-002",
+      "condition_text": "CICS HANDLE CONDITION: NOTFND -> P900-NOT-FOUND",
+      "program_id": "INQPORT",
+      "paragraph": "P100-INIT-PROGRAM",
+      "line": 57
+    },
+    {
+      "error_id": "EH-003",
+      "condition_text": "IF WS-RESPONSE-CODE = DFHRESP(NORMAL)  -> POSITION-EXISTS else NO-POSITION",
+      "program_id": "INQPORT",
+      "paragraph": "P200-GET-POSITION",
+      "line": 68
+    },
+    {
+      "error_id": "EH-004",
+      "condition_text": "CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE",
+      "program_id": "INQHIST",
+      "paragraph": "P100-INIT-PROGRAM",
+      "line": 81
+    },
+    {
+      "error_id": "EH-005",
+      "condition_text": "IF DB2-RESPONSE-CODE <> 0 (connect failed)",
+      "program_id": "INQHIST",
+      "paragraph": "P150-DB2-CONNECT",
+      "line": 95
+    },
+    {
+      "error_id": "EH-006",
+      "condition_text": "IF RECV-SUCCESS -> retry connect else -> error",
+      "program_id": "INQHIST",
+      "paragraph": "P150-DB2-CONNECT",
+      "line": 95
+    },
+    {
+      "error_id": "EH-007",
+      "condition_text": "IF fetch response >= 0 -> load rows",
+      "program_id": "INQHIST",
+      "paragraph": "P250-FETCH-HISTORY",
+      "line": 164
+    },
+    {
+      "error_id": "EH-008",
+      "condition_text": "CICS HANDLE CONDITION (ERROR/PGMIDERR/NOTFND) -> P900",
+      "program_id": "INQONLN",
+      "paragraph": "MAINLINE",
+      "line": 39
+    },
+    {
+      "error_id": "EH-009",
+      "condition_text": "IF SEC-RESPONSE-CODE <> 0 -> error + return",
+      "program_id": "INQONLN",
+      "paragraph": "P100-PROCESS-REQUEST",
+      "line": 53
+    },
+    {
+      "error_id": "EH-010",
+      "condition_text": "IF ERR-ABEND -> CICS ABEND",
+      "program_id": "INQONLN",
+      "paragraph": "P900-ERROR-ROUTINE",
+      "line": 119
+    },
+    {
+      "error_id": "EH-011",
+      "condition_text": "IF file open failed (either file) -> terminate",
+      "program_id": "PORTADD",
+      "paragraph": "1000-INITIALIZE",
+      "line": 86
+    },
+    {
+      "error_id": "EH-012",
+      "condition_text": "READ ... AT END / NOT AT END",
+      "program_id": "PORTADD",
+      "paragraph": "2000-PROCESS",
+      "line": 104
+    },
+    {
+      "error_id": "EH-013",
+      "condition_text": "IF invalid (ID/client blank or status<>'A') -> count error + skip",
+      "program_id": "PORTADD",
+      "paragraph": "2100-VALIDATE-AND-ADD",
+      "line": 113
+    },
+    {
+      "error_id": "EH-014",
+      "condition_text": "IF file open failed -> terminate",
+      "program_id": "PORTREAD",
+      "paragraph": "1000-INITIALIZE",
+      "line": 74
+    },
+    {
+      "error_id": "EH-015",
+      "condition_text": "READ NEXT ... AT END / NOT AT END",
+      "program_id": "PORTREAD",
+      "paragraph": "2000-PROCESS",
+      "line": 85
+    },
+    {
+      "error_id": "EH-016",
+      "condition_text": "IF open failed -> 9000-ERROR (which GOBACKs)",
+      "program_id": "PORTMSTR",
+      "paragraph": "1000-INITIALIZE",
+      "line": 103
+    },
+    {
+      "error_id": "EH-017",
+      "condition_text": "IF validation failed -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "line": 115
+    },
+    {
+      "error_id": "EH-018",
+      "condition_text": "IF PORT-DUP-KEY -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "line": 115
+    },
+    {
+      "error_id": "EH-019",
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "line": 115
+    },
+    {
+      "error_id": "EH-020",
+      "condition_text": "IF validation failed -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "line": 183
+    },
+    {
+      "error_id": "EH-021",
+      "condition_text": "IF PORT-NOT-FOUND -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "line": 183
+    },
+    {
+      "error_id": "EH-022",
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "line": 183
+    },
+    {
+      "error_id": "EH-023",
+      "condition_text": "IF PORT-NOT-FOUND -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "5000-DELETE-PORTFOLIO",
+      "line": 209
+    },
+    {
+      "error_id": "EH-024",
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "program_id": "PORTMSTR",
+      "paragraph": "5000-DELETE-PORTFOLIO",
+      "line": 209
+    },
+    {
+      "error_id": "EH-025",
+      "condition_text": "IF either open failed -> terminate",
+      "program_id": "PORTUPDT",
+      "paragraph": "1000-INITIALIZE",
+      "line": 93
+    },
+    {
+      "error_id": "EH-026",
+      "condition_text": "READ ... AT END / NOT AT END",
+      "program_id": "PORTUPDT",
+      "paragraph": "2000-PROCESS",
+      "line": 109
+    },
+    {
+      "error_id": "EH-027",
+      "condition_text": "IF rewrite success -> count update else count error",
+      "program_id": "PORTUPDT",
+      "paragraph": "2200-APPLY-UPDATE",
+      "line": 131
+    },
+    {
+      "error_id": "EH-028",
+      "condition_text": "WHILE NOT END-OF-FILE OR WS-ERROR-COUNT > 100 (loop guard with an error cap)",
+      "program_id": "HISTLD00",
+      "paragraph": "0000-MAIN",
+      "line": 67
+    },
+    {
+      "error_id": "EH-029",
+      "condition_text": "IF history open failed -> error",
+      "program_id": "HISTLD00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 102
+    },
+    {
+      "error_id": "EH-030",
+      "condition_text": "IF control open failed -> error",
+      "program_id": "HISTLD00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 102
+    },
+    {
+      "error_id": "EH-031",
+      "condition_text": "READ ... INVALID KEY -> error",
+      "program_id": "HISTLD00",
+      "paragraph": "1300-INIT-CHECKPOINTS",
+      "line": 120
+    },
+    {
+      "error_id": "EH-032",
+      "condition_text": "READ ... AT END / NOT AT END",
+      "program_id": "HISTLD00",
+      "paragraph": "2100-READ-HISTORY",
+      "line": 134
+    },
+    {
+      "error_id": "EH-033",
+      "condition_text": "IF SQLCODE = 0 -> written",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "line": 143
+    },
+    {
+      "error_id": "EH-034",
+      "condition_text": "ELSE IF SQLCODE = -803 -> skip duplicate",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "line": 143
+    },
+    {
+      "error_id": "EH-035",
+      "condition_text": "ELSE -> error",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "line": 143
+    },
+    {
+      "error_id": "EH-036",
+      "condition_text": "REWRITE ... INVALID KEY -> error",
+      "program_id": "HISTLD00",
+      "paragraph": "2310-UPDATE-CHECKPOINT",
+      "line": 191
+    },
+    {
+      "error_id": "EH-037",
+      "condition_text": "IF seq open failed -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 141
+    },
+    {
+      "error_id": "EH-038",
+      "condition_text": "IF control open failed -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 141
+    },
+    {
+      "error_id": "EH-039",
+      "condition_text": "START ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1200-BUILD-SEQUENCE",
+      "line": 155
+    },
+    {
+      "error_id": "EH-040",
+      "condition_text": "WRITE ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1300-CREATE-CONTROL-RECORDS",
+      "line": 188
+    },
+    {
+      "error_id": "EH-041",
+      "condition_text": "READ ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2200-CHECK-DEPENDENCIES",
+      "line": 221
+    },
+    {
+      "error_id": "EH-042",
+      "condition_text": "ELSE IF dep return code too high -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2210-CHECK-DEP-STATUS",
+      "line": 239
+    },
+    {
+      "error_id": "EH-043",
+      "condition_text": "READ ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2300-UPDATE-PROCESS-STATUS",
+      "line": 260
+    },
+    {
+      "error_id": "EH-044",
+      "condition_text": "REWRITE ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2300-UPDATE-PROCESS-STATUS",
+      "line": 260
+    },
+    {
+      "error_id": "EH-045",
+      "condition_text": "READ ... INVALID KEY -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3100-READ-CONTROL-STATUS",
+      "line": 281
+    },
+    {
+      "error_id": "EH-046",
+      "condition_text": "IF status ERROR -> count",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3300-CHECK-COMPLETION",
+      "line": 305
+    },
+    {
+      "error_id": "EH-047",
+      "condition_text": "IF any errors -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4100-CHECK-FINAL-STATUS",
+      "line": 322
+    },
+    {
+      "error_id": "EH-048",
+      "condition_text": "IF close failed -> error",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4200-CLOSE-FILES",
+      "line": 336
+    },
+    {
+      "error_id": "EH-049",
+      "condition_text": "IF audit-file open failed -> terminate + return",
+      "program_id": "AUDPROC",
+      "paragraph": "1000-INITIALIZE",
+      "line": 59
+    },
+    {
+      "error_id": "EH-050",
+      "condition_text": "IF audit write failed -> rc=8 else rc=0",
+      "program_id": "AUDPROC",
+      "paragraph": "2000-PROCESS-AUDIT",
+      "line": 71
+    },
+    {
+      "error_id": "EH-051",
+      "condition_text": "IF log open failed -> display (continues anyway)",
+      "program_id": "ERRPROC",
+      "paragraph": "1000-INITIALIZE",
+      "line": 55
+    },
+    {
+      "error_id": "EH-052",
+      "condition_text": "IF log write failed -> display",
+      "program_id": "ERRPROC",
+      "paragraph": "2100-WRITE-LOG",
+      "line": 83
+    },
+    {
+      "error_id": "EH-053",
+      "condition_text": "IF SQLCODE=0 -> connected else handle error",
+      "program_id": "DB2CONN",
+      "paragraph": "1000-CONNECT",
+      "line": 63
+    },
+    {
+      "error_id": "EH-054",
+      "condition_text": "EVALUATE SQLCODE: -30081 / -99999 / other",
+      "program_id": "DB2CONN",
+      "paragraph": "1100-HANDLE-CONN-ERROR",
+      "line": 91
+    },
+    {
+      "error_id": "EH-055",
+      "condition_text": "IF reset SQLCODE=0 -> ok else error",
+      "program_id": "DB2CONN",
+      "paragraph": "2000-DISCONNECT",
+      "line": 109
+    },
+    {
+      "error_id": "EH-056",
+      "condition_text": "IF status SELECT SQLCODE=0 -> active else not active",
+      "program_id": "DB2CONN",
+      "paragraph": "3000-CHECK-STATUS",
+      "line": 131
+    },
+    {
+      "error_id": "EH-057",
+      "condition_text": "IF commit SQLCODE=0 -> ok else error+log",
+      "program_id": "DB2CMT",
+      "paragraph": "2100-ISSUE-COMMIT",
+      "line": 87
+    },
+    {
+      "error_id": "EH-058",
+      "condition_text": "IF rollback SQLCODE=0 -> ok else error+log",
+      "program_id": "DB2CMT",
+      "paragraph": "3000-ROLLBACK",
+      "line": 103
+    },
+    {
+      "error_id": "EH-059",
+      "condition_text": "IF savepoint SQLCODE=0 -> ok else error+log",
+      "program_id": "DB2CMT",
+      "paragraph": "4000-SAVEPOINT",
+      "line": 119
+    },
+    {
+      "error_id": "EH-060",
+      "condition_text": "IF restore SQLCODE=0 -> ok else error+log",
+      "program_id": "DB2CMT",
+      "paragraph": "5000-RESTORE",
+      "line": 137
+    },
+    {
+      "error_id": "EH-061",
+      "condition_text": "EVALUATE SQLCODE: deadlock/timeout / connection / dup-key / not-found / other(+/-)",
+      "program_id": "DB2ERR",
+      "paragraph": "1100-SET-SEVERITY",
+      "line": 100
+    },
+    {
+      "error_id": "EH-062",
+      "condition_text": "IF insert SQLCODE=0 -> ok else error",
+      "program_id": "DB2ERR",
+      "paragraph": "1200-INSERT-ERROR",
+      "line": 126
+    },
+    {
+      "error_id": "EH-063",
+      "condition_text": "EVALUATE SQLCODE: deadlock/timeout/connection/dup-key/other",
+      "program_id": "DB2ERR",
+      "paragraph": "2000-DIAGNOSE-ERROR",
+      "line": 140
+    },
+    {
+      "error_id": "EH-064",
+      "condition_text": "IF retrieve SQLCODE=0 -> return latest else 'no history'",
+      "program_id": "DB2ERR",
+      "paragraph": "3000-RETRIEVE-ERROR",
+      "line": 171
+    },
+    {
+      "error_id": "EH-065",
+      "condition_text": "IF create failed AND not 'already exists' -> error",
+      "program_id": "DB2STAT",
+      "paragraph": "1100-CREATE-STATS-TABLE",
+      "line": 88
+    },
+    {
+      "error_id": "EH-066",
+      "condition_text": "IF insert SQLCODE=0 -> ok else error",
+      "program_id": "DB2STAT",
+      "paragraph": "1200-INSERT-INITIAL",
+      "line": 111
+    },
+    {
+      "error_id": "EH-067",
+      "condition_text": "IF update SQLCODE=0 -> ok else error",
+      "program_id": "DB2STAT",
+      "paragraph": "2000-UPDATE-STATS",
+      "line": 130
+    },
+    {
+      "error_id": "EH-068",
+      "condition_text": "IF final update SQLCODE=0 -> display else error",
+      "program_id": "DB2STAT",
+      "paragraph": "3000-TERMINATE",
+      "line": 157
+    },
+    {
+      "error_id": "EH-069",
+      "condition_text": "IF select SQLCODE=0 -> display else error",
+      "program_id": "DB2STAT",
+      "paragraph": "4000-DISPLAY-STATS",
+      "line": 189
+    },
+    {
+      "error_id": "EH-070",
+      "condition_text": "IF DECLARE SQLCODE<>0 -> return sqlcode",
+      "program_id": "CURSMGR",
+      "paragraph": "P100-DECLARE-CURSOR",
+      "line": 61
+    },
+    {
+      "error_id": "EH-071",
+      "condition_text": "IF OPEN SQLCODE=0 -> ok else return sqlcode",
+      "program_id": "CURSMGR",
+      "paragraph": "P200-OPEN-CURSOR",
+      "line": 80
+    },
+    {
+      "error_id": "EH-072",
+      "condition_text": "4x IF file open failed -> 9999-ERROR-HANDLER",
+      "program_id": "TSTVAL00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 139
+    },
+    {
+      "error_id": "EH-073",
+      "condition_text": "READ ... AT END / NOT AT END",
+      "program_id": "TSTVAL00",
+      "paragraph": "2000-PROCESS",
+      "line": 176
+    },
+    {
+      "error_id": "EH-074",
+      "condition_text": "EVALUATE TEST-TYPE: FUNCTIONAL/INTEGRATE/PERFORM/ERROR/OTHER",
+      "program_id": "TSTVAL00",
+      "paragraph": "2100-EXECUTE-TEST",
+      "line": 187
+    },
+    {
+      "error_id": "EH-075",
+      "condition_text": "4x IF file open failed -> 9999-ERROR-HANDLER",
+      "program_id": "UTLVAL00",
+      "paragraph": "1100-OPEN-FILES",
+      "line": 106
+    },
+    {
+      "error_id": "EH-076",
+      "condition_text": "READ ... AT END / NOT AT END",
+      "program_id": "UTLVAL00",
+      "paragraph": "2000-PROCESS",
+      "line": 138
+    }
+  ],
+  "rules_by_program": {
+    "CKPRST": [
+      "BR-001",
+      "BR-041",
+      "BR-060",
+      "BR-082",
+      "BR-086",
+      "BR-092",
+      "BR-094"
+    ],
+    "PRCSEQ00": [
+      "BR-002",
+      "BR-003",
+      "BR-004",
+      "BR-022",
+      "BR-023",
+      "BR-037",
+      "BR-038",
+      "BR-045",
+      "BR-046",
+      "BR-051",
+      "BR-056",
+      "BR-058",
+      "BR-059",
+      "BR-074",
+      "BR-075",
+      "BR-077",
+      "BR-078",
+      "BR-083",
+      "BR-085",
+      "BR-087",
+      "BR-088",
+      "BR-089",
+      "BR-090",
+      "BR-098",
+      "BR-105"
+    ],
+    "AUDPROC": [
+      "BR-005",
+      "BR-006",
+      "BR-007"
+    ],
+    "PORTMSTR": [
+      "BR-008",
+      "BR-029",
+      "BR-042",
+      "BR-061",
+      "BR-064",
+      "BR-065",
+      "BR-066",
+      "BR-068",
+      "BR-095",
+      "BR-110"
+    ],
+    "INQONLN": [
+      "BR-009",
+      "BR-010",
+      "BR-011",
+      "BR-030",
+      "BR-031",
+      "BR-036",
+      "BR-040"
+    ],
+    "DB2CONN": [
+      "BR-012",
+      "BR-013",
+      "BR-014",
+      "BR-015",
+      "BR-047",
+      "BR-099"
+    ],
+    "CURSMGR": [
+      "BR-016",
+      "BR-017",
+      "BR-018",
+      "BR-096"
+    ],
+    "INQHIST": [
+      "BR-019",
+      "BR-020",
+      "BR-053",
+      "BR-057",
+      "BR-079"
+    ],
+    "?": [
+      "BR-021"
+    ],
+    "HISTLD00": [
+      "BR-024",
+      "BR-025",
+      "BR-028",
+      "BR-029",
+      "BR-049",
+      "BR-050",
+      "BR-054"
+    ],
+    "PORTADD": [
+      "BR-026",
+      "BR-029",
+      "BR-043",
+      "BR-052",
+      "BR-062",
+      "BR-063",
+      "BR-067"
+    ],
+    "PORTREAD": [
+      "BR-026",
+      "BR-029",
+      "BR-043"
+    ],
+    "PORTUPDT": [
+      "BR-027",
+      "BR-029",
+      "BR-043",
+      "BR-106",
+      "BR-107",
+      "BR-108"
+    ],
+    "TSTVAL00": [
+      "BR-032",
+      "BR-033",
+      "BR-080",
+      "BR-081",
+      "BR-093"
+    ],
+    "UTLVAL00": [
+      "BR-034",
+      "BR-035",
+      "BR-039",
+      "BR-103",
+      "BR-104",
+      "BR-109"
+    ],
+    "DB2CMT": [
+      "BR-044",
+      "BR-046",
+      "BR-055",
+      "BR-100"
+    ],
+    "BCHCTL00": [
+      "BR-046",
+      "BR-072",
+      "BR-073",
+      "BR-076",
+      "BR-091",
+      "BR-097"
+    ],
+    "DB2STAT": [
+      "BR-046",
+      "BR-102"
+    ],
+    "DB2ERR": [
+      "BR-048",
+      "BR-084",
+      "BR-101"
+    ],
+    "INQPORT": [
+      "BR-069",
+      "BR-070",
+      "BR-071"
+    ]
+  }
+}

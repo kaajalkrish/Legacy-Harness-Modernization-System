@@ -1,0 +1,984 @@
+{
+  "meta": {
+    "program_id": "COTRN00C",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\COTRN00C.cbl",
+    "total_lines": 699
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "COTRN00C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 28,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 29,
+    "end_line": 93,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGMNAME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRN00C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANID",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CT00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MESSAGE",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACT-FILE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRANSACT'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-FLG",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-ON",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-OFF",
+                  "line": 42,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACT-EOF",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "TRANSACT-EOF",
+                  "line": 44,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRANSACT-NOT-EOF",
+                  "line": 45,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-SEND-ERASE-FLG",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-YES",
+                  "line": 47,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-NO",
+                  "line": 48,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REC-COUNT",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-IDX",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-PAGE-NUM",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-AMT",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "+99999999.99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-DATE",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'00/00/00'",
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "COCOM01Y",
+                  "library": null,
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "CDEMO-CT00-INFO",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-TRNID-FIRST",
+                  "line": 63,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-TRNID-LAST",
+                  "line": 64,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-PAGE-NUM",
+                  "line": 65,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-NEXT-PAGE-FLG",
+                  "line": 66,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "NEXT-PAGE-YES",
+                      "line": 67,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Y'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "NEXT-PAGE-NO",
+                      "line": 68,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'N'",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-TRN-SEL-FLG",
+                  "line": 69,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CDEMO-CT00-TRN-SELECTED",
+                  "line": 70,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "type": "copy_stub",
+                      "copybook": "COTRN00",
+                      "library": null,
+                      "line": 72,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "COTTL01Y",
+                      "library": null,
+                      "line": 74,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CSDAT01Y",
+                      "library": null,
+                      "line": 75,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CSMSG01Y",
+                      "library": null,
+                      "line": 76,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CVTRA05Y",
+                      "library": null,
+                      "line": 78,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "DFHAID",
+                      "library": null,
+                      "line": 80,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "DFHBMSCA",
+                      "library": null,
+                      "line": 81,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 33
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 87,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 88,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 86
+    }
+  },
+  "procedure_division": {
+    "start_line": 94,
+    "end_line": 699,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 95,
+        "end_line": 145,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "PROCESS-ENTER-KEY",
+        "section": null,
+        "start_line": 146,
+        "end_line": 233,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PF7-KEY",
+        "section": null,
+        "start_line": 234,
+        "end_line": 256,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PF8-KEY",
+        "section": null,
+        "start_line": 257,
+        "end_line": 278,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PAGE-FORWARD",
+        "section": null,
+        "start_line": 279,
+        "end_line": 332,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PAGE-BACKWARD",
+        "section": null,
+        "start_line": 333,
+        "end_line": 380,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-TRAN-DATA",
+        "section": null,
+        "start_line": 381,
+        "end_line": 449,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "INITIALIZE-TRAN-DATA",
+        "section": null,
+        "start_line": 450,
+        "end_line": 509,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RETURN-TO-PREV-SCREEN",
+        "section": null,
+        "start_line": 510,
+        "end_line": 526,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-TRNLST-SCREEN",
+        "section": null,
+        "start_line": 527,
+        "end_line": 553,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RECEIVE-TRNLST-SCREEN",
+        "section": null,
+        "start_line": 554,
+        "end_line": 566,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-HEADER-INFO",
+        "section": null,
+        "start_line": 567,
+        "end_line": 590,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "STARTBR-TRANSACT-FILE",
+        "section": null,
+        "start_line": 591,
+        "end_line": 623,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "READNEXT-TRANSACT-FILE",
+        "section": null,
+        "start_line": 624,
+        "end_line": 657,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "READPREV-TRANSACT-FILE",
+        "section": null,
+        "start_line": 658,
+        "end_line": 691,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "ENDBR-TRANSACT-FILE",
+        "section": null,
+        "start_line": 692,
+        "end_line": 699,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 61
+    },
+    {
+      "copybook": "COTRN00",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 72
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 74
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 75
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 76
+    },
+    {
+      "copybook": "CVTRA05Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 78
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 80
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 81
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 95,
+        "end_line": 145,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-ENTER-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 146,
+        "end_line": 233,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PF7-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 234,
+        "end_line": 256,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PF8-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 257,
+        "end_line": 278,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PAGE-FORWARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 279,
+        "end_line": 332,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PAGE-BACKWARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 333,
+        "end_line": 380,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-TRAN-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 381,
+        "end_line": 449,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "INITIALIZE-TRAN-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 450,
+        "end_line": 509,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RETURN-TO-PREV-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 510,
+        "end_line": 526,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-TRNLST-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 527,
+        "end_line": 553,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RECEIVE-TRNLST-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 554,
+        "end_line": 566,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-HEADER-INFO",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 567,
+        "end_line": 590,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "STARTBR-TRANSACT-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 591,
+        "end_line": 623,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "READNEXT-TRANSACT-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 624,
+        "end_line": 657,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "READPREV-TRANSACT-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 658,
+        "end_line": 691,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "ENDBR-TRANSACT-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 692,
+        "end_line": 699,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 97,
+        "unstructured": false,
+        "to": "RETURN-TO-PREV-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 148,
+        "unstructured": false,
+        "to": "SEND-TRNLST-SCREEN"
+      },
+      {
+        "from": "PROCESS-PF7-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 236,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-BACKWARD"
+      },
+      {
+        "from": "PROCESS-PF8-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 259,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-FORWARD"
+      },
+      {
+        "from": "PROCESS-PAGE-FORWARD",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 281,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-FORWARD",
+        "inline": true,
+        "condition_text": "PERFORM STARTBR-TRANSACT-FILE IF NOT ERR-FLG-ON IF EIBAID NOT = DFHENTER AND DFHPF7 AND DFHPF3 PERFORM READNEXT-TRANSACT-FILE END-IF IF TRANSACT-NOT-EOF AND ERR-FLG-OFF PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > 10 PERFORM INITIALIZE-TRAN-DATA END-PERFORM END-IF MOVE 1             TO  WS-IDX PERFORM UNTIL WS-IDX >= 11 OR TRANSACT-EOF OR ERR-FLG-ON PERFORM READNEXT-TRANSACT-FILE IF TRANSACT-NOT-EOF AND ERR-FLG-OFF PERFORM POPULATE-TRAN-DATA COMPUTE WS-IDX = WS-IDX + 1 END-IF END-PERFORM IF TRANSACT-NOT-EOF AND ERR-FLG-OFF COMPUTE CDEMO-CT00-PAGE-NUM = CDEMO-CT00-PAGE-NUM + 1 PERFORM READNEXT-TRANSACT-FILE IF TRANSACT-NOT-EOF AND ERR-FLG-OFF SET NEXT-PAGE-YES TO TRUE ELSE SET NEXT-PAGE-NO TO TRUE END-IF ELSE SET NEXT-PAGE-NO TO TRUE IF WS-IDX > 1 COMPUTE CDEMO-CT00-PAGE-NUM = CDEMO-CT00-PAGE-NUM + 1 END-IF END-IF PERFORM ENDBR-TRANSACT-FILE MOVE CDEMO-CT00-PAGE-NUM TO PAGENUMI  OF COTRN0AI MOVE SPACE   TO TRNIDINO  OF COTRN0AO PERFORM SEND-TRNLST-SCREEN END-IF.",
+        "loop_start_line": 281,
+        "loop_end_line": 292
+      },
+      {
+        "from": "PROCESS-PAGE-BACKWARD",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 335,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-BACKWARD",
+        "inline": true,
+        "condition_text": "PERFORM STARTBR-TRANSACT-FILE IF NOT ERR-FLG-ON IF EIBAID NOT = DFHENTER AND DFHPF8 PERFORM READPREV-TRANSACT-FILE END-IF IF TRANSACT-NOT-EOF AND ERR-FLG-OFF PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > 10 PERFORM INITIALIZE-TRAN-DATA END-PERFORM END-IF MOVE 10          TO  WS-IDX PERFORM UNTIL WS-IDX <= 0 OR TRANSACT-EOF OR ERR-FLG-ON PERFORM READPREV-TRANSACT-FILE IF TRANSACT-NOT-EOF AND ERR-FLG-OFF PERFORM POPULATE-TRAN-DATA COMPUTE WS-IDX = WS-IDX - 1 END-IF END-PERFORM IF TRANSACT-NOT-EOF AND ERR-FLG-OFF PERFORM READPREV-TRANSACT-FILE IF NEXT-PAGE-YES IF TRANSACT-NOT-EOF AND ERR-FLG-OFF AND CDEMO-CT00-PAGE-NUM > 1 SUBTRACT 1 FROM CDEMO-CT00-PAGE-NUM ELSE MOVE 1 TO CDEMO-CT00-PAGE-NUM END-IF END-IF END-IF PERFORM ENDBR-TRANSACT-FILE MOVE CDEMO-CT00-PAGE-NUM TO PAGENUMI  OF COTRN0AI PERFORM SEND-TRNLST-SCREEN END-IF.",
+        "loop_start_line": 335,
+        "loop_end_line": 346
+      },
+      {
+        "from": "SEND-TRNLST-SCREEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 529,
+        "unstructured": false,
+        "to": "POPULATE-HEADER-INFO"
+      },
+      {
+        "from": "STARTBR-TRANSACT-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 602,
+        "unstructured": false,
+        "to": "SEND-TRNLST-SCREEN"
+      },
+      {
+        "from": "READNEXT-TRANSACT-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 636,
+        "unstructured": false,
+        "to": "SEND-TRNLST-SCREEN"
+      },
+      {
+        "from": "READPREV-TRANSACT-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 670,
+        "unstructured": false,
+        "to": "SEND-TRNLST-SCREEN"
+      }
+    ],
+    "dead_code_candidates": [
+      "PROCESS-ENTER-KEY",
+      "PROCESS-PF7-KEY",
+      "PROCESS-PF8-KEY",
+      "POPULATE-TRAN-DATA",
+      "INITIALIZE-TRAN-DATA",
+      "RECEIVE-TRNLST-SCREEN",
+      "STARTBR-TRANSACT-FILE",
+      "READNEXT-TRANSACT-FILE",
+      "READPREV-TRANSACT-FILE",
+      "ENDBR-TRANSACT-FILE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "generated_at": "2026-07-18T23:41:58Z",
+    "total_gaps": 26
+  },
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "high",
+      "type": "circular_copy",
+      "description": "Circular COPY chain detected: CKPRST COPY CKPRST which COPYs CKPRST",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "high",
+      "type": "empty_source",
+      "description": "POSUPDT.cbl is empty \u2014 no program logic.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "high",
+      "type": "truncated_source",
+      "description": "CURSMGR.cbl truncated \u2014 fetch/close paragraphs missing though INQHIST depends on them.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CALL target 'DELAY' not found in file registry \u2014 may be external or in load library",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'DB2ONLN' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-006",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'DB2RECV' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-007",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'ERRHNDL' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-008",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'SECMGR' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-009",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'SECMGR' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-010",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "CICS_LINK target 'SECMGR' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-011",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL INCLUDE target 'SQLPOS' not found in file registry",
+      "source": "inventory"
+    },
+    {
+      "gap_id": "GAP-012",
+      "severity": "medium",
+      "type": "skeletons",
+      "description": "BCHCTL00, CKPRST, TSTVAL00, UTLVAL00 are skeletons \u2014 dispatch logic present but low-level sub-paragraphs / operation bodies unimplemented.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-013",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-030 \u201cValidate End Of Session (88 session Terminated)\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-014",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-032 \u201cValidate End Of Tests\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-015",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-034 \u201cValidate End Of Val\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-016",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-069 \u201cValidate Position Found (88 position Exists)\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-017",
+      "severity": "low",
+      "type": "complete_run",
+      "description": "All 21 sample programs explained (no key, in-session).",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-018",
+      "severity": "low",
+      "type": "notable_findings",
+      "description": "INQONLN validates security AFTER dispatching the function; PORTADD/PORTREAD/PORTUPDT terminate-without-stopping on open failure; PORTUPDT/PORTMSTR EVALUATEs lack WHEN OTHER; INQHIST DB2 retry is unbounded recursion.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-019",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "INQHIST: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-020",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "PORTMSTR: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-021",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "BCHCTL00: 4 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-022",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CKPRST: 4 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-023",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "DB2STAT: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-024",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CURSMGR: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-025",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "TSTVAL00: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-026",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "UTLVAL00: 4 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    }
+  ]
+}

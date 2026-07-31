@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "program_id": "INQONLN",
+    "source_file": "input/src_sample/programs/online/INQONLN.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "INQONLN is the online CICS main handler / driver for portfolio inquiry transactions. It runs a session loop that repeatedly receives a screen request (map INQMAP) and dispatches on a function code: MENU shows the menu screen, INQP links to the portfolio-inquiry program (INQPORT), INQH links to the history-inquiry program (INQHIST), and EXIT ends the session; anything else is an error. After dispatching, it performs a three-step security check (validate user -> authorize resource -> log access) via the SECMGR program, and on any security failure reports an error and returns. Errors are centralised through a shared error handler (ERRHNDL), which may force a CICS ABEND. Error conditions handled: unknown function code, CICS ERROR/PGMIDERR/NOTFND, and security-check failure.",
+  "paragraphs": [
+    {
+      "name": "MAINLINE",
+      "line_range": [39, 51],
+      "pseudocode": "CICS HANDLE CONDITION: on ERROR / PGMIDERR / NOTFND -> jump to P900-ERROR-ROUTINE\nWHILE session is NOT terminated DO\n  CALL P100-PROCESS-REQUEST\nEND WHILE\nCICS RETURN TO caller",
+      "branches": ["CICS HANDLE CONDITION (ERROR/PGMIDERR/NOTFND) -> P900", "WHILE NOT SESSION-TERMINATED (main session loop)"],
+      "calls_made": ["P100-PROCESS-REQUEST"],
+      "field_references": ["WS-END-OF-SESSION (88 SESSION-TERMINATED)"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 46, "note": "PERFORM ... UNTIL SESSION-TERMINATED is the pseudo-conversational session loop (test-before WHILE)."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "P100-PROCESS-REQUEST",
+      "line_range": [53, 90],
+      "pseudocode": "CLEAR WS-COMMAREA   -- MOVE LOW-VALUES\nCICS RECEIVE MAP INQMAP (mapset INQSET) INTO WS-COMMAREA  RESP -> ws_response_code\nSELECT CASE ws_commarea_function\n  WHEN 'MENU': CALL P200-DISPLAY-MENU\n  WHEN 'INQP': CALL P300-PORTFOLIO-INQUIRY\n  WHEN 'INQH': CALL P400-HISTORY-INQUIRY\n  WHEN 'EXIT': SET SESSION-TERMINATED = true\n  ELSE:        CALL P900-ERROR-ROUTINE\nEND SELECT\nCALL P050-SECURITY-CHECK\nIF SEC-RESPONSE-CODE <> 0 THEN\n  SET ws_error_message = SEC-ERROR-INFO\n  CALL P900-ERROR-ROUTINE\n  CICS RETURN TO caller\nEND IF",
+      "branches": ["EVALUATE WS-COMMAREA-FUNCTION (MENU/INQP/INQH/EXIT/OTHER)", "IF SEC-RESPONSE-CODE <> 0 -> error + return"],
+      "calls_made": ["P200-DISPLAY-MENU", "P300-PORTFOLIO-INQUIRY", "P400-HISTORY-INQUIRY", "P900-ERROR-ROUTINE", "P050-SECURITY-CHECK"],
+      "field_references": ["WS-COMMAREA", "WS-COMMAREA-FUNCTION", "WS-RESPONSE-CODE", "WS-END-OF-SESSION", "SEC-RESPONSE-CODE", "SEC-ERROR-INFO", "WS-ERROR-MESSAGE"],
+      "complexity_score": 7,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 79, "note": "SME REVIEW: the security check runs AFTER the requested function has already been dispatched (P200/P300/P400), not before. Access is validated only after the action executes — a likely security-ordering flaw."}
+      ],
+      "notes": "The heart of the program: receive -> dispatch -> (post-)security-check."
+    },
+    {"name": "P100-EXIT", "line_range": [89, 90], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P200-DISPLAY-MENU",
+      "line_range": [92, 99],
+      "pseudocode": "CICS SEND MAP INQMNU (mapset INQSET) ERASE  RESP -> ws_response_code\n-- shows the inquiry menu screen",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-RESPONSE-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {"name": "P200-EXIT", "line_range": [98, 99], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P300-PORTFOLIO-INQUIRY",
+      "line_range": [101, 108],
+      "pseudocode": "CICS LINK PROGRAM INQPORT  PASSING: WS-COMMAREA  RESP -> ws_response_code\n-- delegates the portfolio position lookup to INQPORT",
+      "branches": [],
+      "calls_made": ["INQPORT"],
+      "field_references": ["WS-COMMAREA", "WS-RESPONSE-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {"name": "P300-EXIT", "line_range": [107, 108], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P400-HISTORY-INQUIRY",
+      "line_range": [110, 117],
+      "pseudocode": "CICS LINK PROGRAM INQHIST  PASSING: WS-COMMAREA  RESP -> ws_response_code\n-- delegates the transaction-history lookup to INQHIST",
+      "branches": [],
+      "calls_made": ["INQHIST"],
+      "field_references": ["WS-COMMAREA", "WS-RESPONSE-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {"name": "P400-EXIT", "line_range": [116, 117], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P900-ERROR-ROUTINE",
+      "line_range": [119, 137],
+      "pseudocode": "SET ERR-PROGRAM = 'INQONLN'\nSET ERR-PARAGRAPH = 'P900-ERROR-ROUTINE'\nSET ERR-CICS-RESP = EIBRESP        -- CICS response codes from the exec interface block\nSET ERR-CICS-RESP2 = EIBRESP2\nSET ERR-WARNING = true\nCICS LINK PROGRAM ERRHNDL  PASSING: WS-ERROR-AREA   -- central error handler\nIF ERR-ABEND THEN\n  CICS ABEND with code 'IERR'      -- terminate the transaction\nEND IF\nSET ws_error_message = ERR-MESSAGE",
+      "branches": ["IF ERR-ABEND -> CICS ABEND"],
+      "calls_made": ["ERRHNDL"],
+      "field_references": ["ERR-PROGRAM", "ERR-PARAGRAPH", "ERR-CICS-RESP", "ERR-CICS-RESP2", "ERR-STATUS", "ERR-MESSAGE", "WS-ERROR-MESSAGE"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 122, "note": "EIBRESP / EIBRESP2 are CICS-supplied fields (Exec Interface Block) carrying the last command's response codes."}
+      ],
+      "notes": "Central error path; delegates to the shared ERRHNDL program and may force an ABEND."
+    },
+    {"name": "P900-EXIT", "line_range": [136, 137], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P050-SECURITY-CHECK",
+      "line_range": [139, 171],
+      "pseudocode": "SET SEC-REQUEST-TYPE = 'V'        -- 'V' = validate user\nCICS ASSIGN USERID -> SEC-USER-ID  -- get the signed-on user id\nCICS LINK PROGRAM SECMGR  PASSING: WS-SECURITY-REQUEST\nIF SEC-RESPONSE-CODE = 0 THEN                 -- user valid\n  SET SEC-REQUEST-TYPE = 'A'       -- 'A' = authorize\n  SET SEC-RESOURCE-NAME = 'INQONLN'\n  SET SEC-ACCESS-TYPE = 'READ'\n  CICS LINK PROGRAM SECMGR\n  IF SEC-RESPONSE-CODE = 0 THEN               -- authorized\n    SET SEC-REQUEST-TYPE = 'L'     -- 'L' = log access\n    CICS LINK PROGRAM SECMGR\n  END IF\nEND IF",
+      "branches": ["IF validate ok -> authorize", "IF authorize ok -> log"],
+      "calls_made": ["SECMGR"],
+      "field_references": ["SEC-REQUEST-TYPE", "SEC-USER-ID", "SEC-RESOURCE-NAME", "SEC-ACCESS-TYPE", "SEC-RESPONSE-CODE"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 142, "note": "CICS ASSIGN USERID retrieves the terminal operator's signed-on user id for the security check."}
+      ],
+      "notes": "Three-step security via SECMGR: validate user -> authorize resource -> log access. (See P100 note: this runs after dispatch.)"
+    },
+    {"name": "P050-EXIT", "line_range": [170, 171], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "program_id": "CKPRST",
+    "source_file": "input/src_sample/programs/batch/CKPRST.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "CKPRST is a callable Checkpoint/Restart service, intended to manage checkpoints against an indexed checkpoint file so long-running batch jobs can be restarted after a failure. It is invoked with a checkpoint-control area and a return-status area, and dispatches on an entry-point code to one of four operations: INIT, TAKE (take a checkpoint), COMMIT, or RESTART. IMPORTANT: this program is currently an UNIMPLEMENTED SKELETON — the four operation paragraphs contain only comments and no executable statements, so no checkpoint logic actually runs yet.",
+  "paragraphs": [
+    {
+      "name": "MAINLINE",
+      "line_range": [26, 41],
+      "pseudocode": "SELECT CASE entry point (from CHECKPOINT-CONTROL)\n  WHEN INIT:    CALL PROC-INIT\n  WHEN TAKE:    CALL PROC-TAKE-CHECKPOINT\n  WHEN COMMIT:  CALL PROC-COMMIT-CHECKPOINT\n  WHEN RESTART: CALL PROC-RESTART\nEND SELECT\nRETURN to caller (GOBACK)",
+      "branches": ["EVALUATE entry point: INIT/TAKE/COMMIT/RESTART"],
+      "calls_made": ["PROC-INIT", "PROC-TAKE-CHECKPOINT", "PROC-COMMIT-CHECKPOINT", "PROC-RESTART"],
+      "field_references": ["CHECKPOINT-CONTROL"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 26, "note": "Called as a sub-routine (PROCEDURE DIVISION USING CHECKPOINT-CONTROL RETURN-STATUS)."},
+        {"line": 38, "note": "EVALUATE has no WHEN OTHER — an unrecognised entry point silently does nothing and returns."}
+      ],
+      "notes": ""
+    },
+    {"name": "PROC-INIT", "line_range": [43, 45], "pseudocode": "-- Initialize checkpoint processing\n!! UNIMPLEMENTED: paragraph body is empty (comment only)", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": true, "annotations": [{"line": 44, "note": "Empty stub — no executable statements."}], "notes": ""},
+    {"name": "PROC-TAKE-CHECKPOINT", "line_range": [47, 49], "pseudocode": "-- Take a checkpoint\n!! UNIMPLEMENTED: paragraph body is empty (comment only)", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": true, "annotations": [{"line": 48, "note": "Empty stub."}], "notes": ""},
+    {"name": "PROC-COMMIT-CHECKPOINT", "line_range": [51, 53], "pseudocode": "-- Commit checkpoint\n!! UNIMPLEMENTED: paragraph body is empty (comment only)", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": true, "annotations": [{"line": 52, "note": "Empty stub."}], "notes": ""},
+    {"name": "PROC-RESTART", "line_range": [55, 57], "pseudocode": "-- Handle restart processing\n!! UNIMPLEMENTED: paragraph body is empty (comment only)", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": true, "annotations": [{"line": 56, "note": "Empty stub."}], "notes": ""}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

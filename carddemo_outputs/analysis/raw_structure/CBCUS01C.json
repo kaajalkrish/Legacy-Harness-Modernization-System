@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "program_id": "CBCUS01C",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBCUS01C.cbl",
+    "total_lines": 178
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "CBCUS01C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 34,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 35,
+    "end_line": 69,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "CUSTFILE-FILE",
+          "line": 37,
+          "end_line": 41,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 36
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "CVCUS01Y",
+          "library": null,
+          "line": 45,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "CUSTFILE-STATUS",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT1",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT2",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS",
+          "line": 50,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STAT1",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STAT2",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-BINARY",
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-ALPHA",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "TWO-BYTES-BINARY",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TWO-BYTES-LEFT",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TWO-BYTES-RIGHT",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS-04",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STATUS-0401",
+              "line": 58,
+              "section": "WORKING-STORAGE",
+              "pic": "9",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STATUS-0403",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "999",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "APPL-RESULT",
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "APPL-AOK",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "APPL-EOF",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "16",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "END-OF-FILE",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ABCODE",
+          "line": 66,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TIMING",
+          "line": 67,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 42
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 70,
+    "end_line": 178,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "1000-CUSTFILE-GET-NEXT",
+        "section": null,
+        "start_line": 92,
+        "end_line": 117,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "0000-CUSTFILE-OPEN",
+        "section": null,
+        "start_line": 118,
+        "end_line": 135,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-CUSTFILE-CLOSE",
+        "section": null,
+        "start_line": 136,
+        "end_line": 153,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "Z-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 154,
+        "end_line": 160,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "Z-DISPLAY-IO-STATUS",
+        "section": null,
+        "start_line": 161,
+        "end_line": 178,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 87
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVCUS01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 45
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "1000-CUSTFILE-GET-NEXT"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "1000-CUSTFILE-GET-NEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 92,
+        "end_line": 117,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-CUSTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 118,
+        "end_line": 135,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-CUSTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 136,
+        "end_line": 153,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "Z-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 154,
+        "end_line": 160,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "Z-DISPLAY-IO-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 161,
+        "end_line": 178,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "1000-CUSTFILE-GET-NEXT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 94,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0000-CUSTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 120,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9000-CUSTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 138,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      }
+    ],
+    "dead_code_candidates": [
+      "0000-CUSTFILE-OPEN",
+      "9000-CUSTFILE-CLOSE",
+      "Z-ABEND-PROGRAM"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

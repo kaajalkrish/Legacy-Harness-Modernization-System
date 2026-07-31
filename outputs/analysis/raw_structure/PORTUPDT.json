@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "program_id": "PORTUPDT",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\portfolio\\PORTUPDT.cbl",
+    "total_lines": 160
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 12,
+    "end_line": 14,
+    "program_id": "PORTUPDT"
+  },
+  "environment_division": {
+    "start_line": 15,
+    "end_line": 33,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 34,
+    "end_line": 81,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "PORTFOLIO-FILE",
+          "line": 36,
+          "end_line": 38,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "UPDATE-FILE",
+          "line": 39,
+          "end_line": 49,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 35
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-CONSTANTS",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PROGRAM-NAME",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'PORTUPDT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SUCCESS",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERROR",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+8",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-SWITCHES",
+          "line": 59,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-FILE-STATUS",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-SUCCESS-STATUS",
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-EOF-STATUS",
+                  "line": 62,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-REC-NOT-FND",
+                  "line": 63,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'23'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-UPDT-STATUS",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-UPDT-SUCCESS",
+                  "line": 66,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-UPDT-EOF",
+                  "line": 67,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-END-OF-FILE-SW",
+              "line": 69,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "END-OF-FILE",
+                  "line": 70,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NOT-END-OF-FILE",
+                  "line": 71,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-WORK-AREAS",
+          "line": 76,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-UPDATE-COUNT",
+              "line": 77,
+              "section": "WORKING-STORAGE",
+              "pic": "9(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERROR-COUNT",
+              "line": 78,
+              "section": "WORKING-STORAGE",
+              "pic": "9(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RETURN-CODE",
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-NUMERIC-WORK",
+              "line": 80,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(13)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 50
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 82,
+    "end_line": 160,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 83,
+        "end_line": 92,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE",
+        "section": null,
+        "start_line": 93,
+        "end_line": 108,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-PROCESS",
+        "section": null,
+        "start_line": 109,
+        "end_line": 117,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-PROCESS-UPDATE",
+        "section": null,
+        "start_line": 118,
+        "end_line": 130,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-APPLY-UPDATE",
+        "section": null,
+        "start_line": 131,
+        "end_line": 151,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-TERMINATE",
+        "section": null,
+        "start_line": 152,
+        "end_line": 160,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 91
+      }
+    ]
+  },
+  "copy_stubs": [],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [
+      "0000-MAIN"
+    ],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 83,
+        "end_line": 92,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-INITIALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 93,
+        "end_line": 108,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-PROCESS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 109,
+        "end_line": 117,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-PROCESS-UPDATE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 118,
+        "end_line": 130,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-APPLY-UPDATE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 131,
+        "end_line": 151,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-TERMINATE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 152,
+        "end_line": 160,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "PERFORM_UNTIL",
+        "resolved": true,
+        "source_line": 84,
+        "unstructured": false,
+        "to": "2000-PROCESS",
+        "condition_text": "END-OF-FILE PERFORM 3000-TERMINATE GOBACK."
+      },
+      {
+        "from": "1000-INITIALIZE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 94,
+        "unstructured": false,
+        "to": "3000-TERMINATE"
+      },
+      {
+        "from": "2000-PROCESS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 110,
+        "unstructured": false,
+        "to": "2100-PROCESS-UPDATE"
+      },
+      {
+        "from": "2100-PROCESS-UPDATE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 119,
+        "unstructured": false,
+        "to": "2200-APPLY-UPDATE"
+      }
+    ],
+    "dead_code_candidates": [
+      "1000-INITIALIZE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

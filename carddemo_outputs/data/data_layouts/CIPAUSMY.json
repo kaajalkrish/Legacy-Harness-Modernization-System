@@ -1,0 +1,157 @@
+{
+  "copybook": "CIPAUSMY",
+  "used_by": [
+    "CBPAUP0C",
+    "COPAUA0C",
+    "COPAUS0C",
+    "COPAUS1C",
+    "DBUNLDGS",
+    "PAUDBLOD",
+    "PAUDBUNL"
+  ],
+  "records": [
+    {
+      "level": 5,
+      "name": "PA-ACCT-ID",
+      "line": 19,
+      "pic": "S9(11)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CUST-ID",
+      "line": 20,
+      "pic": "9(09)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-STATUS",
+      "line": 21,
+      "pic": "X(01)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-ACCOUNT-STATUS",
+      "line": 22,
+      "pic": "X(02)",
+      "occurs": 5,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CREDIT-LIMIT",
+      "line": 23,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CASH-LIMIT",
+      "line": 24,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CREDIT-BALANCE",
+      "line": 25,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CASH-BALANCE",
+      "line": 26,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-APPROVED-AUTH-CNT",
+      "line": 27,
+      "pic": "S9(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-DECLINED-AUTH-CNT",
+      "line": 28,
+      "pic": "S9(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-APPROVED-AUTH-AMT",
+      "line": 29,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-DECLINED-AUTH-AMT",
+      "line": 30,
+      "pic": "S9(09)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "FILLER",
+      "line": 31,
+      "pic": "X(34)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    }
+  ]
+}

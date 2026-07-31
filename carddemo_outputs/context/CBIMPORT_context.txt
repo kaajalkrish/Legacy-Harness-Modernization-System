@@ -1,0 +1,53 @@
+# System Context: CBIMPORT
+## 📝 Summary
+CBIMPORT is a batch-type COBOL program, entered at 0000-MAIN-PROCESSING, with 16 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 7 data file(s), sharing 6 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBIMPORT
+- **Source Path**: app/cbl/CBIMPORT.cbl
+- **Main Entry Point**: 0000-MAIN-PROCESSING
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- EXPORT-INPUT
+- CUSTOMER-OUTPUT
+- ACCOUNT-OUTPUT
+- XREF-OUTPUT
+- TRANSACTION-OUTPUT
+- CARD-OUTPUT
+- ERROR-OUTPUT
+### 📚 Shared Logic (Copybooks)
+- CVCUS01Y
+- CVACT01Y
+- CVACT03Y
+- CVTRA05Y
+- CVACT02Y
+- CVEXPORT
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVEXPORT (external structure, expanded via copybook)
+- 01 WS-FILE-STATUS-AREA (group item, 7 sub-field(s))
+- 01 WS-IMPORT-CONTROL (group item, 2 sub-field(s))
+- 01 WS-IMPORT-STATISTICS (group item, 8 sub-field(s))
+- 01 WS-ERROR-RECORD (group item, 8 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN-PROCESSING
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 16 / 0
+- **Terminal Statements**: GOBACK (line 171)
+- **Paragraph List**:
+- 0000-MAIN-PROCESSING
+- 1000-INITIALIZE
+- 1100-OPEN-FILES
+- 2000-PROCESS-EXPORT-FILE
+- 2100-READ-EXPORT-RECORD
+- 2200-PROCESS-RECORD-BY-TYPE
+- 2300-PROCESS-CUSTOMER-RECORD
+- 2400-PROCESS-ACCOUNT-RECORD
+- 2500-PROCESS-XREF-RECORD
+- 2600-PROCESS-TRAN-RECORD
+- 2650-PROCESS-CARD-RECORD
+- 2700-PROCESS-UNKNOWN-RECORD
+- 2750-WRITE-ERROR
+- 3000-VALIDATE-IMPORT
+- 4000-FINALIZE
+- 9999-ABEND-PROGRAM

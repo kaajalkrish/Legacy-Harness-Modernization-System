@@ -1,0 +1,362 @@
+{
+  "copybook": "BCHCTL",
+  "used_by": [
+    "BCHCTL00",
+    "HISTLD00",
+    "PRCSEQ00",
+    "RCVPRC00",
+    "RPTSTA00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "BATCH-CONTROL-RECORD",
+      "line": 9,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "BCT-KEY",
+          "line": 10,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-JOB-NAME",
+              "line": 11,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-PROCESS-DATE",
+              "line": 12,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-SEQUENCE-NO",
+              "line": 13,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-DATA",
+          "line": 14,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-STATUS",
+              "line": 15,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "BCT-STATUS-READY",
+                  "line": 16,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "BCT-STATUS-ACTIVE",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "BCT-STATUS-WAITING",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'W'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "BCT-STATUS-DONE",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'D'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "BCT-STATUS-ERROR",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'E'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "BCT-PROCESS-CONTROL",
+              "line": 21,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "BCT-STEP-NAME",
+                  "line": 22,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "BCT-PROGRAM-NAME",
+                  "line": 23,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "BCT-START-TIME",
+                  "line": 24,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "BCT-END-TIME",
+                  "line": 25,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "BCT-DEPENDENCIES",
+              "line": 26,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "BCT-PREREQ-COUNT",
+                  "line": 27,
+                  "pic": "9(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "BCT-PREREQ-JOBS",
+                  "line": 28,
+                  "pic": null,
+                  "occurs": 10,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "BCT-PREREQ-NAME",
+                      "line": 29,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "BCT-PREREQ-SEQ",
+                      "line": 30,
+                      "pic": "9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "BCT-PREREQ-RC",
+                      "line": 31,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "BCT-RETURN-INFO",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "BCT-RETURN-CODE",
+                  "line": 33,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "BCT-ERROR-DESC",
+                  "line": 34,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-STATISTICS",
+          "line": 35,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-RESTART-COUNT",
+              "line": 36,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-ATTEMPT-TS",
+              "line": 37,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-COMPLETE-TS",
+              "line": 38,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-FILLER",
+          "line": 39,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

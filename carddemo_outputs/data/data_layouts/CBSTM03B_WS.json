@@ -1,0 +1,322 @@
+{
+  "program": "CBSTM03B",
+  "records": [
+    {
+      "level": 1,
+      "name": "TRNXFILE-STATUS",
+      "line": 83,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRNXFILE-STAT1",
+          "line": 84,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRNXFILE-STAT2",
+          "line": 85,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "XREFFILE-STATUS",
+      "line": 87,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "XREFFILE-STAT1",
+          "line": 88,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREFFILE-STAT2",
+          "line": 89,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CUSTFILE-STATUS",
+      "line": 91,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CUSTFILE-STAT1",
+          "line": 92,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUSTFILE-STAT2",
+          "line": 93,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ACCTFILE-STATUS",
+      "line": 95,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ACCTFILE-STAT1",
+          "line": 96,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCTFILE-STAT2",
+          "line": 97,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "LK-M03B-AREA",
+      "line": 100,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "LK-M03B-DD",
+          "line": 101,
+          "section": "LINKAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "LK-M03B-OPER",
+          "line": 102,
+          "section": "LINKAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "M03B-OPEN",
+              "line": 103,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'O'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-CLOSE",
+              "line": 104,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-READ",
+              "line": 105,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-READ-K",
+              "line": 106,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'K'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-WRITE",
+              "line": 107,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'W'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-REWRITE",
+              "line": 108,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Z'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "LK-M03B-RC",
+          "line": 109,
+          "section": "LINKAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "LK-M03B-KEY",
+          "line": 110,
+          "section": "LINKAGE",
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "LK-M03B-KEY-LN",
+          "line": 111,
+          "section": "LINKAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "LK-M03B-FLDT",
+          "line": 112,
+          "section": "LINKAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "TRNX-FILE",
+      "line": 58,
+      "end_line": 64,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "XREF-FILE",
+      "line": 65,
+      "end_line": 69,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "CUST-FILE",
+      "line": 70,
+      "end_line": 74,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "ACCT-FILE",
+      "line": 75,
+      "end_line": 79,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

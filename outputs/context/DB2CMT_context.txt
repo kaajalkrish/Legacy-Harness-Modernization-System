@@ -1,0 +1,37 @@
+# System Context: DB2CMT
+## 📝 Summary
+DB2CMT is a common-type COBOL program, entered at 0000-MAIN, with 10 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 3 copybook(s). It defines 3 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DB2CMT
+- **Source Path**: programs/common/DB2CMT.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- SQLCA
+- DBPROC
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ERRPROC
+- DB2ERR
+## Key Data Structures
+- 01 WS-SAVEPOINT-ID PIC X(18)
+- 01 WS-COMMIT-STATS (group item, 3 sub-field(s))
+- 01 WS-CURRENT-TIMESTAMP PIC X(26)
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 10 / 0
+- **Terminal Statements**: GOBACK (line 72)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 2000-COMMIT
+- 2100-ISSUE-COMMIT
+- 3000-ROLLBACK
+- 4000-SAVEPOINT
+- 5000-RESTORE
+- 6000-STATISTICS
+- 9000-ERROR-ROUTINE
+- 9100-LOG-ERROR

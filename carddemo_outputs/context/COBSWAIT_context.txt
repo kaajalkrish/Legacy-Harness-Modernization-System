@@ -1,0 +1,24 @@
+# System Context: COBSWAIT
+## 📝 Summary
+COBSWAIT is a online-type COBOL program, with 0 paragraph(s) across 0 section(s), calling 1 other program(s). It defines 2 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COBSWAIT
+- **Source Path**: app/cbl/COBSWAIT.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- MVSWAIT
+## Key Data Structures
+- 01 MVSWAIT-TIME PIC 9(8)
+- 01 PARM-VALUE PIC X(8)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: STOP RUN (line 40)
+- **Paragraph List**:
+- None

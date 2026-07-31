@@ -1,0 +1,70 @@
+# System Context: COCRDSLC
+## 📝 Summary
+COCRDSLC is a online-type COBOL program, entered at 0000-MAIN, with 34 paragraph(s) across 0 section(s), sharing 12 copybook(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COCRDSLC
+- **Source Path**: app/cbl/COCRDSLC.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CVCRD01Y
+- COCOM01Y
+- DFHBMSCA
+- DFHAID
+- COTTL01Y
+- COCRDSL
+- CSDAT01Y
+- CSMSG01Y
+- CSMSG02Y
+- CSUSR01Y
+- CVACT02Y
+- CVCUS01Y
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-MISC-STORAGE (group item, 12 sub-field(s))
+- 01 WS-LITERALS (group item, 14 sub-field(s))
+- 01 WS-THIS-PROGCOMMAREA (group item, 1 sub-field(s))
+- 01 WS-COMMAREA PIC X(2000)
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 34 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- 0000-MAIN
+- COMMON-RETURN
+- 0000-MAIN-EXIT
+- 1000-SEND-MAP
+- 1000-SEND-MAP-EXIT
+- 1100-SCREEN-INIT
+- 1100-SCREEN-INIT-EXIT
+- 1200-SETUP-SCREEN-VARS
+- 1200-SETUP-SCREEN-VARS-EXIT
+- 1300-SETUP-SCREEN-ATTRS
+- 1300-SETUP-SCREEN-ATTRS-EXIT
+- 1400-SEND-SCREEN
+- 1400-SEND-SCREEN-EXIT
+- 2000-PROCESS-INPUTS
+- 2000-PROCESS-INPUTS-EXIT
+- 2100-RECEIVE-MAP
+- 2100-RECEIVE-MAP-EXIT
+- 2200-EDIT-MAP-INPUTS
+- 2200-EDIT-MAP-INPUTS-EXIT
+- 2210-EDIT-ACCOUNT
+- 2210-EDIT-ACCOUNT-EXIT
+- 2220-EDIT-CARD
+- 2220-EDIT-CARD-EXIT
+- 9000-READ-DATA
+- 9000-READ-DATA-EXIT
+- 9100-GETCARD-BYACCTCARD
+- 9100-GETCARD-BYACCTCARD-EXIT
+- 9150-GETCARD-BYACCT
+- 9150-GETCARD-BYACCT-EXIT
+- SEND-LONG-TEXT
+- SEND-LONG-TEXT-EXIT
+- SEND-PLAIN-TEXT
+- SEND-PLAIN-TEXT-EXIT
+- ABEND-ROUTINE

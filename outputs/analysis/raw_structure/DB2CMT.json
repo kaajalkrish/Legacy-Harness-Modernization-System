@@ -1,0 +1,654 @@
+{
+  "meta": {
+    "program_id": "DB2CMT",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\common\\DB2CMT.cbl",
+    "total_lines": 170
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 7,
+    "end_line": 9,
+    "program_id": "DB2CMT"
+  },
+  "environment_division": {
+    "start_line": 10,
+    "end_line": 14,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 15,
+    "end_line": 51,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-SAVEPOINT-ID",
+          "line": 18,
+          "section": "WORKING-STORAGE",
+          "pic": "X(18)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "SQLCA",
+              "library": null,
+              "line": 21,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "DBPROC",
+              "library": null,
+              "line": 22,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "ERRHAND",
+              "library": null,
+              "line": 23,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-COMMIT-STATS",
+          "line": 25,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-COMMIT-COUNT",
+              "line": 26,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ROLLBACK-COUNT",
+              "line": 27,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SAVEPOINT-COUNT",
+              "line": 28,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-CURRENT-TIMESTAMP",
+          "line": 30,
+          "section": "WORKING-STORAGE",
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 16
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "LS-COMMIT-REQUEST",
+          "line": 33,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LS-FUNCTION",
+              "line": 34,
+              "section": "LINKAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FUNC-INIT",
+                  "line": 35,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INIT'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-CMIT",
+                  "line": 36,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'CMIT'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-RBACK",
+                  "line": 37,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'RBAK'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-SAVE",
+                  "line": 38,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'SAVE'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-REST",
+                  "line": 39,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'REST'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FUNC-STAT",
+                  "line": 40,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'STAT'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "LS-SAVEPOINT-NAME",
+              "line": 41,
+              "section": "LINKAGE",
+              "pic": "X(18)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LS-COMMIT-PARMS",
+              "line": 42,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "LS-RECORDS-PROC",
+                  "line": 43,
+                  "section": "LINKAGE",
+                  "pic": "S9(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "LS-COMMIT-FREQ",
+                  "line": 44,
+                  "section": "LINKAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "LS-FORCE-FLAG",
+                  "line": 45,
+                  "section": "LINKAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "LS-FORCE-COMMIT",
+                      "line": 46,
+                      "section": "LINKAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Y'",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "LS-RETURN-CODE",
+              "line": 47,
+              "section": "LINKAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LS-ERROR-INFO",
+              "line": 48,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "LS-SQLCODE",
+                  "line": 49,
+                  "section": "LINKAGE",
+                  "pic": "S9(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "LS-ERROR-MSG",
+                  "line": 50,
+                  "section": "LINKAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 32
+    }
+  },
+  "procedure_division": {
+    "start_line": 52,
+    "end_line": 170,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 53,
+        "end_line": 74,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE",
+        "section": null,
+        "start_line": 75,
+        "end_line": 79,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-COMMIT",
+        "section": null,
+        "start_line": 80,
+        "end_line": 86,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-ISSUE-COMMIT",
+        "section": null,
+        "start_line": 87,
+        "end_line": 102,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-ROLLBACK",
+        "section": null,
+        "start_line": 103,
+        "end_line": 118,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-SAVEPOINT",
+        "section": null,
+        "start_line": 119,
+        "end_line": 136,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-RESTORE",
+        "section": null,
+        "start_line": 137,
+        "end_line": 154,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "6000-STATISTICS",
+        "section": null,
+        "start_line": 155,
+        "end_line": 161,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-ERROR-ROUTINE",
+        "section": null,
+        "start_line": 162,
+        "end_line": 167,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-LOG-ERROR",
+        "section": null,
+        "start_line": 168,
+        "end_line": 170,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 72
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "SQLCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 21
+    },
+    {
+      "copybook": "DBPROC",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 22
+    },
+    {
+      "copybook": "ERRHAND",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 23
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [
+      "0000-MAIN"
+    ],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 53,
+        "end_line": 74,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-INITIALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 75,
+        "end_line": 79,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-COMMIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 80,
+        "end_line": 86,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-ISSUE-COMMIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 87,
+        "end_line": 102,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-ROLLBACK",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 103,
+        "end_line": 118,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-SAVEPOINT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 119,
+        "end_line": 136,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5000-RESTORE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 137,
+        "end_line": 154,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "6000-STATISTICS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 155,
+        "end_line": 161,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-ERROR-ROUTINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 162,
+        "end_line": 167,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-LOG-ERROR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 168,
+        "end_line": 170,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 54,
+        "unstructured": false,
+        "to": "1000-INITIALIZE"
+      },
+      {
+        "from": "2000-COMMIT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 81,
+        "unstructured": false,
+        "to": "2100-ISSUE-COMMIT"
+      },
+      {
+        "from": "2100-ISSUE-COMMIT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 88,
+        "unstructured": false,
+        "to": "9100-LOG-ERROR"
+      },
+      {
+        "from": "3000-ROLLBACK",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 104,
+        "unstructured": false,
+        "to": "9100-LOG-ERROR"
+      },
+      {
+        "from": "4000-SAVEPOINT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 120,
+        "unstructured": false,
+        "to": "9100-LOG-ERROR"
+      },
+      {
+        "from": "5000-RESTORE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 138,
+        "unstructured": false,
+        "to": "9100-LOG-ERROR"
+      }
+    ],
+    "dead_code_candidates": [
+      "2000-COMMIT",
+      "3000-ROLLBACK",
+      "4000-SAVEPOINT",
+      "5000-RESTORE",
+      "6000-STATISTICS",
+      "9000-ERROR-ROUTINE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

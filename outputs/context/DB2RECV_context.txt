@@ -1,0 +1,25 @@
+# System Context: DB2RECV
+## 📝 Summary
+DB2RECV is a online-type COBOL program, with 0 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 2 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DB2RECV
+- **Source Path**: programs/online/DB2RECV.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- ERRHND
+- DB2REQ
+### 🔗 Execution Flow (Calls)
+- DB2ONLN
+- ERRHNDL
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

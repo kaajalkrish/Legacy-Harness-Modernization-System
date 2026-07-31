@@ -1,0 +1,83 @@
+erDiagram
+  COPAU0AI {
+    int field_count "373"
+    string used_by "COPAUS0C"
+  }
+  COPAU0AO {
+    int field_count "373"
+    string used_by "COPAUS0C"
+  }
+  COPAU1AI {
+    int field_count "163"
+    string used_by "COPAUS1C"
+  }
+  CTRTLIAI {
+    int field_count "241"
+    string used_by "COTRTLIC"
+  }
+  CTRTLIAO {
+    int field_count "241"
+    string used_by "COTRTLIC"
+  }
+  WS_DATE_VALIDATION_RESULT {
+    int field_count "15"
+    string used_by "-"
+  }
+  TRAN_CAT_BAL_RECORD {
+    int field_count "6"
+    string used_by "CBACT04C, CBTRN02C"
+  }
+  TRAN_CAT_RECORD {
+    int field_count "5"
+    string used_by "CBTRN03C"
+  }
+  CACTUPAI {
+    int field_count "325"
+    string used_by "COACTUPC"
+  }
+  CACTUPAO {
+    int field_count "325"
+    string used_by "COACTUPC"
+  }
+  CACTVWAI {
+    int field_count "223"
+    string used_by "COACTVWC"
+  }
+  CACTVWAO {
+    int field_count "223"
+    string used_by "COACTVWC"
+  }
+  CCRDLIAI {
+    int field_count "271"
+    string used_by "COCRDLIC"
+  }
+  CCRDLIAO {
+    int field_count "271"
+    string used_by "COCRDLIC"
+  }
+  COTRN0AI {
+    int field_count "355"
+    string used_by "COTRN00C"
+  }
+  COTRN0AO {
+    int field_count "355"
+    string used_by "COTRN00C"
+  }
+  COUSR0AI {
+    int field_count "355"
+    string used_by "COUSR00C"
+  }
+  COUSR0AO {
+    int field_count "355"
+    string used_by "COUSR00C"
+  }
+  WS_MISC_STORAGE {
+    int field_count "173"
+    string used_by "COACTUPC"
+  }
+  WS_MESSAGE {
+    int field_count "15"
+    string used_by "CSUTLDTC"
+  }
+  WS_DATE_VALIDATION_RESULT ||--o{ WS_MESSAGE : "shared field WS-MSG-NO"
+  TRAN_CAT_BAL_RECORD ||--o{ TRAN_CAT_RECORD : "shared field TRAN-CAT-KEY"

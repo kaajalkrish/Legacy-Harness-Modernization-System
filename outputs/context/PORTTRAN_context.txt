@@ -1,0 +1,27 @@
+# System Context: PORTTRAN
+## 📝 Summary
+PORTTRAN is a portfolio-type COBOL program, with 0 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 4 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PORTTRAN
+- **Source Path**: programs/portfolio/PORTTRAN.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- TRNREC
+- PORTREC
+- ERRHAND
+- AUDITLOG
+### 🔗 Execution Flow (Calls)
+- AUDPROC
+- ERRPROC
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

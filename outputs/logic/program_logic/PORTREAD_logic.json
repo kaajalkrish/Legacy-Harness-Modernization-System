@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "program_id": "PORTREAD",
+    "source_file": "input/src_sample/programs/portfolio/PORTREAD.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "PORTREAD is a simple batch program that reads and displays every record in the portfolio file. It opens the indexed PORTFILE for input, then sequentially reads each record (dynamic access, READ NEXT), counting them and printing key fields (ID, account, client, status, total value) to the report. At the end it closes the file, prints the total record count, and sets the job return code. Error conditions handled: file-open failure. It is essentially a read-only reporting/demonstration utility over the portfolio file.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [64, 72],
+      "pseudocode": "CALL 1000-INITIALIZE\nWHILE NOT end of file DO\n  CALL 2000-PROCESS\nEND WHILE\nCALL 3000-TERMINATE\nRETURN to caller (GOBACK)",
+      "branches": ["WHILE NOT END-OF-FILE (main read loop)"],
+      "calls_made": ["1000-INITIALIZE", "2000-PROCESS", "3000-TERMINATE"],
+      "field_references": ["WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1000-INITIALIZE",
+      "line_range": [74, 83],
+      "pseudocode": "CLEAR WS-WORK-AREAS (INITIALIZE)\nOPEN PORTFOLIO-FILE for READ-ONLY\nIF open NOT success THEN\n  DISPLAY 'Error opening file' + status\n  SET WS-RETURN-CODE = error (8)\n  CALL 3000-TERMINATE\nEND IF",
+      "branches": ["IF file open failed -> terminate"],
+      "calls_made": ["3000-TERMINATE"],
+      "field_references": ["WS-WORK-AREAS", "WS-FILE-STATUS", "WS-RETURN-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 81, "note": "SME REVIEW: same pattern as PORTADD — on open failure it terminates (closes the file) but does not stop; control returns to the mainline which then reads a closed file."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "2000-PROCESS",
+      "line_range": [85, 93],
+      "pseudocode": "READ next record from PORTFOLIO-FILE (READ NEXT)\nIF end of file THEN\n  SET END-OF-FILE = true\nELSE\n  INCREMENT WS-RECORD-COUNT\n  CALL 2100-DISPLAY-RECORD\nEND IF",
+      "branches": ["READ NEXT ... AT END / NOT AT END"],
+      "calls_made": ["2100-DISPLAY-RECORD"],
+      "field_references": ["WS-FILE-STATUS", "WS-END-OF-FILE-SW", "WS-RECORD-COUNT"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 86, "note": "READ NEXT with DYNAMIC access mode = sequential walk through the indexed file in key order."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "2100-DISPLAY-RECORD",
+      "line_range": [95, 103],
+      "pseudocode": "DISPLAY 'Portfolio Record:' + WS-RECORD-COUNT\nDISPLAY the record's ID, Account, Client, Status, Total Value (one line each)\nDISPLAY a blank separator line",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-RECORD-COUNT", "PORT-ID", "PORT-ACCOUNT-NO", "PORT-CLIENT-NAME", "PORT-STATUS", "PORT-TOTAL-VALUE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3000-TERMINATE",
+      "line_range": [105, 111],
+      "pseudocode": "CLOSE PORTFOLIO-FILE\nDISPLAY 'Total Records Read:' + WS-RECORD-COUNT\nSET job RETURN-CODE = WS-RETURN-CODE",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-RECORD-COUNT", "WS-RETURN-CODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

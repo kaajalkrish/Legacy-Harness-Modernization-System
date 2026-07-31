@@ -1,0 +1,51 @@
+# System Context: COTRN02C
+## 📝 Summary
+COTRN02C is a online-type COBOL program, entered at MAIN-PARA, with 18 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 10 copybook(s). It defines 2 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COTRN02C
+- **Source Path**: app/cbl/COTRN02C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COTRN02
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CVTRA05Y
+- CVACT01Y
+- CVACT03Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- CSUTLDTC
+- CSUTLDTC
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 19 sub-field(s))
+- 01 CSUTLDTC-PARM (group item, 4 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 18 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- VALIDATE-INPUT-KEY-FIELDS
+- VALIDATE-INPUT-DATA-FIELDS
+- ADD-TRANSACTION
+- COPY-LAST-TRAN-DATA
+- RETURN-TO-PREV-SCREEN
+- SEND-TRNADD-SCREEN
+- RECEIVE-TRNADD-SCREEN
+- POPULATE-HEADER-INFO
+- READ-CXACAIX-FILE
+- READ-CCXREF-FILE
+- STARTBR-TRANSACT-FILE
+- READPREV-TRANSACT-FILE
+- ENDBR-TRANSACT-FILE
+- WRITE-TRANSACT-FILE
+- CLEAR-CURRENT-SCREEN
+- INITIALIZE-ALL-FIELDS

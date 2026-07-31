@@ -1,0 +1,2909 @@
+{
+  "meta": {
+    "program_id": "CBSTM03A",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBSTM03A.CBL",
+    "total_lines": 924
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 1,
+    "end_line": 35,
+    "program_id": "CBSTM03A",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 36,
+    "end_line": 41,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 42,
+    "end_line": 261,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "STMT-FILE",
+          "line": 44,
+          "end_line": 45,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "HTML-FILE",
+          "line": 46,
+          "end_line": 48,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 43
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "COSTM01",
+          "library": null,
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "CVACT03Y",
+          "library": null,
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "CUSTREC",
+          "library": null,
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "CVACT01Y",
+          "library": null,
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "COMP-VARIABLES",
+          "line": 59,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CR-CNT",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TR-CNT",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CR-JMP",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TR-JMP",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "COMP3-VARIABLES",
+          "line": 64,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-TOTAL-AMT",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MISC-VARIABLES",
+          "line": 66,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-FL-DD",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRNXFILE'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRN-AMT",
+              "line": 68,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SAVE-CARD",
+              "line": 69,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES PIC X(16)",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "END-OF-FILE",
+              "line": 70,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-M03B-AREA",
+          "line": 71,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-M03B-DD",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-M03B-OPER",
+              "line": 73,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "M03B-OPEN",
+                  "line": 74,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'O'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-CLOSE",
+                  "line": 75,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-READ",
+                  "line": 76,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-READ-K",
+                  "line": 77,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'K'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-WRITE",
+                  "line": 78,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'W'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "M03B-REWRITE",
+                  "line": 79,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Z'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-M03B-RC",
+              "line": 80,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-M03B-KEY",
+              "line": 81,
+              "section": "WORKING-STORAGE",
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-M03B-KEY-LN",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-M03B-FLDT",
+              "line": 83,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1000)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "STATEMENT-LINES",
+          "line": 85,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "ST-LINE0",
+              "line": 86,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 87,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(31)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '*'                PIC X(31)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 88,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(18)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL 'START OF STATEMENT' PIC X(18)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 89,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(31)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '*'                PIC X(31)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE1",
+              "line": 90,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "ST-NAME",
+                  "line": 91,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(75)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 92,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(05)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(05)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE2",
+              "line": 93,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "ST-ADD1",
+                  "line": 94,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 95,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(30)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(30)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE3",
+              "line": 96,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "ST-ADD2",
+                  "line": 97,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 98,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(30)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(30)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE4",
+              "line": 99,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "ST-ADD3",
+                  "line": 100,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE5",
+              "line": 101,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 102,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '-'                PIC X(80)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE6",
+              "line": 103,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 104,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(33)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(33)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 105,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(14)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Basic Details'        PIC X(14)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 106,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(33)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(33)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE7",
+              "line": 107,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 108,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Account ID         :' PIC X(20)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-ACCT-ID",
+                  "line": 109,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 110,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(40)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(40)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE8",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 112,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Current Balance    :' PIC X(20)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-CURR-BAL",
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(9).99-",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 114,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(07)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(07)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 115,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(40)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(40)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE9",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 117,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'FICO Score         :' PIC X(20)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-FICO-SCORE",
+                  "line": 118,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 119,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(40)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(40)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE10",
+              "line": 120,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 121,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '-'                PIC X(80)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE11",
+              "line": 122,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 123,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(30)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(30)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 124,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TRANSACTION SUMMARY ' PIC X(20)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 125,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(30)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES                 PIC X(30)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE12",
+              "line": 126,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 127,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '-'                PIC X(80)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE13",
+              "line": 128,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 129,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Tran ID         '     PIC X(16)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 130,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(51)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Tran Details    '     PIC X(51)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 131,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(13)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'  Tran Amount'        PIC X(13)",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE14",
+              "line": 132,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "ST-TRANID",
+                  "line": 133,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 134,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' '          PIC X(01)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-TRANDT",
+                  "line": 135,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(49)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 136,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'$'          PIC X(01)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-TRANAMT",
+                  "line": 137,
+                  "section": "WORKING-STORAGE",
+                  "pic": "Z(9).99-",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE14A",
+              "line": 138,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 139,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Total EXP:' PIC X(10)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 140,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(56)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES       PIC X(56)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 141,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'$'          PIC X(01)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ST-TOTAL-TRAMT",
+                  "line": 142,
+                  "section": "WORKING-STORAGE",
+                  "pic": "Z(9).99-",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "ST-LINE15",
+              "line": 143,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 144,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(32)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '*'                PIC X(32)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 145,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL 'END OF STATEMENT' PIC X(16)",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 146,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(32)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ALL '*'                PIC X(32)",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "HTML-LINES",
+          "line": 148,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "HTML-FIXED-LN",
+              "line": 149,
+              "section": "WORKING-STORAGE",
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "HTML-L01",
+                  "line": 150,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<!DOCTYPE html>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L02",
+                  "line": 151,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<html lang=\"en\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L03",
+                  "line": 152,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<head>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L04",
+                  "line": 153,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<meta charset=\"utf-8\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L05",
+                  "line": 154,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<title>HTML Table Layout</title>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L06",
+                  "line": 155,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</head>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L07",
+                  "line": 156,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<body style=\"margin:0px;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L08",
+                  "line": 157,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<table  align=\"center\" frame=\"box\" styl 'e=\"width:70%; font:12px Segoe UI,sans-serif;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-LTRS",
+                  "line": 159,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<tr>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-LTRE",
+                  "line": 160,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</tr>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-LTDS",
+                  "line": 161,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-LTDE",
+                  "line": 162,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</td>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L10",
+                  "line": 163,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#1d1d96b3;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L15",
+                  "line": 165,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#FFAF33;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L16",
+                  "line": 167,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Bank of XYZ</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L17",
+                  "line": 169,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p>410 Terry Ave N</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L18",
+                  "line": 171,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p>Seattle WA 99999</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L22-35",
+                  "line": 173,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#f2f2f2;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L30-42",
+                  "line": 176,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#33FFD1; text-align:center;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L31",
+                  "line": 179,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Basic Details</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L43",
+                  "line": 181,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Transaction Summary</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L47",
+                  "line": 183,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L48",
+                  "line": 186,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Tran ID</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L50",
+                  "line": 188,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L51",
+                  "line": 191,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Tran Details</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L53",
+                  "line": 193,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#33FF5E; text-align:right;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L54",
+                  "line": 196,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">Amount</p>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L58",
+                  "line": 198,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L61",
+                  "line": 201,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L64",
+                  "line": 204,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#f2f2f2; text-align:right;\">'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L75",
+                  "line": 207,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<h3>End of Statement</h3>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L78",
+                  "line": 209,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</table>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L79",
+                  "line": 210,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</body>'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "HTML-L80",
+                  "line": 211,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</html>'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "HTML-L11",
+              "line": 212,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 213,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(34)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<h3>Statement for Account Number: '",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "L11-ACCT",
+                  "line": 215,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 216,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(05)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'</h3>'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "HTML-L23",
+              "line": 217,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 218,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(26)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'<p style=\"font-size:16px\">'",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "L23-NAME",
+                  "line": 220,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "HTML-ADDR-LN",
+              "line": 221,
+              "section": "WORKING-STORAGE",
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "HTML-BSIC-LN",
+              "line": 222,
+              "section": "WORKING-STORAGE",
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "HTML-TRAN-LN",
+              "line": 223,
+              "section": "WORKING-STORAGE",
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-TRNX-TABLE",
+          "line": 225,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CARD-TBL",
+              "line": 226,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 51,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CARD-NUM",
+                  "line": 227,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TRAN-TBL",
+                  "line": 228,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": 10,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 15,
+                      "name": "WS-TRAN-NUM",
+                      "line": 229,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 15,
+                      "name": "WS-TRAN-REST",
+                      "line": 230,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(318)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-TRN-TBL-CNTR",
+          "line": 231,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-TRN-TBL-CTR",
+              "line": 232,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 51,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-TRCT",
+                  "line": 233,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "PSAPTR",
+          "line": 235,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "BUMP-TIOT",
+          "line": 236,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TIOT-INDEX",
+          "line": 237,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "BUMP-TIOT",
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 49
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "ALIGN-PSA",
+          "line": 240,
+          "section": "LINKAGE",
+          "pic": "9(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "PSA-BLOCK",
+          "line": 241,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 242,
+              "section": "LINKAGE",
+              "pic": "X(536)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TCB-POINT",
+              "line": 243,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TCB-BLOCK",
+          "line": 244,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 245,
+              "section": "LINKAGE",
+              "pic": "X(12)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TIOT-POINT",
+              "line": 246,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TIOT-BLOCK",
+          "line": 247,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TIOTNJOB",
+              "line": 248,
+              "section": "LINKAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TIOTJSTP",
+              "line": 249,
+              "section": "LINKAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TIOTPSTP",
+              "line": 250,
+              "section": "LINKAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TIOT-ENTRY",
+          "line": 251,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TIOT-SEG",
+              "line": 252,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "TIO-LEN",
+                  "line": 253,
+                  "section": "LINKAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 254,
+                  "section": "LINKAGE",
+                  "pic": "X(03)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "TIOCDDNM",
+                  "line": 255,
+                  "section": "LINKAGE",
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 256,
+                  "section": "LINKAGE",
+                  "pic": "X(05)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "UCB-ADDR",
+                  "line": 257,
+                  "section": "LINKAGE",
+                  "pic": "X(03)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "NULL-UCB",
+                      "line": 258,
+                      "section": "LINKAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "LOW-VALUES",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 259,
+              "section": "LINKAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "END-OF-TIOT",
+                  "line": 260,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 239
+    }
+  },
+  "procedure_division": {
+    "start_line": 262,
+    "end_line": 924,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-START",
+        "section": null,
+        "start_line": 296,
+        "end_line": 315,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-MAINLINE",
+        "section": null,
+        "start_line": 316,
+        "end_line": 340,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-GOBACK",
+        "section": null,
+        "start_line": 341,
+        "end_line": 344,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-XREFFILE-GET-NEXT",
+        "section": null,
+        "start_line": 345,
+        "end_line": 367,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-CUSTFILE-GET",
+        "section": null,
+        "start_line": 368,
+        "end_line": 391,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-ACCTFILE-GET",
+        "section": null,
+        "start_line": 392,
+        "end_line": 415,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-TRNXFILE-GET",
+        "section": null,
+        "start_line": 416,
+        "end_line": 457,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-CREATE-STATEMENT",
+        "section": null,
+        "start_line": 458,
+        "end_line": 505,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-WRITE-HTML-HEADER",
+        "section": null,
+        "start_line": 506,
+        "end_line": 553,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-EXIT",
+        "section": null,
+        "start_line": 554,
+        "end_line": 557,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-WRITE-HTML-NMADBS",
+        "section": null,
+        "start_line": 558,
+        "end_line": 670,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-EXIT",
+        "section": null,
+        "start_line": 671,
+        "end_line": 674,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "6000-WRITE-TRANS",
+        "section": null,
+        "start_line": 675,
+        "end_line": 725,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8100-FILE-OPEN",
+        "section": null,
+        "start_line": 726,
+        "end_line": 729,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8100-TRNXFILE-OPEN",
+        "section": null,
+        "start_line": 730,
+        "end_line": 764,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8200-XREFFILE-OPEN",
+        "section": null,
+        "start_line": 765,
+        "end_line": 782,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8300-CUSTFILE-OPEN",
+        "section": null,
+        "start_line": 783,
+        "end_line": 800,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8400-ACCTFILE-OPEN",
+        "section": null,
+        "start_line": 801,
+        "end_line": 817,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8500-READTRNX-READ",
+        "section": null,
+        "start_line": 818,
+        "end_line": 848,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8599-EXIT",
+        "section": null,
+        "start_line": 849,
+        "end_line": 855,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-TRNXFILE-CLOSE",
+        "section": null,
+        "start_line": 856,
+        "end_line": 872,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9200-XREFFILE-CLOSE",
+        "section": null,
+        "start_line": 873,
+        "end_line": 888,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9300-CUSTFILE-CLOSE",
+        "section": null,
+        "start_line": 889,
+        "end_line": 904,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9400-ACCTFILE-CLOSE",
+        "section": null,
+        "start_line": 905,
+        "end_line": 920,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 921,
+        "end_line": 924,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 314
+      },
+      {
+        "type": "GOBACK",
+        "line": 341
+      },
+      {
+        "type": "GOBACK",
+        "line": 342
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COSTM01",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 51
+    },
+    {
+      "copybook": "CVACT03Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 53
+    },
+    {
+      "copybook": "CUSTREC",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 55
+    },
+    {
+      "copybook": "CVACT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 57
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-START"
+    ],
+    "terminal_nodes": [
+      "0000-START",
+      "9999-GOBACK"
+    ],
+    "nodes": [
+      {
+        "id": "0000-START",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 296,
+        "end_line": 315,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "ALTER"
+        ]
+      },
+      {
+        "id": "1000-MAINLINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 316,
+        "end_line": 340,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-GOBACK",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 341,
+        "end_line": 344,
+        "is_entry_point": false,
+        "is_terminal": true,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-XREFFILE-GET-NEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 345,
+        "end_line": 367,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-CUSTFILE-GET",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 368,
+        "end_line": 391,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-ACCTFILE-GET",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 392,
+        "end_line": 415,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-TRNXFILE-GET",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 416,
+        "end_line": 457,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5000-CREATE-STATEMENT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 458,
+        "end_line": 505,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU",
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "5100-WRITE-HTML-HEADER",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 506,
+        "end_line": 553,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 554,
+        "end_line": 557,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-WRITE-HTML-NMADBS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 558,
+        "end_line": 670,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 671,
+        "end_line": 674,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "6000-WRITE-TRANS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 675,
+        "end_line": 725,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8100-FILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 726,
+        "end_line": 729,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8100-TRNXFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 730,
+        "end_line": 764,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8200-XREFFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 765,
+        "end_line": 782,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8300-CUSTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 783,
+        "end_line": 800,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8400-ACCTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 801,
+        "end_line": 817,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8500-READTRNX-READ",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 818,
+        "end_line": 848,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8599-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 849,
+        "end_line": 855,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "9100-TRNXFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 856,
+        "end_line": 872,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9200-XREFFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 873,
+        "end_line": 888,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9300-CUSTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 889,
+        "end_line": 904,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9400-ACCTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 905,
+        "end_line": 920,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 921,
+        "end_line": 924,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-START",
+        "type": "ALTER",
+        "resolved": true,
+        "source_line": 298,
+        "unstructured": true,
+        "to": "8100-TRNXFILE-OPEN",
+        "altered_paragraph": "8100-FILE-OPEN"
+      },
+      {
+        "from": "1000-MAINLINE",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 317,
+        "unstructured": false,
+        "to": "1000-MAINLINE",
+        "inline": true,
+        "condition_text": "PERFORM UNTIL END-OF-FILE = 'Y' IF  END-OF-FILE = 'N' PERFORM 1000-XREFFILE-GET-NEXT IF  END-OF-FILE = 'N' PERFORM 2000-CUSTFILE-GET PERFORM 3000-ACCTFILE-GET PERFORM 5000-CREATE-STATEMENT MOVE 1 TO CR-JMP MOVE ZERO TO WS-TOTAL-AMT PERFORM 4000-TRNXFILE-GET END-IF END-IF END-PERFORM.",
+        "loop_start_line": 317,
+        "loop_end_line": 329
+      },
+      {
+        "from": "1000-MAINLINE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 331,
+        "unstructured": false,
+        "to": "9100-TRNXFILE-CLOSE"
+      },
+      {
+        "from": "1000-MAINLINE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 333,
+        "unstructured": false,
+        "to": "9200-XREFFILE-CLOSE"
+      },
+      {
+        "from": "1000-MAINLINE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 335,
+        "unstructured": false,
+        "to": "9300-CUSTFILE-CLOSE"
+      },
+      {
+        "from": "1000-MAINLINE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 337,
+        "unstructured": false,
+        "to": "9400-ACCTFILE-CLOSE"
+      },
+      {
+        "from": "1000-XREFFILE-GET-NEXT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 353,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "2000-CUSTFILE-GET",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 379,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "3000-ACCTFILE-GET",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 403,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "4000-TRNXFILE-GET",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 417,
+        "unstructured": false,
+        "to": "4000-TRNXFILE-GET",
+        "inline": true,
+        "condition_text": "PERFORM VARYING CR-JMP FROM 1 BY 1 UNTIL CR-JMP > CR-CNT OR (WS-CARD-NUM (CR-JMP) > XREF-CARD-NUM) IF XREF-CARD-NUM = WS-CARD-NUM (CR-JMP) MOVE WS-CARD-NUM (CR-JMP) TO TRNX-CARD-NUM PERFORM VARYING TR-JMP FROM 1 BY 1 UNTIL (TR-JMP > WS-TRCT (CR-JMP)) MOVE WS-TRAN-NUM (CR-JMP, TR-JMP) TO TRNX-ID MOVE WS-TRAN-REST (CR-JMP, TR-JMP) TO TRNX-REST PERFORM 6000-WRITE-TRANS ADD TRNX-AMT TO WS-TOTAL-AMT END-PERFORM END-IF END-PERFORM.",
+        "loop_start_line": 417,
+        "loop_end_line": 430
+      },
+      {
+        "from": "5000-CREATE-STATEMENT",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 461,
+        "unstructured": true,
+        "to": "5100-WRITE-HTML-HEADER",
+        "implicit_thru_range": [
+          "5100-WRITE-HTML-HEADER",
+          "5100-EXIT"
+        ]
+      },
+      {
+        "from": "5000-CREATE-STATEMENT",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 486,
+        "unstructured": true,
+        "to": "5200-WRITE-HTML-NMADBS",
+        "implicit_thru_range": [
+          "5200-WRITE-HTML-NMADBS",
+          "5200-EXIT"
+        ]
+      },
+      {
+        "from": "8100-FILE-OPEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 727,
+        "unstructured": true,
+        "to": "8100-TRNXFILE-OPEN"
+      },
+      {
+        "from": "8100-TRNXFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 736,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "8100-TRNXFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 748,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "8100-TRNXFILE-OPEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 761,
+        "unstructured": true,
+        "to": "0000-START"
+      },
+      {
+        "from": "8200-XREFFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 771,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "8200-XREFFILE-OPEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 780,
+        "unstructured": true,
+        "to": "0000-START"
+      },
+      {
+        "from": "8300-CUSTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 789,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "8300-CUSTFILE-OPEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 798,
+        "unstructured": true,
+        "to": "0000-START"
+      },
+      {
+        "from": "8400-ACCTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 807,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "8400-ACCTFILE-OPEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 815,
+        "unstructured": true,
+        "to": "1000-MAINLINE"
+      },
+      {
+        "from": "8500-READTRNX-READ",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 837,
+        "unstructured": true,
+        "to": "8500-READTRNX-READ"
+      },
+      {
+        "from": "8599-EXIT",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 852,
+        "unstructured": true,
+        "to": "0000-START"
+      },
+      {
+        "from": "9100-TRNXFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 862,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "9200-XREFFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 879,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "9300-CUSTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 895,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      },
+      {
+        "from": "9400-ACCTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 911,
+        "unstructured": false,
+        "to": "9999-ABEND-PROGRAM"
+      }
+    ],
+    "dead_code_candidates": [
+      "9999-GOBACK",
+      "1000-XREFFILE-GET-NEXT",
+      "2000-CUSTFILE-GET",
+      "3000-ACCTFILE-GET",
+      "5000-CREATE-STATEMENT",
+      "6000-WRITE-TRANS",
+      "8100-FILE-OPEN",
+      "8200-XREFFILE-OPEN",
+      "8300-CUSTFILE-OPEN",
+      "8400-ACCTFILE-OPEN",
+      "8599-EXIT"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "ALTER",
+        "paragraph": "0000-START",
+        "target": "8100-TRNXFILE-OPEN",
+        "line": 298,
+        "severity": "critical"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "5000-CREATE-STATEMENT",
+        "target": "5100-WRITE-HTML-HEADER",
+        "line": 461,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "5000-CREATE-STATEMENT",
+        "target": "5200-WRITE-HTML-NMADBS",
+        "line": 486,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8100-FILE-OPEN",
+        "target": "8100-TRNXFILE-OPEN",
+        "line": 727,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8100-TRNXFILE-OPEN",
+        "target": "0000-START",
+        "line": 761,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8200-XREFFILE-OPEN",
+        "target": "0000-START",
+        "line": 780,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8300-CUSTFILE-OPEN",
+        "target": "0000-START",
+        "line": 798,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8400-ACCTFILE-OPEN",
+        "target": "1000-MAINLINE",
+        "line": 815,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8500-READTRNX-READ",
+        "target": "8500-READTRNX-READ",
+        "line": 837,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8599-EXIT",
+        "target": "0000-START",
+        "line": 852,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

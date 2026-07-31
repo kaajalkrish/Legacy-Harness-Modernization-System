@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "program_id": "PORTMSTR",
+    "source_file": "input/src_sample/programs/portfolio/PORTMSTR.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "PORTMSTR is the Portfolio Master File maintenance program — a callable CRUD service. It is invoked with a command area (LS-COMMAND-AREA) carrying a single-letter command (C/R/U/D) and a portfolio record. It opens the indexed PORTFILE (I-O) and dispatches: Create validates then WRITEs, Read READs and returns the record, Update validates then REWRITEs (and logs an audit record), Delete DELETEs. Validation enforces a portfolio-ID format ('PORT' + numeric), a required name, and a status of A/I/C. Any error routes to a common error routine that sets the return code and returns. Error conditions handled: invalid command, open failure, invalid data, duplicate key, not-found, and generic VSAM errors.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [83, 101],
+      "pseudocode": "CALL 1000-INITIALIZE\nSELECT CASE command (LS-COMMAND)\n  WHEN 'C' (create): CALL 2000-CREATE-PORTFOLIO\n  WHEN 'R' (read):   CALL 3000-READ-PORTFOLIO\n  WHEN 'U' (update): CALL 4000-UPDATE-PORTFOLIO\n  WHEN 'D' (delete): CALL 5000-DELETE-PORTFOLIO\n  ELSE: SET error 'Invalid command'; CALL 9000-ERROR\nEND SELECT\nCALL 6000-TERMINATE\nRETURN to caller (GOBACK)",
+      "branches": ["EVALUATE command: CREATE/READ/UPDATE/DELETE/OTHER"],
+      "calls_made": ["1000-INITIALIZE", "2000-CREATE-PORTFOLIO", "3000-READ-PORTFOLIO", "4000-UPDATE-PORTFOLIO", "5000-DELETE-PORTFOLIO", "9000-ERROR", "6000-TERMINATE"],
+      "field_references": ["LS-COMMAND", "WS-ERROR-TEXT"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [{"line": 82, "note": "Called as a sub-routine: PROCEDURE DIVISION USING LS-COMMAND-AREA — a reusable CRUD service, not a standalone batch job."}],
+      "notes": ""
+    },
+    {
+      "name": "1000-INITIALIZE",
+      "line_range": [103, 113],
+      "pseudocode": "CLEAR WS-WORK-AREAS\nOPEN PORTFOLIO-FILE for READ-WRITE (I-O)\nIF open NOT success THEN SET error 'Error opening Portfolio file'; CALL 9000-ERROR END IF\nACCEPT WS-CURRENT-DATE FROM system date (YYYYMMDD)",
+      "branches": ["IF open failed -> 9000-ERROR (which GOBACKs)"],
+      "calls_made": ["9000-ERROR"],
+      "field_references": ["WS-WORK-AREAS", "WS-PORT-STATUS", "WS-ERROR-TEXT", "WS-CURRENT-DATE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Here 9000-ERROR does GOBACK, so the open-failure path correctly stops (unlike the batch programs)."
+    },
+    {
+      "name": "2000-CREATE-PORTFOLIO",
+      "line_range": [115, 136],
+      "pseudocode": "SET PORTFOLIO-RECORD = LS-PORTFOLIO\nCALL 2100-VALIDATE-PORTFOLIO\nIF WS-RETURN-CODE <> success THEN CALL 9000-ERROR END IF\nWRITE PORTFOLIO-RECORD\nIF duplicate key THEN SET error 'Portfolio ID already exists'; CALL 9000-ERROR END IF\nIF write NOT success THEN SET error 'Error writing Portfolio record'; CALL 9000-ERROR END IF",
+      "branches": ["IF validation failed -> error", "IF PORT-DUP-KEY -> error", "IF NOT PORT-SUCCESS -> error"],
+      "calls_made": ["2100-VALIDATE-PORTFOLIO", "9000-ERROR"],
+      "field_references": ["LS-PORTFOLIO", "PORTFOLIO-RECORD", "WS-RETURN-CODE", "WS-PORT-STATUS", "WS-ERROR-TEXT"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2100-VALIDATE-PORTFOLIO",
+      "line_range": [138, 161],
+      "pseudocode": "IF PORT-ID first 4 chars <> 'PORT' OR chars 5.. NOT numeric THEN\n  SET error 'Invalid Portfolio ID format'; SET WS-RETURN-CODE = error; EXIT PARAGRAPH\nEND IF\nIF PORT-NAME is blank THEN SET error 'Portfolio Name is required'; SET WS-RETURN-CODE = error; EXIT PARAGRAPH END IF\nSET WS-VALID-STATUS = PORT-STATUS\nIF status NOT in (A,I,C) THEN SET error 'Invalid Portfolio Status'; SET WS-RETURN-CODE = error; EXIT PARAGRAPH END IF",
+      "branches": ["IF ID format invalid -> fail", "IF name blank -> fail", "IF status not A/I/C -> fail"],
+      "calls_made": [],
+      "field_references": ["PORT-ID", "PORT-NAME", "PORT-STATUS", "WS-VALID-STATUS", "WS-ERROR-TEXT", "WS-RETURN-CODE"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 142, "note": "Reference-modification PORT-ID(1:4) / PORT-ID(5:5) checks the ID prefix is 'PORT' and the 5th char is numeric — the portfolio-ID business format rule. EXIT PARAGRAPH short-circuits on the first failure."}
+      ],
+      "notes": "Shared validation used by both Create and Update."
+    },
+    {
+      "name": "3000-READ-PORTFOLIO",
+      "line_range": [163, 181],
+      "pseudocode": "SET PORTFOLIO-RECORD = LS-PORTFOLIO   -- carries the key\nREAD PORTFOLIO-FILE\nSELECT CASE read status\n  WHEN success: SET LS-PORTFOLIO = PORTFOLIO-RECORD   -- return the record\n  WHEN not found: SET error 'Portfolio not found'; CALL 9000-ERROR\n  ELSE: SET error 'Error reading Portfolio'; CALL 9000-ERROR\nEND SELECT",
+      "branches": ["EVALUATE read status: success / not-found / other"],
+      "calls_made": ["9000-ERROR"],
+      "field_references": ["LS-PORTFOLIO", "PORTFOLIO-RECORD", "WS-PORT-STATUS", "WS-ERROR-TEXT"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "4000-UPDATE-PORTFOLIO",
+      "line_range": [183, 207],
+      "pseudocode": "SET PORTFOLIO-RECORD = LS-PORTFOLIO\nCALL 2100-VALIDATE-PORTFOLIO\nIF WS-RETURN-CODE <> success THEN CALL 9000-ERROR END IF\nREWRITE PORTFOLIO-RECORD\nIF not found THEN SET error 'Portfolio not found for update'; CALL 9000-ERROR END IF\nIF NOT success THEN SET error 'Error updating Portfolio'; CALL 9000-ERROR END IF\nCALL 2100-LOG-PORTFOLIO-UPDATE   -- write an audit record",
+      "branches": ["IF validation failed -> error", "IF PORT-NOT-FOUND -> error", "IF NOT PORT-SUCCESS -> error"],
+      "calls_made": ["2100-VALIDATE-PORTFOLIO", "9000-ERROR", "2100-LOG-PORTFOLIO-UPDATE"],
+      "field_references": ["LS-PORTFOLIO", "PORTFOLIO-RECORD", "WS-RETURN-CODE", "WS-PORT-STATUS", "WS-ERROR-TEXT"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "5000-DELETE-PORTFOLIO",
+      "line_range": [209, 226],
+      "pseudocode": "SET PORTFOLIO-RECORD = LS-PORTFOLIO   -- carries the key\nDELETE PORTFOLIO-FILE record\nIF not found THEN SET error 'Portfolio not found for deletion'; CALL 9000-ERROR END IF\nIF NOT success THEN SET error 'Error deleting Portfolio'; CALL 9000-ERROR END IF",
+      "branches": ["IF PORT-NOT-FOUND -> error", "IF NOT PORT-SUCCESS -> error"],
+      "calls_made": ["9000-ERROR"],
+      "field_references": ["LS-PORTFOLIO", "PORTFOLIO-RECORD", "WS-PORT-STATUS", "WS-ERROR-TEXT"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "6000-TERMINATE",
+      "line_range": [228, 232],
+      "pseudocode": "CLOSE PORTFOLIO-FILE\nSET LS-RETURN-CODE = WS-RETURN-CODE   -- hand the outcome back to the caller",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-RETURN-CODE", "LS-RETURN-CODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "9000-ERROR",
+      "line_range": [234, 238],
+      "pseudocode": "SET WS-RETURN-CODE = error (8)\nCALL 6000-TERMINATE\nRETURN to caller (GOBACK)",
+      "branches": [],
+      "calls_made": ["6000-TERMINATE"],
+      "field_references": ["WS-RETURN-CODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Common error exit — closes the file and returns immediately."
+    },
+    {
+      "name": "2100-HANDLE-VSAM-ERROR",
+      "line_range": [243, 263],
+      "pseudocode": "!! UNTRANSLATED / SME REVIEW: builds an ERRPROC error request from the VSAM file status and CALLs 'ERRPROC'.\nSELECT CASE WS-FILE-STATUS\n  WHEN dup-key: severity=WARNING, text=VSAM-22\n  WHEN not-found: severity=WARNING, text=VSAM-23\n  ELSE: severity=ERROR, text=OTHER\nEND SELECT\nCALL 'ERRPROC' PASSING LS-ERROR-REQUEST",
+      "branches": ["EVALUATE WS-FILE-STATUS: dupkey / notfnd / other"],
+      "calls_made": ["ERRPROC"],
+      "field_references": ["WS-FILE-STATUS", "PORT-KEY", "LS-PROGRAM-ID", "LS-ERROR-REQUEST"],
+      "complexity_score": 3,
+      "ambiguous": true,
+      "annotations": [
+        {"line": 243, "note": "DEAD CODE / SME REVIEW: this paragraph is never PERFORMed anywhere, and it references fields not declared in this program (WS-FILE-STATUS — the real status field is WS-PORT-STATUS; LS-PROGRAM-ID, LS-ERROR-REQUEST, ERR-* constants). Labelled 'Example error handling call' — appears to be a copy-paste template that would not compile as-is."}
+      ],
+      "notes": "Flagged ambiguous: unreachable + undeclared references."
+    },
+    {
+      "name": "2100-LOG-PORTFOLIO-UPDATE",
+      "line_range": [268, 288],
+      "pseudocode": "-- Audit-trail write (called after a successful update)\nCLEAR LS-AUDIT-REQUEST\nSET audit fields: system='PORTFOLIO', user=USERID, program='PORTMSTR', terminal=TERMINAL-ID,\n    type='TRAN', action='UPDATE', status='SUCC', port id, account no,\n    before-image = WS-BEFORE-IMAGE, after-image = PORT-RECORD, message='Portfolio updated successfully'\nCALL 'AUDPROC' PASSING LS-AUDIT-REQUEST",
+      "branches": [],
+      "calls_made": ["AUDPROC"],
+      "field_references": ["LS-AUDIT-REQUEST", "USERID", "TERMINAL-ID", "PORT-ID", "PORT-ACCOUNT-NO", "WS-BEFORE-IMAGE", "PORT-RECORD"],
+      "complexity_score": 1,
+      "ambiguous": true,
+      "annotations": [
+        {"line": 268, "note": "SME REVIEW: performed from 4000-UPDATE but references many fields NOT declared in this program (LS-AUDIT-REQUEST, USERID, TERMINAL-ID, PORT-ACCOUNT-NO, WS-BEFORE-IMAGE, PORT-RECORD). Labelled 'Example audit logging call' — likely a template stub that is incomplete/won't compile as written."}
+      ],
+      "notes": "Flagged ambiguous: undeclared references despite being reachable."
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

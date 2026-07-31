@@ -1,0 +1,2279 @@
+{
+  "meta": {
+    "generated_at": "2026-07-28T04:47:47Z",
+    "repo_root": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src",
+    "agent_version": "1_inventory_python@1.0",
+    "total_files_scanned": 79
+  },
+  "stats": {
+    "programs": 38,
+    "batch_programs": 11,
+    "online_programs": 8,
+    "common_programs": 6,
+    "portfolio_programs": 8,
+    "test_programs": 2,
+    "utility_programs": 3,
+    "copybooks": 20,
+    "jcl_jobs": 15,
+    "bms_maps": 1,
+    "db2_includes": 5,
+    "call_edges_total": 125,
+    "call_edges_resolved": 119,
+    "call_edges_unresolved": 6,
+    "dynamic_calls": 0,
+    "copy_edges": 87,
+    "cics_link_edges": 14,
+    "cics_xctl_edges": 0,
+    "sql_include_edges": 8
+  },
+  "file_registry": [
+    {
+      "id": "BCHCTL00",
+      "program_id": "BCHCTL00",
+      "path": "programs/batch/BCHCTL00.cbl",
+      "relative_path": "programs/batch/BCHCTL00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 4384
+    },
+    {
+      "id": "CKPRST",
+      "program_id": "CKPRST",
+      "path": "programs/batch/CKPRST.cbl",
+      "relative_path": "programs/batch/CKPRST.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 1482
+    },
+    {
+      "id": "HISTLD00",
+      "program_id": "HISTLD00",
+      "path": "programs/batch/HISTLD00.cbl",
+      "relative_path": "programs/batch/HISTLD00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 7068
+    },
+    {
+      "id": "POSUPDT",
+      "program_id": "POSUPDT",
+      "path": "programs/batch/POSUPDT.cbl",
+      "relative_path": "programs/batch/POSUPDT.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 1
+    },
+    {
+      "id": "PRCSEQ00",
+      "program_id": "PRCSEQ00",
+      "path": "programs/batch/PRCSEQ00.cbl",
+      "relative_path": "programs/batch/PRCSEQ00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 11871
+    },
+    {
+      "id": "RCVPRC00",
+      "program_id": "RCVPRC00",
+      "path": "programs/batch/RCVPRC00.cbl",
+      "relative_path": "programs/batch/RCVPRC00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 10120
+    },
+    {
+      "id": "RPTAUD00",
+      "program_id": "RPTAUD00",
+      "path": "programs/batch/RPTAUD00.cbl",
+      "relative_path": "programs/batch/RPTAUD00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 5176
+    },
+    {
+      "id": "RPTPOS00",
+      "program_id": "RPTPOS00",
+      "path": "programs/batch/RPTPOS00.cbl",
+      "relative_path": "programs/batch/RPTPOS00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 5745
+    },
+    {
+      "id": "RPTSTA00",
+      "program_id": "RPTSTA00",
+      "path": "programs/batch/RPTSTA00.cbl",
+      "relative_path": "programs/batch/RPTSTA00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 6638
+    },
+    {
+      "id": "RTNANA00",
+      "program_id": "RTNANA00",
+      "path": "programs/batch/RTNANA00.cbl",
+      "relative_path": "programs/batch/RTNANA00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 8054
+    },
+    {
+      "id": "RTNCDE00",
+      "program_id": "RTNCDE00",
+      "path": "programs/batch/RTNCDE00.cbl",
+      "relative_path": "programs/batch/RTNCDE00.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 4664
+    },
+    {
+      "id": "AUDPROC",
+      "program_id": "AUDPROC",
+      "path": "programs/common/AUDPROC.cbl",
+      "relative_path": "programs/common/AUDPROC.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 3200
+    },
+    {
+      "id": "DB2CMT",
+      "program_id": "DB2CMT",
+      "path": "programs/common/DB2CMT.cbl",
+      "relative_path": "programs/common/DB2CMT.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 5444
+    },
+    {
+      "id": "DB2CONN",
+      "program_id": "DB2CONN",
+      "path": "programs/common/DB2CONN.cbl",
+      "relative_path": "programs/common/DB2CONN.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 4948
+    },
+    {
+      "id": "DB2ERR",
+      "program_id": "DB2ERR",
+      "path": "programs/common/DB2ERR.cbl",
+      "relative_path": "programs/common/DB2ERR.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 7144
+    },
+    {
+      "id": "DB2STAT",
+      "program_id": "DB2STAT",
+      "path": "programs/common/DB2STAT.cbl",
+      "relative_path": "programs/common/DB2STAT.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 8316
+    },
+    {
+      "id": "ERRPROC",
+      "program_id": "ERRPROC",
+      "path": "programs/common/ERRPROC.cbl",
+      "relative_path": "programs/common/ERRPROC.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 3584
+    },
+    {
+      "id": "CURSMGR",
+      "program_id": "CURSMGR",
+      "path": "programs/online/CURSMGR.cbl",
+      "relative_path": "programs/online/CURSMGR.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 3314
+    },
+    {
+      "id": "DB2ONLN",
+      "program_id": "DB2ONLN",
+      "path": "programs/online/DB2ONLN.cbl",
+      "relative_path": "programs/online/DB2ONLN.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 4201
+    },
+    {
+      "id": "DB2RECV",
+      "program_id": "DB2RECV",
+      "path": "programs/online/DB2RECV.cbl",
+      "relative_path": "programs/online/DB2RECV.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 4966
+    },
+    {
+      "id": "ERRHNDL",
+      "program_id": "ERRHNDL",
+      "path": "programs/online/ERRHNDL.cbl",
+      "relative_path": "programs/online/ERRHNDL.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 3065
+    },
+    {
+      "id": "INQHIST",
+      "program_id": "INQHIST",
+      "path": "programs/online/INQHIST.cbl",
+      "relative_path": "programs/online/INQHIST.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 6735
+    },
+    {
+      "id": "INQONLN",
+      "program_id": "INQONLN",
+      "path": "programs/online/INQONLN.cbl",
+      "relative_path": "programs/online/INQONLN.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 5720
+    },
+    {
+      "id": "INQPORT",
+      "program_id": "INQPORT",
+      "path": "programs/online/INQPORT.cbl",
+      "relative_path": "programs/online/INQPORT.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 3682
+    },
+    {
+      "id": "SECMGR",
+      "program_id": "SECMGR",
+      "path": "programs/online/SECMGR.cbl",
+      "relative_path": "programs/online/SECMGR.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 4746
+    },
+    {
+      "id": "PORTADD",
+      "program_id": "PORTADD",
+      "path": "programs/portfolio/PORTADD.cbl",
+      "relative_path": "programs/portfolio/PORTADD.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 5085
+    },
+    {
+      "id": "PORTDEL",
+      "program_id": "PORTDEL",
+      "path": "programs/portfolio/PORTDEL.cbl",
+      "relative_path": "programs/portfolio/PORTDEL.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 6572
+    },
+    {
+      "id": "PORTMSTR",
+      "program_id": "PORTMSTR",
+      "path": "programs/portfolio/PORTMSTR.cbl",
+      "relative_path": "programs/portfolio/PORTMSTR.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 10379
+    },
+    {
+      "id": "PORTREAD",
+      "program_id": "PORTREAD",
+      "path": "programs/portfolio/PORTREAD.cbl",
+      "relative_path": "programs/portfolio/PORTREAD.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 3893
+    },
+    {
+      "id": "PORTTEST",
+      "program_id": "PORTTEST",
+      "path": "programs/portfolio/PORTTEST.cbl",
+      "relative_path": "programs/portfolio/PORTTEST.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 3742
+    },
+    {
+      "id": "PORTTRAN",
+      "program_id": "PORTTRAN",
+      "path": "programs/portfolio/PORTTRAN.cbl",
+      "relative_path": "programs/portfolio/PORTTRAN.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 10086
+    },
+    {
+      "id": "PORTUPDT",
+      "program_id": "PORTUPDT",
+      "path": "programs/portfolio/PORTUPDT.cbl",
+      "relative_path": "programs/portfolio/PORTUPDT.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 5379
+    },
+    {
+      "id": "PORTVALD",
+      "program_id": "PORTVALD",
+      "path": "programs/portfolio/PORTVALD.cbl",
+      "relative_path": "programs/portfolio/PORTVALD.cbl",
+      "type": "program",
+      "subtype": "portfolio",
+      "size_bytes": 4428
+    },
+    {
+      "id": "TSTGEN00",
+      "program_id": "TSTGEN00",
+      "path": "programs/test/TSTGEN00.cbl",
+      "relative_path": "programs/test/TSTGEN00.cbl",
+      "type": "program",
+      "subtype": "test",
+      "size_bytes": 7251
+    },
+    {
+      "id": "TSTVAL00",
+      "program_id": "TSTVAL00",
+      "path": "programs/test/TSTVAL00.cbl",
+      "relative_path": "programs/test/TSTVAL00.cbl",
+      "type": "program",
+      "subtype": "test",
+      "size_bytes": 8144
+    },
+    {
+      "id": "UTLMNT00",
+      "program_id": "UTLMNT00",
+      "path": "programs/utility/UTLMNT00.cbl",
+      "relative_path": "programs/utility/UTLMNT00.cbl",
+      "type": "program",
+      "subtype": "utility",
+      "size_bytes": 6061
+    },
+    {
+      "id": "UTLMON00",
+      "program_id": "UTLMON00",
+      "path": "programs/utility/UTLMON00.cbl",
+      "relative_path": "programs/utility/UTLMON00.cbl",
+      "type": "program",
+      "subtype": "utility",
+      "size_bytes": 7586
+    },
+    {
+      "id": "UTLVAL00",
+      "program_id": "UTLVAL00",
+      "path": "programs/utility/UTLVAL00.cbl",
+      "relative_path": "programs/utility/UTLVAL00.cbl",
+      "type": "program",
+      "subtype": "utility",
+      "size_bytes": 6559
+    }
+  ],
+  "copybook_registry": [
+    {
+      "id": "BCHCON",
+      "path": "copybook/batch/BCHCON.cpy",
+      "relative_path": "copybook/batch/BCHCON.cpy",
+      "type": "copybook",
+      "used_by": [
+        "BCHCTL00",
+        "HISTLD00",
+        "PRCSEQ00",
+        "RCVPRC00"
+      ]
+    },
+    {
+      "id": "BCHCTL",
+      "path": "copybook/batch/BCHCTL.cpy",
+      "relative_path": "copybook/batch/BCHCTL.cpy",
+      "type": "copybook",
+      "used_by": [
+        "BCHCTL00",
+        "HISTLD00",
+        "PRCSEQ00",
+        "RCVPRC00",
+        "RPTSTA00"
+      ]
+    },
+    {
+      "id": "CKPRST",
+      "path": "copybook/batch/CKPRST.cpy",
+      "relative_path": "copybook/batch/CKPRST.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CKPRST",
+        "CKPRST"
+      ]
+    },
+    {
+      "id": "PRCSEQ",
+      "path": "copybook/batch/PRCSEQ.cpy",
+      "relative_path": "copybook/batch/PRCSEQ.cpy",
+      "type": "copybook",
+      "used_by": [
+        "PRCSEQ00",
+        "RCVPRC00"
+      ]
+    },
+    {
+      "id": "AUDITLOG",
+      "path": "copybook/common/AUDITLOG.cpy",
+      "relative_path": "copybook/common/AUDITLOG.cpy",
+      "type": "copybook",
+      "used_by": [
+        "RPTAUD00",
+        "AUDPROC",
+        "PORTTRAN"
+      ]
+    },
+    {
+      "id": "COMMON",
+      "path": "copybook/common/COMMON.cpy",
+      "relative_path": "copybook/common/COMMON.cpy",
+      "type": "copybook",
+      "used_by": []
+    },
+    {
+      "id": "ERRHAND",
+      "path": "copybook/common/ERRHAND.cpy",
+      "relative_path": "copybook/common/ERRHAND.cpy",
+      "type": "copybook",
+      "used_by": [
+        "BCHCTL00",
+        "HISTLD00",
+        "PRCSEQ00",
+        "RCVPRC00",
+        "RPTAUD00",
+        "RPTPOS00",
+        "RPTSTA00",
+        "DB2CMT",
+        "DB2CONN",
+        "DB2ERR",
+        "DB2STAT",
+        "ERRPROC",
+        "PORTTEST",
+        "PORTTRAN",
+        "TSTGEN00",
+        "TSTVAL00",
+        "UTLMNT00",
+        "UTLMON00",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "id": "HISTREC",
+      "path": "copybook/common/HISTREC.cpy",
+      "relative_path": "copybook/common/HISTREC.cpy",
+      "type": "copybook",
+      "used_by": [
+        "HISTLD00"
+      ]
+    },
+    {
+      "id": "PORTFLIO",
+      "path": "copybook/common/PORTFLIO.cpy",
+      "relative_path": "copybook/common/PORTFLIO.cpy",
+      "type": "copybook",
+      "used_by": [
+        "PORTADD",
+        "PORTADD",
+        "PORTDEL",
+        "PORTREAD",
+        "PORTTEST",
+        "PORTUPDT",
+        "TSTGEN00"
+      ]
+    },
+    {
+      "id": "PORTVAL",
+      "path": "copybook/common/PORTVAL.cpy",
+      "relative_path": "copybook/common/PORTVAL.cpy",
+      "type": "copybook",
+      "used_by": [
+        "PORTVALD"
+      ]
+    },
+    {
+      "id": "POSREC",
+      "path": "copybook/common/POSREC.cpy",
+      "relative_path": "copybook/common/POSREC.cpy",
+      "type": "copybook",
+      "used_by": [
+        "RPTPOS00",
+        "INQPORT",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "id": "RETHND",
+      "path": "copybook/common/RETHND.cpy",
+      "relative_path": "copybook/common/RETHND.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CKPRST"
+      ]
+    },
+    {
+      "id": "RTNCODE",
+      "path": "copybook/common/RTNCODE.cpy",
+      "relative_path": "copybook/common/RTNCODE.cpy",
+      "type": "copybook",
+      "used_by": [
+        "RPTAUD00",
+        "RPTPOS00",
+        "RPTSTA00",
+        "RTNCDE00",
+        "TSTGEN00",
+        "TSTVAL00",
+        "UTLMNT00",
+        "UTLMON00",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "id": "TRNREC",
+      "path": "copybook/common/TRNREC.cpy",
+      "relative_path": "copybook/common/TRNREC.cpy",
+      "type": "copybook",
+      "used_by": [
+        "RPTPOS00",
+        "PORTTRAN",
+        "TSTGEN00",
+        "UTLVAL00"
+      ]
+    },
+    {
+      "id": "DBPROC",
+      "path": "copybook/db2/DBPROC.cpy",
+      "relative_path": "copybook/db2/DBPROC.cpy",
+      "type": "copybook",
+      "used_by": [
+        "HISTLD00",
+        "DB2CMT",
+        "DB2CONN",
+        "DB2ERR",
+        "DB2STAT"
+      ]
+    },
+    {
+      "id": "DBTBLS",
+      "path": "copybook/db2/DBTBLS.cpy",
+      "relative_path": "copybook/db2/DBTBLS.cpy",
+      "type": "copybook",
+      "used_by": [
+        "HISTLD00",
+        "DB2ERR"
+      ]
+    },
+    {
+      "id": "SQLCA",
+      "path": "copybook/db2/SQLCA.cpy",
+      "relative_path": "copybook/db2/SQLCA.cpy",
+      "type": "copybook",
+      "used_by": [
+        "HISTLD00",
+        "DB2CMT",
+        "DB2CONN",
+        "DB2ERR",
+        "DB2STAT"
+      ]
+    },
+    {
+      "id": "DB2REQ",
+      "path": "copybook/online/DB2REQ.cpy",
+      "relative_path": "copybook/online/DB2REQ.cpy",
+      "type": "copybook",
+      "used_by": [
+        "DB2RECV"
+      ]
+    },
+    {
+      "id": "ERRHND",
+      "path": "copybook/online/ERRHND.cpy",
+      "relative_path": "copybook/online/ERRHND.cpy",
+      "type": "copybook",
+      "used_by": [
+        "DB2ONLN",
+        "DB2RECV",
+        "INQONLN",
+        "SECMGR"
+      ]
+    },
+    {
+      "id": "INQCOM",
+      "path": "copybook/online/INQCOM.cpy",
+      "relative_path": "copybook/online/INQCOM.cpy",
+      "type": "copybook",
+      "used_by": [
+        "INQHIST",
+        "INQHIST",
+        "INQONLN",
+        "INQONLN",
+        "INQPORT",
+        "INQPORT"
+      ]
+    },
+    {
+      "id": "DB2-DEFINITIONS",
+      "path": "database/db2/db2-definitions.sql",
+      "relative_path": "database/db2/db2-definitions.sql",
+      "type": "db2",
+      "used_by": []
+    },
+    {
+      "id": "ERRLOG",
+      "path": "database/db2/ERRLOG.sql",
+      "relative_path": "database/db2/ERRLOG.sql",
+      "type": "db2",
+      "used_by": []
+    },
+    {
+      "id": "PORTPLAN",
+      "path": "database/db2/PORTPLAN.sql",
+      "relative_path": "database/db2/PORTPLAN.sql",
+      "type": "db2",
+      "used_by": []
+    },
+    {
+      "id": "POSHIST",
+      "path": "database/db2/POSHIST.sql",
+      "relative_path": "database/db2/POSHIST.sql",
+      "type": "db2",
+      "used_by": []
+    },
+    {
+      "id": "RTNCODES",
+      "path": "database/db2/RTNCODES.sql",
+      "relative_path": "database/db2/RTNCODES.sql",
+      "type": "db2",
+      "used_by": []
+    }
+  ],
+  "jcl_registry": [
+    {
+      "id": "RPTAUD00",
+      "path": "jcl/batch/RPTAUD.jcl",
+      "relative_path": "jcl/batch/RPTAUD.jcl",
+      "job_name": "RPTAUD00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "RPTAUD00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "RPTPOS00",
+      "path": "jcl/batch/RPTPOS.jcl",
+      "relative_path": "jcl/batch/RPTPOS.jcl",
+      "job_name": "RPTPOS00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "RPTPOS00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "RPTSTA00",
+      "path": "jcl/batch/RPTSTA.jcl",
+      "relative_path": "jcl/batch/RPTSTA.jcl",
+      "job_name": "RPTSTA00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "RPTSTA00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PORTADD",
+      "path": "jcl/portfolio/PORTADD.jcl",
+      "relative_path": "jcl/portfolio/PORTADD.jcl",
+      "job_name": "PORTADD",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "PORTADD",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PORTDEF",
+      "path": "jcl/portfolio/PORTDEF.jcl",
+      "relative_path": "jcl/portfolio/PORTDEF.jcl",
+      "job_name": "PORTDEF",
+      "steps": [
+        {
+          "step_name": "DEFVSAM",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "PORTDEL",
+      "path": "jcl/portfolio/PORTDEL.jcl",
+      "relative_path": "jcl/portfolio/PORTDEL.jcl",
+      "job_name": "PORTDEL",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "PORTDEL",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PORTREAD",
+      "path": "jcl/portfolio/PORTREAD.jcl",
+      "relative_path": "jcl/portfolio/PORTREAD.jcl",
+      "job_name": "PORTREAD",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "PORTREAD",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PORTTEST",
+      "path": "jcl/portfolio/PORTTEST.jcl",
+      "relative_path": "jcl/portfolio/PORTTEST.jcl",
+      "job_name": "PORTTEST",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "PORTTEST",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PORTUPDT",
+      "path": "jcl/portfolio/PORTUPDT.jcl",
+      "relative_path": "jcl/portfolio/PORTUPDT.jcl",
+      "job_name": "PORTUPDT",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "PORTUPDT",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "RTNANA00",
+      "path": "jcl/RTNANA.jcl",
+      "relative_path": "jcl/RTNANA.jcl",
+      "job_name": "RTNANA00",
+      "steps": [
+        {
+          "step_name": "RTNANA",
+          "program": "RTNANA00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "TSTGEN00",
+      "path": "jcl/test/TSTGEN.jcl",
+      "relative_path": "jcl/test/TSTGEN.jcl",
+      "job_name": "TSTGEN00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "TSTGEN00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "TSTVAL00",
+      "path": "jcl/test/TSTVAL.jcl",
+      "relative_path": "jcl/test/TSTVAL.jcl",
+      "job_name": "TSTVAL00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "TSTVAL00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "UTLMNT00",
+      "path": "jcl/utility/UTLMNT.jcl",
+      "relative_path": "jcl/utility/UTLMNT.jcl",
+      "job_name": "UTLMNT00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "UTLMNT00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "UTLMON00",
+      "path": "jcl/utility/UTLMON.jcl",
+      "relative_path": "jcl/utility/UTLMON.jcl",
+      "job_name": "UTLMON00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "UTLMON00",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "UTLVAL00",
+      "path": "jcl/utility/UTLVAL.jcl",
+      "relative_path": "jcl/utility/UTLVAL.jcl",
+      "job_name": "UTLVAL00",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "UTLVAL00",
+          "type": "cobol"
+        }
+      ]
+    }
+  ],
+  "call_graph": {
+    "nodes": [
+      {
+        "id": "BCHCTL00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/BCHCTL00.cbl"
+      },
+      {
+        "id": "CKPRST",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/CKPRST.cbl"
+      },
+      {
+        "id": "HISTLD00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/HISTLD00.cbl"
+      },
+      {
+        "id": "POSUPDT",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/POSUPDT.cbl"
+      },
+      {
+        "id": "PRCSEQ00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/PRCSEQ00.cbl"
+      },
+      {
+        "id": "RCVPRC00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RCVPRC00.cbl"
+      },
+      {
+        "id": "RPTAUD00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RPTAUD00.cbl"
+      },
+      {
+        "id": "RPTPOS00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RPTPOS00.cbl"
+      },
+      {
+        "id": "RPTSTA00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RPTSTA00.cbl"
+      },
+      {
+        "id": "RTNANA00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RTNANA00.cbl"
+      },
+      {
+        "id": "RTNCDE00",
+        "type": "program",
+        "subtype": "batch",
+        "path": "programs/batch/RTNCDE00.cbl"
+      },
+      {
+        "id": "AUDPROC",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/AUDPROC.cbl"
+      },
+      {
+        "id": "DB2CMT",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/DB2CMT.cbl"
+      },
+      {
+        "id": "DB2CONN",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/DB2CONN.cbl"
+      },
+      {
+        "id": "DB2ERR",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/DB2ERR.cbl"
+      },
+      {
+        "id": "DB2STAT",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/DB2STAT.cbl"
+      },
+      {
+        "id": "ERRPROC",
+        "type": "program",
+        "subtype": "common",
+        "path": "programs/common/ERRPROC.cbl"
+      },
+      {
+        "id": "CURSMGR",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/CURSMGR.cbl"
+      },
+      {
+        "id": "DB2ONLN",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/DB2ONLN.cbl"
+      },
+      {
+        "id": "DB2RECV",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/DB2RECV.cbl"
+      },
+      {
+        "id": "ERRHNDL",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/ERRHNDL.cbl"
+      },
+      {
+        "id": "INQHIST",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/INQHIST.cbl"
+      },
+      {
+        "id": "INQONLN",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/INQONLN.cbl"
+      },
+      {
+        "id": "INQPORT",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/INQPORT.cbl"
+      },
+      {
+        "id": "SECMGR",
+        "type": "program",
+        "subtype": "online",
+        "path": "programs/online/SECMGR.cbl"
+      },
+      {
+        "id": "PORTADD",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTADD.cbl"
+      },
+      {
+        "id": "PORTDEL",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTDEL.cbl"
+      },
+      {
+        "id": "PORTMSTR",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTMSTR.cbl"
+      },
+      {
+        "id": "PORTREAD",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTREAD.cbl"
+      },
+      {
+        "id": "PORTTEST",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTTEST.cbl"
+      },
+      {
+        "id": "PORTTRAN",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTTRAN.cbl"
+      },
+      {
+        "id": "PORTUPDT",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTUPDT.cbl"
+      },
+      {
+        "id": "PORTVALD",
+        "type": "program",
+        "subtype": "portfolio",
+        "path": "programs/portfolio/PORTVALD.cbl"
+      },
+      {
+        "id": "TSTGEN00",
+        "type": "program",
+        "subtype": "test",
+        "path": "programs/test/TSTGEN00.cbl"
+      },
+      {
+        "id": "TSTVAL00",
+        "type": "program",
+        "subtype": "test",
+        "path": "programs/test/TSTVAL00.cbl"
+      },
+      {
+        "id": "UTLMNT00",
+        "type": "program",
+        "subtype": "utility",
+        "path": "programs/utility/UTLMNT00.cbl"
+      },
+      {
+        "id": "UTLMON00",
+        "type": "program",
+        "subtype": "utility",
+        "path": "programs/utility/UTLMON00.cbl"
+      },
+      {
+        "id": "UTLVAL00",
+        "type": "program",
+        "subtype": "utility",
+        "path": "programs/utility/UTLVAL00.cbl"
+      },
+      {
+        "id": "BCHCON",
+        "type": "copybook",
+        "path": "copybook/batch/BCHCON.cpy"
+      },
+      {
+        "id": "BCHCTL",
+        "type": "copybook",
+        "path": "copybook/batch/BCHCTL.cpy"
+      },
+      {
+        "id": "CKPRST",
+        "type": "copybook",
+        "path": "copybook/batch/CKPRST.cpy"
+      },
+      {
+        "id": "PRCSEQ",
+        "type": "copybook",
+        "path": "copybook/batch/PRCSEQ.cpy"
+      },
+      {
+        "id": "AUDITLOG",
+        "type": "copybook",
+        "path": "copybook/common/AUDITLOG.cpy"
+      },
+      {
+        "id": "COMMON",
+        "type": "copybook",
+        "path": "copybook/common/COMMON.cpy"
+      },
+      {
+        "id": "ERRHAND",
+        "type": "copybook",
+        "path": "copybook/common/ERRHAND.cpy"
+      },
+      {
+        "id": "HISTREC",
+        "type": "copybook",
+        "path": "copybook/common/HISTREC.cpy"
+      },
+      {
+        "id": "PORTFLIO",
+        "type": "copybook",
+        "path": "copybook/common/PORTFLIO.cpy"
+      },
+      {
+        "id": "PORTVAL",
+        "type": "copybook",
+        "path": "copybook/common/PORTVAL.cpy"
+      },
+      {
+        "id": "POSREC",
+        "type": "copybook",
+        "path": "copybook/common/POSREC.cpy"
+      },
+      {
+        "id": "RETHND",
+        "type": "copybook",
+        "path": "copybook/common/RETHND.cpy"
+      },
+      {
+        "id": "RTNCODE",
+        "type": "copybook",
+        "path": "copybook/common/RTNCODE.cpy"
+      },
+      {
+        "id": "TRNREC",
+        "type": "copybook",
+        "path": "copybook/common/TRNREC.cpy"
+      },
+      {
+        "id": "DBPROC",
+        "type": "copybook",
+        "path": "copybook/db2/DBPROC.cpy"
+      },
+      {
+        "id": "DBTBLS",
+        "type": "copybook",
+        "path": "copybook/db2/DBTBLS.cpy"
+      },
+      {
+        "id": "SQLCA",
+        "type": "copybook",
+        "path": "copybook/db2/SQLCA.cpy"
+      },
+      {
+        "id": "DB2REQ",
+        "type": "copybook",
+        "path": "copybook/online/DB2REQ.cpy"
+      },
+      {
+        "id": "ERRHND",
+        "type": "copybook",
+        "path": "copybook/online/ERRHND.cpy"
+      },
+      {
+        "id": "INQCOM",
+        "type": "copybook",
+        "path": "copybook/online/INQCOM.cpy"
+      },
+      {
+        "id": "DB2-DEFINITIONS",
+        "type": "db2",
+        "path": "database/db2/db2-definitions.sql"
+      },
+      {
+        "id": "ERRLOG",
+        "type": "db2",
+        "path": "database/db2/ERRLOG.sql"
+      },
+      {
+        "id": "PORTPLAN",
+        "type": "db2",
+        "path": "database/db2/PORTPLAN.sql"
+      },
+      {
+        "id": "POSHIST",
+        "type": "db2",
+        "path": "database/db2/POSHIST.sql"
+      },
+      {
+        "id": "RTNCODES",
+        "type": "db2",
+        "path": "database/db2/RTNCODES.sql"
+      }
+    ],
+    "edges": [
+      {
+        "from": "BCHCTL00",
+        "to": "BCHCTL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 27
+      },
+      {
+        "from": "BCHCTL00",
+        "to": "BCHCON",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 30
+      },
+      {
+        "from": "BCHCTL00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 31
+      },
+      {
+        "from": "BCHCTL00",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 114
+      },
+      {
+        "from": "CKPRST",
+        "to": "CKPRST",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 17
+      },
+      {
+        "from": "CKPRST",
+        "to": "CKPRST",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 23
+      },
+      {
+        "from": "CKPRST",
+        "to": "RETHND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 24
+      },
+      {
+        "from": "HISTLD00",
+        "to": "HISTREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 34
+      },
+      {
+        "from": "HISTLD00",
+        "to": "BCHCTL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "HISTLD00",
+        "to": "DBTBLS",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 41
+      },
+      {
+        "from": "HISTLD00",
+        "to": "SQLCA",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "HISTLD00",
+        "to": "DBPROC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "HISTLD00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 46
+      },
+      {
+        "from": "HISTLD00",
+        "to": "BCHCON",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 47
+      },
+      {
+        "from": "HISTLD00",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 228
+      },
+      {
+        "from": "PRCSEQ00",
+        "to": "PRCSEQ",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 34
+      },
+      {
+        "from": "PRCSEQ00",
+        "to": "BCHCTL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "PRCSEQ00",
+        "to": "BCHCON",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 40
+      },
+      {
+        "from": "PRCSEQ00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 41
+      },
+      {
+        "from": "PRCSEQ00",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 122
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "BCHCTL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 34
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "PRCSEQ",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "BCHCON",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 40
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 41
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 113
+      },
+      {
+        "from": "RCVPRC00",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 290
+      },
+      {
+        "from": "RPTAUD00",
+        "to": "AUDITLOG",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 35
+      },
+      {
+        "from": "RPTAUD00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 36
+      },
+      {
+        "from": "RPTAUD00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "RPTPOS00",
+        "to": "POSREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 35
+      },
+      {
+        "from": "RPTPOS00",
+        "to": "TRNREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 36
+      },
+      {
+        "from": "RPTPOS00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "RPTPOS00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "RPTSTA00",
+        "to": "DB2STAT",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 35
+      },
+      {
+        "from": "RPTSTA00",
+        "to": "BCHCTL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 36
+      },
+      {
+        "from": "RPTSTA00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "RPTSTA00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "RTNANA00",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 32
+      },
+      {
+        "from": "RTNCDE00",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 26
+      },
+      {
+        "from": "RTNCDE00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 30
+      },
+      {
+        "from": "AUDPROC",
+        "to": "AUDITLOG",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 27
+      },
+      {
+        "from": "DB2CMT",
+        "to": "SQLCA",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 21
+      },
+      {
+        "from": "DB2CMT",
+        "to": "DBPROC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 22
+      },
+      {
+        "from": "DB2CMT",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 23
+      },
+      {
+        "from": "DB2CMT",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 165
+      },
+      {
+        "from": "DB2CMT",
+        "to": "DB2ERR",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 169
+      },
+      {
+        "from": "DB2CONN",
+        "to": "SQLCA",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 22
+      },
+      {
+        "from": "DB2CONN",
+        "to": "DBPROC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 23
+      },
+      {
+        "from": "DB2CONN",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 24
+      },
+      {
+        "from": "DB2CONN",
+        "to": "DELAY",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 86
+      },
+      {
+        "from": "DB2CONN",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 153
+      },
+      {
+        "from": "DB2ERR",
+        "to": "DBTBLS",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 19
+      },
+      {
+        "from": "DB2ERR",
+        "to": "SQLCA",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 24
+      },
+      {
+        "from": "DB2ERR",
+        "to": "DBPROC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 25
+      },
+      {
+        "from": "DB2ERR",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 26
+      },
+      {
+        "from": "DB2ERR",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 199
+      },
+      {
+        "from": "DB2STAT",
+        "to": "SQLCA",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 32
+      },
+      {
+        "from": "DB2STAT",
+        "to": "DBPROC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 33
+      },
+      {
+        "from": "DB2STAT",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 34
+      },
+      {
+        "from": "DB2STAT",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 227
+      },
+      {
+        "from": "ERRPROC",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 31
+      },
+      {
+        "from": "CURSMGR",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 16
+      },
+      {
+        "from": "DB2ONLN",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 16
+      },
+      {
+        "from": "DB2ONLN",
+        "to": "ERRHND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 25
+      },
+      {
+        "from": "DB2RECV",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 16
+      },
+      {
+        "from": "DB2RECV",
+        "to": "ERRHND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 25
+      },
+      {
+        "from": "DB2RECV",
+        "to": "DB2REQ",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 28
+      },
+      {
+        "from": "DB2RECV",
+        "to": "DB2ONLN",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 88
+      },
+      {
+        "from": "DB2RECV",
+        "to": "ERRHNDL",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 132
+      },
+      {
+        "from": "INQHIST",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 15
+      },
+      {
+        "from": "INQHIST",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 18
+      },
+      {
+        "from": "INQHIST",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 67
+      },
+      {
+        "from": "INQHIST",
+        "to": "DB2ONLN",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 98
+      },
+      {
+        "from": "INQHIST",
+        "to": "DB2RECV",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 108
+      },
+      {
+        "from": "INQHIST",
+        "to": "CURSMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 138
+      },
+      {
+        "from": "INQHIST",
+        "to": "CURSMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 145
+      },
+      {
+        "from": "INQHIST",
+        "to": "CURSMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 157
+      },
+      {
+        "from": "INQHIST",
+        "to": "CURSMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 166
+      },
+      {
+        "from": "INQONLN",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 16
+      },
+      {
+        "from": "INQONLN",
+        "to": "ERRHND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 25
+      },
+      {
+        "from": "INQONLN",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "INQONLN",
+        "to": "INQPORT",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 102
+      },
+      {
+        "from": "INQONLN",
+        "to": "INQHIST",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 111
+      },
+      {
+        "from": "INQONLN",
+        "to": "ERRHNDL",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 126
+      },
+      {
+        "from": "INQONLN",
+        "to": "SECMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 146
+      },
+      {
+        "from": "INQONLN",
+        "to": "SECMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 156
+      },
+      {
+        "from": "INQONLN",
+        "to": "SECMGR",
+        "type": "CICS_LINK",
+        "resolved": true,
+        "source_line_hint": 164
+      },
+      {
+        "from": "INQPORT",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 15
+      },
+      {
+        "from": "INQPORT",
+        "to": "POSREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 18
+      },
+      {
+        "from": "INQPORT",
+        "to": "SQLPOS",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 21
+      },
+      {
+        "from": "INQPORT",
+        "to": "INQCOM",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 38
+      },
+      {
+        "from": "SECMGR",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 16
+      },
+      {
+        "from": "SECMGR",
+        "to": "ERRHND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 27
+      },
+      {
+        "from": "PORTADD",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "PORTADD",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 40
+      },
+      {
+        "from": "PORTDEL",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 42
+      },
+      {
+        "from": "PORTMSTR",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 262
+      },
+      {
+        "from": "PORTMSTR",
+        "to": "AUDPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 287
+      },
+      {
+        "from": "PORTREAD",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 32
+      },
+      {
+        "from": "PORTTEST",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 25
+      },
+      {
+        "from": "PORTTEST",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 28
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "TRNREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 35
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "PORTREC",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 40
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 43
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "AUDITLOG",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "AUDPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 294
+      },
+      {
+        "from": "PORTTRAN",
+        "to": "ERRPROC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 316
+      },
+      {
+        "from": "PORTUPDT",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 37
+      },
+      {
+        "from": "PORTVALD",
+        "to": "PORTVAL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 18
+      },
+      {
+        "from": "TSTGEN00",
+        "to": "PORTFLIO",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 52
+      },
+      {
+        "from": "TSTGEN00",
+        "to": "TRNREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 58
+      },
+      {
+        "from": "TSTGEN00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 66
+      },
+      {
+        "from": "TSTGEN00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 67
+      },
+      {
+        "from": "TSTVAL00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 67
+      },
+      {
+        "from": "TSTVAL00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 68
+      },
+      {
+        "from": "UTLMNT00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 56
+      },
+      {
+        "from": "UTLMNT00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 57
+      },
+      {
+        "from": "UTLMON00",
+        "to": "DB2STAT",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 43
+      },
+      {
+        "from": "UTLMON00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 75
+      },
+      {
+        "from": "UTLMON00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 76
+      },
+      {
+        "from": "UTLMON00",
+        "to": "ILBOABN0",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 186
+      },
+      {
+        "from": "UTLVAL00",
+        "to": "POSREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 44
+      },
+      {
+        "from": "UTLVAL00",
+        "to": "TRNREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "UTLVAL00",
+        "to": "RTNCODE",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 60
+      },
+      {
+        "from": "UTLVAL00",
+        "to": "ERRHAND",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 61
+      }
+    ]
+  },
+  "copybook_map": {
+    "BCHCON": [
+      "BCHCTL00",
+      "HISTLD00",
+      "PRCSEQ00",
+      "RCVPRC00"
+    ],
+    "BCHCTL": [
+      "BCHCTL00",
+      "HISTLD00",
+      "PRCSEQ00",
+      "RCVPRC00",
+      "RPTSTA00"
+    ],
+    "CKPRST": [
+      "CKPRST",
+      "CKPRST"
+    ],
+    "PRCSEQ": [
+      "PRCSEQ00",
+      "RCVPRC00"
+    ],
+    "AUDITLOG": [
+      "RPTAUD00",
+      "AUDPROC",
+      "PORTTRAN"
+    ],
+    "ERRHAND": [
+      "BCHCTL00",
+      "HISTLD00",
+      "PRCSEQ00",
+      "RCVPRC00",
+      "RPTAUD00",
+      "RPTPOS00",
+      "RPTSTA00",
+      "DB2CMT",
+      "DB2CONN",
+      "DB2ERR",
+      "DB2STAT",
+      "ERRPROC",
+      "PORTTEST",
+      "PORTTRAN",
+      "TSTGEN00",
+      "TSTVAL00",
+      "UTLMNT00",
+      "UTLMON00",
+      "UTLVAL00"
+    ],
+    "HISTREC": [
+      "HISTLD00"
+    ],
+    "PORTFLIO": [
+      "PORTADD",
+      "PORTADD",
+      "PORTDEL",
+      "PORTREAD",
+      "PORTTEST",
+      "PORTUPDT",
+      "TSTGEN00"
+    ],
+    "PORTVAL": [
+      "PORTVALD"
+    ],
+    "POSREC": [
+      "RPTPOS00",
+      "INQPORT",
+      "UTLVAL00"
+    ],
+    "RETHND": [
+      "CKPRST"
+    ],
+    "RTNCODE": [
+      "RPTAUD00",
+      "RPTPOS00",
+      "RPTSTA00",
+      "RTNCDE00",
+      "TSTGEN00",
+      "TSTVAL00",
+      "UTLMNT00",
+      "UTLMON00",
+      "UTLVAL00"
+    ],
+    "TRNREC": [
+      "RPTPOS00",
+      "PORTTRAN",
+      "TSTGEN00",
+      "UTLVAL00"
+    ],
+    "DBPROC": [
+      "HISTLD00",
+      "DB2CMT",
+      "DB2CONN",
+      "DB2ERR",
+      "DB2STAT"
+    ],
+    "DBTBLS": [
+      "HISTLD00",
+      "DB2ERR"
+    ],
+    "SQLCA": [
+      "HISTLD00",
+      "DB2CMT",
+      "DB2CONN",
+      "DB2ERR",
+      "DB2STAT"
+    ],
+    "DB2REQ": [
+      "DB2RECV"
+    ],
+    "ERRHND": [
+      "DB2ONLN",
+      "DB2RECV",
+      "INQONLN",
+      "SECMGR"
+    ],
+    "INQCOM": [
+      "INQHIST",
+      "INQHIST",
+      "INQONLN",
+      "INQONLN",
+      "INQPORT",
+      "INQPORT"
+    ]
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "programs/batch/POSUPDT.cbl",
+      "fallback_id": "POSUPDT",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "programs/online/ERRHNDL.cbl",
+      "fallback_id": "ERRHNDL",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "RPTSTA00",
+      "reference": "DB2STAT",
+      "edge_type": "COPY",
+      "message": "COPY target 'DB2STAT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "DB2CONN",
+      "reference": "DELAY",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'DELAY' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "INQPORT",
+      "reference": "SQLPOS",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'SQLPOS' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PORTTRAN",
+      "reference": "PORTREC",
+      "edge_type": "COPY",
+      "message": "COPY target 'PORTREC' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "UTLMON00",
+      "reference": "DB2STAT",
+      "edge_type": "COPY",
+      "message": "COPY target 'DB2STAT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "UTLMON00",
+      "reference": "ILBOABN0",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'ILBOABN0' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "error",
+      "type": "circular_copy",
+      "source": "CKPRST",
+      "target": "CKPRST",
+      "message": "Circular COPY chain detected: CKPRST COPY CKPRST which COPYs CKPRST"
+    }
+  ]
+}

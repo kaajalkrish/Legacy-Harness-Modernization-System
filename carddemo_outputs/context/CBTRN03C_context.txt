@@ -1,0 +1,73 @@
+# System Context: CBTRN03C
+## 📝 Summary
+CBTRN03C is a batch-type COBOL program, entered at 0550-DATEPARM-READ, with 26 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 6 data file(s), sharing 5 copybook(s). It defines 17 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBTRN03C
+- **Source Path**: app/cbl/CBTRN03C.cbl
+- **Main Entry Point**: 0550-DATEPARM-READ
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- TRANSACT-FILE
+- XREF-FILE
+- TRANTYPE-FILE
+- TRANCATG-FILE
+- REPORT-FILE
+- DATE-PARMS-FILE
+### 📚 Shared Logic (Copybooks)
+- CVTRA05Y
+- CVACT03Y
+- CVTRA03Y
+- CVTRA04Y
+- CVTRA07Y
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVTRA05Y (external structure, expanded via copybook)
+- 01 TRANFILE-STATUS (group item, 2 sub-field(s))
+- 01 CARDXREF-STATUS (group item, 2 sub-field(s))
+- 01 TRANTYPE-STATUS (group item, 2 sub-field(s))
+- 01 TRANCATG-STATUS (group item, 2 sub-field(s))
+- 01 TRANREPT-STATUS (group item, 2 sub-field(s))
+- 01 DATEPARM-STATUS (group item, 2 sub-field(s))
+- 01 WS-DATEPARM-RECORD (group item, 3 sub-field(s))
+- 01 WS-REPORT-VARS (group item, 8 sub-field(s))
+- 01 IO-STATUS (group item, 2 sub-field(s))
+- 01 TWO-BYTES-BINARY PIC 9(4)
+- 01 TWO-BYTES-ALPHA (group item, 2 sub-field(s))
+- 01 IO-STATUS-04 (group item, 2 sub-field(s))
+- 01 APPL-RESULT PIC S9(9)
+- 01 END-OF-FILE PIC X(01)
+- 01 ABCODE PIC S9(9)
+- 01 TIMING PIC S9(9)
+## Procedure Summary
+- **Entry Point(s)**: 0550-DATEPARM-READ
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 26 / 0
+- **Terminal Statements**: GOBACK (line 217)
+- **Paragraph List**:
+- 0550-DATEPARM-READ
+- 1000-TRANFILE-GET-NEXT
+- 1100-WRITE-TRANSACTION-REPORT
+- 1110-WRITE-PAGE-TOTALS
+- 1120-WRITE-ACCOUNT-TOTALS
+- 1110-WRITE-GRAND-TOTALS
+- 1120-WRITE-HEADERS
+- 1111-WRITE-REPORT-REC
+- 1120-WRITE-DETAIL
+- 0000-TRANFILE-OPEN
+- 0100-REPTFILE-OPEN
+- 0200-CARDXREF-OPEN
+- 0300-TRANTYPE-OPEN
+- 0400-TRANCATG-OPEN
+- 0500-DATEPARM-OPEN
+- 1500-A-LOOKUP-XREF
+- 1500-B-LOOKUP-TRANTYPE
+- 1500-C-LOOKUP-TRANCATG
+- 9000-TRANFILE-CLOSE
+- 9100-REPTFILE-CLOSE
+- 9200-CARDXREF-CLOSE
+- 9300-TRANTYPE-CLOSE
+- 9400-TRANCATG-CLOSE
+- 9500-DATEPARM-CLOSE
+- 9999-ABEND-PROGRAM
+- 9910-DISPLAY-IO-STATUS

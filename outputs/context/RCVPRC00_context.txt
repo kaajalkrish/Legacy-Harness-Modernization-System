@@ -1,0 +1,27 @@
+# System Context: RCVPRC00
+## 📝 Summary
+RCVPRC00 is a batch-type COBOL program, with 0 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 4 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: RCVPRC00
+- **Source Path**: programs/batch/RCVPRC00.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- BCHCTL
+- PRCSEQ
+- BCHCON
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ERRPROC
+- ERRPROC
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

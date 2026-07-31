@@ -1,0 +1,36 @@
+# System Context: CBACT02C
+## 📝 Summary
+CBACT02C is a batch-type COBOL program, entered at 1000-CARDFILE-GET-NEXT, with 5 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 1 data file(s), sharing 1 copybook(s). It defines 10 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBACT02C
+- **Source Path**: app/cbl/CBACT02C.cbl
+- **Main Entry Point**: 1000-CARDFILE-GET-NEXT
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- CARDFILE-FILE
+### 📚 Shared Logic (Copybooks)
+- CVACT02Y
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVACT02Y (external structure, expanded via copybook)
+- 01 CARDFILE-STATUS (group item, 2 sub-field(s))
+- 01 IO-STATUS (group item, 2 sub-field(s))
+- 01 TWO-BYTES-BINARY PIC 9(4)
+- 01 TWO-BYTES-ALPHA (group item, 2 sub-field(s))
+- 01 IO-STATUS-04 (group item, 2 sub-field(s))
+- 01 APPL-RESULT PIC S9(9)
+- 01 END-OF-FILE PIC X(01)
+- 01 ABCODE PIC S9(9)
+- 01 TIMING PIC S9(9)
+## Procedure Summary
+- **Entry Point(s)**: 1000-CARDFILE-GET-NEXT
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 5 / 0
+- **Terminal Statements**: GOBACK (line 87)
+- **Paragraph List**:
+- 1000-CARDFILE-GET-NEXT
+- 0000-CARDFILE-OPEN
+- 9000-CARDFILE-CLOSE
+- 9999-ABEND-PROGRAM
+- 9910-DISPLAY-IO-STATUS

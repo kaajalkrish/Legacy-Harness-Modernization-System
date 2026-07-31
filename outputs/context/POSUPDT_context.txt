@@ -1,0 +1,23 @@
+# System Context: POSUPDT
+## 📝 Summary
+POSUPDT is a batch-type COBOL program, with 0 paragraph(s) across 0 section(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: POSUPDT
+- **Source Path**: programs/batch/POSUPDT.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- None (no WORKING-STORAGE entries found)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

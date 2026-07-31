@@ -1,0 +1,53 @@
+# System Context: DBUNLDGS
+## 📝 Summary
+DBUNLDGS is a unknown-type COBOL program, entered at MAIN-PARA, with 15 paragraph(s) across 0 section(s), calling 4 other program(s), sharing 6 copybook(s). It defines 9 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DBUNLDGS
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- IMSFUNCS
+- CIPAUSMY
+- CIPAUDTY
+- PAUTBPCB
+- PASFLPCB
+- PADFLPCB
+### 🔗 Execution Flow (Calls)
+- CBLTDLI
+- CBLTDLI
+- CBLTDLI
+- CBLTDLI
+## Key Data Structures
+- 01 OPFIL1-REC PIC X(100)
+- 01 OPFIL2-REC (group item, 2 sub-field(s))
+- 01 WS-VARIABLES (group item, 25 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 2 sub-field(s))
+- 01 ROOT-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 CHILD-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 PRM-INFO (group item, 8 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 15 / 0
+- **Terminal Statements**: GOBACK (line 179), GOBACK (line 363)
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-INITIALIZE
+- 1000-EXIT
+- 2000-FIND-NEXT-AUTH-SUMMARY
+- 2000-EXIT
+- 3000-FIND-NEXT-AUTH-DTL
+- 3000-EXIT
+- 3100-INSERT-PARENT-SEG-GSAM
+- 3100-EXIT
+- 3200-INSERT-CHILD-SEG-GSAM
+- 3200-EXIT
+- 4000-FILE-CLOSE
+- 4000-EXIT
+- 9999-ABEND
+- 9999-EXIT

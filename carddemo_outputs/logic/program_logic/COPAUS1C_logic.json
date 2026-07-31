@@ -1,0 +1,13 @@
+{
+  "meta": {"program_id": "COPAUS1C", "source_file": "carddemo_input/app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl", "model": "ai-host", "agent_version": "4_logic_python@1.0"},
+  "summary": "CICS online Authorization Message Detail View screen. Reads a single pending-authorization record (summary + detail) from the IMS authorization database for the selected key and displays its full detail (card, amount, merchant, approval status, timestamps). From here the user can mark it as fraud (COPAUS2C). Pseudo-conversational.",
+  "paragraphs": [
+    {"name": "MAIN-PARA", "pseudocode": "Pseudo-conversational entry. On first entry read and display the selected authorization detail. On re-entry evaluate the key: PF3 return to the summary list; a fraud action transfers to the fraud-mark program. Return to CICS.", "branches": ["IF EIBCALEN = 0 -> read+display", "EVALUATE EIBAID: PF3 / fraud action"], "calls_made": ["READ-AUTH-DETAIL", "SEND-AUTHDTL-SCREEN", "RETURN-TO-PREV-SCREEN"], "field_references": ["EIBCALEN", "EIBAID", "WS-COMMAREA"], "complexity_score": 4, "ambiguous": false, "annotations": [], "notes": "Auth-detail view controller."},
+    {"name": "READ-AUTH-DETAIL", "pseudocode": "Read the pending-authorization summary and detail segments from the IMS database for the selected authorization key; on not-found show an error.", "branches": ["IF IMS not found -> error"], "calls_made": [], "field_references": ["PENDING-AUTH-SUMMARY", "PENDING-AUTH-DETAILS"], "complexity_score": 3, "ambiguous": false, "annotations": [], "notes": "IMS detail read."},
+    {"name": "SEND-AUTHDTL-SCREEN", "pseudocode": "Populate the header and authorization detail fields and send the map.", "branches": [], "calls_made": ["POPULATE-HEADER-INFO"], "field_references": ["PENDING-AUTH-DETAILS"], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "CICS SEND MAP."},
+    {"name": "RECEIVE-AUTHDTL-SCREEN", "pseudocode": "Receive the detail map from the terminal.", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "CICS RECEIVE MAP."},
+    {"name": "POPULATE-HEADER-INFO", "pseudocode": "Populate the screen header.", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Header."},
+    {"name": "RETURN-TO-PREV-SCREEN", "pseudocode": "Return to the authorization summary list.", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Navigation."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

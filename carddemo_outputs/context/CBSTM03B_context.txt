@@ -1,0 +1,42 @@
+# System Context: CBSTM03B
+## 📝 Summary
+CBSTM03B is a batch-type COBOL program, entered at 0000-START, with 14 paragraph(s) across 0 section(s), reading/writing 4 data file(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBSTM03B
+- **Source Path**: app/cbl/CBSTM03B.CBL
+- **Main Entry Point**: 0000-START
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- TRNX-FILE
+- XREF-FILE
+- CUST-FILE
+- ACCT-FILE
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 TRNXFILE-STATUS (group item, 2 sub-field(s))
+- 01 XREFFILE-STATUS (group item, 2 sub-field(s))
+- 01 CUSTFILE-STATUS (group item, 2 sub-field(s))
+- 01 ACCTFILE-STATUS (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-START
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 14 / 0
+- **Terminal Statements**: GOBACK (line 128), GOBACK (line 130), GOBACK (line 131)
+- **Paragraph List**:
+- 0000-START
+- 9999-GOBACK
+- 1000-TRNXFILE-PROC
+- 1900-EXIT
+- 1999-EXIT
+- 2000-XREFFILE-PROC
+- 2900-EXIT
+- 2999-EXIT
+- 3000-CUSTFILE-PROC
+- 3900-EXIT
+- 3999-EXIT
+- 4000-ACCTFILE-PROC
+- 4900-EXIT
+- 4999-EXIT

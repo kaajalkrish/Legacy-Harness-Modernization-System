@@ -1,0 +1,3837 @@
+{
+  "meta": {
+    "generated_at": "2026-07-27T23:40:43.961847",
+    "total_nodes": 168,
+    "total_edges": 462,
+    "node_types": {
+      "PROGRAM": 54,
+      "COPYBOOK": 66,
+      "FILE_CONTROL": 43,
+      "OTHER": 5
+    }
+  },
+  "nodes": [
+    {
+      "id": "CBPAUP0C",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "COPAUA0C",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COPAUS0C",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COPAUS1C",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COPAUS2C",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "DBUNLDGS",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "unknown"
+      }
+    },
+    {
+      "id": "PAUDBLOD",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "unknown"
+      }
+    },
+    {
+      "id": "PAUDBUNL",
+      "type": "PROGRAM",
+      "source_path": "app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "unknown"
+      }
+    },
+    {
+      "id": "COBTUPDT",
+      "type": "PROGRAM",
+      "source_path": "app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "entry_points": [
+        "0001-OPEN-FILES"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COTRTLIC",
+      "type": "PROGRAM",
+      "source_path": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COTRTUPC",
+      "type": "PROGRAM",
+      "source_path": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COACCT01",
+      "type": "PROGRAM",
+      "source_path": "app/app-vsam-mq/cbl/COACCT01.cbl",
+      "entry_points": [
+        "1000-CONTROL"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "CODATE01",
+      "type": "PROGRAM",
+      "source_path": "app/app-vsam-mq/cbl/CODATE01.cbl",
+      "entry_points": [
+        "1000-CONTROL"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "CBACT01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBACT01C.cbl",
+      "entry_points": [
+        "1000-ACCTFILE-GET-NEXT"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBACT02C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBACT02C.cbl",
+      "entry_points": [
+        "1000-CARDFILE-GET-NEXT"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBACT03C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBACT03C.cbl",
+      "entry_points": [
+        "1000-XREFFILE-GET-NEXT"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBACT04C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBACT04C.cbl",
+      "entry_points": [
+        "0000-TCATBALF-OPEN"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBCUS01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBCUS01C.cbl",
+      "entry_points": [
+        "1000-CUSTFILE-GET-NEXT"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBEXPORT",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBEXPORT.cbl",
+      "entry_points": [
+        "0000-MAIN-PROCESSING"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBIMPORT",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBIMPORT.cbl",
+      "entry_points": [
+        "0000-MAIN-PROCESSING"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBSTM03A",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBSTM03A.CBL",
+      "entry_points": [
+        "0000-START"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBSTM03B",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBSTM03B.CBL",
+      "entry_points": [
+        "0000-START"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBTRN01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBTRN01C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBTRN02C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBTRN02C.cbl",
+      "entry_points": [
+        "0000-DALYTRAN-OPEN"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "CBTRN03C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CBTRN03C.cbl",
+      "entry_points": [
+        "0550-DATEPARM-READ"
+      ],
+      "metadata": {
+        "subtype": "batch"
+      }
+    },
+    {
+      "id": "COACTUPC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COACTUPC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COACTVWC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COACTVWC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COADM01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COADM01C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COBIL00C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COBIL00C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COBSWAIT",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COBSWAIT.cbl",
+      "entry_points": [],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COCRDLIC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COCRDLIC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COCRDSLC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COCRDSLC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COCRDUPC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COCRDUPC.cbl",
+      "entry_points": [
+        "0000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COMEN01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COMEN01C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "CORPT00C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CORPT00C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COSGN00C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COSGN00C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COTRN00C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COTRN00C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COTRN01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COTRN01C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COTRN02C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COTRN02C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COUSR00C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COUSR00C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COUSR01C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COUSR01C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COUSR02C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COUSR02C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "COUSR03C",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/COUSR03C.cbl",
+      "entry_points": [
+        "MAIN-PARA"
+      ],
+      "metadata": {
+        "subtype": "online"
+      }
+    },
+    {
+      "id": "CSUTLDTC",
+      "type": "PROGRAM",
+      "source_path": "app/cbl/CSUTLDTC.cbl",
+      "entry_points": [
+        "A000-MAIN"
+      ],
+      "metadata": {
+        "subtype": "unknown"
+      }
+    },
+    {
+      "id": "CIPAUSMY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CIPAUDTY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQODV",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQMDV",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQV",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQTML",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQPMOV",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CMQGMOV",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CCPAURQY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CCPAURLY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CCPAUERY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVACT03Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVACT01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVCUS01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MQOPEN",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MQGET",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MQPUT1",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MQCLOSE",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COCOM01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COPAU00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTTL01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSDAT01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSMSG01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSMSG02Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVACT02Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DFHAID",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DFHBMSCA",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COPAU01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "IMSFUNCS",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PAUTBPCB",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PASFLPCB",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "PADFLPCB",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CBLTDLI",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DCLTRTYP",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSDB2RWY",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVCRD01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "SQLCA",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTRTLI",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSUSR01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSDB2RPY",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTRTUP",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "DCLTRCAT",
+      "type": "DB2",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSSETATY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "REPLACING",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MQPUT",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CODATECN",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COBDATFT",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CEE3ABD",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA01Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA02Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA05Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVEXPORT",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COSTM01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CUSTREC",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA06Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA03Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA04Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CVTRA07Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSLKPCDY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COACTUP",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CSUTLDPY",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COACTVW",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COADM02Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COADM01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COBIL00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "MVSWAIT",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COCRDLI",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COCRDSL",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COCRDUP",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COMEN02Y",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COMEN01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CORPT00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COSGN00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTRN00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTRN01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COTRN02",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COUSR00",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COUSR01",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COUSR02",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "COUSR03",
+      "type": "COPYBOOK",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "CEEDAYS",
+      "type": "PROGRAM",
+      "source_path": "Inventory/Common"
+    },
+    {
+      "id": "ACCTFILE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT01C"
+    },
+    {
+      "id": "OUT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT01C"
+    },
+    {
+      "id": "ARRY-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT01C"
+    },
+    {
+      "id": "VBRC-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT01C"
+    },
+    {
+      "id": "CARDFILE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT02C"
+    },
+    {
+      "id": "XREFFILE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT03C"
+    },
+    {
+      "id": "TCATBAL-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT04C"
+    },
+    {
+      "id": "XREF-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT04C"
+    },
+    {
+      "id": "DISCGRP-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT04C"
+    },
+    {
+      "id": "ACCOUNT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT04C"
+    },
+    {
+      "id": "TRANSACT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBACT04C"
+    },
+    {
+      "id": "CUSTFILE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBCUS01C"
+    },
+    {
+      "id": "CUSTOMER-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "ACCOUNT-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "XREF-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "TRANSACTION-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "CARD-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "EXPORT-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBEXPORT"
+    },
+    {
+      "id": "EXPORT-INPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "CUSTOMER-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "ACCOUNT-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "XREF-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "TRANSACTION-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "CARD-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "ERROR-OUTPUT",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBIMPORT"
+    },
+    {
+      "id": "STMT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBSTM03A"
+    },
+    {
+      "id": "HTML-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBSTM03A"
+    },
+    {
+      "id": "TRNX-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBSTM03B"
+    },
+    {
+      "id": "CUST-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBSTM03B"
+    },
+    {
+      "id": "ACCT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBSTM03B"
+    },
+    {
+      "id": "DALYTRAN-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN01C"
+    },
+    {
+      "id": "CUSTOMER-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN01C"
+    },
+    {
+      "id": "CARD-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN01C"
+    },
+    {
+      "id": "DALYREJS-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN02C"
+    },
+    {
+      "id": "TRANTYPE-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN03C"
+    },
+    {
+      "id": "TRANCATG-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN03C"
+    },
+    {
+      "id": "REPORT-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN03C"
+    },
+    {
+      "id": "DATE-PARMS-FILE",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside CBTRN03C"
+    },
+    {
+      "id": "TR-RECORD",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside COBTUPDT"
+    },
+    {
+      "id": "INFILE1",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PAUDBLOD"
+    },
+    {
+      "id": "INFILE2",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PAUDBLOD"
+    },
+    {
+      "id": "OPFILE1",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PAUDBUNL"
+    },
+    {
+      "id": "OPFILE2",
+      "type": "FILE_CONTROL",
+      "source_path": "Logical Volume inside PAUDBUNL"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CBPAUP0C",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 117
+    },
+    {
+      "source": "CBPAUP0C",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 121
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQODV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 149
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQMDV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 152
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQODV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 155
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQMDV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 158
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 161
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQTML",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 164
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQPMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 167
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CMQGMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 170
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CCPAURQY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 178
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CCPAURLY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 182
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CCPAUERY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 185
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 193
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 197
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 203
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 206
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 209
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 262
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "MQGET",
+      "type": "CALLS_PROGRAM",
+      "line_number": 400
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "MQPUT1",
+      "type": "CALLS_PROGRAM",
+      "line_number": 758
+    },
+    {
+      "source": "COPAUA0C",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 956
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 116
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "COPAU00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 129
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 132
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 135
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 138
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 141
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 144
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 147
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 150
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 153
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 161
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 165
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 168
+    },
+    {
+      "source": "COPAUS0C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 169
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 109
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "COPAU01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 122
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 126
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 129
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 132
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 135
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 142
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 146
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 148
+    },
+    {
+      "source": "COPAUS1C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 149
+    },
+    {
+      "source": "COPAUS2C",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 78
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "IMSFUNCS",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 136
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 143
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 147
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "PAUTBPCB",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 154
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "PASFLPCB",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 155
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "PADFLPCB",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 156
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 222
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 267
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 302
+    },
+    {
+      "source": "DBUNLDGS",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 321
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "IMSFUNCS",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 142
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 149
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 153
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "PAUTBPCB",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 161
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 244
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 296
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 321
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "IMSFUNCS",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 132
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "CIPAUSMY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 139
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "CIPAUDTY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 143
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "PAUTBPCB",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 150
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 213
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "CBLTDLI",
+      "type": "CALLS_PROGRAM",
+      "line_number": 257
+    },
+    {
+      "source": "COBTUPDT",
+      "target": "DCLTRTYP",
+      "type": "INCLUDES_DB2",
+      "line_number": 54
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CSDB2RWY",
+      "type": "INCLUDES_DB2",
+      "line_number": 304
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 327
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "SQLCA",
+      "type": "INCLUDES_DB2",
+      "line_number": 331
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "DCLTRTYP",
+      "type": "INCLUDES_DB2",
+      "line_number": 333
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 375
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 425
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 426
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 430
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "COTRTLI",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 433
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 480
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 482
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 485
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 490
+    },
+    {
+      "source": "COTRTLIC",
+      "target": "CSDB2RPY",
+      "type": "INCLUDES_DB2",
+      "line_number": 2055
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 241
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 257
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 258
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 262
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "COTRTUP",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 265
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 268
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 271
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 274
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 277
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "DCLTRTYP",
+      "type": "INCLUDES_DB2",
+      "line_number": 286
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "DCLTRCAT",
+      "type": "INCLUDES_DB2",
+      "line_number": 288
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 292
+    },
+    {
+      "source": "COTRTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 1358
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQGMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 71
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQPMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 75
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQMDV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 79
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQODV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 83
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 87
+    },
+    {
+      "source": "COACCT01",
+      "target": "CMQTML",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 90
+    },
+    {
+      "source": "COACCT01",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 171
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 233
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 267
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 302
+    },
+    {
+      "source": "COACCT01",
+      "target": "REPLACING",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 345
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQGET",
+      "type": "CALLS_PROGRAM",
+      "line_number": 352
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQPUT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 479
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQPUT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 516
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 557
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 579
+    },
+    {
+      "source": "COACCT01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 602
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQGMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 71
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQPMOV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 75
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQMDV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 79
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQODV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 83
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQV",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 87
+    },
+    {
+      "source": "CODATE01",
+      "target": "CMQTML",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 90
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 182
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 216
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQOPEN",
+      "type": "CALLS_PROGRAM",
+      "line_number": 251
+    },
+    {
+      "source": "CODATE01",
+      "target": "REPLACING",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 294
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQGET",
+      "type": "CALLS_PROGRAM",
+      "line_number": 301
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQPUT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 383
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQPUT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 420
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 461
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 483
+    },
+    {
+      "source": "CODATE01",
+      "target": "MQCLOSE",
+      "type": "CALLS_PROGRAM",
+      "line_number": 506
+    },
+    {
+      "source": "CBACT01C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 89
+    },
+    {
+      "source": "CBACT01C",
+      "target": "CODATECN",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 90
+    },
+    {
+      "source": "CBACT01C",
+      "target": "COBDATFT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 231
+    },
+    {
+      "source": "CBACT01C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 410
+    },
+    {
+      "source": "CBACT02C",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "CBACT02C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 158
+    },
+    {
+      "source": "CBACT03C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "CBACT03C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 158
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CVTRA01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 97
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 102
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CVTRA02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 107
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 112
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 117
+    },
+    {
+      "source": "CBACT04C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 632
+    },
+    {
+      "source": "CBCUS01C",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 45
+    },
+    {
+      "source": "CBCUS01C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 158
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 75
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 78
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 81
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 84
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 87
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CVEXPORT",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 96
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 579
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 84
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 89
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 94
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 99
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 104
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CVEXPORT",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 113
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 484
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "COSTM01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 51
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 53
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CUSTREC",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 55
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 57
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 351
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 377
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 401
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 734
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 746
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 769
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 787
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 805
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 835
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 860
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 877
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 893
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CBSTM03B",
+      "type": "CALLS_PROGRAM",
+      "line_number": 909
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 923
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVTRA06Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 99
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 104
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 109
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 114
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 119
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 124
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 473
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CVTRA06Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 102
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 107
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 112
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 121
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CVTRA01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 126
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 711
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 93
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 98
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CVTRA03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 103
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CVTRA04Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 108
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CVTRA07Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 113
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "CEE3ABD",
+      "type": "CALLS_PROGRAM",
+      "line_number": 630
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 597
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSLKPCDY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 602
+    },
+    {
+      "source": "COACTUPC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 615
+    },
+    {
+      "source": "COACTUPC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 616
+    },
+    {
+      "source": "COACTUPC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 620
+    },
+    {
+      "source": "COACTUPC",
+      "target": "COACTUP",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 623
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 626
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 629
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 632
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 635
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 640
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 643
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 646
+    },
+    {
+      "source": "COACTUPC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 650
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3208
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3214
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3220
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3226
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3232
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3238
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3244
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3250
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3256
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3262
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3268
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3274
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3280
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3286
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3292
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3298
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3304
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3310
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3316
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3322
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3328
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3334
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3340
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3346
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3352
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3358
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3364
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3370
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3376
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3382
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3388
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3394
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3400
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3405
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3411
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3417
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3422
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3427
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSSETATY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 3432
+    },
+    {
+      "source": "COACTUPC",
+      "target": "CSUTLDPY",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 4232
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 207
+    },
+    {
+      "source": "COACTVWC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 211
+    },
+    {
+      "source": "COACTVWC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 221
+    },
+    {
+      "source": "COACTVWC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 222
+    },
+    {
+      "source": "COACTVWC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 226
+    },
+    {
+      "source": "COACTVWC",
+      "target": "COACTVW",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 229
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 232
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 235
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 238
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 241
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 244
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 248
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 251
+    },
+    {
+      "source": "COACTVWC",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 254
+    },
+    {
+      "source": "COADM01C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 50
+    },
+    {
+      "source": "COADM01C",
+      "target": "COADM02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 51
+    },
+    {
+      "source": "COADM01C",
+      "target": "COADM01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 53
+    },
+    {
+      "source": "COADM01C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 55
+    },
+    {
+      "source": "COADM01C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 56
+    },
+    {
+      "source": "COADM01C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 57
+    },
+    {
+      "source": "COADM01C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 58
+    },
+    {
+      "source": "COADM01C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 60
+    },
+    {
+      "source": "COADM01C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 61
+    },
+    {
+      "source": "COBIL00C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 63
+    },
+    {
+      "source": "COBIL00C",
+      "target": "COBIL00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 74
+    },
+    {
+      "source": "COBIL00C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 76
+    },
+    {
+      "source": "COBIL00C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 77
+    },
+    {
+      "source": "COBIL00C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 78
+    },
+    {
+      "source": "COBIL00C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 80
+    },
+    {
+      "source": "COBIL00C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 81
+    },
+    {
+      "source": "COBIL00C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 82
+    },
+    {
+      "source": "COBIL00C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 84
+    },
+    {
+      "source": "COBIL00C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 85
+    },
+    {
+      "source": "COBSWAIT",
+      "target": "MVSWAIT",
+      "type": "CALLS_PROGRAM",
+      "line_number": 38
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 221
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 227
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 267
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 268
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 272
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "COCRDLI",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 276
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 279
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 281
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 285
+    },
+    {
+      "source": "COCRDLIC",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 290
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 194
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 198
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 208
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 209
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 213
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "COCRDSL",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 215
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 218
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 221
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 224
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 227
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 234
+    },
+    {
+      "source": "COCRDSLC",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 240
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CVCRD01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 268
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 272
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 327
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 328
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 332
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "COCRDUP",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 334
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 337
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 340
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CSMSG02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 343
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 346
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CVACT02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 353
+    },
+    {
+      "source": "COCRDUPC",
+      "target": "CVCUS01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 359
+    },
+    {
+      "source": "COMEN01C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 50
+    },
+    {
+      "source": "COMEN01C",
+      "target": "COMEN02Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 51
+    },
+    {
+      "source": "COMEN01C",
+      "target": "COMEN01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 53
+    },
+    {
+      "source": "COMEN01C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 55
+    },
+    {
+      "source": "COMEN01C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 56
+    },
+    {
+      "source": "COMEN01C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 57
+    },
+    {
+      "source": "COMEN01C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 58
+    },
+    {
+      "source": "COMEN01C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 60
+    },
+    {
+      "source": "COMEN01C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 61
+    },
+    {
+      "source": "CORPT00C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 138
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CORPT00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 140
+    },
+    {
+      "source": "CORPT00C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 142
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 143
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 144
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 146
+    },
+    {
+      "source": "CORPT00C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 148
+    },
+    {
+      "source": "CORPT00C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 149
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CSUTLDTC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 392
+    },
+    {
+      "source": "CORPT00C",
+      "target": "CSUTLDTC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 412
+    },
+    {
+      "source": "COSGN00C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 48
+    },
+    {
+      "source": "COSGN00C",
+      "target": "COSGN00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 50
+    },
+    {
+      "source": "COSGN00C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 52
+    },
+    {
+      "source": "COSGN00C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 53
+    },
+    {
+      "source": "COSGN00C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 54
+    },
+    {
+      "source": "COSGN00C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 55
+    },
+    {
+      "source": "COSGN00C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 57
+    },
+    {
+      "source": "COSGN00C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 58
+    },
+    {
+      "source": "COTRN00C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 61
+    },
+    {
+      "source": "COTRN00C",
+      "target": "COTRN00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 72
+    },
+    {
+      "source": "COTRN00C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 74
+    },
+    {
+      "source": "COTRN00C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 75
+    },
+    {
+      "source": "COTRN00C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 76
+    },
+    {
+      "source": "COTRN00C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 78
+    },
+    {
+      "source": "COTRN00C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 80
+    },
+    {
+      "source": "COTRN00C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 81
+    },
+    {
+      "source": "COTRN01C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 52
+    },
+    {
+      "source": "COTRN01C",
+      "target": "COTRN01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 63
+    },
+    {
+      "source": "COTRN01C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 65
+    },
+    {
+      "source": "COTRN01C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 66
+    },
+    {
+      "source": "COTRN01C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "COTRN01C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 69
+    },
+    {
+      "source": "COTRN01C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 71
+    },
+    {
+      "source": "COTRN01C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 72
+    },
+    {
+      "source": "COTRN02C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 71
+    },
+    {
+      "source": "COTRN02C",
+      "target": "COTRN02",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 82
+    },
+    {
+      "source": "COTRN02C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 84
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 85
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 86
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CVTRA05Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 88
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CVACT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 89
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CVACT03Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 90
+    },
+    {
+      "source": "COTRN02C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 92
+    },
+    {
+      "source": "COTRN02C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 93
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CSUTLDTC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 393
+    },
+    {
+      "source": "COTRN02C",
+      "target": "CSUTLDTC",
+      "type": "CALLS_PROGRAM",
+      "line_number": 413
+    },
+    {
+      "source": "COUSR00C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 66
+    },
+    {
+      "source": "COUSR00C",
+      "target": "COUSR00",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 76
+    },
+    {
+      "source": "COUSR00C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 78
+    },
+    {
+      "source": "COUSR00C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 79
+    },
+    {
+      "source": "COUSR00C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 80
+    },
+    {
+      "source": "COUSR00C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 81
+    },
+    {
+      "source": "COUSR00C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 83
+    },
+    {
+      "source": "COUSR00C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 84
+    },
+    {
+      "source": "COUSR01C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 46
+    },
+    {
+      "source": "COUSR01C",
+      "target": "COUSR01",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 48
+    },
+    {
+      "source": "COUSR01C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 50
+    },
+    {
+      "source": "COUSR01C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 51
+    },
+    {
+      "source": "COUSR01C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 52
+    },
+    {
+      "source": "COUSR01C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 53
+    },
+    {
+      "source": "COUSR01C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 55
+    },
+    {
+      "source": "COUSR01C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 56
+    },
+    {
+      "source": "COUSR02C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 49
+    },
+    {
+      "source": "COUSR02C",
+      "target": "COUSR02",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 60
+    },
+    {
+      "source": "COUSR02C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 62
+    },
+    {
+      "source": "COUSR02C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 63
+    },
+    {
+      "source": "COUSR02C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 64
+    },
+    {
+      "source": "COUSR02C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 65
+    },
+    {
+      "source": "COUSR02C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "COUSR02C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 68
+    },
+    {
+      "source": "COUSR03C",
+      "target": "COCOM01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 49
+    },
+    {
+      "source": "COUSR03C",
+      "target": "COUSR03",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 60
+    },
+    {
+      "source": "COUSR03C",
+      "target": "COTTL01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 62
+    },
+    {
+      "source": "COUSR03C",
+      "target": "CSDAT01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 63
+    },
+    {
+      "source": "COUSR03C",
+      "target": "CSMSG01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 64
+    },
+    {
+      "source": "COUSR03C",
+      "target": "CSUSR01Y",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 65
+    },
+    {
+      "source": "COUSR03C",
+      "target": "DFHAID",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 67
+    },
+    {
+      "source": "COUSR03C",
+      "target": "DFHBMSCA",
+      "type": "INCLUDES_COPYBOOK",
+      "line_number": 68
+    },
+    {
+      "source": "CSUTLDTC",
+      "target": "CEEDAYS",
+      "type": "CALLS_PROGRAM",
+      "line_number": 116
+    },
+    {
+      "source": "CBACT01C",
+      "target": "ACCTFILE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT01C",
+      "target": "OUT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT01C",
+      "target": "ARRY-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT01C",
+      "target": "VBRC-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT02C",
+      "target": "CARDFILE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT03C",
+      "target": "XREFFILE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT04C",
+      "target": "TCATBAL-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT04C",
+      "target": "XREF-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT04C",
+      "target": "DISCGRP-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT04C",
+      "target": "ACCOUNT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBACT04C",
+      "target": "TRANSACT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBCUS01C",
+      "target": "CUSTFILE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CUSTOMER-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "ACCOUNT-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "XREF-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "TRANSACTION-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "CARD-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBEXPORT",
+      "target": "EXPORT-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "EXPORT-INPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CUSTOMER-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "ACCOUNT-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "XREF-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "TRANSACTION-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "CARD-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBIMPORT",
+      "target": "ERROR-OUTPUT",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "STMT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03A",
+      "target": "HTML-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03B",
+      "target": "TRNX-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03B",
+      "target": "XREF-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03B",
+      "target": "CUST-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBSTM03B",
+      "target": "ACCT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "DALYTRAN-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CUSTOMER-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "XREF-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "CARD-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "ACCOUNT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN01C",
+      "target": "TRANSACT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "DALYTRAN-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "TRANSACT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "XREF-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "DALYREJS-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "ACCOUNT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN02C",
+      "target": "TCATBAL-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "TRANSACT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "XREF-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "TRANTYPE-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "TRANCATG-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "REPORT-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "CBTRN03C",
+      "target": "DATE-PARMS-FILE",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "COBTUPDT",
+      "target": "TR-RECORD",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "INFILE1",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PAUDBLOD",
+      "target": "INFILE2",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "OPFILE1",
+      "type": "USES_FILE"
+    },
+    {
+      "source": "PAUDBUNL",
+      "target": "OPFILE2",
+      "type": "USES_FILE"
+    }
+  ]
+}

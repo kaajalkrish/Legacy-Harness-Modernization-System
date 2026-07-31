@@ -1,0 +1,23 @@
+# System Context: PORTDEL
+## 📝 Summary
+PORTDEL is a portfolio-type COBOL program, with 0 paragraph(s) across 0 section(s), sharing 1 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PORTDEL
+- **Source Path**: programs/portfolio/PORTDEL.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- PORTFLIO
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

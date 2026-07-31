@@ -1,0 +1,114 @@
+{
+  "copybook": "INQCOM",
+  "used_by": [
+    "INQHIST",
+    "INQHIST",
+    "INQONLN",
+    "INQONLN",
+    "INQPORT",
+    "INQPORT"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "INQCOM-AREA",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "INQCOM-FUNCTION",
+          "line": 5,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "INQCOM-MENU",
+              "line": 6,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'MENU'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "INQCOM-PORTFOLIO",
+              "line": 7,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'INQP'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "INQCOM-HISTORY",
+              "line": 8,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'INQH'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "INQCOM-EXIT",
+              "line": 9,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'EXIT'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "INQCOM-ACCOUNT-NO",
+          "line": 10,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "INQCOM-RESPONSE-CODE",
+          "line": 11,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "INQCOM-ERROR-MSG",
+          "line": 12,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

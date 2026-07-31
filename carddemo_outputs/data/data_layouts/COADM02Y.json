@@ -1,0 +1,298 @@
+{
+  "copybook": "COADM02Y",
+  "used_by": [
+    "COADM01C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CARDDEMO-ADMIN-MENU-OPTIONS",
+      "line": 19,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CDEMO-ADMIN-OPT-COUNT",
+          "line": 22,
+          "pic": "9(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "6",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-ADMIN-OPTIONS-DATA",
+          "line": 24,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 26,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "1",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 27,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'User List (Security)               '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 29,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COUSR00C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 31,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "2",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 32,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'User Add (Security)                '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 34,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COUSR01C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 36,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 37,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'User Update (Security)             '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 39,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COUSR02C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 41,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "4",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 42,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'User Delete (Security)             '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 44,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COUSR03C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 46,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "5",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 47,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction Type List/Update (Db2) '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 49,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTLIC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 50,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "6",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 51,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction Type Maintenance (Db2) '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 53,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTUPC'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-ADMIN-OPTIONS",
+          "line": 55,
+          "pic": null,
+          "occurs": null,
+          "redefines": "CDEMO-ADMIN-OPTIONS-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-ADMIN-OPT",
+              "line": 56,
+              "pic": null,
+              "occurs": 9,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CDEMO-ADMIN-OPT-NUM",
+                  "line": 57,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CDEMO-ADMIN-OPT-NAME",
+                  "line": 58,
+                  "pic": "X(35)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CDEMO-ADMIN-OPT-PGMNAME",
+                  "line": 59,
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

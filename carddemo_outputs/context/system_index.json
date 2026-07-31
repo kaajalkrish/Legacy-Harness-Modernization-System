@@ -1,0 +1,1105 @@
+[
+  {
+    "program": "CBPAUP0C",
+    "path": "app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+    "files": [],
+    "copybooks": [
+      "CIPAUSMY",
+      "CIPAUDTY"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 17
+  },
+  {
+    "program": "COPAUA0C",
+    "path": "app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+    "files": [],
+    "copybooks": [
+      "CMQODV",
+      "CMQMDV",
+      "CMQODV",
+      "CMQMDV",
+      "CMQV",
+      "CMQTML",
+      "CMQPMOV",
+      "CMQGMOV",
+      "CCPAURQY",
+      "CCPAURLY",
+      "CCPAUERY",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "CVACT03Y",
+      "CVACT01Y",
+      "CVCUS01Y"
+    ],
+    "calls": [
+      "MQOPEN",
+      "MQGET",
+      "MQPUT1",
+      "MQCLOSE"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 43
+  },
+  {
+    "program": "COPAUS0C",
+    "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COPAU00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CVACT01Y",
+      "CVACT02Y",
+      "CVACT03Y",
+      "CVCUS01Y",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 20
+  },
+  {
+    "program": "COPAUS1C",
+    "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COPAU01",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 15
+  },
+  {
+    "program": "COPAUS2C",
+    "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+    "files": [],
+    "copybooks": [
+      "CIPAUDTY"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 2
+  },
+  {
+    "program": "DBUNLDGS",
+    "path": "app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+    "files": [],
+    "copybooks": [
+      "IMSFUNCS",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "PAUTBPCB",
+      "PASFLPCB",
+      "PADFLPCB"
+    ],
+    "calls": [
+      "CBLTDLI",
+      "CBLTDLI",
+      "CBLTDLI",
+      "CBLTDLI"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 15
+  },
+  {
+    "program": "PAUDBLOD",
+    "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+    "files": [
+      "INFILE1",
+      "INFILE2"
+    ],
+    "copybooks": [
+      "IMSFUNCS",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "PAUTBPCB"
+    ],
+    "calls": [
+      "CBLTDLI",
+      "CBLTDLI",
+      "CBLTDLI"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 17
+  },
+  {
+    "program": "PAUDBUNL",
+    "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+    "files": [
+      "OPFILE1",
+      "OPFILE2"
+    ],
+    "copybooks": [
+      "IMSFUNCS",
+      "CIPAUSMY",
+      "CIPAUDTY",
+      "PAUTBPCB"
+    ],
+    "calls": [
+      "CBLTDLI",
+      "CBLTDLI"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 11
+  },
+  {
+    "program": "COBTUPDT",
+    "path": "app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+    "files": [
+      "TR-RECORD"
+    ],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [
+      "0001-OPEN-FILES"
+    ],
+    "paragraph_count": 9
+  },
+  {
+    "program": "COTRTLIC",
+    "path": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "COCOM01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COTRTLI",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "CVACT02Y"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 56
+  },
+  {
+    "program": "COTRTUPC",
+    "path": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COTRTUP",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CSUSR01Y",
+      "COCOM01Y",
+      "CSSETATY"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 63
+  },
+  {
+    "program": "COACCT01",
+    "path": "app/app-vsam-mq/cbl/COACCT01.cbl",
+    "files": [],
+    "copybooks": [
+      "CMQGMOV",
+      "CMQPMOV",
+      "CMQMDV",
+      "CMQODV",
+      "CMQV",
+      "CMQTML",
+      "CVACT01Y",
+      "REPLACING"
+    ],
+    "calls": [
+      "MQOPEN",
+      "MQOPEN",
+      "MQOPEN",
+      "MQGET",
+      "MQPUT",
+      "MQPUT",
+      "MQCLOSE",
+      "MQCLOSE",
+      "MQCLOSE"
+    ],
+    "entry_points": [
+      "1000-CONTROL"
+    ],
+    "paragraph_count": 13
+  },
+  {
+    "program": "CODATE01",
+    "path": "app/app-vsam-mq/cbl/CODATE01.cbl",
+    "files": [],
+    "copybooks": [
+      "CMQGMOV",
+      "CMQPMOV",
+      "CMQMDV",
+      "CMQODV",
+      "CMQV",
+      "CMQTML",
+      "REPLACING"
+    ],
+    "calls": [
+      "MQOPEN",
+      "MQOPEN",
+      "MQOPEN",
+      "MQGET",
+      "MQPUT",
+      "MQPUT",
+      "MQCLOSE",
+      "MQCLOSE",
+      "MQCLOSE"
+    ],
+    "entry_points": [
+      "1000-CONTROL"
+    ],
+    "paragraph_count": 13
+  },
+  {
+    "program": "CBACT01C",
+    "path": "app/cbl/CBACT01C.cbl",
+    "files": [
+      "ACCTFILE-FILE",
+      "OUT-FILE",
+      "ARRY-FILE",
+      "VBRC-FILE"
+    ],
+    "copybooks": [
+      "CVACT01Y",
+      "CODATECN"
+    ],
+    "calls": [
+      "COBDATFT",
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "1000-ACCTFILE-GET-NEXT"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "CBACT02C",
+    "path": "app/cbl/CBACT02C.cbl",
+    "files": [
+      "CARDFILE-FILE"
+    ],
+    "copybooks": [
+      "CVACT02Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "1000-CARDFILE-GET-NEXT"
+    ],
+    "paragraph_count": 5
+  },
+  {
+    "program": "CBACT03C",
+    "path": "app/cbl/CBACT03C.cbl",
+    "files": [
+      "XREFFILE-FILE"
+    ],
+    "copybooks": [
+      "CVACT03Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "1000-XREFFILE-GET-NEXT"
+    ],
+    "paragraph_count": 5
+  },
+  {
+    "program": "CBACT04C",
+    "path": "app/cbl/CBACT04C.cbl",
+    "files": [
+      "TCATBAL-FILE",
+      "XREF-FILE",
+      "DISCGRP-FILE",
+      "ACCOUNT-FILE",
+      "TRANSACT-FILE"
+    ],
+    "copybooks": [
+      "CVTRA01Y",
+      "CVACT03Y",
+      "CVTRA02Y",
+      "CVACT01Y",
+      "CVTRA05Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0000-TCATBALF-OPEN"
+    ],
+    "paragraph_count": 22
+  },
+  {
+    "program": "CBCUS01C",
+    "path": "app/cbl/CBCUS01C.cbl",
+    "files": [
+      "CUSTFILE-FILE"
+    ],
+    "copybooks": [
+      "CVCUS01Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "1000-CUSTFILE-GET-NEXT"
+    ],
+    "paragraph_count": 5
+  },
+  {
+    "program": "CBEXPORT",
+    "path": "app/cbl/CBEXPORT.cbl",
+    "files": [
+      "CUSTOMER-INPUT",
+      "ACCOUNT-INPUT",
+      "XREF-INPUT",
+      "TRANSACTION-INPUT",
+      "CARD-INPUT",
+      "EXPORT-OUTPUT"
+    ],
+    "copybooks": [
+      "CVCUS01Y",
+      "CVACT01Y",
+      "CVACT03Y",
+      "CVTRA05Y",
+      "CVACT02Y",
+      "CVEXPORT"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0000-MAIN-PROCESSING"
+    ],
+    "paragraph_count": 21
+  },
+  {
+    "program": "CBIMPORT",
+    "path": "app/cbl/CBIMPORT.cbl",
+    "files": [
+      "EXPORT-INPUT",
+      "CUSTOMER-OUTPUT",
+      "ACCOUNT-OUTPUT",
+      "XREF-OUTPUT",
+      "TRANSACTION-OUTPUT",
+      "CARD-OUTPUT",
+      "ERROR-OUTPUT"
+    ],
+    "copybooks": [
+      "CVCUS01Y",
+      "CVACT01Y",
+      "CVACT03Y",
+      "CVTRA05Y",
+      "CVACT02Y",
+      "CVEXPORT"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0000-MAIN-PROCESSING"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "CBSTM03A",
+    "path": "app/cbl/CBSTM03A.CBL",
+    "files": [
+      "STMT-FILE",
+      "HTML-FILE"
+    ],
+    "copybooks": [
+      "COSTM01",
+      "CVACT03Y",
+      "CUSTREC",
+      "CVACT01Y"
+    ],
+    "calls": [
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CBSTM03B",
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0000-START"
+    ],
+    "paragraph_count": 25
+  },
+  {
+    "program": "CBSTM03B",
+    "path": "app/cbl/CBSTM03B.CBL",
+    "files": [
+      "TRNX-FILE",
+      "XREF-FILE",
+      "CUST-FILE",
+      "ACCT-FILE"
+    ],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [
+      "0000-START"
+    ],
+    "paragraph_count": 14
+  },
+  {
+    "program": "CBTRN01C",
+    "path": "app/cbl/CBTRN01C.cbl",
+    "files": [
+      "DALYTRAN-FILE",
+      "CUSTOMER-FILE",
+      "XREF-FILE",
+      "CARD-FILE",
+      "ACCOUNT-FILE",
+      "TRANSACT-FILE"
+    ],
+    "copybooks": [
+      "CVTRA06Y",
+      "CVCUS01Y",
+      "CVACT03Y",
+      "CVACT02Y",
+      "CVACT01Y",
+      "CVTRA05Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 18
+  },
+  {
+    "program": "CBTRN02C",
+    "path": "app/cbl/CBTRN02C.cbl",
+    "files": [
+      "DALYTRAN-FILE",
+      "TRANSACT-FILE",
+      "XREF-FILE",
+      "DALYREJS-FILE",
+      "ACCOUNT-FILE",
+      "TCATBAL-FILE"
+    ],
+    "copybooks": [
+      "CVTRA06Y",
+      "CVTRA05Y",
+      "CVACT03Y",
+      "CVACT01Y",
+      "CVTRA01Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0000-DALYTRAN-OPEN"
+    ],
+    "paragraph_count": 26
+  },
+  {
+    "program": "CBTRN03C",
+    "path": "app/cbl/CBTRN03C.cbl",
+    "files": [
+      "TRANSACT-FILE",
+      "XREF-FILE",
+      "TRANTYPE-FILE",
+      "TRANCATG-FILE",
+      "REPORT-FILE",
+      "DATE-PARMS-FILE"
+    ],
+    "copybooks": [
+      "CVTRA05Y",
+      "CVACT03Y",
+      "CVTRA03Y",
+      "CVTRA04Y",
+      "CVTRA07Y"
+    ],
+    "calls": [
+      "CEE3ABD"
+    ],
+    "entry_points": [
+      "0550-DATEPARM-READ"
+    ],
+    "paragraph_count": 26
+  },
+  {
+    "program": "COACTUPC",
+    "path": "app/cbl/COACTUPC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "CSLKPCDY",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COACTUP",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CSUSR01Y",
+      "CVACT01Y",
+      "CVACT03Y",
+      "CVCUS01Y",
+      "COCOM01Y",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSSETATY",
+      "CSUTLDPY"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 85
+  },
+  {
+    "program": "COACTVWC",
+    "path": "app/cbl/COACTVWC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "COCOM01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COACTVW",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CSUSR01Y",
+      "CVACT01Y",
+      "CVACT02Y",
+      "CVACT03Y",
+      "CVCUS01Y"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 35
+  },
+  {
+    "program": "COADM01C",
+    "path": "app/cbl/COADM01C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COADM02Y",
+      "COADM01",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 8
+  },
+  {
+    "program": "COBIL00C",
+    "path": "app/cbl/COBIL00C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COBIL00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CVACT01Y",
+      "CVACT03Y",
+      "CVTRA05Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "COBSWAIT",
+    "path": "app/cbl/COBSWAIT.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [
+      "MVSWAIT"
+    ],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "COCRDLIC",
+    "path": "app/cbl/COCRDLIC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "COCOM01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COCRDLI",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "CVACT02Y"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 39
+  },
+  {
+    "program": "COCRDSLC",
+    "path": "app/cbl/COCRDSLC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "COCOM01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COCRDSL",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CSUSR01Y",
+      "CVACT02Y",
+      "CVCUS01Y"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 34
+  },
+  {
+    "program": "COCRDUPC",
+    "path": "app/cbl/COCRDUPC.cbl",
+    "files": [],
+    "copybooks": [
+      "CVCRD01Y",
+      "COCOM01Y",
+      "DFHBMSCA",
+      "DFHAID",
+      "COTTL01Y",
+      "COCRDUP",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSMSG02Y",
+      "CSUSR01Y",
+      "CVACT02Y",
+      "CVCUS01Y"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 45
+  },
+  {
+    "program": "COMEN01C",
+    "path": "app/cbl/COMEN01C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COMEN02Y",
+      "COMEN01",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 7
+  },
+  {
+    "program": "CORPT00C",
+    "path": "app/cbl/CORPT00C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "CORPT00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CVTRA05Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [
+      "CSUTLDTC",
+      "CSUTLDTC"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 10
+  },
+  {
+    "program": "COSGN00C",
+    "path": "app/cbl/COSGN00C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COSGN00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 6
+  },
+  {
+    "program": "COTRN00C",
+    "path": "app/cbl/COTRN00C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COTRN00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CVTRA05Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "COTRN01C",
+    "path": "app/cbl/COTRN01C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COTRN01",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CVTRA05Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 9
+  },
+  {
+    "program": "COTRN02C",
+    "path": "app/cbl/COTRN02C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COTRN02",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CVTRA05Y",
+      "CVACT01Y",
+      "CVACT03Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [
+      "CSUTLDTC",
+      "CSUTLDTC"
+    ],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 18
+  },
+  {
+    "program": "COUSR00C",
+    "path": "app/cbl/COUSR00C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COUSR00",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "COUSR01C",
+    "path": "app/cbl/COUSR01C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COUSR01",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 9
+  },
+  {
+    "program": "COUSR02C",
+    "path": "app/cbl/COUSR02C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COUSR02",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 11
+  },
+  {
+    "program": "COUSR03C",
+    "path": "app/cbl/COUSR03C.cbl",
+    "files": [],
+    "copybooks": [
+      "COCOM01Y",
+      "COUSR03",
+      "COTTL01Y",
+      "CSDAT01Y",
+      "CSMSG01Y",
+      "CSUSR01Y",
+      "DFHAID",
+      "DFHBMSCA"
+    ],
+    "calls": [],
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "paragraph_count": 11
+  },
+  {
+    "program": "CSUTLDTC",
+    "path": "app/cbl/CSUTLDTC.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [
+      "CEEDAYS"
+    ],
+    "entry_points": [
+      "A000-MAIN"
+    ],
+    "paragraph_count": 2
+  },
+  {
+    "program": "MQOPEN",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "MQGET",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "MQPUT1",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "MQCLOSE",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "CBLTDLI",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "MQPUT",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "COBDATFT",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "CEE3ABD",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "MVSWAIT",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "CEEDAYS",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  }
+]

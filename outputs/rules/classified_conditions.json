@@ -1,0 +1,4026 @@
+{
+  "meta": {
+    "generated_at": "2026-07-18T23:37:33Z",
+    "agent_version": "5_rules_python@1.0",
+    "total_conditions_classified": 196,
+    "noise_excluded": 76
+  },
+  "classified_conditions": [
+    {
+      "condition_id": "COND-INQPORT-MAINLINE-1",
+      "program_id": "INQPORT",
+      "paragraph": "MAINLINE",
+      "source_line": 40,
+      "condition_text": "IF POSITION-EXISTS  -> P300-FORMAT-DISPLAY else P900-NOT-FOUND",
+      "fields": [
+        "WS-POSITION-FOUND (88 POSITION-EXISTS)"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 2,
+      "signal_label": "low"
+    },
+    {
+      "condition_id": "COND-INQPORT-P100-INIT-PROGRAM-1",
+      "program_id": "INQPORT",
+      "paragraph": "P100-INIT-PROGRAM",
+      "source_line": 57,
+      "condition_text": "CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE",
+      "fields": [
+        "WS-POSITION-RECORD",
+        "WS-COMMAREA",
+        "DFHCOMMAREA"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQPORT-P100-INIT-PROGRAM-2",
+      "program_id": "INQPORT",
+      "paragraph": "P100-INIT-PROGRAM",
+      "source_line": 57,
+      "condition_text": "CICS HANDLE CONDITION: NOTFND -> P900-NOT-FOUND",
+      "fields": [
+        "WS-POSITION-RECORD",
+        "WS-COMMAREA",
+        "DFHCOMMAREA"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQPORT-P200-GET-POSITION-1",
+      "program_id": "INQPORT",
+      "paragraph": "P200-GET-POSITION",
+      "source_line": 68,
+      "condition_text": "IF WS-RESPONSE-CODE = DFHRESP(NORMAL)  -> POSITION-EXISTS else NO-POSITION",
+      "fields": [
+        "WS-COMMAREA-ACCOUNT-NO",
+        "POSITION-ACCOUNT",
+        "WS-POSITION-RECORD",
+        "WS-RESPONSE-CODE",
+        "WS-POSITION-FOUND"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQHIST-P100-INIT-PROGRAM-1",
+      "program_id": "INQHIST",
+      "paragraph": "P100-INIT-PROGRAM",
+      "source_line": 81,
+      "condition_text": "CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE",
+      "fields": [
+        "WS-COMMAREA",
+        "DFHCOMMAREA",
+        "WS-ROW-COUNT",
+        "WS-MORE-HISTORY"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQHIST-P150-DB2-CONNECT-1",
+      "program_id": "INQHIST",
+      "paragraph": "P150-DB2-CONNECT",
+      "source_line": 95,
+      "condition_text": "IF DB2-RESPONSE-CODE <> 0 (connect failed)",
+      "fields": [
+        "DB2-REQUEST-TYPE",
+        "DB2-RESPONSE-CODE",
+        "DB2-SQLCODE",
+        "RECV-REQUEST-TYPE",
+        "RECV-PROGRAM",
+        "RECV-SQLCODE",
+        "RECV-STATUS",
+        "DB2-CONNECTION-TOKEN"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQHIST-P150-DB2-CONNECT-2",
+      "program_id": "INQHIST",
+      "paragraph": "P150-DB2-CONNECT",
+      "source_line": 95,
+      "condition_text": "IF RECV-SUCCESS -> retry connect else -> error",
+      "fields": [
+        "DB2-REQUEST-TYPE",
+        "DB2-RESPONSE-CODE",
+        "DB2-SQLCODE",
+        "RECV-REQUEST-TYPE",
+        "RECV-PROGRAM",
+        "RECV-SQLCODE",
+        "RECV-STATUS",
+        "DB2-CONNECTION-TOKEN"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQHIST-P200-GET-HISTORY-1",
+      "program_id": "INQHIST",
+      "paragraph": "P200-GET-HISTORY",
+      "source_line": 129,
+      "condition_text": "IF declare ok -> open",
+      "fields": [
+        "CURS-STMT",
+        "CURS-REQUEST-TYPE",
+        "CURS-RESPONSE-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-INQHIST-P200-GET-HISTORY-2",
+      "program_id": "INQHIST",
+      "paragraph": "P200-GET-HISTORY",
+      "source_line": 129,
+      "condition_text": "IF open ok -> fetch",
+      "fields": [
+        "CURS-STMT",
+        "CURS-REQUEST-TYPE",
+        "CURS-RESPONSE-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-INQHIST-P250-FETCH-HISTORY-1",
+      "program_id": "INQHIST",
+      "paragraph": "P250-FETCH-HISTORY",
+      "source_line": 164,
+      "condition_text": "IF fetch response >= 0 -> load rows",
+      "fields": [
+        "CURS-REQUEST-TYPE",
+        "CURS-RESPONSE-CODE",
+        "CURS-DATA-AREA",
+        "WS-HISTORY-TABLE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "RANGE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQONLN-MAINLINE-1",
+      "program_id": "INQONLN",
+      "paragraph": "MAINLINE",
+      "source_line": 39,
+      "condition_text": "CICS HANDLE CONDITION (ERROR/PGMIDERR/NOTFND) -> P900",
+      "fields": [
+        "WS-END-OF-SESSION (88 SESSION-TERMINATED)"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQONLN-MAINLINE-2",
+      "program_id": "INQONLN",
+      "paragraph": "MAINLINE",
+      "source_line": 39,
+      "condition_text": "WHILE NOT SESSION-TERMINATED (main session loop)",
+      "fields": [
+        "WS-END-OF-SESSION (88 SESSION-TERMINATED)"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 2,
+      "signal_label": "low"
+    },
+    {
+      "condition_id": "COND-INQONLN-P100-PROCESS-REQUEST-1",
+      "program_id": "INQONLN",
+      "paragraph": "P100-PROCESS-REQUEST",
+      "source_line": 53,
+      "condition_text": "EVALUATE WS-COMMAREA-FUNCTION (MENU/INQP/INQH/EXIT/OTHER)",
+      "fields": [
+        "WS-COMMAREA",
+        "WS-COMMAREA-FUNCTION",
+        "WS-RESPONSE-CODE",
+        "WS-END-OF-SESSION",
+        "SEC-RESPONSE-CODE",
+        "SEC-ERROR-INFO",
+        "WS-ERROR-MESSAGE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-INQONLN-P100-PROCESS-REQUEST-2",
+      "program_id": "INQONLN",
+      "paragraph": "P100-PROCESS-REQUEST",
+      "source_line": 53,
+      "condition_text": "IF SEC-RESPONSE-CODE <> 0 -> error + return",
+      "fields": [
+        "WS-COMMAREA",
+        "WS-COMMAREA-FUNCTION",
+        "WS-RESPONSE-CODE",
+        "WS-END-OF-SESSION",
+        "SEC-RESPONSE-CODE",
+        "SEC-ERROR-INFO",
+        "WS-ERROR-MESSAGE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQONLN-P900-ERROR-ROUTINE-1",
+      "program_id": "INQONLN",
+      "paragraph": "P900-ERROR-ROUTINE",
+      "source_line": 119,
+      "condition_text": "IF ERR-ABEND -> CICS ABEND",
+      "fields": [
+        "ERR-PROGRAM",
+        "ERR-PARAGRAPH",
+        "ERR-CICS-RESP",
+        "ERR-CICS-RESP2",
+        "ERR-STATUS",
+        "ERR-MESSAGE",
+        "WS-ERROR-MESSAGE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-1",
+      "program_id": "INQONLN",
+      "paragraph": "P050-SECURITY-CHECK",
+      "source_line": 139,
+      "condition_text": "IF validate ok -> authorize",
+      "fields": [
+        "SEC-REQUEST-TYPE",
+        "SEC-USER-ID",
+        "SEC-RESOURCE-NAME",
+        "SEC-ACCESS-TYPE",
+        "SEC-RESPONSE-CODE"
+      ],
+      "is_88": false,
+      "category": "COMPLIANCE",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-INQONLN-P050-SECURITY-CHECK-2",
+      "program_id": "INQONLN",
+      "paragraph": "P050-SECURITY-CHECK",
+      "source_line": 139,
+      "condition_text": "IF authorize ok -> log",
+      "fields": [
+        "SEC-REQUEST-TYPE",
+        "SEC-USER-ID",
+        "SEC-RESOURCE-NAME",
+        "SEC-ACCESS-TYPE",
+        "SEC-RESPONSE-CODE"
+      ],
+      "is_88": false,
+      "category": "COMPLIANCE",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTADD-0000-MAIN-1",
+      "program_id": "PORTADD",
+      "paragraph": "0000-MAIN",
+      "source_line": 76,
+      "condition_text": "WHILE NOT END-OF-FILE (main read loop)",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTADD-1000-INITIALIZE-1",
+      "program_id": "PORTADD",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 86,
+      "condition_text": "IF file open failed (either file) -> terminate",
+      "fields": [
+        "WS-WORK-AREAS",
+        "WS-CURRENT-DATE",
+        "WS-FILE-STATUS",
+        "WS-INPUT-STATUS",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTADD-2000-PROCESS-1",
+      "program_id": "PORTADD",
+      "paragraph": "2000-PROCESS",
+      "source_line": 104,
+      "condition_text": "READ ... AT END / NOT AT END",
+      "fields": [
+        "PORT-RECORD",
+        "WS-INPUT-STATUS",
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTADD-2100-VALIDATE-AND-ADD-1",
+      "program_id": "PORTADD",
+      "paragraph": "2100-VALIDATE-AND-ADD",
+      "source_line": 113,
+      "condition_text": "IF invalid (ID/client blank or status<>'A') -> count error + skip",
+      "fields": [
+        "PORT-ID",
+        "PORT-CLIENT-NAME",
+        "PORT-STATUS",
+        "PORT-CREATE-DATE",
+        "PORT-LAST-MAINT",
+        "WS-CURRENT-DATE",
+        "WS-FILE-STATUS",
+        "WS-ADD-COUNT",
+        "WS-DUP-COUNT",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "MULTI_CONDITION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTADD-2100-VALIDATE-AND-ADD-2",
+      "program_id": "PORTADD",
+      "paragraph": "2100-VALIDATE-AND-ADD",
+      "source_line": 113,
+      "condition_text": "EVALUATE write status: success / duplicate / other",
+      "fields": [
+        "PORT-ID",
+        "PORT-CLIENT-NAME",
+        "PORT-STATUS",
+        "PORT-CREATE-DATE",
+        "PORT-LAST-MAINT",
+        "WS-CURRENT-DATE",
+        "WS-FILE-STATUS",
+        "WS-ADD-COUNT",
+        "WS-DUP-COUNT",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTREAD-0000-MAIN-1",
+      "program_id": "PORTREAD",
+      "paragraph": "0000-MAIN",
+      "source_line": 64,
+      "condition_text": "WHILE NOT END-OF-FILE (main read loop)",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTREAD-1000-INITIALIZE-1",
+      "program_id": "PORTREAD",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 74,
+      "condition_text": "IF file open failed -> terminate",
+      "fields": [
+        "WS-WORK-AREAS",
+        "WS-FILE-STATUS",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTREAD-2000-PROCESS-1",
+      "program_id": "PORTREAD",
+      "paragraph": "2000-PROCESS",
+      "source_line": 85,
+      "condition_text": "READ NEXT ... AT END / NOT AT END",
+      "fields": [
+        "WS-FILE-STATUS",
+        "WS-END-OF-FILE-SW",
+        "WS-RECORD-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-0000-MAIN-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "0000-MAIN",
+      "source_line": 83,
+      "condition_text": "EVALUATE command: CREATE/READ/UPDATE/DELETE/OTHER",
+      "fields": [
+        "LS-COMMAND",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-1000-INITIALIZE-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 103,
+      "condition_text": "IF open failed -> 9000-ERROR (which GOBACKs)",
+      "fields": [
+        "WS-WORK-AREAS",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT",
+        "WS-CURRENT-DATE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2000-CREATE-PORTFOLIO-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "source_line": 115,
+      "condition_text": "IF validation failed -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2000-CREATE-PORTFOLIO-2",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "source_line": 115,
+      "condition_text": "IF PORT-DUP-KEY -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2000-CREATE-PORTFOLIO-3",
+      "program_id": "PORTMSTR",
+      "paragraph": "2000-CREATE-PORTFOLIO",
+      "source_line": 115,
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "2100-VALIDATE-PORTFOLIO",
+      "source_line": 138,
+      "condition_text": "IF ID format invalid -> fail",
+      "fields": [
+        "PORT-ID",
+        "PORT-NAME",
+        "PORT-STATUS",
+        "WS-VALID-STATUS",
+        "WS-ERROR-TEXT",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-2",
+      "program_id": "PORTMSTR",
+      "paragraph": "2100-VALIDATE-PORTFOLIO",
+      "source_line": 138,
+      "condition_text": "IF name blank -> fail",
+      "fields": [
+        "PORT-ID",
+        "PORT-NAME",
+        "PORT-STATUS",
+        "WS-VALID-STATUS",
+        "WS-ERROR-TEXT",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2100-VALIDATE-PORTFOLIO-3",
+      "program_id": "PORTMSTR",
+      "paragraph": "2100-VALIDATE-PORTFOLIO",
+      "source_line": 138,
+      "condition_text": "IF status not A/I/C -> fail",
+      "fields": [
+        "PORT-ID",
+        "PORT-NAME",
+        "PORT-STATUS",
+        "WS-VALID-STATUS",
+        "WS-ERROR-TEXT",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-3000-READ-PORTFOLIO-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "3000-READ-PORTFOLIO",
+      "source_line": 163,
+      "condition_text": "EVALUATE read status: success / not-found / other",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-4000-UPDATE-PORTFOLIO-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "source_line": 183,
+      "condition_text": "IF validation failed -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-4000-UPDATE-PORTFOLIO-2",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "source_line": 183,
+      "condition_text": "IF PORT-NOT-FOUND -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-4000-UPDATE-PORTFOLIO-3",
+      "program_id": "PORTMSTR",
+      "paragraph": "4000-UPDATE-PORTFOLIO",
+      "source_line": 183,
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-RETURN-CODE",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-5000-DELETE-PORTFOLIO-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "5000-DELETE-PORTFOLIO",
+      "source_line": 209,
+      "condition_text": "IF PORT-NOT-FOUND -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-5000-DELETE-PORTFOLIO-2",
+      "program_id": "PORTMSTR",
+      "paragraph": "5000-DELETE-PORTFOLIO",
+      "source_line": 209,
+      "condition_text": "IF NOT PORT-SUCCESS -> error",
+      "fields": [
+        "LS-PORTFOLIO",
+        "PORTFOLIO-RECORD",
+        "WS-PORT-STATUS",
+        "WS-ERROR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTMSTR-2100-HANDLE-VSAM-ERROR-1",
+      "program_id": "PORTMSTR",
+      "paragraph": "2100-HANDLE-VSAM-ERROR",
+      "source_line": 243,
+      "condition_text": "EVALUATE WS-FILE-STATUS: dupkey / notfnd / other",
+      "fields": [
+        "WS-FILE-STATUS",
+        "PORT-KEY",
+        "LS-PROGRAM-ID",
+        "LS-ERROR-REQUEST"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-0000-MAIN-1",
+      "program_id": "PORTUPDT",
+      "paragraph": "0000-MAIN",
+      "source_line": 83,
+      "condition_text": "WHILE NOT END-OF-FILE (main update loop)",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-1000-INITIALIZE-1",
+      "program_id": "PORTUPDT",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 93,
+      "condition_text": "IF either open failed -> terminate",
+      "fields": [
+        "WS-WORK-AREAS",
+        "WS-FILE-STATUS",
+        "WS-UPDT-STATUS",
+        "WS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-2000-PROCESS-1",
+      "program_id": "PORTUPDT",
+      "paragraph": "2000-PROCESS",
+      "source_line": 109,
+      "condition_text": "READ ... AT END / NOT AT END",
+      "fields": [
+        "UPDATE-RECORD",
+        "WS-UPDT-STATUS",
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-2100-PROCESS-UPDATE-1",
+      "program_id": "PORTUPDT",
+      "paragraph": "2100-PROCESS-UPDATE",
+      "source_line": 118,
+      "condition_text": "IF portfolio read success -> apply update else count not-found",
+      "fields": [
+        "UPDT-KEY",
+        "PORT-KEY",
+        "WS-FILE-STATUS",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-2200-APPLY-UPDATE-1",
+      "program_id": "PORTUPDT",
+      "paragraph": "2200-APPLY-UPDATE",
+      "source_line": 131,
+      "condition_text": "EVALUATE UPDT-ACTION: status / name / value",
+      "fields": [
+        "UPDT-ACTION",
+        "UPDT-NEW-VALUE",
+        "PORT-STATUS",
+        "PORT-CLIENT-NAME",
+        "WS-NUMERIC-WORK",
+        "PORT-TOTAL-VALUE",
+        "WS-FILE-STATUS",
+        "WS-UPDATE-COUNT",
+        "WS-ERROR-COUNT",
+        "PORT-KEY"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PORTUPDT-2200-APPLY-UPDATE-2",
+      "program_id": "PORTUPDT",
+      "paragraph": "2200-APPLY-UPDATE",
+      "source_line": 131,
+      "condition_text": "IF rewrite success -> count update else count error",
+      "fields": [
+        "UPDT-ACTION",
+        "UPDT-NEW-VALUE",
+        "PORT-STATUS",
+        "PORT-CLIENT-NAME",
+        "WS-NUMERIC-WORK",
+        "PORT-TOTAL-VALUE",
+        "WS-FILE-STATUS",
+        "WS-UPDATE-COUNT",
+        "WS-ERROR-COUNT",
+        "PORT-KEY"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-BCHCTL00-0000-MAIN-1",
+      "program_id": "BCHCTL00",
+      "paragraph": "0000-MAIN",
+      "source_line": 60,
+      "condition_text": "EVALUATE function: INIT/CHEK/UPDT/TERM/OTHER",
+      "fields": [
+        "LS-FUNCTION",
+        "WS-PROCESS-MODE",
+        "LS-RETURN-CODE",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-BCHCTL00-2000-CHECK-PREREQUISITES-1",
+      "program_id": "BCHCTL00",
+      "paragraph": "2000-CHECK-PREREQUISITES",
+      "source_line": 90,
+      "condition_text": "IF PREREQS-SATISFIED -> success else warning",
+      "fields": [
+        "WS-PREREQ-MET",
+        "LS-RETURN-CODE",
+        "BCT-RC-SUCCESS",
+        "BCT-RC-WARNING"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-CKPRST-MAINLINE-1",
+      "program_id": "CKPRST",
+      "paragraph": "MAINLINE",
+      "source_line": 26,
+      "condition_text": "EVALUATE entry point: INIT/TAKE/COMMIT/RESTART",
+      "fields": [
+        "CHECKPOINT-CONTROL"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-HISTLD00-0000-MAIN-1",
+      "program_id": "HISTLD00",
+      "paragraph": "0000-MAIN",
+      "source_line": 67,
+      "condition_text": "WHILE NOT END-OF-FILE OR WS-ERROR-COUNT > 100 (loop guard with an error cap)",
+      "fields": [
+        "WS-END-OF-FILE-SW",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-1100-OPEN-FILES-1",
+      "program_id": "HISTLD00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 102,
+      "condition_text": "IF history open failed -> error",
+      "fields": [
+        "WS-TH-STATUS",
+        "WS-BCT-STATUS",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-1100-OPEN-FILES-2",
+      "program_id": "HISTLD00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 102,
+      "condition_text": "IF control open failed -> error",
+      "fields": [
+        "WS-TH-STATUS",
+        "WS-BCT-STATUS",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-1300-INIT-CHECKPOINTS-1",
+      "program_id": "HISTLD00",
+      "paragraph": "1300-INIT-CHECKPOINTS",
+      "source_line": 120,
+      "condition_text": "READ ... INVALID KEY -> error",
+      "fields": [
+        "BCT-KEY",
+        "BCT-JOB-NAME",
+        "BCT-STATUS",
+        "BCT-STAT-ACTIVE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2000-PROCESS-1",
+      "program_id": "HISTLD00",
+      "paragraph": "2000-PROCESS",
+      "source_line": 86,
+      "condition_text": "IF MORE-RECORDS -> load + commit-check",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2100-READ-HISTORY-1",
+      "program_id": "HISTLD00",
+      "paragraph": "2100-READ-HISTORY",
+      "source_line": 134,
+      "condition_text": "READ ... AT END / NOT AT END",
+      "fields": [
+        "WS-TH-STATUS",
+        "WS-END-OF-FILE-SW",
+        "WS-RECORDS-READ"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2200-LOAD-TO-DB2-1",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "source_line": 143,
+      "condition_text": "IF SQLCODE = 0 -> written",
+      "fields": [
+        "POSHIST-RECORD",
+        "TH-ACCOUNT-NO",
+        "TH-PORTFOLIO-ID",
+        "TH-QUANTITY",
+        "TH-AMOUNT",
+        "SQLCODE",
+        "WS-RECORDS-WRITTEN",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2200-LOAD-TO-DB2-2",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "source_line": 143,
+      "condition_text": "ELSE IF SQLCODE = -803 -> skip duplicate",
+      "fields": [
+        "POSHIST-RECORD",
+        "TH-ACCOUNT-NO",
+        "TH-PORTFOLIO-ID",
+        "TH-QUANTITY",
+        "TH-AMOUNT",
+        "SQLCODE",
+        "WS-RECORDS-WRITTEN",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2200-LOAD-TO-DB2-3",
+      "program_id": "HISTLD00",
+      "paragraph": "2200-LOAD-TO-DB2",
+      "source_line": 143,
+      "condition_text": "ELSE -> error",
+      "fields": [
+        "POSHIST-RECORD",
+        "TH-ACCOUNT-NO",
+        "TH-PORTFOLIO-ID",
+        "TH-QUANTITY",
+        "TH-AMOUNT",
+        "SQLCODE",
+        "WS-RECORDS-WRITTEN",
+        "WS-ERROR-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2300-CHECK-COMMIT-1",
+      "program_id": "HISTLD00",
+      "paragraph": "2300-CHECK-COMMIT",
+      "source_line": 177,
+      "condition_text": "IF commit-count >= threshold -> commit + checkpoint",
+      "fields": [
+        "WS-COMMIT-COUNT",
+        "WS-COMMIT-THRESHOLD"
+      ],
+      "is_88": false,
+      "category": "LIMIT_CHECK",
+      "structural_pattern": "RANGE_CHECK",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-HISTLD00-2310-UPDATE-CHECKPOINT-1",
+      "program_id": "HISTLD00",
+      "paragraph": "2310-UPDATE-CHECKPOINT",
+      "source_line": 191,
+      "condition_text": "REWRITE ... INVALID KEY -> error",
+      "fields": [
+        "BCT-RECORDS-READ",
+        "BCT-RECORDS-WRITTEN",
+        "WS-RECORDS-READ",
+        "WS-RECORDS-WRITTEN"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-0000-MAIN-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "0000-MAIN",
+      "source_line": 75,
+      "condition_text": "EVALUATE function: INIT/NEXT/STAT/TERM/OTHER",
+      "fields": [
+        "LS-FUNCTION",
+        "LS-RETURN-CODE",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2000-GET-NEXT-PROCESS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2000-GET-NEXT-PROCESS",
+      "source_line": 100,
+      "condition_text": "IF dependencies satisfied (rc=0) -> mark active",
+      "fields": [
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1100-OPEN-FILES-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 141,
+      "condition_text": "IF seq open failed -> error",
+      "fields": [
+        "WS-PSR-STATUS",
+        "WS-BCT-STATUS",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1100-OPEN-FILES-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 141,
+      "condition_text": "IF control open failed -> error",
+      "fields": [
+        "WS-PSR-STATUS",
+        "WS-BCT-STATUS",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1200-BUILD-SEQUENCE",
+      "source_line": 155,
+      "condition_text": "START ... INVALID KEY -> error",
+      "fields": [
+        "WS-PROCESS-TABLE",
+        "WS-PROCESS-COUNT",
+        "PSR-KEY",
+        "LS-PROCESS-DATE",
+        "PSR-TYPE",
+        "LS-SEQUENCE-TYPE",
+        "WS-PSR-STATUS"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1200-BUILD-SEQUENCE",
+      "source_line": 155,
+      "condition_text": "PERFORM UNTIL status='10' (scan loop)",
+      "fields": [
+        "WS-PROCESS-TABLE",
+        "WS-PROCESS-COUNT",
+        "PSR-KEY",
+        "LS-PROCESS-DATE",
+        "PSR-TYPE",
+        "LS-SEQUENCE-TYPE",
+        "WS-PSR-STATUS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1200-BUILD-SEQUENCE-3",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1200-BUILD-SEQUENCE",
+      "source_line": 155,
+      "condition_text": "IF PSR-TYPE matches -> add",
+      "fields": [
+        "WS-PROCESS-TABLE",
+        "WS-PROCESS-COUNT",
+        "PSR-KEY",
+        "LS-PROCESS-DATE",
+        "PSR-TYPE",
+        "LS-SEQUENCE-TYPE",
+        "WS-PSR-STATUS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1300-CREATE-CONTROL-RECORDS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1300-CREATE-CONTROL-RECORDS",
+      "source_line": 188,
+      "condition_text": "PERFORM VARYING over process table",
+      "fields": [
+        "WS-SEQUENCE-IX",
+        "WS-PROCESS-COUNT",
+        "WS-PROC-ID",
+        "BCT-JOB-NAME",
+        "BCT-SEQUENCE-NO",
+        "BCT-STATUS",
+        "BCT-STAT-READY"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-1300-CREATE-CONTROL-RECORDS-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "1300-CREATE-CONTROL-RECORDS",
+      "source_line": 188,
+      "condition_text": "WRITE ... INVALID KEY -> error",
+      "fields": [
+        "WS-SEQUENCE-IX",
+        "WS-PROCESS-COUNT",
+        "WS-PROC-ID",
+        "BCT-JOB-NAME",
+        "BCT-SEQUENCE-NO",
+        "BCT-STATUS",
+        "BCT-STAT-READY"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2100-FIND-NEXT-READY",
+      "source_line": 206,
+      "condition_text": "PERFORM VARYING scan",
+      "fields": [
+        "WS-SEQUENCE-IX",
+        "WS-PROCESS-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-READY",
+        "WS-PROC-ID",
+        "LS-NEXT-PROCESS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2100-FIND-NEXT-READY",
+      "source_line": 206,
+      "condition_text": "IF row READY -> pick + exit",
+      "fields": [
+        "WS-SEQUENCE-IX",
+        "WS-PROCESS-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-READY",
+        "WS-PROC-ID",
+        "LS-NEXT-PROCESS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2100-FIND-NEXT-READY-3",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2100-FIND-NEXT-READY",
+      "source_line": 206,
+      "condition_text": "IF none found -> blank",
+      "fields": [
+        "WS-SEQUENCE-IX",
+        "WS-PROCESS-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-READY",
+        "WS-PROC-ID",
+        "LS-NEXT-PROCESS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2200-CHECK-DEPENDENCIES",
+      "source_line": 221,
+      "condition_text": "READ ... INVALID KEY -> error",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "PSR-PROCESS-ID",
+        "PSR-DEP-COUNT",
+        "WS-SUB",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2200-CHECK-DEPENDENCIES",
+      "source_line": 221,
+      "condition_text": "PERFORM VARYING over dependencies",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "PSR-PROCESS-ID",
+        "PSR-DEP-COUNT",
+        "WS-SUB",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2200-CHECK-DEPENDENCIES-3",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2200-CHECK-DEPENDENCIES",
+      "source_line": 221,
+      "condition_text": "IF a dependency fails -> stop",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "PSR-PROCESS-ID",
+        "PSR-DEP-COUNT",
+        "WS-SUB",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2210-CHECK-DEP-STATUS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2210-CHECK-DEP-STATUS",
+      "source_line": 239,
+      "condition_text": "IF NOT BCT-STATUS-DONE + IF hard dep -> warning",
+      "fields": [
+        "PSR-DEP-ID",
+        "WS-SUB",
+        "BCT-JOB-NAME",
+        "BCT-STATUS-DONE",
+        "PSR-DEP-HARD",
+        "BCT-RETURN-CODE",
+        "PSR-DEP-RC",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2210-CHECK-DEP-STATUS-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2210-CHECK-DEP-STATUS",
+      "source_line": 239,
+      "condition_text": "ELSE IF dep return code too high -> error",
+      "fields": [
+        "PSR-DEP-ID",
+        "WS-SUB",
+        "BCT-JOB-NAME",
+        "BCT-STATUS-DONE",
+        "PSR-DEP-HARD",
+        "BCT-RETURN-CODE",
+        "PSR-DEP-RC",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2300-UPDATE-PROCESS-STATUS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2300-UPDATE-PROCESS-STATUS",
+      "source_line": 260,
+      "condition_text": "READ ... INVALID KEY -> error",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "BCT-JOB-NAME",
+        "BCT-STATUS",
+        "BCT-STAT-ACTIVE",
+        "WS-CURRENT-TIME",
+        "BCT-START-TIME"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-2300-UPDATE-PROCESS-STATUS-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "2300-UPDATE-PROCESS-STATUS",
+      "source_line": 260,
+      "condition_text": "REWRITE ... INVALID KEY -> error",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "BCT-JOB-NAME",
+        "BCT-STATUS",
+        "BCT-STAT-ACTIVE",
+        "WS-CURRENT-TIME",
+        "BCT-START-TIME"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3100-READ-CONTROL-STATUS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3100-READ-CONTROL-STATUS",
+      "source_line": 281,
+      "condition_text": "READ ... INVALID KEY -> error",
+      "fields": [
+        "LS-NEXT-PROCESS",
+        "BCT-JOB-NAME",
+        "BCT-PROCESS-DATE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+      "source_line": 292,
+      "condition_text": "PERFORM VARYING scan",
+      "fields": [
+        "WS-PROC-ID",
+        "BCT-JOB-NAME",
+        "WS-PROC-STATUS",
+        "BCT-STATUS",
+        "WS-PROC-RC",
+        "BCT-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3200-UPDATE-SEQUENCE-TABLE-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3200-UPDATE-SEQUENCE-TABLE",
+      "source_line": 292,
+      "condition_text": "IF row matches -> update + exit",
+      "fields": [
+        "WS-PROC-ID",
+        "BCT-JOB-NAME",
+        "WS-PROC-STATUS",
+        "BCT-STATUS",
+        "WS-PROC-RC",
+        "BCT-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3300-CHECK-COMPLETION",
+      "source_line": 305,
+      "condition_text": "PERFORM VARYING scan",
+      "fields": [
+        "WS-ACTIVE-COUNT",
+        "WS-ERROR-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-ACTIVE",
+        "BCT-STAT-ERROR"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3300-CHECK-COMPLETION",
+      "source_line": 305,
+      "condition_text": "IF status ACTIVE -> count",
+      "fields": [
+        "WS-ACTIVE-COUNT",
+        "WS-ERROR-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-ACTIVE",
+        "BCT-STAT-ERROR"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-3300-CHECK-COMPLETION-3",
+      "program_id": "PRCSEQ00",
+      "paragraph": "3300-CHECK-COMPLETION",
+      "source_line": 305,
+      "condition_text": "IF status ERROR -> count",
+      "fields": [
+        "WS-ACTIVE-COUNT",
+        "WS-ERROR-COUNT",
+        "WS-PROC-STATUS",
+        "BCT-STAT-ACTIVE",
+        "BCT-STAT-ERROR"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4100-CHECK-FINAL-STATUS",
+      "source_line": 322,
+      "condition_text": "IF any errors -> error",
+      "fields": [
+        "WS-ERROR-COUNT",
+        "WS-ACTIVE-COUNT",
+        "LS-RETURN-CODE",
+        "BCT-RC-ERROR",
+        "BCT-RC-WARNING",
+        "BCT-RC-SUCCESS"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-2",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4100-CHECK-FINAL-STATUS",
+      "source_line": 322,
+      "condition_text": "ELSE IF any still active -> warning",
+      "fields": [
+        "WS-ERROR-COUNT",
+        "WS-ACTIVE-COUNT",
+        "LS-RETURN-CODE",
+        "BCT-RC-ERROR",
+        "BCT-RC-WARNING",
+        "BCT-RC-SUCCESS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-4100-CHECK-FINAL-STATUS-3",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4100-CHECK-FINAL-STATUS",
+      "source_line": 322,
+      "condition_text": "ELSE -> success",
+      "fields": [
+        "WS-ERROR-COUNT",
+        "WS-ACTIVE-COUNT",
+        "LS-RETURN-CODE",
+        "BCT-RC-ERROR",
+        "BCT-RC-WARNING",
+        "BCT-RC-SUCCESS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-PRCSEQ00-4200-CLOSE-FILES-1",
+      "program_id": "PRCSEQ00",
+      "paragraph": "4200-CLOSE-FILES",
+      "source_line": 336,
+      "condition_text": "IF close failed -> error",
+      "fields": [
+        "WS-PSR-STATUS",
+        "WS-BCT-STATUS",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-AUDPROC-1000-INITIALIZE-1",
+      "program_id": "AUDPROC",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 59,
+      "condition_text": "IF audit-file open failed -> terminate + return",
+      "fields": [
+        "WS-FORMATTED-TIME",
+        "WS-FILE-STATUS",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-AUDPROC-2000-PROCESS-AUDIT-1",
+      "program_id": "AUDPROC",
+      "paragraph": "2000-PROCESS-AUDIT",
+      "source_line": 71,
+      "condition_text": "IF audit write failed -> rc=8 else rc=0",
+      "fields": [
+        "AUD-TIMESTAMP",
+        "AUD-HEADER",
+        "AUD-BEFORE-IMAGE",
+        "AUD-AFTER-IMAGE",
+        "LS-BEFORE-IMAGE",
+        "LS-AFTER-IMAGE",
+        "WS-FILE-STATUS",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-ERRPROC-1000-INITIALIZE-1",
+      "program_id": "ERRPROC",
+      "paragraph": "1000-INITIALIZE",
+      "source_line": 55,
+      "condition_text": "IF log open failed -> display (continues anyway)",
+      "fields": [
+        "WS-FORMATTED-TIME",
+        "WS-LOG-STATUS"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-ERRPROC-2100-WRITE-LOG-1",
+      "program_id": "ERRPROC",
+      "paragraph": "2100-WRITE-LOG",
+      "source_line": 83,
+      "condition_text": "IF log write failed -> display",
+      "fields": [
+        "ERR-MESSAGE",
+        "LOG-DATA",
+        "WS-LOG-STATUS"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CONN-0000-MAIN-1",
+      "program_id": "DB2CONN",
+      "paragraph": "0000-MAIN",
+      "source_line": 47,
+      "condition_text": "EVALUATE function: CONN/DISC/STAT/OTHER",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-DB2CONN-1000-CONNECT-1",
+      "program_id": "DB2CONN",
+      "paragraph": "1000-CONNECT",
+      "source_line": 63,
+      "condition_text": "WHILE NOT connected AND retries<3 (retry loop)",
+      "fields": [
+        "WS-CONNECTION-STATE",
+        "WS-RETRY-COUNT",
+        "WS-MAX-RETRIES",
+        "WS-DB-NAME",
+        "SQLCODE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-DB2CONN-1000-CONNECT-2",
+      "program_id": "DB2CONN",
+      "paragraph": "1000-CONNECT",
+      "source_line": 63,
+      "condition_text": "IF SQLCODE=0 -> connected else handle error",
+      "fields": [
+        "WS-CONNECTION-STATE",
+        "WS-RETRY-COUNT",
+        "WS-MAX-RETRIES",
+        "WS-DB-NAME",
+        "SQLCODE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CONN-1000-CONNECT-3",
+      "program_id": "DB2CONN",
+      "paragraph": "1000-CONNECT",
+      "source_line": 63,
+      "condition_text": "IF retries left AND not connected -> DELAY",
+      "fields": [
+        "WS-CONNECTION-STATE",
+        "WS-RETRY-COUNT",
+        "WS-MAX-RETRIES",
+        "WS-DB-NAME",
+        "SQLCODE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-DB2CONN-1100-HANDLE-CONN-ERROR-1",
+      "program_id": "DB2CONN",
+      "paragraph": "1100-HANDLE-CONN-ERROR",
+      "source_line": 91,
+      "condition_text": "EVALUATE SQLCODE: -30081 / -99999 / other",
+      "fields": [
+        "SQLCODE",
+        "LS-SQLCODE",
+        "LS-ERROR-MSG",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CONN-2000-DISCONNECT-1",
+      "program_id": "DB2CONN",
+      "paragraph": "2000-DISCONNECT",
+      "source_line": 109,
+      "condition_text": "IF connected -> commit + reset",
+      "fields": [
+        "WS-CONNECTION-STATE",
+        "SQLCODE",
+        "LS-SQLCODE",
+        "LS-ERROR-MSG",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-DB2CONN-2000-DISCONNECT-2",
+      "program_id": "DB2CONN",
+      "paragraph": "2000-DISCONNECT",
+      "source_line": 109,
+      "condition_text": "IF reset SQLCODE=0 -> ok else error",
+      "fields": [
+        "WS-CONNECTION-STATE",
+        "SQLCODE",
+        "LS-SQLCODE",
+        "LS-ERROR-MSG",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CONN-3000-CHECK-STATUS-1",
+      "program_id": "DB2CONN",
+      "paragraph": "3000-CHECK-STATUS",
+      "source_line": 131,
+      "condition_text": "IF status SELECT SQLCODE=0 -> active else not active",
+      "fields": [
+        "WS-DB-NAME",
+        "SQLCODE",
+        "WS-CONNECTION-STATE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CMT-0000-MAIN-1",
+      "program_id": "DB2CMT",
+      "paragraph": "0000-MAIN",
+      "source_line": 53,
+      "condition_text": "EVALUATE function: INIT/CMIT/RBAK/SAVE/REST/STAT/OTHER",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-DB2CMT-2000-COMMIT-1",
+      "program_id": "DB2CMT",
+      "paragraph": "2000-COMMIT",
+      "source_line": 80,
+      "condition_text": "IF threshold reached OR forced -> commit",
+      "fields": [
+        "LS-RECORDS-PROC",
+        "LS-COMMIT-FREQ",
+        "LS-FORCE-FLAG"
+      ],
+      "is_88": false,
+      "category": "LIMIT_CHECK",
+      "structural_pattern": "MULTI_CONDITION",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-DB2CMT-2100-ISSUE-COMMIT-1",
+      "program_id": "DB2CMT",
+      "paragraph": "2100-ISSUE-COMMIT",
+      "source_line": 87,
+      "condition_text": "IF commit SQLCODE=0 -> ok else error+log",
+      "fields": [
+        "SQLCODE",
+        "WS-COMMIT-COUNT",
+        "LS-SQLCODE",
+        "LS-ERROR-MSG",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CMT-3000-ROLLBACK-1",
+      "program_id": "DB2CMT",
+      "paragraph": "3000-ROLLBACK",
+      "source_line": 103,
+      "condition_text": "IF rollback SQLCODE=0 -> ok else error+log",
+      "fields": [
+        "SQLCODE",
+        "WS-ROLLBACK-COUNT",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CMT-4000-SAVEPOINT-1",
+      "program_id": "DB2CMT",
+      "paragraph": "4000-SAVEPOINT",
+      "source_line": 119,
+      "condition_text": "IF savepoint SQLCODE=0 -> ok else error+log",
+      "fields": [
+        "LS-SAVEPOINT-NAME",
+        "WS-SAVEPOINT-ID",
+        "SQLCODE",
+        "WS-SAVEPOINT-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2CMT-5000-RESTORE-1",
+      "program_id": "DB2CMT",
+      "paragraph": "5000-RESTORE",
+      "source_line": 137,
+      "condition_text": "IF restore SQLCODE=0 -> ok else error+log",
+      "fields": [
+        "LS-SAVEPOINT-NAME",
+        "WS-SAVEPOINT-ID",
+        "SQLCODE",
+        "WS-ROLLBACK-COUNT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2ERR-0000-MAIN-1",
+      "program_id": "DB2ERR",
+      "paragraph": "0000-MAIN",
+      "source_line": 56,
+      "condition_text": "EVALUATE function: LOG/DIAG/RETR/OTHER",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-DB2ERR-1100-SET-SEVERITY-1",
+      "program_id": "DB2ERR",
+      "paragraph": "1100-SET-SEVERITY",
+      "source_line": 100,
+      "condition_text": "EVALUATE SQLCODE: deadlock/timeout / connection / dup-key / not-found / other(+/-)",
+      "fields": [
+        "LS-SQLCODE",
+        "WS-DEADLOCK",
+        "WS-TIMEOUT",
+        "WS-CONNECTION-ERROR",
+        "WS-DUP-KEY",
+        "WS-NOT-FOUND",
+        "EL-ERROR-SEVERITY",
+        "LS-RETRY-FLAG"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2ERR-1200-INSERT-ERROR-1",
+      "program_id": "DB2ERR",
+      "paragraph": "1200-INSERT-ERROR",
+      "source_line": 126,
+      "condition_text": "IF insert SQLCODE=0 -> ok else error",
+      "fields": [
+        "WS-ERRLOG-REC",
+        "SQLCODE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2ERR-2000-DIAGNOSE-ERROR-1",
+      "program_id": "DB2ERR",
+      "paragraph": "2000-DIAGNOSE-ERROR",
+      "source_line": 140,
+      "condition_text": "EVALUATE SQLCODE: deadlock/timeout/connection/dup-key/other",
+      "fields": [
+        "LS-SQLCODE",
+        "LS-ERROR-TEXT",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2ERR-3000-RETRIEVE-ERROR-1",
+      "program_id": "DB2ERR",
+      "paragraph": "3000-RETRIEVE-ERROR",
+      "source_line": 171,
+      "condition_text": "IF retrieve SQLCODE=0 -> return latest else 'no history'",
+      "fields": [
+        "LS-PROGRAM-ID",
+        "EL-ERROR-MESSAGE",
+        "EL-ERROR-SEVERITY",
+        "LS-ERROR-TEXT",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2STAT-0000-MAIN-1",
+      "program_id": "DB2STAT",
+      "paragraph": "0000-MAIN",
+      "source_line": 58,
+      "condition_text": "EVALUATE function: INIT/UPDT/TERM/DISP/OTHER",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-DB2STAT-1100-CREATE-STATS-TABLE-1",
+      "program_id": "DB2STAT",
+      "paragraph": "1100-CREATE-STATS-TABLE",
+      "source_line": 88,
+      "condition_text": "IF create failed AND not 'already exists' -> error",
+      "fields": [
+        "SQLCODE",
+        "ERR-TEXT"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2STAT-1200-INSERT-INITIAL-1",
+      "program_id": "DB2STAT",
+      "paragraph": "1200-INSERT-INITIAL",
+      "source_line": 111,
+      "condition_text": "IF insert SQLCODE=0 -> ok else error",
+      "fields": [
+        "WS-PROGRAM-ID",
+        "SQLCODE",
+        "LS-RETURN-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2STAT-2000-UPDATE-STATS-1",
+      "program_id": "DB2STAT",
+      "paragraph": "2000-UPDATE-STATS",
+      "source_line": 130,
+      "condition_text": "IF update SQLCODE=0 -> ok else error",
+      "fields": [
+        "LS-ROWS-READ",
+        "LS-ROWS-INSRT",
+        "LS-COMMITS",
+        "WS-ROWS-READ",
+        "WS-PROGRAM-ID",
+        "SQLCODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2STAT-3000-TERMINATE-1",
+      "program_id": "DB2STAT",
+      "paragraph": "3000-TERMINATE",
+      "source_line": 157,
+      "condition_text": "IF final update SQLCODE=0 -> display else error",
+      "fields": [
+        "WS-END-TIME",
+        "WS-CPU-TIME",
+        "WS-ELAPSED-TIME",
+        "SQLCODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-DB2STAT-4000-DISPLAY-STATS-1",
+      "program_id": "DB2STAT",
+      "paragraph": "4000-DISPLAY-STATS",
+      "source_line": 189,
+      "condition_text": "IF select SQLCODE=0 -> display else error",
+      "fields": [
+        "WS-STATS-RECORD",
+        "WS-PROGRAM-ID",
+        "WS-CPU-TIME",
+        "WS-ELAPSED-TIME",
+        "WS-FORMATTED-TIME",
+        "SQLCODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-CURSMGR-MAINLINE-1",
+      "program_id": "CURSMGR",
+      "paragraph": "MAINLINE",
+      "source_line": 43,
+      "condition_text": "EVALUATE request type: DECLARE/OPEN/FETCH/CLOSE",
+      "fields": [
+        "CURS-REQUEST-TYPE"
+      ],
+      "is_88": false,
+      "category": "ROUTING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 4,
+      "signal_label": "high"
+    },
+    {
+      "condition_id": "COND-CURSMGR-P100-DECLARE-CURSOR-1",
+      "program_id": "CURSMGR",
+      "paragraph": "P100-DECLARE-CURSOR",
+      "source_line": 61,
+      "condition_text": "IF USE-ARRAY-FETCH -> size 20 else 1",
+      "fields": [
+        "CURS-RESPONSE-CODE",
+        "CURS-ARRAY-FETCH",
+        "WS-ARRAY-SIZE",
+        "WS-MAX-ROWS",
+        "CURS-NAME",
+        "CURS-STMT",
+        "SQLCODE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND-CURSMGR-P100-DECLARE-CURSOR-2",
+      "program_id": "CURSMGR",
+      "paragraph": "P100-DECLARE-CURSOR",
+      "source_line": 61,
+      "condition_text": "IF DECLARE SQLCODE<>0 -> return sqlcode",
+      "fields": [
+        "CURS-RESPONSE-CODE",
+        "CURS-ARRAY-FETCH",
+        "WS-ARRAY-SIZE",
+        "WS-MAX-ROWS",
+        "CURS-NAME",
+        "CURS-STMT",
+        "SQLCODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-CURSMGR-P200-OPEN-CURSOR-1",
+      "program_id": "CURSMGR",
+      "paragraph": "P200-OPEN-CURSOR",
+      "source_line": 80,
+      "condition_text": "IF OPEN SQLCODE=0 -> ok else return sqlcode",
+      "fields": [
+        "WS-FETCH-COUNT",
+        "WS-ROWS-FETCHED",
+        "CURS-NAME",
+        "SQLCODE",
+        "CURS-RESPONSE-CODE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "STATUS_CODE_CHECK",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-TSTVAL00-1100-OPEN-FILES-1",
+      "program_id": "TSTVAL00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 139,
+      "condition_text": "4x IF file open failed -> 9999-ERROR-HANDLER",
+      "fields": [
+        "WS-TEST-STATUS",
+        "WS-EXP-STATUS",
+        "WS-ACT-STATUS",
+        "WS-RPT-STATUS",
+        "WS-ERROR-MESSAGE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-TSTVAL00-2000-PROCESS-1",
+      "program_id": "TSTVAL00",
+      "paragraph": "2000-PROCESS",
+      "source_line": 176,
+      "condition_text": "PERFORM UNTIL END-OF-TESTS",
+      "fields": [
+        "WS-END-OF-TESTS"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 2,
+      "signal_label": "low"
+    },
+    {
+      "condition_id": "COND-TSTVAL00-2000-PROCESS-2",
+      "program_id": "TSTVAL00",
+      "paragraph": "2000-PROCESS",
+      "source_line": 176,
+      "condition_text": "READ ... AT END / NOT AT END",
+      "fields": [
+        "WS-END-OF-TESTS"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-TSTVAL00-2100-EXECUTE-TEST-1",
+      "program_id": "TSTVAL00",
+      "paragraph": "2100-EXECUTE-TEST",
+      "source_line": 187,
+      "condition_text": "EVALUATE TEST-TYPE: FUNCTIONAL/INTEGRATE/PERFORM/ERROR/OTHER",
+      "fields": [
+        "TEST-TYPE",
+        "WS-FUNCTIONAL",
+        "WS-INTEGRATION",
+        "WS-PERFORMANCE",
+        "WS-ERROR"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-UTLVAL00-1100-OPEN-FILES-1",
+      "program_id": "UTLVAL00",
+      "paragraph": "1100-OPEN-FILES",
+      "source_line": 106,
+      "condition_text": "4x IF file open failed -> 9999-ERROR-HANDLER",
+      "fields": [
+        "WS-VAL-STATUS",
+        "WS-POS-STATUS",
+        "WS-TRAN-STATUS",
+        "WS-RPT-STATUS",
+        "WS-ERROR-MESSAGE"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-UTLVAL00-2000-PROCESS-1",
+      "program_id": "UTLVAL00",
+      "paragraph": "2000-PROCESS",
+      "source_line": 138,
+      "condition_text": "PERFORM UNTIL END-OF-VALIDATION",
+      "fields": [
+        "WS-END-OF-VAL"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "FIELD_VALUE_COMPARE",
+      "signal_strength": 2,
+      "signal_label": "low"
+    },
+    {
+      "condition_id": "COND-UTLVAL00-2000-PROCESS-2",
+      "program_id": "UTLVAL00",
+      "paragraph": "2000-PROCESS",
+      "source_line": 138,
+      "condition_text": "READ ... AT END / NOT AT END",
+      "fields": [
+        "WS-END-OF-VAL"
+      ],
+      "is_88": false,
+      "category": "ERROR_HANDLING",
+      "structural_pattern": "NEGATION",
+      "signal_strength": 1,
+      "signal_label": "noise"
+    },
+    {
+      "condition_id": "COND-UTLVAL00-2100-PROCESS-VALIDATION-1",
+      "program_id": "UTLVAL00",
+      "paragraph": "2100-PROCESS-VALIDATION",
+      "source_line": 148,
+      "condition_text": "EVALUATE VAL-TYPE: INTEGRITY/XREF/FORMAT/BALANCE/OTHER",
+      "fields": [
+        "VAL-TYPE",
+        "WS-INTEGRITY",
+        "WS-XREF",
+        "WS-FORMAT",
+        "WS-BALANCE"
+      ],
+      "is_88": false,
+      "category": "VALIDATION",
+      "structural_pattern": "SET_MEMBERSHIP",
+      "signal_strength": 3,
+      "signal_label": "medium"
+    },
+    {
+      "condition_id": "COND88-BCT-STATUS",
+      "program_id": "BCHCTL00",
+      "paragraph": null,
+      "source_line": 15,
+      "condition_text": "88-level values on BCT-STATUS: BCT-STATUS-READY, BCT-STATUS-ACTIVE, BCT-STATUS-WAITING, BCT-STATUS-DONE, BCT-STATUS-ERROR",
+      "fields": [
+        "BCT-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "BCT-STATUS",
+      "values": [
+        "BCT-STATUS-READY",
+        "BCT-STATUS-ACTIVE",
+        "BCT-STATUS-WAITING",
+        "BCT-STATUS-DONE",
+        "BCT-STATUS-ERROR"
+      ],
+      "used_by": [
+        "BCHCTL00",
+        "HISTLD00",
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-CK-STATUS",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 11,
+      "condition_text": "88-level values on CK-STATUS: CK-INITIAL, CK-ACTIVE, CK-COMPLETE, CK-FAILED, CK-RESTARTED",
+      "fields": [
+        "CK-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "CK-STATUS",
+      "values": [
+        "CK-INITIAL",
+        "CK-ACTIVE",
+        "CK-COMPLETE",
+        "CK-FAILED",
+        "CK-RESTARTED"
+      ],
+      "used_by": [
+        "CKPRST",
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-CK-PHASE",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 27,
+      "condition_text": "88-level values on CK-PHASE: CK-PHASE-INIT, CK-PHASE-READ, CK-PHASE-PROC, CK-PHASE-UPDT, CK-PHASE-TERM",
+      "fields": [
+        "CK-PHASE"
+      ],
+      "is_88": true,
+      "field_name": "CK-PHASE",
+      "values": [
+        "CK-PHASE-INIT",
+        "CK-PHASE-READ",
+        "CK-PHASE-PROC",
+        "CK-PHASE-UPDT",
+        "CK-PHASE-TERM"
+      ],
+      "used_by": [
+        "CKPRST",
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-CK-RESTART-MODE",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 44,
+      "condition_text": "88-level values on CK-RESTART-MODE: CK-MODE-NORMAL, CK-MODE-RESTART, CK-MODE-RECOVER",
+      "fields": [
+        "CK-RESTART-MODE"
+      ],
+      "is_88": true,
+      "field_name": "CK-RESTART-MODE",
+      "values": [
+        "CK-MODE-NORMAL",
+        "CK-MODE-RESTART",
+        "CK-MODE-RECOVER"
+      ],
+      "used_by": [
+        "CKPRST",
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-TYPE",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 12,
+      "condition_text": "88-level values on PSR-TYPE: PSR-TYPE-INIT, PSR-TYPE-PROC, PSR-TYPE-RPT, PSR-TYPE-TERM",
+      "fields": [
+        "PSR-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "PSR-TYPE",
+      "values": [
+        "PSR-TYPE-INIT",
+        "PSR-TYPE-PROC",
+        "PSR-TYPE-RPT",
+        "PSR-TYPE-TERM"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-FREQ",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 18,
+      "condition_text": "88-level values on PSR-FREQ: PSR-DAILY, PSR-WEEKLY, PSR-MONTHLY",
+      "fields": [
+        "PSR-FREQ"
+      ],
+      "is_88": true,
+      "field_name": "PSR-FREQ",
+      "values": [
+        "PSR-DAILY",
+        "PSR-WEEKLY",
+        "PSR-MONTHLY"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-DEP-TYPE",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 28,
+      "condition_text": "88-level values on PSR-DEP-TYPE: PSR-DEP-HARD, PSR-DEP-SOFT",
+      "fields": [
+        "PSR-DEP-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "PSR-DEP-TYPE",
+      "values": [
+        "PSR-DEP-HARD",
+        "PSR-DEP-SOFT"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-RESTART",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 36,
+      "condition_text": "88-level values on PSR-RESTART: PSR-RESTARTABLE, PSR-NO-RESTART",
+      "fields": [
+        "PSR-RESTART"
+      ],
+      "is_88": true,
+      "field_name": "PSR-RESTART",
+      "values": [
+        "PSR-RESTARTABLE",
+        "PSR-NO-RESTART"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-ACTIVE-DAYS",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 40,
+      "condition_text": "88-level values on PSR-ACTIVE-DAYS: PSR-WEEKDAY, PSR-WEEKEND, PSR-ALL-DAYS",
+      "fields": [
+        "PSR-ACTIVE-DAYS"
+      ],
+      "is_88": true,
+      "field_name": "PSR-ACTIVE-DAYS",
+      "values": [
+        "PSR-WEEKDAY",
+        "PSR-WEEKEND",
+        "PSR-ALL-DAYS"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-MONTH-END",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 44,
+      "condition_text": "88-level values on PSR-MONTH-END: PSR-LAST-DAY",
+      "fields": [
+        "PSR-MONTH-END"
+      ],
+      "is_88": true,
+      "field_name": "PSR-MONTH-END",
+      "values": [
+        "PSR-LAST-DAY"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PSR-HOLIDAY-RUN",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 46,
+      "condition_text": "88-level values on PSR-HOLIDAY-RUN: PSR-SKIP-HOL, PSR-RUN-HOL",
+      "fields": [
+        "PSR-HOLIDAY-RUN"
+      ],
+      "is_88": true,
+      "field_name": "PSR-HOLIDAY-RUN",
+      "values": [
+        "PSR-SKIP-HOL",
+        "PSR-RUN-HOL"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-AUD-TYPE",
+      "program_id": "AUDPROC",
+      "paragraph": null,
+      "source_line": 14,
+      "condition_text": "88-level values on AUD-TYPE: AUD-TRANSACTION, AUD-USER-ACTION, AUD-SYSTEM-EVENT",
+      "fields": [
+        "AUD-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "AUD-TYPE",
+      "values": [
+        "AUD-TRANSACTION",
+        "AUD-USER-ACTION",
+        "AUD-SYSTEM-EVENT"
+      ],
+      "used_by": [
+        "AUDPROC"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-AUD-ACTION",
+      "program_id": "AUDPROC",
+      "paragraph": null,
+      "source_line": 18,
+      "condition_text": "88-level values on AUD-ACTION: AUD-CREATE, AUD-UPDATE, AUD-DELETE, AUD-INQUIRE, AUD-LOGIN, AUD-LOGOUT, AUD-STARTUP, AUD-SHUTDOWN",
+      "fields": [
+        "AUD-ACTION"
+      ],
+      "is_88": true,
+      "field_name": "AUD-ACTION",
+      "values": [
+        "AUD-CREATE",
+        "AUD-UPDATE",
+        "AUD-DELETE",
+        "AUD-INQUIRE",
+        "AUD-LOGIN",
+        "AUD-LOGOUT",
+        "AUD-STARTUP",
+        "AUD-SHUTDOWN"
+      ],
+      "used_by": [
+        "AUDPROC"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-AUD-STATUS",
+      "program_id": "AUDPROC",
+      "paragraph": null,
+      "source_line": 27,
+      "condition_text": "88-level values on AUD-STATUS: AUD-SUCCESS, AUD-FAILURE, AUD-WARNING",
+      "fields": [
+        "AUD-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "AUD-STATUS",
+      "values": [
+        "AUD-SUCCESS",
+        "AUD-FAILURE",
+        "AUD-WARNING"
+      ],
+      "used_by": [
+        "AUDPROC"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-HIST-RECORD-TYPE",
+      "program_id": "HISTLD00",
+      "paragraph": null,
+      "source_line": 13,
+      "condition_text": "88-level values on HIST-RECORD-TYPE: HIST-TYPE-PORT, HIST-TYPE-POS, HIST-TYPE-TRN",
+      "fields": [
+        "HIST-RECORD-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "HIST-RECORD-TYPE",
+      "values": [
+        "HIST-TYPE-PORT",
+        "HIST-TYPE-POS",
+        "HIST-TYPE-TRN"
+      ],
+      "used_by": [
+        "HISTLD00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-HIST-ACTION-CODE",
+      "program_id": "HISTLD00",
+      "paragraph": null,
+      "source_line": 17,
+      "condition_text": "88-level values on HIST-ACTION-CODE: HIST-ACTION-ADD, HIST-ACTION-CHG, HIST-ACTION-DEL",
+      "fields": [
+        "HIST-ACTION-CODE"
+      ],
+      "is_88": true,
+      "field_name": "HIST-ACTION-CODE",
+      "values": [
+        "HIST-ACTION-ADD",
+        "HIST-ACTION-CHG",
+        "HIST-ACTION-DEL"
+      ],
+      "used_by": [
+        "HISTLD00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PORT-CLIENT-TYPE",
+      "program_id": "PORTADD",
+      "paragraph": null,
+      "source_line": 17,
+      "condition_text": "88-level values on PORT-CLIENT-TYPE: PORT-INDIVIDUAL, PORT-CORPORATE, PORT-TRUST",
+      "fields": [
+        "PORT-CLIENT-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "PORT-CLIENT-TYPE",
+      "values": [
+        "PORT-INDIVIDUAL",
+        "PORT-CORPORATE",
+        "PORT-TRUST"
+      ],
+      "used_by": [
+        "PORTADD",
+        "PORTADD",
+        "PORTREAD",
+        "PORTUPDT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-PORT-STATUS",
+      "program_id": "PORTADD",
+      "paragraph": null,
+      "source_line": 24,
+      "condition_text": "88-level values on PORT-STATUS: PORT-ACTIVE, PORT-CLOSED, PORT-SUSPENDED",
+      "fields": [
+        "PORT-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "PORT-STATUS",
+      "values": [
+        "PORT-ACTIVE",
+        "PORT-CLOSED",
+        "PORT-SUSPENDED"
+      ],
+      "used_by": [
+        "PORTADD",
+        "PORTADD",
+        "PORTREAD",
+        "PORTUPDT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-POS-STATUS",
+      "program_id": "INQPORT",
+      "paragraph": null,
+      "source_line": 16,
+      "condition_text": "88-level values on POS-STATUS: POS-STATUS-ACTIVE, POS-STATUS-CLOSED, POS-STATUS-PEND",
+      "fields": [
+        "POS-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "POS-STATUS",
+      "values": [
+        "POS-STATUS-ACTIVE",
+        "POS-STATUS-CLOSED",
+        "POS-STATUS-PEND"
+      ],
+      "used_by": [
+        "INQPORT",
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-RETURN-CODE",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 8,
+      "condition_text": "88-level values on RETURN-CODE: RC-SUCCESS, RC-WARNING, RC-ERROR, RC-SEVERE, RC-CRITICAL",
+      "fields": [
+        "RETURN-CODE"
+      ],
+      "is_88": true,
+      "field_name": "RETURN-CODE",
+      "values": [
+        "RC-SUCCESS",
+        "RC-WARNING",
+        "RC-ERROR",
+        "RC-SEVERE",
+        "RC-CRITICAL"
+      ],
+      "used_by": [
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-ERROR-TYPE",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 24,
+      "condition_text": "88-level values on ERROR-TYPE: ERR-VALIDATION, ERR-PROCESSING, ERR-DATABASE, ERR-FILE, ERR-SECURITY",
+      "fields": [
+        "ERROR-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "ERROR-TYPE",
+      "values": [
+        "ERR-VALIDATION",
+        "ERR-PROCESSING",
+        "ERR-DATABASE",
+        "ERR-FILE",
+        "ERR-SECURITY"
+      ],
+      "used_by": [
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-ACTION-FLAG",
+      "program_id": "CKPRST",
+      "paragraph": null,
+      "source_line": 37,
+      "condition_text": "88-level values on ACTION-FLAG: ACTION-CONTINUE, ACTION-ABORT, ACTION-RETRY",
+      "fields": [
+        "ACTION-FLAG"
+      ],
+      "is_88": true,
+      "field_name": "ACTION-FLAG",
+      "values": [
+        "ACTION-CONTINUE",
+        "ACTION-ABORT",
+        "ACTION-RETRY"
+      ],
+      "used_by": [
+        "CKPRST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-RC-REQUEST-TYPE",
+      "program_id": "TSTVAL00",
+      "paragraph": null,
+      "source_line": 5,
+      "condition_text": "88-level values on RC-REQUEST-TYPE: RC-INITIALIZE, RC-SET-CODE, RC-GET-CODE, RC-LOG-CODE, RC-ANALYZE",
+      "fields": [
+        "RC-REQUEST-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "RC-REQUEST-TYPE",
+      "values": [
+        "RC-INITIALIZE",
+        "RC-SET-CODE",
+        "RC-GET-CODE",
+        "RC-LOG-CODE",
+        "RC-ANALYZE"
+      ],
+      "used_by": [
+        "TSTVAL00",
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-RC-STATUS",
+      "program_id": "TSTVAL00",
+      "paragraph": null,
+      "source_line": 16,
+      "condition_text": "88-level values on RC-STATUS: RC-STATUS-SUCCESS, RC-STATUS-WARNING, RC-STATUS-ERROR, RC-STATUS-SEVERE",
+      "fields": [
+        "RC-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "RC-STATUS",
+      "values": [
+        "RC-STATUS-SUCCESS",
+        "RC-STATUS-WARNING",
+        "RC-STATUS-ERROR",
+        "RC-STATUS-SEVERE"
+      ],
+      "used_by": [
+        "TSTVAL00",
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-TRN-TYPE",
+      "program_id": "UTLVAL00",
+      "paragraph": null,
+      "source_line": 14,
+      "condition_text": "88-level values on TRN-TYPE: TRN-TYPE-BUY, TRN-TYPE-SELL, TRN-TYPE-TRANS, TRN-TYPE-FEE",
+      "fields": [
+        "TRN-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "TRN-TYPE",
+      "values": [
+        "TRN-TYPE-BUY",
+        "TRN-TYPE-SELL",
+        "TRN-TYPE-TRANS",
+        "TRN-TYPE-FEE"
+      ],
+      "used_by": [
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-TRN-STATUS",
+      "program_id": "UTLVAL00",
+      "paragraph": null,
+      "source_line": 23,
+      "condition_text": "88-level values on TRN-STATUS: TRN-STATUS-PEND, TRN-STATUS-DONE, TRN-STATUS-FAIL, TRN-STATUS-REV",
+      "fields": [
+        "TRN-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "TRN-STATUS",
+      "values": [
+        "TRN-STATUS-PEND",
+        "TRN-STATUS-DONE",
+        "TRN-STATUS-FAIL",
+        "TRN-STATUS-REV"
+      ],
+      "used_by": [
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-EL-ERROR-TYPE",
+      "program_id": "HISTLD00",
+      "paragraph": null,
+      "source_line": 36,
+      "condition_text": "88-level values on EL-ERROR-TYPE: EL-TYPE-SYSTEM, EL-TYPE-APP, EL-TYPE-DATA",
+      "fields": [
+        "EL-ERROR-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "EL-ERROR-TYPE",
+      "values": [
+        "EL-TYPE-SYSTEM",
+        "EL-TYPE-APP",
+        "EL-TYPE-DATA"
+      ],
+      "used_by": [
+        "HISTLD00",
+        "DB2ERR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-EL-ERROR-SEVERITY",
+      "program_id": "HISTLD00",
+      "paragraph": null,
+      "source_line": 40,
+      "condition_text": "88-level values on EL-ERROR-SEVERITY: EL-SEV-INFO, EL-SEV-WARN, EL-SEV-ERROR, EL-SEV-SEVERE",
+      "fields": [
+        "EL-ERROR-SEVERITY"
+      ],
+      "is_88": true,
+      "field_name": "EL-ERROR-SEVERITY",
+      "values": [
+        "EL-SEV-INFO",
+        "EL-SEV-WARN",
+        "EL-SEV-ERROR",
+        "EL-SEV-SEVERE"
+      ],
+      "used_by": [
+        "HISTLD00",
+        "DB2ERR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-DB2-REQUEST-TYPE",
+      "program_id": "?",
+      "paragraph": null,
+      "source_line": 5,
+      "condition_text": "88-level values on DB2-REQUEST-TYPE: DB2-CONNECT, DB2-DISCONNECT, DB2-STATUS",
+      "fields": [
+        "DB2-REQUEST-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "DB2-REQUEST-TYPE",
+      "values": [
+        "DB2-CONNECT",
+        "DB2-DISCONNECT",
+        "DB2-STATUS"
+      ],
+      "used_by": [],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-ERR-SEVERITY",
+      "program_id": "INQONLN",
+      "paragraph": null,
+      "source_line": 10,
+      "condition_text": "88-level values on ERR-SEVERITY: ERR-FATAL, ERR-WARNING, ERR-INFO",
+      "fields": [
+        "ERR-SEVERITY"
+      ],
+      "is_88": true,
+      "field_name": "ERR-SEVERITY",
+      "values": [
+        "ERR-FATAL",
+        "ERR-WARNING",
+        "ERR-INFO"
+      ],
+      "used_by": [
+        "INQONLN"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-ERR-ACTION",
+      "program_id": "INQONLN",
+      "paragraph": null,
+      "source_line": 15,
+      "condition_text": "88-level values on ERR-ACTION: ERR-RETURN, ERR-CONTINUE, ERR-ABEND",
+      "fields": [
+        "ERR-ACTION"
+      ],
+      "is_88": true,
+      "field_name": "ERR-ACTION",
+      "values": [
+        "ERR-RETURN",
+        "ERR-CONTINUE",
+        "ERR-ABEND"
+      ],
+      "used_by": [
+        "INQONLN"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-INQCOM-FUNCTION",
+      "program_id": "INQHIST",
+      "paragraph": null,
+      "source_line": 5,
+      "condition_text": "88-level values on INQCOM-FUNCTION: INQCOM-MENU, INQCOM-PORTFOLIO, INQCOM-HISTORY, INQCOM-EXIT",
+      "fields": [
+        "INQCOM-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "INQCOM-FUNCTION",
+      "values": [
+        "INQCOM-MENU",
+        "INQCOM-PORTFOLIO",
+        "INQCOM-HISTORY",
+        "INQCOM-EXIT"
+      ],
+      "used_by": [
+        "INQHIST",
+        "INQHIST",
+        "INQONLN",
+        "INQONLN",
+        "INQPORT",
+        "INQPORT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-PREREQ-MET",
+      "program_id": "BCHCTL00",
+      "paragraph": null,
+      "source_line": 38,
+      "condition_text": "88-level values on WS-PREREQ-MET: PREREQS-SATISFIED, PREREQS-PENDING",
+      "fields": [
+        "WS-PREREQ-MET"
+      ],
+      "is_88": true,
+      "field_name": "WS-PREREQ-MET",
+      "values": [
+        "PREREQS-SATISFIED",
+        "PREREQS-PENDING"
+      ],
+      "used_by": [
+        "BCHCTL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-PROCESS-MODE",
+      "program_id": "BCHCTL00",
+      "paragraph": null,
+      "source_line": 41,
+      "condition_text": "88-level values on WS-PROCESS-MODE: MODE-INITIALIZE, MODE-CHECK-PREREQ, MODE-UPDATE-STATUS, MODE-FINALIZE",
+      "fields": [
+        "WS-PROCESS-MODE"
+      ],
+      "is_88": true,
+      "field_name": "WS-PROCESS-MODE",
+      "values": [
+        "MODE-INITIALIZE",
+        "MODE-CHECK-PREREQ",
+        "MODE-UPDATE-STATUS",
+        "MODE-FINALIZE"
+      ],
+      "used_by": [
+        "BCHCTL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "BCHCTL00",
+      "paragraph": null,
+      "source_line": 49,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-INIT, FUNC-CHEK, FUNC-UPDT, FUNC-TERM",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-INIT",
+        "FUNC-CHEK",
+        "FUNC-UPDT",
+        "FUNC-TERM"
+      ],
+      "used_by": [
+        "BCHCTL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-CURS-REQUEST-TYPE",
+      "program_id": "CURSMGR",
+      "paragraph": null,
+      "source_line": 29,
+      "condition_text": "88-level values on CURS-REQUEST-TYPE: CURS-DECLARE, CURS-OPEN, CURS-FETCH, CURS-CLOSE",
+      "fields": [
+        "CURS-REQUEST-TYPE"
+      ],
+      "is_88": true,
+      "field_name": "CURS-REQUEST-TYPE",
+      "values": [
+        "CURS-DECLARE",
+        "CURS-OPEN",
+        "CURS-FETCH",
+        "CURS-CLOSE"
+      ],
+      "used_by": [
+        "CURSMGR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-CURS-ARRAY-FETCH",
+      "program_id": "CURSMGR",
+      "paragraph": null,
+      "source_line": 36,
+      "condition_text": "88-level values on CURS-ARRAY-FETCH: USE-ARRAY-FETCH, NO-ARRAY-FETCH",
+      "fields": [
+        "CURS-ARRAY-FETCH"
+      ],
+      "is_88": true,
+      "field_name": "CURS-ARRAY-FETCH",
+      "values": [
+        "USE-ARRAY-FETCH",
+        "NO-ARRAY-FETCH"
+      ],
+      "used_by": [
+        "CURSMGR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "DB2CMT",
+      "paragraph": null,
+      "source_line": 34,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-INIT, FUNC-CMIT, FUNC-RBACK, FUNC-SAVE, FUNC-REST, FUNC-STAT",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-INIT",
+        "FUNC-CMIT",
+        "FUNC-RBACK",
+        "FUNC-SAVE",
+        "FUNC-REST",
+        "FUNC-STAT"
+      ],
+      "used_by": [
+        "DB2CMT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FORCE-FLAG",
+      "program_id": "DB2CMT",
+      "paragraph": null,
+      "source_line": 45,
+      "condition_text": "88-level values on LS-FORCE-FLAG: LS-FORCE-COMMIT",
+      "fields": [
+        "LS-FORCE-FLAG"
+      ],
+      "is_88": true,
+      "field_name": "LS-FORCE-FLAG",
+      "values": [
+        "LS-FORCE-COMMIT"
+      ],
+      "used_by": [
+        "DB2CMT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-CONNECTION-STATE",
+      "program_id": "DB2CONN",
+      "paragraph": null,
+      "source_line": 26,
+      "condition_text": "88-level values on WS-CONNECTION-STATE: WS-CONNECTED, WS-DISCONNECTED",
+      "fields": [
+        "WS-CONNECTION-STATE"
+      ],
+      "is_88": true,
+      "field_name": "WS-CONNECTION-STATE",
+      "values": [
+        "WS-CONNECTED",
+        "WS-DISCONNECTED"
+      ],
+      "used_by": [
+        "DB2CONN"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "DB2CONN",
+      "paragraph": null,
+      "source_line": 35,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-CONN, FUNC-DISC, FUNC-STAT",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-CONN",
+        "FUNC-DISC",
+        "FUNC-STAT"
+      ],
+      "used_by": [
+        "DB2CONN"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "DB2ERR",
+      "paragraph": null,
+      "source_line": 40,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-LOG, FUNC-DIAG, FUNC-RETR",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-LOG",
+        "FUNC-DIAG",
+        "FUNC-RETR"
+      ],
+      "used_by": [
+        "DB2ERR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-RETRY-FLAG",
+      "program_id": "DB2ERR",
+      "paragraph": null,
+      "source_line": 51,
+      "condition_text": "88-level values on LS-RETRY-FLAG: LS-SHOULD-RETRY, LS-NO-RETRY",
+      "fields": [
+        "LS-RETRY-FLAG"
+      ],
+      "is_88": true,
+      "field_name": "LS-RETRY-FLAG",
+      "values": [
+        "LS-SHOULD-RETRY",
+        "LS-NO-RETRY"
+      ],
+      "used_by": [
+        "DB2ERR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "DB2STAT",
+      "paragraph": null,
+      "source_line": 42,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-INIT, FUNC-UPDT, FUNC-TERM, FUNC-DISP",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-INIT",
+        "FUNC-UPDT",
+        "FUNC-TERM",
+        "FUNC-DISP"
+      ],
+      "used_by": [
+        "DB2STAT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-FILE-SW",
+      "program_id": "HISTLD00",
+      "paragraph": null,
+      "source_line": 62,
+      "condition_text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, MORE-RECORDS",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-FILE-SW",
+      "values": [
+        "END-OF-FILE",
+        "MORE-RECORDS"
+      ],
+      "used_by": [
+        "HISTLD00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-MORE-HISTORY",
+      "program_id": "INQHIST",
+      "paragraph": null,
+      "source_line": 30,
+      "condition_text": "88-level values on WS-MORE-HISTORY: MORE-ROWS, NO-MORE-ROWS",
+      "fields": [
+        "WS-MORE-HISTORY"
+      ],
+      "is_88": true,
+      "field_name": "WS-MORE-HISTORY",
+      "values": [
+        "MORE-ROWS",
+        "NO-MORE-ROWS"
+      ],
+      "used_by": [
+        "INQHIST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-RECV-STATUS",
+      "program_id": "INQHIST",
+      "paragraph": null,
+      "source_line": 60,
+      "condition_text": "88-level values on RECV-STATUS: RECV-SUCCESS, RECV-FAILED, RECV-RETRY",
+      "fields": [
+        "RECV-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "RECV-STATUS",
+      "values": [
+        "RECV-SUCCESS",
+        "RECV-FAILED",
+        "RECV-RETRY"
+      ],
+      "used_by": [
+        "INQHIST"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-SESSION",
+      "program_id": "INQONLN",
+      "paragraph": null,
+      "source_line": 19,
+      "condition_text": "88-level values on WS-END-OF-SESSION: SESSION-ACTIVE, SESSION-TERMINATED",
+      "fields": [
+        "WS-END-OF-SESSION"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-SESSION",
+      "values": [
+        "SESSION-ACTIVE",
+        "SESSION-TERMINATED"
+      ],
+      "used_by": [
+        "INQONLN"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-POSITION-FOUND",
+      "program_id": "INQPORT",
+      "paragraph": null,
+      "source_line": 25,
+      "condition_text": "88-level values on WS-POSITION-FOUND: POSITION-EXISTS, NO-POSITION",
+      "fields": [
+        "WS-POSITION-FOUND"
+      ],
+      "is_88": true,
+      "field_name": "WS-POSITION-FOUND",
+      "values": [
+        "POSITION-EXISTS",
+        "NO-POSITION"
+      ],
+      "used_by": [
+        "INQPORT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-FILE-STATUS",
+      "program_id": "PORTADD",
+      "paragraph": null,
+      "source_line": 52,
+      "condition_text": "88-level values on WS-FILE-STATUS: WS-SUCCESS-STATUS, WS-DUP-STATUS, WS-EOF-STATUS",
+      "fields": [
+        "WS-FILE-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-FILE-STATUS",
+      "values": [
+        "WS-SUCCESS-STATUS",
+        "WS-DUP-STATUS",
+        "WS-EOF-STATUS"
+      ],
+      "used_by": [
+        "PORTADD"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-INPUT-STATUS",
+      "program_id": "PORTADD",
+      "paragraph": null,
+      "source_line": 57,
+      "condition_text": "88-level values on WS-INPUT-STATUS: WS-INPUT-SUCCESS, WS-INPUT-EOF",
+      "fields": [
+        "WS-INPUT-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-INPUT-STATUS",
+      "values": [
+        "WS-INPUT-SUCCESS",
+        "WS-INPUT-EOF"
+      ],
+      "used_by": [
+        "PORTADD"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-FILE-SW",
+      "program_id": "PORTADD",
+      "paragraph": null,
+      "source_line": 61,
+      "condition_text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, NOT-END-OF-FILE",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-FILE-SW",
+      "values": [
+        "END-OF-FILE",
+        "NOT-END-OF-FILE"
+      ],
+      "used_by": [
+        "PORTADD"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-PORT-STATUS",
+      "program_id": "PORTMSTR",
+      "paragraph": null,
+      "source_line": 52,
+      "condition_text": "88-level values on WS-PORT-STATUS: PORT-SUCCESS, PORT-EOF, PORT-NOT-FOUND, PORT-DUP-KEY",
+      "fields": [
+        "WS-PORT-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-PORT-STATUS",
+      "values": [
+        "PORT-SUCCESS",
+        "PORT-EOF",
+        "PORT-NOT-FOUND",
+        "PORT-DUP-KEY"
+      ],
+      "used_by": [
+        "PORTMSTR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-VALID-STATUS",
+      "program_id": "PORTMSTR",
+      "paragraph": null,
+      "source_line": 58,
+      "condition_text": "88-level values on WS-VALID-STATUS: VALID-STATUS",
+      "fields": [
+        "WS-VALID-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-VALID-STATUS",
+      "values": [
+        "VALID-STATUS"
+      ],
+      "used_by": [
+        "PORTMSTR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-FILE-SW",
+      "program_id": "PORTMSTR",
+      "paragraph": null,
+      "source_line": 61,
+      "condition_text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, NOT-END-OF-FILE",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-FILE-SW",
+      "values": [
+        "END-OF-FILE",
+        "NOT-END-OF-FILE"
+      ],
+      "used_by": [
+        "PORTMSTR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-COMMAND",
+      "program_id": "PORTMSTR",
+      "paragraph": null,
+      "source_line": 74,
+      "condition_text": "88-level values on LS-COMMAND: CREATE-PORT, READ-PORT, UPDATE-PORT, DELETE-PORT",
+      "fields": [
+        "LS-COMMAND"
+      ],
+      "is_88": true,
+      "field_name": "LS-COMMAND",
+      "values": [
+        "CREATE-PORT",
+        "READ-PORT",
+        "UPDATE-PORT",
+        "DELETE-PORT"
+      ],
+      "used_by": [
+        "PORTMSTR"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-FILE-STATUS",
+      "program_id": "PORTREAD",
+      "paragraph": null,
+      "source_line": 44,
+      "condition_text": "88-level values on WS-FILE-STATUS: WS-SUCCESS-STATUS, WS-EOF-STATUS, WS-REC-NOT-FND",
+      "fields": [
+        "WS-FILE-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-FILE-STATUS",
+      "values": [
+        "WS-SUCCESS-STATUS",
+        "WS-EOF-STATUS",
+        "WS-REC-NOT-FND"
+      ],
+      "used_by": [
+        "PORTREAD"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-FILE-SW",
+      "program_id": "PORTREAD",
+      "paragraph": null,
+      "source_line": 49,
+      "condition_text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, NOT-END-OF-FILE",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-FILE-SW",
+      "values": [
+        "END-OF-FILE",
+        "NOT-END-OF-FILE"
+      ],
+      "used_by": [
+        "PORTREAD"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-FILE-STATUS",
+      "program_id": "PORTUPDT",
+      "paragraph": null,
+      "source_line": 60,
+      "condition_text": "88-level values on WS-FILE-STATUS: WS-SUCCESS-STATUS, WS-EOF-STATUS, WS-REC-NOT-FND",
+      "fields": [
+        "WS-FILE-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-FILE-STATUS",
+      "values": [
+        "WS-SUCCESS-STATUS",
+        "WS-EOF-STATUS",
+        "WS-REC-NOT-FND"
+      ],
+      "used_by": [
+        "PORTUPDT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-UPDT-STATUS",
+      "program_id": "PORTUPDT",
+      "paragraph": null,
+      "source_line": 65,
+      "condition_text": "88-level values on WS-UPDT-STATUS: WS-UPDT-SUCCESS, WS-UPDT-EOF",
+      "fields": [
+        "WS-UPDT-STATUS"
+      ],
+      "is_88": true,
+      "field_name": "WS-UPDT-STATUS",
+      "values": [
+        "WS-UPDT-SUCCESS",
+        "WS-UPDT-EOF"
+      ],
+      "used_by": [
+        "PORTUPDT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-FILE-SW",
+      "program_id": "PORTUPDT",
+      "paragraph": null,
+      "source_line": 69,
+      "condition_text": "88-level values on WS-END-OF-FILE-SW: END-OF-FILE, NOT-END-OF-FILE",
+      "fields": [
+        "WS-END-OF-FILE-SW"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-FILE-SW",
+      "values": [
+        "END-OF-FILE",
+        "NOT-END-OF-FILE"
+      ],
+      "used_by": [
+        "PORTUPDT"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-LS-FUNCTION",
+      "program_id": "PRCSEQ00",
+      "paragraph": null,
+      "source_line": 64,
+      "condition_text": "88-level values on LS-FUNCTION: FUNC-INIT, FUNC-NEXT, FUNC-STAT, FUNC-TERM",
+      "fields": [
+        "LS-FUNCTION"
+      ],
+      "is_88": true,
+      "field_name": "LS-FUNCTION",
+      "values": [
+        "FUNC-INIT",
+        "FUNC-NEXT",
+        "FUNC-STAT",
+        "FUNC-TERM"
+      ],
+      "used_by": [
+        "PRCSEQ00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-TESTS",
+      "program_id": "TSTVAL00",
+      "paragraph": null,
+      "source_line": 83,
+      "condition_text": "88-level values on WS-END-OF-TESTS: END-OF-TESTS",
+      "fields": [
+        "WS-END-OF-TESTS"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-TESTS",
+      "values": [
+        "END-OF-TESTS"
+      ],
+      "used_by": [
+        "TSTVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-TEST-PASSED",
+      "program_id": "TSTVAL00",
+      "paragraph": null,
+      "source_line": 85,
+      "condition_text": "88-level values on WS-TEST-PASSED: TEST-PASSED",
+      "fields": [
+        "WS-TEST-PASSED"
+      ],
+      "is_88": true,
+      "field_name": "WS-TEST-PASSED",
+      "values": [
+        "TEST-PASSED"
+      ],
+      "used_by": [
+        "TSTVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-END-OF-VAL",
+      "program_id": "UTLVAL00",
+      "paragraph": null,
+      "source_line": 76,
+      "condition_text": "88-level values on WS-END-OF-VAL: END-OF-VALIDATION",
+      "fields": [
+        "WS-END-OF-VAL"
+      ],
+      "is_88": true,
+      "field_name": "WS-END-OF-VAL",
+      "values": [
+        "END-OF-VALIDATION"
+      ],
+      "used_by": [
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    },
+    {
+      "condition_id": "COND88-WS-ERROR-FOUND",
+      "program_id": "UTLVAL00",
+      "paragraph": null,
+      "source_line": 78,
+      "condition_text": "88-level values on WS-ERROR-FOUND: ERROR-FOUND",
+      "fields": [
+        "WS-ERROR-FOUND"
+      ],
+      "is_88": true,
+      "field_name": "WS-ERROR-FOUND",
+      "values": [
+        "ERROR-FOUND"
+      ],
+      "used_by": [
+        "UTLVAL00"
+      ],
+      "category": "VALIDATION",
+      "structural_pattern": "CONDITION_NAME",
+      "signal_strength": 5,
+      "signal_label": "certain"
+    }
+  ],
+  "by_category": {
+    "VALIDATION": 107,
+    "ERROR_HANDLING": 76,
+    "COMPLIANCE": 2,
+    "ROUTING": 9,
+    "LIMIT_CHECK": 2
+  }
+}

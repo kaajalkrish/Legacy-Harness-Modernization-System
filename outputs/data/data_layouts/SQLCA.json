@@ -1,0 +1,101 @@
+{
+  "copybook": "SQLCA",
+  "used_by": [
+    "HISTLD00",
+    "DB2CMT",
+    "DB2CONN",
+    "DB2ERR",
+    "DB2STAT"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "SQL-STATUS-CODES",
+      "line": 8,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "SQL-SUCCESS",
+          "line": 9,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'00000'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-NOT-FOUND",
+          "line": 10,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'02000'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DUP-KEY",
+          "line": 11,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'23505'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DEADLOCK",
+          "line": 12,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'40001'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-TIMEOUT",
+          "line": 13,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'40003'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-CONNECTION-ERROR",
+          "line": 14,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'08001'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SQL-DB-ERROR",
+          "line": 15,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'58004'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

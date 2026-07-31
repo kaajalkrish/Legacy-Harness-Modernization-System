@@ -1,0 +1,184 @@
+{
+  "program": "PORTREAD",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-CONSTANTS",
+      "line": 38,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-PROGRAM-NAME",
+          "line": 39,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PORTREAD '",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-SUCCESS",
+          "line": 40,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERROR",
+          "line": 41,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+8",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-SWITCHES",
+      "line": 43,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-FILE-STATUS",
+          "line": 44,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-SUCCESS-STATUS",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-EOF-STATUS",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-REC-NOT-FND",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'23'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-END-OF-FILE-SW",
+          "line": 49,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-FILE",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NOT-END-OF-FILE",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-WORK-AREAS",
+      "line": 56,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RECORD-COUNT",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "9(7)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RETURN-CODE",
+          "line": 58,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "PORTFOLIO-FILE",
+      "line": 31,
+      "end_line": 33,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

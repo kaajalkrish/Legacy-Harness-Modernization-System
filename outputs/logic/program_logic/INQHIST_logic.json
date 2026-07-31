@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "program_id": "INQHIST",
+    "source_file": "input/src_sample/programs/online/INQHIST.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "INQHIST is an online CICS program that handles a Transaction History Inquiry. It first connects to DB2 through a helper program (DB2ONLN); if the connect fails it invokes a recovery helper (DB2RECV) and retries. It then builds a SQL SELECT of the last transactions for the account (from the POSHIST table, newest first) and runs it through a cursor manager helper (CURSMGR) using a declare -> open -> fetch -> close sequence, loading up to 10 history rows into a working table. Finally it sends the formatted history to the user's screen via CICS map HISMAP (mapset INQSET). Errors route to an error routine that returns the SQLCODE to the caller. Error conditions handled: DB2 connect failure (with recovery + retry) and general CICS errors.",
+  "paragraphs": [
+    {
+      "name": "MAINLINE",
+      "line_range": [69, 79],
+      "pseudocode": "-- Program driver\nCALL P100-INIT-PROGRAM      -- set up + connect to DB2\nCALL P200-GET-HISTORY       -- run the cursor and fetch rows\nCALL P300-FORMAT-DISPLAY    -- show history on screen\nCICS RETURN TO caller",
+      "branches": [],
+      "calls_made": ["P100-INIT-PROGRAM", "P200-GET-HISTORY", "P300-FORMAT-DISPLAY"],
+      "field_references": [],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Unnamed mainline is the true entry driver."
+    },
+    {
+      "name": "P100-INIT-PROGRAM",
+      "line_range": [81, 93],
+      "pseudocode": "SET WS-COMMAREA = DFHCOMMAREA   -- copy caller's comm-area in\nCLEAR WS-ROW-COUNT              -- MOVE ZEROS\nSET NO-MORE-ROWS = true\nCICS HANDLE CONDITION: on ERROR -> jump to P999-ERROR-ROUTINE\nCALL P150-DB2-CONNECT",
+      "branches": ["CICS HANDLE CONDITION: ERROR -> P999-ERROR-ROUTINE"],
+      "calls_made": ["P150-DB2-CONNECT", "P999-ERROR-ROUTINE"],
+      "field_references": ["WS-COMMAREA", "DFHCOMMAREA", "WS-ROW-COUNT", "WS-MORE-HISTORY"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {"name": "P100-EXIT", "line_range": [92, 93], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P150-DB2-CONNECT",
+      "line_range": [95, 127],
+      "pseudocode": "SET DB2-REQUEST-TYPE = 'C'   -- 'C' = connect\nCICS LINK PROGRAM DB2ONLN  PASSING: WS-DB2-REQUEST\nIF DB2-RESPONSE-CODE <> 0 THEN            -- connect failed\n  SET RECV-REQUEST-TYPE = 'C'\n  SET RECV-PROGRAM = 'INQHIST'\n  SET RECV-SQLCODE = DB2-SQLCODE\n  CICS LINK PROGRAM DB2RECV  PASSING: WS-RECOVERY-REQUEST   -- attempt recovery\n  IF RECV-SUCCESS THEN\n    CALL P150-DB2-CONNECT      -- retry the connect (recursion)\n  ELSE\n    SET inqcom_error_msg = RECV-MESSAGE\n    CALL P999-ERROR-ROUTINE\n  END IF\nEND IF\nSET WS-DB2-TOKEN = DB2-CONNECTION-TOKEN",
+      "branches": ["IF DB2-RESPONSE-CODE <> 0 (connect failed)", "IF RECV-SUCCESS -> retry connect else -> error"],
+      "calls_made": ["DB2ONLN", "DB2RECV", "P150-DB2-CONNECT", "P999-ERROR-ROUTINE"],
+      "field_references": ["DB2-REQUEST-TYPE", "DB2-RESPONSE-CODE", "DB2-SQLCODE", "RECV-REQUEST-TYPE", "RECV-PROGRAM", "RECV-SQLCODE", "RECV-STATUS", "DB2-CONNECTION-TOKEN"],
+      "complexity_score": 6,
+      "ambiguous": true,
+      "annotations": [
+        {"line": 114, "note": "Recursive self-PERFORM on recovery success — a retry with no visible attempt limit; risk of unbounded retry if recovery keeps 'succeeding' but connect keeps failing (POTENTIAL_INFINITE_LOOP)."},
+        {"line": 124, "note": "WS-DB2-TOKEN is not declared anywhere in this program's WORKING-STORAGE — likely defined in a copybook or is a defect; flagged for SME review."}
+      ],
+      "notes": "Connect-with-recovery-and-retry. Marked ambiguous due to the undeclared WS-DB2-TOKEN target."
+    },
+    {"name": "P150-EXIT", "line_range": [126, 127], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P200-GET-HISTORY",
+      "line_range": [129, 162],
+      "pseudocode": "SET CURS-STMT = \"SELECT trans_date, trans_type, trans_units, trans_price, trans_amount FROM POSHIST WHERE account_no = ? ORDER BY trans_date DESC\"\nSET CURS-REQUEST-TYPE = 'D'   -- 'D' = declare cursor\nCICS LINK PROGRAM CURSMGR  PASSING: WS-CURSOR-REQUEST\nIF CURS-RESPONSE-CODE = 0 THEN\n  SET CURS-REQUEST-TYPE = 'O'   -- 'O' = open cursor\n  CICS LINK PROGRAM CURSMGR\n  IF CURS-RESPONSE-CODE = 0 THEN\n    CALL P250-FETCH-HISTORY\n  END IF\nEND IF\nSET CURS-REQUEST-TYPE = 'C'     -- 'C' = close cursor\nCICS LINK PROGRAM CURSMGR",
+      "branches": ["IF declare ok -> open", "IF open ok -> fetch"],
+      "calls_made": ["CURSMGR", "P250-FETCH-HISTORY"],
+      "field_references": ["CURS-STMT", "CURS-REQUEST-TYPE", "CURS-RESPONSE-CODE"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 130, "note": "The SQL is built as text and handed to CURSMGR (a generic cursor manager) rather than run inline via EXEC SQL — an indirection layer over DB2. The '?' is a host-variable placeholder for the account number."}
+      ],
+      "notes": "Classic declare -> open -> fetch -> close cursor lifecycle, each step delegated to CURSMGR."
+    },
+    {"name": "P200-EXIT", "line_range": [161, 162], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P250-FETCH-HISTORY",
+      "line_range": [164, 175],
+      "pseudocode": "SET CURS-REQUEST-TYPE = 'F'   -- 'F' = fetch (array fetch of up to 10 rows)\nCICS LINK PROGRAM CURSMGR\nIF CURS-RESPONSE-CODE >= 0 THEN\n  SET WS-HISTORY-TABLE = CURS-DATA-AREA   -- copy the returned rows into the 10-row history table\nEND IF",
+      "branches": ["IF fetch response >= 0 -> load rows"],
+      "calls_made": ["CURSMGR"],
+      "field_references": ["CURS-REQUEST-TYPE", "CURS-RESPONSE-CODE", "CURS-DATA-AREA", "WS-HISTORY-TABLE"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 172, "note": "The raw data area (CURS-DATA-AREA, 3000 bytes) is bulk-moved onto WS-HISTORY-TABLE (10 x fixed rows) — the layouts must match exactly; a mismatch would silently corrupt the display."}
+      ],
+      "notes": ""
+    },
+    {"name": "P250-EXIT", "line_range": [174, 175], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P300-FORMAT-DISPLAY",
+      "line_range": [177, 186],
+      "pseudocode": "CICS SEND MAP HISMAP (mapset INQSET)\n  FROM: WS-HISTORY-TABLE\n  ERASE the screen first\n  RESPONSE CODE -> ws_response_code\n-- sends the history rows to the user's screen",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-HISTORY-TABLE", "WS-RESPONSE-CODE"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {"name": "P300-EXIT", "line_range": [185, 186], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""},
+    {
+      "name": "P999-ERROR-ROUTINE",
+      "line_range": [188, 192],
+      "pseudocode": "SET inqcom_response_code (in WS-COMMAREA) = SQLCODE   -- return the DB2 SQLCODE to the caller\nSET DFHCOMMAREA = WS-COMMAREA",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["INQCOM-RESPONSE-CODE", "WS-COMMAREA", "DFHCOMMAREA"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 189, "note": "References SQLCODE directly (the DB2 host status field from SQLCA), not WS-RESPONSE-CODE."}
+      ],
+      "notes": "Reached via the ERROR HANDLE CONDITION registered in P100."
+    },
+    {"name": "P999-EXIT", "line_range": [192, 193], "pseudocode": "EXIT paragraph", "branches": [], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": ""}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

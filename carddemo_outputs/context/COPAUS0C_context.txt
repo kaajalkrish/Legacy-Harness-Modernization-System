@@ -1,0 +1,59 @@
+# System Context: COPAUS0C
+## 📝 Summary
+COPAUS0C is a online-type COBOL program, entered at MAIN-PARA, with 20 paragraph(s) across 0 section(s), sharing 14 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COPAUS0C
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COPAU00
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CSMSG02Y
+- CVACT01Y
+- CVACT02Y
+- CVACT03Y
+- CVCUS01Y
+- CIPAUSMY
+- CIPAUDTY
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 27 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 4 sub-field(s))
+- 01 WS-SWITCHES (group item, 8 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 3 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 20 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- GATHER-DETAILS
+- PROCESS-PF7-KEY
+- PROCESS-PF8-KEY
+- PROCESS-PAGE-FORWARD
+- GET-AUTHORIZATIONS
+- REPOSITION-AUTHORIZATIONS
+- POPULATE-AUTH-LIST
+- INITIALIZE-AUTH-DATA
+- RETURN-TO-PREV-SCREEN
+- SEND-PAULST-SCREEN
+- RECEIVE-PAULST-SCREEN
+- POPULATE-HEADER-INFO
+- GATHER-ACCOUNT-DETAILS
+- GETCARDXREF-BYACCT
+- GETACCTDATA-BYACCT
+- GETCUSTDATA-BYCUST
+- GET-AUTH-SUMMARY
+- SCHEDULE-PSB

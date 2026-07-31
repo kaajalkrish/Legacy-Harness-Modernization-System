@@ -1,0 +1,1289 @@
+{
+  "program": "CBPAUP0C",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-VARIABLES",
+      "line": 41,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-PGMNAME",
+          "line": 42,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'CBPAUP0C'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURRENT-DATE",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": "9(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURRENT-YYDDD",
+          "line": 44,
+          "section": "WORKING-STORAGE",
+          "pic": "9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-AUTH-DATE",
+          "line": 45,
+          "section": "WORKING-STORAGE",
+          "pic": "9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-EXPIRY-DAYS",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-DAY-DIFF",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "IDX",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CURR-APP-ID",
+          "line": 49,
+          "section": "WORKING-STORAGE",
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NO-CHKP",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-AUTH-SMRY-PROC-CNT",
+          "line": 52,
+          "section": "WORKING-STORAGE",
+          "pic": "9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TOT-REC-WRITTEN",
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NO-SUMRY-READ",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NO-SUMRY-DELETED",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NO-DTL-READ",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-NO-DTL-DELETED",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERR-FLG",
+          "line": 59,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "ERR-FLG-ON",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-FLG-OFF",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-END-OF-AUTHDB-FLAG",
+          "line": 62,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-AUTHDB",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NOT-END-OF-AUTHDB",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-MORE-AUTHS-FLAG",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "MORE-AUTHS",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NO-MORE-AUTHS",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-QUALIFY-DELETE-FLAG",
+          "line": 68,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "QUALIFIED-FOR-DELETE",
+              "line": 69,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NOT-QUALIFIED-FOR-DELETE",
+              "line": 70,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-INFILE-STATUS",
+          "line": 71,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CUSTID-STATUS",
+          "line": 72,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-FILE",
+              "line": 73,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WK-CHKPT-ID",
+          "line": 75,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 76,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'RMAD'",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WK-CHKPT-ID-CTR",
+              "line": 77,
+              "section": "WORKING-STORAGE",
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-IMS-VARIABLES",
+      "line": 79,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PSB-NAME",
+          "line": 80,
+          "section": "WORKING-STORAGE",
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PSBPAUTB'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PCB-OFFSET",
+          "line": 81,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PAUT-PCB-NUM",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+2",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "IMS-RETURN-CODE",
+          "line": 83,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "STATUS-OK",
+              "line": 84,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'  ', 'FW'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "SEGMENT-NOT-FOUND",
+              "line": 85,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'GE'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "DUPLICATE-SEGMENT-FOUND",
+              "line": 86,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'II'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WRONG-PARENTAGE",
+              "line": 87,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'GP'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "END-OF-DB",
+              "line": 88,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'GB'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "DATABASE-UNAVAILABLE",
+              "line": 89,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'BA'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "PSB-SCHEDULED-MORE-THAN-ONCE",
+              "line": 90,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'TC'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "COULD-NOT-SCHEDULE-PSB",
+              "line": 91,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'TE'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RETRY-CONDITION",
+              "line": 92,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'BA', 'FH', 'TE'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-IMS-PSB-SCHD-FLG",
+          "line": 93,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "IMS-PSB-SCHD",
+              "line": 94,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "IMS-PSB-NOT-SCHD",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "PRM-INFO",
+      "line": 98,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "P-EXPIRY-DAYS",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": "9(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "P-CHKP-FREQ",
+          "line": 101,
+          "section": "WORKING-STORAGE",
+          "pic": "X(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 102,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "P-CHKP-DIS-FREQ",
+          "line": 103,
+          "section": "WORKING-STORAGE",
+          "pic": "X(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 104,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "P-DEBUG-FLAG",
+          "line": 105,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "DEBUG-ON",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "DEBUG-OFF",
+              "line": 107,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 108,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "PENDING-AUTH-SUMMARY",
+      "line": 116,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PA-ACCT-ID",
+          "line": 19,
+          "pic": "S9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CUST-ID",
+          "line": 20,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-STATUS",
+          "line": 21,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-ACCOUNT-STATUS",
+          "line": 22,
+          "pic": "X(02)",
+          "occurs": 5,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CREDIT-LIMIT",
+          "line": 23,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CASH-LIMIT",
+          "line": 24,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CREDIT-BALANCE",
+          "line": 25,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CASH-BALANCE",
+          "line": 26,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-APPROVED-AUTH-CNT",
+          "line": 27,
+          "pic": "S9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-DECLINED-AUTH-CNT",
+          "line": 28,
+          "pic": "S9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-APPROVED-AUTH-AMT",
+          "line": 29,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-DECLINED-AUTH-AMT",
+          "line": 30,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 31,
+          "pic": "X(34)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "PENDING-AUTH-DETAILS",
+      "line": 120,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PA-AUTHORIZATION-KEY",
+          "line": 19,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PA-AUTH-DATE-9C",
+              "line": 20,
+              "pic": "S9(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PA-AUTH-TIME-9C",
+              "line": 21,
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-ORIG-DATE",
+          "line": 22,
+          "pic": "X(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-ORIG-TIME",
+          "line": 23,
+          "pic": "X(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CARD-NUM",
+          "line": 24,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-TYPE",
+          "line": 25,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-CARD-EXPIRY-DATE",
+          "line": 26,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MESSAGE-TYPE",
+          "line": 27,
+          "pic": "X(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MESSAGE-SOURCE",
+          "line": 28,
+          "pic": "X(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-ID-CODE",
+          "line": 29,
+          "pic": "X(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-RESP-CODE",
+          "line": 30,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "PA-AUTH-APPROVED",
+              "line": 31,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-RESP-REASON",
+          "line": 32,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-PROCESSING-CODE",
+          "line": 33,
+          "pic": "9(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-TRANSACTION-AMT",
+          "line": 34,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-APPROVED-AMT",
+          "line": 35,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-CATAGORY-CODE",
+          "line": 36,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-ACQR-COUNTRY-CODE",
+          "line": 37,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-POS-ENTRY-MODE",
+          "line": 38,
+          "pic": "9(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-ID",
+          "line": 39,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-NAME",
+          "line": 40,
+          "pic": "X(22)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-CITY",
+          "line": 41,
+          "pic": "X(13)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-STATE",
+          "line": 42,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MERCHANT-ZIP",
+          "line": 43,
+          "pic": "X(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-TRANSACTION-ID",
+          "line": 44,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PA-MATCH-STATUS",
+          "line": 45,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "PA-MATCH-PENDING",
+              "line": 46,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'P'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "PA-MATCH-AUTH-DECLINED",
+              "line": 47,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "PA-MATCH-PENDING-EXPIRED",
+              "line": 48,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'E'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "PA-MATCHED-WITH-TRAN",
+              "line": 49,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'M'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PA-AUTH-FRAUD",
+          "line": 50,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "PA-FRAUD-CONFIRMED",
+              "line": 51,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'F'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "PA-FRAUD-REMOVED",
+              "line": 52,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PA-FRAUD-RPT-DATE",
+          "line": 53,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 54,
+          "pic": "X(17)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "IO-PCB-MASK",
+      "line": 128,
+      "section": "LINKAGE",
+      "pic": "X",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "PGM-PCB-MASK",
+      "line": 129,
+      "section": "LINKAGE",
+      "pic": "X",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    }
+  ]
+}

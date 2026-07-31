@@ -1,0 +1,213 @@
+{
+  "copybook": "ERRHND",
+  "used_by": [
+    "DB2ONLN",
+    "DB2RECV",
+    "INQONLN",
+    "SECMGR"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "ERROR-HANDLING",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-PROGRAM",
+          "line": 5,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-PARAGRAPH",
+          "line": 6,
+          "pic": "X(30)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SQLCODE",
+          "line": 7,
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CICS-RESP",
+          "line": 8,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CICS-RESP2",
+          "line": 9,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SEVERITY",
+          "line": 10,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "ERR-FATAL",
+              "line": 11,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'F'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-WARNING",
+              "line": 12,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'W'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-INFO",
+              "line": 13,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'I'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ERR-MESSAGE",
+          "line": 14,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-ACTION",
+          "line": 15,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "ERR-RETURN",
+              "line": 16,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-CONTINUE",
+              "line": 17,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-ABEND",
+              "line": 18,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ERR-TRACE",
+          "line": 19,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ERR-TRACE-ID",
+              "line": 20,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ERR-TIMESTAMP",
+              "line": 21,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

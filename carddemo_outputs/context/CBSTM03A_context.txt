@@ -1,0 +1,78 @@
+# System Context: CBSTM03A
+## 📝 Summary
+CBSTM03A is a batch-type COBOL program, entered at 0000-START, with 25 paragraph(s) across 0 section(s), calling 14 other program(s), reading/writing 2 data file(s), sharing 4 copybook(s). It defines 15 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBSTM03A
+- **Source Path**: app/cbl/CBSTM03A.CBL
+- **Main Entry Point**: 0000-START
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- STMT-FILE
+- HTML-FILE
+### 📚 Shared Logic (Copybooks)
+- COSTM01
+- CVACT03Y
+- CUSTREC
+- CVACT01Y
+### 🔗 Execution Flow (Calls)
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CBSTM03B
+- CEE3ABD
+## Key Data Structures
+- COPY COSTM01 (external structure, expanded via copybook)
+- COPY CVACT03Y (external structure, expanded via copybook)
+- COPY CUSTREC (external structure, expanded via copybook)
+- COPY CVACT01Y (external structure, expanded via copybook)
+- 01 COMP-VARIABLES (group item, 4 sub-field(s))
+- 01 COMP3-VARIABLES (group item, 1 sub-field(s))
+- 01 MISC-VARIABLES (group item, 4 sub-field(s))
+- 01 WS-M03B-AREA (group item, 6 sub-field(s))
+- 01 STATEMENT-LINES (group item, 17 sub-field(s))
+- 01 HTML-LINES (group item, 6 sub-field(s))
+- 01 WS-TRNX-TABLE (group item, 1 sub-field(s))
+- 01 WS-TRN-TBL-CNTR (group item, 1 sub-field(s))
+- 01 PSAPTR (group item, 0 sub-field(s))
+- 01 BUMP-TIOT PIC S9(08)
+- 01 TIOT-INDEX (group item, 0 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-START
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 25 / 0
+- **Terminal Statements**: GOBACK (line 314), GOBACK (line 341), GOBACK (line 342)
+- **Paragraph List**:
+- 0000-START
+- 1000-MAINLINE
+- 9999-GOBACK
+- 1000-XREFFILE-GET-NEXT
+- 2000-CUSTFILE-GET
+- 3000-ACCTFILE-GET
+- 4000-TRNXFILE-GET
+- 5000-CREATE-STATEMENT
+- 5100-WRITE-HTML-HEADER
+- 5100-EXIT
+- 5200-WRITE-HTML-NMADBS
+- 5200-EXIT
+- 6000-WRITE-TRANS
+- 8100-FILE-OPEN
+- 8100-TRNXFILE-OPEN
+- 8200-XREFFILE-OPEN
+- 8300-CUSTFILE-OPEN
+- 8400-ACCTFILE-OPEN
+- 8500-READTRNX-READ
+- 8599-EXIT
+- 9100-TRNXFILE-CLOSE
+- 9200-XREFFILE-CLOSE
+- 9300-CUSTFILE-CLOSE
+- 9400-ACCTFILE-CLOSE
+- 9999-ABEND-PROGRAM

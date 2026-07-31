@@ -1,0 +1,692 @@
+{
+  "program": "INQHIST",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-COMMAREA",
+      "line": 14,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 1,
+          "name": "INQCOM-AREA",
+          "line": 4,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "INQCOM-FUNCTION",
+              "line": 5,
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INQCOM-MENU",
+                  "line": 6,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'MENU'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-PORTFOLIO",
+                  "line": 7,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQP'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-HISTORY",
+                  "line": 8,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQH'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-EXIT",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'EXIT'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ACCOUNT-NO",
+              "line": 10,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-RESPONSE-CODE",
+              "line": 11,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ERROR-MSG",
+              "line": 12,
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-DB2-AREA",
+      "line": 17,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-HISTORY-TABLE",
+      "line": 20,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-HISTORY-ENTRY",
+          "line": 21,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": 10,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-TRANS-DATE",
+              "line": 22,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TRANS-TYPE",
+              "line": 23,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TRANS-UNITS",
+              "line": 24,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TRANS-PRICE",
+              "line": 25,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TRANS-AMOUNT",
+              "line": 26,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-FLAGS",
+      "line": 28,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RESPONSE-CODE",
+          "line": 29,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-MORE-HISTORY",
+          "line": 30,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "MORE-ROWS",
+              "line": 31,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NO-MORE-ROWS",
+              "line": 32,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-ROW-COUNT",
+          "line": 33,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-DB2-REQUEST",
+      "line": 35,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "DB2-REQUEST-TYPE",
+          "line": 36,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-RESPONSE-CODE",
+          "line": 37,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-CONNECTION-TOKEN",
+          "line": 38,
+          "section": "WORKING-STORAGE",
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-ERROR-INFO",
+          "line": 39,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "DB2-SQLCODE",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-ERROR-MSG",
+              "line": 41,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-CURSOR-REQUEST",
+      "line": 43,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CURS-REQUEST-TYPE",
+          "line": 44,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-NAME",
+          "line": 45,
+          "section": "WORKING-STORAGE",
+          "pic": "X(18)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'HISTORY_CURSOR'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-STMT",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": "X(240)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-ARRAY-FETCH",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Y'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-RESPONSE-CODE",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-DATA-AREA",
+          "line": 49,
+          "section": "WORKING-STORAGE",
+          "pic": "X(3000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURS-DATA-LENGTH",
+          "line": 50,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-RECOVERY-REQUEST",
+      "line": 52,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "RECV-REQUEST-TYPE",
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RECV-RESPONSE-CODE",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RECV-SQLCODE",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RECV-ERROR-INFO",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RECV-PROGRAM",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RECV-CURSOR",
+              "line": 58,
+              "section": "WORKING-STORAGE",
+              "pic": "X(18)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RECV-MESSAGE",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RECV-STATUS",
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "RECV-SUCCESS",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RECV-FAILED",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'F'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RECV-RETRY",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DFHCOMMAREA",
+      "line": 66,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 1,
+          "name": "INQCOM-AREA",
+          "line": 4,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "INQCOM-FUNCTION",
+              "line": 5,
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INQCOM-MENU",
+                  "line": 6,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'MENU'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-PORTFOLIO",
+                  "line": 7,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQP'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-HISTORY",
+                  "line": 8,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQH'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-EXIT",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'EXIT'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ACCOUNT-NO",
+              "line": 10,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-RESPONSE-CODE",
+              "line": 11,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ERROR-MSG",
+              "line": 12,
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

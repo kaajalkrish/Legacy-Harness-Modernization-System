@@ -1,0 +1,509 @@
+{
+  "copybook": "CVTRA07Y",
+  "used_by": [
+    "CBTRN03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "REPORT-NAME-HEADER",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "REPT-SHORT-NAME",
+          "line": 5,
+          "pic": "X(38)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'DALYREPT'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-LONG-NAME",
+          "line": 7,
+          "pic": "X(41)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Daily Transaction Report'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-DATE-HEADER",
+          "line": 9,
+          "pic": "X(12)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Date Range: '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-START-DATE",
+          "line": 11,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 12,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "' to '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-END-DATE",
+          "line": 13,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TRANSACTION-DETAIL-REPORT",
+      "line": 15,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-TRANS-ID",
+          "line": 16,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 17,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-ACCOUNT-ID",
+          "line": 18,
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 19,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-TYPE-CD",
+          "line": 20,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 21,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'-'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-TYPE-DESC",
+          "line": 22,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 23,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-CAT-CD",
+          "line": 24,
+          "pic": "9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 25,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'-'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-CAT-DESC",
+          "line": 26,
+          "pic": "X(29)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 27,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-SOURCE",
+          "line": 28,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 29,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-REPORT-AMT",
+          "line": 30,
+          "pic": "-ZZZ,ZZZ,ZZZ.ZZ",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 31,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TRANSACTION-HEADER-1",
+      "line": 33,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 34,
+          "pic": "X(17)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Transaction ID'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 36,
+          "pic": "X(12)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Account ID'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 38,
+          "pic": "X(19)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Transaction Type'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 40,
+          "pic": "X(35)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Tran Category'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 42,
+          "pic": "X(14)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Tran Source'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 44,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 45,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'        Amount'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TRANSACTION-HEADER-2",
+      "line": 48,
+      "pic": "X(133)",
+      "occurs": null,
+      "redefines": null,
+      "value": "ALL '-'",
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "REPORT-PAGE-TOTALS",
+      "line": 50,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 51,
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Page Total'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 53,
+          "pic": "X(86)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ALL '.'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-PAGE-TOTAL",
+          "line": 54,
+          "pic": "+ZZZ,ZZZ,ZZZ.ZZ",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "REPORT-ACCOUNT-TOTALS",
+      "line": 56,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 57,
+          "pic": "X(13)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Account Total'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 59,
+          "pic": "X(84)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ALL '.'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-ACCOUNT-TOTAL",
+          "line": 60,
+          "pic": "+ZZZ,ZZZ,ZZZ.ZZ",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "REPORT-GRAND-TOTALS",
+      "line": 62,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 63,
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Grand Total'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 65,
+          "pic": "X(86)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ALL '.'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "REPT-GRAND-TOTAL",
+          "line": 66,
+          "pic": "+ZZZ,ZZZ,ZZZ.ZZ",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "copybook": "POSREC",
+  "used_by": [
+    "RPTPOS00",
+    "INQPORT",
+    "UTLVAL00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "POSITION-RECORD",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "POS-KEY",
+          "line": 7,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "POS-PORTFOLIO-ID",
+              "line": 8,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-DATE",
+              "line": 9,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-INVESTMENT-ID",
+              "line": 10,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "POS-DATA",
+          "line": 11,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "POS-QUANTITY",
+              "line": 12,
+              "pic": "S9(11)V9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-COST-BASIS",
+              "line": 13,
+              "pic": "S9(13)V9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-MARKET-VALUE",
+              "line": 14,
+              "pic": "S9(13)V9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-CURRENCY",
+              "line": 15,
+              "pic": "X(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-STATUS",
+              "line": 16,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "POS-STATUS-ACTIVE",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "POS-STATUS-CLOSED",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "POS-STATUS-PEND",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'P'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "POS-AUDIT",
+          "line": 20,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "POS-LAST-MAINT-DATE",
+              "line": 21,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "POS-LAST-MAINT-USER",
+              "line": 22,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "POS-FILLER",
+          "line": 23,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+# System Context: CBPAUP0C
+## 📝 Summary
+CBPAUP0C is a batch-type COBOL program, entered at MAIN-PARA, with 17 paragraph(s) across 0 section(s), sharing 2 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBPAUP0C
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CIPAUSMY
+- CIPAUDTY
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 22 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 4 sub-field(s))
+- 01 PRM-INFO (group item, 8 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 17 / 0
+- **Terminal Statements**: GOBACK (line 180), GOBACK (line 383)
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-INITIALIZE
+- 1000-EXIT
+- 2000-FIND-NEXT-AUTH-SUMMARY
+- 2000-EXIT
+- 3000-FIND-NEXT-AUTH-DTL
+- 3000-EXIT
+- 4000-CHECK-IF-EXPIRED
+- 4000-EXIT
+- 5000-DELETE-AUTH-DTL
+- 5000-EXIT
+- 6000-DELETE-AUTH-SUMMARY
+- 6000-EXIT
+- 9000-TAKE-CHECKPOINT
+- 9000-EXIT
+- 9999-ABEND
+- 9999-EXIT

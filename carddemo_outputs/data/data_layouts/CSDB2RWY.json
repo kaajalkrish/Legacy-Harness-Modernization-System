@@ -1,0 +1,187 @@
+{
+  "copybook": "CSDB2RWY",
+  "used_by": [],
+  "records": [
+    {
+      "level": 5,
+      "name": "WS-DB2-COMMON-VARS",
+      "line": 21,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "WS-DISP-SQLCODE",
+          "line": 22,
+          "pic": "----9",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "WS-DUMMY-DB2-INT",
+          "line": 23,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "WS-DB2-PROCESSING-FLAG",
+          "line": 25,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-DB2-OK",
+              "line": 26,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'0'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-DB2-ERROR",
+              "line": 27,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'1'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 10,
+          "name": "WS-DB2-CURRENT-ACTION",
+          "line": 28,
+          "pic": "X(72)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "WS-DSNTIAC-FORMATTED",
+      "line": 33,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "WS-DSNTIAC-MESG-LEN",
+          "line": 34,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+720",
+          "usage": "COMP",
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "WS-DSNTIAC-FMTD-TEXT",
+          "line": 35,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 15,
+              "name": "WS-DSNTIAC-FMTD-TEXT-LINE",
+              "line": 36,
+              "pic": "X(72)",
+              "occurs": 10,
+              "redefines": null,
+              "value": "SPACES",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "WS-DSNTIAC-LRECL",
+      "line": 41,
+      "pic": "S9(4)",
+      "occurs": null,
+      "redefines": null,
+      "value": "+72",
+      "usage": "COMP",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "WS-DSNTIAC-ERROR",
+      "line": 42,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "WS-DSNTIAC-ERR-MSG",
+          "line": 43,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'DSNTIAC CD'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "WS-DSNTIAC-ERR-CD-X",
+          "line": 44,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "WS-DSNTIAC-ERR-CD",
+          "line": 45,
+          "pic": "9(02)",
+          "occurs": null,
+          "redefines": "WS-DSNTIAC-ERR-CD-X",
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

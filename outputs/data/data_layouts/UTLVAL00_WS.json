@@ -1,0 +1,988 @@
+{
+  "program": "UTLVAL00",
+  "records": [
+    {
+      "level": 1,
+      "name": "RETURN-CODE-AREA",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "RC-REQUEST-TYPE",
+          "line": 5,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "RC-INITIALIZE",
+              "line": 6,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'I'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-SET-CODE",
+              "line": 7,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-GET-CODE",
+              "line": 8,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'G'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-LOG-CODE",
+              "line": 9,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'L'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "RC-ANALYZE",
+              "line": 10,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-PROGRAM-ID",
+          "line": 11,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-CODES-AREA",
+          "line": 12,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-CURRENT-CODE",
+              "line": 13,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-HIGHEST-CODE",
+              "line": 14,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-NEW-CODE",
+              "line": 15,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-STATUS",
+              "line": 16,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-SUCCESS",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'S'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-WARNING",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'W'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-ERROR",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'E'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RC-STATUS-SEVERE",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'F'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-MESSAGE",
+          "line": 21,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-RESPONSE-CODE",
+          "line": 22,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-ANALYSIS-DATA",
+          "line": 23,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-START-TIME",
+              "line": 24,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-END-TIME",
+              "line": 25,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-TOTAL-CODES",
+              "line": 26,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-MAX-CODE",
+              "line": 27,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-MIN-CODE",
+              "line": 28,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "RC-RETURN-DATA",
+          "line": 29,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "RC-RETURN-VALUE",
+              "line": 30,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-HIGHEST-RETURN",
+              "line": 31,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "RC-RETURN-STATUS",
+              "line": 32,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-CATEGORIES",
+      "line": 11,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-CAT-VSAM",
+          "line": 12,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'VS'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-VALID",
+          "line": 13,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'VL'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-PROC",
+          "line": 14,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'PR'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CAT-SYSTEM",
+          "line": 15,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'SY'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-RETURN-CODES",
+      "line": 20,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-SUCCESS",
+          "line": 21,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-WARNING",
+          "line": 22,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+4",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-ERROR",
+          "line": 23,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+8",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SEVERE",
+          "line": 24,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+12",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-TERMINAL",
+          "line": 25,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+16",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-MESSAGE",
+      "line": 30,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-TIMESTAMP",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ERR-DATE",
+              "line": 32,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ERR-TIME",
+              "line": 33,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ERR-PROGRAM",
+          "line": 34,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CATEGORY",
+          "line": 35,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-CODE",
+          "line": 36,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-SEVERITY",
+          "line": 37,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-TEXT",
+          "line": 38,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-DETAILS",
+          "line": 39,
+          "pic": "X(256)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-VSAM-STATUSES",
+      "line": 44,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-VSAM-SUCCESS",
+          "line": 45,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'00'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-DUPKEY",
+          "line": 46,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'22'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-NOTFND",
+          "line": 47,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'23'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-EOF",
+          "line": 48,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'10'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERR-VSAM-MSGS",
+      "line": 50,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERR-VSAM-22",
+          "line": 51,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Duplicate record key'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-VSAM-23",
+          "line": 53,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Record not found'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERR-OTHER",
+          "line": 55,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Unexpected VSAM error'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-FILE-STATUS",
+      "line": 63,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-VAL-STATUS",
+          "line": 64,
+          "section": "WORKING-STORAGE",
+          "pic": "XX",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-POS-STATUS",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "XX",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRAN-STATUS",
+          "line": 66,
+          "section": "WORKING-STORAGE",
+          "pic": "XX",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RPT-STATUS",
+          "line": 67,
+          "section": "WORKING-STORAGE",
+          "pic": "XX",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-VALIDATION-TYPES",
+      "line": 69,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-INTEGRITY",
+          "line": 70,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'INTEGRITY'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-XREF",
+          "line": 71,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'XREF'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-FORMAT",
+          "line": 72,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'FORMAT'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-BALANCE",
+          "line": 73,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'BALANCE'",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-PROCESSING-FLAGS",
+      "line": 75,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-END-OF-VAL",
+          "line": 76,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-VALIDATION",
+              "line": 77,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-ERROR-FOUND",
+          "line": 78,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "ERROR-FOUND",
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-VALIDATION-TOTALS",
+      "line": 81,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RECORDS-READ",
+          "line": 82,
+          "section": "WORKING-STORAGE",
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RECORDS-VALID",
+          "line": 83,
+          "section": "WORKING-STORAGE",
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-RECORDS-ERROR",
+          "line": 84,
+          "section": "WORKING-STORAGE",
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TOTAL-AMOUNT",
+          "line": 85,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(15)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CONTROL-TOTAL",
+          "line": 86,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(15)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-ERROR-LINE",
+      "line": 88,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-ERR-TYPE",
+          "line": 89,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 90,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERR-KEY",
+          "line": 91,
+          "section": "WORKING-STORAGE",
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 92,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERR-DESC",
+          "line": 93,
+          "section": "WORKING-STORAGE",
+          "pic": "X(98)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "VALIDATION-CONTROL",
+      "line": 47,
+      "end_line": 53,
+      "recording_mode": "F",
+      "record_contains": null,
+      "block_contains": "0"
+    },
+    {
+      "type": "FD",
+      "file_name": "ERROR-REPORT",
+      "line": 54,
+      "end_line": 58,
+      "recording_mode": "F",
+      "record_contains": null,
+      "block_contains": "0"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "copybook": "CVACT01Y",
+  "used_by": [
+    "COPAUA0C",
+    "COPAUS0C",
+    "COACCT01",
+    "CBACT01C",
+    "CBACT04C",
+    "CBEXPORT",
+    "CBIMPORT",
+    "CBSTM03A",
+    "CBTRN01C",
+    "CBTRN02C",
+    "COACTUPC",
+    "COACTVWC",
+    "COBIL00C",
+    "COTRN02C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "ACCOUNT-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ACCT-ID",
+          "line": 5,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ACTIVE-STATUS",
+          "line": 6,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-BAL",
+          "line": 7,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CREDIT-LIMIT",
+          "line": 8,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CASH-CREDIT-LIMIT",
+          "line": 9,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-OPEN-DATE",
+          "line": 10,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-EXPIRAION-DATE",
+          "line": 11,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-REISSUE-DATE",
+          "line": 12,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-CREDIT",
+          "line": 13,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-DEBIT",
+          "line": 14,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ADDR-ZIP",
+          "line": 15,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-GROUP-ID",
+          "line": 16,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 17,
+          "pic": "X(178)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

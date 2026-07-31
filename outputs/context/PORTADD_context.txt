@@ -1,0 +1,31 @@
+# System Context: PORTADD
+## 📝 Summary
+PORTADD is a portfolio-type COBOL program, entered at 0000-MAIN, with 5 paragraph(s) across 0 section(s), reading/writing 2 data file(s), sharing 2 copybook(s). It defines 3 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PORTADD
+- **Source Path**: programs/portfolio/PORTADD.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- PORTFOLIO-FILE
+- INPUT-FILE
+### 📚 Shared Logic (Copybooks)
+- PORTFLIO
+- PORTFLIO
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-CONSTANTS (group item, 3 sub-field(s))
+- 01 WS-SWITCHES (group item, 3 sub-field(s))
+- 01 WS-WORK-AREAS (group item, 5 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 5 / 0
+- **Terminal Statements**: GOBACK (line 84)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 2000-PROCESS
+- 2100-VALIDATE-AND-ADD
+- 3000-TERMINATE

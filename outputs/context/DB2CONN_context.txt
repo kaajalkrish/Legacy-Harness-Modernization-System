@@ -1,0 +1,35 @@
+# System Context: DB2CONN
+## 📝 Summary
+DB2CONN is a common-type COBOL program, entered at 0000-MAIN, with 6 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 3 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DB2CONN
+- **Source Path**: programs/common/DB2CONN.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- SQLCA
+- DBPROC
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- DELAY
+- ERRPROC
+## Key Data Structures
+- 01 WS-DB-NAME PIC X(8)
+- 01 WS-PLAN-NAME PIC X(8)
+- 01 WS-CONNECTION-STATE PIC X(1)
+- 01 WS-RETRY-COUNT PIC S9(4)
+- 01 WS-MAX-RETRIES PIC S9(4)
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 6 / 0
+- **Terminal Statements**: GOBACK (line 60)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-CONNECT
+- 1100-HANDLE-CONN-ERROR
+- 2000-DISCONNECT
+- 3000-CHECK-STATUS
+- 9000-ERROR-ROUTINE

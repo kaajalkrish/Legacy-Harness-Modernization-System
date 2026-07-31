@@ -1,0 +1,25 @@
+# System Context: UTLMON00
+## 📝 Summary
+UTLMON00 is a utility-type COBOL program, with 0 paragraph(s) across 0 section(s), calling 1 other program(s), sharing 3 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: UTLMON00
+- **Source Path**: programs/utility/UTLMON00.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- DB2STAT
+- RTNCODE
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ILBOABN0
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

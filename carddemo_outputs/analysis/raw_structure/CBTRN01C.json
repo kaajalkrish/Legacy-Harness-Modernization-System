@@ -1,0 +1,1241 @@
+{
+  "meta": {
+    "program_id": "CBTRN01C",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBTRN01C.cbl",
+    "total_lines": 494
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "CBTRN01C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 63,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 64,
+    "end_line": 153,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "DALYTRAN-FILE",
+          "line": 66,
+          "end_line": 70,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "CUSTOMER-FILE",
+          "line": 71,
+          "end_line": 75,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "XREF-FILE",
+          "line": 76,
+          "end_line": 80,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "CARD-FILE",
+          "line": 81,
+          "end_line": 85,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "ACCOUNT-FILE",
+          "line": 86,
+          "end_line": 90,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "TRANSACT-FILE",
+          "line": 91,
+          "end_line": 95,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 65
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "CVTRA06Y",
+          "library": null,
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "DALYTRAN-STATUS",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "DALYTRAN-STAT1",
+              "line": 101,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "DALYTRAN-STAT2",
+              "line": 102,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVCUS01Y",
+                  "library": null,
+                  "line": 104,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "CUSTFILE-STATUS",
+          "line": 105,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT1",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CUSTFILE-STAT2",
+              "line": 107,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT03Y",
+                  "library": null,
+                  "line": 109,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "XREFFILE-STATUS",
+          "line": 110,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "XREFFILE-STAT1",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "XREFFILE-STAT2",
+              "line": 112,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT02Y",
+                  "library": null,
+                  "line": 114,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "CARDFILE-STATUS",
+          "line": 115,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CARDFILE-STAT1",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CARDFILE-STAT2",
+              "line": 117,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT01Y",
+                  "library": null,
+                  "line": 119,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "ACCTFILE-STATUS",
+          "line": 120,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT1",
+              "line": 121,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT2",
+              "line": 122,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVTRA05Y",
+                  "library": null,
+                  "line": 124,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TRANFILE-STATUS",
+          "line": 125,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TRANFILE-STAT1",
+              "line": 126,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TRANFILE-STAT2",
+              "line": 127,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS",
+          "line": 129,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STAT1",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STAT2",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-BINARY",
+          "line": 133,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-ALPHA",
+          "line": 134,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "TWO-BYTES-BINARY",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TWO-BYTES-LEFT",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TWO-BYTES-RIGHT",
+              "line": 136,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS-04",
+          "line": 138,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STATUS-0401",
+              "line": 139,
+              "section": "WORKING-STORAGE",
+              "pic": "9",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STATUS-0403",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "999",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "APPL-RESULT",
+          "line": 142,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "APPL-AOK",
+              "line": 143,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "APPL-EOF",
+              "line": 144,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "16",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "END-OF-DAILY-TRANS-FILE",
+          "line": 146,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ABCODE",
+          "line": 147,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TIMING",
+          "line": 148,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "WS-MISC-VARIABLES",
+          "line": 149,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-XREF-READ-STATUS",
+              "line": 150,
+              "section": "WORKING-STORAGE",
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-READ-STATUS",
+              "line": 151,
+              "section": "WORKING-STORAGE",
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 96
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 154,
+    "end_line": 494,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 155,
+        "end_line": 201,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-DALYTRAN-GET-NEXT",
+        "section": null,
+        "start_line": 202,
+        "end_line": 226,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-LOOKUP-XREF",
+        "section": null,
+        "start_line": 227,
+        "end_line": 240,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-READ-ACCOUNT",
+        "section": null,
+        "start_line": 241,
+        "end_line": 251,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0000-DALYTRAN-OPEN",
+        "section": null,
+        "start_line": 252,
+        "end_line": 270,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0100-CUSTFILE-OPEN",
+        "section": null,
+        "start_line": 271,
+        "end_line": 288,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0200-XREFFILE-OPEN",
+        "section": null,
+        "start_line": 289,
+        "end_line": 306,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0300-CARDFILE-OPEN",
+        "section": null,
+        "start_line": 307,
+        "end_line": 324,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0400-ACCTFILE-OPEN",
+        "section": null,
+        "start_line": 325,
+        "end_line": 342,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0500-TRANFILE-OPEN",
+        "section": null,
+        "start_line": 343,
+        "end_line": 360,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-DALYTRAN-CLOSE",
+        "section": null,
+        "start_line": 361,
+        "end_line": 378,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-CUSTFILE-CLOSE",
+        "section": null,
+        "start_line": 379,
+        "end_line": 396,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9200-XREFFILE-CLOSE",
+        "section": null,
+        "start_line": 397,
+        "end_line": 414,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9300-CARDFILE-CLOSE",
+        "section": null,
+        "start_line": 415,
+        "end_line": 432,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9400-ACCTFILE-CLOSE",
+        "section": null,
+        "start_line": 433,
+        "end_line": 450,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-TRANFILE-CLOSE",
+        "section": null,
+        "start_line": 451,
+        "end_line": 468,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "Z-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 469,
+        "end_line": 475,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "Z-DISPLAY-IO-STATUS",
+        "section": null,
+        "start_line": 476,
+        "end_line": 494,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 197
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVTRA06Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 99
+    },
+    {
+      "copybook": "CVCUS01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 104
+    },
+    {
+      "copybook": "CVACT03Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 109
+    },
+    {
+      "copybook": "CVACT02Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 114
+    },
+    {
+      "copybook": "CVACT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 119
+    },
+    {
+      "copybook": "CVTRA05Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 124
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [
+      "MAIN-PARA"
+    ],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 155,
+        "end_line": 201,
+        "is_entry_point": true,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-DALYTRAN-GET-NEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 202,
+        "end_line": 226,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-LOOKUP-XREF",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 227,
+        "end_line": 240,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-READ-ACCOUNT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 241,
+        "end_line": 251,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-DALYTRAN-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 252,
+        "end_line": 270,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0100-CUSTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 271,
+        "end_line": 288,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0200-XREFFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 289,
+        "end_line": 306,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0300-CARDFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 307,
+        "end_line": 324,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0400-ACCTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 325,
+        "end_line": 342,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0500-TRANFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 343,
+        "end_line": 360,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-DALYTRAN-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 361,
+        "end_line": 378,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-CUSTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 379,
+        "end_line": 396,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9200-XREFFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 397,
+        "end_line": 414,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9300-CARDFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 415,
+        "end_line": 432,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9400-ACCTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 433,
+        "end_line": 450,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9500-TRANFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 451,
+        "end_line": 468,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "Z-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 469,
+        "end_line": 475,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "Z-DISPLAY-IO-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 476,
+        "end_line": 494,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 157,
+        "unstructured": false,
+        "to": "0000-DALYTRAN-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 158,
+        "unstructured": false,
+        "to": "0100-CUSTFILE-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 159,
+        "unstructured": false,
+        "to": "0200-XREFFILE-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 160,
+        "unstructured": false,
+        "to": "0300-CARDFILE-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 161,
+        "unstructured": false,
+        "to": "0400-ACCTFILE-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 162,
+        "unstructured": false,
+        "to": "0500-TRANFILE-OPEN"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 164,
+        "unstructured": false,
+        "to": "MAIN-PARA",
+        "inline": true,
+        "condition_text": "PERFORM UNTIL END-OF-DAILY-TRANS-FILE = 'Y' IF  END-OF-DAILY-TRANS-FILE = 'N' PERFORM 1000-DALYTRAN-GET-NEXT IF  END-OF-DAILY-TRANS-FILE = 'N' DISPLAY DALYTRAN-RECORD END-IF MOVE 0                 TO WS-XREF-READ-STATUS MOVE DALYTRAN-CARD-NUM TO XREF-CARD-NUM PERFORM 2000-LOOKUP-XREF IF WS-XREF-READ-STATUS = 0 MOVE 0            TO WS-ACCT-READ-STATUS MOVE XREF-ACCT-ID TO ACCT-ID PERFORM 3000-READ-ACCOUNT IF WS-ACCT-READ-STATUS NOT = 0 DISPLAY 'ACCOUNT ' ACCT-ID ' NOT FOUND' END-IF ELSE DISPLAY 'CARD NUMBER ' DALYTRAN-CARD-NUM ' COULD NOT BE VERIFIED. SKIPPING TRANSACTION ID-' DALYTRAN-ID END-IF END-IF END-PERFORM.",
+        "loop_start_line": 164,
+        "loop_end_line": 186
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 188,
+        "unstructured": false,
+        "to": "9000-DALYTRAN-CLOSE"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 189,
+        "unstructured": false,
+        "to": "9100-CUSTFILE-CLOSE"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 190,
+        "unstructured": false,
+        "to": "9200-XREFFILE-CLOSE"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 191,
+        "unstructured": false,
+        "to": "9300-CARDFILE-CLOSE"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 192,
+        "unstructured": false,
+        "to": "9400-ACCTFILE-CLOSE"
+      },
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 193,
+        "unstructured": false,
+        "to": "9500-TRANFILE-CLOSE"
+      },
+      {
+        "from": "1000-DALYTRAN-GET-NEXT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 204,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0000-DALYTRAN-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 254,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0100-CUSTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 273,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0200-XREFFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 291,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0300-CARDFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 309,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0400-ACCTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 327,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0500-TRANFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 345,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9000-DALYTRAN-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 363,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9100-CUSTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 381,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9200-XREFFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 399,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9300-CARDFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 417,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9400-ACCTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 435,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9500-TRANFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 453,
+        "unstructured": false,
+        "to": "Z-DISPLAY-IO-STATUS"
+      }
+    ],
+    "dead_code_candidates": [
+      "1000-DALYTRAN-GET-NEXT",
+      "2000-LOOKUP-XREF",
+      "3000-READ-ACCOUNT",
+      "Z-ABEND-PROGRAM"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

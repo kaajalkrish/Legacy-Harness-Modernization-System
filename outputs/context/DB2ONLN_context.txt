@@ -1,0 +1,23 @@
+# System Context: DB2ONLN
+## 📝 Summary
+DB2ONLN is a online-type COBOL program, with 0 paragraph(s) across 0 section(s), sharing 1 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DB2ONLN
+- **Source Path**: programs/online/DB2ONLN.cbl
+- **Main Entry Point**: 
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- ERRHND
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

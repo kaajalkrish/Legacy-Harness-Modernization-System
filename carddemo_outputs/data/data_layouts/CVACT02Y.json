@@ -1,0 +1,106 @@
+{
+  "copybook": "CVACT02Y",
+  "used_by": [
+    "COPAUS0C",
+    "COTRTLIC",
+    "CBACT02C",
+    "CBEXPORT",
+    "CBIMPORT",
+    "CBTRN01C",
+    "COACTVWC",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CARD-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CARD-NUM",
+          "line": 5,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACCT-ID",
+          "line": 6,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-CVV-CD",
+          "line": 7,
+          "pic": "9(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EMBOSSED-NAME",
+          "line": 8,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EXPIRAION-DATE",
+          "line": 9,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACTIVE-STATUS",
+          "line": 10,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 11,
+          "pic": "X(59)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

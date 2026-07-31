@@ -1,0 +1,46 @@
+# System Context: COUSR00C
+## 📝 Summary
+COUSR00C is a online-type COBOL program, entered at MAIN-PARA, with 16 paragraph(s) across 0 section(s), sharing 8 copybook(s). It defines 2 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COUSR00C
+- **Source Path**: app/cbl/COUSR00C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COUSR00
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CSUSR01Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 12 sub-field(s))
+- 01 WS-USER-DATA (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 16 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- PROCESS-PF7-KEY
+- PROCESS-PF8-KEY
+- PROCESS-PAGE-FORWARD
+- PROCESS-PAGE-BACKWARD
+- POPULATE-USER-DATA
+- INITIALIZE-USER-DATA
+- RETURN-TO-PREV-SCREEN
+- SEND-USRLST-SCREEN
+- RECEIVE-USRLST-SCREEN
+- POPULATE-HEADER-INFO
+- STARTBR-USER-SEC-FILE
+- READNEXT-USER-SEC-FILE
+- READPREV-USER-SEC-FILE
+- ENDBR-USER-SEC-FILE

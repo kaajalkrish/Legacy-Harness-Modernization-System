@@ -1,0 +1,2988 @@
+{
+  "program": "COBIL00C",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-VARIABLES",
+      "line": 36,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-PGMNAME",
+          "line": 37,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'COBIL00C'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRANID",
+          "line": 38,
+          "section": "WORKING-STORAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'CB00'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-MESSAGE",
+          "line": 39,
+          "section": "WORKING-STORAGE",
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRANSACT-FILE",
+          "line": 40,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'TRANSACT'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ACCTDAT-FILE",
+          "line": 41,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'ACCTDAT '",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CXACAIX-FILE",
+          "line": 42,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'CXACAIX '",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ERR-FLG",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "ERR-FLG-ON",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "ERR-FLG-OFF",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-RESP-CD",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZEROS",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-REAS-CD",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZEROS",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-USR-MODIFIED",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "USR-MODIFIED-YES",
+              "line": 49,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "USR-MODIFIED-NO",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-CONF-PAY-FLG",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "CONF-PAY-YES",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "CONF-PAY-NO",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-TRAN-AMT",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "+99999999.99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CURR-BAL",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "+9999999999.99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRAN-ID-NUM",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "9(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZEROS",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRAN-DATE",
+          "line": 58,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'00/00/00'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ABS-TIME",
+          "line": 59,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CUR-DATE-X10",
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CUR-TIME-X08",
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": [
+            {
+              "level": 1,
+              "name": "CARDDEMO-COMMAREA",
+              "line": 19,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "CDEMO-GENERAL-INFO",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-FROM-TRANID",
+                      "line": 21,
+                      "pic": "X(04)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-FROM-PROGRAM",
+                      "line": 22,
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-TO-TRANID",
+                      "line": 23,
+                      "pic": "X(04)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-TO-PROGRAM",
+                      "line": 24,
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-USER-ID",
+                      "line": 25,
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-USER-TYPE",
+                      "line": 26,
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 88,
+                          "name": "CDEMO-USRTYP-ADMIN",
+                          "line": 27,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'A'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 88,
+                          "name": "CDEMO-USRTYP-USER",
+                          "line": 28,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'U'",
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-PGM-CONTEXT",
+                      "line": 29,
+                      "pic": "9(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 88,
+                          "name": "CDEMO-PGM-ENTER",
+                          "line": 30,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "0",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 88,
+                          "name": "CDEMO-PGM-REENTER",
+                          "line": 31,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "1",
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "CDEMO-CUSTOMER-INFO",
+                  "line": 32,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CUST-ID",
+                      "line": 33,
+                      "pic": "9(09)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CUST-FNAME",
+                      "line": 34,
+                      "pic": "X(25)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CUST-MNAME",
+                      "line": 35,
+                      "pic": "X(25)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CUST-LNAME",
+                      "line": 36,
+                      "pic": "X(25)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "CDEMO-ACCOUNT-INFO",
+                  "line": 37,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-ACCT-ID",
+                      "line": 38,
+                      "pic": "9(11)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-ACCT-STATUS",
+                      "line": 39,
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "CDEMO-CARD-INFO",
+                  "line": 40,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CARD-NUM",
+                      "line": 41,
+                      "pic": "9(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "CDEMO-MORE-INFO",
+                  "line": 42,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-LAST-MAP",
+                      "line": 43,
+                      "pic": "X(7)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-LAST-MAPSET",
+                      "line": 44,
+                      "pic": "X(7)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-CB00-INFO",
+          "line": 64,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-TRNID-FIRST",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-TRNID-LAST",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-PAGE-NUM",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": "9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-NEXT-PAGE-FLG",
+              "line": 68,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "NEXT-PAGE-YES",
+                  "line": 69,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NEXT-PAGE-NO",
+                  "line": 70,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-TRN-SEL-FLG",
+              "line": 71,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CB00-TRN-SELECTED",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 1,
+                  "name": "COBIL0AI",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 18,
+                      "pic": "X(12)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEL",
+                      "line": 19,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEF",
+                      "line": 20,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 21,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TRNNAMEF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "TRNNAMEA",
+                          "line": 22,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 23,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEI",
+                      "line": 24,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01L",
+                      "line": 25,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01F",
+                      "line": 26,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 27,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TITLE01F",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "TITLE01A",
+                          "line": 28,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 29,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01I",
+                      "line": 30,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEL",
+                      "line": 31,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEF",
+                      "line": 32,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 33,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "CURDATEF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "CURDATEA",
+                          "line": 34,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 35,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEI",
+                      "line": 36,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEL",
+                      "line": 37,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEF",
+                      "line": 38,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 39,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "PGMNAMEF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "PGMNAMEA",
+                          "line": 40,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 41,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEI",
+                      "line": 42,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02L",
+                      "line": 43,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02F",
+                      "line": 44,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 45,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TITLE02F",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "TITLE02A",
+                          "line": 46,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 47,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02I",
+                      "line": 48,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEL",
+                      "line": 49,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEF",
+                      "line": 50,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 51,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "CURTIMEF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "CURTIMEA",
+                          "line": 52,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 53,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEI",
+                      "line": 54,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINL",
+                      "line": 55,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINF",
+                      "line": 56,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 57,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "ACTIDINF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "ACTIDINA",
+                          "line": 58,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 59,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINI",
+                      "line": 60,
+                      "pic": "X(11)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALL",
+                      "line": 61,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALF",
+                      "line": 62,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 63,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "CURBALF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "CURBALA",
+                          "line": 64,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 65,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALI",
+                      "line": 66,
+                      "pic": "X(14)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRML",
+                      "line": 67,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMF",
+                      "line": 68,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 69,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "CONFIRMF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "CONFIRMA",
+                          "line": 70,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 71,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMI",
+                      "line": 72,
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGL",
+                      "line": 73,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGF",
+                      "line": 74,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 75,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "ERRMSGF",
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 3,
+                          "name": "ERRMSGA",
+                          "line": 76,
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 77,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGI",
+                      "line": 78,
+                      "pic": "X(78)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "COBIL0AO",
+                  "line": 79,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": "COBIL0AI",
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 80,
+                      "pic": "X(12)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 81,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEC",
+                      "line": 82,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEP",
+                      "line": 83,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEH",
+                      "line": 84,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEV",
+                      "line": 85,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TRNNAMEO",
+                      "line": 86,
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 87,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01C",
+                      "line": 88,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01P",
+                      "line": 89,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01H",
+                      "line": 90,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01V",
+                      "line": 91,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE01O",
+                      "line": 92,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 93,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEC",
+                      "line": 94,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEP",
+                      "line": 95,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEH",
+                      "line": 96,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEV",
+                      "line": 97,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURDATEO",
+                      "line": 98,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 99,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEC",
+                      "line": 100,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEP",
+                      "line": 101,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEH",
+                      "line": 102,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEV",
+                      "line": 103,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "PGMNAMEO",
+                      "line": 104,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 105,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02C",
+                      "line": 106,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02P",
+                      "line": 107,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02H",
+                      "line": 108,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02V",
+                      "line": 109,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "TITLE02O",
+                      "line": 110,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 111,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEC",
+                      "line": 112,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEP",
+                      "line": 113,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEH",
+                      "line": 114,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEV",
+                      "line": 115,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURTIMEO",
+                      "line": 116,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 117,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINC",
+                      "line": 118,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINP",
+                      "line": 119,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINH",
+                      "line": 120,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINV",
+                      "line": 121,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ACTIDINO",
+                      "line": 122,
+                      "pic": "X(11)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 123,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALC",
+                      "line": 124,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALP",
+                      "line": 125,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALH",
+                      "line": 126,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALV",
+                      "line": 127,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CURBALO",
+                      "line": 128,
+                      "pic": "X(14)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 129,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMC",
+                      "line": 130,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMP",
+                      "line": 131,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMH",
+                      "line": 132,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMV",
+                      "line": 133,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "CONFIRMO",
+                      "line": 134,
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "FILLER",
+                      "line": 135,
+                      "pic": "X(3)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGC",
+                      "line": 136,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGP",
+                      "line": 137,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGH",
+                      "line": 138,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGV",
+                      "line": 139,
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 2,
+                      "name": "ERRMSGO",
+                      "line": 140,
+                      "pic": "X(78)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "CCDA-SCREEN-TITLE",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "CCDA-TITLE01",
+                      "line": 18,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'      AWS Mainframe Modernization       '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "CCDA-TITLE02",
+                      "line": 20,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'              CardDemo                  '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "CCDA-THANK-YOU",
+                      "line": 23,
+                      "pic": "X(40)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Thank you for using CCDA application... '",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "WS-DATE-TIME",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "WS-CURDATE-DATA",
+                      "line": 18,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "WS-CURDATE",
+                          "line": 19,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": [
+                            {
+                              "level": 15,
+                              "name": "WS-CURDATE-YEAR",
+                              "line": 20,
+                              "pic": "9(04)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            },
+                            {
+                              "level": 15,
+                              "name": "WS-CURDATE-MONTH",
+                              "line": 21,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            },
+                            {
+                              "level": 15,
+                              "name": "WS-CURDATE-DAY",
+                              "line": 22,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURDATE-N",
+                          "line": 23,
+                          "pic": "9(08)",
+                          "occurs": null,
+                          "redefines": "WS-CURDATE",
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURTIME",
+                          "line": 24,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": [
+                            {
+                              "level": 15,
+                              "name": "WS-CURTIME-HOURS",
+                              "line": 25,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            },
+                            {
+                              "level": 15,
+                              "name": "WS-CURTIME-MINUTE",
+                              "line": 26,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            },
+                            {
+                              "level": 15,
+                              "name": "WS-CURTIME-SECOND",
+                              "line": 27,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            },
+                            {
+                              "level": 15,
+                              "name": "WS-CURTIME-MILSEC",
+                              "line": 28,
+                              "pic": "9(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "usage": null,
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURTIME-N",
+                          "line": 29,
+                          "pic": "9(08)",
+                          "occurs": null,
+                          "redefines": "WS-CURTIME",
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 5,
+                      "name": "WS-CURDATE-MM-DD-YY",
+                      "line": 30,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "WS-CURDATE-MM",
+                          "line": 31,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 32,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'/'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURDATE-DD",
+                          "line": 33,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 34,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'/'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURDATE-YY",
+                          "line": 35,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 5,
+                      "name": "WS-CURTIME-HH-MM-SS",
+                      "line": 36,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "WS-CURTIME-HH",
+                          "line": 37,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 38,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "':'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURTIME-MM",
+                          "line": 39,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 40,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "':'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-CURTIME-SS",
+                          "line": 41,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 5,
+                      "name": "WS-TIMESTAMP",
+                      "line": 42,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-DT-YYYY",
+                          "line": 43,
+                          "pic": "9(04)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 44,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'-'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-DT-MM",
+                          "line": 45,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 46,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'-'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-DT-DD",
+                          "line": 47,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 48,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "' '",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-TM-HH",
+                          "line": 49,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 50,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "':'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-TM-MM",
+                          "line": 51,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 52,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "':'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-TM-SS",
+                          "line": 53,
+                          "pic": "9(02)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "FILLER",
+                          "line": 54,
+                          "pic": "X(01)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'.'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 10,
+                          "name": "WS-TIMESTAMP-TM-MS6",
+                          "line": 55,
+                          "pic": "9(06)",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "CCDA-COMMON-MESSAGES",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "CCDA-MSG-THANK-YOU",
+                      "line": 18,
+                      "pic": "X(50)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Thank you for using CardDemo application...      '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "CCDA-MSG-INVALID-KEY",
+                      "line": 20,
+                      "pic": "X(50)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Invalid key pressed. Please see below...         '",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "ACCOUNT-RECORD",
+                  "line": 4,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "ACCT-ID",
+                      "line": 5,
+                      "pic": "9(11)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-ACTIVE-STATUS",
+                      "line": 6,
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-CURR-BAL",
+                      "line": 7,
+                      "pic": "S9(10)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-CREDIT-LIMIT",
+                      "line": 8,
+                      "pic": "S9(10)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-CASH-CREDIT-LIMIT",
+                      "line": 9,
+                      "pic": "S9(10)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-OPEN-DATE",
+                      "line": 10,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-EXPIRAION-DATE",
+                      "line": 11,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-REISSUE-DATE",
+                      "line": 12,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-CURR-CYC-CREDIT",
+                      "line": 13,
+                      "pic": "S9(10)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-CURR-CYC-DEBIT",
+                      "line": 14,
+                      "pic": "S9(10)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-ADDR-ZIP",
+                      "line": 15,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "ACCT-GROUP-ID",
+                      "line": 16,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "FILLER",
+                      "line": 17,
+                      "pic": "X(178)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "CARD-XREF-RECORD",
+                  "line": 4,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "XREF-CARD-NUM",
+                      "line": 5,
+                      "pic": "X(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "XREF-CUST-ID",
+                      "line": 6,
+                      "pic": "9(09)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "XREF-ACCT-ID",
+                      "line": 7,
+                      "pic": "9(11)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "FILLER",
+                      "line": 8,
+                      "pic": "X(14)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 1,
+                  "name": "TRAN-RECORD",
+                  "line": 4,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 5,
+                      "name": "TRAN-ID",
+                      "line": 5,
+                      "pic": "X(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-TYPE-CD",
+                      "line": 6,
+                      "pic": "X(02)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-CAT-CD",
+                      "line": 7,
+                      "pic": "9(04)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-SOURCE",
+                      "line": 8,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-DESC",
+                      "line": 9,
+                      "pic": "X(100)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-AMT",
+                      "line": 10,
+                      "pic": "S9(09)V99",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-MERCHANT-ID",
+                      "line": 11,
+                      "pic": "9(09)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-MERCHANT-NAME",
+                      "line": 12,
+                      "pic": "X(50)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-MERCHANT-CITY",
+                      "line": 13,
+                      "pic": "X(50)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-MERCHANT-ZIP",
+                      "line": 14,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-CARD-NUM",
+                      "line": 15,
+                      "pic": "X(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-ORIG-TS",
+                      "line": 16,
+                      "pic": "X(26)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "TRAN-PROC-TS",
+                      "line": 17,
+                      "pic": "X(26)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 5,
+                      "name": "FILLER",
+                      "line": 18,
+                      "pic": "X(20)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHAID",
+                  "library": null,
+                  "line": 84,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHBMSCA",
+                  "library": null,
+                  "line": 85,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DFHCOMMAREA",
+      "line": 91,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "LK-COMMAREA",
+          "line": 92,
+          "section": "LINKAGE",
+          "pic": "X(01)",
+          "occurs": 1,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

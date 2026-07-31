@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "generated_at": "2026-07-18T00:00:00Z",
+    "agent_version": "4_logic_python@1.0",
+    "model": "claude-code-interactive (no API key)",
+    "run_mode": "AI-host (Claude Code) executing logic/logic_agent.md — no key, in-session, COMPLETE run of the 21-program sample",
+    "programs_explained": 21,
+    "programs_failed": 0,
+    "note": "Full 21-program sample explained. POSUPDT is an empty source file (0 paragraphs). CURSMGR source is truncated (fetch/close missing)."
+  },
+  "stats": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "estimated_cost_usd": 0.0,
+    "total_paragraphs_explained": 180,
+    "total_ambiguous_paragraphs": 20,
+    "total_critical_paragraphs": 0
+  },
+  "programs": [
+    {"program_id": "INQPORT",  "logic_file": "program_logic/INQPORT_logic.json",  "paragraphs_explained": 11, "ambiguous_paragraphs": 0, "max_complexity": 4, "critical_paragraphs": 0, "summary": "Online CICS portfolio position inquiry (POSFILE by account -> map POSMAP / not found)."},
+    {"program_id": "INQHIST",  "logic_file": "program_logic/INQHIST_logic.json",  "paragraphs_explained": 13, "ambiguous_paragraphs": 1, "max_complexity": 6, "critical_paragraphs": 0, "summary": "Online CICS transaction-history inquiry: DB2 connect + recovery, CURSMGR cursor over POSHIST, map HISMAP."},
+    {"program_id": "INQONLN",  "logic_file": "program_logic/INQONLN_logic.json",  "paragraphs_explained": 13, "ambiguous_paragraphs": 0, "max_complexity": 7, "critical_paragraphs": 0, "summary": "Online CICS main driver: session loop, dispatch to INQPORT/INQHIST, security via SECMGR, errors via ERRHNDL."},
+    {"program_id": "PORTADD",  "logic_file": "program_logic/PORTADD_logic.json",  "paragraphs_explained": 5,  "ambiguous_paragraphs": 0, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Batch: create portfolio records from input file with validation + add/dup/error counts."},
+    {"program_id": "PORTREAD", "logic_file": "program_logic/PORTREAD_logic.json", "paragraphs_explained": 5,  "ambiguous_paragraphs": 0, "max_complexity": 2, "critical_paragraphs": 0, "summary": "Batch: sequentially read and display all portfolio records (reporting utility)."},
+    {"program_id": "PORTMSTR", "logic_file": "program_logic/PORTMSTR_logic.json", "paragraphs_explained": 11, "ambiguous_paragraphs": 2, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Callable portfolio CRUD service (C/R/U/D) with ID/name/status validation; 2 example stub paragraphs flagged."},
+    {"program_id": "PORTUPDT", "logic_file": "program_logic/PORTUPDT_logic.json", "paragraphs_explained": 6,  "ambiguous_paragraphs": 0, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Batch: apply field-level updates (status/name/value) from an update file, REWRITE, count."},
+    {"program_id": "BCHCTL00", "logic_file": "program_logic/BCHCTL00_logic.json", "paragraphs_explained": 6,  "ambiguous_paragraphs": 4, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Callable Batch Control Processor (INIT/CHEK/UPDT/TERM) — SKELETON: sub-paragraphs unimplemented."},
+    {"program_id": "CKPRST",   "logic_file": "program_logic/CKPRST_logic.json",   "paragraphs_explained": 5,  "ambiguous_paragraphs": 4, "max_complexity": 4, "critical_paragraphs": 0, "summary": "Callable Checkpoint/Restart service (INIT/TAKE/COMMIT/RESTART) — all operation bodies EMPTY stubs."},
+    {"program_id": "HISTLD00", "logic_file": "program_logic/HISTLD00_logic.json", "paragraphs_explained": 16, "ambiguous_paragraphs": 0, "max_complexity": 4, "critical_paragraphs": 0, "summary": "Batch: load VSAM transaction history into DB2 POSHIST with commit-every-1000 + restartable checkpoints."},
+    {"program_id": "POSUPDT",  "logic_file": "program_logic/POSUPDT_logic.json",  "paragraphs_explained": 0,  "ambiguous_paragraphs": 0, "max_complexity": 0, "critical_paragraphs": 0, "summary": "EMPTY source file — no COBOL, nothing to explain (flagged)."},
+    {"program_id": "PRCSEQ00", "logic_file": "program_logic/PRCSEQ00_logic.json", "paragraphs_explained": 20, "ambiguous_paragraphs": 0, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Callable batch scheduler / dependency engine: builds a process sequence, checks hard/soft deps + return codes, marks jobs active."},
+    {"program_id": "AUDPROC",  "logic_file": "program_logic/AUDPROC_logic.json",  "paragraphs_explained": 4,  "ambiguous_paragraphs": 0, "max_complexity": 2, "critical_paragraphs": 0, "summary": "Shared audit-trail subroutine: append a timestamped before/after-image record to the audit log."},
+    {"program_id": "ERRPROC",  "logic_file": "program_logic/ERRPROC_logic.json",  "paragraphs_explained": 6,  "ambiguous_paragraphs": 0, "max_complexity": 2, "critical_paragraphs": 0, "summary": "Shared error-processing subroutine: append to error log + print formatted error block; returns severity."},
+    {"program_id": "DB2CONN",  "logic_file": "program_logic/DB2CONN_logic.json",  "paragraphs_explained": 6,  "ambiguous_paragraphs": 0, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Shared DB2 connection manager (CONN/DISC/STAT) with bounded retry + delay."},
+    {"program_id": "DB2CMT",   "logic_file": "program_logic/DB2CMT_logic.json",   "paragraphs_explained": 10, "ambiguous_paragraphs": 0, "max_complexity": 6, "critical_paragraphs": 0, "summary": "Shared DB2 commit controller (commit-by-frequency, rollback, savepoint/restore, stats)."},
+    {"program_id": "DB2ERR",   "logic_file": "program_logic/DB2ERR_logic.json",   "paragraphs_explained": 7,  "ambiguous_paragraphs": 0, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Shared DB2 SQL error handler: log/diagnose/retrieve, classifies SQLCODEs + retry-ability."},
+    {"program_id": "DB2STAT",  "logic_file": "program_logic/DB2STAT_logic.json",  "paragraphs_explained": 9,  "ambiguous_paragraphs": 1, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Shared DB2 statistics collector via a session temp table; CPU time is a rough estimate (flagged)."},
+    {"program_id": "CURSMGR",  "logic_file": "program_logic/CURSMGR_logic.json",  "paragraphs_explained": 5,  "ambiguous_paragraphs": 2, "max_complexity": 4, "critical_paragraphs": 0, "summary": "Shared DB2 cursor manager (declare/open/fetch/close) — source TRUNCATED: fetch/close bodies missing (flagged)."},
+    {"program_id": "TSTVAL00", "logic_file": "program_logic/TSTVAL00_logic.json", "paragraphs_explained": 10, "ambiguous_paragraphs": 2, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Batch test-validation suite skeleton: dispatch by test type, write report; test bodies unimplemented + divide-by-zero risk."},
+    {"program_id": "UTLVAL00", "logic_file": "program_logic/UTLVAL00_logic.json", "paragraphs_explained": 12, "ambiguous_paragraphs": 4, "max_complexity": 5, "critical_paragraphs": 0, "summary": "Batch data-validation utility skeleton: dispatch by validation type; check bodies unimplemented."}
+  ],
+  "issues": [
+    {"severity": "info", "type": "complete_run", "message": "All 21 sample programs explained (no key, in-session)."},
+    {"severity": "warning", "type": "empty_source", "message": "POSUPDT.cbl is empty — no program logic."},
+    {"severity": "warning", "type": "truncated_source", "message": "CURSMGR.cbl truncated — fetch/close paragraphs missing though INQHIST depends on them."},
+    {"severity": "warning", "type": "skeletons", "message": "BCHCTL00, CKPRST, TSTVAL00, UTLVAL00 are skeletons — dispatch logic present but low-level sub-paragraphs / operation bodies unimplemented."},
+    {"severity": "info", "type": "notable_findings", "message": "INQONLN validates security AFTER dispatching the function; PORTADD/PORTREAD/PORTUPDT terminate-without-stopping on open failure; PORTUPDT/PORTMSTR EVALUATEs lack WHEN OTHER; INQHIST DB2 retry is unbounded recursion."}
+  ]
+}

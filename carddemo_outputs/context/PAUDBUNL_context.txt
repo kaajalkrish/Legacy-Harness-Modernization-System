@@ -1,0 +1,44 @@
+# System Context: PAUDBUNL
+## 📝 Summary
+PAUDBUNL is a unknown-type COBOL program, entered at MAIN-PARA, with 11 paragraph(s) across 0 section(s), calling 2 other program(s), reading/writing 2 data file(s), sharing 4 copybook(s). It defines 7 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PAUDBUNL
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- OPFILE1
+- OPFILE2
+### 📚 Shared Logic (Copybooks)
+- IMSFUNCS
+- CIPAUSMY
+- CIPAUDTY
+- PAUTBPCB
+### 🔗 Execution Flow (Calls)
+- CBLTDLI
+- CBLTDLI
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 25 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 2 sub-field(s))
+- 01 ROOT-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 CHILD-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 PRM-INFO (group item, 8 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 11 / 0
+- **Terminal Statements**: GOBACK (line 170), GOBACK (line 314)
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-INITIALIZE
+- 1000-EXIT
+- 2000-FIND-NEXT-AUTH-SUMMARY
+- 2000-EXIT
+- 3000-FIND-NEXT-AUTH-DTL
+- 3000-EXIT
+- 4000-FILE-CLOSE
+- 4000-EXIT
+- 9999-ABEND
+- 9999-EXIT

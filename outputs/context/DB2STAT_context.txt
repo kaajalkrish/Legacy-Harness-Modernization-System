@@ -1,0 +1,36 @@
+# System Context: DB2STAT
+## 📝 Summary
+DB2STAT is a common-type COBOL program, entered at 0000-MAIN, with 9 paragraph(s) across 0 section(s), calling 1 other program(s), sharing 3 copybook(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: DB2STAT
+- **Source Path**: programs/common/DB2STAT.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- SQLCA
+- DBPROC
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ERRPROC
+## Key Data Structures
+- 01 WS-STATS-RECORD (group item, 11 sub-field(s))
+- 01 WS-CURRENT-TIMESTAMP PIC X(26)
+- 01 WS-START-TIMESTAMP PIC X(26)
+- 01 WS-FORMATTED-TIME PIC ZZ,ZZ9.99
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 9 / 0
+- **Terminal Statements**: GOBACK (line 73)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 1100-CREATE-STATS-TABLE
+- 1200-INSERT-INITIAL
+- 2000-UPDATE-STATS
+- 3000-TERMINATE
+- 3100-CALC-TIMES
+- 4000-DISPLAY-STATS
+- 9000-ERROR-ROUTINE

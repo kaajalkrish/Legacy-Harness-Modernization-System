@@ -1,0 +1,598 @@
+[
+  {
+    "program": "BCHCTL00",
+    "path": "programs/batch/BCHCTL00.cbl",
+    "files": [
+      "BATCH-CONTROL-FILE"
+    ],
+    "copybooks": [
+      "BCHCTL",
+      "BCHCON",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 6
+  },
+  {
+    "program": "CKPRST",
+    "path": "programs/batch/CKPRST.cbl",
+    "files": [
+      "CHECKPOINT-FILE"
+    ],
+    "copybooks": [
+      "CKPRST",
+      "CKPRST",
+      "RETHND"
+    ],
+    "calls": [],
+    "entry_points": [
+      "PROC-INIT"
+    ],
+    "paragraph_count": 4
+  },
+  {
+    "program": "HISTLD00",
+    "path": "programs/batch/HISTLD00.cbl",
+    "files": [
+      "TRANSACTION-HISTORY",
+      "BATCH-CONTROL-FILE"
+    ],
+    "copybooks": [
+      "HISTREC",
+      "BCHCTL",
+      "DBTBLS",
+      "SQLCA",
+      "DBPROC",
+      "ERRHAND",
+      "BCHCON"
+    ],
+    "calls": [
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 16
+  },
+  {
+    "program": "POSUPDT",
+    "path": "programs/batch/POSUPDT.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "PRCSEQ00",
+    "path": "programs/batch/PRCSEQ00.cbl",
+    "files": [
+      "PROCESS-SEQ-FILE",
+      "BATCH-CONTROL-FILE"
+    ],
+    "copybooks": [
+      "PRCSEQ",
+      "BCHCTL",
+      "BCHCON",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 19
+  },
+  {
+    "program": "RCVPRC00",
+    "path": "programs/batch/RCVPRC00.cbl",
+    "files": [],
+    "copybooks": [
+      "BCHCTL",
+      "PRCSEQ",
+      "BCHCON",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC",
+      "ERRPROC"
+    ],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "RPTAUD00",
+    "path": "programs/batch/RPTAUD00.cbl",
+    "files": [],
+    "copybooks": [
+      "AUDITLOG",
+      "ERRHAND",
+      "RTNCODE"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "RPTPOS00",
+    "path": "programs/batch/RPTPOS00.cbl",
+    "files": [],
+    "copybooks": [
+      "POSREC",
+      "TRNREC",
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "RPTSTA00",
+    "path": "programs/batch/RPTSTA00.cbl",
+    "files": [],
+    "copybooks": [
+      "DB2STAT",
+      "BCHCTL",
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "RTNANA00",
+    "path": "programs/batch/RTNANA00.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "RTNCDE00",
+    "path": "programs/batch/RTNCDE00.cbl",
+    "files": [],
+    "copybooks": [
+      "RTNCODE"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "AUDPROC",
+    "path": "programs/common/AUDPROC.cbl",
+    "files": [
+      "AUDIT-FILE"
+    ],
+    "copybooks": [
+      "AUDITLOG"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 4
+  },
+  {
+    "program": "DB2CMT",
+    "path": "programs/common/DB2CMT.cbl",
+    "files": [],
+    "copybooks": [
+      "SQLCA",
+      "DBPROC",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC",
+      "DB2ERR"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 10
+  },
+  {
+    "program": "DB2CONN",
+    "path": "programs/common/DB2CONN.cbl",
+    "files": [],
+    "copybooks": [
+      "SQLCA",
+      "DBPROC",
+      "ERRHAND"
+    ],
+    "calls": [
+      "DELAY",
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 6
+  },
+  {
+    "program": "DB2ERR",
+    "path": "programs/common/DB2ERR.cbl",
+    "files": [],
+    "copybooks": [
+      "DBTBLS",
+      "SQLCA",
+      "DBPROC",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 7
+  },
+  {
+    "program": "DB2STAT",
+    "path": "programs/common/DB2STAT.cbl",
+    "files": [],
+    "copybooks": [
+      "SQLCA",
+      "DBPROC",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ERRPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 9
+  },
+  {
+    "program": "ERRPROC",
+    "path": "programs/common/ERRPROC.cbl",
+    "files": [
+      "ERROR-LOG"
+    ],
+    "copybooks": [
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 6
+  },
+  {
+    "program": "CURSMGR",
+    "path": "programs/online/CURSMGR.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [
+      "P100-DECLARE-CURSOR"
+    ],
+    "paragraph_count": 3
+  },
+  {
+    "program": "DB2ONLN",
+    "path": "programs/online/DB2ONLN.cbl",
+    "files": [],
+    "copybooks": [
+      "ERRHND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "DB2RECV",
+    "path": "programs/online/DB2RECV.cbl",
+    "files": [],
+    "copybooks": [
+      "ERRHND",
+      "DB2REQ"
+    ],
+    "calls": [
+      "DB2ONLN",
+      "ERRHNDL"
+    ],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "ERRHNDL",
+    "path": "programs/online/ERRHNDL.cbl",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "INQHIST",
+    "path": "programs/online/INQHIST.cbl",
+    "files": [],
+    "copybooks": [
+      "INQCOM",
+      "INQCOM"
+    ],
+    "calls": [
+      "DB2ONLN",
+      "DB2RECV",
+      "CURSMGR",
+      "CURSMGR",
+      "CURSMGR",
+      "CURSMGR"
+    ],
+    "entry_points": [
+      "P100-INIT-PROGRAM"
+    ],
+    "paragraph_count": 12
+  },
+  {
+    "program": "INQONLN",
+    "path": "programs/online/INQONLN.cbl",
+    "files": [],
+    "copybooks": [
+      "INQCOM",
+      "ERRHND",
+      "INQCOM"
+    ],
+    "calls": [
+      "INQPORT",
+      "INQHIST",
+      "ERRHNDL",
+      "SECMGR",
+      "SECMGR",
+      "SECMGR"
+    ],
+    "entry_points": [
+      "P100-PROCESS-REQUEST"
+    ],
+    "paragraph_count": 12
+  },
+  {
+    "program": "INQPORT",
+    "path": "programs/online/INQPORT.cbl",
+    "files": [],
+    "copybooks": [
+      "INQCOM",
+      "POSREC",
+      "INQCOM"
+    ],
+    "calls": [],
+    "entry_points": [
+      "P100-INIT-PROGRAM"
+    ],
+    "paragraph_count": 10
+  },
+  {
+    "program": "SECMGR",
+    "path": "programs/online/SECMGR.cbl",
+    "files": [],
+    "copybooks": [
+      "ERRHND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "PORTADD",
+    "path": "programs/portfolio/PORTADD.cbl",
+    "files": [
+      "PORTFOLIO-FILE",
+      "INPUT-FILE"
+    ],
+    "copybooks": [
+      "PORTFLIO",
+      "PORTFLIO"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 5
+  },
+  {
+    "program": "PORTDEL",
+    "path": "programs/portfolio/PORTDEL.cbl",
+    "files": [],
+    "copybooks": [
+      "PORTFLIO"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "PORTMSTR",
+    "path": "programs/portfolio/PORTMSTR.cbl",
+    "files": [
+      "PORTFOLIO-FILE"
+    ],
+    "copybooks": [],
+    "calls": [
+      "ERRPROC",
+      "AUDPROC"
+    ],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 11
+  },
+  {
+    "program": "PORTREAD",
+    "path": "programs/portfolio/PORTREAD.cbl",
+    "files": [
+      "PORTFOLIO-FILE"
+    ],
+    "copybooks": [
+      "PORTFLIO"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 5
+  },
+  {
+    "program": "PORTTEST",
+    "path": "programs/portfolio/PORTTEST.cbl",
+    "files": [],
+    "copybooks": [
+      "PORTFLIO",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "PORTTRAN",
+    "path": "programs/portfolio/PORTTRAN.cbl",
+    "files": [],
+    "copybooks": [
+      "TRNREC",
+      "PORTREC",
+      "ERRHAND",
+      "AUDITLOG"
+    ],
+    "calls": [
+      "AUDPROC",
+      "ERRPROC"
+    ],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "PORTUPDT",
+    "path": "programs/portfolio/PORTUPDT.cbl",
+    "files": [
+      "PORTFOLIO-FILE",
+      "UPDATE-FILE"
+    ],
+    "copybooks": [
+      "PORTFLIO"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 6
+  },
+  {
+    "program": "PORTVALD",
+    "path": "programs/portfolio/PORTVALD.cbl",
+    "files": [],
+    "copybooks": [
+      "PORTVAL"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "TSTGEN00",
+    "path": "programs/test/TSTGEN00.cbl",
+    "files": [],
+    "copybooks": [
+      "PORTFLIO",
+      "TRNREC",
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "TSTVAL00",
+    "path": "programs/test/TSTVAL00.cbl",
+    "files": [
+      "TEST-CASES",
+      "EXPECTED-RESULTS",
+      "ACTUAL-RESULTS",
+      "TEST-REPORT"
+    ],
+    "copybooks": [
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 10
+  },
+  {
+    "program": "UTLMNT00",
+    "path": "programs/utility/UTLMNT00.cbl",
+    "files": [],
+    "copybooks": [
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "UTLMON00",
+    "path": "programs/utility/UTLMON00.cbl",
+    "files": [],
+    "copybooks": [
+      "DB2STAT",
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [
+      "ILBOABN0"
+    ],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "UTLVAL00",
+    "path": "programs/utility/UTLVAL00.cbl",
+    "files": [
+      "VALIDATION-CONTROL",
+      "ERROR-REPORT"
+    ],
+    "copybooks": [
+      "POSREC",
+      "TRNREC",
+      "RTNCODE",
+      "ERRHAND"
+    ],
+    "calls": [],
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "paragraph_count": 12
+  },
+  {
+    "program": "DELAY",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  },
+  {
+    "program": "ILBOABN0",
+    "path": "Inventory/Common",
+    "files": [],
+    "copybooks": [],
+    "calls": [],
+    "entry_points": [],
+    "paragraph_count": 0
+  }
+]

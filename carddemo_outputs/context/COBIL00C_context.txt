@@ -1,0 +1,47 @@
+# System Context: COBIL00C
+## 📝 Summary
+COBIL00C is a online-type COBOL program, entered at MAIN-PARA, with 16 paragraph(s) across 0 section(s), sharing 10 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COBIL00C
+- **Source Path**: app/cbl/COBIL00C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COBIL00
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CVACT01Y
+- CVACT03Y
+- CVTRA05Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 19 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 16 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- GET-CURRENT-TIMESTAMP
+- RETURN-TO-PREV-SCREEN
+- SEND-BILLPAY-SCREEN
+- RECEIVE-BILLPAY-SCREEN
+- POPULATE-HEADER-INFO
+- READ-ACCTDAT-FILE
+- UPDATE-ACCTDAT-FILE
+- READ-CXACAIX-FILE
+- STARTBR-TRANSACT-FILE
+- READPREV-TRANSACT-FILE
+- ENDBR-TRANSACT-FILE
+- WRITE-TRANSACT-FILE
+- CLEAR-CURRENT-SCREEN
+- INITIALIZE-ALL-FIELDS

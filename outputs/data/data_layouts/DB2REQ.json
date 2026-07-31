@@ -1,0 +1,121 @@
+{
+  "copybook": "DB2REQ",
+  "used_by": [
+    "DB2RECV"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "DB2-REQUEST-AREA",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "DB2-REQUEST-TYPE",
+          "line": 5,
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "DB2-CONNECT",
+              "line": 6,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "DB2-DISCONNECT",
+              "line": 7,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "DB2-STATUS",
+              "line": 8,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'S'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "DB2-RESPONSE-CODE",
+          "line": 9,
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-CONNECTION-TOKEN",
+          "line": 10,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DB2-ERROR-INFO",
+          "line": 11,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "DB2-SQLCODE",
+              "line": 12,
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "DB2-ERROR-MSG",
+              "line": 13,
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

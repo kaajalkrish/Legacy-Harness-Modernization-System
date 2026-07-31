@@ -1,0 +1,322 @@
+{
+  "copybook": "COCOM01Y",
+  "used_by": [
+    "COPAUS0C",
+    "COPAUS1C",
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COADM01C",
+    "COBIL00C",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC",
+    "COMEN01C",
+    "CORPT00C",
+    "COSGN00C",
+    "COTRN00C",
+    "COTRN01C",
+    "COTRN02C",
+    "COUSR00C",
+    "COUSR01C",
+    "COUSR02C",
+    "COUSR03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CARDDEMO-COMMAREA",
+      "line": 19,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CDEMO-GENERAL-INFO",
+          "line": 20,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-FROM-TRANID",
+              "line": 21,
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-FROM-PROGRAM",
+              "line": 22,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-TO-TRANID",
+              "line": 23,
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-TO-PROGRAM",
+              "line": 24,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-USER-ID",
+              "line": 25,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-USER-TYPE",
+              "line": 26,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CDEMO-USRTYP-ADMIN",
+                  "line": 27,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CDEMO-USRTYP-USER",
+                  "line": 28,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'U'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-PGM-CONTEXT",
+              "line": 29,
+              "pic": "9(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CDEMO-PGM-ENTER",
+                  "line": 30,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CDEMO-PGM-REENTER",
+                  "line": 31,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "1",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-CUSTOMER-INFO",
+          "line": 32,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-CUST-ID",
+              "line": 33,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CUST-FNAME",
+              "line": 34,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CUST-MNAME",
+              "line": 35,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-CUST-LNAME",
+              "line": 36,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-ACCOUNT-INFO",
+          "line": 37,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-ACCT-ID",
+              "line": 38,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-ACCT-STATUS",
+              "line": 39,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-CARD-INFO",
+          "line": 40,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-CARD-NUM",
+              "line": 41,
+              "pic": "9(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-MORE-INFO",
+          "line": 42,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-LAST-MAP",
+              "line": 43,
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CDEMO-LAST-MAPSET",
+              "line": 44,
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

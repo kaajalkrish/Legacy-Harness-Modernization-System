@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "program_id": "POSUPDT",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\input\\src_sample\\programs\\batch\\POSUPDT.cbl",
+    "total_lines": 1
+  },
+  "parse_issues": [
+    {
+      "severity": "warning",
+      "type": "division_not_found",
+      "message": "PROCEDURE DIVISION boundary not detected"
+    },
+    {
+      "severity": "warning",
+      "type": "division_not_found",
+      "message": "DATA DIVISION boundary not detected"
+    }
+  ],
+  "identification_division": {
+    "start_line": null,
+    "end_line": null,
+    "program_id": "POSUPDT"
+  },
+  "environment_division": {
+    "start_line": null,
+    "end_line": null,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": null,
+    "end_line": null,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": null,
+    "end_line": null,
+    "using_parameters": [],
+    "sections": [],
+    "paragraphs": [],
+    "terminal_statements": []
+  },
+  "copy_stubs": [],
+  "control_flow_graph": {
+    "entry_points": [],
+    "terminal_nodes": [],
+    "nodes": [],
+    "edges": [],
+    "dead_code_candidates": [],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "copybook": "CVCUS01Y",
+  "used_by": [
+    "COPAUA0C",
+    "COPAUS0C",
+    "CBCUS01C",
+    "CBEXPORT",
+    "CBIMPORT",
+    "CBTRN01C",
+    "COACTUPC",
+    "COACTVWC",
+    "COCRDSLC",
+    "COCRDUPC"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CUSTOMER-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CUST-ID",
+          "line": 5,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-FIRST-NAME",
+          "line": 6,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-MIDDLE-NAME",
+          "line": 7,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-LAST-NAME",
+          "line": 8,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-1",
+          "line": 9,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-2",
+          "line": 10,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-3",
+          "line": 11,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-STATE-CD",
+          "line": 12,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-COUNTRY-CD",
+          "line": 13,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-ZIP",
+          "line": 14,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PHONE-NUM-1",
+          "line": 15,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PHONE-NUM-2",
+          "line": 16,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-SSN",
+          "line": 17,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-GOVT-ISSUED-ID",
+          "line": 18,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-DOB-YYYY-MM-DD",
+          "line": 19,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-EFT-ACCOUNT-ID",
+          "line": 20,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PRI-CARD-HOLDER-IND",
+          "line": 21,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-FICO-CREDIT-SCORE",
+          "line": 22,
+          "pic": "9(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 23,
+          "pic": "X(168)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

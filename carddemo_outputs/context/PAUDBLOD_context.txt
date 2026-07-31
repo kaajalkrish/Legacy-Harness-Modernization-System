@@ -1,0 +1,52 @@
+# System Context: PAUDBLOD
+## 📝 Summary
+PAUDBLOD is a unknown-type COBOL program, entered at MAIN-PARA, with 17 paragraph(s) across 0 section(s), calling 3 other program(s), reading/writing 2 data file(s), sharing 4 copybook(s). It defines 8 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PAUDBLOD
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- INFILE1
+- INFILE2
+### 📚 Shared Logic (Copybooks)
+- IMSFUNCS
+- CIPAUSMY
+- CIPAUDTY
+- PAUTBPCB
+### 🔗 Execution Flow (Calls)
+- CBLTDLI
+- CBLTDLI
+- CBLTDLI
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 27 sub-field(s))
+- 01 WS-IMS-VARIABLES (group item, 2 sub-field(s))
+- 01 ROOT-QUAL-SSA (group item, 6 sub-field(s))
+- 01 ROOT-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 CHILD-UNQUAL-SSA (group item, 2 sub-field(s))
+- 01 PRM-INFO (group item, 8 sub-field(s))
+- 01 PENDING-AUTH-SUMMARY (group item, 1 sub-field(s))
+- 01 PENDING-AUTH-DETAILS (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 17 / 0
+- **Terminal Statements**: GOBACK (line 187), GOBACK (line 366)
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-INITIALIZE
+- 1000-EXIT
+- 2000-READ-ROOT-SEG-FILE
+- 2000-EXIT
+- 2100-INSERT-ROOT-SEG
+- 2100-EXIT
+- 3000-READ-CHILD-SEG-FILE
+- 3000-EXIT
+- 3100-INSERT-CHILD-SEG
+- 3100-EXIT
+- 3200-INSERT-IMS-CALL
+- 3200-EXIT
+- 4000-FILE-CLOSE
+- 4000-EXIT
+- 9999-ABEND
+- 9999-EXIT

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "program_id": "PORTADD",
+    "source_file": "input/src_sample/programs/portfolio/PORTADD.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "PORTADD is a batch program that creates new portfolio records. It opens the indexed PORTFILE (I-O) and a sequential input file, then reads each input record and validates it (portfolio ID and client name must be present, status must be 'A'). Valid records are date-stamped (create date and last-maintenance date set to today) and written to the portfolio file; the write outcome is classified as added, duplicate, or error and counted. At the end it closes the files, prints add/duplicate/error totals, and sets the job return code. Error conditions handled: file-open failure, invalid input data, and duplicate/other write errors.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [76, 84],
+      "pseudocode": "CALL 1000-INITIALIZE\nWHILE NOT end of file DO\n  CALL 2000-PROCESS\nEND WHILE\nCALL 3000-TERMINATE\nRETURN to caller (GOBACK)",
+      "branches": ["WHILE NOT END-OF-FILE (main read loop)"],
+      "calls_made": ["1000-INITIALIZE", "2000-PROCESS", "3000-TERMINATE"],
+      "field_references": ["WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1000-INITIALIZE",
+      "line_range": [86, 102],
+      "pseudocode": "CLEAR WS-WORK-AREAS (INITIALIZE)\nACCEPT WS-CURRENT-DATE FROM system date (YYYYMMDD)\nOPEN PORTFOLIO-FILE for READ-WRITE (I-O)\nOPEN INPUT-FILE for READ-ONLY\nIF portfolio open NOT success OR input open NOT success THEN\n  DISPLAY 'Error opening files' + statuses\n  SET WS-RETURN-CODE = error (8)\n  CALL 3000-TERMINATE\nEND IF",
+      "branches": ["IF file open failed (either file) -> terminate"],
+      "calls_made": ["3000-TERMINATE"],
+      "field_references": ["WS-WORK-AREAS", "WS-CURRENT-DATE", "WS-FILE-STATUS", "WS-INPUT-STATUS", "WS-RETURN-CODE"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 100, "note": "SME REVIEW: on open failure it PERFORMs 3000-TERMINATE (which CLOSEs the files) but does NOT stop the run — control returns to 0000-MAIN, which then PERFORMs 2000-PROCESS against now-closed files. Likely a defect (missing STOP RUN / GOBACK after the error)."}
+      ],
+      "notes": ""
+    },
+    {
+      "name": "2000-PROCESS",
+      "line_range": [104, 111],
+      "pseudocode": "READ next record from INPUT-FILE into PORT-RECORD\nIF end of file THEN\n  SET END-OF-FILE = true\nELSE\n  CALL 2100-VALIDATE-AND-ADD\nEND IF",
+      "branches": ["READ ... AT END / NOT AT END"],
+      "calls_made": ["2100-VALIDATE-AND-ADD"],
+      "field_references": ["PORT-RECORD", "WS-INPUT-STATUS", "WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2100-VALIDATE-AND-ADD",
+      "line_range": [113, 137],
+      "pseudocode": "-- Validation rule\nIF PORT-ID is blank OR PORT-CLIENT-NAME is blank OR PORT-STATUS <> 'A' THEN\n  INCREMENT WS-ERROR-COUNT\n  DISPLAY 'Invalid record data' + PORT-ID\n  EXIT PARAGRAPH        -- skip this record\nEND IF\nSET PORT-CREATE-DATE = WS-CURRENT-DATE\nSET PORT-LAST-MAINT  = WS-CURRENT-DATE\nWRITE PORT-RECORD to PORTFOLIO-FILE\nSELECT CASE write status\n  WHEN success ('00'): INCREMENT WS-ADD-COUNT\n  WHEN duplicate ('22'): INCREMENT WS-DUP-COUNT; DISPLAY 'Duplicate record' + PORT-ID\n  ELSE: INCREMENT WS-ERROR-COUNT; DISPLAY 'Write error for' + PORT-ID\nEND SELECT",
+      "branches": ["IF invalid (ID/client blank or status<>'A') -> count error + skip", "EVALUATE write status: success / duplicate / other"],
+      "calls_made": [],
+      "field_references": ["PORT-ID", "PORT-CLIENT-NAME", "PORT-STATUS", "PORT-CREATE-DATE", "PORT-LAST-MAINT", "WS-CURRENT-DATE", "WS-FILE-STATUS", "WS-ADD-COUNT", "WS-DUP-COUNT", "WS-ERROR-COUNT"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 119, "note": "EXIT PARAGRAPH is an early return that skips the add for an invalid record."},
+        {"line": 116, "note": "Business rule: a record is only added when status = 'A' (active) and both ID and client name are present."}
+      ],
+      "notes": "Core add-with-validation logic."
+    },
+    {
+      "name": "3000-TERMINATE",
+      "line_range": [139, 148],
+      "pseudocode": "CLOSE PORTFOLIO-FILE and INPUT-FILE\nDISPLAY 'Records added', 'Duplicate records', 'Errors occurred' with their counts\nSET job RETURN-CODE = WS-RETURN-CODE",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-ADD-COUNT", "WS-DUP-COUNT", "WS-ERROR-COUNT", "WS-RETURN-CODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 139, "note": "Can be entered twice (once from the open-error path in 1000, once normally) — a double CLOSE may itself set a bad file status."}
+      ],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

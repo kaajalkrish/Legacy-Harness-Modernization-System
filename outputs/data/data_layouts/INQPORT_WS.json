@@ -1,0 +1,581 @@
+{
+  "program": "INQPORT",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-COMMAREA",
+      "line": 14,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 1,
+          "name": "INQCOM-AREA",
+          "line": 4,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "INQCOM-FUNCTION",
+              "line": 5,
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INQCOM-MENU",
+                  "line": 6,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'MENU'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-PORTFOLIO",
+                  "line": 7,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQP'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-HISTORY",
+                  "line": 8,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQH'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-EXIT",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'EXIT'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ACCOUNT-NO",
+              "line": 10,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-RESPONSE-CODE",
+              "line": 11,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ERROR-MSG",
+              "line": 12,
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-POSITION-RECORD",
+      "line": 17,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 1,
+          "name": "POSITION-RECORD",
+          "line": 6,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "POS-KEY",
+              "line": 7,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "POS-PORTFOLIO-ID",
+                  "line": 8,
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-DATE",
+                  "line": 9,
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-INVESTMENT-ID",
+                  "line": 10,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "POS-DATA",
+              "line": 11,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "POS-QUANTITY",
+                  "line": 12,
+                  "pic": "S9(11)V9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": "COMP-3",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-COST-BASIS",
+                  "line": 13,
+                  "pic": "S9(13)V9(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": "COMP-3",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-MARKET-VALUE",
+                  "line": 14,
+                  "pic": "S9(13)V9(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": "COMP-3",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-CURRENCY",
+                  "line": 15,
+                  "pic": "X(03)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-STATUS",
+                  "line": 16,
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "POS-STATUS-ACTIVE",
+                      "line": 17,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'A'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "POS-STATUS-CLOSED",
+                      "line": 18,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'C'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "POS-STATUS-PEND",
+                      "line": 19,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'P'",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "POS-AUDIT",
+              "line": 20,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "POS-LAST-MAINT-DATE",
+                  "line": 21,
+                  "pic": "X(26)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "POS-LAST-MAINT-USER",
+                  "line": 22,
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "POS-FILLER",
+              "line": 23,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-DB2-POSITION",
+      "line": 20,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-FLAGS",
+      "line": 23,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RESPONSE-CODE",
+          "line": 24,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-POSITION-FOUND",
+          "line": 25,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "POSITION-EXISTS",
+              "line": 26,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "NO-POSITION",
+              "line": 27,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-MAP-FIELDS",
+      "line": 29,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-ACCOUNT-LABEL",
+          "line": 30,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Account:'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-FUND-LABEL",
+          "line": 31,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Fund ID:'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-UNITS-LABEL",
+          "line": 32,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Units:'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-COST-LABEL",
+          "line": 33,
+          "section": "WORKING-STORAGE",
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Cost Basis:'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-VALUE-LABEL",
+          "line": 34,
+          "section": "WORKING-STORAGE",
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Market Value:'",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DFHCOMMAREA",
+      "line": 37,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 1,
+          "name": "INQCOM-AREA",
+          "line": 4,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "INQCOM-FUNCTION",
+              "line": 5,
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INQCOM-MENU",
+                  "line": 6,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'MENU'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-PORTFOLIO",
+                  "line": 7,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQP'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-HISTORY",
+                  "line": 8,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INQH'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INQCOM-EXIT",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'EXIT'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ACCOUNT-NO",
+              "line": 10,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-RESPONSE-CODE",
+              "line": 11,
+              "pic": "S9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INQCOM-ERROR-MSG",
+              "line": 12,
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

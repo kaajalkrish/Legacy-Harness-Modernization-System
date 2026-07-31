@@ -1,0 +1,471 @@
+{
+  "copybook": "BCHCON",
+  "used_by": [
+    "BCHCTL00",
+    "HISTLD00",
+    "PRCSEQ00",
+    "RCVPRC00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "BATCH-CONTROL-CONSTANTS",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "BCT-STAT-VALUES",
+          "line": 8,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-STAT-READY",
+              "line": 9,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-ACTIVE",
+              "line": 10,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'A'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-WAITING",
+              "line": 11,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'W'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-DONE",
+              "line": 12,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-STAT-ERROR",
+              "line": 13,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'E'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-RC-THRESHOLDS",
+          "line": 16,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-RC-SUCCESS",
+              "line": 17,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+0",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-WARNING",
+              "line": 18,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+4",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-ERROR",
+              "line": 19,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+8",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-SEVERE",
+              "line": 20,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+12",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-RC-CRITICAL",
+              "line": 21,
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "+16",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-CTRL-VALUES",
+          "line": 24,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-MAX-PREREQ",
+              "line": 25,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "10",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MAX-RESTARTS",
+              "line": 26,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-WAIT-INTERVAL",
+              "line": 27,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "300",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MAX-WAIT-TIME",
+              "line": 28,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3600",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-PROC-TYPES",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-TYPE-INITIAL",
+              "line": 32,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'INI'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-UPDATE",
+              "line": 33,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'UPD'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-REPORT",
+              "line": 34,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'RPT'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-TYPE-CLEANUP",
+              "line": 35,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CLN'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-DEP-TYPES",
+          "line": 38,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-DEP-REQUIRED",
+              "line": 39,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-DEP-OPTIONAL",
+              "line": 40,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'O'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-DEP-EXCLUSIVE",
+              "line": 41,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'X'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-PROC-NAMES",
+          "line": 44,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-START-OF-DAY",
+              "line": 45,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'STARTDAY'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-END-OF-DAY",
+              "line": 46,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ENDDAY  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-EMERGENCY",
+              "line": 47,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'EMERGENCY'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-REC-TYPES",
+          "line": 50,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-REC-CONTROL",
+              "line": 51,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-PROCESS",
+              "line": 52,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'P'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-DEPEND",
+              "line": 53,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-REC-HISTORY",
+              "line": 54,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'H'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "BCT-MESSAGES",
+          "line": 57,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "BCT-MSG-STARTING",
+              "line": 58,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process starting...           '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-COMPLETE",
+              "line": 60,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process completed successfully'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-FAILED",
+              "line": 62,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Process failed - check errors '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "BCT-MSG-WAITING",
+              "line": 64,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Waiting for prerequisites     '",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

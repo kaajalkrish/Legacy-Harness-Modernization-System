@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "program_id": "POSUPDT",
+    "source_file": "input/src_sample/programs/batch/POSUPDT.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "POSUPDT.cbl is effectively EMPTY — the source file contains no COBOL (a single blank line). There is no PROGRAM-ID, no divisions, and no paragraphs to explain. It is a placeholder/stub file that has not been written yet, or an accidentally-empty member. Its name suggests it is intended to be a 'Position Update' batch program, but no logic exists.",
+  "paragraphs": [],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."},
+  "issues": [
+    {"severity": "warning", "type": "empty_source", "message": "POSUPDT.cbl has no COBOL content — nothing to explain. Flagged for SME/inventory review (expected a Position Update program)."}
+  ]
+}

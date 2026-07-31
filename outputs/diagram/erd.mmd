@@ -1,0 +1,104 @@
+erDiagram
+  BATCH_CONTROL_CONSTANTS {
+    int field_count "40"
+    string used_by "BCHCTL00, HISTLD00, PRCSEQ00"
+  }
+  BATCH_CONTROL_RECORD {
+    int field_count "25"
+    string used_by "BCHCTL00, HISTLD00, PRCSEQ00"
+  }
+  PROCESS_SEQUENCE_RECORD {
+    int field_count "35"
+    string used_by "PRCSEQ00"
+  }
+  STANDARD_SEQUENCES {
+    int field_count "12"
+    string used_by "PRCSEQ00"
+  }
+  AUDIT_RECORD {
+    int field_count "15"
+    string used_by "AUDPROC"
+  }
+  ERROR_HANDLING {
+    int field_count "4"
+    string used_by "-"
+  }
+  HISTORY_RECORD {
+    int field_count "15"
+    string used_by "HISTLD00"
+  }
+  PORT_RECORD {
+    int field_count "17"
+    string used_by "PORTADD, PORTADD, PORTREAD"
+  }
+  POSITION_RECORD {
+    int field_count "14"
+    string used_by "INQPORT, UTLVAL00"
+  }
+  RETURN_HANDLING {
+    int field_count "21"
+    string used_by "CKPRST"
+  }
+  STD_ERROR_CODES {
+    int field_count "10"
+    string used_by "CKPRST"
+  }
+  RETURN_CODE_AREA {
+    int field_count "19"
+    string used_by "TSTVAL00, UTLVAL00"
+  }
+  TRANSACTION_RECORD {
+    int field_count "17"
+    string used_by "UTLVAL00"
+  }
+  DB2_ERROR_HANDLING {
+    int field_count "11"
+    string used_by "HISTLD00, DB2CMT, DB2CONN"
+  }
+  POSHIST_RECORD {
+    int field_count "18"
+    string used_by "HISTLD00, DB2ERR"
+  }
+  DB2_REQUEST_AREA {
+    int field_count "6"
+    string used_by "-"
+  }
+  LS_AUDIT_REQUEST {
+    int field_count "15"
+    string used_by "AUDPROC"
+  }
+  LS_CONTROL_REQUEST {
+    int field_count "5"
+    string used_by "BCHCTL00"
+  }
+  CURSOR_REQUEST_AREA {
+    int field_count "7"
+    string used_by "CURSMGR"
+  }
+  LS_COMMIT_REQUEST {
+    int field_count "10"
+    string used_by "DB2CMT"
+  }
+  LS_DB2_REQUEST {
+    int field_count "7"
+    string used_by "DB2CONN"
+  }
+  LS_ERROR_REQUEST {
+    int field_count "9"
+    string used_by "DB2ERR"
+  }
+  WS_STATS_RECORD {
+    int field_count "11"
+    string used_by "DB2STAT"
+  }
+  LS_STAT_REQUEST {
+    int field_count "10"
+    string used_by "DB2STAT"
+  }
+  ERROR_HANDLING ||--o{ RETURN_HANDLING : "shared field ERROR-CODE"
+  LS_AUDIT_REQUEST ||--o{ LS_CONTROL_REQUEST : "shared field LS-RETURN-CODE"
+  LS_AUDIT_REQUEST ||--o{ LS_COMMIT_REQUEST : "shared field LS-RETURN-CODE"
+  LS_AUDIT_REQUEST ||--o{ LS_DB2_REQUEST : "shared field LS-RETURN-CODE"
+  LS_AUDIT_REQUEST ||--o{ LS_ERROR_REQUEST : "shared field LS-RETURN-CODE"
+  LS_AUDIT_REQUEST ||--o{ LS_STAT_REQUEST : "shared field LS-RETURN-CODE"
+  LS_ERROR_REQUEST ||--o{ LS_STAT_REQUEST : "shared field LS-PROGRAM-ID"

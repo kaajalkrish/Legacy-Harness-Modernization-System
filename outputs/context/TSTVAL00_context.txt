@@ -1,0 +1,44 @@
+# System Context: TSTVAL00
+## 📝 Summary
+TSTVAL00 is a test-type COBOL program, entered at 0000-MAIN, with 10 paragraph(s) across 0 section(s), reading/writing 4 data file(s), sharing 2 copybook(s). It defines 9 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: TSTVAL00
+- **Source Path**: programs/test/TSTVAL00.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- TEST-CASES
+- EXPECTED-RESULTS
+- ACTUAL-RESULTS
+- TEST-REPORT
+### 📚 Shared Logic (Copybooks)
+- RTNCODE
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- COPY RTNCODE (external structure, expanded via copybook)
+- COPY ERRHAND (external structure, expanded via copybook)
+- 01 WS-FILE-STATUS (group item, 4 sub-field(s))
+- 01 WS-TEST-TYPES (group item, 4 sub-field(s))
+- 01 WS-PROCESSING-FLAGS (group item, 2 sub-field(s))
+- 01 WS-TEST-METRICS (group item, 6 sub-field(s))
+- 01 WS-REPORT-HEADERS (group item, 2 sub-field(s))
+- 01 WS-TEST-DETAIL (group item, 8 sub-field(s))
+- 01 WS-SUMMARY-LINE (group item, 10 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 10 / 0
+- **Terminal Statements**: GOBACK (line 132), GOBACK (line 225)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 1100-OPEN-FILES
+- 1200-WRITE-HEADERS
+- 1300-INIT-METRICS
+- 2000-PROCESS
+- 2100-EXECUTE-TEST
+- 2900-WRITE-SUMMARY
+- 3000-CLEANUP
+- 9999-ERROR-HANDLER

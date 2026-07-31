@@ -1,0 +1,899 @@
+{
+  "program": "DB2STAT",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-STATS-RECORD",
+      "line": 18,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-PROGRAM-ID",
+          "line": 19,
+          "section": "WORKING-STORAGE",
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-START-TIME",
+          "line": 20,
+          "section": "WORKING-STORAGE",
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-END-TIME",
+          "line": 21,
+          "section": "WORKING-STORAGE",
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ROWS-READ",
+          "line": 22,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ROWS-INSERTED",
+          "line": 23,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ROWS-UPDATED",
+          "line": 24,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ROWS-DELETED",
+          "line": 25,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-COMMITS",
+          "line": 26,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ROLLBACKS",
+          "line": 27,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CPU-TIME",
+          "line": 28,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ELAPSED-TIME",
+          "line": 29,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 1,
+              "name": "SQL-STATUS-CODES",
+              "line": 8,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "SQL-SUCCESS",
+                  "line": 9,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00000'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-NOT-FOUND",
+                  "line": 10,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'02000'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-DUP-KEY",
+                  "line": 11,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'23505'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-DEADLOCK",
+                  "line": 12,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'40001'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-TIMEOUT",
+                  "line": 13,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'40003'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-CONNECTION-ERROR",
+                  "line": 14,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'08001'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "SQL-DB-ERROR",
+                  "line": 15,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'58004'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "DB2-ERROR-HANDLING",
+              "line": 10,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "DB2-ERROR-MESSAGE",
+                  "line": 11,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 12,
+                      "pic": "X(9)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'SQLCODE: '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "DB2-SQLCODE-TXT",
+                      "line": 13,
+                      "pic": "X(6)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 14,
+                      "pic": "X(9)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "' STATE: '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "DB2-STATE",
+                      "line": 15,
+                      "pic": "X(5)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 16,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "' ERROR: '",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "DB2-ERROR-TEXT",
+                      "line": 17,
+                      "pic": "X(70)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "DB2-SAVE-STATUS",
+                  "line": 18,
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "DB2-RETRY-COUNT",
+                  "line": 19,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "DB2-MAX-RETRIES",
+                  "line": 20,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "3",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "DB2-RETRY-WAIT",
+                  "line": 21,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "100",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "ERR-CATEGORIES",
+              "line": 11,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ERR-CAT-VSAM",
+                  "line": 12,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'VS'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-CAT-VALID",
+                  "line": 13,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'VL'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-CAT-PROC",
+                  "line": 14,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PR'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-CAT-SYSTEM",
+                  "line": 15,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'SY'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "ERR-RETURN-CODES",
+              "line": 20,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ERR-SUCCESS",
+                  "line": 21,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+0",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-WARNING",
+                  "line": 22,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+4",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-ERROR",
+                  "line": 23,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+8",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-SEVERE",
+                  "line": 24,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+12",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-TERMINAL",
+                  "line": 25,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+16",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "ERR-MESSAGE",
+              "line": 30,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ERR-TIMESTAMP",
+                  "line": 31,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "ERR-DATE",
+                      "line": 32,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "ERR-TIME",
+                      "line": 33,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-PROGRAM",
+                  "line": 34,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-CATEGORY",
+                  "line": 35,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-CODE",
+                  "line": 36,
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-SEVERITY",
+                  "line": 37,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-TEXT",
+                  "line": 38,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-DETAILS",
+                  "line": 39,
+                  "pic": "X(256)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "ERR-VSAM-STATUSES",
+              "line": 44,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-SUCCESS",
+                  "line": 45,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'00'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-DUPKEY",
+                  "line": 46,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'22'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-NOTFND",
+                  "line": 47,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'23'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-EOF",
+                  "line": 48,
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'10'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 1,
+              "name": "ERR-VSAM-MSGS",
+              "line": 50,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-22",
+                  "line": 51,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Duplicate record key'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-VSAM-23",
+                  "line": 53,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Record not found'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ERR-OTHER",
+                  "line": 55,
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Unexpected VSAM error'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-CURRENT-TIMESTAMP",
+      "line": 36,
+      "section": "WORKING-STORAGE",
+      "pic": "X(26)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-START-TIMESTAMP",
+      "line": 37,
+      "section": "WORKING-STORAGE",
+      "pic": "X(26)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-FORMATTED-TIME",
+      "line": 38,
+      "section": "WORKING-STORAGE",
+      "pic": "ZZ,ZZ9.99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "LS-STAT-REQUEST",
+      "line": 41,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "LS-FUNCTION",
+          "line": 42,
+          "section": "LINKAGE",
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "FUNC-INIT",
+              "line": 43,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'INIT'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FUNC-UPDT",
+              "line": 44,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'UPDT'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FUNC-TERM",
+              "line": 45,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'TERM'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FUNC-DISP",
+              "line": 46,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'DISP'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "LS-PROGRAM-ID",
+          "line": 47,
+          "section": "LINKAGE",
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "LS-STAT-DATA",
+          "line": 48,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "LS-ROWS-READ",
+              "line": 49,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "LS-ROWS-INSRT",
+              "line": 50,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "LS-ROWS-UPDT",
+              "line": 51,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "LS-ROWS-DELT",
+              "line": 52,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "LS-COMMITS",
+              "line": 53,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "LS-ROLLBACKS",
+              "line": 54,
+              "section": "LINKAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "LS-RETURN-CODE",
+          "line": 55,
+          "section": "LINKAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

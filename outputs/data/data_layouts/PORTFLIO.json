@@ -1,0 +1,286 @@
+{
+  "copybook": "PORTFLIO",
+  "used_by": [
+    "PORTADD",
+    "PORTADD",
+    "PORTDEL",
+    "PORTREAD",
+    "PORTTEST",
+    "PORTUPDT",
+    "TSTGEN00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "PORT-RECORD",
+      "line": 11,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PORT-KEY",
+          "line": 12,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PORT-ID",
+              "line": 13,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-ACCOUNT-NO",
+              "line": 14,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PORT-CLIENT-INFO",
+          "line": 15,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PORT-CLIENT-NAME",
+              "line": 16,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-CLIENT-TYPE",
+              "line": 17,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PORT-INDIVIDUAL",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'I'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PORT-CORPORATE",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PORT-TRUST",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'T'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PORT-PORTFOLIO-INFO",
+          "line": 21,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PORT-CREATE-DATE",
+              "line": 22,
+              "pic": "9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-LAST-MAINT",
+              "line": 23,
+              "pic": "9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-STATUS",
+              "line": 24,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PORT-ACTIVE",
+                  "line": 25,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PORT-CLOSED",
+                  "line": 26,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PORT-SUSPENDED",
+                  "line": 27,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'S'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PORT-FINANCIAL-INFO",
+          "line": 28,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PORT-TOTAL-VALUE",
+              "line": 29,
+              "pic": "S9(13)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-CASH-BALANCE",
+              "line": 30,
+              "pic": "S9(13)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PORT-AUDIT-INFO",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PORT-LAST-USER",
+              "line": 32,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PORT-LAST-TRANS",
+              "line": 33,
+              "pic": "9(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PORT-FILLER",
+          "line": 34,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

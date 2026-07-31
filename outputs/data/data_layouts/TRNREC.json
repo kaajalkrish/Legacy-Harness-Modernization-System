@@ -1,0 +1,303 @@
+{
+  "copybook": "TRNREC",
+  "used_by": [
+    "RPTPOS00",
+    "PORTTRAN",
+    "TSTGEN00",
+    "UTLVAL00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "TRANSACTION-RECORD",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRN-KEY",
+          "line": 7,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRN-DATE",
+              "line": 8,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-TIME",
+              "line": 9,
+              "pic": "X(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-PORTFOLIO-ID",
+              "line": 10,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-SEQUENCE-NO",
+              "line": 11,
+              "pic": "X(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRN-DATA",
+          "line": 12,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRN-INVESTMENT-ID",
+              "line": 13,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-TYPE",
+              "line": 14,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "TRN-TYPE-BUY",
+                  "line": 15,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'BU'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-TYPE-SELL",
+                  "line": 16,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'SL'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-TYPE-TRANS",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TR'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-TYPE-FEE",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'FE'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "TRN-QUANTITY",
+              "line": 19,
+              "pic": "S9(11)V9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-PRICE",
+              "line": 20,
+              "pic": "S9(11)V9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-AMOUNT",
+              "line": 21,
+              "pic": "S9(13)V9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-CURRENCY",
+              "line": 22,
+              "pic": "X(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-STATUS",
+              "line": 23,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "TRN-STATUS-PEND",
+                  "line": 24,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'P'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-STATUS-DONE",
+                  "line": 25,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'D'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-STATUS-FAIL",
+                  "line": 26,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'F'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRN-STATUS-REV",
+                  "line": 27,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'R'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRN-AUDIT",
+          "line": 28,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRN-PROCESS-DATE",
+              "line": 29,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRN-PROCESS-USER",
+              "line": 30,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRN-FILLER",
+          "line": 31,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

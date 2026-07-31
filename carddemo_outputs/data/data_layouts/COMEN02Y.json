@@ -1,0 +1,595 @@
+{
+  "copybook": "COMEN02Y",
+  "used_by": [
+    "COMEN01C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CARDDEMO-MAIN-MENU-OPTIONS",
+      "line": 19,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CDEMO-MENU-OPT-COUNT",
+          "line": 21,
+          "pic": "9(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "11",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-MENU-OPTIONS-DATA",
+          "line": 23,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 25,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "1",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 26,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Account View                       '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 28,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COACTVWC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 29,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 31,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "2",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 32,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Account Update                     '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 34,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COACTUPC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 35,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 37,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "3",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 38,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Credit Card List                   '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 40,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDLIC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 41,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 43,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "4",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 44,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Credit Card View                   '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 46,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDSLC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 47,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 49,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "5",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 50,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Credit Card Update                 '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 52,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDUPC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 53,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 55,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "6",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 56,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction List                   '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 58,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRN00C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 59,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 61,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "7",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 62,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction View                   '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 64,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRN01C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 65,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 67,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "8",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 68,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction Add                    '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 71,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRN02C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 72,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 74,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "9",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 75,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Transaction Reports                '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 77,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CORPT00C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 78,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 80,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "10",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 81,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Bill Payment                       '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 83,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COBIL00C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 84,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 86,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "11",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 87,
+              "pic": "X(35)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Pending Authorization View         '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 89,
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COPAUS0C'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 90,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CDEMO-MENU-OPTIONS",
+          "line": 93,
+          "pic": null,
+          "occurs": null,
+          "redefines": "CDEMO-MENU-OPTIONS-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CDEMO-MENU-OPT",
+              "line": 94,
+              "pic": null,
+              "occurs": 12,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CDEMO-MENU-OPT-NUM",
+                  "line": 95,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CDEMO-MENU-OPT-NAME",
+                  "line": 96,
+                  "pic": "X(35)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CDEMO-MENU-OPT-PGMNAME",
+                  "line": 97,
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CDEMO-MENU-OPT-USRTYPE",
+                  "line": 98,
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# System Context: ERRPROC
+## 📝 Summary
+ERRPROC is a common-type COBOL program, entered at 0000-MAIN, with 6 paragraph(s) across 0 section(s), reading/writing 1 data file(s), sharing 1 copybook(s). It defines 2 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: ERRPROC
+- **Source Path**: programs/common/ERRPROC.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- ERROR-LOG
+### 📚 Shared Logic (Copybooks)
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- COPY ERRHAND (external structure, expanded via copybook)
+- 01 WS-WORK-AREAS (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 6 / 0
+- **Terminal Statements**: GOBACK (line 52)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE
+- 2000-PROCESS-ERROR
+- 2100-WRITE-LOG
+- 2200-DISPLAY-ERROR
+- 3000-TERMINATE

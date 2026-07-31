@@ -1,0 +1,49 @@
+# System Context: PRCSEQ00
+## 📝 Summary
+PRCSEQ00 is a batch-type COBOL program, entered at 0000-MAIN, with 19 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 2 data file(s), sharing 4 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: PRCSEQ00
+- **Source Path**: programs/batch/PRCSEQ00.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- PROCESS-SEQ-FILE
+- BATCH-CONTROL-FILE
+### 📚 Shared Logic (Copybooks)
+- PRCSEQ
+- BCHCTL
+- BCHCON
+- ERRHAND
+### 🔗 Execution Flow (Calls)
+- ERRPROC
+## Key Data Structures
+- COPY BCHCON (external structure, expanded via copybook)
+- COPY ERRHAND (external structure, expanded via copybook)
+- 01 WS-FILE-STATUS (group item, 2 sub-field(s))
+- 01 WS-WORK-AREAS (group item, 5 sub-field(s))
+- 01 WS-PROCESS-TABLE (group item, 1 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 19 / 0
+- **Terminal Statements**: GOBACK (line 91)
+- **Paragraph List**:
+- 0000-MAIN
+- 1000-INITIALIZE-SEQUENCE
+- 2000-GET-NEXT-PROCESS
+- 3000-CHECK-STATUS
+- 4000-TERMINATE-SEQUENCE
+- 9000-ERROR-ROUTINE
+- 1100-OPEN-FILES
+- 1200-BUILD-SEQUENCE
+- 1210-ADD-TO-SEQUENCE
+- 1300-CREATE-CONTROL-RECORDS
+- 2100-FIND-NEXT-READY
+- 2200-CHECK-DEPENDENCIES
+- 2210-CHECK-DEP-STATUS
+- 2300-UPDATE-PROCESS-STATUS
+- 3100-READ-CONTROL-STATUS
+- 3200-UPDATE-SEQUENCE-TABLE
+- 3300-CHECK-COMPLETION
+- 4100-CHECK-FINAL-STATUS
+- 4200-CLOSE-FILES

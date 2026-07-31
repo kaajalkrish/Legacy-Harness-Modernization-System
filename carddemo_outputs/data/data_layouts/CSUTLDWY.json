@@ -1,0 +1,666 @@
+{
+  "copybook": "CSUTLDWY",
+  "used_by": [],
+  "records": [
+    {
+      "level": 10,
+      "name": "WS-EDIT-DATE-CCYYMMDD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-CCYY",
+          "line": 5,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 25,
+              "name": "WS-EDIT-DATE-CC",
+              "line": 6,
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 25,
+              "name": "WS-EDIT-DATE-CC-N",
+              "line": 7,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": "WS-EDIT-DATE-CC",
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "THIS-CENTURY",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "20",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "LAST-CENTURY",
+                  "line": 10,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "19",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 25,
+              "name": "WS-EDIT-DATE-YY",
+              "line": 11,
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 25,
+              "name": "WS-EDIT-DATE-YY-N",
+              "line": 12,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": "WS-EDIT-DATE-YY",
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-CCYY-N",
+          "line": 14,
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": "WS-EDIT-DATE-CCYY",
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-MM",
+          "line": 16,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-MM-N",
+          "line": 17,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": "WS-EDIT-DATE-MM",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-VALID-MONTH",
+              "line": 19,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1 THROUGH 12",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-31-DAY-MONTH",
+              "line": 21,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1, 3, 5, 7, 8, 10, 12",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-FEBRUARY",
+              "line": 24,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "2",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-DD",
+          "line": 25,
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DATE-DD-N",
+          "line": 26,
+          "pic": "9(2)",
+          "occurs": null,
+          "redefines": "WS-EDIT-DATE-DD",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-VALID-DAY",
+              "line": 28,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1 THROUGH 31",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-DAY-31",
+              "line": 30,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "31",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-DAY-30",
+              "line": 31,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "30",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-DAY-29",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "29",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-VALID-FEB-DAY",
+              "line": 33,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "1 THROUGH 28",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "WS-EDIT-DATE-CCYYMMDD-N",
+      "line": 35,
+      "pic": "9(8)",
+      "occurs": null,
+      "redefines": "WS-EDIT-DATE-CCYYMMDD",
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 10,
+      "name": "WS-EDIT-DATE-BINARY",
+      "line": 37,
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "BINARY",
+      "children": []
+    },
+    {
+      "level": 10,
+      "name": "WS-CURRENT-DATE",
+      "line": 38,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 20,
+          "name": "WS-CURRENT-DATE-YYYYMMDD",
+          "line": 39,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-CURRENT-DATE-YYYYMMDD-N",
+          "line": 40,
+          "pic": "9(8)",
+          "occurs": null,
+          "redefines": "WS-CURRENT-DATE-YYYYMMDD",
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-CURRENT-DATE-BINARY",
+          "line": 42,
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "BINARY",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "WS-EDIT-DATE-FLGS",
+      "line": 43,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "WS-EDIT-DATE-IS-VALID",
+          "line": 44,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "LOW-VALUES",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "WS-EDIT-DATE-IS-INVALID",
+          "line": 45,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'000'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-YEAR-FLG",
+          "line": 46,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "FLG-YEAR-ISVALID",
+              "line": 47,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-YEAR-NOT-OK",
+              "line": 48,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'0'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-YEAR-BLANK",
+              "line": 49,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'B'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-MONTH",
+          "line": 50,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "FLG-MONTH-ISVALID",
+              "line": 51,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-MONTH-NOT-OK",
+              "line": 52,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'0'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-MONTH-BLANK",
+              "line": 53,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'B'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "name": "WS-EDIT-DAY",
+          "line": 54,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "FLG-DAY-ISVALID",
+              "line": 55,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-DAY-NOT-OK",
+              "line": 56,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'0'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FLG-DAY-BLANK",
+              "line": 57,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'B'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "name": "WS-DATE-FORMAT",
+      "line": 58,
+      "pic": "X(08)",
+      "occurs": null,
+      "redefines": null,
+      "value": "'YYYYMMDD'",
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 10,
+      "name": "WS-DATE-VALIDATION-RESULT",
+      "line": 60,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 20,
+          "name": "WS-SEVERITY",
+          "line": 61,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-SEVERITY-N",
+          "line": 62,
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": "WS-SEVERITY",
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 64,
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Mesg Code:'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-MSG-NO",
+          "line": 66,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-MSG-NO-N",
+          "line": 67,
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": "WS-MSG-NO",
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 69,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-RESULT",
+          "line": 71,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 72,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 74,
+          "pic": "X(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'TstDate:'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-DATE",
+          "line": 76,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 77,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 79,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Mask used:'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "WS-DATE-FMT",
+          "line": 81,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 82,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 20,
+          "name": "FILLER",
+          "line": 84,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

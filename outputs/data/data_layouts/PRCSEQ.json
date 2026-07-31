@@ -1,0 +1,756 @@
+{
+  "copybook": "PRCSEQ",
+  "used_by": [
+    "PRCSEQ00",
+    "RCVPRC00"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "PROCESS-SEQUENCE-RECORD",
+      "line": 6,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PSR-KEY",
+          "line": 7,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PSR-PROCESS-ID",
+              "line": 8,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-VERSION",
+              "line": 9,
+              "pic": "9(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PSR-DATA",
+          "line": 10,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PSR-DESCRIPTION",
+              "line": 11,
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-TYPE",
+              "line": 12,
+              "pic": "X(3)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PSR-TYPE-INIT",
+                  "line": 13,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'INI'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-TYPE-PROC",
+                  "line": 14,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PRC'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-TYPE-RPT",
+                  "line": 15,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'RPT'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-TYPE-TERM",
+                  "line": 16,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TRM'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "PSR-TIMING",
+              "line": 17,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "PSR-FREQ",
+                  "line": 18,
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "PSR-DAILY",
+                      "line": 19,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'D'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "PSR-WEEKLY",
+                      "line": 20,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'W'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "PSR-MONTHLY",
+                      "line": 21,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'M'",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-START-TIME",
+                  "line": 22,
+                  "pic": "9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-MAX-TIME",
+                  "line": 23,
+                  "pic": "9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "PSR-DEPENDENCIES",
+              "line": 24,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "PSR-DEP-COUNT",
+                  "line": 25,
+                  "pic": "9(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-DEP-ENTRY",
+                  "line": 26,
+                  "pic": null,
+                  "occurs": 10,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "PSR-DEP-ID",
+                      "line": 27,
+                      "pic": "X(8)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "PSR-DEP-TYPE",
+                      "line": 28,
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": [
+                        {
+                          "level": 88,
+                          "name": "PSR-DEP-HARD",
+                          "line": 29,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'H'",
+                          "usage": null,
+                          "children": []
+                        },
+                        {
+                          "level": 88,
+                          "name": "PSR-DEP-SOFT",
+                          "line": 30,
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'S'",
+                          "usage": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 20,
+                      "name": "PSR-DEP-RC",
+                      "line": 31,
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "PSR-CONTROL",
+              "line": 32,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "PSR-PROGRAM",
+                  "line": 33,
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-PARM",
+                  "line": 34,
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-MAX-RC",
+                  "line": 35,
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "PSR-RESTART",
+                  "line": 36,
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "PSR-RESTARTABLE",
+                      "line": 37,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Y'",
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "PSR-NO-RESTART",
+                      "line": 38,
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'N'",
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PSR-SCHEDULE",
+          "line": 39,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PSR-ACTIVE-DAYS",
+              "line": 40,
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PSR-WEEKDAY",
+                  "line": 41,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'YYYYYNN'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-WEEKEND",
+                  "line": 42,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'NNNNNYY'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-ALL-DAYS",
+                  "line": 43,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'YYYYYYY'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "PSR-MONTH-END",
+              "line": 44,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PSR-LAST-DAY",
+                  "line": 45,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "PSR-HOLIDAY-RUN",
+              "line": 46,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PSR-SKIP-HOL",
+                  "line": 47,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSR-RUN-HOL",
+                  "line": 48,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PSR-RECOVERY",
+          "line": 49,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PSR-RECOVERY-PGM",
+              "line": 50,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-RECOVERY-PARM",
+              "line": 51,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-ERROR-LIMIT",
+              "line": 52,
+              "pic": "9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PSR-AUDIT",
+          "line": 53,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "PSR-CREATE-DATE",
+              "line": 54,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-CREATE-USER",
+              "line": 55,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-UPDATE-DATE",
+              "line": 56,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "PSR-UPDATE-USER",
+              "line": 57,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "PSR-FILLER",
+          "line": 58,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "STANDARD-SEQUENCES",
+      "line": 63,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "SEQ-START-OF-DAY",
+          "line": 64,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 65,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'INITDAY '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 66,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CKPCLR  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 67,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'DATEVAL '",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "SEQ-MAIN-PROCESS",
+          "line": 68,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 69,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRNVAL00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 70,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'POSUPD00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 71,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'HISTLD00'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "SEQ-END-OF-DAY",
+          "line": 72,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 73,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'RPTGEN00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 74,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'BCKLOD00'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 75,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ENDDAY  '",
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

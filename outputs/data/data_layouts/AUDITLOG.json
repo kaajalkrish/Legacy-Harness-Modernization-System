@@ -1,0 +1,346 @@
+{
+  "copybook": "AUDITLOG",
+  "used_by": [
+    "RPTAUD00",
+    "AUDPROC",
+    "PORTTRAN"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "AUDIT-RECORD",
+      "line": 7,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "AUD-HEADER",
+          "line": 8,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "AUD-TIMESTAMP",
+              "line": 9,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "AUD-SYSTEM-ID",
+              "line": 10,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "AUD-USER-ID",
+              "line": 11,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "AUD-PROGRAM",
+              "line": 12,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "AUD-TERMINAL",
+              "line": 13,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "AUD-TYPE",
+          "line": 14,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "AUD-TRANSACTION",
+              "line": 15,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRAN'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-USER-ACTION",
+              "line": 16,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'USER'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-SYSTEM-EVENT",
+              "line": 17,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'SYST'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "AUD-ACTION",
+          "line": 18,
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "AUD-CREATE",
+              "line": 19,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'CREATE  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-UPDATE",
+              "line": 20,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'UPDATE  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-DELETE",
+              "line": 21,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'DELETE  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-INQUIRE",
+              "line": 22,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'INQUIRE '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-LOGIN",
+              "line": 23,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'LOGIN   '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-LOGOUT",
+              "line": 24,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'LOGOUT  '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-STARTUP",
+              "line": 25,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'STARTUP '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-SHUTDOWN",
+              "line": 26,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'SHUTDOWN'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "AUD-STATUS",
+          "line": 27,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "AUD-SUCCESS",
+              "line": 28,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'SUCC'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-FAILURE",
+              "line": 29,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'FAIL'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "AUD-WARNING",
+              "line": 30,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'WARN'",
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "AUD-KEY-INFO",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "AUD-PORTFOLIO-ID",
+              "line": 32,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "AUD-ACCOUNT-NO",
+              "line": 33,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "AUD-BEFORE-IMAGE",
+          "line": 34,
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "AUD-AFTER-IMAGE",
+          "line": 35,
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "AUD-MESSAGE",
+          "line": 36,
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

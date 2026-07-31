@@ -1,0 +1,207 @@
+{
+  "meta": {
+    "program_id": "HISTLD00",
+    "source_file": "input/src_sample/programs/batch/HISTLD00.cbl",
+    "model": "claude-code-interactive (no API key — produced in-session)",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "HISTLD00 is a batch program that loads position/transaction history from a VSAM file (TRANSACTION-HISTORY) into the DB2 POSHIST table. It opens the history and batch-control files, connects to DB2, and marks the control record active. It then reads history records sequentially and, for each, maps the fields onto a POSHIST row and INSERTs it into DB2; it counts written rows, treats a duplicate-key (SQLCODE -803) as a skip, and routes other SQL errors to a DB2 error routine. It commits every 1000 rows and updates a checkpoint (read/written counts) in the control file so the load is restartable. The main loop stops at end-of-file OR after 100 errors. At termination it does a final commit + checkpoint, closes files, disconnects DB2, and prints statistics; the job return code is the error count. Errors trigger ERRPROC plus a DB2 ROLLBACK.",
+  "paragraphs": [
+    {
+      "name": "0000-MAIN",
+      "line_range": [67, 78],
+      "pseudocode": "CALL 1000-INITIALIZE\nWHILE NOT end of file AND WS-ERROR-COUNT <= 100 DO\n  CALL 2000-PROCESS\nEND WHILE\nCALL 3000-TERMINATE\nSET job RETURN-CODE = WS-ERROR-COUNT\nRETURN to caller (GOBACK)",
+      "branches": ["WHILE NOT END-OF-FILE OR WS-ERROR-COUNT > 100 (loop guard with an error cap)"],
+      "calls_made": ["1000-INITIALIZE", "2000-PROCESS", "3000-TERMINATE"],
+      "field_references": ["WS-END-OF-FILE-SW", "WS-ERROR-COUNT"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [{"line": 72, "note": "The loop has a safety cap: it aborts after more than 100 errors, not just at end-of-file."}],
+      "notes": ""
+    },
+    {
+      "name": "1000-INITIALIZE",
+      "line_range": [80, 84],
+      "pseudocode": "CALL 1100-OPEN-FILES\nCALL 1200-CONNECT-DB2\nCALL 1300-INIT-CHECKPOINTS",
+      "branches": [],
+      "calls_made": ["1100-OPEN-FILES", "1200-CONNECT-DB2", "1300-INIT-CHECKPOINTS"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1100-OPEN-FILES",
+      "line_range": [102, 114],
+      "pseudocode": "OPEN TRANSACTION-HISTORY for READ-ONLY\nIF status <> '00' THEN SET error 'Error opening history file'; CALL 9000-ERROR-ROUTINE END IF\nOPEN BATCH-CONTROL-FILE for READ-WRITE (I-O)\nIF status <> '00' THEN SET error 'Error opening control file'; CALL 9000-ERROR-ROUTINE END IF",
+      "branches": ["IF history open failed -> error", "IF control open failed -> error"],
+      "calls_made": ["9000-ERROR-ROUTINE"],
+      "field_references": ["WS-TH-STATUS", "WS-BCT-STATUS", "ERR-TEXT"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1200-CONNECT-DB2",
+      "line_range": [116, 118],
+      "pseudocode": "CALL CONNECT-TO-DB2   -- routine defined in the DBPROC copybook",
+      "branches": [],
+      "calls_made": ["CONNECT-TO-DB2"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [{"line": 117, "note": "CONNECT-TO-DB2 is a paragraph brought in via the DBPROC copybook (shared DB2 connect logic)."}],
+      "notes": ""
+    },
+    {
+      "name": "1300-INIT-CHECKPOINTS",
+      "line_range": [120, 132],
+      "pseudocode": "SET BCT-KEY = spaces; SET BCT-JOB-NAME = 'HISTLD00'\nREAD BATCH-CONTROL-FILE by key\nIF record not found THEN SET error 'Control record not found'; CALL 9000-ERROR-ROUTINE END IF\nSET BCT-STATUS = active\nREWRITE the control record",
+      "branches": ["READ ... INVALID KEY -> error"],
+      "calls_made": ["9000-ERROR-ROUTINE"],
+      "field_references": ["BCT-KEY", "BCT-JOB-NAME", "BCT-STATUS", "BCT-STAT-ACTIVE"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Marks the job active in the shared batch-control record."
+    },
+    {
+      "name": "2000-PROCESS",
+      "line_range": [86, 93],
+      "pseudocode": "CALL 2100-READ-HISTORY\nIF more records THEN\n  CALL 2200-LOAD-TO-DB2\n  CALL 2300-CHECK-COMMIT\nEND IF",
+      "branches": ["IF MORE-RECORDS -> load + commit-check"],
+      "calls_made": ["2100-READ-HISTORY", "2200-LOAD-TO-DB2", "2300-CHECK-COMMIT"],
+      "field_references": ["WS-END-OF-FILE-SW"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2100-READ-HISTORY",
+      "line_range": [134, 141],
+      "pseudocode": "READ next record from TRANSACTION-HISTORY\nIF end of file THEN SET END-OF-FILE = true\nELSE INCREMENT WS-RECORDS-READ\nEND IF",
+      "branches": ["READ ... AT END / NOT AT END"],
+      "calls_made": [],
+      "field_references": ["WS-TH-STATUS", "WS-END-OF-FILE-SW", "WS-RECORDS-READ"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "2200-LOAD-TO-DB2",
+      "line_range": [143, 175],
+      "pseudocode": "CLEAR POSHIST-RECORD\nCOPY each history field onto the matching POSHIST column (account, portfolio, date/time, type, security, quantity, price, amount, fees, total, cost basis, gain/loss)\nSQL INSERT INTO POSHIST VALUES (:POSHIST-RECORD)\nIF SQLCODE = 0 THEN\n  INCREMENT WS-RECORDS-WRITTEN\nELSE IF SQLCODE = -803 THEN\n  CONTINUE          -- duplicate key: skip, not an error\nELSE\n  INCREMENT WS-ERROR-COUNT\n  CALL DB2-ERROR-ROUTINE\nEND IF",
+      "branches": ["IF SQLCODE = 0 -> written", "ELSE IF SQLCODE = -803 -> skip duplicate", "ELSE -> error"],
+      "calls_made": ["DB2-ERROR-ROUTINE"],
+      "field_references": ["POSHIST-RECORD", "TH-ACCOUNT-NO", "TH-PORTFOLIO-ID", "TH-QUANTITY", "TH-AMOUNT", "SQLCODE", "WS-RECORDS-WRITTEN", "WS-ERROR-COUNT"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [
+        {"line": 162, "note": "Whole-row INSERT via a host-variable record (:POSHIST-RECORD) — the POSHIST copybook layout must match the table column order exactly."},
+        {"line": 168, "note": "SQLCODE -803 = duplicate primary key; handled by CONTINUE (silently skipped, not counted as written or error) — an idempotent-reload design."}
+      ],
+      "notes": "The core VSAM-row -> DB2-row load."
+    },
+    {
+      "name": "2300-CHECK-COMMIT",
+      "line_range": [177, 189],
+      "pseudocode": "INCREMENT WS-COMMIT-COUNT\nIF WS-COMMIT-COUNT >= 1000 (threshold) THEN\n  SQL COMMIT WORK\n  RESET WS-COMMIT-COUNT = 0\n  CALL 2310-UPDATE-CHECKPOINT\nEND IF",
+      "branches": ["IF commit-count >= threshold -> commit + checkpoint"],
+      "calls_made": ["2310-UPDATE-CHECKPOINT"],
+      "field_references": ["WS-COMMIT-COUNT", "WS-COMMIT-THRESHOLD"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [{"line": 180, "note": "Commits every 1000 rows to bound the DB2 unit of work and enable restart from the last checkpoint."}],
+      "notes": ""
+    },
+    {
+      "name": "2310-UPDATE-CHECKPOINT",
+      "line_range": [191, 200],
+      "pseudocode": "SET BCT-RECORDS-READ = WS-RECORDS-READ\nSET BCT-RECORDS-WRITTEN = WS-RECORDS-WRITTEN\nREWRITE the batch-control record\nIF invalid key THEN SET error 'Error updating checkpoint'; CALL 9000-ERROR-ROUTINE END IF",
+      "branches": ["REWRITE ... INVALID KEY -> error"],
+      "calls_made": ["9000-ERROR-ROUTINE"],
+      "field_references": ["BCT-RECORDS-READ", "BCT-RECORDS-WRITTEN", "WS-RECORDS-READ", "WS-RECORDS-WRITTEN"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Persists progress counts so the load can resume."
+    },
+    {
+      "name": "3000-TERMINATE",
+      "line_range": [95, 100],
+      "pseudocode": "CALL 3100-FINAL-COMMIT\nCALL 3200-CLOSE-FILES\nCALL 3300-DISCONNECT-DB2\nCALL 3400-DISPLAY-STATS",
+      "branches": [],
+      "calls_made": ["3100-FINAL-COMMIT", "3200-CLOSE-FILES", "3300-DISCONNECT-DB2", "3400-DISPLAY-STATS"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3100-FINAL-COMMIT",
+      "line_range": [202, 208],
+      "pseudocode": "SQL COMMIT WORK          -- commit the final partial batch\nCALL 2310-UPDATE-CHECKPOINT",
+      "branches": [],
+      "calls_made": ["2310-UPDATE-CHECKPOINT"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3200-CLOSE-FILES",
+      "line_range": [210, 213],
+      "pseudocode": "CLOSE TRANSACTION-HISTORY and BATCH-CONTROL-FILE",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3300-DISCONNECT-DB2",
+      "line_range": [215, 217],
+      "pseudocode": "CALL DISCONNECT-FROM-DB2   -- routine from the DBPROC copybook",
+      "branches": [],
+      "calls_made": ["DISCONNECT-FROM-DB2"],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3400-DISPLAY-STATS",
+      "line_range": [219, 224],
+      "pseudocode": "DISPLAY 'HISTLD00 Processing Statistics:' with records read, records written, and error count",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["WS-RECORDS-READ", "WS-RECORDS-WRITTEN", "WS-ERROR-COUNT"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "9000-ERROR-ROUTINE",
+      "line_range": [226, 233],
+      "pseudocode": "SET ERR-PROGRAM = 'HISTLD00'\nCALL 'ERRPROC' PASSING ERR-MESSAGE\nSQL ROLLBACK WORK       -- undo the current uncommitted unit of work",
+      "branches": [],
+      "calls_made": ["ERRPROC"],
+      "field_references": ["ERR-PROGRAM", "ERR-MESSAGE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [{"line": 230, "note": "On any error it ROLLBACKs the DB2 work since the last commit — up to 1000 rows may be undone."}],
+      "notes": ""
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0, "note": "Produced by Claude Code in-session; no API call, no key, no token cost."}
+}

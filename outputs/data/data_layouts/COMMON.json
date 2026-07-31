@@ -1,0 +1,499 @@
+{
+  "copybook": "COMMON",
+  "used_by": [],
+  "records": [
+    {
+      "level": 1,
+      "name": "RETURN-CODES",
+      "line": 8,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "RC-SUCCESS",
+          "line": 9,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+0",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-WARNING",
+          "line": 10,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+4",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-ERROR",
+          "line": 11,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+8",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-SEVERE",
+          "line": 12,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+12",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "RC-CRITICAL",
+          "line": 13,
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+16",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "STATUS-CODES",
+      "line": 16,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "STATUS-ACTIVE",
+          "line": 17,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'A'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "STATUS-CLOSED",
+          "line": 18,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'C'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "STATUS-PENDING",
+          "line": 19,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'P'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "STATUS-SUSPENDED",
+          "line": 20,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'S'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "STATUS-FAILED",
+          "line": 21,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'F'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "STATUS-REVERSED",
+          "line": 22,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'R'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TRANSACTION-TYPES",
+      "line": 25,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRN-TYPE-BUY",
+          "line": 26,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'BU'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRN-TYPE-SELL",
+          "line": 27,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'SL'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRN-TYPE-TRANSFER",
+          "line": 28,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'TR'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRN-TYPE-FEE",
+          "line": 29,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'FE'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "COMMON-DATETIME",
+      "line": 32,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CURRENT-DATE",
+          "line": 33,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CURR-YEAR",
+              "line": 34,
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CURR-MONTH",
+              "line": 35,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CURR-DAY",
+              "line": 36,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CURRENT-TIME",
+          "line": 37,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CURR-HOUR",
+              "line": 38,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CURR-MINUTE",
+              "line": 39,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CURR-SECOND",
+              "line": 40,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CURR-MSEC",
+              "line": 41,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ERROR-HANDLING",
+      "line": 44,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ERROR-CODE",
+          "line": 45,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERROR-MODULE",
+          "line": 46,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERROR-ROUTINE",
+          "line": 47,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ERROR-MESSAGE",
+          "line": 48,
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "AUDIT-FIELDS",
+      "line": 51,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "AUDIT-TIMESTAMP",
+          "line": 52,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "AUDIT-USER",
+          "line": 53,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "AUDIT-TERMINAL",
+          "line": 54,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "AUDIT-PROGRAM",
+          "line": 55,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CURRENCY-CODES",
+      "line": 58,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CURR-USD",
+          "line": 59,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'USD'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURR-EUR",
+          "line": 60,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'EUR'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURR-GBP",
+          "line": 61,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GBP'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURR-JPY",
+          "line": 62,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'JPY'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CURR-CAD",
+          "line": 63,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'CAD'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

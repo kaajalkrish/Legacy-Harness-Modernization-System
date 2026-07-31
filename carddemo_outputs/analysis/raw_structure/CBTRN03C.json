@@ -1,0 +1,1509 @@
+{
+  "meta": {
+    "program_id": "CBTRN03C",
+    "source_file": "C:\\Users\\kaaja\\Documents\\Harness Repositories\\new_legacy_harness\\carddemo_input\\app\\cbl\\CBTRN03C.cbl",
+    "total_lines": 649
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "CBTRN03C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 58,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 59,
+    "end_line": 158,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "TRANSACT-FILE",
+          "line": 61,
+          "end_line": 66,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "XREF-FILE",
+          "line": 67,
+          "end_line": 71,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "TRANTYPE-FILE",
+          "line": 72,
+          "end_line": 76,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "TRANCATG-FILE",
+          "line": 77,
+          "end_line": 83,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "REPORT-FILE",
+          "line": 84,
+          "end_line": 86,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "DATE-PARMS-FILE",
+          "line": 87,
+          "end_line": 89,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 60
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "CVTRA05Y",
+          "library": null,
+          "line": 93,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "TRANFILE-STATUS",
+          "line": 94,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TRANFILE-STAT1",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TRANFILE-STAT2",
+              "line": 96,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT03Y",
+                  "library": null,
+                  "line": 98,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "CARDXREF-STATUS",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CARDXREF-STAT1",
+              "line": 100,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CARDXREF-STAT2",
+              "line": 101,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVTRA03Y",
+                  "library": null,
+                  "line": 103,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TRANTYPE-STATUS",
+          "line": 104,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TRANTYPE-STAT1",
+              "line": 105,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TRANTYPE-STAT2",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVTRA04Y",
+                  "library": null,
+                  "line": 108,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TRANCATG-STATUS",
+          "line": 109,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TRANCATG-STAT1",
+              "line": 110,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TRANCATG-STAT2",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVTRA07Y",
+                  "library": null,
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TRANREPT-STATUS",
+          "line": 114,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "REPTFILE-STAT1",
+              "line": 115,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "REPTFILE-STAT2",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "DATEPARM-STATUS",
+          "line": 118,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "DATEPARM-STAT1",
+              "line": 119,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "DATEPARM-STAT2",
+              "line": 120,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-DATEPARM-RECORD",
+          "line": 122,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-START-DATE",
+              "line": 123,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 124,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-END-DATE",
+              "line": 125,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-REPORT-VARS",
+          "line": 127,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-FIRST-TIME",
+              "line": 128,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-LINE-COUNTER",
+              "line": 129,
+              "section": "WORKING-STORAGE",
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-PAGE-SIZE",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": "9(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": "20",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-BLANK-LINE",
+              "line": 133,
+              "section": "WORKING-STORAGE",
+              "pic": "X(133)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-PAGE-TOTAL",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCOUNT-TOTAL",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-GRAND-TOTAL",
+              "line": 136,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CURR-CARD-NUM",
+              "line": 137,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS",
+          "line": 139,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STAT1",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STAT2",
+              "line": 141,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-BINARY",
+          "line": 142,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-ALPHA",
+          "line": 143,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "TWO-BYTES-BINARY",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TWO-BYTES-LEFT",
+              "line": 144,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TWO-BYTES-RIGHT",
+              "line": 145,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS-04",
+          "line": 146,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STATUS-0401",
+              "line": 147,
+              "section": "WORKING-STORAGE",
+              "pic": "9",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STATUS-0403",
+              "line": 148,
+              "section": "WORKING-STORAGE",
+              "pic": "999",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "APPL-RESULT",
+          "line": 150,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "APPL-AOK",
+              "line": 151,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "APPL-EOF",
+              "line": 152,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "16",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "END-OF-FILE",
+          "line": 154,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ABCODE",
+          "line": 155,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TIMING",
+          "line": 156,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 90
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 159,
+    "end_line": 649,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0550-DATEPARM-READ",
+        "section": null,
+        "start_line": 220,
+        "end_line": 247,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-TRANFILE-GET-NEXT",
+        "section": null,
+        "start_line": 248,
+        "end_line": 273,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-WRITE-TRANSACTION-REPORT",
+        "section": null,
+        "start_line": 274,
+        "end_line": 292,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1110-WRITE-PAGE-TOTALS",
+        "section": null,
+        "start_line": 293,
+        "end_line": 305,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1120-WRITE-ACCOUNT-TOTALS",
+        "section": null,
+        "start_line": 306,
+        "end_line": 317,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1110-WRITE-GRAND-TOTALS",
+        "section": null,
+        "start_line": 318,
+        "end_line": 323,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1120-WRITE-HEADERS",
+        "section": null,
+        "start_line": 324,
+        "end_line": 342,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1111-WRITE-REPORT-REC",
+        "section": null,
+        "start_line": 343,
+        "end_line": 360,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1120-WRITE-DETAIL",
+        "section": null,
+        "start_line": 361,
+        "end_line": 375,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0000-TRANFILE-OPEN",
+        "section": null,
+        "start_line": 376,
+        "end_line": 393,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0100-REPTFILE-OPEN",
+        "section": null,
+        "start_line": 394,
+        "end_line": 411,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0200-CARDXREF-OPEN",
+        "section": null,
+        "start_line": 412,
+        "end_line": 429,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0300-TRANTYPE-OPEN",
+        "section": null,
+        "start_line": 430,
+        "end_line": 447,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0400-TRANCATG-OPEN",
+        "section": null,
+        "start_line": 448,
+        "end_line": 465,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0500-DATEPARM-OPEN",
+        "section": null,
+        "start_line": 466,
+        "end_line": 483,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1500-A-LOOKUP-XREF",
+        "section": null,
+        "start_line": 484,
+        "end_line": 493,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1500-B-LOOKUP-TRANTYPE",
+        "section": null,
+        "start_line": 494,
+        "end_line": 503,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1500-C-LOOKUP-TRANCATG",
+        "section": null,
+        "start_line": 504,
+        "end_line": 513,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-TRANFILE-CLOSE",
+        "section": null,
+        "start_line": 514,
+        "end_line": 531,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-REPTFILE-CLOSE",
+        "section": null,
+        "start_line": 532,
+        "end_line": 550,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9200-CARDXREF-CLOSE",
+        "section": null,
+        "start_line": 551,
+        "end_line": 568,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9300-TRANTYPE-CLOSE",
+        "section": null,
+        "start_line": 569,
+        "end_line": 586,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9400-TRANCATG-CLOSE",
+        "section": null,
+        "start_line": 587,
+        "end_line": 604,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-DATEPARM-CLOSE",
+        "section": null,
+        "start_line": 605,
+        "end_line": 625,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 626,
+        "end_line": 632,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9910-DISPLAY-IO-STATUS",
+        "section": null,
+        "start_line": 633,
+        "end_line": 649,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 217
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVTRA05Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 93
+    },
+    {
+      "copybook": "CVACT03Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 98
+    },
+    {
+      "copybook": "CVTRA03Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 103
+    },
+    {
+      "copybook": "CVTRA04Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 108
+    },
+    {
+      "copybook": "CVTRA07Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 113
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0550-DATEPARM-READ"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "0550-DATEPARM-READ",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 220,
+        "end_line": 247,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-TRANFILE-GET-NEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 248,
+        "end_line": 273,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-WRITE-TRANSACTION-REPORT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 274,
+        "end_line": 292,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1110-WRITE-PAGE-TOTALS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 293,
+        "end_line": 305,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1120-WRITE-ACCOUNT-TOTALS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 306,
+        "end_line": 317,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1110-WRITE-GRAND-TOTALS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 318,
+        "end_line": 323,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1120-WRITE-HEADERS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 324,
+        "end_line": 342,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1111-WRITE-REPORT-REC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 343,
+        "end_line": 360,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1120-WRITE-DETAIL",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 361,
+        "end_line": 375,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-TRANFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 376,
+        "end_line": 393,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0100-REPTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 394,
+        "end_line": 411,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0200-CARDXREF-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 412,
+        "end_line": 429,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0300-TRANTYPE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 430,
+        "end_line": 447,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0400-TRANCATG-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 448,
+        "end_line": 465,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0500-DATEPARM-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 466,
+        "end_line": 483,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1500-A-LOOKUP-XREF",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 484,
+        "end_line": 493,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1500-B-LOOKUP-TRANTYPE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 494,
+        "end_line": 503,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1500-C-LOOKUP-TRANCATG",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 504,
+        "end_line": 513,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-TRANFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 514,
+        "end_line": 531,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-REPTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 532,
+        "end_line": 550,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9200-CARDXREF-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 551,
+        "end_line": 568,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9300-TRANTYPE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 569,
+        "end_line": 586,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9400-TRANCATG-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 587,
+        "end_line": 604,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9500-DATEPARM-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 605,
+        "end_line": 625,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 626,
+        "end_line": 632,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9910-DISPLAY-IO-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 633,
+        "end_line": 649,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0550-DATEPARM-READ",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 221,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1000-TRANFILE-GET-NEXT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 251,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1100-WRITE-TRANSACTION-REPORT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 275,
+        "unstructured": false,
+        "to": "1120-WRITE-HEADERS"
+      },
+      {
+        "from": "1110-WRITE-PAGE-TOTALS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 294,
+        "unstructured": false,
+        "to": "1111-WRITE-REPORT-REC"
+      },
+      {
+        "from": "1120-WRITE-ACCOUNT-TOTALS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 307,
+        "unstructured": false,
+        "to": "1111-WRITE-REPORT-REC"
+      },
+      {
+        "from": "1110-WRITE-GRAND-TOTALS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 319,
+        "unstructured": false,
+        "to": "1111-WRITE-REPORT-REC"
+      },
+      {
+        "from": "1120-WRITE-HEADERS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 325,
+        "unstructured": false,
+        "to": "1111-WRITE-REPORT-REC"
+      },
+      {
+        "from": "1111-WRITE-REPORT-REC",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 345,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1120-WRITE-DETAIL",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 362,
+        "unstructured": false,
+        "to": "1111-WRITE-REPORT-REC"
+      },
+      {
+        "from": "0000-TRANFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 378,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0100-REPTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 396,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0200-CARDXREF-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 414,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0300-TRANTYPE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 432,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0400-TRANCATG-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 450,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0500-DATEPARM-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 468,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1500-A-LOOKUP-XREF",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 485,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1500-B-LOOKUP-TRANTYPE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 495,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1500-C-LOOKUP-TRANCATG",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 505,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9000-TRANFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 516,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9100-REPTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 534,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9200-CARDXREF-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 553,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9300-TRANTYPE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 571,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9400-TRANCATG-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 589,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9500-DATEPARM-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 607,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      }
+    ],
+    "dead_code_candidates": [
+      "1000-TRANFILE-GET-NEXT",
+      "1100-WRITE-TRANSACTION-REPORT",
+      "1110-WRITE-PAGE-TOTALS",
+      "1120-WRITE-ACCOUNT-TOTALS",
+      "1110-WRITE-GRAND-TOTALS",
+      "1120-WRITE-DETAIL",
+      "0000-TRANFILE-OPEN",
+      "0100-REPTFILE-OPEN",
+      "0200-CARDXREF-OPEN",
+      "0300-TRANTYPE-OPEN",
+      "0400-TRANCATG-OPEN",
+      "0500-DATEPARM-OPEN",
+      "1500-A-LOOKUP-XREF",
+      "1500-B-LOOKUP-TRANTYPE",
+      "1500-C-LOOKUP-TRANCATG",
+      "9000-TRANFILE-CLOSE",
+      "9100-REPTFILE-CLOSE",
+      "9200-CARDXREF-CLOSE",
+      "9300-TRANTYPE-CLOSE",
+      "9400-TRANCATG-CLOSE",
+      "9500-DATEPARM-CLOSE",
+      "9999-ABEND-PROGRAM"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}
