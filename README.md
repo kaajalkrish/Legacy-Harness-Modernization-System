@@ -304,19 +304,19 @@ flowchart LR
 
 ## 7. Responsibility Matrix
 
-| # | Agent | Responsibility | Reads | Writes | LLM? |
+| # | Agent | Responsibility | Reads | Writes | Type |
 |---|---|---|---|---|---|
-| 1 | **Discovery** | Catalog files + resolve references | Raw COBOL | `inventory.json` | ❌ |
-| 2 | **Parser** | Extract structural skeleton per program | inventory + source | `raw_structure/*`, `parser_artifact.json` | ❌ |
-| 3 | **Topology** | Build the system dependency graph | inventory + AST | `graph.json` | ❌ |
-| 4 | **Context** | Pre-digest each program into a briefing | graph + AST | `*_context.txt`, `system_index.json` | ❌ |
-| 5 | **Data** | Decode the full data dictionary | inventory + AST + copybooks | `data_artifact.json`, `data_layouts/*` | ❌ |
-| 6 | **Logic** | Translate paragraphs → pseudocode | context + data + AST + source | `program_logic/*`, `logic_artifact.json` | ✅ (meaning only) |
-| 7 | **Rules** | Mine + classify business rules | logic + data | `rules_artifact.json`, `classified_conditions.json` | ⚠️ wording only |
-| 8 | **Diagram + BRD** | Draw diagrams + assemble the BRD | all artifacts | `*.mmd`, `brd.md`, `gaps_register` | ⚠️ narrative only |
-| 9 | **Judge** | Validate groundedness + score the BRD | brd + artifacts | `brd_judge.md`, `brd_judge.json` | ⚠️ scoring only |
+| 1 | **Discovery** | Catalog files + resolve references | Raw COBOL | `inventory.json` | Deterministic |
+| 2 | **Parser** | Extract structural skeleton per program | inventory + source | `raw_structure/*`, `parser_artifact.json` | Deterministic |
+| 3 | **Topology** | Build the system dependency graph | inventory + AST | `graph.json` | Deterministic |
+| 4 | **Context** | Pre-digest each program into a briefing | graph + AST | `*_context.txt`, `system_index.json` | Deterministic |
+| 5 | **Data** | Decode the full data dictionary | inventory + AST + copybooks | `data_artifact.json`, `data_layouts/*` | Deterministic |
+| 6 | **Logic** | Translate paragraphs → pseudocode | context + data + AST + source | `program_logic/*`, `logic_artifact.json` | LLM + Python |
+| 7 | **Rules** | Mine + classify business rules | logic + data | `rules_artifact.json`, `classified_conditions.json` | LLM + Python |
+| 8 | **Diagram + BRD** | Draw diagrams + assemble the BRD | all artifacts | `*.mmd`, `brd.md`, `gaps_register` | LLM + Python |
+| 9 | **Judge** | Validate groundedness + score the BRD | brd + artifacts | `brd_judge.md`, `brd_judge.json` | LLM + Python |
 
-**Legend:** ❌ = fully deterministic · ✅ = LLM does the core step · ⚠️ = LLM does only the "soft" part (wording / narrative / scoring), while the *facts* stay deterministic.
+**Type:** *Deterministic* = pure Python (no LLM). *LLM + Python* = a hybrid agent — Python does the factual work (finding, classifying, assembling) and the LLM handles only the "soft" part (meaning, wording, narrative, or scoring), so the facts can never be hallucinated.
 
 ---
 
