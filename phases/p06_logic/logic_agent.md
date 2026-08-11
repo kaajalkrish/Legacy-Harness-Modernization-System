@@ -6,7 +6,7 @@ description: >
   paragraph into clear, standardized, plain-English pseudocode and capture the
   branches, calls, field references, complexity score and idiom annotations.
   Can be executed two ways: (A) by an AI host (Claude Code / Copilot) with NO API
-  key, or (B) by the standalone Python program logic/logic_builder.py WITH an API
+  key, or (B) by the standalone Python program phases/p06_logic/logic_builder.py WITH an API
   key. Both use the same prompt + output schema defined below.
 ---
 
@@ -66,7 +66,7 @@ translating statements into pseudocode and surfacing meaning.
 +1 per IF, +1 per EVALUATE, +2 per nested IF, +1 per loop, +2 per GO TO, +3 per ALTER,
 +1 per CALL, +1 per I/O op. (1-3 simple, 4-6 moderate, 7-9 complex, 10+ critical.)
 
-## Output schema (per program) — matches logic/logic_builder.py OUTPUT_SCHEMA
+## Output schema (per program) — matches phases/p06_logic/logic_builder.py OUTPUT_SCHEMA
 ```json
 {
   "meta": { "program_id", "source_file", "model", "agent_version" },

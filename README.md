@@ -360,15 +360,17 @@ python run_pipeline.py --input <path-to-cobol> --output <path-to-outputs>
 
 **Example (CardDemo):**
 ```powershell
-python run_pipeline.py --input carddemo_input --output carddemo_outputs
+python run_pipeline.py --input inputs/carddemo --output outputs/carddemo
 ```
+
+With no `--input` / `--output`, the pipeline defaults to `inputs/sample` → `outputs/sample`.
 
 Then open the results (use a Mermaid preview extension in VS Code to see the diagrams):
 
 ```
-carddemo_outputs/final_report/brd.md            # the Business Requirements Document
-carddemo_outputs/final_report/brd_judge.md      # the PASS/REVISE verdict + scores
-carddemo_outputs/final_report/gaps_register.md  # items flagged for SME review
+outputs/carddemo/final_report/brd.md            # the Business Requirements Document
+outputs/carddemo/final_report/brd_judge.md      # the PASS/REVISE verdict + scores
+outputs/carddemo/final_report/gaps_register.md  # items flagged for SME review
 ```
 
 ---
@@ -376,27 +378,39 @@ carddemo_outputs/final_report/gaps_register.md  # items flagged for SME review
 ## 10. Repository Layout
 
 ```
-run_pipeline.py         # orchestrator — chains all 9 agents with y/n/s gates
-discovery/              # Agent 1 — inventory scanner
-analysis/               # Agent 2 — parser (engine + orchestrator)
-topology/               # Agent 3 — graph builder
-context_builder/        # Agent 4 — context sheets
-data/                   # Agent 5 — data dictionary
-logic/                  # Agent 6 — pseudocode (builder + agent prompt)
-rules/                  # Agent 7 — business-rules miner
-diagram/                # Diagram generator (Mermaid)
-brd/                    # Agents 8 & 9 — BRD builder + judge
-carddemo_input/         # AWS CardDemo source (the 44-program run)
-carddemo_outputs/       # Full CardDemo results (inventory → BRD → judge)
-outputs/                # Portfolio system results
-comparison.md           # agent-by-agent comparison of the reference harnesses
-flow.md                 # architecture / pipeline documentation
+run_pipeline.py           # orchestrator — chains all agents with y/n/s gates
+CLAUDE.md                 # project memory for Claude Code
+AGENTS.md                 # agent/contributor guide (open AGENTS.md standard)
+phases/                   # all pipeline agents, one folder per phase
+  p01_discovery/          #   Agent 1 — inventory scanner
+  p02_parser/             #   Agent 2 — parser (engine + orchestrator)
+  p03_topology/           #   Agent 3 — graph builder
+  p04_context/            #   Agent 4 — context sheets
+  p05_data/               #   Agent 5 — data dictionary
+  p06_logic/              #   Agent 6 — pseudocode (builder + agent prompt)
+  p07_rules/              #   Agent 7 — business-rules miner
+  p08_diagram/            #   Agent 8a — Mermaid diagram generator
+  p09_brd/                #   Agent 8 — BRD builder (+ agent prompt)
+  p10_judge/              #   Agent 9 — BRD validation / judge (+ agent prompt)
+.claude/                  # Claude Code harness
+  agents/                 #   10 subagent definitions (01-discovery … 10-judge)
+  skills/                 #   10 granular skill definitions
+  harness.md              #   pipeline manifest
+inputs/
+  carddemo/               # AWS CardDemo source (the 44-program run)
+  sample/                 # Portfolio system source (default run)
+  sample_mini/            # smaller Portfolio sample
+outputs/
+  carddemo/               # full CardDemo results (inventory → BRD → judge)
+  sample/                 # Portfolio system results
+comparison.md             # agent-by-agent comparison of the reference harnesses
+flow.md                   # architecture / pipeline documentation
 ```
 
 ---
 
 ## 11. Notes and Credits
 
-- **AWS CardDemo** (`carddemo_input/`) is an AWS sample codebase, Apache-2.0 licensed.
+- **AWS CardDemo** (`inputs/carddemo/`) is an AWS sample codebase, Apache-2.0 licensed.
 - The harness combines ideas from two reference approaches — a deterministic, code-first migrator and an LLM-agent reverse-engineering harness. `comparison.md` documents the agent-by-agent differences.
 - Diagrams in this README and in the BRD are **Mermaid**, which renders natively on GitHub and in VS Code's Markdown preview.

@@ -26,7 +26,7 @@ Inputs
   --no-llm  force the deterministic templated fallback (no API call)
 
 Usage
-    python -m rules.rules_builder --logic outputs/logic/logic_artifact.json \
+    python -m phases.p07_rules.rules_builder --logic outputs/logic/logic_artifact.json \
         --data outputs/data/data_artifact.json --output-dir outputs/rules
 """
 

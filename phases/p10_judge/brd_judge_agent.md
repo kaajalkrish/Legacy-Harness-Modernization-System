@@ -6,7 +6,7 @@ description: >
   completeness, accuracy, clarity, consistency and actionability, with a deterministic groundedness
   gate that hard-floors accuracy when the BRD cites anything that does not exist in the artifacts.
   HYBRID: the groundedness gate and consistency checks are deterministic Python; the five 1-5
-  dimension scores + written feedback are the LLM's job. Two run modes: A) brd/brd_judge.py (LLM
+  dimension scores + written feedback are the LLM's job. Two run modes: A) phases/p10_judge/brd_judge.py (LLM
   scoring when a key is set; --scores-file for the AI-host path; neutral 3s otherwise),
   B) AI-host — Claude Code writes the scores/feedback JSON and passes it via --scores-file.
 ---

@@ -22,7 +22,7 @@ Outputs
   outputs/data/data_artifact.json               unified dictionary + data model
 
 Usage
-    python -m data.data_builder --inventory <inv.json> --ast-dir <outputs/analysis> \
+    python -m phases.p05_data.data_builder --inventory <inv.json> --ast-dir <outputs/analysis> \
         --output-dir <outputs/data>
 """
 
@@ -39,7 +39,7 @@ from typing import Any, Optional
 
 # Reuse the exact COBOL fixed-column + level-entry parsing from the Phase 2 engine
 # so copybooks are read with the same rules programs are.
-from analysis.engine import (
+from phases.p02_parser.engine import (
     read_source_lines,
     content_lines,
     build_logical_statements,

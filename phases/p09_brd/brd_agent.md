@@ -7,7 +7,7 @@ description: >
   HYBRID: gap-detection and document assembly (tables, the business-rules catalogue, process
   summaries, error catalogue, appendices) are deterministic Python; the synthesis PROSE
   (executive summary, system-context narrative, per-process narratives) is written by the LLM.
-  Two run modes: A) brd/brd_builder.py (LLM prose when a key is set; templated fallback),
+  Two run modes: A) phases/p09_brd/brd_builder.py (LLM prose when a key is set; templated fallback),
   B) AI-host — this file run by Claude Code (no key), writing the narrative prose itself.
 ---
 

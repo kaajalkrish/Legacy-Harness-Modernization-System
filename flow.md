@@ -41,6 +41,27 @@ This diagram only illustrates the execution sequence.
 
 # 2. Repository Layout
 
+**Source code** lives under `phases/` — one Python package per phase (`p01_discovery` …
+`p10_judge`), driven by `run_pipeline.py`. The Claude Code harness (agent + skill
+definitions + manifest) lives under `.claude/`. Inputs and outputs are split per codebase:
+`inputs/{sample,carddemo}` and `outputs/{sample,carddemo}`.
+
+```text
+phases/
+├── p01_discovery/    scanner.py
+├── p02_parser/       engine.py, orchestrator.py
+├── p03_topology/     graph_builder.py
+├── p04_context/      context_builder.py
+├── p05_data/         data_builder.py
+├── p06_logic/        logic_builder.py   + logic_agent.md
+├── p07_rules/        rules_builder.py   + rules_agent.md
+├── p08_diagram/      diagram_builder.py
+├── p09_brd/          brd_builder.py     + brd_agent.md
+└── p10_judge/        brd_judge.py       + brd_judge_agent.md
+```
+
+**Output artifact layout** (per output folder, e.g. `outputs/sample/`):
+
 ```text
 outputs/
 
@@ -324,7 +345,7 @@ G --> J[Gaps Register]
 
 # 12. BRD Validation — the Judge
 
-> **Status: Built.** Implemented as `brd/brd_judge.py` and wired into `run_pipeline.py` as Phase 9.
+> **Status: Built.** Implemented as `phases/p10_judge/brd_judge.py` and wired into `run_pipeline.py` as Phase 9.
 > **HYBRID** — two labelled parts: a deterministic **Validation** (groundedness gate + consistency checks)
 > and an LLM **Judge** (5-dimension scoring + feedback).
 

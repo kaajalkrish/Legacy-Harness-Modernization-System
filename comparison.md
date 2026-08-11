@@ -9,7 +9,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `1_inventory_c.agent.md` | `ingestion.py` | `discovery/scanner.py` |
+| **File** | `1_inventory_c.agent.md` | `ingestion.py` | `phases/p01_discovery/scanner.py` |
 | **Type** | LLM agent (prompt) | Deterministic Python | Deterministic Python |
 | **What it does** | LLM scans the codebase and catalogs every file + reference | Parses code and loads it into a Neo4j graph database | Scans the codebase with regex and catalogs every file + reference |
 | **Input** | Raw COBOL folder | Raw COBOL folder | Raw COBOL folder |
@@ -22,7 +22,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `2_parser_c.agent.md` | `cobol/parser.py` | `analysis/engine.py` + `analysis/orchestrator.py` |
+| **File** | `2_parser_c.agent.md` | `cobol/parser.py` | `phases/p02_parser/engine.py` + `phases/p02_parser/orchestrator.py` |
 | **Type** | LLM agent (prompt) | Deterministic Python + Java JAR | Deterministic Python |
 | **What it does** | LLM opens each program and extracts its structure — divisions, paragraphs, WORKING-STORAGE, PERFORM/GO TO flow | Runs a real COBOL grammar parser (JAR) to build a true AST, then loads it into Neo4j | Extracts the same structure with regex/stdlib — a Python port of Udara's parser skills |
 | **Input** | `inventory_artifact.json` + raw COBOL | Raw COBOL folder | `inventory.json` + raw COBOL |
@@ -35,7 +35,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `8_neo4j_graph_c.agent.md` | `ingestion.py` + `neo4j_client.py` | `topology/graph_builder.py` |
+| **File** | `8_neo4j_graph_c.agent.md` | `ingestion.py` + `neo4j_client.py` | `phases/p03_topology/graph_builder.py` |
 | **Type** | LLM agent (prompt) | Deterministic Python + Neo4j | Deterministic Python |
 | **What it does** | Generates Neo4j import files (Cypher + CSVs) for the **user to load into Neo4j by hand** | Loads nodes + edges into a **live Neo4j database** and queries it with Cypher | Builds the graph as a local `graph.json` — a "**local Neo4j replacement**" the pipeline reads directly |
 | **Input** | All prior artifacts (inventory, parser, data, logic, rules) | Raw COBOL / parse results | `inventory.json` + parser AST |
@@ -51,7 +51,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | *(none — no context agent)* | `agent/context_pack.py` | `context_builder/context_builder.py` |
+| **File** | *(none — no context agent)* | `agent/context_pack.py` | `phases/p04_context/context_builder.py` |
 | **Type** | — | Deterministic Python | Deterministic Python |
 | **What it does** | No dedicated step — each later agent reads the prior artifacts directly | Builds a "**context pack**": the exact, hashed input contract fed to each LLM call, with citable refs + source slices | Pre-digests each program's AST into a **readable briefing sheet** (`PROGRAM_context.txt`) for later agents |
 | **Input** | (prior artifacts, read per-agent) | Parsed entities + refs | Parser AST (`raw_structure/{PROGRAM}.json`) |
@@ -66,7 +66,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `3_data_c.agent.md` | *(no separate agent — in `parser.py`/`ingestion.py`)* | `data/data_builder.py` |
+| **File** | `3_data_c.agent.md` | *(no separate agent — in `parser.py`/`ingestion.py`)* | `phases/p05_data/data_builder.py` |
 | **Type** | LLM agent (prompt) | Deterministic Python + Java JAR | Deterministic Python |
 | **What it does** | LLM expands COPY stubs, decodes PIC, resolves REDEFINES / OCCURS / 88-levels into a data dictionary | The JAR parser extracts fields/records (with PIC, level, REDEFINES, OCCURS) as **entities in Neo4j** during parsing | Same as Udara but as rule-based Python — expands copybooks, decodes PIC, surfaces REDEFINES / OCCURS / 88-levels, builds a cross-program usage map |
 | **Input** | `inventory.json` + `parser_artifact.json` + raw COBOL | Raw COBOL folder | `inventory.json` + parser AST |
@@ -81,7 +81,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `4_logic_c.agent.md` | `codegen/behavior_model.py` (+ codegen LLM) | `logic/logic_builder.py` + `logic/logic_agent.md` |
+| **File** | `4_logic_c.agent.md` | `codegen/behavior_model.py` (+ codegen LLM) | `phases/p06_logic/logic_builder.py` + `phases/p06_logic/logic_agent.md` |
 | **Type** | LLM agent (prompt) | Deterministic signals → LLM (for Java) | **Hybrid** (Python prep + 1 LLM call) |
 | **What it does** | LLM traces control flow and translates every paragraph into annotated **pseudocode** | Deterministically extracts behavior *signals* (conditions, moves, calcs, IO, CICS, calls) to feed an LLM that generates **Java** | Python gathers the clues (context + data + AST + source), one LLM call turns each paragraph into plain-English **pseudocode** (structured JSON, flags ambiguous + branches), Python writes the files |
 | **Input** | `parser_artifact.json` + `data_artifact.json` + source | Bounded source pack per "story" | context + data + AST + raw source |
@@ -97,7 +97,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `5_rules_c.agent.md` | *(no rules catalogue — `domain/deterministic.py` + `agent/advisor.py`)* | `rules/rules_builder.py` + `rules/rules_agent.md` |
+| **File** | `5_rules_c.agent.md` | *(no rules catalogue — `domain/deterministic.py` + `agent/advisor.py`)* | `phases/p07_rules/rules_builder.py` + `phases/p07_rules/rules_agent.md` |
 | **Type** | LLM agent (prompt) | Deterministic Cypher + LLM advisor | **Hybrid** (Python does most; LLM optional) |
 | **What it does** | LLM mines every branch/condition + 88-level and classifies them into named business rules with IDs, category, confidence, source traceability | Queries the Neo4j graph to derive a **domain design** (bounded contexts, aggregates) for splitting the monolith into Java — not a rules list | Python collects branches + 88-levels, classifies them (category, pattern, signal 1–5), dedupes and groups into rule sets; LLM only writes the readable **name + description** |
 | **Input** | `logic_artifact.json` + `data_artifact.json` | Neo4j graph | `logic_artifact.json` + `data_artifact.json` |
@@ -113,7 +113,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `6_diagram_c.agent.md` | `technical_design/render.py` (+ LLM design) | `diagram/diagram_builder.py` |
+| **File** | `6_diagram_c.agent.md` | `technical_design/render.py` (+ LLM design) | `phases/p08_diagram/diagram_builder.py` |
 | **Type** | LLM agent (but only re-renders) | LLM-generated design → Mermaid | Deterministic Python |
 | **What it does** | Translates prior artifacts into Mermaid diagrams (component, ERD, sequence, per-program flow) — "extract nothing new" | Renders Mermaid diagrams inside an **LLM-written technical-design doc** for the Java rewrite | Builds Mermaid diagrams directly from `graph.json`, data model, and logic files — component overview, ERD, per-program flow |
 | **Input** | All prior artifacts | Neo4j graph + LLM design | `graph.json` + `data_artifact.json` + `logic_artifact.json` |
@@ -129,7 +129,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | `7_synthesis_c.agent.md` | `brd/pipeline.py` + `brd/renderer.py` | `brd/brd_builder.py` + `brd/brd_agent.md` |
+| **File** | `7_synthesis_c.agent.md` | `brd/pipeline.py` + `brd/renderer.py` | `phases/p09_brd/brd_builder.py` + `phases/p09_brd/brd_agent.md` |
 | **Type** | LLM agent (prompt) | **Agentic LLM loop** (map / reduce / judge + retry) | **Hybrid** (Python assembles; LLM writes prose) |
 | **What it does** | LLM runs a gap-detector, then writes the whole BRD chapter by chapter from the artifacts | LLM navigates the Neo4j graph, drafts the BRD, **judges it, and retries** with new strategies until quality passes; renders HTML | Python detects gaps and assembles every chapter (tables, data model, rules catalogue, gaps) from artifacts; LLM writes **only** the narrative prose (exec summary, system context, per-process stories) |
 | **Input** | All 6 prior artifacts | Neo4j graph | inventory + parser + data + logic + rules + diagrams |
@@ -145,7 +145,7 @@ For each agent: a short table showing **what it does, its input, and its output*
 
 | Aspect | 🟠 Udara | 🟢 Chaminda | 🔵 Ours |
 |---|---|---|---|
-| **File** | *(none — no judge; pipeline ends at synthesis)* | `agent/brd_judge.py` | `brd/brd_judge.py` + `brd/brd_judge_agent.md` |
+| **File** | *(none — no judge; pipeline ends at synthesis)* | `agent/brd_judge.py` | `phases/p10_judge/brd_judge.py` + `phases/p10_judge/brd_judge_agent.md` |
 | **Type** | — | LLM-as-judge | **Hybrid** (deterministic Validation + LLM Judge) |
 | **What it does** | Nothing — the BRD is the last step, no grading | LLM navigates the graph and scores the BRD on 5 weighted dimensions, feeding a retry loop | **Validation** (Python): groundedness gate — every `BR-`/`GAP-`/`RS-` id must exist in the artifacts, else accuracy is floored to 2 — plus consistency checks. **Judge** (LLM): scores the same 5 dimensions |
 | **Input** | — | BRD + Neo4j graph | `brd.md` + all artifacts + gaps register |

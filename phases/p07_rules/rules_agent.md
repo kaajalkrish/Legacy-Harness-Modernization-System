@@ -7,7 +7,7 @@ description: >
   named, deduplicated business-rules catalogue. HYBRID: condition extraction, classification,
   deduplication and grouping are deterministic Python; the business-readable rule NAME and
   DESCRIPTION are written by the LLM. Two run modes, same output shape:
-    A) rules/rules_builder.py  (deterministic classify + LLM descriptions when a key is set; a
+    A) phases/p07_rules/rules_builder.py  (deterministic classify + LLM descriptions when a key is set; a
        templated fallback otherwise).
     B) AI-host — this file executed by Claude Code / Copilot (no API key), writing the polished
        names/descriptions itself.

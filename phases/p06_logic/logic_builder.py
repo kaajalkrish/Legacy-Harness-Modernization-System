@@ -26,7 +26,7 @@ Inputs
   --program-filter  comma-separated PROGRAM-IDs to limit scope
 
 Usage
-    python -m logic.logic_builder --inventory <inv.json> --ast-dir <outputs/analysis> \
+    python -m phases.p06_logic.logic_builder --inventory <inv.json> --ast-dir <outputs/analysis> \
         --context-dir <outputs/context> --data <outputs/data/data_artifact.json> \
         --output-dir <outputs/logic>
 """

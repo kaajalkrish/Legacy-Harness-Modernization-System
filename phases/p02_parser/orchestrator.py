@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 #from engine import CobolAstParser, SectionMapper, read_source_lines
-from analysis.engine import CobolAstParser, SectionMapper, read_source_lines
+from phases.p02_parser.engine import CobolAstParser, SectionMapper, read_source_lines
 
 AGENT_VERSION = "2_parser@1.0"
 

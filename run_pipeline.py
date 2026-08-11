@@ -3,7 +3,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
-from discovery.scanner import InventoryBuilder
+from phases.p01_discovery.scanner import InventoryBuilder
 
 def ask_choice(message, options_text="[y/n/s]", default='y'):
     """Prompts user with flexible options: Yes, No, or Skip."""
@@ -15,18 +15,18 @@ def ask_choice(message, options_text="[y/n/s]", default='y'):
 def main():
     ap = argparse.ArgumentParser(description="COBOL legacy-analysis pipeline (Phases 1-4)")
     ap.add_argument("--input", default=None,
-                    help="Path to the COBOL source root to analyse (default: input/src)")
+                    help="Path to the COBOL source root to analyse (default: inputs/sample)")
     ap.add_argument("--output", default=None,
-                    help="Path to the output root (default: outputs). "
-                         "Use a separate folder per codebase, e.g. carddemo_outputs")
+                    help="Path to the output root (default: outputs/sample). "
+                         "Use a separate folder per codebase, e.g. outputs/carddemo")
     args = ap.parse_args()
 
     base_dir = Path(__file__).resolve().parent
-    out_dir = Path(args.output).resolve() if args.output else base_dir / "outputs"
+    out_dir = Path(args.output).resolve() if args.output else base_dir / "outputs" / "sample"
     print(f"Writing outputs to: {out_dir}")
     
     # 1. Paths definition (Organized by agent)
-    input_dir = Path(args.input).resolve() if args.input else base_dir / "input" / "src"
+    input_dir = Path(args.input).resolve() if args.input else base_dir / "inputs" / "sample"
     print(f"Using COBOL source root: {input_dir}")
     inventory_file = out_dir / "discovery" / "inventory.json"
     parser_output_dir = out_dir / "analysis"
@@ -101,7 +101,7 @@ def main():
             
         print(f"\nStarting Phase 2: Analysis & Orchestration...")
         agent2_cmd = [
-            sys.executable, "-m", "analysis.orchestrator",
+            sys.executable, "-m", "phases.p02_parser.orchestrator",
             "--inventory", str(inventory_file),
             "--output-dir", str(parser_output_dir)
         ]
@@ -145,7 +145,7 @@ def main():
             
         print(f"\nStarting Phase 3: Topology Graph Building...")
         agent3_cmd = [
-            sys.executable, "-m", "topology.graph_builder",
+            sys.executable, "-m", "phases.p03_topology.graph_builder",
             "--inventory", str(inventory_file),
             "--ast-dir", str(parser_output_dir),
             "--output-dir", str(graph_file.parent)
@@ -192,7 +192,7 @@ def main():
             
         print(f"\nStarting Phase 4: Context Sheet Generation...")
         agent4_cmd = [
-            sys.executable, "context_builder/context_builder.py",
+            sys.executable, "phases/p04_context/context_builder.py",
             "--graph", str(graph_file),
             "--out", str(context_output_dir)
         ]
@@ -236,7 +236,7 @@ def main():
 
         print(f"\nStarting Phase 5: Data Dictionary Building...")
         agent5_cmd = [
-            sys.executable, "-m", "data.data_builder",
+            sys.executable, "-m", "phases.p05_data.data_builder",
             "--inventory", str(inventory_file),
             "--ast-dir", str(parser_output_dir),
             "--output-dir", str(data_output_dir),
@@ -281,7 +281,7 @@ def main():
 
         print(f"\nStarting Phase 6: Logic Building (LLM)...")
         agent6_cmd = [
-            sys.executable, "-m", "logic.logic_builder",
+            sys.executable, "-m", "phases.p06_logic.logic_builder",
             "--inventory", str(inventory_file),
             "--ast-dir", str(parser_output_dir),
             "--context-dir", str(context_output_dir),
@@ -328,7 +328,7 @@ def main():
 
         print(f"\nStarting Phase 7: Rules Building (deterministic classify + LLM descriptions)...")
         agent7_cmd = [
-            sys.executable, "-m", "rules.rules_builder",
+            sys.executable, "-m", "phases.p07_rules.rules_builder",
             "--logic", str(logic_output_dir / "logic_artifact.json"),
             "--data", str(data_output_dir / "data_artifact.json"),
             "--output-dir", str(rules_output_dir),
@@ -377,7 +377,7 @@ def main():
         # 8a. Diagram agent (deterministic) — produce Mermaid diagrams the BRD embeds.
         print(f"\nStarting Diagram agent (deterministic Mermaid generation)...")
         diagram_cmd = [
-            sys.executable, "-m", "diagram.diagram_builder",
+            sys.executable, "-m", "phases.p08_diagram.diagram_builder",
             "--graph", str(graph_file),
             "--data", str(data_output_dir / "data_artifact.json"),
             "--logic", str(logic_output_dir / "logic_artifact.json"),
@@ -393,7 +393,7 @@ def main():
         # 8b. BRD Generation (hybrid) — assemble the document and embed the diagrams.
         print(f"\nStarting Phase 8: BRD Generation (deterministic assembly + LLM narratives)...")
         agent8_cmd = [
-            sys.executable, "-m", "brd.brd_builder",
+            sys.executable, "-m", "phases.p09_brd.brd_builder",
             "--inventory", str(inventory_file),
             "--parser", str(parser_output_dir / "parser_artifact.json"),
             "--data", str(data_output_dir / "data_artifact.json"),
@@ -431,7 +431,7 @@ def main():
 
     print(f"\nStarting Phase 9: BRD Validation (groundedness gate + 5-dimension scoring)...")
     agent9_cmd = [
-        sys.executable, "-m", "brd.brd_judge",
+        sys.executable, "-m", "phases.p10_judge.brd_judge",
         "--brd", str(brd_md),
         "--inventory", str(inventory_file),
         "--data", str(data_output_dir / "data_artifact.json"),
