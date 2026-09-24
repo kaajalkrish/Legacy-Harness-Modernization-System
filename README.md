@@ -1,6 +1,18 @@
 # Legacy-Harness-Modernization-System
 
-**A 9-agent pipeline that turns legacy COBOL into a validated Business Requirements Document (BRD)** — a plain-English explanation of what an old mainframe system does, backed by a data dictionary, a business-rules catalogue, and diagrams — so a modernization team can rebuild it *without reading COBOL*.
+**A 9-agent AI pipeline that turns legacy COBOL into a validated Business Requirements Document (BRD).**
+
+It produces a plain-English explanation of what a mainframe system does, backed by a data dictionary, a business-rules catalogue, and architecture diagrams, so a modernization team can rebuild the system *without reading COBOL*.
+
+### How it works
+
+The nine agents work across four phases:
+
+1. **Parse:** Deterministic parsers extract program structure, data fields, and call relationships directly from the source code. Facts come from code, not from the LLM.
+2. **Understand:** AI agents interpret those facts into business logic, rules, and data meaning.
+3. **Document:** The pipeline assembles the BRD, data dictionary, business-rules catalogue, and Mermaid architecture diagrams.
+4. **Validate:** Every output is checked against the original source, and each business rule is traced back to the code it came from.
+
 
 Deterministic where possible, LLM only where needed, and it runs **with no API key**. Proven end-to-end on two different codebases: a 21-program Portfolio system and the full 44-program **AWS CardDemo**.
 
