@@ -1,0 +1,35 @@
+# System Context: COBTUPDT
+## 📝 Summary
+COBTUPDT is a batch-type COBOL program, entered at 0001-OPEN-FILES, with 9 paragraph(s) across 0 section(s), reading/writing 1 data file(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COBTUPDT
+- **Source Path**: app/app-transaction-type-db2/cbl/COBTUPDT.cbl
+- **Main Entry Point**: 0001-OPEN-FILES
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- TR-RECORD
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 05 LASTREC PIC X(1)
+- 01 WORKING-VARIABLES (group item, 1 sub-field(s))
+- 01 WS-MISC-VARS (group item, 1 sub-field(s))
+- 01 WS-INF-STATUS (group item, 2 sub-field(s))
+- 01 WS-INPUT-REC (group item, 3 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0001-OPEN-FILES
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 9 / 0
+- **Terminal Statements**: STOP RUN (line 99)
+- **Paragraph List**:
+- 0001-OPEN-FILES
+- 1001-READ-NEXT-RECORDS
+- 1002-READ-RECORDS
+- 1003-TREAT-RECORD
+- 10031-INSERT-DB
+- 10032-UPDATE-DB
+- 10033-DELETE-DB
+- 9999-ABEND
+- 2001-CLOSE-STOP

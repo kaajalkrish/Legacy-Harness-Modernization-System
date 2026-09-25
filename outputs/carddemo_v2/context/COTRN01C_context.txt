@@ -1,0 +1,38 @@
+# System Context: COTRN01C
+## 📝 Summary
+COTRN01C is a online-type COBOL program, entered at MAIN-PARA, with 9 paragraph(s) across 0 section(s), sharing 8 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COTRN01C
+- **Source Path**: app/cbl/COTRN01C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COTRN01
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CVTRA05Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 11 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 9 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- RETURN-TO-PREV-SCREEN
+- SEND-TRNVIEW-SCREEN
+- RECEIVE-TRNVIEW-SCREEN
+- POPULATE-HEADER-INFO
+- READ-TRANSACT-FILE
+- CLEAR-CURRENT-SCREEN
+- INITIALIZE-ALL-FIELDS

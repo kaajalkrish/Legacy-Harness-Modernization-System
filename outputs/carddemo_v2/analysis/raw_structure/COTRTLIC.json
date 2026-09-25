@@ -1,0 +1,4702 @@
+{
+  "meta": {
+    "program_id": "COTRTLIC",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\app-transaction-type-db2\\cbl\\COTRTLIC.cbl",
+    "total_lines": 2098
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 24,
+    "end_line": 31,
+    "program_id": "COTRTLIC"
+  },
+  "environment_division": {
+    "start_line": 32,
+    "end_line": 34,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 35,
+    "end_line": 496,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-CONSTANTS",
+          "line": 42,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LIT-THISPGM",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTLIC'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISTRANID",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CTLI'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISMAPSET",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTLI'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISMAP",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CTRTLIA'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADMINPGM",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COADM01C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADMINTRANID",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CA00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADMINMAPSET",
+              "line": 49,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COADM01'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADDTPGM",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTUPC'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADDTTRANID",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CTTU'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADDTMAPSET",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COTRTUP'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ADDTMAP",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CTRTUPA'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-DSNTIAC",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'DSNTIAC'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ASTERISK",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'*'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-TRANTYPE-TABLE",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRANSACTION_TYPE '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-DELETE-FLAG",
+              "line": 58,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'D'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-UPDATE-FLAG",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'U'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MAX-SCREEN-LINES",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "7",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-ALL-ALPHANUM-FROM-X",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "LIT-ALL-ALPHA-FROM-X",
+                  "line": 66,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 15,
+                      "name": "LIT-UPPER",
+                      "line": 67,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(26)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'ABCDEFGHIJKLMNOPQRSTUVWXYZ'",
+                      "children": []
+                    },
+                    {
+                      "level": 15,
+                      "name": "LIT-LOWER",
+                      "line": 69,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(26)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'abcdefghijklmnopqrstuvwxyz'",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 10,
+                  "name": "LIT-NUMBERS",
+                  "line": 71,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0123456789'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "LIT-ALL-ALPHA-FROM",
+          "line": 77,
+          "section": "WORKING-STORAGE",
+          "pic": "X(52)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "LIT-ALL-ALPHANUM-FROM",
+          "line": 78,
+          "section": "WORKING-STORAGE",
+          "pic": "X(62)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "LIT-ALL-NUM-FROM",
+          "line": 79,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": [
+            {
+              "level": 77,
+              "name": "LIT-ALPHA-SPACES-TO",
+              "line": 80,
+              "section": "WORKING-STORAGE",
+              "pic": "X(52)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 77,
+              "name": "LIT-ALPHANUM-SPACES-TO",
+              "line": 81,
+              "section": "WORKING-STORAGE",
+              "pic": "X(62)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 77,
+              "name": "LIT-NUM-SPACES-TO",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-MISC-STORAGE",
+          "line": 84,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CICS-PROCESSNG-VARS",
+              "line": 89,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 7,
+                  "name": "WS-RESP-CD",
+                  "line": 90,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ZEROS",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-REAS-CD",
+                  "line": 91,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ZEROS",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-TRANID",
+                  "line": 92,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-INPUT-FLAG",
+              "line": 98,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INPUT-OK",
+                  "line": 99,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0' ' ' LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INPUT-ERROR",
+                  "line": 102,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-TYPE-FLAG",
+              "line": 103,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-TYPEFILTER-NOT-OK",
+                  "line": 104,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-TYPEFILTER-ISVALID",
+                  "line": 105,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-TYPEFILTER-BLANK",
+                  "line": 106,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' '",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-DESC-FLAG",
+              "line": 107,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-DESCFILTER-NOT-OK",
+                  "line": 108,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-DESCFILTER-ISVALID",
+                  "line": 109,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-DESCFILTER-BLANK",
+                  "line": 110,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' '",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-TYPEFILTER-CHANGED",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-TYPEFILTER-CHANGED-NO",
+                  "line": 112,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-TYPEFILTER-CHANGED-YES",
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DESCFILTER-CHANGED",
+              "line": 114,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-DESCFILTER-CHANGED-NO",
+                  "line": 115,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-DESCFILTER-CHANGED-YES",
+                  "line": 116,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ROW-RECORDS-CHANGED",
+              "line": 117,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": 7,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-DESCR-CHANGED-NO",
+                  "line": 119,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-DESCR-CHANGED-YES",
+                  "line": 120,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DELETE-STATUS",
+              "line": 121,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-DELETED-NO",
+                  "line": 122,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-DELETED-YES",
+                  "line": 123,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-UPDATE-STATUS",
+              "line": 124,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-UPDATED-NO",
+                  "line": 125,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-UPDATE-COMPLETED",
+                  "line": 126,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ROW-SELECTION-CHANGED",
+              "line": 127,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-SELECTION-CHANGED-NO",
+                  "line": 128,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-SELECTION-CHANGED-YES",
+                  "line": 129,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-BAD-SELECTION-ACTION",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-BAD-ACTIONS-SELECTED-NO",
+                  "line": 131,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-BAD-ACTIONS-SELECTED-YES",
+                  "line": 132,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ARRAY-DESCRIPTION-FLGS",
+              "line": 133,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-DESCRIPTION-ISVALID",
+                  "line": 134,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES SPACES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-DESCRIPTION-NOT-OK",
+                  "line": 136,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ROW-DESCRIPTION-BLANK",
+                  "line": 137,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'B'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DATACHANGED-FLAG",
+              "line": 138,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "NO-CHANGES-FOUND",
+                  "line": 139,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CHANGES-HAVE-OCCURRED",
+                  "line": 140,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-GENERIC-EDITS",
+              "line": 143,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-VARIABLE-NAME",
+                  "line": 144,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(25)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-ALPHANUM-ONLY",
+                  "line": 146,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(256)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-ALPHANUM-LENGTH",
+                  "line": 147,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-ALPHANUM-ONLY-FLAGS",
+                  "line": 149,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "FLG-ALPHNANUM-ISVALID",
+                      "line": 150,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "LOW-VALUES",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "FLG-ALPHNANUM-NOT-OK",
+                      "line": 151,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'0'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "FLG-ALPHNANUM-BLANK",
+                      "line": 152,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'B'",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-OTHER-EDIT-VARS",
+              "line": 154,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-RECORDS-COUNT",
+                  "line": 155,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-SCREEN-DATA-IN",
+              "line": 165,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-ALL-ROWS-IN",
+                  "line": 166,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(364)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 167,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": "WS-ALL-ROWS-IN",
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 15,
+                      "name": "WS-SCREEN-ROWS-IN",
+                      "line": 168,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": 7,
+                      "redefines": null,
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 20,
+                          "name": "WS-EACH-ROW-IN",
+                          "line": 169,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": [
+                            {
+                              "level": 25,
+                              "name": "WS-EACH-TTYP-IN",
+                              "line": 170,
+                              "section": "WORKING-STORAGE",
+                              "pic": null,
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "children": [
+                                {
+                                  "level": 30,
+                                  "name": "WS-ROW-TR-CODE-IN",
+                                  "line": 171,
+                                  "section": "WORKING-STORAGE",
+                                  "pic": "X(02)",
+                                  "occurs": null,
+                                  "redefines": null,
+                                  "value": null,
+                                  "children": []
+                                },
+                                {
+                                  "level": 30,
+                                  "name": "WS-ROW-TR-DESC-IN",
+                                  "line": 172,
+                                  "section": "WORKING-STORAGE",
+                                  "pic": "X(50)",
+                                  "occurs": null,
+                                  "redefines": null,
+                                  "value": null,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-SELECT-COUNTER",
+              "line": 175,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-SELECT-FLAGS",
+              "line": 178,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 180,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": "WS-EDIT-SELECT-FLAGS",
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-SELECT",
+                  "line": 181,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": 7,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "SELECT-OK",
+                      "line": 183,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'D', 'U'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "DELETE-REQUESTED-ON",
+                      "line": 184,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'D'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "UPDATE-REQUESTED-ON",
+                      "line": 185,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'U'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "SELECT-BLANK",
+                      "line": 186,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "' ', LOW-VALUES",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-SELECT-ERROR-FLAGS",
+              "line": 190,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 192,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": "WS-EDIT-SELECT-ERROR-FLAGS",
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-EDIT-SELECT-ERRORS",
+                  "line": 193,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": 7,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "WS-ROW-TRTSELECT-ERROR",
+                      "line": 194,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 88,
+                          "name": "WS-ROW-SELECT-ERROR",
+                          "line": 195,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'1'",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-SUBSCRIPT-VARS",
+              "line": 197,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "I",
+                  "line": 198,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "I-SELECTED",
+                  "line": 200,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ACTIONS-SELECTED",
+              "line": 202,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 7,
+                  "name": "WS-ACTIONS-REQUESTED",
+                  "line": 203,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "WS-ONLY-1-ACTION",
+                      "line": 206,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "1",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "WS-MORETHAN1ACTION",
+                      "line": 207,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "2 THRU 7",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 7,
+                  "name": "WS-DELETES-REQUESTED",
+                  "line": 208,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-UPDATES-REQUESTED",
+                  "line": 211,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-NO-ACTIONS-SELECTED",
+                  "line": 214,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-VALID-ACTIONS-SELECTED",
+              "line": 217,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-ONLY-1-VALID-ACTION",
+                  "line": 220,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "1",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "CICS-OUTPUT-EDIT-VARS",
+              "line": 225,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "TRAN-TYPE-CD-X",
+                  "line": 226,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "TRAN-TYPE-CD-N",
+                  "line": 227,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": "TRAN-TYPE-CD-X",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FLG-PROTECT-SELECT-ROWS",
+                  "line": 229,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "FLG-PROTECT-SELECT-ROWS-NO",
+                      "line": 230,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'0'",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "FLG-PROTECT-SELECT-ROWS-YES",
+                      "line": 231,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'1'",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-LONG-MSG",
+              "line": 235,
+              "section": "WORKING-STORAGE",
+              "pic": "X(800)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-INFO-MSG",
+              "line": 236,
+              "section": "WORKING-STORAGE",
+              "pic": "X(45)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-NO-INFO-MESSAGE",
+                  "line": 237,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-INFORM-REC-ACTIONS",
+                  "line": 239,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Type U to update, D to delete any record'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-INFORM-DELETE",
+                  "line": 241,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Delete HIGHLIGHTED row ? Press F10 to confirm'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-INFORM-UPDATE",
+                  "line": 243,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Update HIGHLIGHTED row. Press F10 to save'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-INFORM-DELETE-SUCCESS",
+                  "line": 245,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'HIGHLIGHTED row deleted.Hit Enter to continue'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-INFORM-UPDATE-SUCCESS",
+                  "line": 247,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'HIGHLIGHTED row was updated'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RETURN-MSG",
+              "line": 249,
+              "section": "WORKING-STORAGE",
+              "pic": "X(75)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-RETURN-MSG-OFF",
+                  "line": 250,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-EXIT-MESSAGE",
+                  "line": 251,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PF03 pressed. Exiting'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-MESG-NO-RECORDS-FOUND",
+                  "line": 253,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'No records found for this search condition.'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-MESG-NO-MORE-RECORDS",
+                  "line": 255,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'No more pages for these search conditions'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-MESG-MORE-THAN-1-ACTION",
+                  "line": 257,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Please select only 1 action'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-MESG-INVALID-ACTION-CODE",
+                  "line": 259,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Action code selected is invalid'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-MESG-NO-CHANGES-DETECTED",
+                  "line": 261,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'No change detected with respect to database values.'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-PFK-FLAG",
+              "line": 263,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PFK-VALID",
+                  "line": 264,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PFK-INVALID",
+                  "line": 265,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-STRING-FORMAT-VARS",
+              "line": 266,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-STRING-MID",
+                  "line": 267,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(3)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-STRING-LEN",
+                  "line": 268,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(3)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "0",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-STRING-OUT",
+                  "line": 269,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(45)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DATA-FILTERS",
+              "line": 274,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-START-KEY",
+                  "line": 275,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TYPE-CD-FILTER",
+                  "line": 276,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TYPE-DESC-FILTER",
+                  "line": 278,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(52)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-TYPE-CD-DELETE-FILTER",
+                  "line": 279,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 15,
+                      "name": "FILLER",
+                      "line": 280,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'('",
+                      "children": []
+                    },
+                    {
+                      "level": 15,
+                      "name": "WS-TYPE-CD-DELETE-FILTER-X",
+                      "line": 282,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 20,
+                          "name": "WS-TYPE-CD-DELETE-KEYS",
+                          "line": 283,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": 7,
+                          "redefines": null,
+                          "value": null,
+                          "children": [
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 284,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "QUOTE",
+                              "children": []
+                            },
+                            {
+                              "level": 25,
+                              "name": "WS-TYPE-CD-DELETE-KEY",
+                              "line": 286,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "SPACES",
+                              "children": []
+                            },
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 288,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "QUOTE",
+                              "children": []
+                            },
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 290,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "','",
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "level": 20,
+                          "name": "WS-DUMMY",
+                          "line": 292,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": [
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 293,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "QUOTE",
+                              "children": []
+                            },
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 295,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "SPACE",
+                              "children": []
+                            },
+                            {
+                              "level": 25,
+                              "name": "FILLER",
+                              "line": 297,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(01)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": "QUOTE",
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "level": 15,
+                      "name": "FILLER",
+                      "line": 300,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "')'",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 10,
+                  "name": "WS-IN-TYPE-CD",
+                  "line": 310,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-IN-TYPE-CD-N",
+                  "line": 312,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": "WS-IN-TYPE-CD",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-IN-TYPE-DESC",
+                  "line": 313,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ROW-NUMBER",
+              "line": 318,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RECORDS-TO-PROCESS-FLAG",
+              "line": 320,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "READ-LOOP-EXIT",
+                  "line": 321,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "MORE-RECORDS-TO-READ",
+                  "line": 322,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVCRD01Y",
+                  "library": null,
+                  "line": 327,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-THIS-PROGCOMMAREA",
+          "line": 377,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CA-TYPE-CD",
+              "line": 378,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-TYPE-CD-N",
+              "line": 380,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": "WS-CA-TYPE-CD",
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-TYPE-DESC",
+              "line": 381,
+              "section": "WORKING-STORAGE",
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 386,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "WS-CA-ALL-ROWS-OUT",
+                  "line": 387,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(364)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "FILLER",
+                  "line": 388,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": "WS-CA-ALL-ROWS-OUT",
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "WS-CA-SCREEN-ROWS-OUT",
+                      "line": 389,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": 7,
+                      "redefines": null,
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 30,
+                          "name": "WS-CA-EACH-ROW-OUT",
+                          "line": 390,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": [
+                            {
+                              "level": 35,
+                              "name": "WS-CA-ROW-TR-CODE-OUT",
+                              "line": 391,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(02)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "children": []
+                            },
+                            {
+                              "level": 35,
+                              "name": "WS-CA-ROW-TR-DESC-OUT",
+                              "line": 392,
+                              "section": "WORKING-STORAGE",
+                              "pic": "X(50)",
+                              "occurs": null,
+                              "redefines": null,
+                              "value": null,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-ROW-SELECTED",
+              "line": 395,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-PAGING-VARIABLES",
+              "line": 397,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "WS-CA-LAST-TTYPEKEY",
+                  "line": 398,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "WS-CA-LAST-TR-CODE",
+                      "line": 399,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(02)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CA-FIRST-TTYPEKEY",
+                  "line": 400,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "WS-CA-FIRST-TR-CODE",
+                      "line": 401,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(02)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CA-SCREEN-NUM",
+                  "line": 403,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "CA-FIRST-PAGE",
+                      "line": 404,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "1",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CA-LAST-PAGE-DISPLAYED",
+                  "line": 405,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "CA-LAST-PAGE-SHOWN",
+                      "line": 406,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "0",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "CA-LAST-PAGE-NOT-SHOWN",
+                      "line": 407,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "9",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CA-NEXT-PAGE-IND",
+                  "line": 408,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 88,
+                      "name": "CA-NEXT-PAGE-NOT-EXISTS",
+                      "line": 409,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "LOW-VALUES",
+                      "children": []
+                    },
+                    {
+                      "level": 88,
+                      "name": "CA-NEXT-PAGE-EXISTS",
+                      "line": 410,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'Y'",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-DELETE-FLAG",
+              "line": 411,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CA-DELETE-NOT-REQUESTED",
+                  "line": 412,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CA-DELETE-REQUESTED",
+                  "line": 413,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CA-DELETE-SUCCEEDED",
+                  "line": 414,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "WS-CA-UPDATE-FLAG",
+              "line": 415,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CA-UPDATE-NOT-REQUESTED",
+                  "line": 416,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CA-UPDATE-REQUESTED",
+                  "line": 417,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CA-UPDATE-SUCCEEDED",
+                  "line": 418,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-COMMAREA",
+          "line": 420,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "DFHBMSCA",
+              "library": null,
+              "line": 425,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "DFHAID",
+              "library": null,
+              "line": 426,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "COTTL01Y",
+              "library": null,
+              "line": 430,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "COTRTLI",
+              "library": null,
+              "line": 433,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "FILLER",
+          "line": 434,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "CTRTLIAI",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 435,
+              "section": "WORKING-STORAGE",
+              "pic": "X(238)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ROW-DATAI",
+              "line": 436,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 6,
+                  "name": "EACH-ROWI",
+                  "line": 437,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": 7,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 7,
+                      "name": "TRTSELL",
+                      "line": 438,
+                      "section": "WORKING-STORAGE",
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTSELF",
+                      "line": 439,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 440,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TRTSELF",
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "TRTSELA",
+                          "line": 441,
+                          "section": "WORKING-STORAGE",
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 442,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTSELI",
+                      "line": 443,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTTYPL",
+                      "line": 444,
+                      "section": "WORKING-STORAGE",
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTTYPF",
+                      "line": 445,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 446,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TRTTYPF",
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "TRTTYPA",
+                          "line": 447,
+                          "section": "WORKING-STORAGE",
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 448,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTTYPI",
+                      "line": 449,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(2)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTYPDL",
+                      "line": 450,
+                      "section": "WORKING-STORAGE",
+                      "pic": "S9(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTYPDF",
+                      "line": 451,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 452,
+                      "section": "WORKING-STORAGE",
+                      "pic": null,
+                      "occurs": null,
+                      "redefines": "TRTYPDF",
+                      "value": null,
+                      "children": [
+                        {
+                          "level": 10,
+                          "name": "TRTYPDA",
+                          "line": 453,
+                          "section": "WORKING-STORAGE",
+                          "pic": "X",
+                          "occurs": null,
+                          "redefines": null,
+                          "value": null,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 7,
+                      "name": "FILLER",
+                      "line": 454,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 7,
+                      "name": "TRTYPDI",
+                      "line": 455,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(50)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 456,
+              "section": "WORKING-STORAGE",
+              "pic": "X(137)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "FILLER",
+          "line": 457,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "CTRTLIAO",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 458,
+              "section": "WORKING-STORAGE",
+              "pic": "X(238)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "EACH-ROWO",
+              "line": 459,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 7,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 7,
+                  "name": "FILLER",
+                  "line": 460,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(3)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTSELC",
+                  "line": 461,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTSELP",
+                  "line": 462,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTSELH",
+                  "line": 463,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTSELV",
+                  "line": 464,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTSELO",
+                  "line": 465,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(1)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "FILLER",
+                  "line": 466,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(3)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTTYPC",
+                  "line": 467,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTTYPP",
+                  "line": 468,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTTYPH",
+                  "line": 469,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTTYPV",
+                  "line": 470,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTTYPO",
+                  "line": 471,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(2)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "FILLER",
+                  "line": 472,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(3)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTYPDC",
+                  "line": 473,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTYPDP",
+                  "line": 474,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTYPDH",
+                  "line": 475,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTYPDV",
+                  "line": 476,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "TRTYPDO",
+                  "line": 477,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 478,
+              "section": "WORKING-STORAGE",
+              "pic": "X(137)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSDAT01Y",
+                  "library": null,
+                  "line": 480,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSMSG01Y",
+                  "library": null,
+                  "line": 482,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSUSR01Y",
+                  "library": null,
+                  "line": 485,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT02Y",
+                  "library": null,
+                  "line": 490,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 37
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 493,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 494,
+              "section": "LINKAGE",
+              "pic": "X(1)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 492
+    }
+  },
+  "procedure_division": {
+    "start_line": 497,
+    "end_line": 2098,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 498,
+        "end_line": 898,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "COMMON-RETURN",
+        "section": null,
+        "start_line": 899,
+        "end_line": 915,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0000-MAIN-EXIT",
+        "section": null,
+        "start_line": 916,
+        "end_line": 918,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-RECEIVE-MAP",
+        "section": null,
+        "start_line": 919,
+        "end_line": 925,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-RECEIVE-MAP-EXIT",
+        "section": null,
+        "start_line": 926,
+        "end_line": 929,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-RECEIVE-SCREEN",
+        "section": null,
+        "start_line": 930,
+        "end_line": 955,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-RECEIVE-SCREEN-EXIT",
+        "section": null,
+        "start_line": 956,
+        "end_line": 959,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-EDIT-INPUTS",
+        "section": null,
+        "start_line": 960,
+        "end_line": 977,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-EDIT-INPUTS-EXIT",
+        "section": null,
+        "start_line": 978,
+        "end_line": 981,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1210-EDIT-ARRAY",
+        "section": null,
+        "start_line": 982,
+        "end_line": 1054,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1210-EDIT-ARRAY-EXIT",
+        "section": null,
+        "start_line": 1055,
+        "end_line": 1059,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1211-EDIT-ARRAY-DESC",
+        "section": null,
+        "start_line": 1060,
+        "end_line": 1091,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1211-EDIT-ARRAY-DESC-EXIT",
+        "section": null,
+        "start_line": 1092,
+        "end_line": 1095,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1220-EDIT-TYPECD",
+        "section": null,
+        "start_line": 1096,
+        "end_line": 1124,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1220-EDIT-TYPECD-EXIT",
+        "section": null,
+        "start_line": 1125,
+        "end_line": 1141,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1230-EDIT-DESC",
+        "section": null,
+        "start_line": 1142,
+        "end_line": 1164,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1230-EDIT-DESC-EXIT",
+        "section": null,
+        "start_line": 1165,
+        "end_line": 1180,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1240-EDIT-ALPHANUM-REQD",
+        "section": null,
+        "start_line": 1181,
+        "end_line": 1234,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1240-EDIT-ALPHANUM-REQD-EXIT",
+        "section": null,
+        "start_line": 1235,
+        "end_line": 1238,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1290-CROSS-EDITS",
+        "section": null,
+        "start_line": 1239,
+        "end_line": 1268,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1290-CROSS-EDITS-EXIT",
+        "section": null,
+        "start_line": 1269,
+        "end_line": 1289,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-SEND-MAP-EXIT",
+        "section": null,
+        "start_line": 1290,
+        "end_line": 1292,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-SCREEN-INIT",
+        "section": null,
+        "start_line": 1293,
+        "end_line": 1324,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-SCREEN-INIT-EXIT",
+        "section": null,
+        "start_line": 1325,
+        "end_line": 1328,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-SETUP-ARRAY-ATTRIBS",
+        "section": null,
+        "start_line": 1329,
+        "end_line": 1376,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-SETUP-ARRAY-ATTRIBS-EXIT",
+        "section": null,
+        "start_line": 1377,
+        "end_line": 1382,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2300-SCREEN-ARRAY-INIT",
+        "section": null,
+        "start_line": 1383,
+        "end_line": 1432,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2300-SCREEN-ARRAY-INIT-EXIT",
+        "section": null,
+        "start_line": 1433,
+        "end_line": 1437,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2400-SETUP-SCREEN-ATTRS",
+        "section": null,
+        "start_line": 1438,
+        "end_line": 1498,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2400-SETUP-SCREEN-ATTRS-EXIT",
+        "section": null,
+        "start_line": 1499,
+        "end_line": 1503,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2500-SETUP-MESSAGE",
+        "section": null,
+        "start_line": 1504,
+        "end_line": 1581,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2500-SETUP-MESSAGE-EXIT",
+        "section": null,
+        "start_line": 1582,
+        "end_line": 1586,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2600-SEND-SCREEN",
+        "section": null,
+        "start_line": 1587,
+        "end_line": 1596,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2600-SEND-SCREEN-EXIT",
+        "section": null,
+        "start_line": 1597,
+        "end_line": 1602,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8000-READ-FORWARD",
+        "section": null,
+        "start_line": 1603,
+        "end_line": 1723,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8000-READ-FORWARD-EXIT",
+        "section": null,
+        "start_line": 1724,
+        "end_line": 1726,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8100-READ-BACKWARDS",
+        "section": null,
+        "start_line": 1727,
+        "end_line": 1793,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8100-READ-BACKWARDS-EXIT",
+        "section": null,
+        "start_line": 1794,
+        "end_line": 1800,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-CHECK-FILTERS",
+        "section": null,
+        "start_line": 1801,
+        "end_line": 1833,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-CHECK-FILTERS-EXIT",
+        "section": null,
+        "start_line": 1834,
+        "end_line": 1836,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9200-UPDATE-RECORD",
+        "section": null,
+        "start_line": 1837,
+        "end_line": 1891,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9200-UPDATE-RECORD-EXIT",
+        "section": null,
+        "start_line": 1892,
+        "end_line": 1895,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9300-DELETE-RECORD",
+        "section": null,
+        "start_line": 1896,
+        "end_line": 1937,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9300-DELETE-RECORD-EXIT",
+        "section": null,
+        "start_line": 1938,
+        "end_line": 1941,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9400-OPEN-FORWARD-CURSOR",
+        "section": null,
+        "start_line": 1942,
+        "end_line": 1964,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9400-OPEN-FORWARD-CURSOR-EXIT",
+        "section": null,
+        "start_line": 1965,
+        "end_line": 1969,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9450-CLOSE-FORWARD-CURSOR",
+        "section": null,
+        "start_line": 1970,
+        "end_line": 1992,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9450-CLOSE-FORWARD-CURSOR-EXIT",
+        "section": null,
+        "start_line": 1993,
+        "end_line": 1996,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-OPEN-BACKWARD-CURSOR",
+        "section": null,
+        "start_line": 1997,
+        "end_line": 2020,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-OPEN-BACKWARD-CURSOR-EXIT",
+        "section": null,
+        "start_line": 2021,
+        "end_line": 2025,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9550-CLOSE-BACK-CURSOR",
+        "section": null,
+        "start_line": 2026,
+        "end_line": 2048,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9550-CLOSE-BACK-CURSOR-EXIT",
+        "section": null,
+        "start_line": 2049,
+        "end_line": 2065,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-PLAIN-TEXT",
+        "section": null,
+        "start_line": 2066,
+        "end_line": 2076,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-PLAIN-TEXT-EXIT",
+        "section": null,
+        "start_line": 2077,
+        "end_line": 2084,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-LONG-TEXT",
+        "section": null,
+        "start_line": 2085,
+        "end_line": 2095,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-LONG-TEXT-EXIT",
+        "section": null,
+        "start_line": 2096,
+        "end_line": 2098,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVCRD01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 327
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 425
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 426
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 430
+    },
+    {
+      "copybook": "COTRTLI",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 433
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 480
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 482
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 485
+    },
+    {
+      "copybook": "CVACT02Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 490
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 498,
+        "end_line": 898,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "COMMON-RETURN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 899,
+        "end_line": 915,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-MAIN-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 916,
+        "end_line": 918,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-RECEIVE-MAP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 919,
+        "end_line": 925,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "1000-RECEIVE-MAP-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 926,
+        "end_line": 929,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-RECEIVE-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 930,
+        "end_line": 955,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-RECEIVE-SCREEN-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 956,
+        "end_line": 959,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-EDIT-INPUTS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 960,
+        "end_line": 977,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "1200-EDIT-INPUTS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 978,
+        "end_line": 981,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1210-EDIT-ARRAY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 982,
+        "end_line": 1054,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1210-EDIT-ARRAY-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1055,
+        "end_line": 1059,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1211-EDIT-ARRAY-DESC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1060,
+        "end_line": 1091,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1211-EDIT-ARRAY-DESC-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1092,
+        "end_line": 1095,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1220-EDIT-TYPECD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1096,
+        "end_line": 1124,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1220-EDIT-TYPECD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1125,
+        "end_line": 1141,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1230-EDIT-DESC",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1142,
+        "end_line": 1164,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1230-EDIT-DESC-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1165,
+        "end_line": 1180,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1240-EDIT-ALPHANUM-REQD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1181,
+        "end_line": 1234,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1240-EDIT-ALPHANUM-REQD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1235,
+        "end_line": 1238,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1290-CROSS-EDITS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1239,
+        "end_line": 1268,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "1290-CROSS-EDITS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1269,
+        "end_line": 1289,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "2000-SEND-MAP-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1290,
+        "end_line": 1292,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-SCREEN-INIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1293,
+        "end_line": 1324,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-SCREEN-INIT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1325,
+        "end_line": 1328,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-SETUP-ARRAY-ATTRIBS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1329,
+        "end_line": 1376,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-SETUP-ARRAY-ATTRIBS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1377,
+        "end_line": 1382,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2300-SCREEN-ARRAY-INIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1383,
+        "end_line": 1432,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2300-SCREEN-ARRAY-INIT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1433,
+        "end_line": 1437,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2400-SETUP-SCREEN-ATTRS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1438,
+        "end_line": 1498,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2400-SETUP-SCREEN-ATTRS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1499,
+        "end_line": 1503,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2500-SETUP-MESSAGE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1504,
+        "end_line": 1581,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2500-SETUP-MESSAGE-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1582,
+        "end_line": 1586,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2600-SEND-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1587,
+        "end_line": 1596,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2600-SEND-SCREEN-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1597,
+        "end_line": 1602,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8000-READ-FORWARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1603,
+        "end_line": 1723,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "8000-READ-FORWARD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1724,
+        "end_line": 1726,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8100-READ-BACKWARDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1727,
+        "end_line": 1793,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "8100-READ-BACKWARDS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1794,
+        "end_line": 1800,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9100-CHECK-FILTERS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1801,
+        "end_line": 1833,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "9100-CHECK-FILTERS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1834,
+        "end_line": 1836,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9200-UPDATE-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1837,
+        "end_line": 1891,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "9200-UPDATE-RECORD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1892,
+        "end_line": 1895,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9300-DELETE-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1896,
+        "end_line": 1937,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "9300-DELETE-RECORD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1938,
+        "end_line": 1941,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9400-OPEN-FORWARD-CURSOR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1942,
+        "end_line": 1964,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9400-OPEN-FORWARD-CURSOR-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1965,
+        "end_line": 1969,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9450-CLOSE-FORWARD-CURSOR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1970,
+        "end_line": 1992,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9450-CLOSE-FORWARD-CURSOR-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1993,
+        "end_line": 1996,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9500-OPEN-BACKWARD-CURSOR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1997,
+        "end_line": 2020,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9500-OPEN-BACKWARD-CURSOR-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2021,
+        "end_line": 2025,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9550-CLOSE-BACK-CURSOR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2026,
+        "end_line": 2048,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9550-CLOSE-BACK-CURSOR-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2049,
+        "end_line": 2065,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-PLAIN-TEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2066,
+        "end_line": 2076,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-PLAIN-TEXT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2077,
+        "end_line": 2084,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-LONG-TEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2085,
+        "end_line": 2095,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-LONG-TEXT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 2096,
+        "end_line": 2098,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 500,
+        "unstructured": true,
+        "to": "COMMON-RETURN"
+      },
+      {
+        "from": "1000-RECEIVE-MAP",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 920,
+        "unstructured": true,
+        "to": "1100-RECEIVE-SCREEN",
+        "implicit_thru_range": [
+          "1100-RECEIVE-SCREEN",
+          "1100-RECEIVE-SCREEN-EXIT"
+        ]
+      },
+      {
+        "from": "1100-RECEIVE-SCREEN",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 931,
+        "unstructured": false,
+        "to": "1100-RECEIVE-SCREEN",
+        "inline": true,
+        "condition_text": "EXEC CICS RECEIVE MAP(LIT-THISMAP) MAPSET(LIT-THISMAPSET) INTO(CTRTLIAI) RESP(WS-RESP-CD) END-EXEC MOVE TRTYPEI  OF CTRTLIAI  TO WS-IN-TYPE-CD MOVE TRDESCI  OF CTRTLIAI  TO WS-IN-TYPE-DESC PERFORM VARYING I FROM 1 BY 1 UNTIL I > WS-MAX-SCREEN-LINES MOVE TRTSELI(I)           TO WS-EDIT-SELECT(I) MOVE TRTTYPI(I)           TO WS-ROW-TR-CODE-IN(I) MOVE LOW-VALUES           TO WS-ROW-TR-DESC-IN(I) IF   TRTYPDI(I) = LIT-ASTERISK OR   TRTYPDI(I) = SPACES CONTINUE ELSE MOVE FUNCTION TRIM(TRTYPDI(I)) TO WS-ROW-TR-DESC-IN(I) END-IF END-PERFORM .",
+        "loop_start_line": 931,
+        "loop_end_line": 953
+      },
+      {
+        "from": "1200-EDIT-INPUTS",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 962,
+        "unstructured": true,
+        "to": "1210-EDIT-ARRAY",
+        "implicit_thru_range": [
+          "1210-EDIT-ARRAY",
+          "1210-EDIT-ARRAY-EXIT"
+        ]
+      },
+      {
+        "from": "1210-EDIT-ARRAY",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 984,
+        "unstructured": true,
+        "to": "1210-EDIT-ARRAY-EXIT"
+      },
+      {
+        "from": "1211-EDIT-ARRAY-DESC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1062,
+        "unstructured": true,
+        "to": "1211-EDIT-ARRAY-DESC-EXIT"
+      },
+      {
+        "from": "1220-EDIT-TYPECD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1098,
+        "unstructured": true,
+        "to": "1220-EDIT-TYPECD-EXIT"
+      },
+      {
+        "from": "1230-EDIT-DESC",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1144,
+        "unstructured": true,
+        "to": "1230-EDIT-DESC-EXIT"
+      },
+      {
+        "from": "1240-EDIT-ALPHANUM-REQD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1183,
+        "unstructured": true,
+        "to": "1240-EDIT-ALPHANUM-REQD-EXIT"
+      },
+      {
+        "from": "1290-CROSS-EDITS",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1241,
+        "unstructured": true,
+        "to": "1290-CROSS-EDITS-EXIT"
+      },
+      {
+        "from": "1290-CROSS-EDITS-EXIT",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 1276,
+        "unstructured": true,
+        "to": "2100-SCREEN-INIT",
+        "implicit_thru_range": [
+          "2100-SCREEN-INIT",
+          "2100-SCREEN-INIT-EXIT"
+        ]
+      },
+      {
+        "from": "2200-SETUP-ARRAY-ATTRIBS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 1333,
+        "unstructured": false,
+        "to": "2200-SETUP-ARRAY-ATTRIBS",
+        "inline": true,
+        "condition_text": "PERFORM VARYING I FROM WS-MAX-SCREEN-LINES BY -1 UNTIL I = 0 MOVE DFHBMPRF                 TO TRTYPDA(I) IF   WS-CA-EACH-ROW-OUT(I)    EQUAL LOW-VALUES OR   FLG-PROTECT-SELECT-ROWS-YES MOVE DFHBMPRO              TO TRTSELA (I) ELSE IF WS-ROW-TRTSELECT-ERROR(I) = '1' MOVE DFHRED             TO TRTSELC(I) MOVE -1                 TO TRTSELL(I) END-IF IF DELETE-REQUESTED-ON(I) AND WS-ONLY-1-VALID-ACTION AND FLG-BAD-ACTIONS-SELECTED-NO MOVE DFHNEUTR           TO TRTTYPC(I) TRTYPDC(I) MOVE -1                 TO TRTSELL(I) END-IF IF UPDATE-REQUESTED-ON(I) AND WS-ONLY-1-VALID-ACTION AND FLG-BAD-ACTIONS-SELECTED-NO MOVE DFHNEUTR           TO TRTTYPC(I) IF  FLG-UPDATE-COMPLETED MOVE -1             TO TRTSELL(I) MOVE DFHNEUTR       TO TRTYPDC(I) ELSE MOVE -1             TO TRTYPDL(I) MOVE DFHBMFSE       TO TRTYPDA(I) IF NOT FLG-ROW-DESCRIPTION-ISVALID MOVE DFHRED      TO TRTYPDC(I) END-IF END-IF END-IF MOVE DFHBMFSE              TO TRTSELA(I) END-IF END-PERFORM .",
+        "loop_start_line": 1333,
+        "loop_end_line": 1373
+      },
+      {
+        "from": "2300-SCREEN-ARRAY-INIT",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 1386,
+        "unstructured": false,
+        "to": "2300-SCREEN-ARRAY-INIT",
+        "inline": true,
+        "condition_text": "PERFORM VARYING I FROM 1 BY 1 UNTIL I > WS-MAX-SCREEN-LINES IF   WS-CA-EACH-ROW-OUT(I)         EQUAL LOW-VALUES CONTINUE ELSE IF  DELETE-REQUESTED-ON(I) AND WS-ONLY-1-VALID-ACTION AND FLG-BAD-ACTIONS-SELECTED-NO IF  FLG-DELETED-YES SET SELECT-BLANK(I)          TO TRUE ELSE SET CA-DELETE-REQUESTED      TO TRUE END-IF END-IF MOVE WS-CA-ROW-TR-CODE-OUT(I)        TO TRTTYPO(I) IF UPDATE-REQUESTED-ON(I) AND WS-ONLY-1-VALID-ACTION AND FLG-BAD-ACTIONS-SELECTED-NO IF  FLG-UPDATE-COMPLETED SET SELECT-BLANK(I)          TO TRUE ELSE SET CA-UPDATE-REQUESTED      TO TRUE END-IF IF CHANGES-HAVE-OCCURRED EVALUATE TRUE WHEN FLG-ROW-DESCRIPTION-BLANK MOVE LIT-ASTERISK    TO TRTYPDO(I) WHEN OTHER MOVE WS-ROW-TR-DESC-IN(I) TO TRTYPDO(I) END-EVALUATE ELSE MOVE WS-CA-ROW-TR-DESC-OUT(I) TO TRTYPDO(I) END-IF ELSE MOVE WS-CA-ROW-TR-DESC-OUT(I)    TO TRTYPDO(I) END-IF MOVE WS-EDIT-SELECT(I)               TO TRTSELO(I) END-IF END-PERFORM .",
+        "loop_start_line": 1386,
+        "loop_end_line": 1430
+      },
+      {
+        "from": "8000-READ-FORWARD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1604,
+        "unstructured": true,
+        "to": "8000-READ-FORWARD-EXIT"
+      },
+      {
+        "from": "8100-READ-BACKWARDS",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 1729,
+        "unstructured": true,
+        "to": "9500-OPEN-BACKWARD-CURSOR",
+        "implicit_thru_range": [
+          "9500-OPEN-BACKWARD-CURSOR",
+          "9500-OPEN-BACKWARD-CURSOR-EXIT"
+        ]
+      },
+      {
+        "from": "8100-READ-BACKWARDS-EXIT",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 1795,
+        "unstructured": true,
+        "to": "9550-CLOSE-BACK-CURSOR",
+        "implicit_thru_range": [
+          "9550-CLOSE-BACK-CURSOR",
+          "9550-CLOSE-BACK-CURSOR-EXIT"
+        ]
+      },
+      {
+        "from": "9100-CHECK-FILTERS",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1803,
+        "unstructured": true,
+        "to": "9100-CHECK-FILTERS-EXIT"
+      },
+      {
+        "from": "9200-UPDATE-RECORD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1839,
+        "unstructured": true,
+        "to": "9200-UPDATE-RECORD-EXIT"
+      },
+      {
+        "from": "9300-DELETE-RECORD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 1898,
+        "unstructured": true,
+        "to": "9300-DELETE-RECORD-EXIT"
+      },
+      {
+        "from": "9400-OPEN-FORWARD-CURSOR",
+        "type": "PERFORM_THRU",
+        "resolved": false,
+        "source_line": 1943,
+        "unstructured": true,
+        "to": "9999-FORMAT-DB2-MESSAGE",
+        "implicit_thru_range": null
+      },
+      {
+        "from": "9450-CLOSE-FORWARD-CURSOR",
+        "type": "PERFORM_THRU",
+        "resolved": false,
+        "source_line": 1971,
+        "unstructured": true,
+        "to": "9999-FORMAT-DB2-MESSAGE",
+        "implicit_thru_range": null
+      },
+      {
+        "from": "9500-OPEN-BACKWARD-CURSOR",
+        "type": "PERFORM_THRU",
+        "resolved": false,
+        "source_line": 1998,
+        "unstructured": true,
+        "to": "9999-FORMAT-DB2-MESSAGE",
+        "implicit_thru_range": null
+      },
+      {
+        "from": "9550-CLOSE-BACK-CURSOR",
+        "type": "PERFORM_THRU",
+        "resolved": false,
+        "source_line": 2027,
+        "unstructured": true,
+        "to": "9999-FORMAT-DB2-MESSAGE",
+        "implicit_thru_range": null
+      }
+    ],
+    "dead_code_candidates": [
+      "0000-MAIN-EXIT",
+      "1000-RECEIVE-MAP",
+      "1000-RECEIVE-MAP-EXIT",
+      "1200-EDIT-INPUTS",
+      "1200-EDIT-INPUTS-EXIT",
+      "1211-EDIT-ARRAY-DESC",
+      "1220-EDIT-TYPECD",
+      "1230-EDIT-DESC",
+      "1240-EDIT-ALPHANUM-REQD",
+      "1290-CROSS-EDITS",
+      "2000-SEND-MAP-EXIT",
+      "2200-SETUP-ARRAY-ATTRIBS-EXIT",
+      "2300-SCREEN-ARRAY-INIT-EXIT",
+      "2400-SETUP-SCREEN-ATTRS",
+      "2400-SETUP-SCREEN-ATTRS-EXIT",
+      "2500-SETUP-MESSAGE",
+      "2500-SETUP-MESSAGE-EXIT",
+      "2600-SEND-SCREEN",
+      "2600-SEND-SCREEN-EXIT",
+      "8000-READ-FORWARD",
+      "8100-READ-BACKWARDS",
+      "8100-READ-BACKWARDS-EXIT",
+      "9100-CHECK-FILTERS",
+      "9200-UPDATE-RECORD",
+      "9300-DELETE-RECORD",
+      "9400-OPEN-FORWARD-CURSOR",
+      "9400-OPEN-FORWARD-CURSOR-EXIT",
+      "9450-CLOSE-FORWARD-CURSOR",
+      "9450-CLOSE-FORWARD-CURSOR-EXIT",
+      "SEND-PLAIN-TEXT",
+      "SEND-PLAIN-TEXT-EXIT",
+      "SEND-LONG-TEXT",
+      "SEND-LONG-TEXT-EXIT"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "GOTO",
+        "paragraph": "0000-MAIN",
+        "target": "COMMON-RETURN",
+        "line": 500,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "1000-RECEIVE-MAP",
+        "target": "1100-RECEIVE-SCREEN",
+        "line": 920,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "1200-EDIT-INPUTS",
+        "target": "1210-EDIT-ARRAY",
+        "line": 962,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1210-EDIT-ARRAY",
+        "target": "1210-EDIT-ARRAY-EXIT",
+        "line": 984,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1211-EDIT-ARRAY-DESC",
+        "target": "1211-EDIT-ARRAY-DESC-EXIT",
+        "line": 1062,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1220-EDIT-TYPECD",
+        "target": "1220-EDIT-TYPECD-EXIT",
+        "line": 1098,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1230-EDIT-DESC",
+        "target": "1230-EDIT-DESC-EXIT",
+        "line": 1144,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1240-EDIT-ALPHANUM-REQD",
+        "target": "1240-EDIT-ALPHANUM-REQD-EXIT",
+        "line": 1183,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "1290-CROSS-EDITS",
+        "target": "1290-CROSS-EDITS-EXIT",
+        "line": 1241,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "1290-CROSS-EDITS-EXIT",
+        "target": "2100-SCREEN-INIT",
+        "line": 1276,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "8000-READ-FORWARD",
+        "target": "8000-READ-FORWARD-EXIT",
+        "line": 1604,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "8100-READ-BACKWARDS",
+        "target": "9500-OPEN-BACKWARD-CURSOR",
+        "line": 1729,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "8100-READ-BACKWARDS-EXIT",
+        "target": "9550-CLOSE-BACK-CURSOR",
+        "line": 1795,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "9100-CHECK-FILTERS",
+        "target": "9100-CHECK-FILTERS-EXIT",
+        "line": 1803,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "9200-UPDATE-RECORD",
+        "target": "9200-UPDATE-RECORD-EXIT",
+        "line": 1839,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "9300-DELETE-RECORD",
+        "target": "9300-DELETE-RECORD-EXIT",
+        "line": 1898,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9400-OPEN-FORWARD-CURSOR",
+        "target": "9999-FORMAT-DB2-MESSAGE",
+        "line": 1943,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9450-CLOSE-FORWARD-CURSOR",
+        "target": "9999-FORMAT-DB2-MESSAGE",
+        "line": 1971,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9500-OPEN-BACKWARD-CURSOR",
+        "target": "9999-FORMAT-DB2-MESSAGE",
+        "line": 1998,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9550-CLOSE-BACK-CURSOR",
+        "target": "9999-FORMAT-DB2-MESSAGE",
+        "line": 2027,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": [
+      {
+        "severity": "warning",
+        "type": "ambiguous_thru_range",
+        "message": "PERFORM 9999-FORMAT-DB2-MESSAGE THRU 9999-FORMAT-DB2-MESSAGE-EXIT \u2014 range could not be resolved",
+        "paragraph": "9400-OPEN-FORWARD-CURSOR",
+        "line": 1943
+      },
+      {
+        "severity": "warning",
+        "type": "ambiguous_thru_range",
+        "message": "PERFORM 9999-FORMAT-DB2-MESSAGE THRU 9999-FORMAT-DB2-MESSAGE-EXIT \u2014 range could not be resolved",
+        "paragraph": "9450-CLOSE-FORWARD-CURSOR",
+        "line": 1971
+      },
+      {
+        "severity": "warning",
+        "type": "ambiguous_thru_range",
+        "message": "PERFORM 9999-FORMAT-DB2-MESSAGE THRU 9999-FORMAT-DB2-MESSAGE-EXIT \u2014 range could not be resolved",
+        "paragraph": "9500-OPEN-BACKWARD-CURSOR",
+        "line": 1998
+      },
+      {
+        "severity": "warning",
+        "type": "ambiguous_thru_range",
+        "message": "PERFORM 9999-FORMAT-DB2-MESSAGE THRU 9999-FORMAT-DB2-MESSAGE-EXIT \u2014 range could not be resolved",
+        "paragraph": "9550-CLOSE-BACK-CURSOR",
+        "line": 2027
+      }
+    ]
+  }
+}

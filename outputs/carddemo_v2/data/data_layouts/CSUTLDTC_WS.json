@@ -1,0 +1,542 @@
+{
+  "program": "CSUTLDTC",
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-DATE-TO-TEST",
+      "line": 25,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 2,
+          "name": "VSTRING-LENGTH",
+          "line": 26,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "VSTRING-TEXT",
+          "line": 27,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 3,
+              "name": "VSTRING-CHAR",
+              "line": 28,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": 0,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-DATE-FORMAT",
+      "line": 33,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 2,
+          "name": "VSTRING-LENGTH",
+          "line": 34,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "VSTRING-TEXT",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 3,
+              "name": "VSTRING-CHAR",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": 0,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "OUTPUT-LILLIAN",
+      "line": 41,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WS-MESSAGE",
+      "line": 42,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 2,
+          "name": "WS-SEVERITY",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-SEVERITY-N",
+          "line": 44,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": "WS-SEVERITY",
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 45,
+          "section": "WORKING-STORAGE",
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Mesg Code:'",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-MSG-NO",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-MSG-NO-N",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": "WS-MSG-NO",
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-RESULT",
+          "line": 49,
+          "section": "WORKING-STORAGE",
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 50,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "X(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'TstDate:'",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-DATE",
+          "line": 52,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Mask used:'",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "WS-DATE-FMT",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACE",
+          "children": []
+        },
+        {
+          "level": 2,
+          "name": "FILLER",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "FEEDBACK-CODE",
+      "line": 60,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 2,
+          "name": "FEEDBACK-TOKEN-VALUE",
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "FC-INVALID-DATE",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'0000000000000000'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-INSUFFICIENT-DATA",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309CB59C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-BAD-DATE-VALUE",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309CC59C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-INVALID-ERA",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309CD59C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-UNSUPP-RANGE",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309D159C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-INVALID-MONTH",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309D559C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-BAD-PIC-STRING",
+              "line": 68,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309D659C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-NON-NUMERIC-DATA",
+              "line": 69,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309D859C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "FC-YEAR-IN-ERA-ZERO",
+              "line": 70,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "X'000309D959C3C5C5'",
+              "children": []
+            },
+            {
+              "level": 3,
+              "name": "CASE-1-CONDITION-ID",
+              "line": 71,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 4,
+                  "name": "SEVERITY",
+                  "line": 72,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "name": "MSG-NO",
+                  "line": 73,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "name": "CASE-2-CONDITION-ID",
+              "line": 74,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": "CASE-1-CONDITION-ID",
+              "value": null,
+              "children": [
+                {
+                  "level": 4,
+                  "name": "CLASS-CODE",
+                  "line": 76,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 4,
+                  "name": "CAUSE-CODE",
+                  "line": 77,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 3,
+              "name": "CASE-SEV-CTL",
+              "line": 78,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 3,
+              "name": "FACILITY-ID",
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "pic": "XXX",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "name": "I-S-INFO",
+          "line": 80,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "LS-DATE",
+      "line": 84,
+      "section": "LINKAGE",
+      "pic": "X(10)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "LS-DATE-FORMAT",
+      "line": 85,
+      "section": "LINKAGE",
+      "pic": "X(10)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "LS-RESULT",
+      "line": 86,
+      "section": "LINKAGE",
+      "pic": "X(80)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    }
+  ]
+}

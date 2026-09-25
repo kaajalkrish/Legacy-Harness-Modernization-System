@@ -1,0 +1,28 @@
+# System Context: CSUTLDTC
+## 📝 Summary
+CSUTLDTC is a common-type COBOL program, entered at A000-MAIN, with 2 paragraph(s) across 0 section(s), calling 1 other program(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CSUTLDTC
+- **Source Path**: app/cbl/CSUTLDTC.cbl
+- **Main Entry Point**: A000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- CEEDAYS
+## Key Data Structures
+- 01 WS-DATE-TO-TEST (group item, 2 sub-field(s))
+- 01 WS-DATE-FORMAT (group item, 2 sub-field(s))
+- 01 OUTPUT-LILLIAN PIC S9(9)
+- 01 WS-MESSAGE (group item, 15 sub-field(s))
+- 01 FEEDBACK-CODE (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: A000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 2 / 0
+- **Terminal Statements**: EXIT PROGRAM (line 100)
+- **Paragraph List**:
+- A000-MAIN
+- A000-MAIN-EXIT

@@ -1,0 +1,1391 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:46:26Z",
+    "agent_version": "brd_python@2.0",
+    "fingerprint": "f72aa382855cd126"
+  },
+  "instructions": "Write brd_narratives.json next to this file (see phases/p09_brd/brd_agent.md). Copy meta.fingerprint. Use ONLY the facts below; never invent numbers, programs, ids, thresholds or business terms not supported by the program summaries and rules.",
+  "facts": {
+    "system_name": "AWS CardDemo",
+    "source_folder": "carddemo",
+    "programs": 44,
+    "batch": 17,
+    "online": 25,
+    "common": 2,
+    "unclassified": 0,
+    "copybooks": 62,
+    "jcl": 55,
+    "bms": 21,
+    "runtime_usage": {
+      "IMS": 7,
+      "CICS": 25,
+      "MQ": 3,
+      "DB2": 4
+    },
+    "rules": 44,
+    "rule_sets": 8,
+    "technical_conditions": 295,
+    "error_conditions": 259,
+    "records": 596,
+    "fields": 10223,
+    "entities": 334,
+    "paragraphs": 514,
+    "gaps": 16,
+    "high_gaps": 0,
+    "sme_rules": 9,
+    "external_components": 17,
+    "external_subsystems": [
+      "CICS",
+      "DB2",
+      "IBM MQ",
+      "IMS",
+      "Language Environment"
+    ],
+    "goto_edges": 89,
+    "alter_statements": 1,
+    "unstructured_programs": [
+      "CBPAUP0C",
+      "CBSTM03A",
+      "CBSTM03B",
+      "COACTUPC",
+      "COACTVWC",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COPAUA0C",
+      "CORPT00C",
+      "COTRTLIC",
+      "COTRTUPC",
+      "DBUNLDGS",
+      "PAUDBLOD",
+      "PAUDBUNL"
+    ],
+    "alter_programs": [
+      "CBSTM03A"
+    ],
+    "high_complexity_programs": [
+      "CBACT01C",
+      "CBACT04C",
+      "CBPAUP0C",
+      "CBTRN02C",
+      "CBTRN03C",
+      "COACTUPC",
+      "COBIL00C",
+      "COCRDUPC",
+      "COPAUA0C",
+      "COTRTUPC"
+    ],
+    "dead_code_candidates": 523,
+    "capability_source": "ai"
+  },
+  "capabilities": [
+    {
+      "name": "Sign-On and Access Control",
+      "description": "Authenticates users by user id and password and routes them to the Admin menu or the regular Main menu, from which they select the application functions they may use.",
+      "programs": [
+        "COSGN00C",
+        "COMEN01C",
+        "COADM01C"
+      ]
+    },
+    {
+      "name": "User Administration",
+      "description": "Lets administrators list, add, update and delete application users, including their names, passwords and user type.",
+      "programs": [
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "name": "Account Management",
+      "description": "View and update credit-card accounts and their customers, with extensive validation of account and customer details, plus account inquiry over MQ and batch account and customer extracts.",
+      "programs": [
+        "COACTVWC",
+        "COACTUPC",
+        "COACCT01",
+        "CBACT01C",
+        "CBCUS01C"
+      ]
+    },
+    {
+      "name": "Card Management",
+      "description": "List, view and update credit cards (embossed name, active status, expiry date) and browse the card master and card-to-account cross-reference.",
+      "programs": [
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "CBACT02C",
+        "CBACT03C"
+      ]
+    },
+    {
+      "name": "Transaction Entry and Posting",
+      "description": "Online listing, viewing and manual entry of transactions, and the daily batch that verifies each transaction and posts it to account balances or rejects it with a reason.",
+      "programs": [
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "CBTRN01C",
+        "CBTRN02C"
+      ]
+    },
+    {
+      "name": "Interest and Bill Payment",
+      "description": "Computes and posts monthly interest on account category balances using disclosure-group rates, and lets a user pay an account's full outstanding balance online.",
+      "programs": [
+        "CBACT04C",
+        "COBIL00C"
+      ]
+    },
+    {
+      "name": "Statements and Reporting",
+      "description": "Produces account statements in text and HTML and the transaction detail report for a requested date range, which users request online as Monthly, Yearly or Custom reports.",
+      "programs": [
+        "CBSTM03A",
+        "CBSTM03B",
+        "CBTRN03C",
+        "CORPT00C"
+      ]
+    },
+    {
+      "name": "Card Authorization",
+      "description": "Real-time approve/decline of card authorization requests against available credit and card status, review of pending authorizations, fraud marking, and purge, load and unload of the pending-authorization database.",
+      "programs": [
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "COPAUS2C",
+        "CBPAUP0C",
+        "PAUDBLOD",
+        "PAUDBUNL",
+        "DBUNLDGS"
+      ]
+    },
+    {
+      "name": "Transaction Type Reference Data",
+      "description": "Maintains the transaction type and category reference data online (list, update) and through a batch update of transaction-type records.",
+      "programs": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COBTUPDT"
+      ]
+    },
+    {
+      "name": "Data Migration and Shared Services",
+      "description": "Exports and imports all CardDemo master data for branch migration, and provides shared services such as date validation, an MQ date/account service and a timed wait utility.",
+      "programs": [
+        "CBEXPORT",
+        "CBIMPORT",
+        "CODATE01",
+        "CSUTLDTC",
+        "COBSWAIT"
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "program_id": "CBACT01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "High",
+      "business_rules": [
+        "BR-005"
+      ],
+      "summary": "Batch program that reads every record from the indexed ACCOUNT master file (ACCTFILE) and writes each account out to four output files in different layouts: a flat fixed record (OUTFILE), an array/table record (ARRYFILE), and two variable-length records (VBRCFILE). For each account it reformats the reissue date by calling the assembler routine COBDATFT. Any file I/O error prints the file status and abends the program."
+    },
+    {
+      "program_id": "CBACT02C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Batch program that sequentially reads the indexed CARD master file (CARDFILE) and displays every card record. A simple browse/report utility: open the file, loop reading and displaying each record until end-of-file, then close. Any I/O error prints the file status and abends."
+    },
+    {
+      "program_id": "CBACT03C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Batch program that sequentially reads the card-to-account cross-reference file (XREFFILE) and displays every cross-reference record. A simple browse utility linking card numbers to account ids; open, loop read-and-display until end-of-file, close. Any I/O error prints the status and abends."
+    },
+    {
+      "program_id": "CBACT04C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "High",
+      "business_rules": [
+        "BR-024"
+      ],
+      "summary": "The interest & fee posting batch. Reads the transaction-category-balance file (TCATBAL) in account order; for each account it looks up account data, the card cross-reference, and the interest rate from the disclosure-group file (falling back to a DEFAULT group if the specific one is missing). It computes monthly interest as (category balance x rate) / 1200, writes an interest transaction record, accumulates the interest, and when the account changes it rewrites the account master with the accumulated interest added to the balance and the cycle credit/debit reset to zero. Receives the processing date as a linkage parameter. Fee computation is stubbed ('to be implemented')."
+    },
+    {
+      "program_id": "CBCUS01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Batch program that sequentially reads the indexed CUSTOMER master file (CUSTFILE) and displays every customer record. A simple browse utility: open the file, loop read-and-display until end-of-file, then close. Any I/O error prints the file status and abends."
+    },
+    {
+      "program_id": "CBEXPORT",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Low",
+      "business_rules": [],
+      "summary": "Batch data-export utility for branch migration. Reads the five normalized CardDemo master files (customer, account, cross-reference, transaction, card) and writes a single multi-record export file, stamping each run with a generated timestamp and counting the records exported per entity. A straightforward ETL/migration extract with little business logic."
+    },
+    {
+      "program_id": "CBIMPORT",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Batch data-import counterpart of CBEXPORT. Reads the multi-record export file, routes each record to the correct output master file based on its record-type code (customer, account, cross-reference, transaction, card), logs unknown record types to an error file, and reports per-entity import counts. Validates the import at the end."
+    },
+    {
+      "program_id": "CBPAUP0C",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-030",
+        "BR-031",
+        "BR-032",
+        "BR-033",
+        "BR-034",
+        "BR-035",
+        "BR-036"
+      ],
+      "summary": "IMS batch purge for the authorization module: deletes expired pending-authorization messages. It walks the IMS pending-authorization database (summary root segments, each with detail child segments); for each detail it checks whether it is older than the expiry window (parameter, default 5 days) and deletes qualifying details. When a summary has no remaining approved authorizations it deletes the summary too. Takes IMS checkpoints at a configurable frequency for restartability and prints counts of records read and deleted."
+    },
+    {
+      "program_id": "CBSTM03A",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Account statement generator. For each account (via the card cross-reference) it reads the customer and account data and all of the account's transactions, then produces a statement in BOTH plain-text and HTML formats. Transactions are buffered in an in-memory table (up to 51 cards x 10 transactions). Notably uses legacy ALTER + GO TO 'switched paragraph' control flow and reads the mainframe TIOT control blocks to list the job's DD names. Contains unstructured control flow that should be reviewed before modernization."
+    },
+    {
+      "program_id": "CBSTM03B",
+      "run_mode": "common",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Called I/O subroutine used by the statement generator (CBSTM03A). It is a generic data-access layer: the caller passes a linkage area naming a file (DD) and an operation code (Open/Close/Read/Read-Keyed/Write/Rewrite) plus a key and a record buffer; the routine performs the requested operation on the matching file (transaction, cross-reference, customer, account) and returns the file status. Keeps all VSAM I/O in one reusable module."
+    },
+    {
+      "program_id": "CBTRN01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Daily-transaction verification/browse batch. Reads each daily transaction, looks up its card in the cross-reference, and (if found) reads the matching account, displaying the results. A read-only validation pre-pass that reports invalid cards and missing accounts but does not post anything. Opens six files (daily transactions, customer, cross-reference, card, account, transaction)."
+    },
+    {
+      "program_id": "CBTRN02C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "High",
+      "business_rules": [
+        "BR-018",
+        "BR-019",
+        "BR-020",
+        "BR-021"
+      ],
+      "summary": "The daily transaction posting engine. Reads the day's transactions (DALYTRAN); for each one it validates the card, account, credit limit and expiry, and either POSTS the transaction (updating the transaction-category balance, the account balance and cycle credit/debit, and writing the transaction record) or REJECTS it with a numbered reason to the rejects file. Counts processed and rejected transactions and sets return code 4 if any were rejected. Contains the core credit-card transaction validation rules (reasons 100-103, 109)."
+    },
+    {
+      "program_id": "CBTRN03C",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "High",
+      "business_rules": [
+        "BR-028"
+      ],
+      "summary": "Transaction detail report batch. Reads a date range from a parameter file, then reads the transaction file and prints only transactions whose processing date falls in that range. Enriches each line with the account (via card cross-reference), transaction-type and transaction-category descriptions, and produces a formatted report with page headers, per-account (per-card) subtotals, page totals and a grand total via control-break logic."
+    },
+    {
+      "program_id": "COACCT01",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "MQ-triggered CICS account-inquiry service (VSAM-MQ variant, sibling of CODATE01). Started by an IBM MQ trigger message, it retrieves the triggering queue via CICS RETRIEVE, opens the input, reply and error MQ queues, reads request messages containing a function code and an account key, reads the requested account record from the account file, and puts an account-data reply message on the reply queue. Errors go to an error queue. A message-driven integration service."
+    },
+    {
+      "program_id": "COACTUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-001",
+        "BR-006",
+        "BR-007",
+        "BR-008",
+        "BR-009",
+        "BR-010",
+        "BR-011",
+        "BR-012",
+        "BR-013",
+        "BR-014",
+        "BR-015"
+      ],
+      "summary": "CICS online Account Update screen -- the most complex online program. Lets a user retrieve an account, edit account and customer fields, and save the changes. It runs an extensive field-validation suite (account number, mandatory fields, yes/no flags, alphabetic, alphanumeric, numeric, signed amounts, US phone, SSN, US state code, FICO score, state+zip consistency), compares old vs new values, and only rewrites the account/customer records if something actually changed AND the record was not changed by someone else since it was read (optimistic concurrency check). Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COACTVWC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Account View screen. A pseudo-conversational transaction: the user enters an account number, the program validates it, then reads the card cross-reference, account and customer records to display the full account detail. Read-only inquiry (no updates). Handles PF-key navigation (Enter to inquire, PF3 to return to the menu) via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COADM01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Admin Menu for administrator users. Like the main menu but exposes administrative options -- notably user management (list/add/update/delete users). Validates the selected option and transfers control (CICS XCTL) to the corresponding admin program. Reached only by users authenticated as Admin."
+    },
+    {
+      "program_id": "COBIL00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-001",
+        "BR-025",
+        "BR-026",
+        "BR-027"
+      ],
+      "summary": "CICS online Bill Payment screen. The user enters an account id and confirms payment; the program reads the account, shows the current balance, and on confirmation pays the FULL outstanding balance -- creating a payment transaction for the balance amount and zeroing the account balance. Rejects payment when there is nothing to pay (balance <= 0). Pseudo-conversational."
+    },
+    {
+      "program_id": "COBSWAIT",
+      "run_mode": "batch",
+      "runtime": [],
+      "complexity": "Low",
+      "business_rules": [],
+      "summary": "Small utility program that pauses execution for a specified interval. It accepts a wait time (in centiseconds) as a parameter and issues a timed delay before returning -- used to introduce controlled waits between processing steps."
+    },
+    {
+      "program_id": "COBTUPDT",
+      "run_mode": "batch",
+      "runtime": [
+        "DB2"
+      ],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "Batch program that updates transaction-type reference records based on user-supplied input. Reads an input file of transaction-type changes and applies them (add/update) to the transaction-type reference file, reporting counts and errors."
+    },
+    {
+      "program_id": "COCRDLIC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Card List screen. Displays a scrollable, paginated list of credit cards, optionally filtered by account number and/or card number. Supports forward/backward paging (PF7/PF8) through the card file and lets the user select a card from the displayed array to drill into. Pseudo-conversational via a 2000-byte COMMAREA that remembers the paging position and filter."
+    },
+    {
+      "program_id": "COCRDSLC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Card Detail (view) screen. The user enters an account number and/or card number; the program validates them and reads the matching card record to display its details. Read-only inquiry. Can look up a card either by account+card key or by account alone. Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COCRDUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-001",
+        "BR-016",
+        "BR-017"
+      ],
+      "summary": "CICS online Card Update screen. The user retrieves a card (by account + card number), edits its embossed name, active status and expiry month/year, and saves. Runs field validations (account, card, name, card status, expiry month, expiry year), compares old vs new, and rewrites the card record only if it changed and was not modified by another user since it was read (optimistic concurrency). Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "CODATE01",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ],
+      "complexity": "Medium",
+      "business_rules": [],
+      "summary": "MQ-triggered CICS date service (VSAM-MQ variant). Started by an IBM MQ trigger message, it retrieves the triggering queue name via CICS RETRIEVE, opens the input, reply and error MQ queues, reads request messages (a function code + account key), services each request (e.g. a date/account lookup against the account file), and puts a reply message on the reply queue. Errors are written to an error queue. A message-driven integration service rather than batch business logic."
+    },
+    {
+      "program_id": "COMEN01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Main Menu for regular users. Displays the list of available options (account view/update, card list/view/update, transaction list/view/add, bill pay, reports, etc.), validates the option the user selects, and transfers control (CICS XCTL) to the corresponding program. Pseudo-conversational; the menu options are driven by a shared menu-definition copybook."
+    },
+    {
+      "program_id": "COPAUA0C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS",
+        "MQ"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-034",
+        "BR-035",
+        "BR-036",
+        "BR-037",
+        "BR-038",
+        "BR-039",
+        "BR-040",
+        "BR-041",
+        "BR-042",
+        "BR-043"
+      ],
+      "summary": "Card Authorization Decision program (CICS + IMS + MQ). Triggered by MQ, it processes incoming authorization request messages (up to 500 per run): for each request it reads the card cross-reference, account and customer, computes the available credit, and decides APPROVE or DECLINE based on whether the transaction amount fits within the available credit (and card/account status/expiry). It stores the pending authorization in the IMS authorization database and sends the decision back on the reply queue. This is the real-time authorization engine."
+    },
+    {
+      "program_id": "COPAUS0C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-034",
+        "BR-035",
+        "BR-036"
+      ],
+      "summary": "CICS online Authorization Summary View screen. Displays a paginated list of pending-authorization summary records (from the IMS authorization database), optionally filtered by account/card, letting the user page through them and select one to view its details (COPAUS1C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COPAUS1C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-034",
+        "BR-035",
+        "BR-036",
+        "BR-044"
+      ],
+      "summary": "CICS online Authorization Message Detail View screen. Reads a single pending-authorization record (summary + detail) from the IMS authorization database for the selected key and displays its full detail (card, amount, merchant, approval status, timestamps). From here the user can mark it as fraud (COPAUS2C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COPAUS2C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "complexity": "Low",
+      "business_rules": [
+        "BR-034",
+        "BR-035",
+        "BR-036",
+        "BR-044"
+      ],
+      "summary": "CICS online 'Mark Authorization as Fraud' action program. For a selected pending authorization it sets the fraud indicator on the IMS authorization record (and/or writes a fraud marker), so the authorization is flagged as fraudulent for downstream handling. Small action program."
+    },
+    {
+      "program_id": "CORPT00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-029"
+      ],
+      "summary": "CICS online Transaction Reports screen. The user chooses a report type -- Monthly, Yearly, or a Custom date range -- and the program validates the selection/dates and submits a batch job (writing a date-parameter and job to the internal reader / transient data queue) to run the transaction detail report (CBTRN03C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COSGN00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-002",
+        "BR-003"
+      ],
+      "summary": "CICS online Sign-on (authentication) screen -- the application's entry point. Prompts for a user id and password, validates both are entered, reads the user security file, checks the password, and routes the user to the Admin menu or the regular Main menu based on their user type. The security gate for the whole CardDemo online application."
+    },
+    {
+      "program_id": "COTRN00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Transaction List screen. Displays a scrollable, paginated list of transactions from the transaction file, with forward/backward paging (PF7/PF8). The user can select a transaction to view its detail. Pseudo-conversational, carrying the paging position in the COMMAREA."
+    },
+    {
+      "program_id": "COTRN01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Transaction View screen. The user enters a transaction id; the program validates it, reads the transaction record, and displays its full detail (account/card, type, category, amount, dates, merchant). Read-only inquiry. Pseudo-conversational."
+    },
+    {
+      "program_id": "COTRN02C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-022",
+        "BR-023"
+      ],
+      "summary": "CICS online Add Transaction screen. The user enters an account/card and transaction details (type, category, amount, dates, merchant, description); the program validates the key and data fields, derives the next transaction id from the last transaction, and writes a new transaction record. Can copy the last transaction's data as a template. Pseudo-conversational."
+    },
+    {
+      "program_id": "COTRTLIC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Transaction-Type (reference data) List screen. Displays a scrollable, paginated list of transaction type/category reference records, optionally filtered by type code, with forward/backward paging. The user can select a type to view or maintain it. Pseudo-conversational, carrying paging position and filter in the COMMAREA. (Large program -- key logic paragraphs summarized; the remainder are screen-array setup and attribute boilerplate.)"
+    },
+    {
+      "program_id": "COTRTUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "complexity": "High",
+      "business_rules": [
+        "BR-001",
+        "BR-013",
+        "BR-014",
+        "BR-015"
+      ],
+      "summary": "CICS online Transaction-Type (reference data) Update screen. The user retrieves a transaction type/category record, edits its fields (type code, category code, description, and any associated attributes), and saves. Validates the fields, compares old vs new, and rewrites the record only if it changed and was not modified by another user since it was read (optimistic concurrency). Pseudo-conversational. (Large program -- key logic paragraphs summarized; the remainder are screen setup/attribute boilerplate.)"
+    },
+    {
+      "program_id": "COUSR00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online User List screen (admin function). Displays a scrollable, paginated list of user security records with forward/backward paging; the user can select a row to update (U) or delete (D) that user, which transfers to the corresponding maintenance program. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Add User screen (admin function). Captures a new user's id, first name, last name, password and user type, validates all fields are present and valid, checks the user id does not already exist, and writes a new user security record. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR02C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001"
+      ],
+      "summary": "CICS online Update User screen (admin function). Retrieves a user security record by user id, lets the admin edit the first name, last name, password and user type, validates the fields, and rewrites the record. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR03C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-001",
+        "BR-004"
+      ],
+      "summary": "CICS online Delete User screen (admin function). Retrieves a user security record by user id, displays it for confirmation, and on confirmation deletes the user record. Pseudo-conversational."
+    },
+    {
+      "program_id": "CSUTLDTC",
+      "run_mode": "common",
+      "runtime": [],
+      "complexity": "Low",
+      "business_rules": [],
+      "summary": "Called date-validation utility subroutine. Given a date and a date format in its linkage area, it uses the Language Environment date services (CEEDAYS / CEEDATE) to check whether the date is a valid calendar date in the given format, and returns a result/severity code to the caller. Shared date-edit helper used by the online and batch programs."
+    },
+    {
+      "program_id": "DBUNLDGS",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-034",
+        "BR-035",
+        "BR-036"
+      ],
+      "summary": "Batch database UNLOAD utility that extracts database segments/rows (e.g. the disclosure-group / authorization support data) and writes them to a sequential output file for migration, backup, or reload. Reads the source database sequentially and writes each record to the unload file with counts."
+    },
+    {
+      "program_id": "PAUDBLOD",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-034",
+        "BR-035",
+        "BR-036"
+      ],
+      "summary": "Batch IMS database LOAD program for the pending-authorization database. Reads a sequential input file of authorization summary and detail records and inserts them as segments into the IMS pending-authorization database (root summary segments with their detail children), reporting the number of segments loaded."
+    },
+    {
+      "program_id": "PAUDBUNL",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "complexity": "Medium",
+      "business_rules": [
+        "BR-034",
+        "BR-035",
+        "BR-036"
+      ],
+      "summary": "Batch IMS database UNLOAD program for the pending-authorization database. Sequentially walks the IMS pending-authorization database (summary root segments and their detail children) and writes each segment to a sequential output file, reporting the number of segments unloaded. The counterpart of PAUDBLOD."
+    }
+  ],
+  "business_rules": [
+    {
+      "rule_id": "BR-001",
+      "rule_set": "Sign-On and Access Control",
+      "name": "Classify every user as an administrator or a regular user",
+      "description": "User type is A for an administrator or U for a regular user; it is carried with the user's session across the online programs.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-002",
+      "rule_set": "Sign-On and Access Control",
+      "name": "Reject sign-on when the password does not match",
+      "description": "If the password stored in the user security file differs from the one entered, sign-on fails with a wrong-password message.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-003",
+      "rule_set": "Sign-On and Access Control",
+      "name": "Send administrators to the Admin menu and other users to the Main menu",
+      "description": "After a successful sign-on, a user whose type is Admin is transferred to the Admin menu; every other user is transferred to the Main menu.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-004",
+      "rule_set": "User Administration",
+      "name": "Delete a user only after the deletion is confirmed",
+      "description": "A user security record is deleted only after the administrator confirms the deletion.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-005",
+      "rule_set": "Account Management",
+      "name": "Default a zero cycle debit to 2525.00 in the account extract",
+      "description": "When the account extract finds that the account's current-cycle debit is zero, it writes 2525.00 into that field of the output record. This hard-coded value should be confirmed with the business.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-006",
+      "rule_set": "Account Management",
+      "name": "Require a FICO score between 300 and 850",
+      "description": "When a customer's FICO score is updated, the new score must be between 300 and 850.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-007",
+      "rule_set": "Account Management",
+      "name": "Require the account active status to be Y or N",
+      "description": "On account update, the account active status is valid only when it is Y or N.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-008",
+      "rule_set": "Account Management",
+      "name": "Require the primary cardholder indicator to be Y or N",
+      "description": "On account update, the primary cardholder indicator is valid only when it is Y or N.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-009",
+      "rule_set": "Account Management",
+      "name": "Reject a Social Security Number with an invalid first part",
+      "description": "The first three digits of a Social Security Number are invalid if they are 000, 666, or anywhere from 900 to 999.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-010",
+      "rule_set": "Account Management",
+      "name": "Require the ZIP code to be consistent with the state",
+      "description": "The state code combined with the first two digits of the ZIP code must be a recognised combination, for example CA with 90 to 96 or NY with 10 to 14.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-011",
+      "rule_set": "Account Management",
+      "name": "Accept only valid US state and territory codes",
+      "description": "A state code must be one of the 50 US state codes, DC, or the territory codes AS, GU, MP, PR and VI.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-012",
+      "rule_set": "Account Management",
+      "name": "Accept only recognised US phone area codes",
+      "description": "A phone area code is valid only if it appears in the list of valid area codes, which combines general-purpose codes (such as 201, 202 and 203) with easily recognisable codes (200, 211, 222 and so on up to 999).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-013",
+      "rule_set": "Account Management",
+      "name": "Recognise only the 19xx and 20xx centuries in entered dates",
+      "description": "When a date is edited, its century is recognised as 20 (this century) or 19 (last century).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-014",
+      "rule_set": "Account Management",
+      "name": "Require a valid day of the month in entered dates",
+      "description": "The day of an entered date must be 1 through 31, with days 29, 30 and 31 checked separately; a February day is valid from 1 through 28.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-015",
+      "rule_set": "Account Management",
+      "name": "Require a month between 1 and 12 in entered dates",
+      "description": "The month of an entered date must be 1 through 12; months 1, 3, 5, 7, 8, 10 and 12 are treated as 31-day months and month 2 as February.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-016",
+      "rule_set": "Card Management",
+      "name": "Require a card expiry month between 1 and 12",
+      "description": "On card update, the expiry month must be 1 through 12.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-017",
+      "rule_set": "Card Management",
+      "name": "Require a card expiry year between 1950 and 2099",
+      "description": "On card update, the expiry year must be 1950 through 2099.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-018",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Reject a transaction that would take the account over its credit limit",
+      "description": "A daily transaction is accepted only if the account credit limit is greater than or equal to the resulting balance; otherwise it is rejected with reason 102.",
+      "category": "LIMIT_CHECK",
+      "confidence": "high"
+    },
+    {
+      "rule_id": "BR-019",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Reject a transaction dated after the account expiration date",
+      "description": "A daily transaction is accepted only if the account expiration date is on or after the transaction date; otherwise it is rejected with reason 103.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-020",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Treat zero or positive amounts as credits and negative amounts as debits",
+      "description": "When a posted transaction updates the account, an amount of zero or more is applied as a current-cycle credit and a negative amount as a current-cycle debit.",
+      "category": "LIMIT_CHECK",
+      "confidence": "high"
+    },
+    {
+      "rule_id": "BR-021",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Post a daily transaction only when it passes every validation",
+      "description": "A daily transaction is posted when no validation failure reason has been set; otherwise it is rejected and written to the rejects file with its numbered reason.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-022",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Add a transaction only when its key and data fields are valid",
+      "description": "A new transaction record is written only when both the account/card key and the transaction data fields pass validation.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-023",
+      "rule_set": "Transaction Entry and Posting",
+      "name": "Reject a transaction amount that is not a valid signed number",
+      "description": "On the Add Transaction screen, an amount that is not a valid signed number is rejected with an error.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-024",
+      "rule_set": "Interest and Bill Payment",
+      "name": "Compute interest only when the interest rate is not zero",
+      "description": "During interest posting, interest for a transaction-category balance is computed only when the rate found for the account's disclosure group is not zero. Monthly interest is the category balance times the rate divided by 1200.",
+      "category": "CALCULATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-025",
+      "rule_set": "Interest and Bill Payment",
+      "name": "Handle the bill-payment confirmation answer",
+      "description": "The bill payment screen evaluates the user's confirmation entry and handles Y, N, blank and any other value as separate cases.",
+      "category": "ROUTING",
+      "confidence": "high"
+    },
+    {
+      "rule_id": "BR-026",
+      "rule_set": "Interest and Bill Payment",
+      "name": "Refuse a bill payment when there is nothing to pay",
+      "description": "If the account's current balance is zero or less, no payment is made and the user is told there is nothing to pay.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-027",
+      "rule_set": "Interest and Bill Payment",
+      "name": "Pay the full outstanding balance only after the user confirms",
+      "description": "When the user confirms payment, a payment transaction is created for the full outstanding balance and the account balance is set to zero.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-028",
+      "rule_set": "Statements and Reporting",
+      "name": "Report only transactions processed within the requested date range",
+      "description": "The transaction detail report includes a transaction only when its processing date falls between the start and end dates read from the date parameter file; other transactions are skipped.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-029",
+      "rule_set": "Statements and Reporting",
+      "name": "Offer Monthly, Yearly or Custom date-range transaction reports",
+      "description": "The report request screen accepts one of three report types: Monthly, Yearly or a Custom date range, and validates the selection and dates before the report is submitted.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-030",
+      "rule_set": "Card Authorization",
+      "name": "Use a 5-day authorization expiry window unless a valid one is supplied",
+      "description": "The purge takes the expiry window (in days) from its run parameter when that parameter is numeric; otherwise it uses a default of 5 days.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-031",
+      "rule_set": "Card Authorization",
+      "name": "Qualify a pending authorization for deletion when it is older than the expiry window",
+      "description": "A pending-authorization detail qualifies for deletion when its age is greater than the expiry window in days.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-032",
+      "rule_set": "Card Authorization",
+      "name": "Delete a pending-authorization detail that qualifies for deletion",
+      "description": "The authorization purge deletes a pending-authorization detail record when it has been marked as qualified for deletion (older than the expiry window).",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-033",
+      "rule_set": "Card Authorization",
+      "name": "Delete an authorization summary with no approved authorizations left",
+      "description": "The purge deletes a pending-authorization summary when its count of approved authorizations is zero or less.",
+      "category": "VALIDATION",
+      "confidence": "low"
+    },
+    {
+      "rule_id": "BR-034",
+      "rule_set": "Card Authorization",
+      "name": "Record whether fraud is confirmed or removed on an authorization",
+      "description": "The fraud indicator on a pending authorization is F when fraud is confirmed and R when the fraud flag has been removed.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-035",
+      "rule_set": "Card Authorization",
+      "name": "Treat response code 00 as an approved authorization",
+      "description": "A pending authorization with response code 00 is an approved authorization.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-036",
+      "rule_set": "Card Authorization",
+      "name": "Track the match status of each pending authorization",
+      "description": "A pending authorization's match status is P (pending), D (authorization declined), E (pending expired) or M (matched with a transaction).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-037",
+      "rule_set": "Card Authorization",
+      "name": "Decline an authorization when the card is inactive",
+      "description": "An authorization request is declined if the card is not active.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-038",
+      "rule_set": "Card Authorization",
+      "name": "Decline an authorization when the card has expired",
+      "description": "An authorization request is declined if the card is expired.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-039",
+      "rule_set": "Card Authorization",
+      "name": "Decline an authorization that exceeds the available credit",
+      "description": "If the transaction amount is greater than the available credit computed for the account, the request is declined as over-limit.",
+      "category": "LIMIT_CHECK",
+      "confidence": "high"
+    },
+    {
+      "rule_id": "BR-040",
+      "rule_set": "Card Authorization",
+      "name": "Approve an authorization that passes all decline checks",
+      "description": "When none of the decline conditions (inactive card, expired card, over available credit) apply, the authorization request is approved.",
+      "category": "VALIDATION",
+      "confidence": "medium"
+    },
+    {
+      "rule_id": "BR-041",
+      "rule_set": "Card Authorization",
+      "name": "Answer each authorization request as approved or declined",
+      "description": "The authorization response is A for approved or D for declined.",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-042",
+      "rule_set": "Card Authorization",
+      "name": "Record the approve or decline decision for each authorization",
+      "description": "The authorization decision is held as A (approve) or D (decline).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-043",
+      "rule_set": "Card Authorization",
+      "name": "Classify the reason for a declined authorization",
+      "description": "A decline reason is one of: insufficient funds (I), card not active (A), account closed (C), card fraud (F) or merchant fraud (M).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    },
+    {
+      "rule_id": "BR-044",
+      "rule_set": "Card Authorization",
+      "name": "Allow an authorization to be reported as fraud or cleared of fraud",
+      "description": "From the authorization detail view a user can report fraud (F) on the selected authorization or remove a fraud flag (R).",
+      "category": "VALIDATION",
+      "confidence": "confirmed"
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL_INCLUDE target 'DCLTRCAT' is not in the repository (referenced by COTRTUPC) \u2014 its definition is needed to complete the data model / call graph."
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL_INCLUDE target 'DCLTRTYP' is not in the repository (referenced by COBTUPDT, COTRTLIC, COTRTUPC) \u2014 its definition is needed to complete the data model / call graph."
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-004 \u201cDelete a user only after the deletion is confirmed\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-005 \u201cDefault a zero cycle debit to 2525.00 in the account extract\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-019 \u201cReject a transaction dated after the account expiration date\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-006",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-022 \u201cAdd a transaction only when its key and data fields are valid\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-007",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-026 \u201cRefuse a bill payment when there is nothing to pay\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-008",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-027 \u201cPay the full outstanding balance only after the user confirms\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-009",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-028 \u201cReport only transactions processed within the requested date range\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-010",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-032 \u201cDelete a pending-authorization detail that qualifies for deletion\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-011",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-033 \u201cDelete an authorization summary with no approved authorizations left\u201d \u2014 low confidence, requires SME confirmation."
+    },
+    {
+      "gap_id": "GAP-012",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBACT04C: 1 paragraph(s) flagged ambiguous during pseudocode extraction."
+    },
+    {
+      "gap_id": "GAP-013",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBIMPORT: 1 paragraph(s) flagged ambiguous during pseudocode extraction."
+    },
+    {
+      "gap_id": "GAP-014",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBSTM03A: 3 paragraph(s) flagged ambiguous during pseudocode extraction."
+    },
+    {
+      "gap_id": "GAP-015",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "COACCT01: 2 paragraph(s) flagged ambiguous during pseudocode extraction."
+    },
+    {
+      "gap_id": "GAP-016",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CODATE01: 2 paragraph(s) flagged ambiguous during pseudocode extraction."
+    }
+  ],
+  "external_dependencies": [
+    {
+      "component": "DFHAID",
+      "subsystem": "CICS",
+      "kind": "CICS system copybook / interface",
+      "used_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "component": "DFHBMSCA",
+      "subsystem": "CICS",
+      "kind": "CICS system copybook / interface",
+      "used_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "component": "SQLCA",
+      "subsystem": "DB2",
+      "kind": "DB2 interface",
+      "used_by": [
+        "COTRTLIC"
+      ]
+    },
+    {
+      "component": "CMQGMOV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQMDV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQODV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQPMOV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQTML",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQCLOSE",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQGET",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQOPEN",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQPUT",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01"
+      ]
+    },
+    {
+      "component": "MQPUT1",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CBLTDLI",
+      "subsystem": "IMS",
+      "kind": "IMS DL/I interface",
+      "used_by": [
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "component": "CEE3ABD",
+      "subsystem": "Language Environment",
+      "kind": "LE runtime service",
+      "used_by": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C"
+      ]
+    },
+    {
+      "component": "CEEDAYS",
+      "subsystem": "Language Environment",
+      "kind": "LE runtime service",
+      "used_by": [
+        "CSUTLDTC"
+      ]
+    }
+  ]
+}

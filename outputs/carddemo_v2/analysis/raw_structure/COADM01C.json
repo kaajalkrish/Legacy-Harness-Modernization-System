@@ -1,0 +1,593 @@
+{
+  "meta": {
+    "program_id": "COADM01C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\COADM01C.cbl",
+    "total_lines": 288
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "COADM01C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 28,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 29,
+    "end_line": 73,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGMNAME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COADM01C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANID",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CA00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MESSAGE",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-USRSEC-FILE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'USRSEC  '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-FLG",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-ON",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-OFF",
+                  "line": 42,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-OPTION-X",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-OPTION",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-IDX",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ADMIN-OPT-TXT",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "X(40)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "COCOM01Y",
+                  "library": null,
+                  "line": 50,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COADM02Y",
+                  "library": null,
+                  "line": 51,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COADM01",
+                  "library": null,
+                  "line": 53,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COTTL01Y",
+                  "library": null,
+                  "line": 55,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSDAT01Y",
+                  "library": null,
+                  "line": 56,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSMSG01Y",
+                  "library": null,
+                  "line": 57,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSUSR01Y",
+                  "library": null,
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHAID",
+                  "library": null,
+                  "line": 60,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHBMSCA",
+                  "library": null,
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 33
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 67,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 68,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 66
+    }
+  },
+  "procedure_division": {
+    "start_line": 74,
+    "end_line": 288,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 75,
+        "end_line": 118,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "PROCESS-ENTER-KEY",
+        "section": null,
+        "start_line": 119,
+        "end_line": 162,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RETURN-TO-SIGNON-SCREEN",
+        "section": null,
+        "start_line": 163,
+        "end_line": 174,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-MENU-SCREEN",
+        "section": null,
+        "start_line": 175,
+        "end_line": 191,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RECEIVE-MENU-SCREEN",
+        "section": null,
+        "start_line": 192,
+        "end_line": 204,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-HEADER-INFO",
+        "section": null,
+        "start_line": 205,
+        "end_line": 228,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "BUILD-MENU-OPTIONS",
+        "section": null,
+        "start_line": 229,
+        "end_line": 269,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PGMIDERR-ERR-PARA",
+        "section": null,
+        "start_line": 270,
+        "end_line": 288,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 50
+    },
+    {
+      "copybook": "COADM02Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 51
+    },
+    {
+      "copybook": "COADM01",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 53
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 55
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 56
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 57
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 58
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 60
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 61
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 75,
+        "end_line": 118,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-ENTER-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 119,
+        "end_line": 162,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RETURN-TO-SIGNON-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 163,
+        "end_line": 174,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-MENU-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 175,
+        "end_line": 191,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RECEIVE-MENU-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 192,
+        "end_line": 204,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-HEADER-INFO",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 205,
+        "end_line": 228,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "BUILD-MENU-OPTIONS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 229,
+        "end_line": 269,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PGMIDERR-ERR-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 270,
+        "end_line": 288,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 77,
+        "unstructured": false,
+        "to": "RETURN-TO-SIGNON-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 121,
+        "unstructured": false,
+        "to": "PROCESS-ENTER-KEY",
+        "inline": true,
+        "condition_text": "PERFORM VARYING WS-IDX FROM LENGTH OF OPTIONI OF COADM1AI BY -1 UNTIL OPTIONI OF COADM1AI(WS-IDX:1) NOT = SPACES OR WS-IDX = 1 END-PERFORM MOVE OPTIONI OF COADM1AI(1:WS-IDX) TO WS-OPTION-X INSPECT WS-OPTION-X REPLACING ALL ' ' BY '0' MOVE WS-OPTION-X              TO WS-OPTION MOVE WS-OPTION                TO OPTIONO OF COADM1AO IF WS-OPTION IS NOT NUMERIC OR WS-OPTION > CDEMO-ADMIN-OPT-COUNT OR WS-OPTION = ZEROS MOVE 'Y'     TO WS-ERR-FLG MOVE 'Please enter a valid option number...' TO WS-MESSAGE PERFORM SEND-MENU-SCREEN END-IF IF NOT ERR-FLG-ON IF CDEMO-ADMIN-OPT-PGMNAME(WS-OPTION)(1:5) NOT = 'DUMMY' MOVE WS-TRANID    TO CDEMO-FROM-TRANID MOVE WS-PGMNAME   TO CDEMO-FROM-PROGRAM MOVE ZEROS        TO CDEMO-PGM-CONTEXT EXEC CICS XCTL PROGRAM(CDEMO-ADMIN-OPT-PGMNAME(WS-OPTION)) COMMAREA(CARDDEMO-COMMAREA) END-EXEC END-IF MOVE SPACES             TO WS-MESSAGE MOVE DFHGREEN           TO ERRMSGC  OF COADM1AO STRING 'This option '       DELIMITED BY SIZE 'is not installed ...'   DELIMITED BY SIZE INTO WS-MESSAGE PERFORM SEND-MENU-SCREEN END-IF.",
+        "loop_start_line": 121,
+        "loop_end_line": 125
+      },
+      {
+        "from": "SEND-MENU-SCREEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 177,
+        "unstructured": false,
+        "to": "POPULATE-HEADER-INFO"
+      },
+      {
+        "from": "BUILD-MENU-OPTIONS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 231,
+        "unstructured": false,
+        "to": "BUILD-MENU-OPTIONS",
+        "inline": true,
+        "condition_text": "PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > CDEMO-ADMIN-OPT-COUNT MOVE SPACES             TO WS-ADMIN-OPT-TXT STRING CDEMO-ADMIN-OPT-NUM(WS-IDX)  DELIMITED BY SIZE '. '                         DELIMITED BY SIZE CDEMO-ADMIN-OPT-NAME(WS-IDX) DELIMITED BY SIZE INTO WS-ADMIN-OPT-TXT EVALUATE WS-IDX WHEN 1 MOVE WS-ADMIN-OPT-TXT TO OPTN001O WHEN 2 MOVE WS-ADMIN-OPT-TXT TO OPTN002O WHEN 3 MOVE WS-ADMIN-OPT-TXT TO OPTN003O WHEN 4 MOVE WS-ADMIN-OPT-TXT TO OPTN004O WHEN 5 MOVE WS-ADMIN-OPT-TXT TO OPTN005O WHEN 6 MOVE WS-ADMIN-OPT-TXT TO OPTN006O WHEN 7 MOVE WS-ADMIN-OPT-TXT TO OPTN007O WHEN 8 MOVE WS-ADMIN-OPT-TXT TO OPTN008O WHEN 9 MOVE WS-ADMIN-OPT-TXT TO OPTN009O WHEN 10 MOVE WS-ADMIN-OPT-TXT TO OPTN010O WHEN OTHER CONTINUE END-EVALUATE END-PERFORM.",
+        "loop_start_line": 231,
+        "loop_end_line": 266
+      },
+      {
+        "from": "PGMIDERR-ERR-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 271,
+        "unstructured": false,
+        "to": "SEND-MENU-SCREEN"
+      }
+    ],
+    "dead_code_candidates": [
+      "RECEIVE-MENU-SCREEN",
+      "PGMIDERR-ERR-PARA"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

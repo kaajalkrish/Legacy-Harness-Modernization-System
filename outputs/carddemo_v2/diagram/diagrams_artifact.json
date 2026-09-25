@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:23:08Z"
+  },
+  "diagrams": [
+    {
+      "id": "COMP-OVERVIEW",
+      "file": "component_overview.mmd",
+      "type": "component",
+      "title": "System component overview"
+    },
+    {
+      "id": "ERD-MAIN",
+      "file": "erd.mmd",
+      "type": "erd",
+      "title": "Data model \u2014 key entities and relationships"
+    },
+    {
+      "id": "FLOW-CBACT01C",
+      "file": "diagrams/flow_CBACT01C.mmd",
+      "type": "flow",
+      "title": "CBACT01C process/call flow",
+      "program_id": "CBACT01C"
+    },
+    {
+      "id": "FLOW-CBACT02C",
+      "file": "diagrams/flow_CBACT02C.mmd",
+      "type": "flow",
+      "title": "CBACT02C process/call flow",
+      "program_id": "CBACT02C"
+    },
+    {
+      "id": "FLOW-CBACT03C",
+      "file": "diagrams/flow_CBACT03C.mmd",
+      "type": "flow",
+      "title": "CBACT03C process/call flow",
+      "program_id": "CBACT03C"
+    },
+    {
+      "id": "FLOW-CBACT04C",
+      "file": "diagrams/flow_CBACT04C.mmd",
+      "type": "flow",
+      "title": "CBACT04C process/call flow",
+      "program_id": "CBACT04C"
+    },
+    {
+      "id": "FLOW-CBCUS01C",
+      "file": "diagrams/flow_CBCUS01C.mmd",
+      "type": "flow",
+      "title": "CBCUS01C process/call flow",
+      "program_id": "CBCUS01C"
+    },
+    {
+      "id": "FLOW-CBEXPORT",
+      "file": "diagrams/flow_CBEXPORT.mmd",
+      "type": "flow",
+      "title": "CBEXPORT process/call flow",
+      "program_id": "CBEXPORT"
+    },
+    {
+      "id": "FLOW-CBIMPORT",
+      "file": "diagrams/flow_CBIMPORT.mmd",
+      "type": "flow",
+      "title": "CBIMPORT process/call flow",
+      "program_id": "CBIMPORT"
+    },
+    {
+      "id": "FLOW-CBPAUP0C",
+      "file": "diagrams/flow_CBPAUP0C.mmd",
+      "type": "flow",
+      "title": "CBPAUP0C process/call flow",
+      "program_id": "CBPAUP0C"
+    },
+    {
+      "id": "FLOW-CBSTM03A",
+      "file": "diagrams/flow_CBSTM03A.mmd",
+      "type": "flow",
+      "title": "CBSTM03A process/call flow",
+      "program_id": "CBSTM03A"
+    },
+    {
+      "id": "FLOW-CBSTM03B",
+      "file": "diagrams/flow_CBSTM03B.mmd",
+      "type": "flow",
+      "title": "CBSTM03B process/call flow",
+      "program_id": "CBSTM03B"
+    },
+    {
+      "id": "FLOW-CBTRN01C",
+      "file": "diagrams/flow_CBTRN01C.mmd",
+      "type": "flow",
+      "title": "CBTRN01C process/call flow",
+      "program_id": "CBTRN01C"
+    },
+    {
+      "id": "FLOW-CBTRN02C",
+      "file": "diagrams/flow_CBTRN02C.mmd",
+      "type": "flow",
+      "title": "CBTRN02C process/call flow",
+      "program_id": "CBTRN02C"
+    },
+    {
+      "id": "FLOW-CBTRN03C",
+      "file": "diagrams/flow_CBTRN03C.mmd",
+      "type": "flow",
+      "title": "CBTRN03C process/call flow",
+      "program_id": "CBTRN03C"
+    },
+    {
+      "id": "FLOW-COACCT01",
+      "file": "diagrams/flow_COACCT01.mmd",
+      "type": "flow",
+      "title": "COACCT01 process/call flow",
+      "program_id": "COACCT01"
+    },
+    {
+      "id": "FLOW-COACTUPC",
+      "file": "diagrams/flow_COACTUPC.mmd",
+      "type": "flow",
+      "title": "COACTUPC process/call flow",
+      "program_id": "COACTUPC"
+    },
+    {
+      "id": "FLOW-COACTVWC",
+      "file": "diagrams/flow_COACTVWC.mmd",
+      "type": "flow",
+      "title": "COACTVWC process/call flow",
+      "program_id": "COACTVWC"
+    },
+    {
+      "id": "FLOW-COADM01C",
+      "file": "diagrams/flow_COADM01C.mmd",
+      "type": "flow",
+      "title": "COADM01C process/call flow",
+      "program_id": "COADM01C"
+    },
+    {
+      "id": "FLOW-COBIL00C",
+      "file": "diagrams/flow_COBIL00C.mmd",
+      "type": "flow",
+      "title": "COBIL00C process/call flow",
+      "program_id": "COBIL00C"
+    },
+    {
+      "id": "FLOW-COBSWAIT",
+      "file": "diagrams/flow_COBSWAIT.mmd",
+      "type": "flow",
+      "title": "COBSWAIT process/call flow",
+      "program_id": "COBSWAIT"
+    },
+    {
+      "id": "FLOW-COBTUPDT",
+      "file": "diagrams/flow_COBTUPDT.mmd",
+      "type": "flow",
+      "title": "COBTUPDT process/call flow",
+      "program_id": "COBTUPDT"
+    },
+    {
+      "id": "FLOW-COCRDLIC",
+      "file": "diagrams/flow_COCRDLIC.mmd",
+      "type": "flow",
+      "title": "COCRDLIC process/call flow",
+      "program_id": "COCRDLIC"
+    },
+    {
+      "id": "FLOW-COCRDSLC",
+      "file": "diagrams/flow_COCRDSLC.mmd",
+      "type": "flow",
+      "title": "COCRDSLC process/call flow",
+      "program_id": "COCRDSLC"
+    },
+    {
+      "id": "FLOW-COCRDUPC",
+      "file": "diagrams/flow_COCRDUPC.mmd",
+      "type": "flow",
+      "title": "COCRDUPC process/call flow",
+      "program_id": "COCRDUPC"
+    },
+    {
+      "id": "FLOW-CODATE01",
+      "file": "diagrams/flow_CODATE01.mmd",
+      "type": "flow",
+      "title": "CODATE01 process/call flow",
+      "program_id": "CODATE01"
+    },
+    {
+      "id": "FLOW-COMEN01C",
+      "file": "diagrams/flow_COMEN01C.mmd",
+      "type": "flow",
+      "title": "COMEN01C process/call flow",
+      "program_id": "COMEN01C"
+    },
+    {
+      "id": "FLOW-COPAUA0C",
+      "file": "diagrams/flow_COPAUA0C.mmd",
+      "type": "flow",
+      "title": "COPAUA0C process/call flow",
+      "program_id": "COPAUA0C"
+    },
+    {
+      "id": "FLOW-COPAUS0C",
+      "file": "diagrams/flow_COPAUS0C.mmd",
+      "type": "flow",
+      "title": "COPAUS0C process/call flow",
+      "program_id": "COPAUS0C"
+    },
+    {
+      "id": "FLOW-COPAUS1C",
+      "file": "diagrams/flow_COPAUS1C.mmd",
+      "type": "flow",
+      "title": "COPAUS1C process/call flow",
+      "program_id": "COPAUS1C"
+    },
+    {
+      "id": "FLOW-COPAUS2C",
+      "file": "diagrams/flow_COPAUS2C.mmd",
+      "type": "flow",
+      "title": "COPAUS2C process/call flow",
+      "program_id": "COPAUS2C"
+    },
+    {
+      "id": "FLOW-CORPT00C",
+      "file": "diagrams/flow_CORPT00C.mmd",
+      "type": "flow",
+      "title": "CORPT00C process/call flow",
+      "program_id": "CORPT00C"
+    },
+    {
+      "id": "FLOW-COSGN00C",
+      "file": "diagrams/flow_COSGN00C.mmd",
+      "type": "flow",
+      "title": "COSGN00C process/call flow",
+      "program_id": "COSGN00C"
+    },
+    {
+      "id": "FLOW-COTRN00C",
+      "file": "diagrams/flow_COTRN00C.mmd",
+      "type": "flow",
+      "title": "COTRN00C process/call flow",
+      "program_id": "COTRN00C"
+    },
+    {
+      "id": "FLOW-COTRN01C",
+      "file": "diagrams/flow_COTRN01C.mmd",
+      "type": "flow",
+      "title": "COTRN01C process/call flow",
+      "program_id": "COTRN01C"
+    },
+    {
+      "id": "FLOW-COTRN02C",
+      "file": "diagrams/flow_COTRN02C.mmd",
+      "type": "flow",
+      "title": "COTRN02C process/call flow",
+      "program_id": "COTRN02C"
+    },
+    {
+      "id": "FLOW-COTRTLIC",
+      "file": "diagrams/flow_COTRTLIC.mmd",
+      "type": "flow",
+      "title": "COTRTLIC process/call flow",
+      "program_id": "COTRTLIC"
+    },
+    {
+      "id": "FLOW-COTRTUPC",
+      "file": "diagrams/flow_COTRTUPC.mmd",
+      "type": "flow",
+      "title": "COTRTUPC process/call flow",
+      "program_id": "COTRTUPC"
+    },
+    {
+      "id": "FLOW-COUSR00C",
+      "file": "diagrams/flow_COUSR00C.mmd",
+      "type": "flow",
+      "title": "COUSR00C process/call flow",
+      "program_id": "COUSR00C"
+    },
+    {
+      "id": "FLOW-COUSR01C",
+      "file": "diagrams/flow_COUSR01C.mmd",
+      "type": "flow",
+      "title": "COUSR01C process/call flow",
+      "program_id": "COUSR01C"
+    },
+    {
+      "id": "FLOW-COUSR02C",
+      "file": "diagrams/flow_COUSR02C.mmd",
+      "type": "flow",
+      "title": "COUSR02C process/call flow",
+      "program_id": "COUSR02C"
+    },
+    {
+      "id": "FLOW-COUSR03C",
+      "file": "diagrams/flow_COUSR03C.mmd",
+      "type": "flow",
+      "title": "COUSR03C process/call flow",
+      "program_id": "COUSR03C"
+    },
+    {
+      "id": "FLOW-CSUTLDTC",
+      "file": "diagrams/flow_CSUTLDTC.mmd",
+      "type": "flow",
+      "title": "CSUTLDTC process/call flow",
+      "program_id": "CSUTLDTC"
+    },
+    {
+      "id": "FLOW-DBUNLDGS",
+      "file": "diagrams/flow_DBUNLDGS.mmd",
+      "type": "flow",
+      "title": "DBUNLDGS process/call flow",
+      "program_id": "DBUNLDGS"
+    },
+    {
+      "id": "FLOW-PAUDBLOD",
+      "file": "diagrams/flow_PAUDBLOD.mmd",
+      "type": "flow",
+      "title": "PAUDBLOD process/call flow",
+      "program_id": "PAUDBLOD"
+    },
+    {
+      "id": "FLOW-PAUDBUNL",
+      "file": "diagrams/flow_PAUDBUNL.mmd",
+      "type": "flow",
+      "title": "PAUDBUNL process/call flow",
+      "program_id": "PAUDBUNL"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "brd_sha": "0c564dd49103a71e",
+    "brd": "brd.md"
+  },
+  "instructions": "Score brd.md per phases/p10_judge/brd_judge_agent.md and write brd_scores.json next to this file with meta.brd_sha copied from here.",
+  "groundedness_failures": [],
+  "consistency_issues": [],
+  "weights": {
+    "completeness": 0.25,
+    "accuracy": 0.3,
+    "clarity": 0.15,
+    "consistency": 0.15,
+    "actionability": 0.15
+  }
+}

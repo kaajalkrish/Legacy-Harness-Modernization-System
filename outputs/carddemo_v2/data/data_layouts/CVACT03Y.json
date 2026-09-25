@@ -1,0 +1,77 @@
+{
+  "copybook": "CVACT03Y",
+  "used_by": [
+    "COPAUA0C",
+    "COPAUS0C",
+    "CBACT03C",
+    "CBACT04C",
+    "CBEXPORT",
+    "CBIMPORT",
+    "CBSTM03A",
+    "CBTRN01C",
+    "CBTRN02C",
+    "CBTRN03C",
+    "COACTUPC",
+    "COACTVWC",
+    "COBIL00C",
+    "COTRN02C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CARD-XREF-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "XREF-CARD-NUM",
+          "line": 5,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-CUST-ID",
+          "line": 6,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-ACCT-ID",
+          "line": 7,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 8,
+          "pic": "X(14)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

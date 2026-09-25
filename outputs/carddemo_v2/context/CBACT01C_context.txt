@@ -1,0 +1,61 @@
+# System Context: CBACT01C
+## 📝 Summary
+CBACT01C is a batch-type COBOL program, entered at 1000-ACCTFILE-GET-NEXT, with 16 paragraph(s) across 0 section(s), calling 2 other program(s), reading/writing 4 data file(s), sharing 2 copybook(s). It defines 19 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBACT01C
+- **Source Path**: app/cbl/CBACT01C.cbl
+- **Main Entry Point**: 1000-ACCTFILE-GET-NEXT
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- ACCTFILE-FILE
+- OUT-FILE
+- ARRY-FILE
+- VBRC-FILE
+### 📚 Shared Logic (Copybooks)
+- CVACT01Y
+- CODATECN
+### 🔗 Execution Flow (Calls)
+- COBDATFT
+- CEE3ABD
+## Key Data Structures
+- COPY CVACT01Y (external structure, expanded via copybook)
+- COPY CODATECN (external structure, expanded via copybook)
+- 01 ACCTFILE-STATUS (group item, 2 sub-field(s))
+- 01 OUTFILE-STATUS (group item, 2 sub-field(s))
+- 01 ARRYFILE-STATUS (group item, 2 sub-field(s))
+- 01 VBRCFILE-STATUS (group item, 2 sub-field(s))
+- 01 IO-STATUS (group item, 2 sub-field(s))
+- 01 TWO-BYTES-BINARY PIC 9(4)
+- 01 TWO-BYTES-ALPHA (group item, 2 sub-field(s))
+- 01 IO-STATUS-04 (group item, 2 sub-field(s))
+- 01 APPL-RESULT PIC S9(9)
+- 01 END-OF-FILE PIC X(01)
+- 01 ABCODE PIC S9(9)
+- 01 TIMING PIC S9(9)
+- 01 WS-RECD-LEN PIC 9(04)
+- 01 VBRC-REC1 (group item, 2 sub-field(s))
+- 01 VBRC-REC2 (group item, 4 sub-field(s))
+- 01 WS-ACCT-REISSUE-DATE (group item, 5 sub-field(s))
+- 01 WS-REISSUE-DATE PIC X(10)
+## Procedure Summary
+- **Entry Point(s)**: 1000-ACCTFILE-GET-NEXT
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 16 / 0
+- **Terminal Statements**: GOBACK (line 160)
+- **Paragraph List**:
+- 1000-ACCTFILE-GET-NEXT
+- 1100-DISPLAY-ACCT-RECORD
+- 1300-POPUL-ACCT-RECORD
+- 1350-WRITE-ACCT-RECORD
+- 1400-POPUL-ARRAY-RECORD
+- 1450-WRITE-ARRY-RECORD
+- 1500-POPUL-VBRC-RECORD
+- 1550-WRITE-VB1-RECORD
+- 1575-WRITE-VB2-RECORD
+- 0000-ACCTFILE-OPEN
+- 2000-OUTFILE-OPEN
+- 3000-ARRFILE-OPEN
+- 4000-VBRFILE-OPEN
+- 9000-ACCTFILE-CLOSE
+- 9999-ABEND-PROGRAM
+- 9910-DISPLAY-IO-STATUS

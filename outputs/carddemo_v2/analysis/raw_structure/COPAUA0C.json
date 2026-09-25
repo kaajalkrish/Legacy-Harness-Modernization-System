@@ -1,0 +1,2796 @@
+{
+  "meta": {
+    "program_id": "COPAUA0C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\app-authorization-ims-db2-mq\\cbl\\COPAUA0C.cbl",
+    "total_lines": 1026
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "COPAUA0C",
+    "author": "SOUMA GHOSH"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 28,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 29,
+    "end_line": 217,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 32,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGM-AUTH",
+              "line": 33,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COPAUA0C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CICS-TRANID",
+              "line": 34,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CP00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCTFILENAME",
+              "line": 35,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ACCTDAT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CUSTFILENAME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CUSTDAT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CARDFILENAME",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CARDDAT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CARDFILENAME-ACCT-PATH",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CARDAIX '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CCXREF-FILE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CCXREF  '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REQSTS-PROCESS-LIMIT",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "500",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MSG-PROCESSED",
+              "line": 42,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REQUEST-QNAME",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REPLY-QNAME",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-SAVE-CORRELID",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(24)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-LENGTH",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "1",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 48,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ABS-TIME",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(15)",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CUR-DATE-X6",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "X(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CUR-TIME-X6",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "X(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CUR-TIME-N6",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": "9(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CUR-TIME-MS",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-YYDDD",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "9(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TIME-WITH-MS",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-OPTIONS",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-COMPCODE",
+              "line": 58,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REASON",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-WAIT-INTERVAL",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CODE-DISPLAY",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": "9(9)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-AVAILABLE-AMT",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACTION-AMT-AN",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": "X(13)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACTION-AMT",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-APPROVED-AMT",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-APPROVED-AMT-DIS",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": "-zzzzzzzzz9.99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRIGGER-DATA",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": "X(64)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF-RID",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CARDNUM",
+                  "line": 73,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CUST-ID",
+                  "line": 74,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CUST-ID-X",
+                  "line": 75,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(09)",
+                  "occurs": null,
+                  "redefines": "WS-CARD-RID-CUST-ID",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID",
+                  "line": 77,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID-X",
+                  "line": 78,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(11)",
+                  "occurs": null,
+                  "redefines": "WS-CARD-RID-ACCT-ID",
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-IMS-VARIABLES",
+          "line": 81,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "PSB-NAME",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'PSBPAUTB'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "PCB-OFFSET",
+              "line": 83,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "PAUT-PCB-NUM",
+                  "line": 84,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "+1",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "IMS-RETURN-CODE",
+              "line": 85,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "STATUS-OK",
+                  "line": 86,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'  ', 'FW'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEGMENT-NOT-FOUND",
+                  "line": 87,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'GE'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "DUPLICATE-SEGMENT-FOUND",
+                  "line": 88,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'II'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WRONG-PARENTAGE",
+                  "line": 89,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'GP'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "END-OF-DB",
+                  "line": 90,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'GB'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "DATABASE-UNAVAILABLE",
+                  "line": 91,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'BA'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PSB-SCHEDULED-MORE-THAN-ONCE",
+                  "line": 92,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TC'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "COULD-NOT-SCHEDULE-PSB",
+                  "line": 93,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'TE'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "RETRY-CONDITION",
+                  "line": 94,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'BA', 'FH', 'TE'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-IMS-PSB-SCHD-FLG",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "IMS-PSB-SCHD",
+                  "line": 96,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "IMS-PSB-NOT-SCHD",
+                  "line": 97,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "W01-HCONN-REQUEST",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W01-HOBJ-REQUEST",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W01-BUFFLEN",
+          "line": 101,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W01-DATALEN",
+          "line": 102,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W01-GET-BUFFER",
+          "line": 103,
+          "section": "WORKING-STORAGE",
+          "pic": "X(500)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W02-HCONN-REPLY",
+          "line": 105,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": "ZERO",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W02-BUFFLEN",
+          "line": 106,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W02-DATALEN",
+          "line": 107,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "W02-PUT-BUFFER",
+          "line": 108,
+          "section": "WORKING-STORAGE",
+          "pic": "X(200)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "WS-SWITCHES",
+          "line": 110,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-AUTH-RESP-FLG",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "AUTH-RESP-APPROVED",
+                  "line": 112,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "AUTH-RESP-DECLINED",
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'D'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-MSG-LOOP-FLG",
+              "line": 114,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-LOOP-END",
+                  "line": 115,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'E'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-MSG-AVAILABLE-FLG",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'M'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "NO-MORE-MSG-AVAILABLE",
+                  "line": 117,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "MORE-MSG-AVAILABLE",
+                  "line": 118,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'M'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-REQUEST-MQ-FLG",
+              "line": 119,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-REQUEST-MQ-OPEN",
+                  "line": 120,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'O'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-REQUEST-MQ-CLSE",
+                  "line": 121,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-REPLY-MQ-FLG",
+              "line": 122,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-REPLY-MQ-OPEN",
+                  "line": 123,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'O'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-REPLY-MQ-CLSE",
+                  "line": 124,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF-READ-FLG",
+              "line": 125,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CARD-NFOUND-XREF",
+                  "line": 126,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CARD-FOUND-XREF",
+                  "line": 127,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-MASTER-READ-FLG",
+              "line": 128,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FOUND-ACCT-IN-MSTR",
+                  "line": 129,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NFOUND-ACCT-IN-MSTR",
+                  "line": 130,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-CUST-MASTER-READ-FLG",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FOUND-CUST-IN-MSTR",
+                  "line": 132,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NFOUND-CUST-IN-MSTR",
+                  "line": 133,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-PAUT-SMRY-SEG-FLG",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FOUND-PAUT-SMRY-SEG",
+                  "line": 135,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NFOUND-PAUT-SMRY-SEG",
+                  "line": 136,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DECLINE-FLG",
+              "line": 137,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "APPROVE-AUTH",
+                  "line": 138,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "DECLINE-AUTH",
+                  "line": 139,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'D'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DECLINE-REASON-FLG",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INSUFFICIENT-FUND",
+                  "line": 141,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'I'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CARD-NOT-ACTIVE",
+                  "line": 142,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'A'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ACCOUNT-CLOSED",
+                  "line": 143,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'C'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CARD-FRAUD",
+                  "line": 144,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'F'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "MERCHANT-FRAUD",
+                  "line": 145,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'M'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-OD-REQUEST",
+          "line": 148,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQODV",
+              "library": null,
+              "line": 149,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-MD-REQUEST",
+          "line": 151,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQMDV",
+              "library": null,
+              "line": 152,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-OD-REPLY",
+          "line": 154,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQODV",
+              "library": null,
+              "line": 155,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-MD-REPLY",
+          "line": 157,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQMDV",
+              "library": null,
+              "line": 158,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-CONSTANTS",
+          "line": 160,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQV",
+              "library": null,
+              "line": 161,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-TRIGGER-DATA",
+          "line": 163,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQTML",
+              "library": null,
+              "line": 164,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-PUT-MESSAGE-OPTIONS",
+          "line": 166,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQPMOV",
+              "library": null,
+              "line": 167,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQM-GET-MESSAGE-OPTIONS",
+          "line": 169,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQGMOV",
+              "library": null,
+              "line": 170,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "PENDING-AUTH-REQUEST",
+          "line": 177,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CCPAURQY",
+              "library": null,
+              "line": 178,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "PENDING-AUTH-RESPONSE",
+          "line": 181,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CCPAURLY",
+              "library": null,
+              "line": 182,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CCPAUERY",
+              "library": null,
+              "line": 185,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "PENDING-AUTH-SUMMARY",
+          "line": 192,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CIPAUSMY",
+              "library": null,
+              "line": 193,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "PENDING-AUTH-DETAILS",
+          "line": 196,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CIPAUDTY",
+              "library": null,
+              "line": 197,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CVACT03Y",
+              "library": null,
+              "line": 203,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CVACT01Y",
+              "library": null,
+              "line": 206,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CVCUS01Y",
+              "library": null,
+              "line": 209,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        }
+      ],
+      "start_line": 30
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 214,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 215,
+              "section": "LINKAGE",
+              "pic": "X(4096)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 212
+    }
+  },
+  "procedure_division": {
+    "start_line": 218,
+    "end_line": 1026,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 220,
+        "end_line": 229,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "1000-INITIALIZE",
+        "section": null,
+        "start_line": 230,
+        "end_line": 248,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-EXIT",
+        "section": null,
+        "start_line": 249,
+        "end_line": 254,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-OPEN-REQUEST-QUEUE",
+        "section": null,
+        "start_line": 255,
+        "end_line": 285,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-EXIT",
+        "section": null,
+        "start_line": 286,
+        "end_line": 291,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-SCHEDULE-PSB",
+        "section": null,
+        "start_line": 292,
+        "end_line": 318,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-EXIT",
+        "section": null,
+        "start_line": 319,
+        "end_line": 322,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-MAIN-PROCESS",
+        "section": null,
+        "start_line": 323,
+        "end_line": 346,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-EXIT",
+        "section": null,
+        "start_line": 347,
+        "end_line": 350,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-EXTRACT-REQUEST-MSG",
+        "section": null,
+        "start_line": 351,
+        "end_line": 381,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-EXIT",
+        "section": null,
+        "start_line": 382,
+        "end_line": 385,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3100-READ-REQUEST-MQ",
+        "section": null,
+        "start_line": 386,
+        "end_line": 433,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3100-EXIT",
+        "section": null,
+        "start_line": 434,
+        "end_line": 437,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-PROCESS-AUTH",
+        "section": null,
+        "start_line": 438,
+        "end_line": 467,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-EXIT",
+        "section": null,
+        "start_line": 468,
+        "end_line": 471,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-READ-XREF-RECORD",
+        "section": null,
+        "start_line": 472,
+        "end_line": 515,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-EXIT",
+        "section": null,
+        "start_line": 516,
+        "end_line": 519,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-READ-ACCT-RECORD",
+        "section": null,
+        "start_line": 520,
+        "end_line": 563,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-EXIT",
+        "section": null,
+        "start_line": 564,
+        "end_line": 567,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5300-READ-CUST-RECORD",
+        "section": null,
+        "start_line": 568,
+        "end_line": 611,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5300-EXIT",
+        "section": null,
+        "start_line": 612,
+        "end_line": 615,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5500-READ-AUTH-SUMMRY",
+        "section": null,
+        "start_line": 616,
+        "end_line": 642,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5500-EXIT",
+        "section": null,
+        "start_line": 643,
+        "end_line": 646,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5600-READ-PROFILE-DATA",
+        "section": null,
+        "start_line": 647,
+        "end_line": 652,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5600-EXIT",
+        "section": null,
+        "start_line": 653,
+        "end_line": 656,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "6000-MAKE-DECISION",
+        "section": null,
+        "start_line": 657,
+        "end_line": 733,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "6000-EXIT",
+        "section": null,
+        "start_line": 734,
+        "end_line": 737,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "7100-SEND-RESPONSE",
+        "section": null,
+        "start_line": 738,
+        "end_line": 781,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "7100-EXIT",
+        "section": null,
+        "start_line": 782,
+        "end_line": 785,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8000-WRITE-AUTH-TO-DB",
+        "section": null,
+        "start_line": 786,
+        "end_line": 793,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8000-EXIT",
+        "section": null,
+        "start_line": 794,
+        "end_line": 797,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8400-UPDATE-SUMMARY",
+        "section": null,
+        "start_line": 798,
+        "end_line": 849,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8400-EXIT",
+        "section": null,
+        "start_line": 850,
+        "end_line": 853,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8500-INSERT-AUTH",
+        "section": null,
+        "start_line": 854,
+        "end_line": 934,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8500-EXIT",
+        "section": null,
+        "start_line": 935,
+        "end_line": 939,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-TERMINATE",
+        "section": null,
+        "start_line": 940,
+        "end_line": 949,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-EXIT",
+        "section": null,
+        "start_line": 950,
+        "end_line": 952,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-CLOSE-REQUEST-QUEUE",
+        "section": null,
+        "start_line": 953,
+        "end_line": 978,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-EXIT",
+        "section": null,
+        "start_line": 979,
+        "end_line": 982,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-LOG-ERROR",
+        "section": null,
+        "start_line": 983,
+        "end_line": 1011,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9500-EXIT",
+        "section": null,
+        "start_line": 1012,
+        "end_line": 1015,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9990-END-ROUTINE",
+        "section": null,
+        "start_line": 1016,
+        "end_line": 1023,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9990-EXIT",
+        "section": null,
+        "start_line": 1024,
+        "end_line": 1026,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CMQODV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 149
+    },
+    {
+      "copybook": "CMQMDV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 152
+    },
+    {
+      "copybook": "CMQODV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 155
+    },
+    {
+      "copybook": "CMQMDV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 158
+    },
+    {
+      "copybook": "CMQV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 161
+    },
+    {
+      "copybook": "CMQTML",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 164
+    },
+    {
+      "copybook": "CMQPMOV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 167
+    },
+    {
+      "copybook": "CMQGMOV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 170
+    },
+    {
+      "copybook": "CCPAURQY",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 178
+    },
+    {
+      "copybook": "CCPAURLY",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 182
+    },
+    {
+      "copybook": "CCPAUERY",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 185
+    },
+    {
+      "copybook": "CIPAUSMY",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 193
+    },
+    {
+      "copybook": "CIPAUDTY",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 197
+    },
+    {
+      "copybook": "CVACT03Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 203
+    },
+    {
+      "copybook": "CVACT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 206
+    },
+    {
+      "copybook": "CVCUS01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 209
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 220,
+        "end_line": 229,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "1000-INITIALIZE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 230,
+        "end_line": 248,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "1000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 249,
+        "end_line": 254,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-OPEN-REQUEST-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 255,
+        "end_line": 285,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 286,
+        "end_line": 291,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-SCHEDULE-PSB",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 292,
+        "end_line": 318,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 319,
+        "end_line": 322,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-MAIN-PROCESS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 323,
+        "end_line": 346,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "2000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 347,
+        "end_line": 350,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-EXTRACT-REQUEST-MSG",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 351,
+        "end_line": 381,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 382,
+        "end_line": 385,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3100-READ-REQUEST-MQ",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 386,
+        "end_line": 433,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 434,
+        "end_line": 437,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5000-PROCESS-AUTH",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 438,
+        "end_line": 467,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "5000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 468,
+        "end_line": 471,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5100-READ-XREF-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 472,
+        "end_line": 515,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 516,
+        "end_line": 519,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-READ-ACCT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 520,
+        "end_line": 563,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 564,
+        "end_line": 567,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5300-READ-CUST-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 568,
+        "end_line": 611,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5300-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 612,
+        "end_line": 615,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5500-READ-AUTH-SUMMRY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 616,
+        "end_line": 642,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5500-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 643,
+        "end_line": 646,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5600-READ-PROFILE-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 647,
+        "end_line": 652,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5600-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 653,
+        "end_line": 656,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "6000-MAKE-DECISION",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 657,
+        "end_line": 733,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "6000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 734,
+        "end_line": 737,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "7100-SEND-RESPONSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 738,
+        "end_line": 781,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "7100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 782,
+        "end_line": 785,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8000-WRITE-AUTH-TO-DB",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 786,
+        "end_line": 793,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "8000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 794,
+        "end_line": 797,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8400-UPDATE-SUMMARY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 798,
+        "end_line": 849,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8400-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 850,
+        "end_line": 853,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8500-INSERT-AUTH",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 854,
+        "end_line": 934,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8500-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 935,
+        "end_line": 939,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-TERMINATE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 940,
+        "end_line": 949,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9000-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 950,
+        "end_line": 952,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-CLOSE-REQUEST-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 953,
+        "end_line": 978,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 979,
+        "end_line": 982,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9500-LOG-ERROR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 983,
+        "end_line": 1011,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9500-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1012,
+        "end_line": 1015,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9990-END-ROUTINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1016,
+        "end_line": 1023,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9990-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 1024,
+        "end_line": 1026,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 222,
+        "unstructured": true,
+        "to": "1000-INITIALIZE",
+        "implicit_thru_range": [
+          "1000-INITIALIZE",
+          "1000-EXIT"
+        ]
+      },
+      {
+        "from": "1000-INITIALIZE",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 233,
+        "unstructured": true,
+        "to": "1100-OPEN-REQUEST-QUEUE",
+        "implicit_thru_range": [
+          "1100-OPEN-REQUEST-QUEUE",
+          "1100-EXIT"
+        ]
+      },
+      {
+        "from": "1100-OPEN-REQUEST-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 257,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "1200-SCHEDULE-PSB",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 293,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "2000-MAIN-PROCESS",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 326,
+        "unstructured": true,
+        "to": "2100-EXTRACT-REQUEST-MSG",
+        "implicit_thru_range": [
+          "2100-EXTRACT-REQUEST-MSG",
+          "2100-EXIT"
+        ]
+      },
+      {
+        "from": "3100-READ-REQUEST-MQ",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 389,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "5000-PROCESS-AUTH",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 441,
+        "unstructured": true,
+        "to": "1200-SCHEDULE-PSB",
+        "implicit_thru_range": [
+          "1200-SCHEDULE-PSB",
+          "1200-EXIT"
+        ]
+      },
+      {
+        "from": "5100-READ-XREF-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 475,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "5200-READ-ACCT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 523,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "5300-READ-CUST-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 571,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "5500-READ-AUTH-SUMMRY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 619,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "7100-SEND-RESPONSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 741,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "8000-WRITE-AUTH-TO-DB",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 790,
+        "unstructured": true,
+        "to": "8400-UPDATE-SUMMARY",
+        "implicit_thru_range": [
+          "8400-UPDATE-SUMMARY",
+          "8400-EXIT"
+        ]
+      },
+      {
+        "from": "8400-UPDATE-SUMMARY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 801,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "8500-INSERT-AUTH",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 857,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "9000-TERMINATE",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 943,
+        "unstructured": true,
+        "to": "9100-CLOSE-REQUEST-QUEUE",
+        "implicit_thru_range": [
+          "9100-CLOSE-REQUEST-QUEUE",
+          "9100-EXIT"
+        ]
+      },
+      {
+        "from": "9100-CLOSE-REQUEST-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 955,
+        "unstructured": false,
+        "to": "9500-LOG-ERROR"
+      },
+      {
+        "from": "9500-LOG-ERROR",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 986,
+        "unstructured": false,
+        "to": "9990-END-ROUTINE"
+      },
+      {
+        "from": "9990-END-ROUTINE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 1019,
+        "unstructured": false,
+        "to": "9000-TERMINATE"
+      }
+    ],
+    "dead_code_candidates": [
+      "2000-MAIN-PROCESS",
+      "2000-EXIT",
+      "3100-READ-REQUEST-MQ",
+      "3100-EXIT",
+      "5000-PROCESS-AUTH",
+      "5000-EXIT",
+      "5100-READ-XREF-RECORD",
+      "5100-EXIT",
+      "5200-READ-ACCT-RECORD",
+      "5200-EXIT",
+      "5300-READ-CUST-RECORD",
+      "5300-EXIT",
+      "5500-READ-AUTH-SUMMRY",
+      "5500-EXIT",
+      "5600-READ-PROFILE-DATA",
+      "5600-EXIT",
+      "6000-MAKE-DECISION",
+      "6000-EXIT",
+      "7100-SEND-RESPONSE",
+      "7100-EXIT",
+      "8000-WRITE-AUTH-TO-DB",
+      "8000-EXIT",
+      "8500-INSERT-AUTH",
+      "8500-EXIT",
+      "9000-EXIT",
+      "9500-EXIT",
+      "9990-EXIT"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "MAIN-PARA",
+        "target": "1000-INITIALIZE",
+        "line": 222,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "1000-INITIALIZE",
+        "target": "1100-OPEN-REQUEST-QUEUE",
+        "line": 233,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "2000-MAIN-PROCESS",
+        "target": "2100-EXTRACT-REQUEST-MSG",
+        "line": 326,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "5000-PROCESS-AUTH",
+        "target": "1200-SCHEDULE-PSB",
+        "line": 441,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "8000-WRITE-AUTH-TO-DB",
+        "target": "8400-UPDATE-SUMMARY",
+        "line": 790,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9000-TERMINATE",
+        "target": "9100-CLOSE-REQUEST-QUEUE",
+        "line": 943,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

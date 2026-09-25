@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "program_id": "CBCUS01C",
+    "source_file": "carddemo_input/app/cbl/CBCUS01C.cbl",
+    "model": "ai-host",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "Batch program that sequentially reads the indexed CUSTOMER master file (CUSTFILE) and displays every customer record. A simple browse utility: open the file, loop read-and-display until end-of-file, then close. Any I/O error prints the file status and abends.",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "pseudocode": "Announce start. Open the customer file. Loop until end-of-file: read the next customer record and, while not at end-of-file, display it. Close the file, announce end, and return.",
+      "branches": ["PERFORM UNTIL END-OF-FILE = 'Y'", "IF END-OF-FILE = 'N' (guard read)", "IF END-OF-FILE = 'N' (guard display)"],
+      "calls_made": ["0000-CUSTFILE-OPEN", "1000-CUSTFILE-GET-NEXT", "9000-CUSTFILE-CLOSE"],
+      "field_references": ["END-OF-FILE", "CUSTOMER-RECORD"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Driver; sequential read-and-display loop over the customer master."
+    },
+    {
+      "name": "1000-CUSTFILE-GET-NEXT",
+      "pseudocode": "Read the next customer record. On success ('00') display it; status '10' means end-of-file (16); any other status is an error (12). If OK continue; if end-of-file set END-OF-FILE='Y'; otherwise report the error and abend.",
+      "branches": ["IF CUSTFILE-STATUS = '00' ... ELSE IF '10' ... ELSE (error)", "IF APPL-AOK ... ELSE IF APPL-EOF ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["CUSTFILE-STATUS", "CUSTOMER-RECORD", "APPL-RESULT", "END-OF-FILE", "IO-STATUS"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Same status-flag browse pattern as the other CBACT programs, over the customer master."
+    },
+    {"name": "0000-CUSTFILE-OPEN", "pseudocode": "Open the customer file for input; on non-'00' status print an open error and abend.", "branches": ["IF CUSTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["CUSTFILE-STATUS", "IO-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate file-open."},
+    {"name": "9000-CUSTFILE-CLOSE", "pseudocode": "Close the customer file; on non-'00' status print a close error and abend.", "branches": ["IF CUSTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["CUSTFILE-STATUS", "IO-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate file-close."},
+    {"name": "9999-ABEND-PROGRAM", "pseudocode": "Set abend code 999 and call CEE3ABD to force an abnormal end.", "branches": [], "calls_made": ["CEE3ABD"], "field_references": ["ABCODE", "TIMING"], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Standard forced-abend helper."},
+    {"name": "9910-DISPLAY-IO-STATUS", "pseudocode": "Format and display the file status code, handling VSAM extended (9nn) codes.", "branches": ["IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"], "calls_made": [], "field_references": ["IO-STATUS", "IO-STATUS-04"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Generic status-display helper."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

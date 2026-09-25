@@ -1,0 +1,8 @@
+{
+  "meta": {"program_id": "COBSWAIT", "source_file": "carddemo_input/app/cbl/COBSWAIT.cbl", "model": "ai-host", "agent_version": "4_logic_python@1.0"},
+  "summary": "Small utility program that pauses execution for a specified interval. It accepts a wait time (in centiseconds) as a parameter and issues a timed delay before returning -- used to introduce controlled waits between processing steps.",
+  "paragraphs": [
+    {"name": "MAIN-PARA", "pseudocode": "Read the wait duration parameter (in centiseconds) and issue a timed delay (e.g. CICS DELAY / a wait service) for that interval, then return to the caller.", "branches": [], "calls_made": [], "field_references": ["WS-WAIT-CENTISECONDS"], "complexity_score": 1, "ambiguous": false, "annotations": [{"line": 1, "note": "Utility: waits for the parameter interval (centiseconds). No business logic; the parser reported 0 named paragraphs (main body only)."}], "notes": "Timing utility -- the whole program is a parameterized delay."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

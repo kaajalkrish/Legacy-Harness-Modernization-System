@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:50:05Z",
+    "agent_version": "8_validation_python@1.0",
+    "scoring_mode": "AI-host (brd_scores.json)",
+    "brd_sha": "0c564dd49103a71e"
+  },
+  "verdict": "PASS",
+  "rating": "medium",
+  "weighted_score": 3.0,
+  "dimensions": {
+    "completeness": {
+      "score": 3,
+      "rationale": "All ten chapters are present: 10 capabilities, 44 rules in 8 rule sets, 16 gaps, structural risk indicators and 7 next steps. Chapter 5 is still materially thin. The 5.1 Key entities table and Figure 5.1 list only BMS screen maps (COPAU0AI/AO, COTRN0AI/AO ...) and working storage (WS-MISC-STORAGE, WS-THIS-PROGCOMMAREA). The business records that chapters 1-3 are built on (Account, Customer, Card, Card-to-Account cross-reference, Transaction, Transaction Category Balance, Disclosure Group, User Security, Pending Authorization summary/detail) do not appear, and fields such as credit limit, current balance and cycle credit/debit are never defined. Posting reject reasons 100 and 101 (card not in cross-reference, account not found) are named in the CBTRN02C summary (6.5) but have no rule. The interest job's reset of cycle credit/debit to zero is in the 6.6 summary but not in 3.6 or 4.2. Chapter 6 flows are paragraph call graphs, not business process steps."
+    },
+    "accuracy": {
+      "score": 3,
+      "rationale": "The revised narrative is now correct against the source. COPAUA0C 6000-MAKE-DECISION computes available credit as credit limit minus balance (from the authorization summary, or from the account master when there is no summary). It declines when the amount exceeds that figure or when the account is not found, with response 00/05, as 1 and 3.8 now say. CBACT04C 1300-COMPUTE-INTEREST is (TRAN-CAT-BAL x DIS-INT-RATE)/1200, monthly. CBACT01C writes 2525.00 into OUT-ACCT-CURR-CYC-DEBIT. The rest of the document still states authorization behaviour that the code does not have. 4.2 BR-037 (decline if card inactive) and BR-038 (decline if card expired) are shown at medium confidence with no 'pending confirmation' label, and 6000-MAKE-DECISION has no such checks. The 4.2 BR-040 statement lists 'inactive card, expired card, over available credit' as the decline conditions. The 6.8 COPAUA0C summary says the decision also depends on 'card/account status/expiry'. BR-037..BR-040 cite a paragraph MAKE-AUTH-DECISION, and Figure 6.29 shows paragraphs (GET-AUTH-REQUEST, LOOKUP-CARD-ACCT-CUST, MAKE-AUTH-DECISION, STORE-PENDING-AUTH ...) that do not exist in COPAUA0C.cbl. The real ~20 paragraphs are 1000-INITIALIZE, 2000-MAIN-PROCESS, 5000-PROCESS-AUTH, 6000-MAKE-DECISION, 8400-UPDATE-SUMMARY, and so on. These errors sit on the most critical real-time money decision. Smaller issues: BR-020 is typed 'Limit Check' but checks no limit, and 3.3 says batch jobs 'extract' customer data when CBCUS01C only displays it. The accuracy of the headline rules keeps this at 3 rather than 2."
+    },
+    "clarity": {
+      "score": 3,
+      "rationale": "Chapters 1, 2 and the chapter 3 intros read well for a business leader. The authorization and interest rules are now stated plainly (available credit = credit limit minus current balance; balance x rate / 1200). Most rule titles are business statements. Readability drops in the chapter 3 program tables, which use mainframe wording ('CICS online ...', ACCTFILE/OUTFILE/ARRYFILE/VBRCFILE, 'IMS batch'). Some catalogue entries are mechanics rather than policy: BR-025 (Y/N/blank/other routing), BR-013 (century 19/20), and BR-041/BR-042, which say the same A/D thing twice. Chapter 5 is not readable for a leader: it shows screen-map codes and an ERD link 'shared field WS-MSG-NO'. The 1.1 headline '334 entities \u00b7 596 records \u00b7 10223 fields' is inflated by screen and working-storage layouts and overstates data-migration scope."
+    },
+    "consistency": {
+      "score": 2,
+      "rationale": "The headline counts agree: 44 programs (25/17/2), 44 rules, 9 low-confidence rules = GAP-003..GAP-011, 16 gaps (11 medium / 5 low), 259 error checks (15 + 244), and 295 technical conditions (the kinds sum correctly). The interest frequency is now consistently monthly. However, the document now gives two different specifications for its most important decision. 1, 2.1, 2.4, 3.8 and the 4.1 'why it matters' for BR-040 describe an available-credit check only, plus account-not-found. The 4.2 BR-040 statement, BR-037/BR-038 and the 6.8 COPAUA0C summary add inactive-card and expired-card declines. A team building tests from chapter 4 would specify behaviour that chapter 3 does not describe. Other cross-chapter conflicts remain. 3.8 cites BR-001 (the RS-001 Sign-On user-type rule). 3.9 cites BR-013..BR-015, which 4.2 places in RS-003 Account Management. 3.1 omits BR-001, which RS-001 holds. The RS-001 program line lists 8 unrelated programs (COACTUPC, COBIL00C ...) with no truncation marker and omits COSGN00C, the source of BR-002/BR-003. 10.1 reports 523 dead-code candidate paragraphs beside '514 paragraphs explained' (1.2, Appendix B) with no denominator."
+    },
+    "actionability": {
+      "score": 4,
+      "rationale": "Chapter 10 tells a modernization team what to confirm (the 4.1 key rules, GAP-003..GAP-011, especially BR-005's 2525.00 and BR-027's full-balance payment), what to locate (DCLTRCAT/DCLTRTYP, GAP-001/002), what is risky (the CBSTM03A ALTER, 15 GO TO programs, 10 high-complexity programs) and which platform services to replace (7.3). It also sets the order: test cases before change for posting, interest, bill pay and authorization. Gaps: BR-037/BR-038 are not flagged as a gap or as pending confirmation, so step 5 ('build test cases from the confirmed rules ... authorization') could produce tests for declines the system does not perform. The next steps have no owner, priority or exit criterion. The 523 dead-code figure has no caveat and could mis-scope the work."
+    }
+  },
+  "groundedness_failures": [],
+  "consistency_issues": [],
+  "feedback": [
+    {
+      "dimension": "accuracy",
+      "severity": "high",
+      "suggestion": "Remove BR-037 (decline if card inactive) and BR-038 (decline if card expired), or demote them to Pending business confirmation with a new gap. COPAUA0C 6000-MAKE-DECISION contains no card-status or expiry check. It declines only when the amount exceeds available credit (PA-CREDIT-LIMIT - PA-CREDIT-BALANCE from the authorization summary, or ACCT-CREDIT-LIMIT - ACCT-CURR-BAL when there is no summary) or when the account is not found. Rewrite the 4.2 BR-040 statement to match: approved with response code 00 when the account is found and the amount is within the available credit; otherwise declined with 05.",
+      "target_section": "4.2 (RS-008: BR-037, BR-038, BR-040)"
+    },
+    {
+      "dimension": "accuracy",
+      "severity": "high",
+      "suggestion": "The Phase 6 logic for COPAUA0C is not grounded in the source. Figure 6.29 and the BR-037..BR-040 source citations use paragraph names (GET-AUTH-REQUEST, LOOKUP-CARD-ACCT-CUST, MAKE-AUTH-DECISION, STORE-PENDING-AUTH, SEND-AUTH-REPLY, OPEN-QUEUES, CLOSE-QUEUES) that do not exist in COPAUA0C.cbl. Regenerate the logic from the real paragraphs (1000-INITIALIZE, 2000-MAIN-PROCESS, 3100-READ-REQUEST-MQ, 5000-PROCESS-AUTH, 5100/5200/5300/5500 reads, 6000-MAKE-DECISION, 7100-SEND-RESPONSE, 8000/8400/8500 DB writes, 9000-TERMINATE). Remove '(and card/account status/expiry)' from the 6.8 program summary.",
+      "target_section": "6.8 (COPAUA0C, Figure 6.29)"
+    },
+    {
+      "dimension": "consistency",
+      "severity": "high",
+      "suggestion": "Once BR-037/BR-038/BR-040 are corrected, check that 1, 3.8, 4.1, 4.2 and 6.8 give one identical description of the authorization decision. Mention the two sources of available credit (the authorization summary, falling back to the account master) and the decline reason codes actually set (4100 insufficient funds, 3100 card/account/customer not found).",
+      "target_section": "1, 3.8, 4.1, 4.2, 6.8"
+    },
+    {
+      "dimension": "completeness",
+      "severity": "high",
+      "suggestion": "Rebuild 5.1 Key entities and Figure 5.1 around the business records: Account, Customer, Card, Card-to-Account cross-reference, Transaction, Transaction Category Balance, Disclosure Group, Transaction Type/Category, User Security and Pending Authorization summary/detail. Show their keys, key money fields (credit limit, current balance, cycle credit/debit) and relationships. Move screen maps (COxxxxAI/AO) and working storage (WS-*) to the Appendix A data dictionary.",
+      "target_section": "5.1, Figure 5.1"
+    },
+    {
+      "dimension": "consistency",
+      "severity": "medium",
+      "suggestion": "Align the chapter 3 'Business rules:' lines with the chapter 4 rule sets. Move BR-001 from 3.8 to 3.1. Either cite BR-013..BR-015 in 3.3, their RS-003 home, or regroup them. They are the shared date-edit checks used by COACTUPC and COTRTUPC.",
+      "target_section": "3.1, 3.3, 3.8, 3.9"
+    },
+    {
+      "dimension": "consistency",
+      "severity": "medium",
+      "suggestion": "RS program lines are truncated without a marker. RS-001 shows 8 programs and omits COSGN00C, the source of BR-002/BR-003. List the source programs first and add '(+N more)'.",
+      "target_section": "4.2 (RS-001, RS-003, RS-008)"
+    },
+    {
+      "dimension": "completeness",
+      "severity": "medium",
+      "suggestion": "Add rules for posting rejects 100 (card not in cross-reference) and 101 (account not found). These are named in the CBTRN02C summary; only 102/103 are catalogued. Add the interest job's reset of cycle credit/debit to zero to 3.6 and RS-006.",
+      "target_section": "3.5, 3.6, 4.2 (RS-005, RS-006)"
+    },
+    {
+      "dimension": "accuracy",
+      "severity": "low",
+      "suggestion": "Reclassify BR-020 (credit vs debit by sign of amount) from 'Limit Check' to a classification rule. In 3.3, say CBCUS01C lists customer records rather than 'extracts' them.",
+      "target_section": "4.2 (BR-020), 3.3"
+    },
+    {
+      "dimension": "clarity",
+      "severity": "medium",
+      "suggestion": "Replace the mainframe wording in the chapter 3 program tables with business descriptions. Merge BR-041/BR-042 and demote screen mechanics (BR-025, BR-013) out of the business catalogue. Qualify the 1.1 data headline (334 entities / 10223 fields) as mostly screen and working-storage layouts.",
+      "target_section": "1.1, 3, 4.2"
+    },
+    {
+      "dimension": "consistency",
+      "severity": "medium",
+      "suggestion": "Give the 523 dead-code figure its denominator and a caveat (static PERFORM reachability only; may be reached via HANDLE, PERFORM THRU or GO TO), so it does not appear to contradict the 514 paragraphs explained.",
+      "target_section": "10.1, 1.2"
+    },
+    {
+      "dimension": "actionability",
+      "severity": "low",
+      "suggestion": "Give each next step an owner role, a priority and an exit criterion. Add an explicit step to verify the authorization rule set against 6000-MAKE-DECISION before authorization test cases are built.",
+      "target_section": "10.2"
+    }
+  ]
+}

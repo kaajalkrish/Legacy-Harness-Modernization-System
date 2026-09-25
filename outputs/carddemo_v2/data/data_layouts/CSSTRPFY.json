@@ -1,0 +1,13 @@
+{
+  "copybook": "CSSTRPFY",
+  "used_by": [
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC"
+  ],
+  "records": []
+}

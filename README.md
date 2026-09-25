@@ -359,6 +359,34 @@ The harness was **built on one system and validated on a completely different on
 
 **Takeaway:** the same pipeline documented a small custom system *and* a much larger unfamiliar one — CardDemo yielded ~3× the rules and 12× the fields — with the groundedness gate passing both times.
 
+### CardDemo v2 (version 1 of the enhanced harness) — `outputs/carddemo_v2`
+Trial 1 above (`outputs/carddemo`) is kept unchanged for comparison. Version 1 of the enhanced
+harness re-ran CardDemo with the Phase 7, 9 and 10 AI steps performed by the harness's own agents
+(`rules`, `brd`, `judge`) in AI-host mode (no API key). Phase 6 logic was reused from trial 1.
+
+| Metric | Trial 1 (`carddemo`) | **v2 (`carddemo_v2`)** |
+|---|---|---|
+| Executive summary | described a "portfolio" system (template leftover) | **credit-card system, agent-written from the analysis** |
+| Program run modes | 4 unknown, 2 misclassified | **0 unknown** (25 online · 17 batch · 2 shared) |
+| Business rules | 324, mixed with code mechanics | **44 business rules** + 295 technical conditions kept apart |
+| Grouping | 94 sets by field-name word | **10 business capabilities** |
+| Gaps | 253 (mostly IBM platform components) | **16 real gaps** + 17 platform dependencies listed separately |
+| Judge | PASS 3.85 (lenient, prose not checked) | **PASS 3.0 (medium)** — strict agent review, groundedness + narrative checks passed |
+
+### Known limitations (to address in the next version)
+- **Phase 6 logic is not yet verified against the source.** In the reused CardDemo logic, 80 of 514
+  paragraph names do not exist in the code (about 15 are harmless `MAIN-PARA` labels; the rest are
+  invented). Rules derived from them can be wrong — e.g. BR-037/BR-038 in `carddemo_v2` claim
+  COPAUA0C declines inactive/expired cards, which the code does not do (it declines only when the
+  amount exceeds available credit or the account is not found). Next: a deterministic Phase 6 check
+  (paragraph and field names must exist in the parsed source) and a logic re-run for those programs.
+- Key entities (BRD 5.1) include screen-map and working-storage layouts rather than only business
+  records.
+- A few rules are cited under different capabilities in chapters 3 and 4; rule-set program lists
+  are truncated.
+- The judge's narrative-term check is word-list based: it reliably catches wrong-domain wording
+  but can flag ordinary English words.
+
 ---
 
 ## 9. How to Run

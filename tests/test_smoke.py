@@ -242,6 +242,7 @@ class BrdFromCarddemoArtifactsTest(unittest.TestCase):
                 "--diagrams-index", str(s / "diagram" / "diagrams_artifact.json"),
                 "--output-dir", str(fr), "--no-llm")
             verdict = json.loads((fr / "brd_judge.json").read_text(encoding="utf-8"))
+            self.assertEqual(verdict["verdict"], "REVISE", "an unscored BRD must never pass")
             self.assertEqual(verdict["groundedness_failures"], [],
                              "BRD cites ids/programs that do not exist in the artifacts")
             self.assertEqual(verdict["consistency_issues"], [], "consistency issues found")

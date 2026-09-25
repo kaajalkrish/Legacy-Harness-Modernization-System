@@ -1,0 +1,57 @@
+# System Context: CBEXPORT
+## 📝 Summary
+CBEXPORT is a batch-type COBOL program, entered at 0000-MAIN-PROCESSING, with 21 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 6 data file(s), sharing 6 copybook(s). It defines 5 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBEXPORT
+- **Source Path**: app/cbl/CBEXPORT.cbl
+- **Main Entry Point**: 0000-MAIN-PROCESSING
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- CUSTOMER-INPUT
+- ACCOUNT-INPUT
+- XREF-INPUT
+- TRANSACTION-INPUT
+- CARD-INPUT
+- EXPORT-OUTPUT
+### 📚 Shared Logic (Copybooks)
+- CVCUS01Y
+- CVACT01Y
+- CVACT03Y
+- CVTRA05Y
+- CVACT02Y
+- CVEXPORT
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVEXPORT (external structure, expanded via copybook)
+- 01 WS-FILE-STATUS-AREA (group item, 6 sub-field(s))
+- 01 WS-EXPORT-CONTROL (group item, 4 sub-field(s))
+- 01 WS-TIMESTAMP-FIELDS (group item, 2 sub-field(s))
+- 01 WS-EXPORT-STATISTICS (group item, 6 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN-PROCESSING
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 21 / 0
+- **Terminal Statements**: GOBACK (line 158)
+- **Paragraph List**:
+- 0000-MAIN-PROCESSING
+- 1000-INITIALIZE
+- 1050-GENERATE-TIMESTAMP
+- 1100-OPEN-FILES
+- 2000-EXPORT-CUSTOMERS
+- 2100-READ-CUSTOMER-RECORD
+- 2200-CREATE-CUSTOMER-EXP-REC
+- 3000-EXPORT-ACCOUNTS
+- 3100-READ-ACCOUNT-RECORD
+- 3200-CREATE-ACCOUNT-EXP-REC
+- 4000-EXPORT-XREFS
+- 4100-READ-XREF-RECORD
+- 4200-CREATE-XREF-EXPORT-RECORD
+- 5000-EXPORT-TRANSACTIONS
+- 5100-READ-TRANSACTION-RECORD
+- 5200-CREATE-TRAN-EXP-REC
+- 5500-EXPORT-CARDS
+- 5600-READ-CARD-RECORD
+- 5700-CREATE-CARD-EXPORT-RECORD
+- 6000-FINALIZE
+- 9999-ABEND-PROGRAM

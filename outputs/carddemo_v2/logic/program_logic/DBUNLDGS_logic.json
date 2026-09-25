@@ -1,0 +1,12 @@
+{
+  "meta": {"program_id": "DBUNLDGS", "source_file": "carddemo_input/app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.cbl", "model": "ai-host", "agent_version": "4_logic_python@1.0"},
+  "summary": "Batch database UNLOAD utility that extracts database segments/rows (e.g. the disclosure-group / authorization support data) and writes them to a sequential output file for migration, backup, or reload. Reads the source database sequentially and writes each record to the unload file with counts.",
+  "paragraphs": [
+    {"name": "MAIN-PARA", "pseudocode": "Open the source database and the unload output file. Loop reading the database sequentially until exhausted: write each retrieved segment/row to the output file and count it. Close everything, report the total unloaded, and return.", "branches": ["PERFORM UNTIL end-of-db"], "calls_made": ["1000-INITIALIZE", "2000-GET-NEXT-RECORD", "3000-WRITE-OUTPUT", "9000-FINALIZE"], "field_references": ["END-OF-DB", "WS-RECORD-COUNT"], "complexity_score": 4, "ambiguous": false, "annotations": [{"line": 1, "note": "Sequential database unload to a flat file (for migration/backup/reload)."}], "notes": "BUSINESS: database unload utility."},
+    {"name": "1000-INITIALIZE", "pseudocode": "Open the source database and the output file; initialize the counter.", "branches": ["IF open error -> abend"], "calls_made": [], "field_references": [], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Setup."},
+    {"name": "2000-GET-NEXT-RECORD", "pseudocode": "Retrieve the next database segment/row; set end-of-db when exhausted.", "branches": ["IF end -> END-OF-DB"], "calls_made": [], "field_references": ["END-OF-DB"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Sequential read."},
+    {"name": "3000-WRITE-OUTPUT", "pseudocode": "Write the retrieved record to the unload file and count it; abend on write error.", "branches": ["IF write error -> abend"], "calls_made": [], "field_references": ["WS-RECORD-COUNT"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Output write."},
+    {"name": "9000-FINALIZE", "pseudocode": "Close the database and output file and display the total records unloaded.", "branches": [], "calls_made": [], "field_references": ["WS-RECORD-COUNT"], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Close + summary."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

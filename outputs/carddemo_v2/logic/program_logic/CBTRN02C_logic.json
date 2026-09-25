@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "program_id": "CBTRN02C",
+    "source_file": "carddemo_input/app/cbl/CBTRN02C.cbl",
+    "model": "ai-host",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "The daily transaction posting engine. Reads the day's transactions (DALYTRAN); for each one it validates the card, account, credit limit and expiry, and either POSTS the transaction (updating the transaction-category balance, the account balance and cycle credit/debit, and writing the transaction record) or REJECTS it with a numbered reason to the rejects file. Counts processed and rejected transactions and sets return code 4 if any were rejected. Contains the core credit-card transaction validation rules (reasons 100-103, 109).",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "pseudocode": "Open all six files (daily transactions, transaction output, cross-reference, rejects, account, transaction-category balance). Loop reading daily transactions until end-of-file. For each: count it, clear the validation reason, and validate it. If validation passed (reason = 0), post the transaction; otherwise increment the reject count and write a reject record. After the loop, close all files, print the processed and rejected counts, and if any transactions were rejected set the job return code to 4. Return.",
+      "branches": ["PERFORM UNTIL END-OF-FILE = 'Y'", "IF END-OF-FILE = 'N'", "IF WS-VALIDATION-FAIL-REASON = 0 (post) ELSE (reject)", "IF WS-REJECT-COUNT > 0 -> RETURN-CODE = 4"],
+      "calls_made": ["0000-DALYTRAN-OPEN", "0100-TRANFILE-OPEN", "0200-XREFFILE-OPEN", "0300-DALYREJS-OPEN", "0400-ACCTFILE-OPEN", "0500-TCATBALF-OPEN", "1000-DALYTRAN-GET-NEXT", "1500-VALIDATE-TRAN", "2000-POST-TRANSACTION", "2500-WRITE-REJECT-REC", "9000-DALYTRAN-CLOSE", "9100-TRANFILE-CLOSE", "9200-XREFFILE-CLOSE", "9300-DALYREJS-CLOSE", "9400-ACCTFILE-CLOSE", "9500-TCATBALF-CLOSE"],
+      "field_references": ["WS-TRANSACTION-COUNT", "WS-REJECT-COUNT", "WS-VALIDATION-FAIL-REASON", "END-OF-FILE", "RETURN-CODE"],
+      "complexity_score": 7,
+      "ambiguous": false,
+      "annotations": [{"line": 229, "note": "BUSINESS RULE: if any transaction is rejected, the batch ends with return code 4 (warning) so downstream jobs can react."}],
+      "notes": "BUSINESS-CRITICAL driver: validate-then-post-or-reject."
+    },
+    {
+      "name": "1500-VALIDATE-TRAN",
+      "pseudocode": "Validate the current daily transaction by looking up its card in the cross-reference and then its account, applying the credit-limit and expiry checks. Sets a numbered failure reason if any check fails.",
+      "branches": [],
+      "calls_made": ["1500-A-LOOKUP-XREF", "1500-B-LOOKUP-ACCT"],
+      "field_references": ["WS-VALIDATION-FAIL-REASON"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Validation orchestrator."
+    },
+    {
+      "name": "1500-A-LOOKUP-XREF",
+      "pseudocode": "Look up the transaction's card number in the card cross-reference file. If the card is not found, set failure reason 100 'INVALID CARD NUMBER FOUND'.",
+      "branches": ["READ XREF ... INVALID KEY -> reason 100"],
+      "calls_made": [],
+      "field_references": ["DALYTRAN-CARD-NUM", "FD-XREF-CARD-NUM", "CARD-XREF-RECORD", "WS-VALIDATION-FAIL-REASON"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [{"line": 385, "note": "BUSINESS RULE 100: transaction card number must exist in the card cross-reference."}],
+      "notes": "BUSINESS-CRITICAL validation: valid card."
+    },
+    {
+      "name": "1500-B-LOOKUP-ACCT",
+      "pseudocode": "Using the account id from the cross-reference, read the account. If not found, set reason 101 'ACCOUNT RECORD NOT FOUND'. Otherwise compute the projected balance = current cycle credit - current cycle debit + transaction amount; if the credit limit is below that projected balance, set reason 102 'OVERLIMIT TRANSACTION'. Also, if the account expiration date is earlier than the transaction date, set reason 103 'TRANSACTION RECEIVED AFTER ACCT EXPIRATION'.",
+      "branches": ["READ ACCT ... INVALID KEY -> reason 101", "IF ACCT-CREDIT-LIMIT >= WS-TEMP-BAL ... ELSE reason 102", "IF ACCT-EXPIRAION-DATE >= tran date ... ELSE reason 103"],
+      "calls_made": [],
+      "field_references": ["XREF-ACCT-ID", "FD-ACCT-ID", "ACCOUNT-RECORD", "ACCT-CREDIT-LIMIT", "ACCT-CURR-CYC-CREDIT", "ACCT-CURR-CYC-DEBIT", "DALYTRAN-AMT", "WS-TEMP-BAL", "ACCT-EXPIRAION-DATE", "DALYTRAN-ORIG-TS", "WS-VALIDATION-FAIL-REASON"],
+      "complexity_score": 5,
+      "ambiguous": false,
+      "annotations": [{"line": 407, "note": "BUSINESS RULE 102 (over-limit): reject if credit limit < (cycle credit - cycle debit + transaction amount)."}, {"line": 414, "note": "BUSINESS RULE 103 (expiry): reject if the account expiration date is before the transaction date."}],
+      "notes": "BUSINESS-CRITICAL: the credit-limit and expiry validation rules."
+    },
+    {
+      "name": "2000-POST-TRANSACTION",
+      "pseudocode": "Post a validated transaction: copy the daily-transaction fields into the transaction record, stamp the processing timestamp, then update the transaction-category balance, update the account record, and write the transaction to the transaction file.",
+      "branches": [],
+      "calls_made": ["Z-GET-DB2-FORMAT-TIMESTAMP", "2700-UPDATE-TCATBAL", "2800-UPDATE-ACCOUNT-REC", "2900-WRITE-TRANSACTION-FILE"],
+      "field_references": ["DALYTRAN-ID", "TRAN-ID", "TRAN-AMT", "DALYTRAN-AMT", "TRAN-CARD-NUM", "TRAN-PROC-TS", "DB2-FORMAT-TS"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "BUSINESS-CRITICAL: posting orchestrator (3 balance/record updates)."
+    },
+    {
+      "name": "2700-UPDATE-TCATBAL",
+      "pseudocode": "Update the transaction-category balance for this account/type/category. Read the category-balance record; if it does not exist, flag for creation. Then either create a new category-balance record or update the existing one.",
+      "branches": ["READ ... INVALID KEY -> WS-CREATE-TRANCAT-REC = 'Y'", "IF TCATBALF-STATUS = '00' OR '23' ... ELSE (error)", "IF WS-CREATE-TRANCAT-REC = 'Y' (create) ELSE (update)"],
+      "calls_made": ["2700-A-CREATE-TCATBAL-REC", "2700-B-UPDATE-TCATBAL-REC", "9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["XREF-ACCT-ID", "DALYTRAN-TYPE-CD", "DALYTRAN-CAT-CD", "WS-CREATE-TRANCAT-REC", "TCATBALF-STATUS"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [{"line": 481, "note": "Status '23' (not found) is treated as acceptable and triggers create-new-record logic."}],
+      "notes": "BUSINESS-CRITICAL: maintains per-category running balances."
+    },
+    {
+      "name": "2700-A-CREATE-TCATBAL-REC",
+      "pseudocode": "Create a new transaction-category-balance record keyed by account/type/category, seed its balance with the transaction amount, and write it. Abend on write error.",
+      "branches": ["IF TCATBALF-STATUS = '00' ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["TRAN-CAT-BAL-RECORD", "XREF-ACCT-ID", "DALYTRAN-AMT", "TRAN-CAT-BAL"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Creates a first-time category balance."
+    },
+    {
+      "name": "2700-B-UPDATE-TCATBAL-REC",
+      "pseudocode": "Add the transaction amount to the existing category balance and rewrite the record. Abend on rewrite error.",
+      "branches": ["IF TCATBALF-STATUS = '00' ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["DALYTRAN-AMT", "TRAN-CAT-BAL", "TCATBALF-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Accumulates into an existing category balance."
+    },
+    {
+      "name": "2800-UPDATE-ACCOUNT-REC",
+      "pseudocode": "Add the transaction amount to the account's current balance. If the amount is positive add it to the current-cycle credit; if negative add it to the current-cycle debit. Rewrite the account record; if the account is missing, set reason 109 'ACCOUNT RECORD NOT FOUND'.",
+      "branches": ["IF DALYTRAN-AMT >= 0 (credit) ELSE (debit)", "REWRITE ... INVALID KEY -> reason 109"],
+      "calls_made": [],
+      "field_references": ["DALYTRAN-AMT", "ACCT-CURR-BAL", "ACCT-CURR-CYC-CREDIT", "ACCT-CURR-CYC-DEBIT", "WS-VALIDATION-FAIL-REASON"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [{"line": 548, "note": "BUSINESS RULE: positive amounts accumulate as cycle credit, negative amounts as cycle debit; both roll into the account balance."}],
+      "notes": "BUSINESS-CRITICAL: account balance and cycle-bucket update."
+    },
+    {
+      "name": "2500-WRITE-REJECT-REC",
+      "pseudocode": "Write a rejected transaction: copy the original daily-transaction data plus the validation trailer (reason code + description) into the reject record and write it to the rejects file. Abend on write error.",
+      "branches": ["IF DALYREJS-STATUS = '00' ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["DALYTRAN-RECORD", "REJECT-TRAN-DATA", "WS-VALIDATION-TRAILER", "VALIDATION-TRAILER", "DALYREJS-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Persists rejects with their numbered reason for downstream review."
+    },
+    {
+      "name": "2900-WRITE-TRANSACTION-FILE",
+      "pseudocode": "Write the posted transaction record to the transaction output file. Abend on write error.",
+      "branches": ["IF TRANFILE-STATUS = '00' ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["TRAN-RECORD", "TRANFILE-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Persists the posted transaction."
+    },
+    {
+      "name": "1000-DALYTRAN-GET-NEXT",
+      "pseudocode": "Read the next daily transaction; status '10' means end-of-file, other non-'00' is an error and abends.",
+      "branches": ["IF DALYTRAN-STATUS = '00' ... ELSE IF '10' ... ELSE (error)", "IF APPL-AOK ... ELSE IF APPL-EOF ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["DALYTRAN-STATUS", "DALYTRAN-RECORD", "END-OF-FILE"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Primary driving read."
+    },
+    {"name": "0000-DALYTRAN-OPEN", "pseudocode": "Open the daily-transaction file for input; abend on failure.", "branches": ["IF DALYTRAN-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DALYTRAN-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0100-TRANFILE-OPEN", "pseudocode": "Open the transaction output file for output; abend on failure.", "branches": ["IF TRANFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TRANFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0200-XREFFILE-OPEN", "pseudocode": "Open the cross-reference file for input; abend on failure.", "branches": ["IF XREFFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["XREFFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0300-DALYREJS-OPEN", "pseudocode": "Open the daily-rejects file for output; abend on failure.", "branches": ["IF DALYREJS-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DALYREJS-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0400-ACCTFILE-OPEN", "pseudocode": "Open the account master for I-O (update); abend on failure.", "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["ACCTFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Opened I-O to rewrite account balances."},
+    {"name": "0500-TCATBALF-OPEN", "pseudocode": "Open the transaction-category-balance file for I-O (update); abend on failure.", "branches": ["IF TCATBALF-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TCATBALF-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Opened I-O to create/update category balances."},
+    {"name": "9000-DALYTRAN-CLOSE", "pseudocode": "Close the daily-transaction file; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DALYTRAN-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9100-TRANFILE-CLOSE", "pseudocode": "Close the transaction output file; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TRANFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9200-XREFFILE-CLOSE", "pseudocode": "Close the cross-reference file; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["XREFFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9300-DALYREJS-CLOSE", "pseudocode": "Close the daily-rejects file; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DALYREJS-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9400-ACCTFILE-CLOSE", "pseudocode": "Close the account master; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["ACCTFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9500-TCATBALF-CLOSE", "pseudocode": "Close the transaction-category-balance file; abend on failure.", "branches": ["IF ... = '00' ELSE abend"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TCATBALF-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "Z-GET-DB2-FORMAT-TIMESTAMP", "pseudocode": "Get the current timestamp and reformat it into DB2 timestamp layout for stamping the posted transaction.", "branches": [], "calls_made": [], "field_references": ["COBOL-TS", "DB2-FORMAT-TS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Timestamp helper."},
+    {"name": "9999-ABEND-PROGRAM", "pseudocode": "Set abend code 999 and call CEE3ABD to force an abnormal end.", "branches": [], "calls_made": ["CEE3ABD"], "field_references": ["ABCODE", "TIMING"], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Standard forced-abend helper."},
+    {"name": "9910-DISPLAY-IO-STATUS", "pseudocode": "Format and display the file status code, handling VSAM extended (9nn) codes.", "branches": ["IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"], "calls_made": [], "field_references": ["IO-STATUS", "IO-STATUS-04"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Generic status-display helper."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

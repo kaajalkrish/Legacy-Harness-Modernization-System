@@ -1,0 +1,1070 @@
+{
+  "meta": {
+    "program_id": "CBACT01C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\CBACT01C.cbl",
+    "total_lines": 430
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "CBACT01C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 49,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 50,
+    "end_line": 139,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "ACCTFILE-FILE",
+          "line": 52,
+          "end_line": 55,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "OUT-FILE",
+          "line": 56,
+          "end_line": 70,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "ARRY-FILE",
+          "line": 71,
+          "end_line": 79,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        },
+        {
+          "type": "FD",
+          "file_name": "VBRC-FILE",
+          "line": 80,
+          "end_line": 85,
+          "recording_mode": "V",
+          "record_contains": "VARYING IN SIZE",
+          "block_contains": null
+        }
+      ],
+      "start_line": 51
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "type": "copy_stub",
+          "copybook": "CVACT01Y",
+          "library": null,
+          "line": 89,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "type": "copy_stub",
+          "copybook": "CODATECN",
+          "library": null,
+          "line": 90,
+          "section": "WORKING-STORAGE",
+          "parent_level": null
+        },
+        {
+          "level": 1,
+          "name": "ACCTFILE-STATUS",
+          "line": 91,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT1",
+              "line": 92,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "ACCTFILE-STAT2",
+              "line": 93,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "OUTFILE-STATUS",
+          "line": 94,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "OUTFILE-STAT1",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "OUTFILE-STAT2",
+              "line": 96,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "ARRYFILE-STATUS",
+          "line": 97,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "ARRYFILE-STAT1",
+              "line": 98,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "ARRYFILE-STAT2",
+              "line": 99,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "VBRCFILE-STATUS",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "VBRCFILE-STAT1",
+              "line": 101,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "VBRCFILE-STAT2",
+              "line": 102,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS",
+          "line": 104,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STAT1",
+              "line": 105,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STAT2",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-BINARY",
+          "line": 107,
+          "section": "WORKING-STORAGE",
+          "pic": "9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TWO-BYTES-ALPHA",
+          "line": 108,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": "TWO-BYTES-BINARY",
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "TWO-BYTES-LEFT",
+              "line": 109,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "TWO-BYTES-RIGHT",
+              "line": 110,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "IO-STATUS-04",
+          "line": 111,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "IO-STATUS-0401",
+              "line": 112,
+              "section": "WORKING-STORAGE",
+              "pic": "9",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "IO-STATUS-0403",
+              "line": 113,
+              "section": "WORKING-STORAGE",
+              "pic": "999",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "APPL-RESULT",
+          "line": 115,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "APPL-AOK",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "APPL-EOF",
+              "line": 117,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "16",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "END-OF-FILE",
+          "line": 119,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ABCODE",
+          "line": 120,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "TIMING",
+          "line": 121,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "WS-RECD-LEN",
+          "line": 122,
+          "section": "WORKING-STORAGE",
+          "pic": "9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "VBRC-REC1",
+          "line": 123,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "VB1-ACCT-ID",
+              "line": 124,
+              "section": "WORKING-STORAGE",
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "VB1-ACCT-ACTIVE-STATUS",
+              "line": 125,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "VBRC-REC2",
+          "line": 126,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "VB2-ACCT-ID",
+              "line": 127,
+              "section": "WORKING-STORAGE",
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "VB2-ACCT-CURR-BAL",
+              "line": 128,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "VB2-ACCT-CREDIT-LIMIT",
+              "line": 129,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "VB2-ACCT-REISSUE-YYYY",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-ACCT-REISSUE-DATE",
+          "line": 131,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-ACCT-REISSUE-YYYY",
+              "line": 132,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-FILLER-1",
+              "line": 133,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-REISSUE-MM",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-FILLER-2",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-REISSUE-DD",
+              "line": 136,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-REISSUE-DATE",
+          "line": 137,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": "WS-ACCT-REISSUE-DATE",
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 86
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 140,
+    "end_line": 430,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "1000-ACCTFILE-GET-NEXT",
+        "section": null,
+        "start_line": 165,
+        "end_line": 199,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "1100-DISPLAY-ACCT-RECORD",
+        "section": null,
+        "start_line": 200,
+        "end_line": 214,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1300-POPUL-ACCT-RECORD",
+        "section": null,
+        "start_line": 215,
+        "end_line": 241,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1350-WRITE-ACCT-RECORD",
+        "section": null,
+        "start_line": 242,
+        "end_line": 252,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1400-POPUL-ARRAY-RECORD",
+        "section": null,
+        "start_line": 253,
+        "end_line": 262,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1450-WRITE-ARRY-RECORD",
+        "section": null,
+        "start_line": 263,
+        "end_line": 275,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1500-POPUL-VBRC-RECORD",
+        "section": null,
+        "start_line": 276,
+        "end_line": 286,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1550-WRITE-VB1-RECORD",
+        "section": null,
+        "start_line": 287,
+        "end_line": 301,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1575-WRITE-VB2-RECORD",
+        "section": null,
+        "start_line": 302,
+        "end_line": 316,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0000-ACCTFILE-OPEN",
+        "section": null,
+        "start_line": 317,
+        "end_line": 333,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-OUTFILE-OPEN",
+        "section": null,
+        "start_line": 334,
+        "end_line": 351,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-ARRFILE-OPEN",
+        "section": null,
+        "start_line": 352,
+        "end_line": 369,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-VBRFILE-OPEN",
+        "section": null,
+        "start_line": 370,
+        "end_line": 387,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-ACCTFILE-CLOSE",
+        "section": null,
+        "start_line": 388,
+        "end_line": 405,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ABEND-PROGRAM",
+        "section": null,
+        "start_line": 406,
+        "end_line": 412,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9910-DISPLAY-IO-STATUS",
+        "section": null,
+        "start_line": 413,
+        "end_line": 430,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 160
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVACT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 89
+    },
+    {
+      "copybook": "CODATECN",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 90
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "1000-ACCTFILE-GET-NEXT"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "1000-ACCTFILE-GET-NEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 165,
+        "end_line": 199,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-DISPLAY-ACCT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 200,
+        "end_line": 214,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1300-POPUL-ACCT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 215,
+        "end_line": 241,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1350-WRITE-ACCT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 242,
+        "end_line": 252,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1400-POPUL-ARRAY-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 253,
+        "end_line": 262,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1450-WRITE-ARRY-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 263,
+        "end_line": 275,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1500-POPUL-VBRC-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 276,
+        "end_line": 286,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1550-WRITE-VB1-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 287,
+        "end_line": 301,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1575-WRITE-VB2-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 302,
+        "end_line": 316,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-ACCTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 317,
+        "end_line": 333,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-OUTFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 334,
+        "end_line": 351,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-ARRFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 352,
+        "end_line": 369,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-VBRFILE-OPEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 370,
+        "end_line": 387,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-ACCTFILE-CLOSE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 388,
+        "end_line": 405,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ABEND-PROGRAM",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 406,
+        "end_line": 412,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9910-DISPLAY-IO-STATUS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 413,
+        "end_line": 430,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "1000-ACCTFILE-GET-NEXT",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 167,
+        "unstructured": false,
+        "to": "1100-DISPLAY-ACCT-RECORD"
+      },
+      {
+        "from": "1350-WRITE-ACCT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 245,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1450-WRITE-ARRY-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 266,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1550-WRITE-VB1-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 292,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "1575-WRITE-VB2-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 307,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "0000-ACCTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 319,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "2000-OUTFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 336,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "3000-ARRFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 354,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "4000-VBRFILE-OPEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 372,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      },
+      {
+        "from": "9000-ACCTFILE-CLOSE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 390,
+        "unstructured": false,
+        "to": "9910-DISPLAY-IO-STATUS"
+      }
+    ],
+    "dead_code_candidates": [
+      "1300-POPUL-ACCT-RECORD",
+      "1350-WRITE-ACCT-RECORD",
+      "1400-POPUL-ARRAY-RECORD",
+      "1450-WRITE-ARRY-RECORD",
+      "1500-POPUL-VBRC-RECORD",
+      "1550-WRITE-VB1-RECORD",
+      "1575-WRITE-VB2-RECORD",
+      "0000-ACCTFILE-OPEN",
+      "2000-OUTFILE-OPEN",
+      "3000-ARRFILE-OPEN",
+      "4000-VBRFILE-OPEN",
+      "9000-ACCTFILE-CLOSE",
+      "9999-ABEND-PROGRAM"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

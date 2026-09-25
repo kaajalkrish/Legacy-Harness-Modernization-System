@@ -1,0 +1,23 @@
+# System Context: MQPUT
+## 📝 Summary
+MQPUT is a unclassified-type COBOL program, with 0 paragraph(s) across 0 section(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: MQPUT
+- **Source Path**: Inventory/Common
+- **Main Entry Point**: None
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- None
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- Not available (no parsed AST found for this program)
+## Procedure Summary
+- **Entry Point(s)**: None
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 0 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- None

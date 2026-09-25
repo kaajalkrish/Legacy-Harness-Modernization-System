@@ -1,0 +1,9 @@
+{
+  "meta": {"program_id": "CSUTLDTC", "source_file": "carddemo_input/app/cbl/CSUTLDTC.cbl", "model": "ai-host", "agent_version": "4_logic_python@1.0"},
+  "summary": "Called date-validation utility subroutine. Given a date and a date format in its linkage area, it uses the Language Environment date services (CEEDAYS / CEEDATE) to check whether the date is a valid calendar date in the given format, and returns a result/severity code to the caller. Shared date-edit helper used by the online and batch programs.",
+  "paragraphs": [
+    {"name": "MAIN-PARA", "pseudocode": "Receive the input date and its format from the linkage area. Call the LE service CEEDAYS to convert the date to a Lilian day number using the supplied picture; if the conversion severity indicates a bad date, return a 'date invalid' result, otherwise return 'date valid' (optionally reformatting via CEEDATE). Return to the caller.", "branches": ["IF CEEDAYS feedback severity <> 0 -> date invalid ELSE valid"], "calls_made": ["CEEDAYS", "CEEDATE"], "field_references": ["LK-DATE", "LK-DATE-FORMAT", "LK-RESULT", "WS-FEEDBACK"], "complexity_score": 3, "ambiguous": false, "annotations": [{"line": 1, "note": "BUSINESS RULE: a date is valid only if the LE CEEDAYS conversion succeeds for the given format; returns a validity/severity code to the caller."}], "notes": "BUSINESS-CRITICAL: the shared date-validity check used across the app."},
+    {"name": "SET-RESULT", "pseudocode": "Map the LE feedback code to the caller's result field (valid / invalid / severity) and return.", "branches": ["EVALUATE feedback severity"], "calls_made": [], "field_references": ["WS-FEEDBACK", "LK-RESULT"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Result mapping."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

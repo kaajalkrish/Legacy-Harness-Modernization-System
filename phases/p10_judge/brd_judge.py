@@ -584,6 +584,10 @@ def main() -> None:
 
     v = judge(brd_text, inv, logic, rules, data, gaps, scores, feedback, expected, vocab)
     v["meta"]["scoring_mode"] = mode
+    if mode.startswith("neutral"):
+        # Neutral defaults are a placeholder, not a review: an unscored BRD never passes.
+        v["verdict"] = "REVISE"
+        v["rating"] = "not scored"
     v["meta"]["brd_sha"] = brd_sha
     (out / "brd_judge.json").write_text(json.dumps(v, indent=2), encoding="utf-8")
     (out / "brd_judge.md").write_text(report_md(v), encoding="utf-8")

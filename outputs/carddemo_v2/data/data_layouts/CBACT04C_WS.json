@@ -1,0 +1,1340 @@
+{
+  "program": "CBACT04C",
+  "records": [
+    {
+      "level": 1,
+      "name": "TRAN-CAT-BAL-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRAN-CAT-KEY",
+          "line": 5,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRANCAT-ACCT-ID",
+              "line": 6,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRANCAT-TYPE-CD",
+              "line": 7,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRANCAT-CD",
+              "line": 8,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CAT-BAL",
+          "line": 9,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 10,
+          "pic": "X(22)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TCATBALF-STATUS",
+      "line": 98,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TCATBALF-STAT1",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TCATBALF-STAT2",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 1,
+              "name": "CARD-XREF-RECORD",
+              "line": 4,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "XREF-CARD-NUM",
+                  "line": 5,
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "XREF-CUST-ID",
+                  "line": 6,
+                  "pic": "9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "XREF-ACCT-ID",
+                  "line": 7,
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 8,
+                  "pic": "X(14)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "XREFFILE-STATUS",
+      "line": 103,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "XREFFILE-STAT1",
+          "line": 104,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREFFILE-STAT2",
+          "line": 105,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 1,
+              "name": "DIS-GROUP-RECORD",
+              "line": 4,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "DIS-GROUP-KEY",
+                  "line": 5,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "DIS-ACCT-GROUP-ID",
+                      "line": 6,
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "DIS-TRAN-TYPE-CD",
+                      "line": 7,
+                      "pic": "X(02)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "DIS-TRAN-CAT-CD",
+                      "line": 8,
+                      "pic": "9(04)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "usage": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "DIS-INT-RATE",
+                  "line": 9,
+                  "pic": "S9(04)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 10,
+                  "pic": "X(28)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DISCGRP-STATUS",
+      "line": 108,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "DISCGRP-STAT1",
+          "line": 109,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "DISCGRP-STAT2",
+          "line": 110,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 1,
+              "name": "ACCOUNT-RECORD",
+              "line": 4,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "ACCT-ID",
+                  "line": 5,
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-ACTIVE-STATUS",
+                  "line": 6,
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-CURR-BAL",
+                  "line": 7,
+                  "pic": "S9(10)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-CREDIT-LIMIT",
+                  "line": 8,
+                  "pic": "S9(10)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-CASH-CREDIT-LIMIT",
+                  "line": 9,
+                  "pic": "S9(10)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-OPEN-DATE",
+                  "line": 10,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-EXPIRAION-DATE",
+                  "line": 11,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-REISSUE-DATE",
+                  "line": 12,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-CURR-CYC-CREDIT",
+                  "line": 13,
+                  "pic": "S9(10)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-CURR-CYC-DEBIT",
+                  "line": 14,
+                  "pic": "S9(10)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-ADDR-ZIP",
+                  "line": 15,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "ACCT-GROUP-ID",
+                  "line": 16,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 17,
+                  "pic": "X(178)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ACCTFILE-STATUS",
+      "line": 113,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ACCTFILE-STAT1",
+          "line": 114,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCTFILE-STAT2",
+          "line": 115,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 1,
+              "name": "TRAN-RECORD",
+              "line": 4,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "TRAN-ID",
+                  "line": 5,
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-TYPE-CD",
+                  "line": 6,
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-CAT-CD",
+                  "line": 7,
+                  "pic": "9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-SOURCE",
+                  "line": 8,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-DESC",
+                  "line": 9,
+                  "pic": "X(100)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-AMT",
+                  "line": 10,
+                  "pic": "S9(09)V99",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-MERCHANT-ID",
+                  "line": 11,
+                  "pic": "9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-MERCHANT-NAME",
+                  "line": 12,
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-MERCHANT-CITY",
+                  "line": 13,
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-MERCHANT-ZIP",
+                  "line": 14,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-CARD-NUM",
+                  "line": 15,
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-ORIG-TS",
+                  "line": 16,
+                  "pic": "X(26)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "TRAN-PROC-TS",
+                  "line": 17,
+                  "pic": "X(26)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 18,
+                  "pic": "X(20)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TRANFILE-STATUS",
+      "line": 118,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRANFILE-STAT1",
+          "line": 119,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRANFILE-STAT2",
+          "line": 120,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "IO-STATUS",
+      "line": 122,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "IO-STAT1",
+          "line": 123,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "IO-STAT2",
+          "line": 124,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TWO-BYTES-BINARY",
+      "line": 125,
+      "section": "WORKING-STORAGE",
+      "pic": "9(4)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "TWO-BYTES-ALPHA",
+      "line": 126,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": "TWO-BYTES-BINARY",
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TWO-BYTES-LEFT",
+          "line": 127,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TWO-BYTES-RIGHT",
+          "line": 128,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "IO-STATUS-04",
+      "line": 129,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "IO-STATUS-0401",
+          "line": 130,
+          "section": "WORKING-STORAGE",
+          "pic": "9",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "IO-STATUS-0403",
+          "line": 131,
+          "section": "WORKING-STORAGE",
+          "pic": "999",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "APPL-RESULT",
+      "line": 133,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "APPL-AOK",
+          "line": 134,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "APPL-EOF",
+          "line": 135,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "16",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "END-OF-FILE",
+      "line": 137,
+      "section": "WORKING-STORAGE",
+      "pic": "X(01)",
+      "occurs": null,
+      "redefines": null,
+      "value": "'N'",
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "ABCODE",
+      "line": 138,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "TIMING",
+      "line": 139,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(9)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "COBOL-TS",
+      "line": 141,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "COB-YYYY",
+          "line": 142,
+          "section": "WORKING-STORAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-MM",
+          "line": 143,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-DD",
+          "line": 144,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-HH",
+          "line": 145,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-MIN",
+          "line": 146,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-SS",
+          "line": 147,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-MIL",
+          "line": 148,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "COB-REST",
+          "line": 149,
+          "section": "WORKING-STORAGE",
+          "pic": "X(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "DB2-FORMAT-TS",
+      "line": 150,
+      "section": "WORKING-STORAGE",
+      "pic": "X(26)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "FILLER",
+      "line": 151,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": "DB2-FORMAT-TS",
+      "value": null,
+      "children": [
+        {
+          "level": 6,
+          "name": "DB2-YYYY",
+          "line": 152,
+          "section": "WORKING-STORAGE",
+          "pic": "X(004)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-STREEP-1",
+          "line": 153,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-MM",
+          "line": 154,
+          "section": "WORKING-STORAGE",
+          "pic": "X(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-STREEP-2",
+          "line": 155,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-DD",
+          "line": 156,
+          "section": "WORKING-STORAGE",
+          "pic": "X(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-STREEP-3",
+          "line": 157,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-HH",
+          "line": 158,
+          "section": "WORKING-STORAGE",
+          "pic": "X(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-DOT-1",
+          "line": 159,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-MIN",
+          "line": 160,
+          "section": "WORKING-STORAGE",
+          "pic": "X(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-DOT-2",
+          "line": 161,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-SS",
+          "line": 162,
+          "section": "WORKING-STORAGE",
+          "pic": "X(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-DOT-3",
+          "line": 163,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-MIL",
+          "line": 164,
+          "section": "WORKING-STORAGE",
+          "pic": "9(002)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 6,
+          "name": "DB2-REST",
+          "line": 165,
+          "section": "WORKING-STORAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-MISC-VARS",
+      "line": 166,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-LAST-ACCT-NUM",
+          "line": 167,
+          "section": "WORKING-STORAGE",
+          "pic": "X(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-MONTHLY-INT",
+          "line": 168,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TOTAL-INT",
+          "line": 169,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-FIRST-TIME",
+          "line": 170,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'Y'",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-COUNTERS",
+      "line": 171,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RECORD-COUNT",
+          "line": 172,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRANID-SUFFIX",
+          "line": 173,
+          "section": "WORKING-STORAGE",
+          "pic": "9(06)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "EXTERNAL-PARMS",
+      "line": 176,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PARM-LENGTH",
+          "line": 177,
+          "section": "LINKAGE",
+          "pic": "S9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PARM-DATE",
+          "line": 178,
+          "section": "LINKAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "TCATBAL-FILE",
+      "line": 61,
+      "end_line": 68,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "XREF-FILE",
+      "line": 69,
+      "end_line": 75,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "DISCGRP-FILE",
+      "line": 76,
+      "end_line": 83,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "ACCOUNT-FILE",
+      "line": 84,
+      "end_line": 88,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "TRANSACT-FILE",
+      "line": 89,
+      "end_line": 93,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

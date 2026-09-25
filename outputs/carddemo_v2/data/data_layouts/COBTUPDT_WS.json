@@ -1,0 +1,150 @@
+{
+  "program": "COBTUPDT",
+  "records": [
+    {
+      "level": 5,
+      "name": "LASTREC",
+      "line": 58,
+      "section": "WORKING-STORAGE",
+      "pic": "X(1)",
+      "occurs": null,
+      "redefines": null,
+      "value": "SPACES",
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "WORKING-VARIABLES",
+      "line": 60,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-RETURN-MSG",
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "pic": "X(80)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-MISC-VARS",
+      "line": 64,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-VAR-SQLCODE",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "----9",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-INF-STATUS",
+      "line": 67,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-INF-STAT1",
+          "line": 68,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-INF-STAT2",
+          "line": 69,
+          "section": "WORKING-STORAGE",
+          "pic": "X",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-INPUT-REC",
+      "line": 71,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "INPUT-REC-TYPE",
+          "line": 72,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "INPUT-REC-NUMBER",
+          "line": 74,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "INPUT-REC-DESC",
+          "line": 76,
+          "section": "WORKING-STORAGE",
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "TR-RECORD",
+      "line": 39,
+      "end_line": 47,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}
