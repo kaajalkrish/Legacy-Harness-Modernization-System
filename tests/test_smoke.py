@@ -62,6 +62,32 @@ class DeterministicPhasesTest(unittest.TestCase):
             self.assertTrue(data.get("stats"), "inventory has no stats")
 
 
+class ProgramClassificationTest(unittest.TestCase):
+    """Run mode is read from the code / job streams, not from naming conventions."""
+
+    def test_carddemo_run_modes(self):
+        data = InventoryBuilder(repo_root=ROOT / "inputs" / "carddemo",
+                                exclude_dirs={".git", "bin", "obj", "templates"}).build()
+        mode = {e["id"]: e["subtype"] for e in data["file_registry"]}
+        self.assertEqual(data["stats"]["unknown_programs"], 0)
+        expected = {
+            "COSGN00C": "online", "COPAUA0C": "online",      # EXEC CICS
+            "CBTRN02C": "batch", "COBSWAIT": "batch",        # EXEC PGM=
+            "PAUDBLOD": "batch", "DBUNLDGS": "batch",        # IMS DFSRRC00 PARM
+            "COBTUPDT": "batch",                             # DB2 RUN PROGRAM(...)
+            "CBSTM03B": "common", "CSUTLDTC": "common",      # called subroutines
+        }
+        for pid, want in expected.items():
+            self.assertEqual(mode[pid], want, pid)
+
+    def test_free_format_source_is_scanned(self):
+        data = InventoryBuilder(repo_root=ROOT / "inputs" / "sample",
+                                exclude_dirs={".git", "bin", "obj", "templates"}).build()
+        errhndl = next(e for e in data["file_registry"] if e["id"] == "ERRHNDL")
+        self.assertEqual(errhndl["subtype"], "online")
+        self.assertIn("CICS", errhndl["runtime"])
+
+
 class BrdFromCarddemoArtifactsTest(unittest.TestCase):
     """Phase 8 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
 

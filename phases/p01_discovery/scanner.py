@@ -65,6 +65,29 @@ JCL_EXEC_RE = re.compile(
     r"^//([A-Z0-9#@$]{1,8})\s+EXEC\s+PGM=([A-Z0-9\-]+)", re.IGNORECASE
 )
 
+# Run-mode signals — read from the code itself, so classification works on any
+# codebase regardless of folder layout or program naming convention.
+CICS_RE = re.compile(r"\bEXEC\s+CICS\b", re.IGNORECASE)
+SQL_RE = re.compile(r"\bEXEC\s+SQL\b", re.IGNORECASE)
+IMS_RE = re.compile(r"\bCBLTDLI\b|\bAIBTDLI\b|\bEXEC\s+DLI\b|\bDLITCBL\b", re.IGNORECASE)
+IMS_ENTRY_RE = re.compile(r"\bENTRY\s+['\"]DLITCBL['\"]", re.IGNORECASE)
+MQ_RE = re.compile(r"\bCALL\s+['\"]MQ[A-Z0-9]+['\"]", re.IGNORECASE)
+STOP_RUN_RE = re.compile(r"\bSTOP\s+RUN\b", re.IGNORECASE)
+PROC_USING_RE = re.compile(r"\bPROCEDURE\s+DIVISION\s+USING\b", re.IGNORECASE)
+FILE_SELECT_RE = re.compile(r"\bSELECT\s+(?:OPTIONAL\s+)?[A-Z0-9\-]+\s+ASSIGN\b", re.IGNORECASE)
+
+# Ways a job stream runs a program: plain EXEC PGM=, IMS region controller PARM
+# (DFSRRC00 'BMP|DLI|DBB,<program>,...'), and DB2 TSO batch RUN PROGRAM(<program>).
+JOB_TEXT_EXTENSIONS = {".jcl", ".job", ".prc", ".proc", ".ctl"}
+JOB_PGM_RE = re.compile(r"\bEXEC\s+PGM=([A-Z0-9#@$\-]+)", re.IGNORECASE)
+JOB_IMS_PARM_RE = re.compile(r"PARM=\(?['\"]?(?:BMP|DLI|DBB),([A-Z0-9#@$\-]+)", re.IGNORECASE)
+JOB_TSO_RUN_RE = re.compile(r"\bRUN\s+PROGRAM\s*\(\s*([A-Z0-9#@$\-]+)", re.IGNORECASE)
+
+# Folder names are only a last-resort hint, used when the code gives no signal.
+FOLDER_HINTS = {"batch": "batch", "online": "online", "cics": "online",
+                "common": "common", "shared": "common", "subroutines": "common",
+                "utility": "utility", "utilities": "utility", "test": "test"}
+
 SCAN_EXTENSIONS = (
     PROGRAM_EXTENSIONS
     | COPYBOOK_EXTENSIONS
@@ -81,34 +104,12 @@ SCAN_EXTENSIONS = (
 # ---------------------------------------------------------------------------
 def classify_file(file_path: Path):
     ext = file_path.suffix.lower()
-    path_str = str(file_path).lower()
-    
+
     # 1. Classify COBOL Programs (.cbl, .cob)
     if ext in {".cbl", ".cob", ".ccp"}:
-        file_type = "program"
-        # Determine subtype based on folder name
-        if "programs\\batch" in path_str or "programs/batch" in path_str:
-            subtype = "batch"
-        elif "programs\\online" in path_str or "programs/online" in path_str:
-            subtype = "online"
-        elif "programs\\common" in path_str or "programs/common" in path_str:
-            subtype = "common"
-        elif "programs\\portfolio" in path_str or "programs/portfolio" in path_str:
-            subtype = "portfolio"
-        elif "programs\\test" in path_str or "programs/test" in path_str:
-            subtype = "test"
-        elif "programs\\utility" in path_str or "programs/utility" in path_str:
-            subtype = "utility"
-        else:
-            # Fallback to filename prefix checking
-            name = file_path.name.upper()
-            if name.startswith("CB"):
-                subtype = "batch"
-            elif name.startswith("CO") or name.startswith("CA"):
-                subtype = "online"
-            else:
-                subtype = "unknown"
-        return file_type, subtype
+        # Run mode (batch / online / common) is decided later from the code
+        # itself — see InventoryBuilder.classify_programs.
+        return "program", "unknown"
 
     # 2. Classify Copybooks (.cpy, .cop)
     elif ext in {".cpy", ".cop"}:
@@ -135,13 +136,37 @@ def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def folder_hint(rel_path: str) -> Optional[str]:
+    """Run-mode hint from a parent folder name (e.g. programs/batch), or None."""
+    for part in reversed(Path(rel_path).parts[:-1]):
+        hint = FOLDER_HINTS.get(part.lower())
+        if hint:
+            return hint
+    return None
+
+
+# A DIVISION header that starts before column 8 can only be free-format source.
+FREE_FORMAT_RE = re.compile(
+    r"^ {0,6}(?:IDENTIFICATION|ID|ENVIRONMENT|DATA|PROCEDURE)\s+DIVISION",
+    re.IGNORECASE | re.MULTILINE)
+
+
 def cobol_scannable_lines(raw_text: str):
     """Yield (line_no, text) pairs honouring COBOL fixed-column rules.
 
     Columns 1-6 (sequence numbers) and 73-80 (identification) are ignored.
     Column 7 is the indicator: '*' or '/' means the whole line is a comment
     and is skipped. Columns 8-72 are the scannable program text.
+
+    Free-format source (detected by a DIVISION header before column 8) is
+    scanned whole-line; a leading '*' or '*>' marks a comment.
     """
+    if FREE_FORMAT_RE.search(raw_text):
+        for i, raw in enumerate(raw_text.splitlines(), start=1):
+            if raw.lstrip().startswith("*"):
+                continue
+            yield i, raw
+        return
     for i, raw in enumerate(raw_text.splitlines(), start=1):
         if len(raw) >= 7 and raw[6] in ("*", "/"):
             continue
@@ -197,6 +222,8 @@ class InventoryBuilder:
 
         self.program_lookup = {}   # id -> file_registry entry
         self.copybook_lookup = {}  # id -> copybook_registry entry
+        self.program_signals = {}  # id -> run-mode signals read from the code
+        self.job_runs = {}         # program id -> job/proc file that runs it
 
         self.nodes = []
         self.edges = []
@@ -285,6 +312,18 @@ class InventoryBuilder:
                             path_a=other["path"], path_b=rel_path)
         else:
             self.program_lookup[program_id] = entry
+            code = "\n".join(text for _, text in cobol_scannable_lines(raw_text))
+            self.program_signals[program_id] = {
+                "cics": bool(CICS_RE.search(code)),
+                "db2": bool(SQL_RE.search(code)),
+                "ims": bool(IMS_RE.search(code)),
+                "ims_entry": bool(IMS_ENTRY_RE.search(code)),
+                "mq": bool(MQ_RE.search(code)),
+                "stop_run": bool(STOP_RUN_RE.search(code)),
+                "has_params": bool(PROC_USING_RE.search(code)),
+                "has_files": bool(FILE_SELECT_RE.search(code)),
+                "calls": {normalise_target(t) for t in CALL_LITERAL_RE.findall(code)},
+            }
 
         self.file_registry.append(entry)
 
@@ -340,6 +379,75 @@ class InventoryBuilder:
             "job_name": job_name,
             "steps": steps,
         })
+
+    # -- step 1b: run-mode classification ---------------------------------
+
+    def collect_job_evidence(self):
+        """Record which job/proc/control file runs each program (batch evidence)."""
+        for path in sorted(self.repo_root.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in JOB_TEXT_EXTENSIONS:
+                continue
+            rel = path.relative_to(self.repo_root)
+            if self.is_excluded(rel):
+                continue
+            try:
+                lines = read_text(path).splitlines()
+            except OSError:
+                continue
+            text = "\n".join(l for l in lines if not l.startswith("//*"))
+            for rx in (JOB_PGM_RE, JOB_IMS_PARM_RE, JOB_TSO_RUN_RE):
+                for m in rx.finditer(text):
+                    self.job_runs.setdefault(m.group(1).upper(), rel.as_posix())
+
+    def classify_programs(self):
+        """Decide each program's run mode from its code, then from job streams.
+
+        Order of evidence (first match wins):
+          1. EXEC CICS in the code                      -> online
+          2. run by a job step (PGM= / IMS PARM / RUN)  -> batch
+          3. IMS batch entry point (ENTRY 'DLITCBL')    -> batch
+          4. called by another program                  -> common (shared subroutine)
+          5. STOP RUN or file SELECT/ASSIGN             -> batch
+          6. parent folder name (programs/batch, ...)   -> hint only
+          7. takes parameters (PROCEDURE DIVISION USING) -> common
+        A program that takes parameters but has no visible caller may be a
+        subroutine or a JCL main receiving PARM, so the folder hint wins there.
+        """
+        callers = {}
+        for pid, sig in self.program_signals.items():
+            for target in sig["calls"]:
+                callers.setdefault(target, set()).add(pid)
+
+        for entry in self.file_registry:
+            pid = entry["id"]
+            sig = self.program_signals.get(pid)
+            if sig is None:  # duplicate PROGRAM-ID — already reported
+                continue
+            if sig["cics"]:
+                subtype, basis = "online", "contains EXEC CICS"
+            elif pid in self.job_runs:
+                subtype, basis = "batch", f"run by job stream {self.job_runs[pid]}"
+            elif sig["ims_entry"]:
+                subtype, basis = "batch", "IMS batch entry point (DLITCBL)"
+            elif pid in callers:
+                subtype, basis = "common", f"called by {', '.join(sorted(callers[pid]))}"
+            elif sig["stop_run"] or (sig["has_files"] and not sig["has_params"]):
+                subtype, basis = "batch", "STOP RUN / file I/O without CICS"
+            elif folder_hint(entry["path"]):
+                subtype, basis = folder_hint(entry["path"]), "folder name hint"
+            elif sig["has_params"]:
+                subtype, basis = "common", "takes parameters (PROCEDURE DIVISION USING)"
+            else:
+                subtype, basis = "unknown", "no run-mode signal found"
+                self.add_issue("info", "unclassified_program",
+                               f"Could not determine run mode of {pid} from its code",
+                               source=pid)
+
+            entry["subtype"] = subtype
+            entry["classification_basis"] = basis
+            entry["runtime"] = [name for name, key in
+                                (("CICS", "cics"), ("DB2", "db2"), ("IMS", "ims"), ("MQ", "mq"))
+                                if sig[key]]
 
     # -- step 2: dependency graph -----------------------------------------
 
@@ -499,9 +607,9 @@ class InventoryBuilder:
             "batch_programs": 0,
             "online_programs": 0,
             "common_programs": 0,
-            "portfolio_programs": 0,
             "test_programs": 0,
             "utility_programs": 0,
+            "unknown_programs": 0,
             "copybooks": 0,
             "jcl_jobs": len(self.jcl_registry),
             "bms_maps": 0,
@@ -545,6 +653,8 @@ class InventoryBuilder:
     
     def build(self):
         self.walk()
+        self.collect_job_evidence()
+        self.classify_programs()
         
         # Guardrail: Stop immediately if the directory was empty or wrong
         if not self.file_registry and not self.copybook_registry:
@@ -628,7 +738,8 @@ def print_summary(artifact: dict, output_path: Path):
     stats = artifact["stats"]
     print("=== Inventory Agent Complete ===")
     print(f"Repo scanned : {artifact['meta']['repo_root']}")
-    print(f"Programs     : {stats['programs']}  (batch: {stats['batch_programs']}, online: {stats['online_programs']})")
+    print(f"Programs     : {stats['programs']}  (batch: {stats['batch_programs']}, online: {stats['online_programs']}, "
+          f"common: {stats['common_programs']}, unknown: {stats['unknown_programs']})")
     print(f"Copybooks    : {stats['copybooks']}")
     print(f"JCL jobs     : {stats['jcl_jobs']}")
     print(f"BMS maps     : {stats['bms_maps']}")
