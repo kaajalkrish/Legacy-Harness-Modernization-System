@@ -284,7 +284,7 @@ def assemble_brd(sysname: str, inv, parser, data, logic, rules, gaps, narr, diag
               f"{conf_mark.get(r['confidence'],'')}  ")
             w(r.get("description", "") + "  ")
             src = r.get("primary_source", {})
-            w(f"*Source: {src.get('program_id','')}"
+            w(f"*Source: {src.get('program_id') or r.get('defined_in') or ''}"
               + (f", {src.get('paragraph')}" if src.get("paragraph") else "")
               + (f", line {src.get('line')}" if src.get("line") else "") + "*\n")
     w("")

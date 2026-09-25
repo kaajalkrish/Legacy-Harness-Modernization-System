@@ -331,6 +331,7 @@ def main():
             sys.executable, "-m", "phases.p07_rules.rules_builder",
             "--logic", str(logic_output_dir / "logic_artifact.json"),
             "--data", str(data_output_dir / "data_artifact.json"),
+            "--inventory", str(inventory_file),
             "--output-dir", str(rules_output_dir),
         ]
         try:

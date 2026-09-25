@@ -23,13 +23,21 @@ This is the **deterministic** half of Phase 7 and runs before the
 - **Pattern:** the shape of the test (equality, range, flag/88, table lookup, ...).
 - **Signal strength:** how confidently it is a business rule vs. incidental control flow.
 
+## Tier — business rule or technical condition
+- **Technical** (program mechanics, any COBOL codebase): loop/EOF control, screen & session
+  handling (`EIBCALEN`, `EIBAID`, PF keys), file/DB/MQ status, record persistence, program
+  state & run parameters, and 88-level flags (`…-ISVALID/NOT-OK/BLANK`, EOF, message tables).
+- **Business**: decisions and domain constraints — an `IF` carrying a decision word
+  (approve, decline, fraud, expired, admin …) or an 88-level with real domain values.
+- This is a first pass; the [rule-tagger](../06-rule-tagger/SKILL.md) AI step may correct it.
+
 ## De-duplicate
 - Fold conditions that are the same test across programs into one entry; record every
   source program + line so nothing is lost.
 
 ## Output
-`classified_conditions.json` — one entry per distinct condition with `category`,
-`pattern`, `signal`, and its source references.
+`classified_conditions.json` — every condition with `category`, `pattern`, `signal`;
+`rules_brief.json` — the de-duplicated candidates with their first-pass tier.
 
 ## Rule
 Classification and de-duplication are factual and deterministic. This step decides

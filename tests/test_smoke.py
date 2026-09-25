@@ -88,6 +88,60 @@ class ProgramClassificationTest(unittest.TestCase):
         self.assertIn("CICS", errhndl["runtime"])
 
 
+class RulesTieringTest(unittest.TestCase):
+    """Business rules vs technical conditions, and the AI-host enrichment contract."""
+
+    SRC = ROOT / "outputs" / "carddemo"
+
+    def _build(self, out: Path) -> dict:
+        run("-m", "phases.p07_rules.rules_builder",
+            "--logic", str(self.SRC / "logic" / "logic_artifact.json"),
+            "--data", str(self.SRC / "data" / "data_artifact.json"),
+            "--inventory", str(self.SRC / "discovery" / "inventory.json"),
+            "--output-dir", str(out), "--no-llm")
+        return json.loads((out / "rules_artifact.json").read_text(encoding="utf-8"))
+
+    def test_business_and_technical_split(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a = self._build(Path(tmp))
+            business = {r["condition"]["text"] for r in a["business_rules"]}
+            technical = {r["condition"]["text"] for r in a["technical_rules"]}
+            self.assertIn("IF card inactive -> decline", business)
+            self.assertIn("IF ACCT-CURR-BAL <= 0 -> 'nothing to pay'", business)
+            self.assertTrue(any("EIBCALEN" in t for t in technical))
+            self.assertTrue(any("PERFORM UNTIL END-OF-FILE" in t for t in technical))
+            self.assertFalse(any("EIBCALEN" in t or "END-OF-FILE" in t for t in business))
+            # every business rule sits in exactly one rule set
+            in_sets = [rid for s in a["rule_sets"] for rid in s["rule_ids"]]
+            self.assertEqual(sorted(in_sets), sorted(r["rule_id"] for r in a["business_rules"]))
+
+    def test_ai_enrichment_applied_and_validated(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp)
+            self._build(out)
+            brief = json.loads((out / "rules_brief.json").read_text(encoding="utf-8"))
+            cand = next(c for c in brief["candidates"] if "card inactive" in c["text"])
+            ai = {"meta": {"fingerprint": brief["meta"]["fingerprint"]},
+                  "capabilities": [{"name": "Card Authorization", "description": "",
+                                    "programs": ["COPAUA0C", "NOT-A-PROGRAM"]}],
+                  "rules": {cand["condition_id"]: {"tier": "business", "name": "Decline inactive cards"},
+                            "COND-INVENTED": {"name": "should be dropped"}}}
+            (out / "rules_ai.json").write_text(json.dumps(ai), encoding="utf-8")
+            a = self._build(out)
+            rule = next(r for r in a["business_rules"] if r["condition"]["text"] == cand["text"])
+            self.assertEqual(rule["name"], "Decline inactive cards")
+            self.assertEqual(rule["rule_set"], "Card Authorization")
+            caps = {c["name"]: c["programs"] for c in a["capabilities"]}
+            self.assertEqual(caps["Card Authorization"], ["COPAUA0C"])
+            self.assertEqual(len(a["meta"]["ai_warnings"]), 2)
+
+            ai["meta"]["fingerprint"] = "stale"
+            (out / "rules_ai.json").write_text(json.dumps(ai), encoding="utf-8")
+            a = self._build(out)
+            self.assertEqual(a["meta"]["ai_worded_rules"], 0)
+            self.assertIn("rejected", a["meta"]["description_mode"])
+
+
 class BrdFromCarddemoArtifactsTest(unittest.TestCase):
     """Phase 8 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
 
@@ -97,12 +151,18 @@ class BrdFromCarddemoArtifactsTest(unittest.TestCase):
         s = self.SRC
         with tempfile.TemporaryDirectory() as tmp:
             fr = Path(tmp) / "final_report"
+            rules = Path(tmp) / "rules" / "rules_artifact.json"
+            run("-m", "phases.p07_rules.rules_builder",
+                "--logic", str(s / "logic" / "logic_artifact.json"),
+                "--data", str(s / "data" / "data_artifact.json"),
+                "--inventory", str(s / "discovery" / "inventory.json"),
+                "--output-dir", str(rules.parent), "--no-llm")
             run("-m", "phases.p09_brd.brd_builder",
                 "--inventory", str(s / "discovery" / "inventory.json"),
                 "--parser", str(s / "analysis" / "parser_artifact.json"),
                 "--data", str(s / "data" / "data_artifact.json"),
                 "--logic", str(s / "logic" / "logic_artifact.json"),
-                "--rules", str(s / "rules" / "rules_artifact.json"),
+                "--rules", str(rules),
                 "--diagrams", str(s / "diagram"),
                 "--output-dir", str(fr),
                 "--system-name", "AWS CardDemo", "--no-llm")
@@ -115,7 +175,7 @@ class BrdFromCarddemoArtifactsTest(unittest.TestCase):
                 "--inventory", str(s / "discovery" / "inventory.json"),
                 "--data", str(s / "data" / "data_artifact.json"),
                 "--logic", str(s / "logic" / "logic_artifact.json"),
-                "--rules", str(s / "rules" / "rules_artifact.json"),
+                "--rules", str(rules),
                 "--gaps", str(fr / "gaps_register.json"),
                 "--diagrams-index", str(s / "diagram" / "diagrams_artifact.json"),
                 "--output-dir", str(fr), "--no-llm")
