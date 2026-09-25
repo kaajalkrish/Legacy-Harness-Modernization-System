@@ -36,19 +36,25 @@ python -m phases.p09_brd.brd_builder --inventory <out>/discovery/inventory.json 
     --diagrams <out>/diagram --output-dir <out>/final_report \
     --system-name "<System Name>"
 ```
-AI-host mode: run [phases/p09_brd/brd_agent.md](../../phases/p09_brd/brd_agent.md) and write the narrative
-prose yourself (templated fallback when no key is set).
+**AI host (no key):** after that run, read `<out>/final_report/brd_brief.json`, write
+`<out>/final_report/brd_narratives.json` exactly as specified in
+[phases/p09_brd/brd_agent.md](../../phases/p09_brd/brd_agent.md), then run the same command again —
+the builder validates and applies it. Finish Phase 7 (incl. its `rules_ai.json`) first so rule ids
+are final. With a key, the builder calls the API itself; with neither, a neutral template is used.
 
 ## Outputs
 | Path | Contents |
 |---|---|
 | `<out>/final_report/brd.md` | the Business Requirements Document |
-| `<out>/final_report/brd_summary.md` | executive summary |
-| `<out>/final_report/gaps_register.md` + `.json` | SME-review items |
+| `<out>/final_report/brd_summary.md` | one-page summary |
+| `<out>/final_report/gaps_register.md` + `.json` | SME-review items + external platform dependencies |
+| `<out>/final_report/brd_brief.json` | facts for the AI step (with fingerprint) |
+| `<out>/final_report/brd_narratives.json` | AI-host prose you write |
 | (diagrams) | produced by [08-diagram](08-diagram.md) |
 
 ## Grounding rules
-- Every `BR-`/`GAP-`/`RS-` id and program cited must exist in the artifacts.
+- Every `BR-`/`TR-`/`RS-`/`GAP-` id and program cited must exist in the artifacts; a narrative
+  section citing an unknown id is dropped, and a stale fingerprint rejects the file.
 - The narrative connects facts — it never introduces new ones.
 
 ## Pipeline links

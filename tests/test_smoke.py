@@ -207,6 +207,46 @@ class BrdFromCarddemoArtifactsTest(unittest.TestCase):
                              "BRD cites ids/programs that do not exist in the artifacts")
             self.assertEqual(verdict["consistency_issues"], [], "consistency issues found")
 
+            # neutral fallback: structure present, no wording from another domain
+            for heading in ("## Table of Contents", "### 1.1 At a glance", "## 3. Business Capabilities",
+                            "### 4.1 Key business rules", "### 7.3 Platform dependencies",
+                            "## 10. Modernization Considerations and Next Steps"):
+                self.assertIn(heading, text)
+            self.assertNotIn("portfolio", text.lower())
+            self.assertNotIn("kaaja", text)          # no absolute local paths
+
+            # AI-host narratives: applied when grounded, dropped per section when not
+            brief = json.loads((fr / "brd_brief.json").read_text(encoding="utf-8"))
+            narr = {"meta": {"fingerprint": brief["meta"]["fingerprint"]},
+                    "executive_summary": "Grounded summary citing BR-001.",
+                    "business_purpose": "Cites BR-999, which does not exist.",
+                    "key_rules": [{"rule_id": "BR-001", "why": "Impact."},
+                                  {"rule_id": "BR-999", "why": "x"}]}
+            (fr / "brd_narratives.json").write_text(json.dumps(narr), encoding="utf-8")
+            run("-m", "phases.p09_brd.brd_builder",
+                "--inventory", str(s / "discovery" / "inventory.json"),
+                "--parser", str(s / "analysis" / "parser_artifact.json"),
+                "--data", str(s / "data" / "data_artifact.json"),
+                "--logic", str(s / "logic" / "logic_artifact.json"),
+                "--rules", str(rules), "--diagrams", str(s / "diagram"),
+                "--output-dir", str(fr), "--system-name", "AWS CardDemo", "--no-llm")
+            text = brd.read_text(encoding="utf-8")
+            self.assertIn("Grounded summary citing BR-001.", text)
+            self.assertNotIn("BR-999", text)
+            self.assertNotIn("### 2.1 Business purpose", text)
+            self.assertIn("narrative: AI-host", text)
+
+            narr["meta"]["fingerprint"] = "stale"
+            (fr / "brd_narratives.json").write_text(json.dumps(narr), encoding="utf-8")
+            run("-m", "phases.p09_brd.brd_builder",
+                "--inventory", str(s / "discovery" / "inventory.json"),
+                "--parser", str(s / "analysis" / "parser_artifact.json"),
+                "--data", str(s / "data" / "data_artifact.json"),
+                "--logic", str(s / "logic" / "logic_artifact.json"),
+                "--rules", str(rules), "--diagrams", str(s / "diagram"),
+                "--output-dir", str(fr), "--system-name", "AWS CardDemo", "--no-llm")
+            self.assertNotIn("Grounded summary citing BR-001.", brd.read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main()

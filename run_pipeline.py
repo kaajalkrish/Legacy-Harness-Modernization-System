@@ -19,6 +19,8 @@ def main():
     ap.add_argument("--output", default=None,
                     help="Path to the output root (default: outputs/sample). "
                          "Use a separate folder per codebase, e.g. outputs/carddemo")
+    ap.add_argument("--system-name", default=None,
+                    help="System name shown in the BRD (default: the input folder's name)")
     args = ap.parse_args()
 
     base_dir = Path(__file__).resolve().parent
@@ -402,7 +404,7 @@ def main():
             "--rules", str(rules_output_dir / "rules_artifact.json"),
             "--diagrams", str(diagram_output_dir),
             "--output-dir", str(final_report_dir),
-            "--system-name", "Portfolio Management System",
+            "--system-name", args.system_name or input_dir.name,
         ]
         try:
             subprocess.run(agent8_cmd, check=True)

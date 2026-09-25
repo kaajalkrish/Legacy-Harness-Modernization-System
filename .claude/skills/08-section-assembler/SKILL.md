@@ -1,33 +1,40 @@
 ---
 name: section-assembler
 description: >
-  Assemble the Business Requirements Document from the artifacts — inventory tables, data
-  dictionary, business-rules catalogue, process summaries, error catalogue, diagrams and
-  appendices — as deterministic Python, leaving only the connecting narrative to the LLM.
-  Part of the BRD agent (Phase 8).
+  Assemble the Business Requirements Document from the artifacts — cover, table of contents,
+  at-a-glance facts, capabilities, business-rules catalogue, data model, process descriptions,
+  architecture/inventory, technical conditions, gaps, risk indicators and appendices — as
+  deterministic Python, leaving only the connecting narrative to the AI step (Claude Code
+  writing brd_narratives.json, or the API). Part of the BRD agent (Phase 8).
 ---
 
 # Skill: section-assembler
 
-**Used by:** [09-brd](../../agents/09-brd.md) · **Half:** deterministic + LLM prose · **Adapted from:** Udara legacy-modernization-harness
+**Used by:** [09-brd](../../agents/09-brd.md) · **Half:** deterministic + AI prose · **Adapted from:** Udara legacy-modernization-harness
 
 ## Input
 `inventory.json`, `parser_artifact.json`, `data_artifact.json`, `logic_artifact.json`,
-`rules_artifact.json`, the `*.mmd` diagrams, and the gaps register.
+`rules_artifact.json` (with capabilities), the `*.mmd` diagrams, and the gaps register.
 
 ## Task (deterministic)
-- Build each BRD chapter from the artifacts: system overview + inventory tables, the data
-  dictionary, the business-rules catalogue, per-process summaries, the error catalogue,
-  embedded Mermaid diagrams, and appendices.
-- Emit stable ids (`BR-`, `GAP-`, `RS-`) and cite programs exactly as they appear upstream.
+- Build every chapter's facts from the artifacts (structure in
+  [brd_agent.md](../../../phases/p09_brd/brd_agent.md)): at-a-glance table, capability and
+  program tables, the key-rules table and full catalogue, data model, process descriptions with
+  flow diagrams, inventory, platform dependencies, technical conditions, gaps, structural risk
+  indicators (GO TO, ALTER, complexity, dead code) and appendices.
+- Emit stable ids (`BR-`, `TR-`, `RS-`, `GAP-`) and cite programs exactly as upstream.
+- Write `brd_brief.json` — the only facts the AI step may use.
 
-## LLM boundary
-Only the connecting prose — executive summary, system-context narrative, per-process
-narratives — is written by the model. Facts, tables and ids are assembled by code.
+## AI boundary
+The AI writes only prose sections into `brd_narratives.json`: executive summary, business
+purpose, users & actors, scope, system context, per-capability narratives, key-rule selection,
+modernization considerations, next steps. Without it, a neutral fact-based template is used.
 
 ## Rules
-- Every id and program referenced in prose must already exist in the assembled sections
-  (this is what the [groundedness-gate](../09-groundedness-gate/SKILL.md) later checks).
+- A narrative section citing an id that does not exist is dropped; a stale fingerprint rejects
+  the file. The [groundedness-gate](../09-groundedness-gate/SKILL.md) re-checks the whole BRD.
+- The fallback template contains no domain wording — only counts, run modes, subsystems and
+  program summaries.
 
 ## Output
-`final_report/brd.md` + `brd_summary.md`.
+`final_report/brd.md` + `brd_summary.md` + `brd_brief.json`.
