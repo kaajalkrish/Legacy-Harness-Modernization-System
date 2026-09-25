@@ -165,6 +165,45 @@ class GapsRegisterTest(unittest.TestCase):
                          "CALL inside a DISPLAY literal must not be a dynamic call")
 
 
+class JudgeNarrativeTest(unittest.TestCase):
+    """The judge catches prose that describes another domain or states unsupported counts."""
+
+    def test_wrong_domain_and_numbers_are_caught(self):
+        from phases.p10_judge import brd_judge as J
+        o = ROOT / "outputs" / "carddemo"
+        logic = J.load(o / "logic" / "logic_artifact.json")
+        rules = J.load(o / "rules" / "rules_artifact.json")
+        data = J.load(o / "data" / "data_artifact.json")
+        inv = J.load(o / "discovery" / "inventory.json")
+        vocab = J.evidence_vocabulary(logic, o / "logic", rules, data, inv)
+        wrong = ("It manages portfolio positions, transactions and reference data. Shared services "
+                 "provide connection management, audit trail and error logging.")
+        self.assertIn("portfolio", J.unsupported_terms(wrong, vocab, set()))
+        right = ("Card authorizations are approved or declined in real time; nightly batch jobs post "
+                 "daily transactions, calculate interest and produce account statements.")
+        self.assertEqual(J.unsupported_terms(right, vocab, set()), [])
+        allowed = J.allowed_numbers(inv, logic, rules, data, {"gaps": []})
+        self.assertEqual(J.unsupported_numbers("The system has 44 programs.", allowed), [])
+        self.assertEqual(J.unsupported_numbers("The system has 52 programs.", allowed),
+                         ["52 programs"])
+
+    def test_old_portfolio_brd_is_revised(self):
+        o = ROOT / "outputs" / "carddemo"
+        with tempfile.TemporaryDirectory() as tmp:
+            run("-m", "phases.p10_judge.brd_judge", "--brd", str(ROOT / "outputs" / "carddemo"
+                / "final_report" / "brd.md"),
+                "--inventory", str(o / "discovery" / "inventory.json"),
+                "--data", str(o / "data" / "data_artifact.json"),
+                "--logic", str(o / "logic" / "logic_artifact.json"),
+                "--rules", str(o / "rules" / "rules_artifact.json"),
+                "--gaps", str(o / "final_report" / "gaps_register.json"),
+                "--output-dir", tmp, "--no-llm")
+            v = json.loads((Path(tmp) / "brd_judge.json").read_text(encoding="utf-8"))
+            if "portfolio" in (o / "final_report" / "brd.md").read_text(encoding="utf-8").lower():
+                self.assertEqual(v["verdict"], "REVISE")
+                self.assertLessEqual(v["dimensions"]["accuracy"]["score"], 2)
+
+
 class BrdFromCarddemoArtifactsTest(unittest.TestCase):
     """Phase 8 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
 

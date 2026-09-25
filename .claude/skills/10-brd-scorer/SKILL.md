@@ -25,8 +25,11 @@ Score each dimension 1–5 and give concise, actionable feedback:
 ## Rules
 - Score what the BRD actually says; cite specifics in feedback.
 - If the groundedness gate failed, accuracy is hard-floored regardless of your score.
-- AI-host mode: emit the scores/feedback JSON and pass it via `--scores-file`; if no
-  scores are available, neutral 3s are used.
+- Use the strict rubric in [brd_judge_agent.md](../../../phases/p10_judge/brd_judge_agent.md);
+  treat the deterministic findings in `brd_judge_brief.json` as facts.
+- AI-host mode: write `final_report/brd_scores.json` with `meta.brd_sha` copied from the
+  brief (scores for another version of brd.md are ignored). With no scores, neutral 3s are
+  used and the BRD cannot PASS.
 
 ## Output
 Per-dimension scores + feedback → weighted by `phases/p10_judge/brd_judge.py` into the final score and

@@ -35,7 +35,10 @@ python -m phases.p10_judge.brd_judge --brd <out>/final_report/brd.md \
     --diagrams-index <out>/diagram/diagrams_artifact.json \
     --output-dir <out>/final_report
 ```
-AI-host mode: write the scores/feedback JSON and pass it via `--scores-file` (neutral 3s if omitted).
+**AI host (no key):** after that run, read `<out>/final_report/brd_judge_brief.json` and `brd.md`,
+write `<out>/final_report/brd_scores.json` (copy `meta.brd_sha`) per the rubric in the prompt file,
+then run the same command again. Scores for a different version of brd.md are ignored; with no
+scores, neutral 3s are used and the BRD cannot PASS.
 
 ## Outputs
 | Path | Contents |
