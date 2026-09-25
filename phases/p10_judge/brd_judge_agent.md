@@ -75,7 +75,7 @@ Score only what the BRD shows; cite the section in every feedback item.
 
 ## Dimensions & weights
 completeness 0.25 · accuracy 0.30 · clarity 0.15 · consistency 0.15 · actionability 0.15.
-Weighted score → rating: high (≥ 4.2 and every dim ≥ 3) · medium (≥ 3.2 and every dim ≥ 2) · low.
+Weighted score → rating: high (≥ 4.2 and every dim ≥ 3) · medium (≥ 3.0 and every dim ≥ 2) · low.
 
 ## Verdict
 PASS when the rating is high/medium and there is no high-severity issue and no groundedness

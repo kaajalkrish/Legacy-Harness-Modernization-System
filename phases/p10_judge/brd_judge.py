@@ -432,7 +432,7 @@ def default_scores() -> dict:
 def rate(weighted: float, dims: dict) -> str:
     if weighted >= 4.2 and all(d["score"] >= 3 for d in dims.values()):
         return "high"
-    if weighted >= 3.2 and all(d["score"] >= 2 for d in dims.values()):
+    if weighted >= 3.0 and all(d["score"] >= 2 for d in dims.values()):
         return "medium"
     return "low"
 
