@@ -86,6 +86,9 @@ The builder always writes **`<out>/rules/rules_brief.json`**:
     and outcome as shown. For 88-levels, state the allowed values/range in plain words
     ("FICO score must be between 300 and 850").
   - Technical candidates need only `tier`.
+  - Optional `capability` (a name from your capabilities list) places a business rule
+    explicitly — use it for rules on shared fields used across capabilities. Otherwise the rule
+    goes to the capability holding most of its programs.
 
 ### Grounding rules (enforced by the builder)
 - Use only facts in the brief: condition text, VALUE literals, program summaries. Never invent

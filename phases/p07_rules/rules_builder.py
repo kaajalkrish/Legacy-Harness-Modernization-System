@@ -489,6 +489,11 @@ def validate_enrichment(ai: dict, brief: dict) -> tuple[dict, list[str]]:
         entry = {}
         if r.get("tier") in (TIER_BUSINESS, TIER_TECHNICAL):
             entry["tier"] = r["tier"]
+        if r.get("capability"):
+            if r["capability"] in {c["name"] for c in caps}:
+                entry["capability"] = r["capability"]
+            else:
+                warnings.append(f"rule {cid}: unknown capability '{r['capability']}' ignored")
         for k in ("name", "description"):
             if isinstance(r.get(k), str) and r[k].strip():
                 entry[k] = r[k].strip()
@@ -594,9 +599,16 @@ def build_rules(classified: list[dict], candidates: list[dict], logic: dict,
                               or "Reclassified as technical by the AI review",
                               "name": info["name"]})
             continue
-        owner = next((p for p in m["programs"] if p in cap_of), None)
+        # Capability: the AI's explicit choice, else the capability holding most of the
+        # rule's programs (ties -> the earlier capability), else shared definitions.
+        votes: dict[str, int] = {}
+        for p in m["programs"]:
+            if p in cap_of:
+                votes[cap_of[p]] = votes.get(cap_of[p], 0) + 1
+        owner_cap = ai.get("capability") or (
+            min(votes, key=lambda n: (-votes[n], cap_rank.get(n, 99))) if votes else "Shared definitions")
         business.append({**base, "rule_id": "",
-                         "rule_set": cap_of.get(owner, "Shared definitions"),
+                         "rule_set": owner_cap,
                          "name": ai.get("name", info["name"]),
                          "description": ai.get("description", info["description"]),
                          "wording": "ai" if ai.get("name") else "templated",
