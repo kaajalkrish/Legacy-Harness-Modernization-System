@@ -1,18 +1,18 @@
 ---
 name: judge
 description: >
-  Phase 9 of the legacy-modernization harness — the quality gate. Use to validate and
+  Phase 10 of the legacy-modernization harness — the quality gate. Use to validate and
   score the BRD. Deterministic Python runs the groundedness gate (every cited
   BR-/GAP-/RS- id and program must exist in the artifacts) plus consistency checks; the
   LLM scores 5 weighted dimensions and writes feedback; Python then applies the gate,
-  computes the weighted score and rules PASS / REVISE. On REVISE, hand back to Phase 8 to
+  computes the weighted score and rules PASS / REVISE. On REVISE, hand back to Phase 9 to
   regenerate. Produces brd_judge.md and brd_judge.json.
 tools: Read, Write, Bash, Grep, Glob
 ---
 
 # Agent 10 — Judge (BRD Validation)
 
-**Type:** LLM + Python · **Pipeline phase:** 9 · **Module:** `phases/p10_judge/brd_judge.py` · **Prompt:** [phases/p10_judge/brd_judge_agent.md](../../phases/p10_judge/brd_judge_agent.md)
+**Type:** LLM + Python · **Pipeline phase:** 10 · **Module:** `phases/p10_judge/brd_judge.py` · **Prompt:** [phases/p10_judge/brd_judge_agent.md](../../phases/p10_judge/brd_judge_agent.md)
 
 ## Role
 Decide whether the BRD is trustworthy. The gate and consistency checks are

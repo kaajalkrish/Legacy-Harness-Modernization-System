@@ -30,12 +30,11 @@ with no API key via an AI-host path, or with a key via the Python builders.
 | 5 | Data | `phases/p05_data` | Deterministic |
 | 6 | Logic | `phases/p06_logic` | LLM + Python |
 | 7 | Rules | `phases/p07_rules` | LLM + Python |
-| 8a | Diagram | `phases/p08_diagram` | Deterministic |
-| 8 | BRD | `phases/p09_brd` | LLM + Python |
-| 9 | Judge | `phases/p10_judge` | LLM + Python |
+| 8 | Diagram | `phases/p08_diagram` | Deterministic |
+| 9 | BRD | `phases/p09_brd` | LLM + Python |
+| 10 | Judge | `phases/p10_judge` | LLM + Python |
 
-*Folder order (p01…p10) is execution order; the pipeline phase numbers treat diagram as 8a and
-BRD as 8 (the diagram runs first within Phase 8).*
+*Folder order (p01…p10) is execution order, and the phase number equals the folder number.*
 
 ## Build / run
 No third-party dependencies for phases 1–5 (pure stdlib).
@@ -65,11 +64,12 @@ python -m phases.p02_parser.orchestrator \
 python -m py_compile run_pipeline.py                 # syntax
 python -c "import phases.p02_parser.orchestrator, phases.p05_data.data_builder"  # imports resolve
 python run_pipeline.py                               # run phases 1–5 (deterministic, no key)
+python -m unittest discover -s tests -v              # smoke + regression tests (no key)
 ```
-Phases 1–5 are free and instant to re-run. Phases 6–9 use the LLM (default answer at those gates
+Phases 1–5 are free and instant to re-run. Phases 6, 7, 9 and 10 use the LLM (default answer at those gates
 is skip).
 
 ## Don't
 - Don't rename phase folders or move `run_pipeline.py` without updating imports **and** the docs.
 - Don't move `.claude/agents` or `.claude/skills` out of `.claude/` (breaks Claude Code discovery).
-- Don't write invented facts into artifacts — the judge (Phase 9) will catch them.
+- Don't write invented facts into artifacts — the judge (Phase 10) will catch them.

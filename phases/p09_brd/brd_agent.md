@@ -2,7 +2,7 @@
 name: brd_agent
 adapted_from: Udara legacy-modernization-harness — .github/skills/gap-detector + section-assembler
 description: >
-  Phase 8 of the harness. Assembles every prior artifact into a Business Requirements Document
+  Phase 9 of the harness. Assembles every prior artifact into a Business Requirements Document
   (brd.md), a one-page summary (brd_summary.md) and the gaps register. HYBRID: every fact, table,
   count and id is assembled by Python; the AI step writes only the connecting narrative. Two ways
   to run the AI step, same contract:
@@ -21,7 +21,7 @@ artifact; confidence and gaps are labelled.
 
 ## Inputs
 `inventory.json` (P1) · `parser_artifact.json` (P2) · `data_artifact.json` (P5) ·
-`logic_artifact.json` (P6) · `rules_artifact.json` (P7, incl. capabilities) · diagrams (P8a).
+`logic_artifact.json` (P6) · `rules_artifact.json` (P7, incl. capabilities) · diagrams (P8).
 
 ## Document structure (brd.md)
 | # | Chapter | Written by |
@@ -86,7 +86,7 @@ runtime, complexity, rule ids, summary), `business_rules`, `gaps`, `external_dep
 - A wrong `fingerprint` rejects the whole file (stale, or from another codebase).
 - A section that cites a `BR-/TR-/RS-/GAP-` id that does not exist is dropped (the neutral
   template is used for it); unknown capabilities and non-business key rules are dropped.
-- Counts that appear in prose must match `facts` — the judge (Phase 9) cross-checks them.
+- Counts that appear in prose must match `facts` — the judge (Phase 10) cross-checks them.
 
 ## Outputs — `<out>/final_report/`
 `brd.md` · `brd_summary.md` (one page: purpose, at a glance, capabilities, key rules, high gaps,

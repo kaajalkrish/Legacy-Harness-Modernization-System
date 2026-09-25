@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-brd_builder.py  —  Phase 8: BRD Generation (HYBRID).
+brd_builder.py  —  Phase 9: BRD Generation (HYBRID).
 
   Deterministic (Python, NO LLM) — every fact, table and id:
     * gap detection — unresolved references (one gap per missing item), dynamic
@@ -905,7 +905,7 @@ def build(paths: dict, output_dir: Path, sysname: Optional[str], model: str, use
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Phase 8 — hybrid BRD generator.")
+    ap = argparse.ArgumentParser(description="Phase 9 — hybrid BRD generator.")
     ap.add_argument("--inventory", required=True)
     ap.add_argument("--parser", required=True)
     ap.add_argument("--data", required=True)

@@ -3,7 +3,7 @@ name: gap-detector
 description: >
   Detect and register gaps — things a modernization team must resolve with an SME:
   ambiguous logic, dynamic CALLs, unresolved copybooks/programs, missing data meanings,
-  untranslated verbs. Deterministic. Part of the BRD agent (Phase 8); produces the gaps
+  untranslated verbs. Deterministic. Part of the BRD agent (Phase 9); produces the gaps
   register.
 ---
 

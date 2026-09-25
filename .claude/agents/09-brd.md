@@ -1,8 +1,8 @@
 ---
 name: brd
 description: >
-  Phase 8 of the legacy-modernization harness — hybrid, and the document producer. Runs
-  after the deterministic diagram agent (Phase 8a) has drawn the Mermaid diagrams. The
+  Phase 9 of the legacy-modernization harness — hybrid, and the document producer. Runs
+  after the deterministic diagram agent (Phase 8) has drawn the Mermaid diagrams. The
   BRD builder assembles every chapter (facts, tables, rules catalogue, gaps, appendices)
   from the artifacts with Python, and the LLM writes only the connecting narrative (exec
   summary, system-context and per-process prose). Produces brd.md, brd_summary.md and the
@@ -12,7 +12,7 @@ tools: Read, Write, Bash, Grep, Glob
 
 # Agent 09 — BRD (Synthesis / Document Producer)
 
-**Type:** LLM + Python · **Pipeline phase:** 8 · **Module:** `phases/p09_brd/brd_builder.py` · **Prompt:** [phases/p09_brd/brd_agent.md](../../phases/p09_brd/brd_agent.md)
+**Type:** LLM + Python · **Pipeline phase:** 9 · **Module:** `phases/p09_brd/brd_builder.py` · **Prompt:** [phases/p09_brd/brd_agent.md](../../phases/p09_brd/brd_agent.md)
 
 ## Role
 Assemble the final Business Requirements Document. Deterministic Python does the factual
@@ -26,7 +26,7 @@ All prior artifacts: `discovery/inventory.json`, `analysis/parser_artifact.json`
 plus the diagrams from [08-diagram](08-diagram.md).
 
 ## Run
-**Step 1 — Diagrams:** run [08-diagram](08-diagram.md) (Phase 8a) first, so the `*.mmd`
+**Step 1 — Diagrams:** run [08-diagram](08-diagram.md) (Phase 8) first, so the `*.mmd`
 files exist for the BRD to embed.
 **Step 2 — BRD (hybrid):**
 ```bash

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-brd_judge.py  —  Phase 9: BRD Judge (Validation + Judge).  HYBRID.
+brd_judge.py  —  Phase 10: BRD Judge (Validation + Judge).  HYBRID.
 
 Two labelled parts:
   * Validation (deterministic Python) — the groundedness gate + consistency checks.
@@ -519,7 +519,7 @@ def report_md(v: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Phase 9 — BRD validation (the Judge).")
+    ap = argparse.ArgumentParser(description="Phase 10 — BRD validation (the Judge).")
     ap.add_argument("--brd", required=True)
     ap.add_argument("--inventory", required=True)
     ap.add_argument("--data", required=True)

@@ -3,7 +3,7 @@ name: brd-scorer
 description: >
   Score a generated BRD on five weighted dimensions (completeness, accuracy, clarity,
   consistency, actionability), each 1-5, with written feedback. This is the LLM half of
-  the Judge agent (Phase 9); a deterministic gate can still override the accuracy score.
+  the Judge agent (Phase 10); a deterministic gate can still override the accuracy score.
   Neutral 3s are used when no scoring is available.
 ---
 

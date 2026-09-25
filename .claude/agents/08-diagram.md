@@ -1,7 +1,7 @@
 ---
 name: diagram
 description: >
-  Phase 8a of the legacy-modernization harness — the deterministic diagram producer
+  Phase 8 of the legacy-modernization harness — the deterministic diagram producer
   that runs just before the BRD assembly. Use to redraw the system graph, data model
   and program logic into Mermaid diagrams: a component overview, an ER diagram, and
   per-program control-flow diagrams. No LLM. Produces *.mmd files plus a diagrams index
@@ -12,7 +12,7 @@ model: sonnet
 
 # Agent 08 — Diagram (Mermaid Generator)
 
-**Type:** Deterministic · **Pipeline phase:** 8a (runs first within Phase 8) · **Module:** `phases/p08_diagram/diagram_builder.py`
+**Type:** Deterministic · **Pipeline phase:** 8 (runs just before the BRD, Phase 9) · **Module:** `phases/p08_diagram/diagram_builder.py`
 
 ## Role
 Turn the accumulated artifacts into diagrams. Fully deterministic — it re-draws facts

@@ -5,7 +5,7 @@ description: >
   at-a-glance facts, capabilities, business-rules catalogue, data model, process descriptions,
   architecture/inventory, technical conditions, gaps, risk indicators and appendices — as
   deterministic Python, leaving only the connecting narrative to the AI step (Claude Code
-  writing brd_narratives.json, or the API). Part of the BRD agent (Phase 8).
+  writing brd_narratives.json, or the API). Part of the BRD agent (Phase 9).
 ---
 
 # Skill: section-assembler

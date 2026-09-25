@@ -103,7 +103,7 @@ outputs/
     ├── brd_summary.md
     ├── gaps_register.json
     ├── gaps_register.md
-    ├── brd_judge.json                   # Phase 9 — BRD Judge (built)
+    ├── brd_judge.json                   # Phase 10 — BRD Judge (built)
     └── brd_judge.md
 ```
 
@@ -345,7 +345,7 @@ G --> J[Gaps Register]
 
 # 12. BRD Validation — the Judge
 
-> **Status: Built.** Implemented as `phases/p10_judge/brd_judge.py` and wired into `run_pipeline.py` as Phase 9.
+> **Status: Built.** Implemented as `phases/p10_judge/brd_judge.py` and wired into `run_pipeline.py` as Phase 10.
 > **HYBRID** — two labelled parts: a deterministic **Validation** (groundedness gate + consistency checks)
 > and an LLM **Judge** (5-dimension scoring + feedback).
 

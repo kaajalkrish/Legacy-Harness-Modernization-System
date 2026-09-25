@@ -2,7 +2,7 @@
 name: brd_judge_agent
 adapted_from: Chaminda cobol_java_migrator — src/cobol_modernizer/agent/brd_judge.py
 description: >
-  Phase 9 of the harness — BRD Validation (the Judge). Validates the generated BRD for
+  Phase 10 of the harness — BRD Validation (the Judge). Validates the generated BRD for
   completeness, accuracy, clarity, consistency and actionability. HYBRID: the groundedness gate,
   consistency checks and narrative-grounding checks are deterministic Python; the five 1-5
   dimension scores + written feedback are the AI step's job. Two ways to run the AI step:
@@ -18,7 +18,7 @@ Grade the BRD and gate it before sign-off. Never let ungrounded content pass: ev
 business term and count in the BRD must trace to the analysis of *this* codebase.
 
 ## Inputs
-brd.md (Phase 8) + inventory (P1) + data (P5) + logic (P6) + rules (P7) + gaps_register.json.
+brd.md (Phase 9) + inventory (P1) + data (P5) + logic (P6) + rules (P7) + gaps_register.json.
 
 ## Deterministic checks (Python — authoritative)
 - **Groundedness:** every `BR-`, `TR-`, `RS-`, `GAP-` id the BRD cites must exist. Any invented
@@ -79,7 +79,7 @@ Weighted score → rating: high (≥ 4.2 and every dim ≥ 3) · medium (≥ 3.2
 
 ## Verdict
 PASS when the rating is high/medium and there is no high-severity issue and no groundedness
-failure; otherwise REVISE (hand back to Phase 8).
+failure; otherwise REVISE (hand back to Phase 9).
 
 ## Output — `<out>/final_report/`
 `brd_judge.json` (verdict, rating, weighted score, scoring mode, per-dimension scores,

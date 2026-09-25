@@ -1,10 +1,11 @@
 ---
 name: groundedness-gate
 description: >
-  The harness's anti-hallucination check: verify every BR-/GAP-/RS- id and every program
-  the BRD cites actually exists in the upstream artifacts, plus cross-artifact consistency
-  checks. Deterministic and authoritative — an invented reference hard-floors the accuracy
-  score. Core of the Judge agent (Phase 9).
+  The harness's anti-hallucination check: verify every BR-/TR-/RS-/GAP- id the BRD cites
+  exists in the upstream artifacts, that business terms and counts in the prose are supported
+  by the analysis, plus cross-artifact consistency checks. Deterministic and authoritative —
+  an invented reference or ungrounded narrative caps the accuracy score. Core of the Judge
+  agent (Phase 10).
 ---
 
 # Skill: groundedness-gate

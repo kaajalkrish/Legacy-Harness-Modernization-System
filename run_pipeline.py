@@ -5,6 +5,27 @@ import sys
 from pathlib import Path
 from phases.p01_discovery.scanner import InventoryBuilder
 
+def has_api_key(base_dir: Path) -> bool:
+    """True when ANTHROPIC_API_KEY is set in the environment or the project .env file."""
+    import os
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return True
+    env = base_dir / ".env"
+    return env.exists() and any(line.strip().startswith("ANTHROPIC_API_KEY=")
+                                and line.split("=", 1)[1].strip()
+                                for line in env.read_text(encoding="utf-8", errors="replace").splitlines())
+
+
+def ai_mode(base_dir: Path, ai_file: Path) -> str:
+    """Which source the AI step of a hybrid phase will use (same order the builders apply)."""
+    if ai_file.exists():
+        return f"Claude Code AI-host file ({ai_file.name})"
+    if has_api_key(base_dir):
+        return "API (ANTHROPIC_API_KEY)"
+    return (f"neutral template — no key and no {ai_file.name}; to have Claude Code write it, "
+            f"run this phase once, ask Claude Code to write {ai_file.name} from the brief, then re-run")
+
+
 def ask_choice(message, options_text="[y/n/s]", default='y'):
     """Prompts user with flexible options: Yes, No, or Skip."""
     response = input(f"\n👉 {message} {options_text}: ").strip().lower()
@@ -253,7 +274,7 @@ def main():
     print("====================================================")
 
     choice = ask_choice(
-    "Proceed to Phase 6 (Logic — uses the LLM, costs tokens)?",
+    "Proceed to Phase 6 (Logic — LLM writes plain-English pseudocode; API key or Claude Code)?",
     "[y/n]",
     default="n"
     )
@@ -262,7 +283,7 @@ def main():
         print("Pipeline stopped after Phase 5. (Phase 6 skipped — no LLM call made.)")
         return
 
-    # --- PHASE 6: Logic phase (Agent 6) — the only LLM-backed phase ---
+    # --- PHASE 6: Logic phase (Agent 6) — LLM via the API, or written by Claude Code (AI host) ---
     print("Checking Phase 6: Logic (plain-English pseudocode) Generation...")
     run_phase6 = True
 
@@ -275,6 +296,17 @@ def main():
         if choice in ('n', 'no'):
             run_phase6 = False
             print("[SKIPPED] Keeping existing logic output.")
+
+    if run_phase6 and not has_api_key(base_dir):
+        print("[INFO] No ANTHROPIC_API_KEY — Phase 6 runs in AI-host mode: ask Claude Code to follow\n"
+              "       phases/p06_logic/logic_agent.md for this input (it writes\n"
+              f"       {logic_output_dir / 'program_logic'} and logic_artifact.json), then re-run the\n"
+              "       pipeline and keep the existing logic output.")
+        if not logic_artifact_file.exists():
+            print("Pipeline stopped before Phase 6 (no logic output yet).")
+            return
+        run_phase6 = False
+        print("[SKIPPED] Using the existing logic output.")
 
     if run_phase6:
         if not parser_output_dir.exists() or not context_output_dir.exists():
@@ -300,7 +332,8 @@ def main():
     print("====================================================")
 
     choice = ask_choice(
-    "Proceed to Phase 7 (Rules — hybrid; LLM writes rule descriptions if a key is set)?",
+    "Proceed to Phase 7 (Rules — hybrid; AI step: "
+    f"{ai_mode(base_dir, rules_output_dir / 'rules_ai.json')})?",
     "[y/n]",
     default="n"
     )
@@ -328,7 +361,7 @@ def main():
             print("[ERROR] Cannot run Phase 7. Missing upstream logic (Phase 6) or data (Phase 5) artifacts.")
             sys.exit(1)
 
-        print(f"\nStarting Phase 7: Rules Building (deterministic classify + LLM descriptions)...")
+        print(f"\nStarting Phase 7: Rules Building (deterministic classify + AI names/capabilities)...")
         agent7_cmd = [
             sys.executable, "-m", "phases.p07_rules.rules_builder",
             "--logic", str(logic_output_dir / "logic_artifact.json"),
@@ -346,7 +379,8 @@ def main():
     print("====================================================")
 
     choice = ask_choice(
-    "Proceed to Phase 8 (BRD Generation — hybrid; LLM writes the synthesis prose if a key is set)?",
+    "Proceed to Phases 8-9 (Diagrams, then BRD — AI step: "
+    f"{ai_mode(base_dir, final_report_dir / 'brd_narratives.json')})?",
     "[y/n]",
     default="n"
     )
@@ -355,8 +389,8 @@ def main():
         print("Pipeline stopped after Phase 7.")
         return
 
-    # --- PHASE 8: BRD Generation (Agent 8) — hybrid (deterministic assembly + LLM narratives) ---
-    print("Checking Phase 8: BRD Generation...")
+    # --- PHASES 8-9: Diagrams (deterministic) then BRD (hybrid: Python facts + AI narrative) ---
+    print("Checking Phase 9: BRD Generation...")
     run_phase8 = True
 
     brd_file = final_report_dir / "brd.md"
@@ -374,11 +408,11 @@ def main():
                 data_output_dir / "data_artifact.json", logic_output_dir / "logic_artifact.json",
                 rules_output_dir / "rules_artifact.json"]
         if not all(p.exists() for p in need):
-            print("[ERROR] Cannot run Phase 8. Missing one of inventory / parser / data / logic / rules artifacts.")
+            print("[ERROR] Cannot run Phase 9. Missing one of inventory / parser / data / logic / rules artifacts.")
             sys.exit(1)
 
-        # 8a. Diagram agent (deterministic) — produce Mermaid diagrams the BRD embeds.
-        print(f"\nStarting Diagram agent (deterministic Mermaid generation)...")
+        # Phase 8. Diagram agent (deterministic) — produce Mermaid diagrams the BRD embeds.
+        print(f"\nStarting Phase 8: Diagrams (deterministic Mermaid generation)...")
         diagram_cmd = [
             sys.executable, "-m", "phases.p08_diagram.diagram_builder",
             "--graph", str(graph_file),
@@ -393,8 +427,8 @@ def main():
             print(f"\n[ERROR] Diagram agent failed with exit code {e.returncode}", file=sys.stderr)
             sys.exit(e.returncode)
 
-        # 8b. BRD Generation (hybrid) — assemble the document and embed the diagrams.
-        print(f"\nStarting Phase 8: BRD Generation (deterministic assembly + LLM narratives)...")
+        # Phase 9. BRD Generation (hybrid) — assemble the document and embed the diagrams.
+        print(f"\nStarting Phase 9: BRD Generation (deterministic assembly + AI narrative)...")
         agent8_cmd = [
             sys.executable, "-m", "phases.p09_brd.brd_builder",
             "--inventory", str(inventory_file),
@@ -408,31 +442,32 @@ def main():
         ]
         try:
             subprocess.run(agent8_cmd, check=True)
-            print(f"[SUCCESS] Agent 8 (BRD) wrote the document in: {final_report_dir.name}")
+            print(f"[SUCCESS] Agent 9 (BRD) wrote the document in: {final_report_dir.name}")
         except subprocess.CalledProcessError as e:
-            print(f"\n[ERROR] Agent 8 failed with exit code {e.returncode}", file=sys.stderr)
+            print(f"\n[ERROR] Agent 9 failed with exit code {e.returncode}", file=sys.stderr)
             sys.exit(e.returncode)
 
     print("====================================================")
 
     choice = ask_choice(
-    "Proceed to Phase 9 (BRD Validation — the Judge; deterministic gate + LLM scoring)?",
+    "Proceed to Phase 10 (BRD Validation — the Judge; deterministic gate + AI scoring: "
+    f"{ai_mode(base_dir, final_report_dir / 'brd_scores.json')})?",
     "[y/n]",
     default="n"
     )
 
     if choice in ("n", "no"):
-        print("Pipeline stopped after Phase 8.")
+        print("Pipeline stopped after Phase 9.")
         return
 
-    # --- PHASE 9: BRD Validation / Judge (Agent 9) — hybrid (deterministic gate + LLM scoring) ---
-    print("Checking Phase 9: BRD Validation (Judge)...")
+    # --- PHASE 10: BRD Validation / Judge — hybrid (deterministic gate + AI scoring) ---
+    print("Checking Phase 10: BRD Validation (Judge)...")
     brd_md = final_report_dir / "brd.md"
     if not brd_md.exists() or not (final_report_dir / "gaps_register.json").exists():
-        print("[ERROR] Cannot run Phase 9. Missing brd.md / gaps_register.json (run Phase 8 first).")
+        print("[ERROR] Cannot run Phase 10. Missing brd.md / gaps_register.json (run Phase 9 first).")
         sys.exit(1)
 
-    print(f"\nStarting Phase 9: BRD Validation (groundedness gate + 5-dimension scoring)...")
+    print(f"\nStarting Phase 10: BRD Validation (groundedness gate + 5-dimension scoring)...")
     agent9_cmd = [
         sys.executable, "-m", "phases.p10_judge.brd_judge",
         "--brd", str(brd_md),
@@ -446,9 +481,9 @@ def main():
     ]
     try:
         subprocess.run(agent9_cmd, check=True)
-        print(f"[SUCCESS] Agent 9 (Validation & Judge) wrote the report in: {final_report_dir.name}")
+        print(f"[SUCCESS] Agent 10 (Validation & Judge) wrote the report in: {final_report_dir.name}")
     except subprocess.CalledProcessError as e:
-        print(f"\n[ERROR] Agent 9 failed with exit code {e.returncode}", file=sys.stderr)
+        print(f"\n[ERROR] Agent 10 failed with exit code {e.returncode}", file=sys.stderr)
         sys.exit(e.returncode)
 
     print("====================================================")

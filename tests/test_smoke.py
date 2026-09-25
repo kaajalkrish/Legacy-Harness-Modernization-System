@@ -2,7 +2,7 @@
 Smoke tests for the harness — stdlib unittest, no API key, no network.
 
   * Phases 1-5 (deterministic) run end-to-end on inputs/sample_mini.
-  * Phase 8 (BRD, templated/no-LLM) + Phase 9 (judge gate) rebuild from the
+  * Phase 9 (BRD, templated/no-LLM) + Phase 10 (judge gate) rebuild from the
     committed outputs/carddemo artifacts and must pass the groundedness gate.
 
 Everything is written to a temp directory — committed outputs are never touched.
@@ -205,7 +205,7 @@ class JudgeNarrativeTest(unittest.TestCase):
 
 
 class BrdFromCarddemoArtifactsTest(unittest.TestCase):
-    """Phase 8 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
+    """Phase 9 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
 
     SRC = ROOT / "outputs" / "carddemo"
 
