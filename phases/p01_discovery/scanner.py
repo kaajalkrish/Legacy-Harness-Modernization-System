@@ -28,6 +28,7 @@ BMS_EXTENSIONS = {".bms"}
 CTL_EXTENSIONS = {".ctl"}
 LST_EXTENSIONS = {".lst"}
 DB2_EXTENSIONS = {".sql", ".dclgen"}
+ASM_EXTENSIONS = {".asm", ".mlc"}
 
 DEFAULT_EXCLUDE_DIRS = {".git", "bin", "obj"}
 
@@ -41,13 +42,15 @@ DYNAMIC_CALL_STOPWORDS = {"USING", "BY", "REFERENCE", "CONTENT", "VALUE", "LENGT
 
 PROGRAM_ID_RE = re.compile(r"PROGRAM-ID\.\s+([A-Z0-9\-]+)", re.IGNORECASE)
 
+# (?<![\w-]) rather than \b: a data name such as REQUEST-MSG-COPY must not read as COPY.
 COPY_QUALIFIED_RE = re.compile(
-    r"\bCOPY\s+([A-Z0-9\-]+)\s+(?:IN|OF)\s+[A-Z0-9\-]+", re.IGNORECASE
+    r"(?<![\w-])COPY\s+['\"]?([A-Z0-9\-]+)\s+(?:IN|OF)\s+[A-Z0-9\-]+", re.IGNORECASE
 )
-COPY_RE = re.compile(r"\bCOPY\s+([A-Z0-9\-]+)", re.IGNORECASE)
+COPY_RE = re.compile(r"(?<![\w-])COPY\s+['\"]?([A-Z0-9\-]+)", re.IGNORECASE)
 
-CALL_LITERAL_RE = re.compile(r"\bCALL\s+['\"]([A-Z0-9\-]+)['\"]", re.IGNORECASE)
-CALL_VAR_RE = re.compile(r"\bCALL\s+([A-Za-z][A-Za-z0-9\-]{2,})\b")
+CALL_LITERAL_RE = re.compile(r"(?<![\w-])CALL\s+['\"]([A-Z0-9\-]+)['\"]", re.IGNORECASE)
+STRING_LITERAL_RE = re.compile(r"'[^']*'?|\"[^\"]*\"?")
+CALL_VAR_RE = re.compile(r"(?<![\w-])CALL\s+([A-Za-z][A-Za-z0-9\-]{2,})\b")
 
 CICS_LINK_RE = re.compile(
     r"EXEC\s+CICS\s+LINK\s+PROGRAM\s*\(\s*['\"]?([A-Z0-9\-]+)", re.IGNORECASE
@@ -96,6 +99,7 @@ SCAN_EXTENSIONS = (
     | CTL_EXTENSIONS
     | LST_EXTENSIONS
     | DB2_EXTENSIONS
+    | ASM_EXTENSIONS
 )
 
 
@@ -126,6 +130,10 @@ def classify_file(file_path: Path):
     # 5. Classify BMS Maps (.bms, .map)
     elif ext in {".bms", ".map"}:
         return "bms", "bms"
+
+    # 6. Assembler modules — not parsed, but real CALL targets
+    elif ext in ASM_EXTENSIONS:
+        return "assembler", "assembler"
 
     # 6. Fallback for any other extensions
     else:
@@ -222,6 +230,8 @@ class InventoryBuilder:
 
         self.program_lookup = {}   # id -> file_registry entry
         self.copybook_lookup = {}  # id -> copybook_registry entry
+        self.module_registry = []  # non-COBOL modules (assembler) that programs CALL
+        self.module_lookup = {}
         self.program_signals = {}  # id -> run-mode signals read from the code
         self.job_runs = {}         # program id -> job/proc file that runs it
 
@@ -271,6 +281,10 @@ class InventoryBuilder:
             self.process_copybook(path, rel_path, "db2")
         elif file_type == "jcl":
             self.process_jcl(path, rel_path)
+        elif file_type == "assembler":
+            entry = {"id": path.stem.upper(), "path": rel_path, "type": "assembler"}
+            self.module_registry.append(entry)
+            self.module_lookup.setdefault(entry["id"], entry)
         elif file_type in ("bms_map", "control_card", "listing"):
             self.other_counts[file_type] += 1
 
@@ -463,7 +477,7 @@ class InventoryBuilder:
             })
 
     def resolve_target(self, target: str):
-        if target in self.program_lookup:
+        if target in self.program_lookup or target in self.module_lookup:
             return True
         if target in self.copybook_lookup:
             return True
@@ -497,7 +511,8 @@ class InventoryBuilder:
                                     source=source, reference=target, edge_type="STATIC_CALL")
                 self.add_edge(source, "STATIC_CALL", target, line_no, resolved)
             else:
-                m_var = CALL_VAR_RE.search(text)
+                # Ignore the word CALL inside literals, e.g. DISPLAY 'GU CALL FAIL'.
+                m_var = CALL_VAR_RE.search(STRING_LITERAL_RE.sub("''", text))
                 if m_var:
                     var_name = m_var.group(1)
                     if (len(var_name) >= 3 and var_name.upper() not in DYNAMIC_CALL_STOPWORDS
@@ -614,6 +629,7 @@ class InventoryBuilder:
             "jcl_jobs": len(self.jcl_registry),
             "bms_maps": 0,
             "db2_includes": 0,
+            "assembler_modules": len(self.module_registry),
             "call_edges_total": len(self.edges),
             "call_edges_resolved": sum(1 for e in self.edges if e.get("resolved", True)),
             "call_edges_unresolved": sum(1 for e in self.edges if not e.get("resolved", True)),
@@ -696,6 +712,7 @@ class InventoryBuilder:
             "file_registry": self.file_registry,
             "copybook_registry": self.copybook_registry,
             "jcl_registry": self.jcl_registry,
+            "module_registry": self.module_registry,
             "call_graph": {
                 "nodes": self.nodes,
                 "edges": self.edges,

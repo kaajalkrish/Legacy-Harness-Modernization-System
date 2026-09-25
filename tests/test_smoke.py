@@ -142,6 +142,29 @@ class RulesTieringTest(unittest.TestCase):
             self.assertIn("rejected", a["meta"]["description_mode"])
 
 
+class GapsRegisterTest(unittest.TestCase):
+    """Platform components are external dependencies; each missing item is one gap."""
+
+    def test_externals_and_dedup(self):
+        sys.path.insert(0, str(ROOT))
+        from phases.p09_brd.brd_builder import detect_gaps
+        inv = InventoryBuilder(repo_root=ROOT / "inputs" / "carddemo",
+                               exclude_dirs={".git", "bin", "obj", "templates"}).build()
+        data = json.loads((ROOT / "outputs" / "carddemo" / "data" / "data_artifact.json")
+                          .read_text(encoding="utf-8"))
+        gaps, externals = detect_gaps(inv, {}, {}, data)
+        ext = {e["component"]: e for e in externals}
+        for name in ("DFHAID", "CMQV", "MQOPEN", "CBLTDLI", "CEE3ABD", "SQLCA"):
+            self.assertIn(name, ext)
+        refs = [g.get("reference") for g in gaps if g["type"] == "unresolved_reference"]
+        self.assertEqual(len(refs), len(set(refs)), "duplicate gaps for the same target")
+        self.assertIn("DCLTRTYP", refs)                    # genuinely missing DCLGEN
+        for not_a_gap in ("DFHAID", "REPLACING", "COBDATFT", "MVSWAIT"):
+            self.assertNotIn(not_a_gap, refs)
+        self.assertFalse([g for g in gaps if g["type"] == "dynamic_call"],
+                         "CALL inside a DISPLAY literal must not be a dynamic call")
+
+
 class BrdFromCarddemoArtifactsTest(unittest.TestCase):
     """Phase 8 + 9 rebuilt from the committed CardDemo artifacts (no LLM)."""
 

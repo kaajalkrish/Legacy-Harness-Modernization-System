@@ -37,6 +37,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
@@ -74,24 +75,90 @@ def embed_mmd(path: Path, caption: str) -> str:
 
 SEV_RANK = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 3}
 
+# Platform components supplied by the mainframe runtime (IBM CICS, MQ, IMS, DB2,
+# Language Environment). They are never in an application repository, so an
+# "unresolved" reference to them is an external dependency, not a gap.
+EXTERNAL_COMPONENTS = [
+    (r"^DFH", "CICS", "CICS system copybook / interface"),
+    (r"^CMQ", "IBM MQ", "MQ API copybook"),
+    (r"^MQ(OPEN|CLOSE|GET|PUT1?|CONNX?|DISC|INQ|SET|BEGIN|CMIT|BACK|SUB|SUBRQ|CB|CTL|STAT)$",
+     "IBM MQ", "MQ API call"),
+    (r"^(CBLTDLI|AIBTDLI|AERTDLI|CEETDLI|DFSLI000)$", "IMS", "IMS DL/I interface"),
+    (r"^(SQLCA|SQLDA|DSNTIAR|DSNTIAC|DSNHLI|DSNALI|DSNELI|DSNRLI)$", "DB2", "DB2 interface"),
+    (r"^(CEE|IGZ)", "Language Environment", "LE runtime service"),
+    (r"^(ILBO|IGY)", "COBOL runtime", "COBOL runtime routine"),
+]
 
-def detect_gaps(inv: dict, logic: dict, rules: dict, data: dict) -> list[dict]:
+
+def external_component(name: str) -> Optional[tuple[str, str]]:
+    for pattern, subsystem, kind in EXTERNAL_COMPONENTS:
+        if re.match(pattern, name or ""):
+            return subsystem, kind
+    return None
+
+
+def detect_gaps(inv: dict, logic: dict, rules: dict, data: dict) -> tuple[list[dict], list[dict]]:
+    """Return (gaps, external_dependencies). Each missing item is one gap however many
+    programs reference it; platform components go to the external-dependency list."""
     gaps: list[dict] = []
-    gid = 1
+    externals: dict[str, dict] = {}
+    missing: dict[str, dict] = {}  # target -> merged unresolved-reference gap
+    seen_dynamic: set[str] = set()
 
-    def add(sev, gtype, msg, source):
-        nonlocal gid
-        gaps.append({"gap_id": f"GAP-{gid:03d}", "severity": sev, "type": gtype,
-                     "description": msg, "source": source})
-        gid += 1
+    def add(sev, gtype, msg, source, **extra):
+        gaps.append({"gap_id": "", "severity": sev, "type": gtype,
+                     "description": msg, "source": source, **extra})
+
+    def unresolved(target, kind, program, source):
+        ext = external_component(target)
+        if ext:
+            e = externals.setdefault(target, {"component": target, "subsystem": ext[0],
+                                              "kind": ext[1], "used_by": set()})
+            if program:
+                e["used_by"].add(program)
+            return
+        m = missing.setdefault(target, {"kind": kind, "programs": set(), "sources": set()})
+        if program:
+            m["programs"].add(program)
+        m["sources"].add(source)
 
     for iss in inv.get("issues", []):
-        sev = {"error": "high", "warning": "medium"}.get(iss.get("severity"), "low")
-        if iss.get("type") in ("unresolved_reference", "circular_copy", "duplicate_program_id"):
-            add(sev, iss.get("type"), iss.get("message", ""), "inventory")
+        t = iss.get("type")
+        if t == "unresolved_reference":
+            unresolved(iss.get("reference", ""), iss.get("edge_type", "reference"),
+                       iss.get("source"), "inventory")
+        elif t in ("circular_copy", "duplicate_program_id"):
+            add("high", t, iss.get("message", ""), "inventory")
+        elif t == "dynamic_call":
+            key = f"{iss.get('source')}|{iss.get('variable')}"
+            if key in seen_dynamic:
+                continue
+            seen_dynamic.add(key)
+            add("medium", t, f"{iss.get('source')}: dynamic CALL via variable "
+                f"{iss.get('variable')} — target program cannot be determined statically.",
+                "inventory")
+        elif t == "unclassified_program":
+            add("low", t, iss.get("message", ""), "inventory")
+
+    for iss in data.get("issues", []):
+        m = re.match(r"COPY (\S+) not found", iss.get("message", ""))
+        if iss.get("type") == "unresolved_copy_stub" and m:
+            unresolved(m.group(1), "COPY", None, "data")
+        else:
+            add("medium", iss.get("type", "data_issue"), iss.get("message", ""), "data")
+
+    for target, m in sorted(missing.items()):
+        progs = sorted(m["programs"])
+        where = f"referenced by {', '.join(progs)}" if progs else "referenced in the data layouts"
+        add("medium", "unresolved_reference",
+            f"{m['kind']} target '{target}' is not in the repository ({where}) — its definition "
+            f"is needed to complete the data model / call graph.",
+            "+".join(sorted(m["sources"])), reference=target, programs=progs)
 
     for iss in logic.get("issues", []):
         t = iss.get("type", "")
+        if iss.get("severity") == "info" and "finding" not in t:
+            continue  # run status messages, not gaps
         sev = "high" if t in ("empty_source", "truncated_source") else \
               ("medium" if t == "skeletons" else "low")
         add(sev, t or "logic_issue", iss.get("message", ""), "logic")
@@ -106,16 +173,25 @@ def detect_gaps(inv: dict, logic: dict, rules: dict, data: dict) -> list[dict]:
             add("medium", "rule_sme_review",
                 f"{r['rule_id']} “{r['name']}” — low confidence, requires SME confirmation.", "rules")
 
-    for iss in data.get("issues", []):
-        add("medium", iss.get("type", "data_issue"), iss.get("message", ""), "data")
-
     gaps.sort(key=lambda g: SEV_RANK.get(g["severity"], 3))
     for i, g in enumerate(gaps, 1):
         g["gap_id"] = f"GAP-{i:03d}"
-    return gaps
+    ext_list = [{**e, "used_by": sorted(e["used_by"])}
+                for e in sorted(externals.values(), key=lambda e: (e["subsystem"], e["component"]))]
+    return gaps, ext_list
 
 
-def gaps_markdown(gaps: list[dict]) -> str:
+def externals_markdown(externals: list[dict]) -> str:
+    if not externals:
+        return ""
+    out = ["| Component | Subsystem | Kind | Used by |", "|---|---|---|---|"]
+    for e in externals:
+        used = ", ".join(e["used_by"][:8]) + (f" (+{len(e['used_by']) - 8})" if len(e["used_by"]) > 8 else "")
+        out.append(f"| {e['component']} | {e['subsystem']} | {e['kind']} | {used or '—'} |")
+    return "\n".join(out) + "\n"
+
+
+def gaps_markdown(gaps: list[dict], externals: Optional[list[dict]] = None) -> str:
     counts: dict[str, int] = {}
     for g in gaps:
         counts[g["severity"]] = counts.get(g["severity"], 0) + 1
@@ -127,6 +203,10 @@ def gaps_markdown(gaps: list[dict]) -> str:
     for g in gaps:
         out.append(f"| {g['gap_id']} | {g['severity'].upper()} | {g['type']} | "
                    f"{g['description'].replace('|', '/')} | {g['source']} |")
+    if externals:
+        out += ["", "## External system dependencies (not gaps)", "",
+                "Platform components provided by the mainframe runtime; they are expected to be "
+                "absent from the application repository.", "", externals_markdown(externals)]
     return "\n".join(out) + "\n"
 
 
@@ -185,7 +265,8 @@ def complexity_band(score: int) -> str:
     return "Low" if score <= 3 else ("Medium" if score <= 6 else "High")
 
 
-def assemble_brd(sysname: str, inv, parser, data, logic, rules, gaps, narr, diagrams_dir: Path) -> str:
+def assemble_brd(sysname: str, inv, parser, data, logic, rules, gaps, narr, diagrams_dir: Path,
+                 externals: Optional[list] = None) -> str:
     L: list[str] = []
     w = L.append
     date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -335,6 +416,12 @@ def assemble_brd(sysname: str, inv, parser, data, logic, rules, gaps, narr, diag
     w("This chapter lists everything static analysis could not fully resolve. Critical and high "
       "gaps should be resolved with SME input before this document drives modernisation or testing.\n")
     w(gaps_markdown(gaps).split("\n", 2)[2])  # drop the gaps file's own H1 + count line-ish
+    if externals:
+        w("### 9.1 External system dependencies\n")
+        w("These platform components are provided by the mainframe runtime and are expected to be "
+          "absent from the application repository. They are dependencies to carry into the target "
+          "architecture, not gaps.\n")
+        w(externals_markdown(externals))
 
     # Appendices
     w("## Appendices\n")
@@ -383,11 +470,12 @@ def build(paths: dict, output_dir: Path, sysname: str, model: str, use_llm: bool
     inv = load(paths["inventory"]); parser = load(paths["parser"]); data = load(paths["data"])
     logic = load(paths["logic"]); rules = load(paths["rules"])
 
-    gaps = detect_gaps(inv, logic, rules, data)
+    gaps, externals = detect_gaps(inv, logic, rules, data)
     (output_dir / "gaps_register.json").write_text(
         json.dumps({"meta": {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                             "total_gaps": len(gaps)}, "gaps": gaps}, indent=2), encoding="utf-8")
-    (output_dir / "gaps_register.md").write_text(gaps_markdown(gaps), encoding="utf-8")
+                             "total_gaps": len(gaps), "external_dependencies": len(externals)},
+                    "gaps": gaps, "external_dependencies": externals}, indent=2), encoding="utf-8")
+    (output_dir / "gaps_register.md").write_text(gaps_markdown(gaps, externals), encoding="utf-8")
 
     st = inv.get("stats", {})
     ctx = {
@@ -413,7 +501,7 @@ def build(paths: dict, output_dir: Path, sysname: str, model: str, use_llm: bool
         narr = templated_narratives(ctx)
 
     ctx["system_context"] = narr.get("system_context", "")
-    brd = assemble_brd(sysname, inv, parser, data, logic, rules, gaps, narr, diagrams_dir)
+    brd = assemble_brd(sysname, inv, parser, data, logic, rules, gaps, narr, diagrams_dir, externals)
     (output_dir / "brd.md").write_text(brd, encoding="utf-8")
     (output_dir / "brd_summary.md").write_text(brd_summary_md(sysname, ctx, rules, data, gaps),
                                                encoding="utf-8")
