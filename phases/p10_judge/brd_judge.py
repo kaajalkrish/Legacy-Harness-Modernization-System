@@ -245,10 +245,10 @@ def report_md(v: dict) -> str:
         L.append(f"| {d.capitalize()} | {s['score']}/5 | {s['rationale']} |")
     L += ["", "## Groundedness gate", ""]
     if v["groundedness_failures"]:
-        L.append(f"⚠ **{len(v['groundedness_failures'])} ungrounded reference(s)** "
+        L.append(f"**Failed** — {len(v['groundedness_failures'])} ungrounded reference(s) "
                  f"(accuracy floored to 2): {', '.join(v['groundedness_failures'])}")
     else:
-        L.append("✓ All BR / GAP / RS references in the BRD trace to the artifacts.")
+        L.append("**Passed** — every BR / TR / RS / GAP reference in the BRD traces to the artifacts.")
     L += ["", "## Consistency & completeness issues", ""]
     if v["consistency_issues"]:
         L.append("| Severity | Type | Message |")
@@ -256,7 +256,7 @@ def report_md(v: dict) -> str:
         for i in v["consistency_issues"]:
             L.append(f"| {i['severity'].upper()} | {i['type']} | {i['message']} |")
     else:
-        L.append("✓ No consistency issues found.")
+        L.append("**Passed** — no consistency issues found.")
     L += ["", "## Feedback for BRD Improvement", ""]
     if v["feedback"]:
         for f in v["feedback"]:

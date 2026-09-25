@@ -351,8 +351,7 @@ def business_name(field: str) -> str:
 def _values_text(literals: dict, limit: int = 6) -> str:
     items = [f"{k} = {str(v).strip()}" for k, v in list(literals.items())[:limit]]
     more = len(literals) - limit
-    s = "; ".join(items) + (f"; … (+{more} more)" if more > 0 else "")
-    return s if len(s) <= 400 else s[:397] + "…"
+    return "; ".join(items) + (f"; and {more} further defined values" if more > 0 else "")
 
 
 def _sentence(text: str) -> str:
@@ -374,7 +373,7 @@ def templated_rule(c: dict) -> dict:
                 + (f"; used by {', '.join(c.get('used_by', [])[:5])}." if c.get("used_by") else "."))
     else:
         stmt = _sentence(c["condition_text"])
-        name = stmt if len(stmt) <= 90 else stmt[:87].rstrip() + "…"
+        name = stmt
         desc = f"{VERB.get(c['category'], 'Check')} rule: “{stmt}”. Implemented in {where}."
     conf = {5: "confirmed", 4: "high", 3: "medium", 2: "low"}[c["signal_strength"]]
     return {"name": name, "description": desc, "confidence": conf,
@@ -538,12 +537,12 @@ def llm_enrichment(client, model: str, brief: dict, usage_acc: dict) -> dict:
 # Step 4 — assemble the catalogue
 # ---------------------------------------------------------------------------
 
-def _first_sentence(summary: str, limit: int = 80) -> str:
-    s = re.split(r"(?<=[a-z0-9\)])\.\s", (summary or "").strip(), maxsplit=1)[0].rstrip(".")
-    if len(s) <= limit:
-        return s
-    cut = s[:limit].rsplit(" ", 1)[0]
-    return cut.rstrip(",;:-") + "…"
+def _first_sentence(summary: str) -> str:
+    """Whole first sentence (never cut mid-way), minus a trailing parenthetical note."""
+    s = re.sub(r"\s+", " ", (summary or "").strip())
+    m = re.search(r"(?<!\be\.g)(?<!\bi\.e)(?<!\betc)\.(\s+[A-Z(]|$)", s)
+    s = s[:m.start()] if m else s.rstrip(".")
+    return re.sub(r"\s*\([^()]*\)\s*$", "", s).replace(" -- ", " — ").strip()
 
 
 def build_rules(classified: list[dict], candidates: list[dict], logic: dict,

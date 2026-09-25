@@ -446,7 +446,7 @@ def templated_narratives(f: dict, caps: list[dict], logic: dict, rules: dict) ->
     subsystems = _join(sorted(f["runtime_usage"])) or "no online or database subsystem"
     by_rules = sorted(logic.get("programs", []),
                       key=lambda p: -len(rules.get("rules_by_program", {}).get(p["program_id"], [])))
-    notable = [f"{p['program_id']} — {short_title(p.get('summary', ''))}"
+    notable = [f"{p['program_id']} — {short_title(p.get('summary', ''), 400)}"
                for p in by_rules[:4] if p.get("summary")]
     if f["capability_source"] == "ai":
         functions = "Its business capabilities are " + _join([c["name"] for c in caps]) + "."
@@ -506,7 +506,8 @@ def default_next_steps(f: dict) -> list[str]:
         steps.append(f"Resolve the {n_of(f['high_gaps'], 'high-severity gap')} in Chapter 9 before this "
                      f"document drives design or testing.")
     if f["sme_rules"]:
-        steps.append(f"Confirm the {n_of(f['sme_rules'], 'business rule')} marked ⚠ with the business owners.")
+        steps.append(f"Confirm the {n_of(f['sme_rules'], 'business rule')} labelled "
+                     f"'Pending business confirmation' with the business owners.")
     if f["gaps"] - f["high_gaps"]:
         steps.append(f"Work through the remaining {n_of(f['gaps'] - f['high_gaps'], 'gap')} and assumptions "
                      f"(missing definitions, ambiguous logic) with subject-matter experts.")
@@ -545,7 +546,7 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
     rbp = rules.get("rules_by_program", {})
     rules_by_id = {r["rule_id"]: r for r in rules.get("business_rules", [])}
     cap_of = {p: c["name"] for c in caps for p in c["programs"]}
-    conf_mark = {"confirmed": "✓", "high": "✓", "medium": "⚠", "low": "⚠ SME review"}
+    PENDING = "Pending business confirmation"
 
     def run_mode(pid):
         return RUN_MODE_LABEL.get(reg.get(pid, {}).get("subtype", "unknown"), "Unclassified")
@@ -599,7 +600,7 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
         w("| Program | Run mode | What it does | Rules |")
         w("|---|---|---|---|")
         for pid in c["programs"]:
-            w(f"| {pid} | {run_mode(pid)} | {cell(first_sentence(lmap.get(pid, {}).get('summary', '')))} | "
+            w(f"| {pid} | {run_mode(pid)} | {cell(short_title(lmap.get(pid, {}).get('summary', ''), 400))} | "
               f"{len(rbp.get(pid, []))} |")
         cap_rules = [r["rule_id"] for r in rules.get("business_rules", [])
                      if cap_of.get(r["primary_source"].get("program_id")
@@ -612,7 +613,8 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
     h2("4. Business Rules")
     w(f"{f['rules']} business rules were identified — decisions and domain constraints a business "
       f"owner can confirm. Program mechanics (loop control, screen handling, file status, flags) "
-      f"are listed separately in Chapter 8. Confidence: ✓ confirmed/high · ⚠ needs SME review.\n")
+      f"are listed separately in Chapter 8. Rules labelled *{PENDING}* were inferred with low "
+      f"confidence and should be confirmed by the business owner.\n")
     h3("4.1 Key business rules")
     key_rules = narr.get("key_rules") or default_key_rules(rules)
     has_why = any(k.get("why") for k in key_rules)
@@ -637,7 +639,8 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
             where = (src.get("program_id") or r.get("defined_in") or "") \
                 + (f", {src.get('paragraph')}" if src.get("paragraph") else "") \
                 + (f", line {src.get('line')}" if src.get("line") else "")
-            w(f"**{r['rule_id']} — {r['name']}** {conf_mark.get(r['confidence'], '')}  ")
+            w(f"**{r['rule_id']} — {r['name']}**"
+              + (f" — *{PENDING}*" if r.get("requires_sme_review") else "") + "  ")
             w(r.get("description", "") + "  ")
             w(f"*{r['category'].replace('_', ' ').title()} · {r['confidence']} confidence · "
               f"Source: {where}*\n")
@@ -668,7 +671,7 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
         for pid in c["programs"]:
             p = lmap.get(pid, {})
             fig += 1
-            w(f"#### {pid} — {first_sentence(p.get('summary', ''), 90) or run_mode(pid)}\n")
+            w(f"#### {pid} — {short_title(p.get('summary', ''), 400) or run_mode(pid)}\n")
             w(f"*{run_mode(pid)}"
               + (f" · {'/'.join(reg.get(pid, {}).get('runtime', []))}" if reg.get(pid, {}).get("runtime") else "")
               + f" · Complexity: {complexity_band(p.get('max_complexity', 0))}"
@@ -722,7 +725,7 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
     for e in eh[:15]:
         w(f"| {e.get('program_id', '')} | {e.get('paragraph', '') or ''} | {cell(e.get('condition_text', ''))[:80]} |")
     if len(eh) > 15:
-        w(f"| … | … | {len(eh) - 15} more in the rules artifact |")
+        w(f"| | | {len(eh) - 15} further checks of the same kind are listed in the rules artifact |")
     w("")
     h3("8.2 Technical conditions")
     tech = rules.get("technical_rules", [])
@@ -750,10 +753,10 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
     w("| Indicator | Value | Programs |")
     w("|---|---|---|")
     w(f"| GO TO transfers | {f['goto_edges']} | {len(f['unstructured_programs'])} programs with unstructured flow: "
-      f"{', '.join(f['unstructured_programs'][:10])}{' …' if len(f['unstructured_programs']) > 10 else ''} |")
+      f"{', '.join(f['unstructured_programs'])} |")
     w(f"| ALTER statements | {f['alter_statements']} | {', '.join(f['alter_programs']) or '—'} |")
     w(f"| High-complexity programs | {len(f['high_complexity_programs'])} | "
-      f"{', '.join(f['high_complexity_programs'][:12])} |")
+      f"{', '.join(f['high_complexity_programs'])} |")
     w(f"| Dead-code candidates (paragraphs) | {f['dead_code_candidates']} | — |")
     w(f"| Platform components to replace | {f['external_components']} | {_join(f['external_subsystems']) or '—'} |")
     w("")
@@ -797,8 +800,8 @@ def assemble_brd(f: dict, narr: dict, mode: str, inv, parser, data, logic, rules
             "| **Prepared by** | Legacy Modernization Harness — facts by static analysis; "
             f"narrative: {mode} |", "",
             "> Every fact, count and rule in this document is derived from the source code. "
-            "Items marked ⚠ need subject-matter-expert confirmation before the document is "
-            "treated as authoritative.\n", "---\n", "## Table of Contents\n"]
+            "Items labelled *Pending business confirmation* and the gaps in Chapter 9 need "
+            "subject-matter-expert review before the document is treated as authoritative.\n", "---\n", "## Table of Contents\n"]
     for level, title in toc:
         head.append(("" if level == 2 else "   ") + f"- [{title}](#{slug(title)})")
     head.append("\n---\n")
