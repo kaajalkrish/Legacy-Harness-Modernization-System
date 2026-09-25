@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "program_id": "COBTUPDT",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\app-transaction-type-db2\\cbl\\COBTUPDT.cbl",
+    "total_lines": 237
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 24,
+    "program_id": "COBTUPDT"
+  },
+  "environment_division": {
+    "start_line": 25,
+    "end_line": 35,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 36,
+    "end_line": 79,
+    "file_section": {
+      "entries": [
+        {
+          "type": "FD",
+          "file_name": "TR-RECORD",
+          "line": 39,
+          "end_line": 47,
+          "recording_mode": null,
+          "record_contains": null,
+          "block_contains": null
+        }
+      ],
+      "start_line": 38
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 5,
+          "name": "LASTREC",
+          "line": 58,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "WORKING-VARIABLES",
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-RETURN-MSG",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-MISC-VARS",
+          "line": 64,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-VAR-SQLCODE",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "----9",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-INF-STATUS",
+          "line": 67,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-INF-STAT1",
+              "line": 68,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-INF-STAT2",
+              "line": 69,
+              "section": "WORKING-STORAGE",
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-INPUT-REC",
+          "line": 71,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "INPUT-REC-TYPE",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INPUT-REC-NUMBER",
+              "line": 74,
+              "section": "WORKING-STORAGE",
+              "pic": "X(2)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INPUT-REC-DESC",
+              "line": 76,
+              "section": "WORKING-STORAGE",
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 48
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 80,
+    "end_line": 237,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0001-OPEN-FILES",
+        "section": null,
+        "start_line": 82,
+        "end_line": 90,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "1001-READ-NEXT-RECORDS",
+        "section": null,
+        "start_line": 91,
+        "end_line": 99,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": false
+      },
+      {
+        "name": "1002-READ-RECORDS",
+        "section": null,
+        "start_line": 100,
+        "end_line": 108,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1003-TREAT-RECORD",
+        "section": null,
+        "start_line": 109,
+        "end_line": 131,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "10031-INSERT-DB",
+        "section": null,
+        "start_line": 132,
+        "end_line": 165,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "10032-UPDATE-DB",
+        "section": null,
+        "start_line": 166,
+        "end_line": 195,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "10033-DELETE-DB",
+        "section": null,
+        "start_line": 196,
+        "end_line": 229,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9999-ABEND",
+        "section": null,
+        "start_line": 230,
+        "end_line": 233,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2001-CLOSE-STOP",
+        "section": null,
+        "start_line": 234,
+        "end_line": 237,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "STOP RUN",
+        "line": 99
+      }
+    ]
+  },
+  "copy_stubs": [],
+  "control_flow_graph": {
+    "entry_points": [
+      "0001-OPEN-FILES"
+    ],
+    "terminal_nodes": [
+      "1001-READ-NEXT-RECORDS"
+    ],
+    "nodes": [
+      {
+        "id": "0001-OPEN-FILES",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 82,
+        "end_line": 90,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1001-READ-NEXT-RECORDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 91,
+        "end_line": 99,
+        "is_entry_point": false,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1002-READ-RECORDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 100,
+        "end_line": 108,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1003-TREAT-RECORD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 109,
+        "end_line": 131,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "10031-INSERT-DB",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 132,
+        "end_line": 165,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "10032-UPDATE-DB",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 166,
+        "end_line": 195,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "10033-DELETE-DB",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 196,
+        "end_line": 229,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9999-ABEND",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 230,
+        "end_line": 233,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2001-CLOSE-STOP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 234,
+        "end_line": 237,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "1001-READ-NEXT-RECORDS",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 92,
+        "unstructured": false,
+        "to": "1001-READ-NEXT-RECORDS",
+        "inline": true,
+        "condition_text": "PERFORM 1002-READ-RECORDS PERFORM UNTIL LASTREC = 'Y' PERFORM 1003-TREAT-RECORD PERFORM 1002-READ-RECORDS END-PERFORM.",
+        "loop_start_line": 92,
+        "loop_end_line": 96
+      },
+      {
+        "from": "1001-READ-NEXT-RECORDS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 97,
+        "unstructured": false,
+        "to": "2001-CLOSE-STOP"
+      },
+      {
+        "from": "1003-TREAT-RECORD",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 110,
+        "unstructured": false,
+        "to": "10031-INSERT-DB"
+      },
+      {
+        "from": "10031-INSERT-DB",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 149,
+        "unstructured": false,
+        "to": "9999-ABEND"
+      },
+      {
+        "from": "10032-UPDATE-DB",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 171,
+        "unstructured": false,
+        "to": "9999-ABEND"
+      },
+      {
+        "from": "10033-DELETE-DB",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 205,
+        "unstructured": false,
+        "to": "9999-ABEND"
+      }
+    ],
+    "dead_code_candidates": [
+      "1002-READ-RECORDS",
+      "1003-TREAT-RECORD",
+      "10032-UPDATE-DB",
+      "10033-DELETE-DB"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

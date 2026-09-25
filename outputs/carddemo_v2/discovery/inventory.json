@@ -1,0 +1,7323 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:23:02Z",
+    "repo_root": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo",
+    "agent_version": "1_inventory_python@1.0",
+    "total_files_scanned": 192
+  },
+  "stats": {
+    "programs": 44,
+    "batch_programs": 17,
+    "online_programs": 25,
+    "common_programs": 2,
+    "test_programs": 0,
+    "utility_programs": 0,
+    "unknown_programs": 0,
+    "copybooks": 62,
+    "jcl_jobs": 55,
+    "bms_maps": 21,
+    "db2_includes": 0,
+    "assembler_modules": 2,
+    "call_edges_total": 415,
+    "call_edges_resolved": 305,
+    "call_edges_unresolved": 110,
+    "dynamic_calls": 0,
+    "copy_edges": 346,
+    "cics_link_edges": 0,
+    "cics_xctl_edges": 0,
+    "sql_include_edges": 7
+  },
+  "file_registry": [
+    {
+      "id": "CBPAUP0C",
+      "program_id": "CBPAUP0C",
+      "path": "app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 15218,
+      "classification_basis": "run by job stream app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+      "runtime": [
+        "IMS"
+      ]
+    },
+    {
+      "id": "COPAUA0C",
+      "program_id": "COPAUA0C",
+      "path": "app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 82463,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "IMS",
+        "MQ"
+      ]
+    },
+    {
+      "id": "COPAUS0C",
+      "program_id": "COPAUS0C",
+      "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 45075,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ]
+    },
+    {
+      "id": "COPAUS1C",
+      "program_id": "COPAUS1C",
+      "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 23604,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ]
+    },
+    {
+      "id": "COPAUS2C",
+      "program_id": "COPAUS2C",
+      "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 19294,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ]
+    },
+    {
+      "id": "DBUNLDGS",
+      "program_id": "DBUNLDGS",
+      "path": "app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 29561,
+      "classification_basis": "run by job stream app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+      "runtime": [
+        "IMS"
+      ]
+    },
+    {
+      "id": "PAUDBLOD",
+      "program_id": "PAUDBLOD",
+      "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 29807,
+      "classification_basis": "run by job stream app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+      "runtime": [
+        "IMS"
+      ]
+    },
+    {
+      "id": "PAUDBUNL",
+      "program_id": "PAUDBUNL",
+      "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "relative_path": "app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 25543,
+      "classification_basis": "run by job stream app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+      "runtime": [
+        "IMS"
+      ]
+    },
+    {
+      "id": "COBTUPDT",
+      "program_id": "COBTUPDT",
+      "path": "app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "relative_path": "app/app-transaction-type-db2/cbl/COBTUPDT.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 19434,
+      "classification_basis": "run by job stream app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "runtime": [
+        "DB2"
+      ]
+    },
+    {
+      "id": "COTRTLIC",
+      "program_id": "COTRTLIC",
+      "path": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "relative_path": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 87627,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ]
+    },
+    {
+      "id": "COTRTUPC",
+      "program_id": "COTRTUPC",
+      "path": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "relative_path": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 139564,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ]
+    },
+    {
+      "id": "COACCT01",
+      "program_id": "COACCT01",
+      "path": "app/app-vsam-mq/cbl/COACCT01.cbl",
+      "relative_path": "app/app-vsam-mq/cbl/COACCT01.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 50840,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ]
+    },
+    {
+      "id": "CODATE01",
+      "program_id": "CODATE01",
+      "path": "app/app-vsam-mq/cbl/CODATE01.cbl",
+      "relative_path": "app/app-vsam-mq/cbl/CODATE01.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 42968,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ]
+    },
+    {
+      "id": "CBACT01C",
+      "program_id": "CBACT01C",
+      "path": "app/cbl/CBACT01C.cbl",
+      "relative_path": "app/cbl/CBACT01C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 17880,
+      "classification_basis": "run by job stream app/jcl/READACCT.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBACT02C",
+      "program_id": "CBACT02C",
+      "path": "app/cbl/CBACT02C.cbl",
+      "relative_path": "app/cbl/CBACT02C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 14274,
+      "classification_basis": "run by job stream app/jcl/READCARD.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBACT03C",
+      "program_id": "CBACT03C",
+      "path": "app/cbl/CBACT03C.cbl",
+      "relative_path": "app/cbl/CBACT03C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 14279,
+      "classification_basis": "run by job stream app/jcl/READXREF.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBACT04C",
+      "program_id": "CBACT04C",
+      "path": "app/cbl/CBACT04C.cbl",
+      "relative_path": "app/cbl/CBACT04C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 53131,
+      "classification_basis": "run by job stream app/jcl/INTCALC.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBCUS01C",
+      "program_id": "CBCUS01C",
+      "path": "app/cbl/CBCUS01C.cbl",
+      "relative_path": "app/cbl/CBCUS01C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 7092,
+      "classification_basis": "run by job stream app/jcl/READCUST.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBEXPORT",
+      "program_id": "CBEXPORT",
+      "path": "app/cbl/CBEXPORT.cbl",
+      "relative_path": "app/cbl/CBEXPORT.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 24779,
+      "classification_basis": "run by job stream app/jcl/CBEXPORT.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBIMPORT",
+      "program_id": "CBIMPORT",
+      "path": "app/cbl/CBIMPORT.cbl",
+      "relative_path": "app/cbl/CBIMPORT.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 20726,
+      "classification_basis": "run by job stream app/jcl/CBIMPORT.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBSTM03A",
+      "program_id": "CBSTM03A",
+      "path": "app/cbl/CBSTM03A.CBL",
+      "relative_path": "app/cbl/CBSTM03A.CBL",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 36498,
+      "classification_basis": "run by job stream app/jcl/CREASTMT.JCL",
+      "runtime": []
+    },
+    {
+      "id": "CBSTM03B",
+      "program_id": "CBSTM03B",
+      "path": "app/cbl/CBSTM03B.CBL",
+      "relative_path": "app/cbl/CBSTM03B.CBL",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 7213,
+      "classification_basis": "called by CBSTM03A",
+      "runtime": []
+    },
+    {
+      "id": "CBTRN01C",
+      "program_id": "CBTRN01C",
+      "path": "app/cbl/CBTRN01C.cbl",
+      "relative_path": "app/cbl/CBTRN01C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 18461,
+      "classification_basis": "STOP RUN / file I/O without CICS",
+      "runtime": []
+    },
+    {
+      "id": "CBTRN02C",
+      "program_id": "CBTRN02C",
+      "path": "app/cbl/CBTRN02C.cbl",
+      "relative_path": "app/cbl/CBTRN02C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 59621,
+      "classification_basis": "run by job stream app/jcl/POSTTRAN.jcl",
+      "runtime": []
+    },
+    {
+      "id": "CBTRN03C",
+      "program_id": "CBTRN03C",
+      "path": "app/cbl/CBTRN03C.cbl",
+      "relative_path": "app/cbl/CBTRN03C.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 52888,
+      "classification_basis": "run by job stream app/jcl/TRANREPT.jcl",
+      "runtime": []
+    },
+    {
+      "id": "COACTUPC",
+      "program_id": "COACTUPC",
+      "path": "app/cbl/COACTUPC.cbl",
+      "relative_path": "app/cbl/COACTUPC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 186699,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COACTVWC",
+      "program_id": "COACTVWC",
+      "path": "app/cbl/COACTVWC.cbl",
+      "relative_path": "app/cbl/COACTVWC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 75705,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COADM01C",
+      "program_id": "COADM01C",
+      "path": "app/cbl/COADM01C.cbl",
+      "relative_path": "app/cbl/COADM01C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 23024,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COBIL00C",
+      "program_id": "COBIL00C",
+      "path": "app/cbl/COBIL00C.cbl",
+      "relative_path": "app/cbl/COBIL00C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 23998,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COBSWAIT",
+      "program_id": "COBSWAIT",
+      "path": "app/cbl/COBSWAIT.cbl",
+      "relative_path": "app/cbl/COBSWAIT.cbl",
+      "type": "program",
+      "subtype": "batch",
+      "size_bytes": 2020,
+      "classification_basis": "run by job stream app/jcl/WAITSTEP.jcl",
+      "runtime": []
+    },
+    {
+      "id": "COCRDLIC",
+      "program_id": "COCRDLIC",
+      "path": "app/cbl/COCRDLIC.cbl",
+      "relative_path": "app/cbl/COCRDLIC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 118835,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COCRDSLC",
+      "program_id": "COCRDSLC",
+      "path": "app/cbl/COCRDSLC.cbl",
+      "relative_path": "app/cbl/COCRDSLC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 72195,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COCRDUPC",
+      "program_id": "COCRDUPC",
+      "path": "app/cbl/COCRDUPC.cbl",
+      "relative_path": "app/cbl/COCRDUPC.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 127521,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COMEN01C",
+      "program_id": "COMEN01C",
+      "path": "app/cbl/COMEN01C.cbl",
+      "relative_path": "app/cbl/COMEN01C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 12769,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "CORPT00C",
+      "program_id": "CORPT00C",
+      "path": "app/cbl/CORPT00C.cbl",
+      "relative_path": "app/cbl/CORPT00C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 28951,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COSGN00C",
+      "program_id": "COSGN00C",
+      "path": "app/cbl/COSGN00C.cbl",
+      "relative_path": "app/cbl/COSGN00C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 10548,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COTRN00C",
+      "program_id": "COTRN00C",
+      "path": "app/cbl/COTRN00C.cbl",
+      "relative_path": "app/cbl/COTRN00C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 29969,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COTRN01C",
+      "program_id": "COTRN01C",
+      "path": "app/cbl/COTRN01C.cbl",
+      "relative_path": "app/cbl/COTRN01C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 14574,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COTRN02C",
+      "program_id": "COTRN02C",
+      "path": "app/cbl/COTRN02C.cbl",
+      "relative_path": "app/cbl/COTRN02C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 34448,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COUSR00C",
+      "program_id": "COUSR00C",
+      "path": "app/cbl/COUSR00C.cbl",
+      "relative_path": "app/cbl/COUSR00C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 29980,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COUSR01C",
+      "program_id": "COUSR01C",
+      "path": "app/cbl/COUSR01C.cbl",
+      "relative_path": "app/cbl/COUSR01C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 12870,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COUSR02C",
+      "program_id": "COUSR02C",
+      "path": "app/cbl/COUSR02C.cbl",
+      "relative_path": "app/cbl/COUSR02C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 18025,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "COUSR03C",
+      "program_id": "COUSR03C",
+      "path": "app/cbl/COUSR03C.cbl",
+      "relative_path": "app/cbl/COUSR03C.cbl",
+      "type": "program",
+      "subtype": "online",
+      "size_bytes": 15397,
+      "classification_basis": "contains EXEC CICS",
+      "runtime": [
+        "CICS"
+      ]
+    },
+    {
+      "id": "CSUTLDTC",
+      "program_id": "CSUTLDTC",
+      "path": "app/cbl/CSUTLDTC.cbl",
+      "relative_path": "app/cbl/CSUTLDTC.cbl",
+      "type": "program",
+      "subtype": "common",
+      "size_bytes": 11765,
+      "classification_basis": "called by CORPT00C, COTRN02C",
+      "runtime": []
+    }
+  ],
+  "copybook_registry": [
+    {
+      "id": "CCPAUERY",
+      "path": "app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C"
+      ]
+    },
+    {
+      "id": "CCPAURLY",
+      "path": "app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C"
+      ]
+    },
+    {
+      "id": "CCPAURQY",
+      "path": "app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C"
+      ]
+    },
+    {
+      "id": "CIPAUDTY",
+      "path": "app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "COPAUS2C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "id": "CIPAUSMY",
+      "path": "app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "id": "IMSFUNCS",
+      "path": "app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy",
+      "type": "copybook",
+      "used_by": [
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "id": "PADFLPCB",
+      "path": "app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY",
+      "type": "copybook",
+      "used_by": [
+        "DBUNLDGS"
+      ]
+    },
+    {
+      "id": "PASFLPCB",
+      "path": "app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY",
+      "type": "copybook",
+      "used_by": [
+        "DBUNLDGS"
+      ]
+    },
+    {
+      "id": "PAUTBPCB",
+      "path": "app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY",
+      "type": "copybook",
+      "used_by": [
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "id": "COPAU00",
+      "path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C"
+      ]
+    },
+    {
+      "id": "COPAU01",
+      "path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy",
+      "relative_path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS1C"
+      ]
+    },
+    {
+      "id": "CSDB2RPY",
+      "path": "app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+      "relative_path": "app/app-transaction-type-db2/cpy/CSDB2RPY.cpy",
+      "type": "copybook",
+      "used_by": []
+    },
+    {
+      "id": "CSDB2RWY",
+      "path": "app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+      "relative_path": "app/app-transaction-type-db2/cpy/CSDB2RWY.cpy",
+      "type": "copybook",
+      "used_by": []
+    },
+    {
+      "id": "COTRTLI",
+      "path": "app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy",
+      "relative_path": "app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTLIC"
+      ]
+    },
+    {
+      "id": "COTRTUP",
+      "path": "app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy",
+      "relative_path": "app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTUPC"
+      ]
+    },
+    {
+      "id": "COADM02Y",
+      "path": "app/cpy/COADM02Y.cpy",
+      "relative_path": "app/cpy/COADM02Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COADM01C"
+      ]
+    },
+    {
+      "id": "COCOM01Y",
+      "path": "app/cpy/COCOM01Y.cpy",
+      "relative_path": "app/cpy/COCOM01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "id": "CODATECN",
+      "path": "app/cpy/CODATECN.cpy",
+      "relative_path": "app/cpy/CODATECN.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBACT01C"
+      ]
+    },
+    {
+      "id": "COMEN02Y",
+      "path": "app/cpy/COMEN02Y.cpy",
+      "relative_path": "app/cpy/COMEN02Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COMEN01C"
+      ]
+    },
+    {
+      "id": "COSTM01",
+      "path": "app/cpy/COSTM01.CPY",
+      "relative_path": "app/cpy/COSTM01.CPY",
+      "type": "copybook",
+      "used_by": [
+        "CBSTM03A"
+      ]
+    },
+    {
+      "id": "COTTL01Y",
+      "path": "app/cpy/COTTL01Y.cpy",
+      "relative_path": "app/cpy/COTTL01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "id": "CSDAT01Y",
+      "path": "app/cpy/CSDAT01Y.cpy",
+      "relative_path": "app/cpy/CSDAT01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "id": "CSLKPCDY",
+      "path": "app/cpy/CSLKPCDY.cpy",
+      "relative_path": "app/cpy/CSLKPCDY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COACTUPC"
+      ]
+    },
+    {
+      "id": "CSMSG01Y",
+      "path": "app/cpy/CSMSG01Y.cpy",
+      "relative_path": "app/cpy/CSMSG01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "id": "CSMSG02Y",
+      "path": "app/cpy/CSMSG02Y.cpy",
+      "relative_path": "app/cpy/CSMSG02Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "CSSETATY",
+      "path": "app/cpy/CSSETATY.cpy",
+      "relative_path": "app/cpy/CSSETATY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC",
+        "COACTUPC"
+      ]
+    },
+    {
+      "id": "CSSTRPFY",
+      "path": "app/cpy/CSSTRPFY.cpy",
+      "relative_path": "app/cpy/CSSTRPFY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "CSUSR01Y",
+      "path": "app/cpy/CSUSR01Y.cpy",
+      "relative_path": "app/cpy/CSUSR01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COSGN00C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "id": "CSUTLDPY",
+      "path": "app/cpy/CSUTLDPY.cpy",
+      "relative_path": "app/cpy/CSUTLDPY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COACTUPC"
+      ]
+    },
+    {
+      "id": "CSUTLDWY",
+      "path": "app/cpy/CSUTLDWY.cpy",
+      "relative_path": "app/cpy/CSUTLDWY.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTUPC",
+        "COACTUPC"
+      ]
+    },
+    {
+      "id": "CUSTREC",
+      "path": "app/cpy/CUSTREC.cpy",
+      "relative_path": "app/cpy/CUSTREC.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBSTM03A"
+      ]
+    },
+    {
+      "id": "CVACT01Y",
+      "path": "app/cpy/CVACT01Y.cpy",
+      "relative_path": "app/cpy/CVACT01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C",
+        "COPAUS0C",
+        "COACCT01",
+        "CBACT01C",
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "COACTUPC",
+        "COACTVWC",
+        "COBIL00C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "id": "CVACT02Y",
+      "path": "app/cpy/CVACT02Y.cpy",
+      "relative_path": "app/cpy/CVACT02Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUS0C",
+        "COTRTLIC",
+        "CBACT02C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "CVACT03Y",
+      "path": "app/cpy/CVACT03Y.cpy",
+      "relative_path": "app/cpy/CVACT03Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C",
+        "COPAUS0C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C",
+        "COACTUPC",
+        "COACTVWC",
+        "COBIL00C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "id": "CVCRD01Y",
+      "path": "app/cpy/CVCRD01Y.cpy",
+      "relative_path": "app/cpy/CVCRD01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "CVCUS01Y",
+      "path": "app/cpy/CVCUS01Y.cpy",
+      "relative_path": "app/cpy/CVCUS01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "COPAUA0C",
+        "COPAUS0C",
+        "CBCUS01C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "CVEXPORT",
+      "path": "app/cpy/CVEXPORT.cpy",
+      "relative_path": "app/cpy/CVEXPORT.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBEXPORT",
+        "CBIMPORT"
+      ]
+    },
+    {
+      "id": "CVTRA01Y",
+      "path": "app/cpy/CVTRA01Y.cpy",
+      "relative_path": "app/cpy/CVTRA01Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBACT04C",
+        "CBTRN02C"
+      ]
+    },
+    {
+      "id": "CVTRA02Y",
+      "path": "app/cpy/CVTRA02Y.cpy",
+      "relative_path": "app/cpy/CVTRA02Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBACT04C"
+      ]
+    },
+    {
+      "id": "CVTRA03Y",
+      "path": "app/cpy/CVTRA03Y.cpy",
+      "relative_path": "app/cpy/CVTRA03Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "id": "CVTRA04Y",
+      "path": "app/cpy/CVTRA04Y.cpy",
+      "relative_path": "app/cpy/CVTRA04Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "id": "CVTRA05Y",
+      "path": "app/cpy/CVTRA05Y.cpy",
+      "relative_path": "app/cpy/CVTRA05Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C",
+        "COBIL00C",
+        "CORPT00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "id": "CVTRA06Y",
+      "path": "app/cpy/CVTRA06Y.cpy",
+      "relative_path": "app/cpy/CVTRA06Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBTRN01C",
+        "CBTRN02C"
+      ]
+    },
+    {
+      "id": "CVTRA07Y",
+      "path": "app/cpy/CVTRA07Y.cpy",
+      "relative_path": "app/cpy/CVTRA07Y.cpy",
+      "type": "copybook",
+      "used_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "id": "UNUSED1Y",
+      "path": "app/cpy/UNUSED1Y.cpy",
+      "relative_path": "app/cpy/UNUSED1Y.cpy",
+      "type": "copybook",
+      "used_by": []
+    },
+    {
+      "id": "COACTUP",
+      "path": "app/cpy-bms/COACTUP.CPY",
+      "relative_path": "app/cpy-bms/COACTUP.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COACTUPC"
+      ]
+    },
+    {
+      "id": "COACTVW",
+      "path": "app/cpy-bms/COACTVW.CPY",
+      "relative_path": "app/cpy-bms/COACTVW.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COACTVWC"
+      ]
+    },
+    {
+      "id": "COADM01",
+      "path": "app/cpy-bms/COADM01.CPY",
+      "relative_path": "app/cpy-bms/COADM01.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COADM01C"
+      ]
+    },
+    {
+      "id": "COBIL00",
+      "path": "app/cpy-bms/COBIL00.CPY",
+      "relative_path": "app/cpy-bms/COBIL00.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COBIL00C"
+      ]
+    },
+    {
+      "id": "COCRDLI",
+      "path": "app/cpy-bms/COCRDLI.CPY",
+      "relative_path": "app/cpy-bms/COCRDLI.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COCRDLIC"
+      ]
+    },
+    {
+      "id": "COCRDSL",
+      "path": "app/cpy-bms/COCRDSL.CPY",
+      "relative_path": "app/cpy-bms/COCRDSL.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COCRDSLC"
+      ]
+    },
+    {
+      "id": "COCRDUP",
+      "path": "app/cpy-bms/COCRDUP.CPY",
+      "relative_path": "app/cpy-bms/COCRDUP.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COCRDUPC"
+      ]
+    },
+    {
+      "id": "COMEN01",
+      "path": "app/cpy-bms/COMEN01.CPY",
+      "relative_path": "app/cpy-bms/COMEN01.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COMEN01C"
+      ]
+    },
+    {
+      "id": "CORPT00",
+      "path": "app/cpy-bms/CORPT00.CPY",
+      "relative_path": "app/cpy-bms/CORPT00.CPY",
+      "type": "copybook",
+      "used_by": [
+        "CORPT00C"
+      ]
+    },
+    {
+      "id": "COSGN00",
+      "path": "app/cpy-bms/COSGN00.CPY",
+      "relative_path": "app/cpy-bms/COSGN00.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COSGN00C"
+      ]
+    },
+    {
+      "id": "COTRN00",
+      "path": "app/cpy-bms/COTRN00.CPY",
+      "relative_path": "app/cpy-bms/COTRN00.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COTRN00C"
+      ]
+    },
+    {
+      "id": "COTRN01",
+      "path": "app/cpy-bms/COTRN01.CPY",
+      "relative_path": "app/cpy-bms/COTRN01.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COTRN01C"
+      ]
+    },
+    {
+      "id": "COTRN02",
+      "path": "app/cpy-bms/COTRN02.CPY",
+      "relative_path": "app/cpy-bms/COTRN02.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COTRN02C"
+      ]
+    },
+    {
+      "id": "COUSR00",
+      "path": "app/cpy-bms/COUSR00.CPY",
+      "relative_path": "app/cpy-bms/COUSR00.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COUSR00C"
+      ]
+    },
+    {
+      "id": "COUSR01",
+      "path": "app/cpy-bms/COUSR01.CPY",
+      "relative_path": "app/cpy-bms/COUSR01.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COUSR01C"
+      ]
+    },
+    {
+      "id": "COUSR02",
+      "path": "app/cpy-bms/COUSR02.CPY",
+      "relative_path": "app/cpy-bms/COUSR02.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COUSR02C"
+      ]
+    },
+    {
+      "id": "COUSR03",
+      "path": "app/cpy-bms/COUSR03.CPY",
+      "relative_path": "app/cpy-bms/COUSR03.CPY",
+      "type": "copybook",
+      "used_by": [
+        "COUSR03C"
+      ]
+    }
+  ],
+  "jcl_registry": [
+    {
+      "id": "CBPAUP0J",
+      "path": "app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+      "relative_path": "app/app-authorization-ims-db2-mq/jcl/CBPAUP0J.jcl",
+      "job_name": "CBPAUP0J",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "DFSRRC00",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DBPAUTP0",
+      "path": "app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl",
+      "relative_path": "app/app-authorization-ims-db2-mq/jcl/DBPAUTP0.jcl",
+      "job_name": "DBPAUTP0",
+      "steps": [
+        {
+          "step_name": "STEPDEL",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "UNLOAD",
+          "program": "DFSRRC00",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "LOADPADB",
+      "path": "app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+      "relative_path": "app/app-authorization-ims-db2-mq/jcl/LOADPADB.JCL",
+      "job_name": "LOADPADB",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "DFSRRC00",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "UNLDGSAM",
+      "path": "app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+      "relative_path": "app/app-authorization-ims-db2-mq/jcl/UNLDGSAM.JCL",
+      "job_name": "UNLDGSAM",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "DFSRRC00",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "UNLDPADB",
+      "path": "app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+      "relative_path": "app/app-authorization-ims-db2-mq/jcl/UNLDPADB.JCL",
+      "job_name": "UNLDPADB",
+      "steps": [
+        {
+          "step_name": "STEP0",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP01",
+          "program": "DFSRRC00",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "CREADB2",
+      "path": "app/app-transaction-type-db2/jcl/CREADB21.jcl",
+      "relative_path": "app/app-transaction-type-db2/jcl/CREADB21.jcl",
+      "job_name": "CREADB2",
+      "steps": [
+        {
+          "step_name": "FREEPLN",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        },
+        {
+          "step_name": "CRCRDDB",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        },
+        {
+          "step_name": "LDTTYPE",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "RUNTEP2",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        },
+        {
+          "step_name": "LDTCCAT",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "MNTTRDB2",
+      "path": "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "relative_path": "app/app-transaction-type-db2/jcl/MNTTRDB2.jcl",
+      "job_name": "MNTTRDB2",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "TRANEXTR",
+      "path": "app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+      "relative_path": "app/app-transaction-type-db2/jcl/TRANEXTR.jcl",
+      "job_name": "TRANEXTR",
+      "steps": [
+        {
+          "step_name": "STEP10",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP20",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP30",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP40",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        },
+        {
+          "step_name": "STEP50",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "ACCTFILE",
+      "path": "app/jcl/ACCTFILE.jcl",
+      "relative_path": "app/jcl/ACCTFILE.jcl",
+      "job_name": "ACCTFILE",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "CARDFILE",
+      "path": "app/jcl/CARDFILE.jcl",
+      "relative_path": "app/jcl/CARDFILE.jcl",
+      "job_name": "CARDFILE",
+      "steps": [
+        {
+          "step_name": "CLCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP40",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP50",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP60",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "OPCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CBADMCDJ",
+      "path": "app/jcl/CBADMCDJ.jcl",
+      "relative_path": "app/jcl/CBADMCDJ.jcl",
+      "job_name": "CBADMCDJ",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "DFHCSDUP",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CBEXPORT",
+      "path": "app/jcl/CBEXPORT.jcl",
+      "relative_path": "app/jcl/CBEXPORT.jcl",
+      "job_name": "CBEXPORT",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP02",
+          "program": "CBEXPORT",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CBIMPORT",
+      "path": "app/jcl/CBIMPORT.jcl",
+      "relative_path": "app/jcl/CBIMPORT.jcl",
+      "job_name": "CBIMPORT",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "CBIMPORT",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CLOSEFIL",
+      "path": "app/jcl/CLOSEFIL.jcl",
+      "relative_path": "app/jcl/CLOSEFIL.jcl",
+      "job_name": "CLOSEFIL",
+      "steps": [
+        {
+          "step_name": "CLCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "COMBTRAN",
+      "path": "app/jcl/COMBTRAN.jcl",
+      "relative_path": "app/jcl/COMBTRAN.jcl",
+      "job_name": "COMBTRAN",
+      "steps": [
+        {
+          "step_name": "STEP05R",
+          "program": "SORT",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "CREASTMT",
+      "path": "app/jcl/CREASTMT.JCL",
+      "relative_path": "app/jcl/CREASTMT.JCL",
+      "job_name": "CREASTMT",
+      "steps": [
+        {
+          "step_name": "DELDEF01",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP010",
+          "program": "SORT",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP020",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP030",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP040",
+          "program": "CBSTM03A",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CUSTFILE",
+      "path": "app/jcl/CUSTFILE.jcl",
+      "relative_path": "app/jcl/CUSTFILE.jcl",
+      "job_name": "CUSTFILE",
+      "steps": [
+        {
+          "step_name": "CLCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "OPCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "DALYREJS",
+      "path": "app/jcl/DALYREJS.jcl",
+      "relative_path": "app/jcl/DALYREJS.jcl",
+      "job_name": "DALYREJS",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DEFCUST",
+      "path": "app/jcl/DEFCUST.jcl",
+      "relative_path": "app/jcl/DEFCUST.jcl",
+      "job_name": "DEFCUST",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DEFGDGB",
+      "path": "app/jcl/DEFGDGB.jcl",
+      "relative_path": "app/jcl/DEFGDGB.jcl",
+      "job_name": "DEFGDGB",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DEFGDGD",
+      "path": "app/jcl/DEFGDGD.jcl",
+      "relative_path": "app/jcl/DEFGDGD.jcl",
+      "job_name": "DEFGDGD",
+      "steps": [
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP20",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP30",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP40",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP50",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP60",
+          "program": "IEBGENER",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DISCGRP",
+      "path": "app/jcl/DISCGRP.jcl",
+      "relative_path": "app/jcl/DISCGRP.jcl",
+      "job_name": "DISCGRP",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "DUSRSECJ",
+      "path": "app/jcl/DUSRSECJ.jcl",
+      "relative_path": "app/jcl/DUSRSECJ.jcl",
+      "job_name": "DUSRSECJ",
+      "steps": [
+        {
+          "step_name": "PREDEL",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP01",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP02",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP03",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "ESDSRRDS",
+      "path": "app/jcl/ESDSRRDS.jcl",
+      "relative_path": "app/jcl/ESDSRRDS.jcl",
+      "job_name": "ESDSRRDS",
+      "steps": [
+        {
+          "step_name": "PREDEL",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP01",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP02",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP03",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP04",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "FTPJCLS",
+      "path": "app/jcl/FTPJCL.JCL",
+      "relative_path": "app/jcl/FTPJCL.JCL",
+      "job_name": "FTPJCLS",
+      "steps": [
+        {
+          "step_name": "STEP1",
+          "program": "FTP",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "INTCALC",
+      "path": "app/jcl/INTCALC.jcl",
+      "relative_path": "app/jcl/INTCALC.jcl",
+      "job_name": "INTCALC",
+      "steps": [
+        {
+          "step_name": "STEP15",
+          "program": "CBACT04C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "INTRDRJ1",
+      "path": "app/jcl/INTRDRJ1.JCL",
+      "relative_path": "app/jcl/INTRDRJ1.JCL",
+      "job_name": "INTRDRJ1",
+      "steps": [
+        {
+          "step_name": "IDCAMS",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP01",
+          "program": "IEBGENER",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "INTRDRJ2",
+      "path": "app/jcl/INTRDRJ2.JCL",
+      "relative_path": "app/jcl/INTRDRJ2.JCL",
+      "job_name": "INTRDRJ2",
+      "steps": [
+        {
+          "step_name": "IDCAMS",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "OPENFIL",
+      "path": "app/jcl/OPENFIL.jcl",
+      "relative_path": "app/jcl/OPENFIL.jcl",
+      "job_name": "OPENFIL",
+      "steps": [
+        {
+          "step_name": "OPCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "POSTTRAN",
+      "path": "app/jcl/POSTTRAN.jcl",
+      "relative_path": "app/jcl/POSTTRAN.jcl",
+      "job_name": "POSTTRAN",
+      "steps": [
+        {
+          "step_name": "STEP15",
+          "program": "CBTRN02C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "PRTCATBL",
+      "path": "app/jcl/PRTCATBL.jcl",
+      "relative_path": "app/jcl/PRTCATBL.jcl",
+      "job_name": "PRTCATBL",
+      "steps": [
+        {
+          "step_name": "DELDEF",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10R",
+          "program": "SORT",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "READACCT",
+      "path": "app/jcl/READACCT.jcl",
+      "relative_path": "app/jcl/READACCT.jcl",
+      "job_name": "READACCT",
+      "steps": [
+        {
+          "step_name": "PREDEL",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "CBACT01C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "READCARD",
+      "path": "app/jcl/READCARD.jcl",
+      "relative_path": "app/jcl/READCARD.jcl",
+      "job_name": "READCARD",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "CBACT02C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "READCUST",
+      "path": "app/jcl/READCUST.jcl",
+      "relative_path": "app/jcl/READCUST.jcl",
+      "job_name": "READCUST",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "CBCUS01C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "READXREF",
+      "path": "app/jcl/READXREF.jcl",
+      "relative_path": "app/jcl/READXREF.jcl",
+      "job_name": "READXREF",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "CBACT03C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "REPTFILE",
+      "path": "app/jcl/REPTFILE.jcl",
+      "relative_path": "app/jcl/REPTFILE.jcl",
+      "job_name": "REPTFILE",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TCATBALF",
+      "path": "app/jcl/TCATBALF.jcl",
+      "relative_path": "app/jcl/TCATBALF.jcl",
+      "job_name": "TCATBALF",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TRANBKP",
+      "path": "app/jcl/TRANBKP.jcl",
+      "relative_path": "app/jcl/TRANBKP.jcl",
+      "job_name": "TRANBKP",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TRANCATG",
+      "path": "app/jcl/TRANCATG.jcl",
+      "relative_path": "app/jcl/TRANCATG.jcl",
+      "job_name": "TRANCATG",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TRANFILE",
+      "path": "app/jcl/TRANFILE.jcl",
+      "relative_path": "app/jcl/TRANFILE.jcl",
+      "job_name": "TRANFILE",
+      "steps": [
+        {
+          "step_name": "CLCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP20",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP25",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP30",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "OPCIFIL",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "TRANIDX",
+      "path": "app/jcl/TRANIDX.jcl",
+      "relative_path": "app/jcl/TRANIDX.jcl",
+      "job_name": "TRANIDX",
+      "steps": [
+        {
+          "step_name": "STEP20",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP25",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP30",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TRANREPT",
+      "path": "app/jcl/TRANREPT.jcl",
+      "relative_path": "app/jcl/TRANREPT.jcl",
+      "job_name": "TRANREPT",
+      "steps": [
+        {
+          "step_name": "STEP05R",
+          "program": "SORT",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10R",
+          "program": "CBTRN03C",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "TRANTYPE",
+      "path": "app/jcl/TRANTYPE.jcl",
+      "relative_path": "app/jcl/TRANTYPE.jcl",
+      "job_name": "TRANTYPE",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "TXT2PDF1",
+      "path": "app/jcl/TXT2PDF1.JCL",
+      "relative_path": "app/jcl/TXT2PDF1.JCL",
+      "job_name": "TXT2PDF1",
+      "steps": [
+        {
+          "step_name": "TXT2PDF",
+          "program": "IKJEFT1B",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "WAITSTEP",
+      "path": "app/jcl/WAITSTEP.jcl",
+      "relative_path": "app/jcl/WAITSTEP.jcl",
+      "job_name": "WAITSTEP",
+      "steps": [
+        {
+          "step_name": "WAIT",
+          "program": "COBSWAIT",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "XREFFILE",
+      "path": "app/jcl/XREFFILE.jcl",
+      "relative_path": "app/jcl/XREFFILE.jcl",
+      "job_name": "XREFFILE",
+      "steps": [
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP10",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP15",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP20",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP25",
+          "program": "IDCAMS",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP30",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "CNJBATMP",
+      "path": "samples/jcl/BATCMP.jcl",
+      "relative_path": "samples/jcl/BATCMP.jcl",
+      "job_name": "CNJBATMP",
+      "steps": []
+    },
+    {
+      "id": "CBLDBMS",
+      "path": "samples/jcl/BMSCMP.jcl",
+      "relative_path": "samples/jcl/BMSCMP.jcl",
+      "job_name": "CBLDBMS",
+      "steps": [
+        {
+          "step_name": "SDSF1",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CICCMP",
+      "path": "samples/jcl/CICCMP.jcl",
+      "relative_path": "samples/jcl/CICCMP.jcl",
+      "job_name": "CICCMP",
+      "steps": [
+        {
+          "step_name": "NEWCOPY",
+          "program": "SDSF",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "CIDBCMP",
+      "path": "samples/jcl/CICDBCMP.jcl",
+      "relative_path": "samples/jcl/CICDBCMP.jcl",
+      "job_name": "CIDBCMP",
+      "steps": []
+    },
+    {
+      "id": "IMSMQCMP",
+      "path": "samples/jcl/IMSMQCMP.jcl",
+      "relative_path": "samples/jcl/IMSMQCMP.jcl",
+      "job_name": "IMSMQCMP",
+      "steps": [
+        {
+          "step_name": "TRN",
+          "program": "DFHECP1",
+          "type": "cobol"
+        },
+        {
+          "step_name": "COBOL",
+          "program": "IGYCRCTL",
+          "type": "cobol"
+        },
+        {
+          "step_name": "COPYIMS",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "COPYLINK",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "COPYMQ",
+          "program": "IEBGENER",
+          "type": "utility"
+        },
+        {
+          "step_name": "LKED",
+          "program": "IEWL",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "LISTFILS",
+      "path": "samples/jcl/LISTCAT.jcl",
+      "relative_path": "samples/jcl/LISTCAT.jcl",
+      "job_name": "LISTFILS",
+      "steps": [
+        {
+          "step_name": "STEP01",
+          "program": "IEFBR14",
+          "type": "utility"
+        },
+        {
+          "step_name": "STEP05",
+          "program": "IDCAMS",
+          "type": "utility"
+        }
+      ]
+    },
+    {
+      "id": "RACFCMDS",
+      "path": "samples/jcl/RACFCMDS.jcl",
+      "relative_path": "samples/jcl/RACFCMDS.jcl",
+      "job_name": "RACFCMDS",
+      "steps": [
+        {
+          "step_name": "TSOBAT",
+          "program": "IKJEFT01",
+          "type": "cobol"
+        }
+      ]
+    },
+    {
+      "id": "REPRTEST",
+      "path": "samples/jcl/REPRTEST.jcl",
+      "relative_path": "samples/jcl/REPRTEST.jcl",
+      "job_name": "REPRTEST",
+      "steps": []
+    },
+    {
+      "id": "SORTTEST",
+      "path": "samples/jcl/SORTTEST.jcl",
+      "relative_path": "samples/jcl/SORTTEST.jcl",
+      "job_name": "SORTTEST",
+      "steps": [
+        {
+          "step_name": "STEP05R",
+          "program": "SORT",
+          "type": "utility"
+        }
+      ]
+    }
+  ],
+  "module_registry": [
+    {
+      "id": "COBDATFT",
+      "path": "app/asm/COBDATFT.asm",
+      "type": "assembler"
+    },
+    {
+      "id": "MVSWAIT",
+      "path": "app/asm/MVSWAIT.asm",
+      "type": "assembler"
+    }
+  ],
+  "call_graph": {
+    "nodes": [
+      {
+        "id": "CBPAUP0C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/app-authorization-ims-db2-mq/cbl/CBPAUP0C.cbl"
+      },
+      {
+        "id": "COPAUA0C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl"
+      },
+      {
+        "id": "COPAUS0C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS0C.cbl"
+      },
+      {
+        "id": "COPAUS1C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS1C.cbl"
+      },
+      {
+        "id": "COPAUS2C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl"
+      },
+      {
+        "id": "DBUNLDGS",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/app-authorization-ims-db2-mq/cbl/DBUNLDGS.CBL"
+      },
+      {
+        "id": "PAUDBLOD",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBLOD.CBL"
+      },
+      {
+        "id": "PAUDBUNL",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/app-authorization-ims-db2-mq/cbl/PAUDBUNL.CBL"
+      },
+      {
+        "id": "COBTUPDT",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/app-transaction-type-db2/cbl/COBTUPDT.cbl"
+      },
+      {
+        "id": "COTRTLIC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl"
+      },
+      {
+        "id": "COTRTUPC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl"
+      },
+      {
+        "id": "COACCT01",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-vsam-mq/cbl/COACCT01.cbl"
+      },
+      {
+        "id": "CODATE01",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/app-vsam-mq/cbl/CODATE01.cbl"
+      },
+      {
+        "id": "CBACT01C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBACT01C.cbl"
+      },
+      {
+        "id": "CBACT02C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBACT02C.cbl"
+      },
+      {
+        "id": "CBACT03C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBACT03C.cbl"
+      },
+      {
+        "id": "CBACT04C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBACT04C.cbl"
+      },
+      {
+        "id": "CBCUS01C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBCUS01C.cbl"
+      },
+      {
+        "id": "CBEXPORT",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBEXPORT.cbl"
+      },
+      {
+        "id": "CBIMPORT",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBIMPORT.cbl"
+      },
+      {
+        "id": "CBSTM03A",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBSTM03A.CBL"
+      },
+      {
+        "id": "CBSTM03B",
+        "type": "program",
+        "subtype": "common",
+        "path": "app/cbl/CBSTM03B.CBL"
+      },
+      {
+        "id": "CBTRN01C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBTRN01C.cbl"
+      },
+      {
+        "id": "CBTRN02C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBTRN02C.cbl"
+      },
+      {
+        "id": "CBTRN03C",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/CBTRN03C.cbl"
+      },
+      {
+        "id": "COACTUPC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COACTUPC.cbl"
+      },
+      {
+        "id": "COACTVWC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COACTVWC.cbl"
+      },
+      {
+        "id": "COADM01C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COADM01C.cbl"
+      },
+      {
+        "id": "COBIL00C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COBIL00C.cbl"
+      },
+      {
+        "id": "COBSWAIT",
+        "type": "program",
+        "subtype": "batch",
+        "path": "app/cbl/COBSWAIT.cbl"
+      },
+      {
+        "id": "COCRDLIC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COCRDLIC.cbl"
+      },
+      {
+        "id": "COCRDSLC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COCRDSLC.cbl"
+      },
+      {
+        "id": "COCRDUPC",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COCRDUPC.cbl"
+      },
+      {
+        "id": "COMEN01C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COMEN01C.cbl"
+      },
+      {
+        "id": "CORPT00C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/CORPT00C.cbl"
+      },
+      {
+        "id": "COSGN00C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COSGN00C.cbl"
+      },
+      {
+        "id": "COTRN00C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COTRN00C.cbl"
+      },
+      {
+        "id": "COTRN01C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COTRN01C.cbl"
+      },
+      {
+        "id": "COTRN02C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COTRN02C.cbl"
+      },
+      {
+        "id": "COUSR00C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COUSR00C.cbl"
+      },
+      {
+        "id": "COUSR01C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COUSR01C.cbl"
+      },
+      {
+        "id": "COUSR02C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COUSR02C.cbl"
+      },
+      {
+        "id": "COUSR03C",
+        "type": "program",
+        "subtype": "online",
+        "path": "app/cbl/COUSR03C.cbl"
+      },
+      {
+        "id": "CSUTLDTC",
+        "type": "program",
+        "subtype": "common",
+        "path": "app/cbl/CSUTLDTC.cbl"
+      },
+      {
+        "id": "CCPAUERY",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/CCPAUERY.cpy"
+      },
+      {
+        "id": "CCPAURLY",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/CCPAURLY.cpy"
+      },
+      {
+        "id": "CCPAURQY",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/CCPAURQY.cpy"
+      },
+      {
+        "id": "CIPAUDTY",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/CIPAUDTY.cpy"
+      },
+      {
+        "id": "CIPAUSMY",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/CIPAUSMY.cpy"
+      },
+      {
+        "id": "IMSFUNCS",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/IMSFUNCS.cpy"
+      },
+      {
+        "id": "PADFLPCB",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/PADFLPCB.CPY"
+      },
+      {
+        "id": "PASFLPCB",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/PASFLPCB.CPY"
+      },
+      {
+        "id": "PAUTBPCB",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy/PAUTBPCB.CPY"
+      },
+      {
+        "id": "COPAU00",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU00.cpy"
+      },
+      {
+        "id": "COPAU01",
+        "type": "copybook",
+        "path": "app/app-authorization-ims-db2-mq/cpy-bms/COPAU01.cpy"
+      },
+      {
+        "id": "CSDB2RPY",
+        "type": "copybook",
+        "path": "app/app-transaction-type-db2/cpy/CSDB2RPY.cpy"
+      },
+      {
+        "id": "CSDB2RWY",
+        "type": "copybook",
+        "path": "app/app-transaction-type-db2/cpy/CSDB2RWY.cpy"
+      },
+      {
+        "id": "COTRTLI",
+        "type": "copybook",
+        "path": "app/app-transaction-type-db2/cpy-bms/COTRTLI.cpy"
+      },
+      {
+        "id": "COTRTUP",
+        "type": "copybook",
+        "path": "app/app-transaction-type-db2/cpy-bms/COTRTUP.cpy"
+      },
+      {
+        "id": "COADM02Y",
+        "type": "copybook",
+        "path": "app/cpy/COADM02Y.cpy"
+      },
+      {
+        "id": "COCOM01Y",
+        "type": "copybook",
+        "path": "app/cpy/COCOM01Y.cpy"
+      },
+      {
+        "id": "CODATECN",
+        "type": "copybook",
+        "path": "app/cpy/CODATECN.cpy"
+      },
+      {
+        "id": "COMEN02Y",
+        "type": "copybook",
+        "path": "app/cpy/COMEN02Y.cpy"
+      },
+      {
+        "id": "COSTM01",
+        "type": "copybook",
+        "path": "app/cpy/COSTM01.CPY"
+      },
+      {
+        "id": "COTTL01Y",
+        "type": "copybook",
+        "path": "app/cpy/COTTL01Y.cpy"
+      },
+      {
+        "id": "CSDAT01Y",
+        "type": "copybook",
+        "path": "app/cpy/CSDAT01Y.cpy"
+      },
+      {
+        "id": "CSLKPCDY",
+        "type": "copybook",
+        "path": "app/cpy/CSLKPCDY.cpy"
+      },
+      {
+        "id": "CSMSG01Y",
+        "type": "copybook",
+        "path": "app/cpy/CSMSG01Y.cpy"
+      },
+      {
+        "id": "CSMSG02Y",
+        "type": "copybook",
+        "path": "app/cpy/CSMSG02Y.cpy"
+      },
+      {
+        "id": "CSSETATY",
+        "type": "copybook",
+        "path": "app/cpy/CSSETATY.cpy"
+      },
+      {
+        "id": "CSSTRPFY",
+        "type": "copybook",
+        "path": "app/cpy/CSSTRPFY.cpy"
+      },
+      {
+        "id": "CSUSR01Y",
+        "type": "copybook",
+        "path": "app/cpy/CSUSR01Y.cpy"
+      },
+      {
+        "id": "CSUTLDPY",
+        "type": "copybook",
+        "path": "app/cpy/CSUTLDPY.cpy"
+      },
+      {
+        "id": "CSUTLDWY",
+        "type": "copybook",
+        "path": "app/cpy/CSUTLDWY.cpy"
+      },
+      {
+        "id": "CUSTREC",
+        "type": "copybook",
+        "path": "app/cpy/CUSTREC.cpy"
+      },
+      {
+        "id": "CVACT01Y",
+        "type": "copybook",
+        "path": "app/cpy/CVACT01Y.cpy"
+      },
+      {
+        "id": "CVACT02Y",
+        "type": "copybook",
+        "path": "app/cpy/CVACT02Y.cpy"
+      },
+      {
+        "id": "CVACT03Y",
+        "type": "copybook",
+        "path": "app/cpy/CVACT03Y.cpy"
+      },
+      {
+        "id": "CVCRD01Y",
+        "type": "copybook",
+        "path": "app/cpy/CVCRD01Y.cpy"
+      },
+      {
+        "id": "CVCUS01Y",
+        "type": "copybook",
+        "path": "app/cpy/CVCUS01Y.cpy"
+      },
+      {
+        "id": "CVEXPORT",
+        "type": "copybook",
+        "path": "app/cpy/CVEXPORT.cpy"
+      },
+      {
+        "id": "CVTRA01Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA01Y.cpy"
+      },
+      {
+        "id": "CVTRA02Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA02Y.cpy"
+      },
+      {
+        "id": "CVTRA03Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA03Y.cpy"
+      },
+      {
+        "id": "CVTRA04Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA04Y.cpy"
+      },
+      {
+        "id": "CVTRA05Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA05Y.cpy"
+      },
+      {
+        "id": "CVTRA06Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA06Y.cpy"
+      },
+      {
+        "id": "CVTRA07Y",
+        "type": "copybook",
+        "path": "app/cpy/CVTRA07Y.cpy"
+      },
+      {
+        "id": "UNUSED1Y",
+        "type": "copybook",
+        "path": "app/cpy/UNUSED1Y.cpy"
+      },
+      {
+        "id": "COACTUP",
+        "type": "copybook",
+        "path": "app/cpy-bms/COACTUP.CPY"
+      },
+      {
+        "id": "COACTVW",
+        "type": "copybook",
+        "path": "app/cpy-bms/COACTVW.CPY"
+      },
+      {
+        "id": "COADM01",
+        "type": "copybook",
+        "path": "app/cpy-bms/COADM01.CPY"
+      },
+      {
+        "id": "COBIL00",
+        "type": "copybook",
+        "path": "app/cpy-bms/COBIL00.CPY"
+      },
+      {
+        "id": "COCRDLI",
+        "type": "copybook",
+        "path": "app/cpy-bms/COCRDLI.CPY"
+      },
+      {
+        "id": "COCRDSL",
+        "type": "copybook",
+        "path": "app/cpy-bms/COCRDSL.CPY"
+      },
+      {
+        "id": "COCRDUP",
+        "type": "copybook",
+        "path": "app/cpy-bms/COCRDUP.CPY"
+      },
+      {
+        "id": "COMEN01",
+        "type": "copybook",
+        "path": "app/cpy-bms/COMEN01.CPY"
+      },
+      {
+        "id": "CORPT00",
+        "type": "copybook",
+        "path": "app/cpy-bms/CORPT00.CPY"
+      },
+      {
+        "id": "COSGN00",
+        "type": "copybook",
+        "path": "app/cpy-bms/COSGN00.CPY"
+      },
+      {
+        "id": "COTRN00",
+        "type": "copybook",
+        "path": "app/cpy-bms/COTRN00.CPY"
+      },
+      {
+        "id": "COTRN01",
+        "type": "copybook",
+        "path": "app/cpy-bms/COTRN01.CPY"
+      },
+      {
+        "id": "COTRN02",
+        "type": "copybook",
+        "path": "app/cpy-bms/COTRN02.CPY"
+      },
+      {
+        "id": "COUSR00",
+        "type": "copybook",
+        "path": "app/cpy-bms/COUSR00.CPY"
+      },
+      {
+        "id": "COUSR01",
+        "type": "copybook",
+        "path": "app/cpy-bms/COUSR01.CPY"
+      },
+      {
+        "id": "COUSR02",
+        "type": "copybook",
+        "path": "app/cpy-bms/COUSR02.CPY"
+      },
+      {
+        "id": "COUSR03",
+        "type": "copybook",
+        "path": "app/cpy-bms/COUSR03.CPY"
+      }
+    ],
+    "edges": [
+      {
+        "from": "CBPAUP0C",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 117
+      },
+      {
+        "from": "CBPAUP0C",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 121
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQODV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 149
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQMDV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 152
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQODV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 155
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQMDV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 158
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 161
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQTML",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 164
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQPMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 167
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CMQGMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 170
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CCPAURQY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 178
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CCPAURLY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 182
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CCPAUERY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 185
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 193
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 197
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 203
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 206
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 209
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 262
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "MQGET",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 400
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "MQPUT1",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 758
+      },
+      {
+        "from": "COPAUA0C",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 956
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 116
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "COPAU00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 129
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 132
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 135
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 138
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 141
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 144
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 147
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 150
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 153
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 161
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 165
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 168
+      },
+      {
+        "from": "COPAUS0C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 169
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 109
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "COPAU01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 122
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 126
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 129
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 132
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 135
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 142
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 146
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 148
+      },
+      {
+        "from": "COPAUS1C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 149
+      },
+      {
+        "from": "COPAUS2C",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 78
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "IMSFUNCS",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 136
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 143
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 147
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "PAUTBPCB",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 154
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "PASFLPCB",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 155
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "PADFLPCB",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 156
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 222
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 267
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 302
+      },
+      {
+        "from": "DBUNLDGS",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 321
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "IMSFUNCS",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 142
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 149
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 153
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "PAUTBPCB",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 161
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 244
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 296
+      },
+      {
+        "from": "PAUDBLOD",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 321
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "IMSFUNCS",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 132
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "CIPAUSMY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 139
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "CIPAUDTY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 143
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "PAUTBPCB",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 150
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 213
+      },
+      {
+        "from": "PAUDBUNL",
+        "to": "CBLTDLI",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 257
+      },
+      {
+        "from": "COBTUPDT",
+        "to": "DCLTRTYP",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 54
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSDB2RWY",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 304
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 327
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "SQLCA",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 331
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "DCLTRTYP",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 333
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 375
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 425
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 426
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 430
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "COTRTLI",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 433
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 480
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 482
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 485
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 490
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSDB2RPY",
+        "type": "SQL_INCLUDE",
+        "resolved": true,
+        "source_line_hint": 2055
+      },
+      {
+        "from": "COTRTLIC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 2060
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSUTLDWY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 76
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 241
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 257
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 258
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 262
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "COTRTUP",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 265
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 268
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 271
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 274
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 277
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "DCLTRTYP",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 286
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "DCLTRCAT",
+        "type": "SQL_INCLUDE",
+        "resolved": false,
+        "source_line_hint": 288
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 292
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 1358
+      },
+      {
+        "from": "COTRTUPC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 1671
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQGMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 71
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQPMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 75
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQMDV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 79
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQODV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 83
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 87
+      },
+      {
+        "from": "COACCT01",
+        "to": "CMQTML",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 90
+      },
+      {
+        "from": "COACCT01",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 171
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 233
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 267
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 302
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQGET",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 352
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQPUT",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 479
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQPUT",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 516
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 557
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 579
+      },
+      {
+        "from": "COACCT01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 602
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQGMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 71
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQPMOV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 75
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQMDV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 79
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQODV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 83
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQV",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 87
+      },
+      {
+        "from": "CODATE01",
+        "to": "CMQTML",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 90
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 182
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 216
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQOPEN",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 251
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQGET",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 301
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQPUT",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 383
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQPUT",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 420
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 461
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 483
+      },
+      {
+        "from": "CODATE01",
+        "to": "MQCLOSE",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 506
+      },
+      {
+        "from": "CBACT01C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 89
+      },
+      {
+        "from": "CBACT01C",
+        "to": "CODATECN",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 90
+      },
+      {
+        "from": "CBACT01C",
+        "to": "COBDATFT",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 231
+      },
+      {
+        "from": "CBACT01C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 410
+      },
+      {
+        "from": "CBACT02C",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "CBACT02C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 158
+      },
+      {
+        "from": "CBACT03C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "CBACT03C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 158
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CVTRA01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 97
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 102
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CVTRA02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 107
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 112
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 117
+      },
+      {
+        "from": "CBACT04C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 632
+      },
+      {
+        "from": "CBCUS01C",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 45
+      },
+      {
+        "from": "CBCUS01C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 158
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 75
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 78
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 81
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 84
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 87
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CVEXPORT",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 96
+      },
+      {
+        "from": "CBEXPORT",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 579
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 84
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 89
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 94
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 99
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 104
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CVEXPORT",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 113
+      },
+      {
+        "from": "CBIMPORT",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 484
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "COSTM01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 51
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 53
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CUSTREC",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 55
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 57
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 351
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 377
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 401
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 734
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 746
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 769
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 787
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 805
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 835
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 860
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 877
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 893
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CBSTM03B",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 909
+      },
+      {
+        "from": "CBSTM03A",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 923
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVTRA06Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 99
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 104
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 109
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 114
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 119
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 124
+      },
+      {
+        "from": "CBTRN01C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 473
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CVTRA06Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 102
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 107
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 112
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 121
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CVTRA01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 126
+      },
+      {
+        "from": "CBTRN02C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 711
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 93
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 98
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CVTRA03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 103
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CVTRA04Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 108
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CVTRA07Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 113
+      },
+      {
+        "from": "CBTRN03C",
+        "to": "CEE3ABD",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 630
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSUTLDWY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 166
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 597
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSLKPCDY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 602
+      },
+      {
+        "from": "COACTUPC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 615
+      },
+      {
+        "from": "COACTUPC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 616
+      },
+      {
+        "from": "COACTUPC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 620
+      },
+      {
+        "from": "COACTUPC",
+        "to": "COACTUP",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 623
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 626
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 629
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 632
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 635
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 640
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 643
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 646
+      },
+      {
+        "from": "COACTUPC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 650
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3208
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3214
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3220
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3226
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3232
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3238
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3244
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3250
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3256
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3262
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3268
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3274
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3280
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3286
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3292
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3298
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3304
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3310
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3316
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3322
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3328
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3334
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3340
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3346
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3352
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3358
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3364
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3370
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3376
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3382
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3388
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3394
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3400
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3405
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3411
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3417
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3422
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3427
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSETATY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 3432
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 4199
+      },
+      {
+        "from": "COACTUPC",
+        "to": "CSUTLDPY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 4232
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 207
+      },
+      {
+        "from": "COACTVWC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 211
+      },
+      {
+        "from": "COACTVWC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 221
+      },
+      {
+        "from": "COACTVWC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 222
+      },
+      {
+        "from": "COACTVWC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 226
+      },
+      {
+        "from": "COACTVWC",
+        "to": "COACTVW",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 229
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 232
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 235
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 238
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 241
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 244
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 248
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 251
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 254
+      },
+      {
+        "from": "COACTVWC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 913
+      },
+      {
+        "from": "COADM01C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 50
+      },
+      {
+        "from": "COADM01C",
+        "to": "COADM02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 51
+      },
+      {
+        "from": "COADM01C",
+        "to": "COADM01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 53
+      },
+      {
+        "from": "COADM01C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 55
+      },
+      {
+        "from": "COADM01C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 56
+      },
+      {
+        "from": "COADM01C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 57
+      },
+      {
+        "from": "COADM01C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 58
+      },
+      {
+        "from": "COADM01C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 60
+      },
+      {
+        "from": "COADM01C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 61
+      },
+      {
+        "from": "COBIL00C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 63
+      },
+      {
+        "from": "COBIL00C",
+        "to": "COBIL00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 74
+      },
+      {
+        "from": "COBIL00C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 76
+      },
+      {
+        "from": "COBIL00C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 77
+      },
+      {
+        "from": "COBIL00C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 78
+      },
+      {
+        "from": "COBIL00C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 80
+      },
+      {
+        "from": "COBIL00C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 81
+      },
+      {
+        "from": "COBIL00C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 82
+      },
+      {
+        "from": "COBIL00C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 84
+      },
+      {
+        "from": "COBIL00C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 85
+      },
+      {
+        "from": "COBSWAIT",
+        "to": "MVSWAIT",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 38
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 221
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 227
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 267
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 268
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 272
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "COCRDLI",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 276
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 279
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 281
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 285
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 290
+      },
+      {
+        "from": "COCRDLIC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 1416
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 194
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 198
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 208
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 209
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 213
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "COCRDSL",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 215
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 218
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 221
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 224
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 227
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 234
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 240
+      },
+      {
+        "from": "COCRDSLC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 855
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CVCRD01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 268
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 272
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 327
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 328
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 332
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "COCRDUP",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 334
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 337
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 340
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CSMSG02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 343
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 346
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CVACT02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 353
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CVCUS01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 359
+      },
+      {
+        "from": "COCRDUPC",
+        "to": "CSSTRPFY",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 1528
+      },
+      {
+        "from": "COMEN01C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 50
+      },
+      {
+        "from": "COMEN01C",
+        "to": "COMEN02Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 51
+      },
+      {
+        "from": "COMEN01C",
+        "to": "COMEN01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 53
+      },
+      {
+        "from": "COMEN01C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 55
+      },
+      {
+        "from": "COMEN01C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 56
+      },
+      {
+        "from": "COMEN01C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 57
+      },
+      {
+        "from": "COMEN01C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 58
+      },
+      {
+        "from": "COMEN01C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 60
+      },
+      {
+        "from": "COMEN01C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 61
+      },
+      {
+        "from": "CORPT00C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 138
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CORPT00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 140
+      },
+      {
+        "from": "CORPT00C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 142
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 143
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 144
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 146
+      },
+      {
+        "from": "CORPT00C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 148
+      },
+      {
+        "from": "CORPT00C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 149
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CSUTLDTC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 392
+      },
+      {
+        "from": "CORPT00C",
+        "to": "CSUTLDTC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 412
+      },
+      {
+        "from": "COSGN00C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 48
+      },
+      {
+        "from": "COSGN00C",
+        "to": "COSGN00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 50
+      },
+      {
+        "from": "COSGN00C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 52
+      },
+      {
+        "from": "COSGN00C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 53
+      },
+      {
+        "from": "COSGN00C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 54
+      },
+      {
+        "from": "COSGN00C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 55
+      },
+      {
+        "from": "COSGN00C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 57
+      },
+      {
+        "from": "COSGN00C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 58
+      },
+      {
+        "from": "COTRN00C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 61
+      },
+      {
+        "from": "COTRN00C",
+        "to": "COTRN00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 72
+      },
+      {
+        "from": "COTRN00C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 74
+      },
+      {
+        "from": "COTRN00C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 75
+      },
+      {
+        "from": "COTRN00C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 76
+      },
+      {
+        "from": "COTRN00C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 78
+      },
+      {
+        "from": "COTRN00C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 80
+      },
+      {
+        "from": "COTRN00C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 81
+      },
+      {
+        "from": "COTRN01C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 52
+      },
+      {
+        "from": "COTRN01C",
+        "to": "COTRN01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 63
+      },
+      {
+        "from": "COTRN01C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 65
+      },
+      {
+        "from": "COTRN01C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 66
+      },
+      {
+        "from": "COTRN01C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 67
+      },
+      {
+        "from": "COTRN01C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 69
+      },
+      {
+        "from": "COTRN01C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 71
+      },
+      {
+        "from": "COTRN01C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 72
+      },
+      {
+        "from": "COTRN02C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 71
+      },
+      {
+        "from": "COTRN02C",
+        "to": "COTRN02",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 82
+      },
+      {
+        "from": "COTRN02C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 84
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 85
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 86
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CVTRA05Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 88
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CVACT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 89
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CVACT03Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 90
+      },
+      {
+        "from": "COTRN02C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 92
+      },
+      {
+        "from": "COTRN02C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 93
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CSUTLDTC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 393
+      },
+      {
+        "from": "COTRN02C",
+        "to": "CSUTLDTC",
+        "type": "STATIC_CALL",
+        "resolved": true,
+        "source_line_hint": 413
+      },
+      {
+        "from": "COUSR00C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 66
+      },
+      {
+        "from": "COUSR00C",
+        "to": "COUSR00",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 76
+      },
+      {
+        "from": "COUSR00C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 78
+      },
+      {
+        "from": "COUSR00C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 79
+      },
+      {
+        "from": "COUSR00C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 80
+      },
+      {
+        "from": "COUSR00C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 81
+      },
+      {
+        "from": "COUSR00C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 83
+      },
+      {
+        "from": "COUSR00C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 84
+      },
+      {
+        "from": "COUSR01C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 46
+      },
+      {
+        "from": "COUSR01C",
+        "to": "COUSR01",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 48
+      },
+      {
+        "from": "COUSR01C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 50
+      },
+      {
+        "from": "COUSR01C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 51
+      },
+      {
+        "from": "COUSR01C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 52
+      },
+      {
+        "from": "COUSR01C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 53
+      },
+      {
+        "from": "COUSR01C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 55
+      },
+      {
+        "from": "COUSR01C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 56
+      },
+      {
+        "from": "COUSR02C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 49
+      },
+      {
+        "from": "COUSR02C",
+        "to": "COUSR02",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 60
+      },
+      {
+        "from": "COUSR02C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 62
+      },
+      {
+        "from": "COUSR02C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 63
+      },
+      {
+        "from": "COUSR02C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 64
+      },
+      {
+        "from": "COUSR02C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 65
+      },
+      {
+        "from": "COUSR02C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 67
+      },
+      {
+        "from": "COUSR02C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 68
+      },
+      {
+        "from": "COUSR03C",
+        "to": "COCOM01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 49
+      },
+      {
+        "from": "COUSR03C",
+        "to": "COUSR03",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 60
+      },
+      {
+        "from": "COUSR03C",
+        "to": "COTTL01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 62
+      },
+      {
+        "from": "COUSR03C",
+        "to": "CSDAT01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 63
+      },
+      {
+        "from": "COUSR03C",
+        "to": "CSMSG01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 64
+      },
+      {
+        "from": "COUSR03C",
+        "to": "CSUSR01Y",
+        "type": "COPY",
+        "resolved": true,
+        "source_line_hint": 65
+      },
+      {
+        "from": "COUSR03C",
+        "to": "DFHAID",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 67
+      },
+      {
+        "from": "COUSR03C",
+        "to": "DFHBMSCA",
+        "type": "COPY",
+        "resolved": false,
+        "source_line_hint": 68
+      },
+      {
+        "from": "CSUTLDTC",
+        "to": "CEEDAYS",
+        "type": "STATIC_CALL",
+        "resolved": false,
+        "source_line_hint": 116
+      }
+    ]
+  },
+  "copybook_map": {
+    "CCPAUERY": [
+      "COPAUA0C"
+    ],
+    "CCPAURLY": [
+      "COPAUA0C"
+    ],
+    "CCPAURQY": [
+      "COPAUA0C"
+    ],
+    "CIPAUDTY": [
+      "CBPAUP0C",
+      "COPAUA0C",
+      "COPAUS0C",
+      "COPAUS1C",
+      "COPAUS2C",
+      "DBUNLDGS",
+      "PAUDBLOD",
+      "PAUDBUNL"
+    ],
+    "CIPAUSMY": [
+      "CBPAUP0C",
+      "COPAUA0C",
+      "COPAUS0C",
+      "COPAUS1C",
+      "DBUNLDGS",
+      "PAUDBLOD",
+      "PAUDBUNL"
+    ],
+    "IMSFUNCS": [
+      "DBUNLDGS",
+      "PAUDBLOD",
+      "PAUDBUNL"
+    ],
+    "PADFLPCB": [
+      "DBUNLDGS"
+    ],
+    "PASFLPCB": [
+      "DBUNLDGS"
+    ],
+    "PAUTBPCB": [
+      "DBUNLDGS",
+      "PAUDBLOD",
+      "PAUDBUNL"
+    ],
+    "COPAU00": [
+      "COPAUS0C"
+    ],
+    "COPAU01": [
+      "COPAUS1C"
+    ],
+    "COTRTLI": [
+      "COTRTLIC"
+    ],
+    "COTRTUP": [
+      "COTRTUPC"
+    ],
+    "COADM02Y": [
+      "COADM01C"
+    ],
+    "COCOM01Y": [
+      "COPAUS0C",
+      "COPAUS1C",
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COADM01C",
+      "COBIL00C",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COMEN01C",
+      "CORPT00C",
+      "COSGN00C",
+      "COTRN00C",
+      "COTRN01C",
+      "COTRN02C",
+      "COUSR00C",
+      "COUSR01C",
+      "COUSR02C",
+      "COUSR03C"
+    ],
+    "CODATECN": [
+      "CBACT01C"
+    ],
+    "COMEN02Y": [
+      "COMEN01C"
+    ],
+    "COSTM01": [
+      "CBSTM03A"
+    ],
+    "COTTL01Y": [
+      "COPAUS0C",
+      "COPAUS1C",
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COADM01C",
+      "COBIL00C",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COMEN01C",
+      "CORPT00C",
+      "COSGN00C",
+      "COTRN00C",
+      "COTRN01C",
+      "COTRN02C",
+      "COUSR00C",
+      "COUSR01C",
+      "COUSR02C",
+      "COUSR03C"
+    ],
+    "CSDAT01Y": [
+      "COPAUS0C",
+      "COPAUS1C",
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COADM01C",
+      "COBIL00C",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COMEN01C",
+      "CORPT00C",
+      "COSGN00C",
+      "COTRN00C",
+      "COTRN01C",
+      "COTRN02C",
+      "COUSR00C",
+      "COUSR01C",
+      "COUSR02C",
+      "COUSR03C"
+    ],
+    "CSLKPCDY": [
+      "COACTUPC"
+    ],
+    "CSMSG01Y": [
+      "COPAUS0C",
+      "COPAUS1C",
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COADM01C",
+      "COBIL00C",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COMEN01C",
+      "CORPT00C",
+      "COSGN00C",
+      "COTRN00C",
+      "COTRN01C",
+      "COTRN02C",
+      "COUSR00C",
+      "COUSR01C",
+      "COUSR02C",
+      "COUSR03C"
+    ],
+    "CSMSG02Y": [
+      "COPAUS0C",
+      "COPAUS1C",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COCRDSLC",
+      "COCRDUPC"
+    ],
+    "CSSETATY": [
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC",
+      "COACTUPC"
+    ],
+    "CSSTRPFY": [
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC"
+    ],
+    "CSUSR01Y": [
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COADM01C",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC",
+      "COMEN01C",
+      "COSGN00C",
+      "COUSR00C",
+      "COUSR01C",
+      "COUSR02C",
+      "COUSR03C"
+    ],
+    "CSUTLDPY": [
+      "COACTUPC"
+    ],
+    "CSUTLDWY": [
+      "COTRTUPC",
+      "COACTUPC"
+    ],
+    "CUSTREC": [
+      "CBSTM03A"
+    ],
+    "CVACT01Y": [
+      "COPAUA0C",
+      "COPAUS0C",
+      "COACCT01",
+      "CBACT01C",
+      "CBACT04C",
+      "CBEXPORT",
+      "CBIMPORT",
+      "CBSTM03A",
+      "CBTRN01C",
+      "CBTRN02C",
+      "COACTUPC",
+      "COACTVWC",
+      "COBIL00C",
+      "COTRN02C"
+    ],
+    "CVACT02Y": [
+      "COPAUS0C",
+      "COTRTLIC",
+      "CBACT02C",
+      "CBEXPORT",
+      "CBIMPORT",
+      "CBTRN01C",
+      "COACTVWC",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC"
+    ],
+    "CVACT03Y": [
+      "COPAUA0C",
+      "COPAUS0C",
+      "CBACT03C",
+      "CBACT04C",
+      "CBEXPORT",
+      "CBIMPORT",
+      "CBSTM03A",
+      "CBTRN01C",
+      "CBTRN02C",
+      "CBTRN03C",
+      "COACTUPC",
+      "COACTVWC",
+      "COBIL00C",
+      "COTRN02C"
+    ],
+    "CVCRD01Y": [
+      "COTRTLIC",
+      "COTRTUPC",
+      "COACTUPC",
+      "COACTVWC",
+      "COCRDLIC",
+      "COCRDSLC",
+      "COCRDUPC"
+    ],
+    "CVCUS01Y": [
+      "COPAUA0C",
+      "COPAUS0C",
+      "CBCUS01C",
+      "CBEXPORT",
+      "CBIMPORT",
+      "CBTRN01C",
+      "COACTUPC",
+      "COACTVWC",
+      "COCRDSLC",
+      "COCRDUPC"
+    ],
+    "CVEXPORT": [
+      "CBEXPORT",
+      "CBIMPORT"
+    ],
+    "CVTRA01Y": [
+      "CBACT04C",
+      "CBTRN02C"
+    ],
+    "CVTRA02Y": [
+      "CBACT04C"
+    ],
+    "CVTRA03Y": [
+      "CBTRN03C"
+    ],
+    "CVTRA04Y": [
+      "CBTRN03C"
+    ],
+    "CVTRA05Y": [
+      "CBACT04C",
+      "CBEXPORT",
+      "CBIMPORT",
+      "CBTRN01C",
+      "CBTRN02C",
+      "CBTRN03C",
+      "COBIL00C",
+      "CORPT00C",
+      "COTRN00C",
+      "COTRN01C",
+      "COTRN02C"
+    ],
+    "CVTRA06Y": [
+      "CBTRN01C",
+      "CBTRN02C"
+    ],
+    "CVTRA07Y": [
+      "CBTRN03C"
+    ],
+    "COACTUP": [
+      "COACTUPC"
+    ],
+    "COACTVW": [
+      "COACTVWC"
+    ],
+    "COADM01": [
+      "COADM01C"
+    ],
+    "COBIL00": [
+      "COBIL00C"
+    ],
+    "COCRDLI": [
+      "COCRDLIC"
+    ],
+    "COCRDSL": [
+      "COCRDSLC"
+    ],
+    "COCRDUP": [
+      "COCRDUPC"
+    ],
+    "COMEN01": [
+      "COMEN01C"
+    ],
+    "CORPT00": [
+      "CORPT00C"
+    ],
+    "COSGN00": [
+      "COSGN00C"
+    ],
+    "COTRN00": [
+      "COTRN00C"
+    ],
+    "COTRN01": [
+      "COTRN01C"
+    ],
+    "COTRN02": [
+      "COTRN02C"
+    ],
+    "COUSR00": [
+      "COUSR00C"
+    ],
+    "COUSR01": [
+      "COUSR01C"
+    ],
+    "COUSR02": [
+      "COUSR02C"
+    ],
+    "COUSR03": [
+      "COUSR03C"
+    ]
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/app-transaction-type-db2/cbl/COTRTLIC.cbl",
+      "fallback_id": "COTRTLIC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/app-transaction-type-db2/cbl/COTRTUPC.cbl",
+      "fallback_id": "COTRTUPC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2CREAT.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2CREAT.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2FREE.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2FREE.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2LTCAT.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2LTCAT.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2LTTYP.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2LTTYP.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2TEP41.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2TEP41.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/DB2TIAD1.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/DB2TIAD1.ctl"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/app-transaction-type-db2/ctl/REPROCT.ctl",
+      "message": "File extension not recognised: app/app-transaction-type-db2/ctl/REPROCT.ctl"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/cbl/COACTUPC.cbl",
+      "fallback_id": "COACTUPC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/cbl/COACTVWC.cbl",
+      "fallback_id": "COACTVWC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/cbl/COCRDLIC.cbl",
+      "fallback_id": "COCRDLIC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/cbl/COCRDSLC.cbl",
+      "fallback_id": "COCRDSLC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "warning",
+      "type": "missing_program_id",
+      "source_file": "app/cbl/COCRDUPC.cbl",
+      "fallback_id": "COCRDUPC",
+      "message": "PROGRAM-ID not found \u2014 using filename as fallback ID"
+    },
+    {
+      "severity": "info",
+      "type": "unclassified_extension",
+      "path": "app/ctl/REPROCT.ctl",
+      "message": "File extension not recognised: app/ctl/REPROCT.ctl"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQODV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQMDV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQODV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQMDV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQTML",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQPMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "CMQGMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "MQGET",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "MQPUT1",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQPUT1' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUA0C",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUS0C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUS0C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUS1C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COPAUS1C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "DBUNLDGS",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "DBUNLDGS",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "DBUNLDGS",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "DBUNLDGS",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PAUDBLOD",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PAUDBLOD",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PAUDBLOD",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PAUDBUNL",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "PAUDBUNL",
+      "reference": "CBLTDLI",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CBLTDLI' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COBTUPDT",
+      "reference": "DCLTRTYP",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'DCLTRTYP' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTLIC",
+      "reference": "SQLCA",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'SQLCA' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTLIC",
+      "reference": "DCLTRTYP",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'DCLTRTYP' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTLIC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTLIC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTUPC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTUPC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTUPC",
+      "reference": "DCLTRTYP",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'DCLTRTYP' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRTUPC",
+      "reference": "DCLTRCAT",
+      "edge_type": "SQL_INCLUDE",
+      "message": "SQL INCLUDE target 'DCLTRCAT' not found in file registry"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQGMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQPMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQMDV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQODV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "CMQTML",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQGET",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQPUT",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQPUT",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACCT01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQGMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQGMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQPMOV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQPMOV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQMDV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQMDV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQODV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQODV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQV",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQV' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "CMQTML",
+      "edge_type": "COPY",
+      "message": "COPY target 'CMQTML' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQOPEN",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQOPEN' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQGET",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQGET' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQPUT",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQPUT",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQPUT' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CODATE01",
+      "reference": "MQCLOSE",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'MQCLOSE' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBACT01C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBACT02C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBACT03C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBACT04C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBCUS01C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBEXPORT",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBIMPORT",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBSTM03A",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBTRN01C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBTRN02C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CBTRN03C",
+      "reference": "CEE3ABD",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEE3ABD' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACTUPC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACTUPC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACTVWC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COACTVWC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COADM01C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COADM01C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COBIL00C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COBIL00C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDLIC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDLIC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDSLC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDSLC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDUPC",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COCRDUPC",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COMEN01C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COMEN01C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CORPT00C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CORPT00C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COSGN00C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COSGN00C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN00C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN00C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN01C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN01C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN02C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COTRN02C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR00C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR00C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR01C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR01C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR02C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR02C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR03C",
+      "reference": "DFHAID",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHAID' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "COUSR03C",
+      "reference": "DFHBMSCA",
+      "edge_type": "COPY",
+      "message": "COPY target 'DFHBMSCA' not found in file registry \u2014 may be external or in load library"
+    },
+    {
+      "severity": "warning",
+      "type": "unresolved_reference",
+      "source": "CSUTLDTC",
+      "reference": "CEEDAYS",
+      "edge_type": "STATIC_CALL",
+      "message": "CALL target 'CEEDAYS' not found in file registry \u2014 may be external or in load library"
+    }
+  ]
+}

@@ -413,13 +413,14 @@ def main() -> None:
     ap.add_argument("--program-filter", default=None, help="Comma-separated PROGRAM-IDs")
     args = ap.parse_args()
 
-    base_dir = Path(__file__).resolve().parent.parent
+    base_dir = Path(__file__).resolve().parent.parent.parent  # repo root
     load_dotenv(base_dir)
 
     if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("[ERROR] ANTHROPIC_API_KEY is not set. Put it in the project .env file:\n"
-              "        ANTHROPIC_API_KEY=sk-ant-...\n"
-              "        (Phase 6 is the only phase that calls the LLM.)", file=sys.stderr)
+        print("[ERROR] ANTHROPIC_API_KEY is not set. Either put it in the project .env file\n"
+              "        (ANTHROPIC_API_KEY=sk-ant-...), or run Phase 6 in AI-host mode: have Claude\n"
+              "        Code follow phases/p06_logic/logic_agent.md to write the logic files.",
+              file=sys.stderr)
         sys.exit(2)
 
     program_filter = None

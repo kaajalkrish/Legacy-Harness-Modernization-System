@@ -1,0 +1,1063 @@
+{
+  "meta": {
+    "program_id": "COUSR00C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\COUSR00C.cbl",
+    "total_lines": 695
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "COUSR00C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 28,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 29,
+    "end_line": 96,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGMNAME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COUSR00C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANID",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CU00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MESSAGE",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-USRSEC-FILE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'USRSEC  '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-FLG",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-ON",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-OFF",
+                  "line": 42,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-USER-SEC-EOF",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "USER-SEC-EOF",
+                  "line": 44,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "USER-SEC-NOT-EOF",
+                  "line": 45,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-SEND-ERASE-FLG",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-YES",
+                  "line": 47,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-NO",
+                  "line": 48,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REC-COUNT",
+              "line": 52,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-IDX",
+              "line": 53,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-PAGE-NUM",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-USER-DATA",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 2,
+              "name": "USER-REC",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 10,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "USER-SEL",
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 59,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "USER-ID",
+                  "line": 60,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "USER-NAME",
+                  "line": 62,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(25)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 63,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "USER-TYPE",
+                  "line": 64,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "type": "copy_stub",
+                      "copybook": "COCOM01Y",
+                      "library": null,
+                      "line": 66,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "CDEMO-CU00-INFO",
+                  "line": 67,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-USRID-FIRST",
+                      "line": 68,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-USRID-LAST",
+                      "line": 69,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-PAGE-NUM",
+                      "line": 70,
+                      "section": "WORKING-STORAGE",
+                      "pic": "9(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-NEXT-PAGE-FLG",
+                      "line": 71,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "'N'",
+                      "children": [
+                        {
+                          "level": 88,
+                          "name": "NEXT-PAGE-YES",
+                          "line": 72,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'Y'",
+                          "children": []
+                        },
+                        {
+                          "level": 88,
+                          "name": "NEXT-PAGE-NO",
+                          "line": 73,
+                          "section": "WORKING-STORAGE",
+                          "pic": null,
+                          "occurs": null,
+                          "redefines": null,
+                          "value": "'N'",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-USR-SEL-FLG",
+                      "line": 74,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(01)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "CDEMO-CU00-USR-SELECTED",
+                      "line": 75,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(08)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": [
+                        {
+                          "type": "copy_stub",
+                          "copybook": "COUSR00",
+                          "library": null,
+                          "line": 76,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "COTTL01Y",
+                          "library": null,
+                          "line": 78,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "CSDAT01Y",
+                          "library": null,
+                          "line": 79,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "CSMSG01Y",
+                          "library": null,
+                          "line": 80,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "CSUSR01Y",
+                          "library": null,
+                          "line": 81,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "DFHAID",
+                          "library": null,
+                          "line": 83,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        },
+                        {
+                          "type": "copy_stub",
+                          "copybook": "DFHBMSCA",
+                          "library": null,
+                          "line": 84,
+                          "section": "WORKING-STORAGE",
+                          "parent_level": "01"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 33
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 90,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 91,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 89
+    }
+  },
+  "procedure_division": {
+    "start_line": 97,
+    "end_line": 695,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 98,
+        "end_line": 148,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "PROCESS-ENTER-KEY",
+        "section": null,
+        "start_line": 149,
+        "end_line": 236,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PF7-KEY",
+        "section": null,
+        "start_line": 237,
+        "end_line": 259,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PF8-KEY",
+        "section": null,
+        "start_line": 260,
+        "end_line": 281,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PAGE-FORWARD",
+        "section": null,
+        "start_line": 282,
+        "end_line": 335,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "PROCESS-PAGE-BACKWARD",
+        "section": null,
+        "start_line": 336,
+        "end_line": 383,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-USER-DATA",
+        "section": null,
+        "start_line": 384,
+        "end_line": 445,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "INITIALIZE-USER-DATA",
+        "section": null,
+        "start_line": 446,
+        "end_line": 505,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RETURN-TO-PREV-SCREEN",
+        "section": null,
+        "start_line": 506,
+        "end_line": 521,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-USRLST-SCREEN",
+        "section": null,
+        "start_line": 522,
+        "end_line": 548,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RECEIVE-USRLST-SCREEN",
+        "section": null,
+        "start_line": 549,
+        "end_line": 561,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-HEADER-INFO",
+        "section": null,
+        "start_line": 562,
+        "end_line": 585,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "STARTBR-USER-SEC-FILE",
+        "section": null,
+        "start_line": 586,
+        "end_line": 618,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "READNEXT-USER-SEC-FILE",
+        "section": null,
+        "start_line": 619,
+        "end_line": 652,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "READPREV-USER-SEC-FILE",
+        "section": null,
+        "start_line": 653,
+        "end_line": 686,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "ENDBR-USER-SEC-FILE",
+        "section": null,
+        "start_line": 687,
+        "end_line": 695,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 66
+    },
+    {
+      "copybook": "COUSR00",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 76
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 78
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 79
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 80
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 81
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 83
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 84
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 98,
+        "end_line": 148,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-ENTER-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 149,
+        "end_line": 236,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PF7-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 237,
+        "end_line": 259,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PF8-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 260,
+        "end_line": 281,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PAGE-FORWARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 282,
+        "end_line": 335,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-PAGE-BACKWARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 336,
+        "end_line": 383,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-USER-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 384,
+        "end_line": 445,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "INITIALIZE-USER-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 446,
+        "end_line": 505,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RETURN-TO-PREV-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 506,
+        "end_line": 521,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-USRLST-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 522,
+        "end_line": 548,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RECEIVE-USRLST-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 549,
+        "end_line": 561,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-HEADER-INFO",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 562,
+        "end_line": 585,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "STARTBR-USER-SEC-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 586,
+        "end_line": 618,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "READNEXT-USER-SEC-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 619,
+        "end_line": 652,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "READPREV-USER-SEC-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 653,
+        "end_line": 686,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "ENDBR-USER-SEC-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 687,
+        "end_line": 695,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 100,
+        "unstructured": false,
+        "to": "RETURN-TO-PREV-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 151,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-FORWARD"
+      },
+      {
+        "from": "PROCESS-PF7-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 239,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-BACKWARD"
+      },
+      {
+        "from": "PROCESS-PF8-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 262,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-FORWARD"
+      },
+      {
+        "from": "PROCESS-PAGE-FORWARD",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 284,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-FORWARD",
+        "inline": true,
+        "condition_text": "PERFORM STARTBR-USER-SEC-FILE IF NOT ERR-FLG-ON IF EIBAID NOT = DFHENTER AND DFHPF7 AND DFHPF3 PERFORM READNEXT-USER-SEC-FILE END-IF IF USER-SEC-NOT-EOF AND ERR-FLG-OFF PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > 10 PERFORM INITIALIZE-USER-DATA END-PERFORM END-IF MOVE 1             TO  WS-IDX PERFORM UNTIL WS-IDX >= 11 OR USER-SEC-EOF OR ERR-FLG-ON PERFORM READNEXT-USER-SEC-FILE IF USER-SEC-NOT-EOF AND ERR-FLG-OFF PERFORM POPULATE-USER-DATA COMPUTE WS-IDX = WS-IDX + 1 END-IF END-PERFORM IF USER-SEC-NOT-EOF AND ERR-FLG-OFF COMPUTE CDEMO-CU00-PAGE-NUM = CDEMO-CU00-PAGE-NUM + 1 PERFORM READNEXT-USER-SEC-FILE IF USER-SEC-NOT-EOF AND ERR-FLG-OFF SET NEXT-PAGE-YES TO TRUE ELSE SET NEXT-PAGE-NO TO TRUE END-IF ELSE SET NEXT-PAGE-NO TO TRUE IF WS-IDX > 1 COMPUTE CDEMO-CU00-PAGE-NUM = CDEMO-CU00-PAGE-NUM + 1 END-IF END-IF PERFORM ENDBR-USER-SEC-FILE MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI MOVE SPACE   TO USRIDINO  OF COUSR0AO PERFORM SEND-USRLST-SCREEN END-IF.",
+        "loop_start_line": 284,
+        "loop_end_line": 295
+      },
+      {
+        "from": "PROCESS-PAGE-BACKWARD",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 338,
+        "unstructured": false,
+        "to": "PROCESS-PAGE-BACKWARD",
+        "inline": true,
+        "condition_text": "PERFORM STARTBR-USER-SEC-FILE IF NOT ERR-FLG-ON IF EIBAID NOT = DFHENTER  AND DFHPF8 PERFORM READPREV-USER-SEC-FILE END-IF IF USER-SEC-NOT-EOF AND ERR-FLG-OFF PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > 10 PERFORM INITIALIZE-USER-DATA END-PERFORM END-IF MOVE 10          TO  WS-IDX PERFORM UNTIL WS-IDX <= 0 OR USER-SEC-EOF OR ERR-FLG-ON PERFORM READPREV-USER-SEC-FILE IF USER-SEC-NOT-EOF AND ERR-FLG-OFF PERFORM POPULATE-USER-DATA COMPUTE WS-IDX = WS-IDX - 1 END-IF END-PERFORM IF USER-SEC-NOT-EOF AND ERR-FLG-OFF PERFORM READPREV-USER-SEC-FILE IF NEXT-PAGE-YES IF USER-SEC-NOT-EOF AND ERR-FLG-OFF AND CDEMO-CU00-PAGE-NUM > 1 SUBTRACT 1 FROM CDEMO-CU00-PAGE-NUM ELSE MOVE 1 TO CDEMO-CU00-PAGE-NUM END-IF END-IF END-IF PERFORM ENDBR-USER-SEC-FILE MOVE CDEMO-CU00-PAGE-NUM TO PAGENUMI  OF COUSR0AI PERFORM SEND-USRLST-SCREEN END-IF.",
+        "loop_start_line": 338,
+        "loop_end_line": 349
+      },
+      {
+        "from": "SEND-USRLST-SCREEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 524,
+        "unstructured": false,
+        "to": "POPULATE-HEADER-INFO"
+      },
+      {
+        "from": "STARTBR-USER-SEC-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 597,
+        "unstructured": false,
+        "to": "SEND-USRLST-SCREEN"
+      },
+      {
+        "from": "READNEXT-USER-SEC-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 631,
+        "unstructured": false,
+        "to": "SEND-USRLST-SCREEN"
+      },
+      {
+        "from": "READPREV-USER-SEC-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 665,
+        "unstructured": false,
+        "to": "SEND-USRLST-SCREEN"
+      }
+    ],
+    "dead_code_candidates": [
+      "PROCESS-ENTER-KEY",
+      "PROCESS-PF7-KEY",
+      "PROCESS-PF8-KEY",
+      "POPULATE-USER-DATA",
+      "INITIALIZE-USER-DATA",
+      "RECEIVE-USRLST-SCREEN",
+      "STARTBR-USER-SEC-FILE",
+      "READNEXT-USER-SEC-FILE",
+      "READPREV-USER-SEC-FILE",
+      "ENDBR-USER-SEC-FILE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

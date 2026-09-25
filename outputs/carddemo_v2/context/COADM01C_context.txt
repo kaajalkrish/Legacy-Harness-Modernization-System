@@ -1,0 +1,38 @@
+# System Context: COADM01C
+## 📝 Summary
+COADM01C is a online-type COBOL program, entered at MAIN-PARA, with 8 paragraph(s) across 0 section(s), sharing 9 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COADM01C
+- **Source Path**: app/cbl/COADM01C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- COADM02Y
+- COADM01
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CSUSR01Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 11 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 8 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- RETURN-TO-SIGNON-SCREEN
+- SEND-MENU-SCREEN
+- RECEIVE-MENU-SCREEN
+- POPULATE-HEADER-INFO
+- BUILD-MENU-OPTIONS
+- PGMIDERR-ERR-PARA

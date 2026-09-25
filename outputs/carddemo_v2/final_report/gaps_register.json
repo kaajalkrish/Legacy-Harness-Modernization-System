@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:46:26Z",
+    "total_gaps": 16,
+    "external_dependencies": 17
+  },
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL_INCLUDE target 'DCLTRCAT' is not in the repository (referenced by COTRTUPC) \u2014 its definition is needed to complete the data model / call graph.",
+      "source": "inventory",
+      "reference": "DCLTRCAT",
+      "programs": [
+        "COTRTUPC"
+      ]
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "medium",
+      "type": "unresolved_reference",
+      "description": "SQL_INCLUDE target 'DCLTRTYP' is not in the repository (referenced by COBTUPDT, COTRTLIC, COTRTUPC) \u2014 its definition is needed to complete the data model / call graph.",
+      "source": "inventory",
+      "reference": "DCLTRTYP",
+      "programs": [
+        "COBTUPDT",
+        "COTRTLIC",
+        "COTRTUPC"
+      ]
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-004 \u201cDelete a user only after the deletion is confirmed\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-005 \u201cDefault a zero cycle debit to 2525.00 in the account extract\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-019 \u201cReject a transaction dated after the account expiration date\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-006",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-022 \u201cAdd a transaction only when its key and data fields are valid\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-007",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-026 \u201cRefuse a bill payment when there is nothing to pay\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-008",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-027 \u201cPay the full outstanding balance only after the user confirms\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-009",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-028 \u201cReport only transactions processed within the requested date range\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-010",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-032 \u201cDelete a pending-authorization detail that qualifies for deletion\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-011",
+      "severity": "medium",
+      "type": "rule_sme_review",
+      "description": "BR-033 \u201cDelete an authorization summary with no approved authorizations left\u201d \u2014 low confidence, requires SME confirmation.",
+      "source": "rules"
+    },
+    {
+      "gap_id": "GAP-012",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBACT04C: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-013",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBIMPORT: 1 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-014",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CBSTM03A: 3 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-015",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "COACCT01: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    },
+    {
+      "gap_id": "GAP-016",
+      "severity": "low",
+      "type": "ambiguous_logic",
+      "description": "CODATE01: 2 paragraph(s) flagged ambiguous during pseudocode extraction.",
+      "source": "logic"
+    }
+  ],
+  "external_dependencies": [
+    {
+      "component": "DFHAID",
+      "subsystem": "CICS",
+      "kind": "CICS system copybook / interface",
+      "used_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "component": "DFHBMSCA",
+      "subsystem": "CICS",
+      "kind": "CICS system copybook / interface",
+      "used_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "component": "SQLCA",
+      "subsystem": "DB2",
+      "kind": "DB2 interface",
+      "used_by": [
+        "COTRTLIC"
+      ]
+    },
+    {
+      "component": "CMQGMOV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQMDV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQODV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQPMOV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQTML",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CMQV",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API copybook",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQCLOSE",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQGET",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQOPEN",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01",
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "MQPUT",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COACCT01",
+        "CODATE01"
+      ]
+    },
+    {
+      "component": "MQPUT1",
+      "subsystem": "IBM MQ",
+      "kind": "MQ API call",
+      "used_by": [
+        "COPAUA0C"
+      ]
+    },
+    {
+      "component": "CBLTDLI",
+      "subsystem": "IMS",
+      "kind": "IMS DL/I interface",
+      "used_by": [
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ]
+    },
+    {
+      "component": "CEE3ABD",
+      "subsystem": "Language Environment",
+      "kind": "LE runtime service",
+      "used_by": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C"
+      ]
+    },
+    {
+      "component": "CEEDAYS",
+      "subsystem": "Language Environment",
+      "kind": "LE runtime service",
+      "used_by": [
+        "CSUTLDTC"
+      ]
+    }
+  ]
+}

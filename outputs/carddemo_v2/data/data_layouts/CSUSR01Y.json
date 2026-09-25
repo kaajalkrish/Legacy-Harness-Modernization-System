@@ -1,0 +1,99 @@
+{
+  "copybook": "CSUSR01Y",
+  "used_by": [
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COADM01C",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC",
+    "COMEN01C",
+    "COSGN00C",
+    "COUSR00C",
+    "COUSR01C",
+    "COUSR02C",
+    "COUSR03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "SEC-USER-DATA",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "SEC-USR-ID",
+          "line": 18,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-FNAME",
+          "line": 19,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-LNAME",
+          "line": 20,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-PWD",
+          "line": 21,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-TYPE",
+          "line": 22,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-FILLER",
+          "line": 23,
+          "pic": "X(23)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

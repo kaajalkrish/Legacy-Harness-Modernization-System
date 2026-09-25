@@ -1,0 +1,1367 @@
+{
+  "meta": {
+    "program_id": "CORPT00C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\CORPT00C.cbl",
+    "total_lines": 649
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 23,
+    "end_line": 26,
+    "program_id": "CORPT00C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 27,
+    "end_line": 29,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 30,
+    "end_line": 161,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 36,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGMNAME",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CORPT00C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANID",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CR00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MESSAGE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACT-FILE",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRANSACT'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-FLG",
+              "line": 41,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-ON",
+                  "line": 42,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-OFF",
+                  "line": 43,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANSACT-EOF",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "TRANSACT-EOF",
+                  "line": 45,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "TRANSACT-NOT-EOF",
+                  "line": 46,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-SEND-ERASE-FLG",
+              "line": 47,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-YES",
+                  "line": 48,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEND-ERASE-NO",
+                  "line": 49,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-END-LOOP",
+              "line": 50,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "END-LOOP-YES",
+                  "line": 51,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "END-LOOP-NO",
+                  "line": 52,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 54,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REC-COUNT",
+              "line": 56,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-IDX",
+              "line": 57,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REPORT-NAME",
+              "line": 58,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-START-DATE",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-START-DATE-YYYY",
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 62,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'-'",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-START-DATE-MM",
+                  "line": 63,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 64,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'-'",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-START-DATE-DD",
+                  "line": 65,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-END-DATE",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-END-DATE-YYYY",
+                  "line": 67,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 68,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'-'",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-END-DATE-MM",
+                  "line": 69,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 70,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(01)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'-'",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-END-DATE-DD",
+                  "line": 71,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-DATE-FORMAT",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'YYYY-MM-DD'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-NUM-99",
+              "line": 74,
+              "section": "WORKING-STORAGE",
+              "pic": "99",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-NUM-9999",
+              "line": 75,
+              "section": "WORKING-STORAGE",
+              "pic": "9999",
+              "occurs": null,
+              "redefines": null,
+              "value": "0",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-AMT",
+              "line": 77,
+              "section": "WORKING-STORAGE",
+              "pic": "+99999999.99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRAN-DATE",
+              "line": 78,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'00/00/00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "JCL-RECORD",
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' '",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "JOB-DATA",
+          "line": 81,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 2,
+              "name": "JOB-DATA-1",
+              "line": 82,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 83,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//TRNRPT00 JOB 'TRAN REPORT',CLASS=A,MSGCLASS=0,\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 85,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"// NOTIFY=&SYSUID\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 87,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//*\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 89,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//JOBLIB JCLLIB ORDER=('AWS.M2.CARDDEMO.PROC')\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 91,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//*\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 93,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//STEP10 EXEC PROC=TRANREPT\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 95,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//*\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 97,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//STEP05R.SYMNAMES DD *\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 99,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"TRAN-CARD-NUM,263,16,ZD\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 101,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"TRAN-PROC-DT,305,10,CH\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 103,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 104,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(18)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "\"PARM-START-DATE,C'\"",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "PARM-START-DATE-1",
+                      "line": 106,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACES",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 107,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(52)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "\"'\"",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 108,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 109,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(16)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "\"PARM-END-DATE,C'\"",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "PARM-END-DATE-1",
+                      "line": 111,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACES",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 112,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(54)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "\"'\"",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 113,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"/*\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 115,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"//STEP10R.DATEPARM DD *\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 117,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 10,
+                      "name": "PARM-START-DATE-2",
+                      "line": 118,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACES",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 119,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACE",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "PARM-END-DATE-2",
+                      "line": 120,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(10)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACES",
+                      "children": []
+                    },
+                    {
+                      "level": 10,
+                      "name": "FILLER",
+                      "line": 121,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(59)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": "SPACES",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 122,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"/*\"",
+                  "children": []
+                },
+                {
+                  "level": 5,
+                  "name": "FILLER",
+                  "line": 124,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"/*EOF\"",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "name": "JOB-DATA-2",
+              "line": 126,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": "JOB-DATA-1",
+              "value": null,
+              "children": [
+                {
+                  "level": 5,
+                  "name": "JOB-LINES",
+                  "line": 127,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(80)",
+                  "occurs": 1000,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "CSUTLDTC-PARM",
+          "line": 129,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CSUTLDTC-DATE",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CSUTLDTC-DATE-FORMAT",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "CSUTLDTC-RESULT",
+              "line": 132,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "CSUTLDTC-RESULT-SEV-CD",
+                  "line": 133,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 134,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CSUTLDTC-RESULT-MSG-NUM",
+                  "line": 135,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CSUTLDTC-RESULT-MSG",
+                  "line": 136,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(61)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": [
+                    {
+                      "type": "copy_stub",
+                      "copybook": "COCOM01Y",
+                      "library": null,
+                      "line": 138,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CORPT00",
+                      "library": null,
+                      "line": 140,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "COTTL01Y",
+                      "library": null,
+                      "line": 142,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CSDAT01Y",
+                      "library": null,
+                      "line": 143,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CSMSG01Y",
+                      "library": null,
+                      "line": 144,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "CVTRA05Y",
+                      "library": null,
+                      "line": 146,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "DFHAID",
+                      "library": null,
+                      "line": 148,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    },
+                    {
+                      "type": "copy_stub",
+                      "copybook": "DFHBMSCA",
+                      "library": null,
+                      "line": 149,
+                      "section": "WORKING-STORAGE",
+                      "parent_level": "01"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 34
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 155,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 156,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 154
+    }
+  },
+  "procedure_division": {
+    "start_line": 162,
+    "end_line": 649,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 163,
+        "end_line": 207,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "PROCESS-ENTER-KEY",
+        "section": null,
+        "start_line": 208,
+        "end_line": 461,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SUBMIT-JOB-TO-INTRDR",
+        "section": null,
+        "start_line": 462,
+        "end_line": 514,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "WIRTE-JOBSUB-TDQ",
+        "section": null,
+        "start_line": 515,
+        "end_line": 539,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RETURN-TO-PREV-SCREEN",
+        "section": null,
+        "start_line": 540,
+        "end_line": 555,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-TRNRPT-SCREEN",
+        "section": null,
+        "start_line": 556,
+        "end_line": 584,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RETURN-TO-CICS",
+        "section": null,
+        "start_line": 585,
+        "end_line": 595,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "RECEIVE-TRNRPT-SCREEN",
+        "section": null,
+        "start_line": 596,
+        "end_line": 608,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-HEADER-INFO",
+        "section": null,
+        "start_line": 609,
+        "end_line": 632,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "INITIALIZE-ALL-FIELDS",
+        "section": null,
+        "start_line": 633,
+        "end_line": 649,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 138
+    },
+    {
+      "copybook": "CORPT00",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 140
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 142
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 143
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 144
+    },
+    {
+      "copybook": "CVTRA05Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 146
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 148
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 149
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 163,
+        "end_line": 207,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-ENTER-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 208,
+        "end_line": 461,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SUBMIT-JOB-TO-INTRDR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 462,
+        "end_line": 514,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "WIRTE-JOBSUB-TDQ",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 515,
+        "end_line": 539,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RETURN-TO-PREV-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 540,
+        "end_line": 555,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-TRNRPT-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 556,
+        "end_line": 584,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "RETURN-TO-CICS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 585,
+        "end_line": 595,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "RECEIVE-TRNRPT-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 596,
+        "end_line": 608,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-HEADER-INFO",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 609,
+        "end_line": 632,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "INITIALIZE-ALL-FIELDS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 633,
+        "end_line": 649,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 165,
+        "unstructured": false,
+        "to": "RETURN-TO-PREV-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 210,
+        "unstructured": false,
+        "to": "SUBMIT-JOB-TO-INTRDR"
+      },
+      {
+        "from": "SUBMIT-JOB-TO-INTRDR",
+        "type": "PERFORM_INLINE",
+        "resolved": true,
+        "source_line": 464,
+        "unstructured": false,
+        "to": "SUBMIT-JOB-TO-INTRDR",
+        "inline": true,
+        "condition_text": "IF CONFIRMI OF CORPT0AI = SPACES OR LOW-VALUES STRING 'Please confirm to print the ' DELIMITED BY SIZE WS-REPORT-NAME    DELIMITED BY SPACE ' report...'      DELIMITED BY SIZE INTO WS-MESSAGE MOVE 'Y'     TO WS-ERR-FLG MOVE -1       TO CONFIRML OF CORPT0AI PERFORM SEND-TRNRPT-SCREEN END-IF IF NOT ERR-FLG-ON EVALUATE TRUE WHEN CONFIRMI OF CORPT0AI = 'Y' OR 'y' CONTINUE WHEN CONFIRMI OF CORPT0AI = 'N' OR 'n' PERFORM INITIALIZE-ALL-FIELDS MOVE 'Y'     TO WS-ERR-FLG PERFORM SEND-TRNRPT-SCREEN WHEN OTHER STRING '\"'               DELIMITED BY SIZE CONFIRMI OF CORPT0AI    DELIMITED BY SPACE '\" is not a valid value to confirm...' DELIMITED BY SIZE INTO WS-MESSAGE MOVE 'Y'     TO WS-ERR-FLG MOVE -1       TO CONFIRML OF CORPT0AI PERFORM SEND-TRNRPT-SCREEN END-EVALUATE SET END-LOOP-NO TO TRUE PERFORM VARYING WS-IDX FROM 1 BY 1 UNTIL WS-IDX > 1000 OR END-LOOP-YES  OR ERR-FLG-ON MOVE JOB-LINES(WS-IDX) TO JCL-RECORD IF JCL-RECORD = '/*EOF' OR JCL-RECORD = SPACES OR LOW-VALUES SET END-LOOP-YES TO TRUE END-IF PERFORM WIRTE-JOBSUB-TDQ END-PERFORM END-IF.",
+        "loop_start_line": 464,
+        "loop_end_line": 508
+      },
+      {
+        "from": "WIRTE-JOBSUB-TDQ",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 525,
+        "unstructured": false,
+        "to": "SEND-TRNRPT-SCREEN"
+      },
+      {
+        "from": "SEND-TRNRPT-SCREEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 558,
+        "unstructured": false,
+        "to": "POPULATE-HEADER-INFO"
+      },
+      {
+        "from": "SEND-TRNRPT-SCREEN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 580,
+        "unstructured": true,
+        "to": "RETURN-TO-CICS"
+      }
+    ],
+    "dead_code_candidates": [
+      "PROCESS-ENTER-KEY",
+      "WIRTE-JOBSUB-TDQ",
+      "RECEIVE-TRNRPT-SCREEN",
+      "INITIALIZE-ALL-FIELDS"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "GOTO",
+        "paragraph": "SEND-TRNRPT-SCREEN",
+        "target": "RETURN-TO-CICS",
+        "line": 580,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

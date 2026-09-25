@@ -1,0 +1,464 @@
+{
+  "copybook": "CSDAT01Y",
+  "used_by": [
+    "COPAUS0C",
+    "COPAUS1C",
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COADM01C",
+    "COBIL00C",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC",
+    "COMEN01C",
+    "CORPT00C",
+    "COSGN00C",
+    "COTRN00C",
+    "COTRN01C",
+    "COTRN02C",
+    "COUSR00C",
+    "COUSR01C",
+    "COUSR02C",
+    "COUSR03C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "WS-DATE-TIME",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-CURDATE-DATA",
+          "line": 18,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CURDATE",
+              "line": 19,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "WS-CURDATE-YEAR",
+                  "line": 20,
+                  "pic": "9(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CURDATE-MONTH",
+                  "line": 21,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CURDATE-DAY",
+                  "line": 22,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "WS-CURDATE-N",
+              "line": 23,
+              "pic": "9(08)",
+              "occurs": null,
+              "redefines": "WS-CURDATE",
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURTIME",
+              "line": 24,
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "WS-CURTIME-HOURS",
+                  "line": 25,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CURTIME-MINUTE",
+                  "line": 26,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CURTIME-SECOND",
+                  "line": 27,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-CURTIME-MILSEC",
+                  "line": 28,
+                  "pic": "9(02)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "WS-CURTIME-N",
+              "line": 29,
+              "pic": "9(08)",
+              "occurs": null,
+              "redefines": "WS-CURTIME",
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-CURDATE-MM-DD-YY",
+          "line": 30,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CURDATE-MM",
+              "line": 31,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 32,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'/'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURDATE-DD",
+              "line": 33,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 34,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'/'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURDATE-YY",
+              "line": 35,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-CURTIME-HH-MM-SS",
+          "line": 36,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CURTIME-HH",
+              "line": 37,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 38,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "':'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURTIME-MM",
+              "line": 39,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 40,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "':'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURTIME-SS",
+              "line": 41,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-TIMESTAMP",
+          "line": 42,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-DT-YYYY",
+              "line": 43,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 44,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'-'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-DT-MM",
+              "line": 45,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 46,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'-'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-DT-DD",
+              "line": 47,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 48,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' '",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-TM-HH",
+              "line": 49,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 50,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "':'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-TM-MM",
+              "line": 51,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 52,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "':'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-TM-SS",
+              "line": 53,
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 54,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'.'",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIMESTAMP-TM-MS6",
+              "line": 55,
+              "pic": "9(06)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

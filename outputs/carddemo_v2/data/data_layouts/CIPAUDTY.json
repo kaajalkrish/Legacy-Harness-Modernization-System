@@ -1,0 +1,415 @@
+{
+  "copybook": "CIPAUDTY",
+  "used_by": [
+    "CBPAUP0C",
+    "COPAUA0C",
+    "COPAUS0C",
+    "COPAUS1C",
+    "COPAUS2C",
+    "DBUNLDGS",
+    "PAUDBLOD",
+    "PAUDBUNL"
+  ],
+  "records": [
+    {
+      "level": 5,
+      "name": "PA-AUTHORIZATION-KEY",
+      "line": 19,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 10,
+          "name": "PA-AUTH-DATE-9C",
+          "line": 20,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        },
+        {
+          "level": 10,
+          "name": "PA-AUTH-TIME-9C",
+          "line": 21,
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": "COMP-3",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-ORIG-DATE",
+      "line": 22,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-ORIG-TIME",
+      "line": 23,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CARD-NUM",
+      "line": 24,
+      "pic": "X(16)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-TYPE",
+      "line": 25,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-CARD-EXPIRY-DATE",
+      "line": 26,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MESSAGE-TYPE",
+      "line": 27,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MESSAGE-SOURCE",
+      "line": 28,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-ID-CODE",
+      "line": 29,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-RESP-CODE",
+      "line": 30,
+      "pic": "X(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "PA-AUTH-APPROVED",
+          "line": 31,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'00'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-RESP-REASON",
+      "line": 32,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-PROCESSING-CODE",
+      "line": 33,
+      "pic": "9(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-TRANSACTION-AMT",
+      "line": 34,
+      "pic": "S9(10)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-APPROVED-AMT",
+      "line": 35,
+      "pic": "S9(10)V99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": "COMP-3",
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-CATAGORY-CODE",
+      "line": 36,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-ACQR-COUNTRY-CODE",
+      "line": 37,
+      "pic": "X(03)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-POS-ENTRY-MODE",
+      "line": 38,
+      "pic": "9(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-ID",
+      "line": 39,
+      "pic": "X(15)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-NAME",
+      "line": 40,
+      "pic": "X(22)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-CITY",
+      "line": 41,
+      "pic": "X(13)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-STATE",
+      "line": 42,
+      "pic": "X(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MERCHANT-ZIP",
+      "line": 43,
+      "pic": "X(09)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-TRANSACTION-ID",
+      "line": 44,
+      "pic": "X(15)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-MATCH-STATUS",
+      "line": 45,
+      "pic": "X(01)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "PA-MATCH-PENDING",
+          "line": 46,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'P'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "PA-MATCH-AUTH-DECLINED",
+          "line": 47,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'D'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "PA-MATCH-PENDING-EXPIRED",
+          "line": 48,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'E'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "PA-MATCHED-WITH-TRAN",
+          "line": 49,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'M'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "PA-AUTH-FRAUD",
+      "line": 50,
+      "pic": "X(01)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 88,
+          "name": "PA-FRAUD-CONFIRMED",
+          "line": 51,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'F'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 88,
+          "name": "PA-FRAUD-REMOVED",
+          "line": 52,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": "'R'",
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "PA-FRAUD-RPT-DATE",
+      "line": 53,
+      "pic": "X(08)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "FILLER",
+      "line": 54,
+      "pic": "X(17)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    }
+  ]
+}

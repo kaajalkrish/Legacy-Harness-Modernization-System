@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "program_id": "COBSWAIT",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\COBSWAIT.cbl",
+    "total_lines": 41
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 23,
+    "program_id": "COBSWAIT"
+  },
+  "environment_division": {
+    "start_line": 24,
+    "end_line": 25,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 26,
+    "end_line": 33,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "MVSWAIT-TIME",
+          "line": 30,
+          "section": "WORKING-STORAGE",
+          "pic": "9(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "PARM-VALUE",
+          "line": 31,
+          "section": "WORKING-STORAGE",
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ],
+      "start_line": 28
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": null
+    }
+  },
+  "procedure_division": {
+    "start_line": 34,
+    "end_line": 41,
+    "sections": [],
+    "paragraphs": [],
+    "terminal_statements": [
+      {
+        "type": "STOP RUN",
+        "line": 40
+      }
+    ]
+  },
+  "copy_stubs": [],
+  "control_flow_graph": {
+    "entry_points": [],
+    "terminal_nodes": [],
+    "nodes": [],
+    "edges": [],
+    "dead_code_candidates": [],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

@@ -1,0 +1,505 @@
+{
+  "meta": {
+    "program_id": "COSGN00C",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\COSGN00C.cbl",
+    "total_lines": 260
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 25,
+    "program_id": "COSGN00C",
+    "author": "AWS"
+  },
+  "environment_division": {
+    "start_line": 26,
+    "end_line": 28,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 29,
+    "end_line": 71,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-PGMNAME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COSGN00C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-TRANID",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CC00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-MESSAGE",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-USRSEC-FILE",
+              "line": 39,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'USRSEC  '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ERR-FLG",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'N'",
+              "children": [
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-ON",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Y'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "ERR-FLG-OFF",
+                  "line": 42,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'N'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 43,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 44,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-USER-ID",
+              "line": 45,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-USER-PWD",
+              "line": 46,
+              "section": "WORKING-STORAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "COCOM01Y",
+                  "library": null,
+                  "line": 48,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COSGN00",
+                  "library": null,
+                  "line": 50,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COTTL01Y",
+                  "library": null,
+                  "line": 52,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSDAT01Y",
+                  "library": null,
+                  "line": 53,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSMSG01Y",
+                  "library": null,
+                  "line": 54,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "CSUSR01Y",
+                  "library": null,
+                  "line": 55,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHAID",
+                  "library": null,
+                  "line": 57,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "DFHBMSCA",
+                  "library": null,
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 33
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 65,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LK-COMMAREA",
+              "line": 66,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 64
+    }
+  },
+  "procedure_division": {
+    "start_line": 72,
+    "end_line": 260,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "MAIN-PARA",
+        "section": null,
+        "start_line": 73,
+        "end_line": 107,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "PROCESS-ENTER-KEY",
+        "section": null,
+        "start_line": 108,
+        "end_line": 144,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-SIGNON-SCREEN",
+        "section": null,
+        "start_line": 145,
+        "end_line": 161,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-PLAIN-TEXT",
+        "section": null,
+        "start_line": 162,
+        "end_line": 176,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "POPULATE-HEADER-INFO",
+        "section": null,
+        "start_line": 177,
+        "end_line": 208,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "READ-USER-SEC-FILE",
+        "section": null,
+        "start_line": 209,
+        "end_line": 260,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 48
+    },
+    {
+      "copybook": "COSGN00",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 50
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 52
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 53
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 54
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 55
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 57
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 58
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "MAIN-PARA"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "MAIN-PARA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 73,
+        "end_line": 107,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "PROCESS-ENTER-KEY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 108,
+        "end_line": 144,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-SIGNON-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 145,
+        "end_line": 161,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-PLAIN-TEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 162,
+        "end_line": 176,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "POPULATE-HEADER-INFO",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 177,
+        "end_line": 208,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "READ-USER-SEC-FILE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 209,
+        "end_line": 260,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "MAIN-PARA",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 75,
+        "unstructured": false,
+        "to": "SEND-SIGNON-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 117,
+        "unstructured": false,
+        "to": "SEND-SIGNON-SCREEN"
+      },
+      {
+        "from": "PROCESS-ENTER-KEY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 132,
+        "unstructured": false,
+        "to": "READ-USER-SEC-FILE"
+      },
+      {
+        "from": "SEND-SIGNON-SCREEN",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 147,
+        "unstructured": false,
+        "to": "POPULATE-HEADER-INFO"
+      },
+      {
+        "from": "READ-USER-SEC-FILE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 221,
+        "unstructured": false,
+        "to": "SEND-SIGNON-SCREEN"
+      }
+    ],
+    "dead_code_candidates": [
+      "PROCESS-ENTER-KEY",
+      "SEND-PLAIN-TEXT"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

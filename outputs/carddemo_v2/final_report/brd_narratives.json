@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "fingerprint": "f72aa382855cd126",
+    "mode": "ai-host"
+  },
+  "executive_summary": "AWS CardDemo runs the core of a credit-card business. It signs users on, maintains credit-card accounts, their customers and their cards, captures and posts card transactions, calculates monthly interest, takes bill payments, produces account statements and transaction reports, and makes real-time approve-or-decline decisions on card authorization requests. Regular users work from a Main menu of account, card, transaction, bill-payment and report functions; administrators also have an Admin menu for maintaining application users. Online screens handle day-to-day work, while batch jobs post each day's transactions, apply monthly interest and produce statements.\n\nThe analysis found 44 business rules. The most important are the money decisions: a daily transaction is rejected if it would take the account over its credit limit (BR-018) or is dated after the account expiration date (BR-019); an authorization request is declined when the amount exceeds the available credit, which is the credit limit minus the current balance (BR-039), and otherwise approved (BR-040); monthly interest is the category balance times the rate divided by 1200 (BR-024); and an online bill payment always settles the full outstanding balance (BR-027).\n\nThere are 16 open gaps, none of high severity. Nine rules are low confidence and need confirmation by subject-matter experts, including a hard-coded 2525.00 default written into the account extract (BR-005). Two database definitions used by the transaction-type programs are missing from the analysed source (GAP-001, GAP-002). Structural risk sits in a known set of programs: the statement generator uses legacy switched-paragraph control flow, and the transaction posting, interest, authorization and account-update programs are high-complexity programs.\n\nRecommendation: confirm the key rules and the low-confidence rules with business owners first, and treat card authorization and daily transaction posting as the processes whose behaviour any modernization must preserve exactly.",
+  "business_purpose": "AWS CardDemo supports the lifecycle of a credit-card account. It holds the account master, customer details, cards and the card-to-account cross-reference, and it records every transaction against an account. Its purpose is to let users view and maintain accounts and cards, to keep account balances correct by validating and posting each day's transactions and adding monthly interest, to let an account's outstanding balance be paid, and to give users statements and transaction reports.\n\nThe system also decides in real time whether a card authorization request is approved or declined by comparing the requested amount with the account's available credit, keeps those pending authorizations for review, lets users flag an authorization as fraud, and deletes authorizations once they pass an expiry window.",
+  "users_and_actors": "| Actor | How they use the system |\n|---|---|\n| Regular user | Signs on with a user id and password and reaches the Main menu to view and update accounts and cards, list, view and add transactions, pay a bill and request reports (BR-001, BR-003). |\n| Administrator | Signs on and is routed to the Admin menu, where they list, add, update and delete application users, including their names, passwords and user type (BR-003, BR-004). |\n| Authorization requester (message-driven) | Sends card authorization requests as messages; the system replies with an approve or decline decision (BR-041). |\n| Account and date service requesters (message-driven) | Send request messages with an account key and receive account data or a date/account reply on a reply queue. |\n| Batch operations | Run the batch jobs: verification and posting of the daily transaction file, monthly interest posting, statements, the transaction detail report, authorization purge, database load and unload, and data export and import. |",
+  "scope": "In scope is everything found in the analysed source: 44 programs (25 online, 17 batch and 2 shared subroutines), 21 screens, 55 job streams and 62 copybooks. The document covers the online screens, the batch jobs, the message-driven services, the business rules the code enforces, and the data records it defines.\n\nOut of scope is anything not present in the analysed source: the definitions of two transaction-type database tables that the code references but that are not in the analysed source (GAP-001, GAP-002), the internal behaviour of the platform services the system calls, operational scheduling, and any business policy that is not present in the code. Fee computation in the interest job is a stub marked 'to be implemented', so fee rules are not captured. Rules marked low confidence reflect what the code does, not a confirmed business policy.",
+  "system_context": "Users work through online screens. Sign-on checks the user security file and routes each user to the Main or Admin menu, from which they reach account, card, transaction, bill-payment, report, authorization and user-administration screens. These screens read and update the shared master records: accounts, customers, cards, the card-to-account cross-reference, transactions and the transaction type and category reference data. Update screens write a record back only if it actually changed and no one else changed it since it was read.\n\nBatch jobs work on the same records. The daily posting job validates each day's transactions and either posts them to account balances or writes them to a rejects file; the interest job adds monthly interest; the statement and report jobs produce account statements and the transaction detail report, which users request from the reports screen. Card authorization is message-driven: requests come in on a queue, the decision program compares the requested amount with the account's available credit, stores the pending authorization in the authorization database and replies on a queue, while batch jobs purge, load and unload that database. Separate message-driven services answer account and date requests, and export and import jobs move all master data for branch migration.",
+  "capabilities": {
+    "Sign-On and Access Control": "This is the front door to the online application. Users sign on with a user id and password; sign-on fails if the password does not match the one held in the user security file (BR-002). Every user is either an administrator or a regular user (BR-001), and that type decides where they land: administrators go to the Admin menu and all other users to the Main menu (BR-003). The menus then list the functions each kind of user can select.",
+    "User Administration": "Administrators maintain who can use the application. From a scrollable list of users they can add a new user (the user id must not already exist), update a user's first name, last name, password and user type, or delete a user. Deletion is done only after the administrator confirms it (BR-004), a low-confidence rule that should be confirmed (GAP-003).",
+    "Account Management": "Users view an account together with its customer and card details, and update account and customer information. The update screen applies the most extensive validation in the system: a FICO score must be between 300 and 850 (BR-006), active status and primary cardholder indicators must be Y or N (BR-007, BR-008), Social Security Numbers with an invalid first part are rejected (BR-009), and state, ZIP code and phone area code must be valid and consistent (BR-010, BR-011, BR-012). Changes are written only if something changed and no one else updated the record first. Batch jobs extract account and customer data, and one extract writes a hard-coded 2525.00 when the cycle debit is zero (BR-005, GAP-004); a message-driven service answers account inquiries.",
+    "Card Management": "Users list cards, filtered by account or card number, view a card's details, and update its embossed name, active status and expiry date. On update the expiry month must be 1 to 12 (BR-016) and the expiry year 1950 to 2099 (BR-017), and the card record is updated only if it changed and was not modified by another user in the meantime. Batch utilities list the card master and the card-to-account cross-reference.",
+    "Transaction Entry and Posting": "Online, users list and view transactions and add new ones through manual entry; a new transaction is written only when its account or card key and its data are valid (BR-022) and its amount is a valid signed number (BR-023). In batch, a verification job checks each daily transaction's card and account, and the posting job then posts or rejects each one. A transaction is rejected if it would take the account over its credit limit (BR-018) or is dated after the account expiration date (BR-019); it is posted only when it passes every check (BR-021), and posted amounts update the current-cycle credit or debit (BR-020). Rejected transactions go to a rejects file with a numbered reason.",
+    "Interest and Bill Payment": "The monthly interest job reads each account's transaction-category balances, looks up the interest rate for the account's disclosure group (falling back to a default group), and computes interest as the balance times the rate divided by 1200, only when the rate is not zero (BR-024). It writes an interest transaction and adds the interest to the account balance. Online, a user pays a bill by entering an account id and confirming (BR-025): no payment is made when there is nothing to pay (BR-026), and otherwise the full outstanding balance is paid and the balance set to zero (BR-027). Both payment rules are low confidence (GAP-007, GAP-008).",
+    "Statements and Reporting": "The statement job produces an account statement in both plain text and HTML, combining customer, account and transaction data. Users request the transaction detail report online as a Monthly, Yearly or Custom date-range report (BR-029); the screen submits a batch job that prints only transactions processed within the requested dates (BR-028), with per-account subtotals, page totals and a grand total. The statement generator is the one program using legacy switched-paragraph control flow and should be reviewed before modernization.",
+    "Card Authorization": "This is the real-time decision engine. For each authorization request message, the system computes the account's available credit as the credit limit minus the current balance and declines the request if the transaction amount exceeds that available credit (BR-039); a request is also declined when the account record cannot be found. Otherwise the request is approved with response code 00 (BR-040, BR-035). The answer is approved or declined (BR-041, BR-042), each decline records a reason code, for example insufficient funds when the amount is over the available credit (BR-043), and each pending authorization is stored and tracked by match status (BR-036). Users review pending authorizations online and can report fraud or clear a fraud flag (BR-044, BR-034). A batch purge deletes authorizations older than an expiry window of 5 days by default (BR-030, BR-031, BR-032) and removes summaries with no approved authorizations left (BR-033); other batch jobs load and unload the authorization database.",
+    "Transaction Type Reference Data": "The transaction type and category codes that classify every transaction are maintained here. Users list the reference records, filtered by type code, and update a type or category; as with other update screens, a record is updated only if it changed and was not modified by someone else. A batch job applies add and update changes to the transaction-type records from an input file. The database definitions these programs use are missing from the analysed source (GAP-001, GAP-002).",
+    "Data Migration and Shared Services": "An export job writes all CardDemo master data (customers, accounts, cross-references, transactions and cards) into a single file for branch migration, and an import job loads that file back into the master files, recording any unknown record types. Shared services include a date-validation routine used by online and batch programs, a message-driven date and account service, and a utility that waits for a set interval between processing steps."
+  },
+  "key_rules": [
+    {
+      "rule_id": "BR-018",
+      "why": "Stops a posted transaction from taking an account over its credit limit; this is the main credit-exposure control in daily posting."
+    },
+    {
+      "rule_id": "BR-019",
+      "why": "Rejects transactions dated after the account expiration date; low confidence, so the business must confirm it."
+    },
+    {
+      "rule_id": "BR-021",
+      "why": "Only transactions that pass every check reach account balances; everything else is rejected with a reason for follow-up."
+    },
+    {
+      "rule_id": "BR-020",
+      "why": "Decides whether a posted amount counts as a cycle credit or a cycle debit, which drives the account's cycle totals."
+    },
+    {
+      "rule_id": "BR-039",
+      "why": "Declines any authorization larger than the available credit, protecting against over-limit authorizations in real time."
+    },
+    {
+      "rule_id": "BR-035",
+      "why": "Response code 00 marks an approved authorization, which the purge and review functions rely on to tell approvals from declines."
+    },
+    {
+      "rule_id": "BR-009",
+      "why": "Rejects Social Security Numbers whose first three digits are 000, 666 or 900 to 999, keeping customer identity data valid."
+    },
+    {
+      "rule_id": "BR-040",
+      "why": "Defines when a request is approved: when the amount fits within the available credit, answered with response code 00."
+    },
+    {
+      "rule_id": "BR-043",
+      "why": "Defines the decline reason codes; in practice a decline records insufficient funds when the amount exceeds the available credit."
+    },
+    {
+      "rule_id": "BR-024",
+      "why": "Sets how monthly interest is calculated (balance times rate divided by 1200), which directly affects every customer's balance."
+    },
+    {
+      "rule_id": "BR-027",
+      "why": "An online bill payment always pays the full outstanding balance; partial payment is not supported and needs confirmation."
+    },
+    {
+      "rule_id": "BR-026",
+      "why": "Prevents a payment when the balance is zero or less."
+    },
+    {
+      "rule_id": "BR-030",
+      "why": "Sets how long pending authorizations are kept (5 days by default) before they are purged."
+    },
+    {
+      "rule_id": "BR-006",
+      "why": "Keeps customer FICO scores within the valid 300 to 850 range."
+    },
+    {
+      "rule_id": "BR-005",
+      "why": "A hard-coded 2525.00 is written into the account extract when the cycle debit is zero; the business must confirm whether this is intended."
+    }
+  ],
+  "modernization": "The main task is to preserve the money decisions exactly. Daily posting, interest, the real-time authorization decision and bill payment each change account balances or approve card use, and the programs that implement them are high-complexity programs (for example CBTRN02C, CBACT04C, COPAUA0C and COBIL00C). Their rules should be captured as test cases before any change, and the nine low-confidence rules, among them BR-019, BR-027 and BR-005, need business confirmation so that code behaviour is not treated as policy without confirmation.\n\nThe code also carries structural debt. The analysis counted 89 unstructured branches (GO TO) across the programs, and one program, the statement generator CBSTM03A, uses legacy switched-paragraph control flow that alters its own branching at run time. The account-update, card-update and transaction-type update screens, several authorization programs and the statement generator all appear in the unstructured list. These areas are complex and need review before any change.\n\nThe system depends on several platform subsystems: CICS for the online screens, IMS for the pending-authorization database, IBM MQ for the message-driven authorization, account and date services, DB2 mainly for the transaction-type reference data, and Language Environment services for date checking and error handling. Each dependency needs a replacement or equivalent. Two missing DB2 definitions (GAP-001, GAP-002) must be found before the transaction-type data model is complete, and the ambiguous logic flagged in the interest, import, statement and message-driven programs (GAP-012 to GAP-016) should be resolved with subject-matter experts.",
+  "next_steps": [
+    "Review the key business rules in section 4.1 with business owners, starting with the transaction posting and card authorization decisions.",
+    "Resolve the nine low-confidence rules recorded as GAP-003 to GAP-011, in particular the 2525.00 extract default (BR-005) and the full-balance bill payment (BR-027).",
+    "Locate the missing transaction-type database definitions (GAP-001, GAP-002) and complete the data model.",
+    "Walk through the ambiguous logic in GAP-012 to GAP-016 with subject-matter experts.",
+    "Build test cases from the confirmed rules for daily posting, interest, bill payment and authorization before changing those programs.",
+    "Review the statement generator and the other unstructured and high-complexity programs to decide how their control flow will be replaced.",
+    "Plan how each platform dependency (CICS, IMS, IBM MQ, DB2 and Language Environment services) will be replaced or retained."
+  ]
+}

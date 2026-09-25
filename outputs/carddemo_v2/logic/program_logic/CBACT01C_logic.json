@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "program_id": "CBACT01C",
+    "source_file": "carddemo_input/app/cbl/CBACT01C.cbl",
+    "model": "ai-host",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "Batch program that reads every record from the indexed ACCOUNT master file (ACCTFILE) and writes each account out to four output files in different layouts: a flat fixed record (OUTFILE), an array/table record (ARRYFILE), and two variable-length records (VBRCFILE). For each account it reformats the reissue date by calling the assembler routine COBDATFT. Any file I/O error prints the file status and abends the program.",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "pseudocode": "Announce start of CBACT01C. Open the account input file and all output files (OUTFILE, ARRYFILE, VBRCFILE). Loop until end-of-file: read the next account record and, while not at end-of-file, display it. When done, close the account file, announce end of execution, and return to the caller.",
+      "branches": ["PERFORM UNTIL END-OF-FILE = 'Y'", "IF END-OF-FILE = 'N' (guard read)", "IF END-OF-FILE = 'N' (guard display)"],
+      "calls_made": ["0000-ACCTFILE-OPEN", "2000-OUTFILE-OPEN", "3000-ARRFILE-OPEN", "4000-VBRFILE-OPEN", "1000-ACCTFILE-GET-NEXT", "9000-ACCTFILE-CLOSE"],
+      "field_references": ["END-OF-FILE", "ACCOUNT-RECORD"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Driver paragraph (the code directly under PROCEDURE DIVISION); classic sequential read-process loop."
+    },
+    {
+      "name": "1000-ACCTFILE-GET-NEXT",
+      "pseudocode": "Read the next account record into ACCOUNT-RECORD. If the read succeeded (status '00'): reset result to OK, clear the array record, then display, populate and write the flat account record, populate and write the array record, and populate and write the two variable-length records. If status is '10' set result to end-of-file (16); any other status is an error (12). Then: if OK continue; if end-of-file mark END-OF-FILE = 'Y'; otherwise report the read error, save the status and abend.",
+      "branches": ["IF ACCTFILE-STATUS = '00'", "ELSE IF ACCTFILE-STATUS = '10'", "ELSE (other status = error 12)", "IF APPL-AOK ... ELSE IF APPL-EOF ... ELSE (abend)"],
+      "calls_made": ["1100-DISPLAY-ACCT-RECORD", "1300-POPUL-ACCT-RECORD", "1350-WRITE-ACCT-RECORD", "1400-POPUL-ARRAY-RECORD", "1450-WRITE-ARRY-RECORD", "1500-POPUL-VBRC-RECORD", "1550-WRITE-VB1-RECORD", "1575-WRITE-VB2-RECORD", "9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["ACCTFILE-STATUS", "ACCOUNT-RECORD", "APPL-RESULT", "END-OF-FILE", "ARR-ARRAY-REC", "VBRC-REC1", "IO-STATUS"],
+      "complexity_score": 8,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Core per-record processing paragraph; uses status-code 88-levels APPL-AOK (0) and APPL-EOF (16) as control flags."
+    },
+    {
+      "name": "1100-DISPLAY-ACCT-RECORD",
+      "pseudocode": "Print each field of the account record (id, active status, current balance, credit limit, cash credit limit, open/expiration/reissue dates, current-cycle credit and debit, group id) followed by a divider line.",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["ACCT-ID", "ACCT-ACTIVE-STATUS", "ACCT-CURR-BAL", "ACCT-CREDIT-LIMIT", "ACCT-CASH-CREDIT-LIMIT", "ACCT-OPEN-DATE", "ACCT-EXPIRAION-DATE", "ACCT-REISSUE-DATE", "ACCT-CURR-CYC-CREDIT", "ACCT-CURR-CYC-DEBIT", "ACCT-GROUP-ID"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Diagnostic display only; no business logic."
+    },
+    {
+      "name": "1300-POPUL-ACCT-RECORD",
+      "pseudocode": "Copy the account fields into the flat OUTFILE record. Move the reissue date into the date-conversion structure, set conversion type and out-type to '2', and call the assembler routine COBDATFT to reformat the date; store the formatted date into the output record. Copy current-cycle credit. If the current-cycle debit is zero, force the output debit to 2525.00. Copy the group id.",
+      "branches": ["IF ACCT-CURR-CYC-DEBIT = ZERO -> MOVE 2525.00"],
+      "calls_made": ["COBDATFT"],
+      "field_references": ["ACCT-ID", "OUT-ACCT-ID", "ACCT-CURR-BAL", "ACCT-CREDIT-LIMIT", "ACCT-REISSUE-DATE", "CODATECN-REC", "CODATECN-0UT-DATE", "OUT-ACCT-REISSUE-DATE", "ACCT-CURR-CYC-DEBIT", "OUT-ACCT-CURR-CYC-DEBIT", "ACCT-GROUP-ID"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [{"line": 237, "note": "Hard-coded 2525.00 substituted when cycle debit is zero -- looks like demo/test data, not a real business rule; flag for SME review."}],
+      "notes": "Calls external assembler COBDATFT for date formatting (resolved static CALL)."
+    },
+    {
+      "name": "1350-WRITE-ACCT-RECORD",
+      "pseudocode": "Write the flat account record to OUTFILE. If the write status is neither '00' nor '10', print the status, save it and abend.",
+      "branches": ["IF OUTFILE-STATUS NOT = '00' AND NOT = '10' -> error"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["OUT-ACCT-REC", "OUTFILE-STATUS", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Standard write-with-status-check pattern repeated across the write paragraphs."
+    },
+    {
+      "name": "1400-POPUL-ARRAY-RECORD",
+      "pseudocode": "Populate the array (table) record: set the account id, then fill the first three occurrences of the balance/debit table with the current balance and hard-coded cycle-debit amounts (1005.00, 1525.00, and negative -1025.00 / -2500.00 for the third slot).",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["ACCT-ID", "ARR-ACCT-ID", "ACCT-CURR-BAL", "ARR-ACCT-CURR-BAL", "ARR-ACCT-CURR-CYC-DEBIT"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [{"line": 256, "note": "Hard-coded amounts populating the OCCURS table -- demo data, not derived from the input; flag for SME review."}],
+      "notes": "Writes into an OCCURS 5 TIMES table (only first 3 slots populated)."
+    },
+    {
+      "name": "1450-WRITE-ARRY-RECORD",
+      "pseudocode": "Write the array record to ARRYFILE. If status is neither '00' nor '10', print the status, save it and abend.",
+      "branches": ["IF ARRYFILE-STATUS NOT = '00' AND NOT = '10' -> error"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["ARR-ARRAY-REC", "ARRYFILE-STATUS", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1500-POPUL-VBRC-RECORD",
+      "pseudocode": "Populate the two variable-length records: move the account id into both, active status into record 1, and current balance, credit limit and reissue year into record 2. Display both records.",
+      "branches": [],
+      "calls_made": [],
+      "field_references": ["ACCT-ID", "VB1-ACCT-ID", "VB2-ACCT-ID", "ACCT-ACTIVE-STATUS", "ACCT-CURR-BAL", "ACCT-CREDIT-LIMIT", "WS-ACCT-REISSUE-YYYY", "VBRC-REC1", "VBRC-REC2"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "1550-WRITE-VB1-RECORD",
+      "pseudocode": "Set the record length to 12, copy variable record 1 into the variable output area, and write it. If status is neither '00' nor '10', print the status, save it and abend.",
+      "branches": ["IF VBRCFILE-STATUS NOT = '00' AND NOT = '10' -> error"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["WS-RECD-LEN", "VBRC-REC1", "VBR-REC", "VBRCFILE-STATUS", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Uses reference modification VBR-REC(1:WS-RECD-LEN) for variable-length write."
+    },
+    {
+      "name": "1575-WRITE-VB2-RECORD",
+      "pseudocode": "Set the record length to 39, copy variable record 2 into the variable output area, and write it. If status is neither '00' nor '10', print the status, save it and abend.",
+      "branches": ["IF VBRCFILE-STATUS NOT = '00' AND NOT = '10' -> error"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["WS-RECD-LEN", "VBRC-REC2", "VBR-REC", "VBRCFILE-STATUS", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "0000-ACCTFILE-OPEN",
+      "pseudocode": "Open the account file for input. If the open status is '00' set result OK, else set error (12). If OK continue; otherwise print an open error, save the status and abend.",
+      "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["ACCTFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "File-open pattern (repeated for each of the four files)."
+    },
+    {
+      "name": "2000-OUTFILE-OPEN",
+      "pseudocode": "Open OUTFILE for output. If status '00' set OK, else error (12). If OK continue; otherwise print an open error, save the status and abend.",
+      "branches": ["IF OUTFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["OUTFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "3000-ARRFILE-OPEN",
+      "pseudocode": "Open ARRYFILE for output. If status '00' set OK, else error (12). If OK continue; otherwise print an open error, save the status and abend.",
+      "branches": ["IF ARRYFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["ARRYFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "4000-VBRFILE-OPEN",
+      "pseudocode": "Open VBRCFILE for output. If status '00' set OK, else error (12). If OK continue; otherwise print an open error, save the status and abend.",
+      "branches": ["IF VBRCFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["VBRCFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "9000-ACCTFILE-CLOSE",
+      "pseudocode": "Close the account file. If status '00' clear the result to OK, else set error (12). If OK continue; otherwise print a close error, save the status and abend.",
+      "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["ACCTFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Uses ADD/SUBTRACT GIVING to set the result flag instead of MOVE."
+    },
+    {
+      "name": "9999-ABEND-PROGRAM",
+      "pseudocode": "Print 'ABENDING PROGRAM', set timing to 0 and abend code to 999, and call the system abend routine CEE3ABD to terminate the job abnormally.",
+      "branches": [],
+      "calls_made": ["CEE3ABD"],
+      "field_references": ["TIMING", "ABCODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Calls Language Environment service CEE3ABD for a forced abend (resolved static CALL to an external system routine)."
+    },
+    {
+      "name": "9910-DISPLAY-IO-STATUS",
+      "pseudocode": "Format and display the file status code. If the status is non-numeric or its first byte is '9', decode the second byte as a binary number and show it as a 4-digit value; otherwise show the two-digit status right-justified in a 4-digit field.",
+      "branches": ["IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"],
+      "calls_made": [],
+      "field_references": ["IO-STATUS", "IO-STAT1", "IO-STAT2", "TWO-BYTES-BINARY", "TWO-BYTES-RIGHT", "IO-STATUS-04", "IO-STATUS-0403"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Generic file-status display helper reused throughout; handles VSAM extended (9nn) status codes."
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

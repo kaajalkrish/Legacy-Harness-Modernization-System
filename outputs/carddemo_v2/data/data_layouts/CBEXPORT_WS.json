@@ -1,0 +1,1312 @@
+{
+  "program": "CBEXPORT",
+  "records": [
+    {
+      "level": 1,
+      "name": "EXPORT-RECORD",
+      "line": 9,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "EXPORT-REC-TYPE",
+          "line": 10,
+          "pic": "X(1)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-TIMESTAMP",
+          "line": 11,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-TIMESTAMP-R",
+          "line": 12,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-TIMESTAMP",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXPORT-DATE",
+              "line": 13,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXPORT-DATE-TIME-SEP",
+              "line": 14,
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXPORT-TIME",
+              "line": 15,
+              "pic": "X(15)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-SEQUENCE-NUM",
+          "line": 16,
+          "pic": "9(9)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-BRANCH-ID",
+          "line": 17,
+          "pic": "X(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-REGION-CODE",
+          "line": 18,
+          "pic": "X(5)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-RECORD-DATA",
+          "line": 19,
+          "pic": "X(460)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-CUSTOMER-DATA",
+          "line": 24,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-RECORD-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXP-CUST-ID",
+              "line": 25,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-FIRST-NAME",
+              "line": 26,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-MIDDLE-NAME",
+              "line": 27,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-LAST-NAME",
+              "line": 28,
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-ADDR-LINES",
+              "line": 29,
+              "pic": null,
+              "occurs": 3,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "EXP-CUST-ADDR-LINE",
+                  "line": 30,
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-ADDR-STATE-CD",
+              "line": 31,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-ADDR-COUNTRY-CD",
+              "line": 32,
+              "pic": "X(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-ADDR-ZIP",
+              "line": 33,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-PHONE-NUMS",
+              "line": 34,
+              "pic": null,
+              "occurs": 2,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "EXP-CUST-PHONE-NUM",
+                  "line": 35,
+                  "pic": "X(15)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-SSN",
+              "line": 36,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-GOVT-ISSUED-ID",
+              "line": 37,
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-DOB-YYYY-MM-DD",
+              "line": 38,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-EFT-ACCOUNT-ID",
+              "line": 39,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-PRI-CARD-HOLDER-IND",
+              "line": 40,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CUST-FICO-CREDIT-SCORE",
+              "line": 41,
+              "pic": "9(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 42,
+              "pic": "X(134)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-ACCOUNT-DATA",
+          "line": 47,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-RECORD-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXP-ACCT-ID",
+              "line": 48,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-ACTIVE-STATUS",
+              "line": 49,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-CURR-BAL",
+              "line": 50,
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-CREDIT-LIMIT",
+              "line": 51,
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-CASH-CREDIT-LIMIT",
+              "line": 52,
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-OPEN-DATE",
+              "line": 53,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-EXPIRAION-DATE",
+              "line": 54,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-REISSUE-DATE",
+              "line": 55,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-CURR-CYC-CREDIT",
+              "line": 56,
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-CURR-CYC-DEBIT",
+              "line": 57,
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-ADDR-ZIP",
+              "line": 58,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-ACCT-GROUP-ID",
+              "line": 59,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 60,
+              "pic": "X(352)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-TRANSACTION-DATA",
+          "line": 65,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-RECORD-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXP-TRAN-ID",
+              "line": 66,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-TYPE-CD",
+              "line": 67,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-CAT-CD",
+              "line": 68,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-SOURCE",
+              "line": 69,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-DESC",
+              "line": 70,
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-AMT",
+              "line": 71,
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": "COMP-3",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-MERCHANT-ID",
+              "line": 72,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-MERCHANT-NAME",
+              "line": 73,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-MERCHANT-CITY",
+              "line": 74,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-MERCHANT-ZIP",
+              "line": 75,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-CARD-NUM",
+              "line": 76,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-ORIG-TS",
+              "line": 77,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-TRAN-PROC-TS",
+              "line": 78,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 79,
+              "pic": "X(140)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-CARD-XREF-DATA",
+          "line": 84,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-RECORD-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXP-XREF-CARD-NUM",
+              "line": 85,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-XREF-CUST-ID",
+              "line": 86,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-XREF-ACCT-ID",
+              "line": 87,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 88,
+              "pic": "X(427)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "EXPORT-CARD-DATA",
+          "line": 93,
+          "pic": null,
+          "occurs": null,
+          "redefines": "EXPORT-RECORD-DATA",
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "EXP-CARD-NUM",
+              "line": 94,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CARD-ACCT-ID",
+              "line": 95,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CARD-CVV-CD",
+              "line": 96,
+              "pic": "9(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CARD-EMBOSSED-NAME",
+              "line": 97,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CARD-EXPIRAION-DATE",
+              "line": 98,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "EXP-CARD-ACTIVE-STATUS",
+              "line": 99,
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 100,
+              "pic": "X(373)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-FILE-STATUS-AREA",
+      "line": 99,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-CUSTOMER-STATUS",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-CUSTOMER-EOF",
+              "line": 101,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-CUSTOMER-OK",
+              "line": 102,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-ACCOUNT-STATUS",
+          "line": 103,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-ACCOUNT-EOF",
+              "line": 104,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-ACCOUNT-OK",
+              "line": 105,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-XREF-STATUS",
+          "line": 106,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-XREF-EOF",
+              "line": 107,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-XREF-OK",
+              "line": 108,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-TRANSACTION-STATUS",
+          "line": 109,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-TRANSACTION-EOF",
+              "line": 110,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-TRANSACTION-OK",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-CARD-STATUS",
+          "line": 112,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-CARD-EOF",
+              "line": 113,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'10'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "WS-CARD-OK",
+              "line": 114,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-EXPORT-STATUS",
+          "line": 115,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "WS-EXPORT-OK",
+              "line": 116,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'00'",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-EXPORT-CONTROL",
+      "line": 119,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-EXPORT-DATE",
+          "line": 120,
+          "section": "WORKING-STORAGE",
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-EXPORT-TIME",
+          "line": 121,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-FORMATTED-TIMESTAMP",
+          "line": 122,
+          "section": "WORKING-STORAGE",
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-SEQUENCE-COUNTER",
+          "line": 123,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-TIMESTAMP-FIELDS",
+      "line": 126,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-CURRENT-DATE",
+          "line": 127,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CURR-YEAR",
+              "line": 128,
+              "section": "WORKING-STORAGE",
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURR-MONTH",
+              "line": 129,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURR-DAY",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-CURRENT-TIME",
+          "line": 131,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CURR-HOUR",
+              "line": 132,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURR-MINUTE",
+              "line": 133,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURR-SECOND",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-CURR-HUNDREDTH",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-EXPORT-STATISTICS",
+      "line": 138,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-CUSTOMER-RECORDS-EXPORTED",
+          "line": 139,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-ACCOUNT-RECORDS-EXPORTED",
+          "line": 140,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-XREF-RECORDS-EXPORTED",
+          "line": 141,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRAN-RECORDS-EXPORTED",
+          "line": 142,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-CARD-RECORDS-EXPORTED",
+          "line": 143,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TOTAL-RECORDS-EXPORTED",
+          "line": 144,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "CUSTOMER-INPUT",
+      "line": 74,
+      "end_line": 76,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "ACCOUNT-INPUT",
+      "line": 77,
+      "end_line": 79,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "XREF-INPUT",
+      "line": 80,
+      "end_line": 82,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "TRANSACTION-INPUT",
+      "line": 83,
+      "end_line": 85,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "CARD-INPUT",
+      "line": 86,
+      "end_line": 88,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "EXPORT-OUTPUT",
+      "line": 89,
+      "end_line": 93,
+      "recording_mode": "F",
+      "record_contains": "500",
+      "block_contains": null
+    }
+  ]
+}

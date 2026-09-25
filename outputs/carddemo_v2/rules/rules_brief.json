@@ -1,0 +1,5262 @@
+{
+  "meta": {
+    "generated_at": "2026-09-25T17:30:28Z",
+    "agent_version": "rules_python@2.0",
+    "fingerprint": "5c239a576d570912",
+    "programs": 44,
+    "candidates": 339
+  },
+  "instructions": "Write rules_ai.json next to this file (see phases/p07_rules/rules_agent.md). Copy meta.fingerprint. 1) capabilities: group EVERY program into a named business capability (name, 1-2 sentence description, programs). 2) rules: keyed by condition_id \u2014 for each candidate give tier ('business'|'technical'); for business rules also a name (imperative, business language) and a 1-3 sentence description grounded ONLY in the text/values shown. Never invent thresholds, outcomes or ids.",
+  "programs": [
+    {
+      "program_id": "CBACT01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch program that reads every record from the indexed ACCOUNT master file (ACCTFILE) and writes each account out to four output files in different layouts: a flat fixed record (OUTFILE), an array/table record (ARRYFILE), and two variable-length records (VBRCFILE). For each account it reformats the reissue date by calling the assembler routine COBDATFT. Any file I/O error prints the file status and abends the program."
+    },
+    {
+      "program_id": "CBACT02C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch program that sequentially reads the indexed CARD master file (CARDFILE) and displays every card record. A simple browse/report utility: open the file, loop reading and displaying each record until end-of-file, then close. Any I/O error prints the file status and abends."
+    },
+    {
+      "program_id": "CBACT03C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch program that sequentially reads the card-to-account cross-reference file (XREFFILE) and displays every cross-reference record. A simple browse utility linking card numbers to account ids; open, loop read-and-display until end-of-file, close. Any I/O error prints the status and abends."
+    },
+    {
+      "program_id": "CBACT04C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "The interest & fee posting batch. Reads the transaction-category-balance file (TCATBAL) in account order; for each account it looks up account data, the card cross-reference, and the interest rate from the disclosure-group file (falling back to a DEFAULT group if the specific one is missing). It computes monthly interest as (category balance x rate) / 1200, writes an interest transaction record, accumulates the interest, and when the account changes it rewrites the account master with the accumulated interest added to the balance and the cycle credit/debit reset to zero. Receives the processing date as a linkage parameter. Fee computation is stubbed ('to be implemented')."
+    },
+    {
+      "program_id": "CBCUS01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch program that sequentially reads the indexed CUSTOMER master file (CUSTFILE) and displays every customer record. A simple browse utility: open the file, loop read-and-display until end-of-file, then close. Any I/O error prints the file status and abends."
+    },
+    {
+      "program_id": "CBEXPORT",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch data-export utility for branch migration. Reads the five normalized CardDemo master files (customer, account, cross-reference, transaction, card) and writes a single multi-record export file, stamping each run with a generated timestamp and counting the records exported per entity. A straightforward ETL/migration extract with little business logic."
+    },
+    {
+      "program_id": "CBIMPORT",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Batch data-import counterpart of CBEXPORT. Reads the multi-record export file, routes each record to the correct output master file based on its record-type code (customer, account, cross-reference, transaction, card), logs unknown record types to an error file, and reports per-entity import counts. Validates the import at the end."
+    },
+    {
+      "program_id": "CBPAUP0C",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "summary": "IMS batch purge for the authorization module: deletes expired pending-authorization messages. It walks the IMS pending-authorization database (summary root segments, each with detail child segments); for each detail it checks whether it is older than the expiry window (parameter, default 5 days) and deletes qualifying details. When a summary has no remaining approved authorizations it deletes the summary too. Takes IMS checkpoints at a configurable frequency for restartability and prints counts of records read and deleted."
+    },
+    {
+      "program_id": "CBSTM03A",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Account statement generator. For each account (via the card cross-reference) it reads the customer and account data and all of the account's transactions, then produces a statement in BOTH plain-text and HTML formats. Transactions are buffered in an in-memory table (up to 51 cards x 10 transactions). Notably uses legacy ALTER + GO TO 'switched paragraph' control flow and reads the mainframe TIOT control blocks to list the job's DD names. Contains unstructured control flow that should be reviewed before modernization."
+    },
+    {
+      "program_id": "CBSTM03B",
+      "run_mode": "common",
+      "runtime": [],
+      "summary": "Called I/O subroutine used by the statement generator (CBSTM03A). It is a generic data-access layer: the caller passes a linkage area naming a file (DD) and an operation code (Open/Close/Read/Read-Keyed/Write/Rewrite) plus a key and a record buffer; the routine performs the requested operation on the matching file (transaction, cross-reference, customer, account) and returns the file status. Keeps all VSAM I/O in one reusable module."
+    },
+    {
+      "program_id": "CBTRN01C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Daily-transaction verification/browse batch. Reads each daily transaction, looks up its card in the cross-reference, and (if found) reads the matching account, displaying the results. A read-only validation pre-pass that reports invalid cards and missing accounts but does not post anything. Opens six files (daily transactions, customer, cross-reference, card, account, transaction)."
+    },
+    {
+      "program_id": "CBTRN02C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "The daily transaction posting engine. Reads the day's transactions (DALYTRAN); for each one it validates the card, account, credit limit and expiry, and either POSTS the transaction (updating the transaction-category balance, the account balance and cycle credit/debit, and writing the transaction record) or REJECTS it with a numbered reason to the rejects file. Counts processed and rejected transactions and sets return code 4 if any were rejected. Contains the core credit-card transaction validation rules (reasons 100-103, 109)."
+    },
+    {
+      "program_id": "CBTRN03C",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Transaction detail report batch. Reads a date range from a parameter file, then reads the transaction file and prints only transactions whose processing date falls in that range. Enriches each line with the account (via card cross-reference), transaction-type and transaction-category descriptions, and produces a formatted report with page headers, per-account (per-card) subtotals, page totals and a grand total via control-break logic."
+    },
+    {
+      "program_id": "COACCT01",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ],
+      "summary": "MQ-triggered CICS account-inquiry service (VSAM-MQ variant, sibling of CODATE01). Started by an IBM MQ trigger message, it retrieves the triggering queue via CICS RETRIEVE, opens the input, reply and error MQ queues, reads request messages containing a function code and an account key, reads the requested account record from the account file, and puts an account-data reply message on the reply queue. Errors go to an error queue. A message-driven integration service."
+    },
+    {
+      "program_id": "COACTUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Account Update screen -- the most complex online program. Lets a user retrieve an account, edit account and customer fields, and save the changes. It runs an extensive field-validation suite (account number, mandatory fields, yes/no flags, alphabetic, alphanumeric, numeric, signed amounts, US phone, SSN, US state code, FICO score, state+zip consistency), compares old vs new values, and only rewrites the account/customer records if something actually changed AND the record was not changed by someone else since it was read (optimistic concurrency check). Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COACTVWC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Account View screen. A pseudo-conversational transaction: the user enters an account number, the program validates it, then reads the card cross-reference, account and customer records to display the full account detail. Read-only inquiry (no updates). Handles PF-key navigation (Enter to inquire, PF3 to return to the menu) via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COADM01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Admin Menu for administrator users. Like the main menu but exposes administrative options -- notably user management (list/add/update/delete users). Validates the selected option and transfers control (CICS XCTL) to the corresponding admin program. Reached only by users authenticated as Admin."
+    },
+    {
+      "program_id": "COBIL00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Bill Payment screen. The user enters an account id and confirms payment; the program reads the account, shows the current balance, and on confirmation pays the FULL outstanding balance -- creating a payment transaction for the balance amount and zeroing the account balance. Rejects payment when there is nothing to pay (balance <= 0). Pseudo-conversational."
+    },
+    {
+      "program_id": "COBSWAIT",
+      "run_mode": "batch",
+      "runtime": [],
+      "summary": "Small utility program that pauses execution for a specified interval. It accepts a wait time (in centiseconds) as a parameter and issues a timed delay before returning -- used to introduce controlled waits between processing steps."
+    },
+    {
+      "program_id": "COBTUPDT",
+      "run_mode": "batch",
+      "runtime": [
+        "DB2"
+      ],
+      "summary": "Batch program that updates transaction-type reference records based on user-supplied input. Reads an input file of transaction-type changes and applies them (add/update) to the transaction-type reference file, reporting counts and errors."
+    },
+    {
+      "program_id": "COCRDLIC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Card List screen. Displays a scrollable, paginated list of credit cards, optionally filtered by account number and/or card number. Supports forward/backward paging (PF7/PF8) through the card file and lets the user select a card from the displayed array to drill into. Pseudo-conversational via a 2000-byte COMMAREA that remembers the paging position and filter."
+    },
+    {
+      "program_id": "COCRDSLC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Card Detail (view) screen. The user enters an account number and/or card number; the program validates them and reads the matching card record to display its details. Read-only inquiry. Can look up a card either by account+card key or by account alone. Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "COCRDUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Card Update screen. The user retrieves a card (by account + card number), edits its embossed name, active status and expiry month/year, and saves. Runs field validations (account, card, name, card status, expiry month, expiry year), compares old vs new, and rewrites the card record only if it changed and was not modified by another user since it was read (optimistic concurrency). Pseudo-conversational via a 2000-byte COMMAREA."
+    },
+    {
+      "program_id": "CODATE01",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "MQ"
+      ],
+      "summary": "MQ-triggered CICS date service (VSAM-MQ variant). Started by an IBM MQ trigger message, it retrieves the triggering queue name via CICS RETRIEVE, opens the input, reply and error MQ queues, reads request messages (a function code + account key), services each request (e.g. a date/account lookup against the account file), and puts a reply message on the reply queue. Errors are written to an error queue. A message-driven integration service rather than batch business logic."
+    },
+    {
+      "program_id": "COMEN01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Main Menu for regular users. Displays the list of available options (account view/update, card list/view/update, transaction list/view/add, bill pay, reports, etc.), validates the option the user selects, and transfers control (CICS XCTL) to the corresponding program. Pseudo-conversational; the menu options are driven by a shared menu-definition copybook."
+    },
+    {
+      "program_id": "COPAUA0C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS",
+        "MQ"
+      ],
+      "summary": "Card Authorization Decision program (CICS + IMS + MQ). Triggered by MQ, it processes incoming authorization request messages (up to 500 per run): for each request it reads the card cross-reference, account and customer, computes the available credit, and decides APPROVE or DECLINE based on whether the transaction amount fits within the available credit (and card/account status/expiry). It stores the pending authorization in the IMS authorization database and sends the decision back on the reply queue. This is the real-time authorization engine."
+    },
+    {
+      "program_id": "COPAUS0C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ],
+      "summary": "CICS online Authorization Summary View screen. Displays a paginated list of pending-authorization summary records (from the IMS authorization database), optionally filtered by account/card, letting the user page through them and select one to view its details (COPAUS1C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COPAUS1C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "IMS"
+      ],
+      "summary": "CICS online Authorization Message Detail View screen. Reads a single pending-authorization record (summary + detail) from the IMS authorization database for the selected key and displays its full detail (card, amount, merchant, approval status, timestamps). From here the user can mark it as fraud (COPAUS2C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COPAUS2C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "summary": "CICS online 'Mark Authorization as Fraud' action program. For a selected pending authorization it sets the fraud indicator on the IMS authorization record (and/or writes a fraud marker), so the authorization is flagged as fraudulent for downstream handling. Small action program."
+    },
+    {
+      "program_id": "CORPT00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Transaction Reports screen. The user chooses a report type -- Monthly, Yearly, or a Custom date range -- and the program validates the selection/dates and submits a batch job (writing a date-parameter and job to the internal reader / transient data queue) to run the transaction detail report (CBTRN03C). Pseudo-conversational."
+    },
+    {
+      "program_id": "COSGN00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Sign-on (authentication) screen -- the application's entry point. Prompts for a user id and password, validates both are entered, reads the user security file, checks the password, and routes the user to the Admin menu or the regular Main menu based on their user type. The security gate for the whole CardDemo online application."
+    },
+    {
+      "program_id": "COTRN00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Transaction List screen. Displays a scrollable, paginated list of transactions from the transaction file, with forward/backward paging (PF7/PF8). The user can select a transaction to view its detail. Pseudo-conversational, carrying the paging position in the COMMAREA."
+    },
+    {
+      "program_id": "COTRN01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Transaction View screen. The user enters a transaction id; the program validates it, reads the transaction record, and displays its full detail (account/card, type, category, amount, dates, merchant). Read-only inquiry. Pseudo-conversational."
+    },
+    {
+      "program_id": "COTRN02C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Add Transaction screen. The user enters an account/card and transaction details (type, category, amount, dates, merchant, description); the program validates the key and data fields, derives the next transaction id from the last transaction, and writes a new transaction record. Can copy the last transaction's data as a template. Pseudo-conversational."
+    },
+    {
+      "program_id": "COTRTLIC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "summary": "CICS online Transaction-Type (reference data) List screen. Displays a scrollable, paginated list of transaction type/category reference records, optionally filtered by type code, with forward/backward paging. The user can select a type to view or maintain it. Pseudo-conversational, carrying paging position and filter in the COMMAREA. (Large program -- key logic paragraphs summarized; the remainder are screen-array setup and attribute boilerplate.)"
+    },
+    {
+      "program_id": "COTRTUPC",
+      "run_mode": "online",
+      "runtime": [
+        "CICS",
+        "DB2"
+      ],
+      "summary": "CICS online Transaction-Type (reference data) Update screen. The user retrieves a transaction type/category record, edits its fields (type code, category code, description, and any associated attributes), and saves. Validates the fields, compares old vs new, and rewrites the record only if it changed and was not modified by another user since it was read (optimistic concurrency). Pseudo-conversational. (Large program -- key logic paragraphs summarized; the remainder are screen setup/attribute boilerplate.)"
+    },
+    {
+      "program_id": "COUSR00C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online User List screen (admin function). Displays a scrollable, paginated list of user security records with forward/backward paging; the user can select a row to update (U) or delete (D) that user, which transfers to the corresponding maintenance program. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR01C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Add User screen (admin function). Captures a new user's id, first name, last name, password and user type, validates all fields are present and valid, checks the user id does not already exist, and writes a new user security record. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR02C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Update User screen (admin function). Retrieves a user security record by user id, lets the admin edit the first name, last name, password and user type, validates the fields, and rewrites the record. Pseudo-conversational."
+    },
+    {
+      "program_id": "COUSR03C",
+      "run_mode": "online",
+      "runtime": [
+        "CICS"
+      ],
+      "summary": "CICS online Delete User screen (admin function). Retrieves a user security record by user id, displays it for confirmation, and on confirmation deletes the user record. Pseudo-conversational."
+    },
+    {
+      "program_id": "CSUTLDTC",
+      "run_mode": "common",
+      "runtime": [],
+      "summary": "Called date-validation utility subroutine. Given a date and a date format in its linkage area, it uses the Language Environment date services (CEEDAYS / CEEDATE) to check whether the date is a valid calendar date in the given format, and returns a result/severity code to the caller. Shared date-edit helper used by the online and batch programs."
+    },
+    {
+      "program_id": "DBUNLDGS",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "summary": "Batch database UNLOAD utility that extracts database segments/rows (e.g. the disclosure-group / authorization support data) and writes them to a sequential output file for migration, backup, or reload. Reads the source database sequentially and writes each record to the unload file with counts."
+    },
+    {
+      "program_id": "PAUDBLOD",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "summary": "Batch IMS database LOAD program for the pending-authorization database. Reads a sequential input file of authorization summary and detail records and inserts them as segments into the IMS pending-authorization database (root summary segments with their detail children), reporting the number of segments loaded."
+    },
+    {
+      "program_id": "PAUDBUNL",
+      "run_mode": "batch",
+      "runtime": [
+        "IMS"
+      ],
+      "summary": "Batch IMS database UNLOAD program for the pending-authorization database. Sequentially walks the IMS pending-authorization database (summary root segments and their detail children) and writes each segment to a sequential output file, reporting the number of segments unloaded. The counterpart of PAUDBLOD."
+    }
+  ],
+  "candidates": [
+    {
+      "condition_id": "COND-CBACT01C-MAIN-PARA-1",
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBSTM03A",
+        "CBTRN02C",
+        "CBTRN03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL END-OF-FILE = 'Y'"
+    },
+    {
+      "condition_id": "COND-CBACT01C-MAIN-PARA-2",
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBCUS01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF END-OF-FILE = 'N' (guard read)"
+    },
+    {
+      "condition_id": "COND-CBACT01C-MAIN-PARA-3",
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBCUS01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF END-OF-FILE = 'N' (guard display)"
+    },
+    {
+      "condition_id": "COND-CBACT01C-1300-POPUL-ACCT-RECORD-1",
+      "programs": [
+        "CBACT01C"
+      ],
+      "paragraph": "1300-POPUL-ACCT-RECORD",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF ACCT-CURR-CYC-DEBIT = ZERO -> MOVE 2525.00"
+    },
+    {
+      "condition_id": "COND-CBACT01C-9910-DISPLAY-IO-STATUS-1",
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C"
+      ],
+      "paragraph": "9910-DISPLAY-IO-STATUS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"
+    },
+    {
+      "condition_id": "COND-CBACT04C-MAIN-PARA-2",
+      "programs": [
+        "CBACT04C",
+        "CBTRN02C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF END-OF-FILE = 'N'"
+    },
+    {
+      "condition_id": "COND-CBACT04C-MAIN-PARA-3",
+      "programs": [
+        "CBACT04C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF TRANCAT-ACCT-ID NOT = WS-LAST-ACCT-NUM (account break)"
+    },
+    {
+      "condition_id": "COND-CBACT04C-MAIN-PARA-4",
+      "programs": [
+        "CBACT04C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-FIRST-TIME NOT = 'Y'"
+    },
+    {
+      "condition_id": "COND-CBACT04C-MAIN-PARA-5",
+      "programs": [
+        "CBACT04C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "CALCULATION",
+      "first_pass_tier": "business",
+      "text": "IF DIS-INT-RATE NOT = 0"
+    },
+    {
+      "condition_id": "COND-CBACT04C-MAIN-PARA-6",
+      "programs": [
+        "CBACT04C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE (EOF -> post final account)"
+    },
+    {
+      "condition_id": "COND-CBEXPORT-2000-EXPORT-CUSTOMERS-1",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": "2000-EXPORT-CUSTOMERS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-CUSTOMER-EOF"
+    },
+    {
+      "condition_id": "COND-CBEXPORT-3000-EXPORT-ACCOUNTS-1",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": "3000-EXPORT-ACCOUNTS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-ACCOUNT-EOF"
+    },
+    {
+      "condition_id": "COND-CBEXPORT-4000-EXPORT-XREFS-1",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": "4000-EXPORT-XREFS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-XREF-EOF"
+    },
+    {
+      "condition_id": "COND-CBEXPORT-5000-EXPORT-TRANSACTIONS-1",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": "5000-EXPORT-TRANSACTIONS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-TRANSACTION-EOF"
+    },
+    {
+      "condition_id": "COND-CBEXPORT-5500-EXPORT-CARDS-1",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": "5500-EXPORT-CARDS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-CARD-EOF"
+    },
+    {
+      "condition_id": "COND-CBIMPORT-2000-PROCESS-EXPORT-FILE-1",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": "2000-PROCESS-EXPORT-FILE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL WS-EXPORT-EOF"
+    },
+    {
+      "condition_id": "COND-CBIMPORT-2200-PROCESS-RECORD-BY-TYPE-1",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": "2200-PROCESS-RECORD-BY-TYPE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE record type -> customer / account / xref / transaction / card / WHEN OTHER (unknown)"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-MAIN-PARA-1",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL ERR-FLG-ON OR END-OF-AUTHDB"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-MAIN-PARA-2",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL NO-MORE-AUTHS"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-MAIN-PARA-3",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF QUALIFIED-FOR-DELETE -> delete detail"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-MAIN-PARA-4",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF PA-APPROVED-AUTH-CNT <= 0 -> delete summary"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-MAIN-PARA-5",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-AUTH-SMRY-PROC-CNT > P-CHKP-FREQ -> checkpoint"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-1000-INITIALIZE-1",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "1000-INITIALIZE",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF P-EXPIRY-DAYS numeric ... ELSE default 5"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-1000-INITIALIZE-2",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "1000-INITIALIZE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF P-CHKP-FREQ blank/zero -> default 5"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-1000-INITIALIZE-3",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "1000-INITIALIZE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF P-CHKP-DIS-FREQ blank/zero -> default 10"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-1000-INITIALIZE-4",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "1000-INITIALIZE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF P-DEBUG-FLAG NOT 'Y' -> 'N'"
+    },
+    {
+      "condition_id": "COND-CBPAUP0C-4000-CHECK-IF-EXPIRED-1",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": "4000-CHECK-IF-EXPIRED",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF detail age > WS-EXPIRY-DAYS -> QUALIFIED-FOR-DELETE"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-MAIN-PARA-1",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL END-OF-TIOT OR TIO-LEN = LOW-VALUES"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-MAIN-PARA-2",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF NOT NULL-UCB ... ELSE"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-0000-START-1",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "0000-START",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE WS-FL-DD: TRNXFILE / XREFFILE / CUSTFILE / ACCTFILE / READTRNX / OTHER"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-1000-MAINLINE-2",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "1000-MAINLINE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF END-OF-FILE = 'N' (guards)"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-1000-XREFFILE-GET-NEXT-1",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "1000-XREFFILE-GET-NEXT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF status ... EOF"
+    },
+    {
+      "condition_id": "COND-CBSTM03A-4000-TRNXFILE-GET-1",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": "4000-TRNXFILE-GET",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop over transactions"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-0000-START-1",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "0000-START",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE LK-M03B-DD: TRNXFILE / XREFFILE / CUSTFILE / ACCTFILE / OTHER"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-1000-TRNXFILE-PROC-1",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "1000-TRNXFILE-PROC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF M03B-OPEN -> open"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-1000-TRNXFILE-PROC-2",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "1000-TRNXFILE-PROC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF M03B-READ -> read"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-1000-TRNXFILE-PROC-3",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "1000-TRNXFILE-PROC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF M03B-CLOSE -> close"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-2000-XREFFILE-PROC-1",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "2000-XREFFILE-PROC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF M03B-OPEN / M03B-READ / M03B-CLOSE"
+    },
+    {
+      "condition_id": "COND-CBSTM03B-3000-CUSTFILE-PROC-1",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": "3000-CUSTFILE-PROC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF M03B-OPEN / M03B-READ-K (keyed) / M03B-CLOSE"
+    },
+    {
+      "condition_id": "COND-CBTRN01C-MAIN-PARA-1",
+      "programs": [
+        "CBTRN01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL END-OF-DAILY-TRANS-FILE = 'Y'"
+    },
+    {
+      "condition_id": "COND-CBTRN02C-MAIN-PARA-3",
+      "programs": [
+        "CBTRN02C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF WS-VALIDATION-FAIL-REASON = 0 (post) ELSE (reject)"
+    },
+    {
+      "condition_id": "COND-CBTRN02C-1500-B-LOOKUP-ACCT-2",
+      "programs": [
+        "CBTRN02C"
+      ],
+      "paragraph": "1500-B-LOOKUP-ACCT",
+      "category": "LIMIT_CHECK",
+      "first_pass_tier": "business",
+      "text": "IF ACCT-CREDIT-LIMIT >= WS-TEMP-BAL ... ELSE reason 102"
+    },
+    {
+      "condition_id": "COND-CBTRN02C-1500-B-LOOKUP-ACCT-3",
+      "programs": [
+        "CBTRN02C"
+      ],
+      "paragraph": "1500-B-LOOKUP-ACCT",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF ACCT-EXPIRAION-DATE >= tran date ... ELSE reason 103"
+    },
+    {
+      "condition_id": "COND-CBTRN02C-2700-UPDATE-TCATBAL-3",
+      "programs": [
+        "CBTRN02C"
+      ],
+      "paragraph": "2700-UPDATE-TCATBAL",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-CREATE-TRANCAT-REC = 'Y' (create) ELSE (update)"
+    },
+    {
+      "condition_id": "COND-CBTRN02C-2800-UPDATE-ACCOUNT-REC-1",
+      "programs": [
+        "CBTRN02C"
+      ],
+      "paragraph": "2800-UPDATE-ACCOUNT-REC",
+      "category": "LIMIT_CHECK",
+      "first_pass_tier": "business",
+      "text": "IF DALYTRAN-AMT >= 0 (credit) ELSE (debit)"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-MAIN-PARA-2",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF TRAN-PROC-TS date within WS-START-DATE..WS-END-DATE (else NEXT SENTENCE = skip)"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-MAIN-PARA-3",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-CURR-CARD-NUM NOT = TRAN-CARD-NUM (card break)"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-MAIN-PARA-4",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "CALCULATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-FIRST-TIME = 'N' -> write account totals"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-MAIN-PARA-5",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "CALCULATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE (EOF -> page + grand totals)"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-0550-DATEPARM-READ-1",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "0550-DATEPARM-READ",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE DATEPARM-STATUS '00'/'10'/OTHER"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-1000-TRANFILE-GET-NEXT-1",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "1000-TRANFILE-GET-NEXT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE TRANFILE-STATUS"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-1100-WRITE-TRANSACTION-REPORT-1",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "1100-WRITE-TRANSACTION-REPORT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF WS-FIRST-TIME = 'Y' -> headers"
+    },
+    {
+      "condition_id": "COND-CBTRN03C-1100-WRITE-TRANSACTION-REPORT-2",
+      "programs": [
+        "CBTRN03C"
+      ],
+      "paragraph": "1100-WRITE-TRANSACTION-REPORT",
+      "category": "CALCULATION",
+      "first_pass_tier": "technical",
+      "text": "IF MOD(line-counter, page-size) = 0 -> page totals + headers"
+    },
+    {
+      "condition_id": "COND-COACCT01-1000-CONTROL-2",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": "1000-CONTROL",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL NO-MORE-MSGS"
+    },
+    {
+      "condition_id": "COND-COACCT01-3000-GET-MESSAGE-1",
+      "programs": [
+        "COACCT01"
+      ],
+      "paragraph": "3000-GET-MESSAGE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF MQ get = no-message -> NO-MORE-MSGS"
+    },
+    {
+      "condition_id": "COND-COACCT01-4000-PROCESS-REQUEST-1",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": "4000-PROCESS-REQUEST",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE WS-FUNC"
+    },
+    {
+      "condition_id": "COND-COACTUPC-0000-MAIN-1",
+      "programs": [
+        "COACTUPC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> send map"
+    },
+    {
+      "condition_id": "COND-COACTUPC-0000-MAIN-2",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID and program state"
+    },
+    {
+      "condition_id": "COND-COACTUPC-1205-COMPARE-OLD-NEW-1",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": "1205-COMPARE-OLD-NEW",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF any field differs -> changes present"
+    },
+    {
+      "condition_id": "COND-COACTUPC-2000-DECIDE-ACTION-1",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": "2000-DECIDE-ACTION",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE state: prompt / show / confirm / update"
+    },
+    {
+      "condition_id": "COND-COACTUPC-3200-SETUP-SCREEN-VARS-1",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": "3200-SETUP-SCREEN-VARS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE state -> 3201 / 3202 / 3203"
+    },
+    {
+      "condition_id": "COND-COACTUPC-9600-WRITE-PROCESSING-2",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": "9600-WRITE-PROCESSING",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE rewrite records"
+    },
+    {
+      "condition_id": "COND-COACTUPC-9700-CHECK-CHANGE-IN-REC-1",
+      "programs": [
+        "COACTUPC",
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": "9700-CHECK-CHANGE-IN-REC",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF current != baseline -> changed"
+    },
+    {
+      "condition_id": "COND-COACTVWC-0000-MAIN-1",
+      "programs": [
+        "COACTVWC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 (first time) -> send map"
+    },
+    {
+      "condition_id": "COND-COACTVWC-0000-MAIN-2",
+      "programs": [
+        "COACTVWC",
+        "COBIL00C",
+        "COCRDSLC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / ENTER / OTHER"
+    },
+    {
+      "condition_id": "COND-COADM01C-MAIN-PARA-1",
+      "programs": [
+        "COADM01C",
+        "COMEN01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> send menu"
+    },
+    {
+      "condition_id": "COND-COADM01C-MAIN-PARA-2",
+      "programs": [
+        "COADM01C",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / ENTER"
+    },
+    {
+      "condition_id": "COND-COADM01C-PROCESS-ENTER-KEY-2",
+      "programs": [
+        "COADM01C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE XCTL to admin option program"
+    },
+    {
+      "condition_id": "COND-COADM01C-BUILD-MENU-OPTIONS-1",
+      "programs": [
+        "COADM01C"
+      ],
+      "paragraph": "BUILD-MENU-OPTIONS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop over defined admin options"
+    },
+    {
+      "condition_id": "COND-COBIL00C-MAIN-PARA-1",
+      "programs": [
+        "COBIL00C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> send screen"
+    },
+    {
+      "condition_id": "COND-COBIL00C-PROCESS-ENTER-KEY-2",
+      "programs": [
+        "COBIL00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "ROUTING",
+      "first_pass_tier": "business",
+      "text": "EVALUATE CONFIRM: Y / N / blank / OTHER"
+    },
+    {
+      "condition_id": "COND-COBIL00C-PROCESS-ENTER-KEY-3",
+      "programs": [
+        "COBIL00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF ACCT-CURR-BAL <= 0 -> 'nothing to pay'"
+    },
+    {
+      "condition_id": "COND-COBIL00C-PROCESS-ENTER-KEY-4",
+      "programs": [
+        "COBIL00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF CONF-PAY-YES -> perform payment"
+    },
+    {
+      "condition_id": "COND-COBTUPDT-MAIN-PARA-1",
+      "programs": [
+        "COBTUPDT",
+        "PAUDBLOD"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL end-of-input"
+    },
+    {
+      "condition_id": "COND-COBTUPDT-MAIN-PARA-2",
+      "programs": [
+        "COBTUPDT"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF type exists -> update ELSE add"
+    },
+    {
+      "condition_id": "COND-COBTUPDT-READ-INPUT-1",
+      "programs": [
+        "COBTUPDT"
+      ],
+      "paragraph": "READ-INPUT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EOF -> set flag"
+    },
+    {
+      "condition_id": "COND-COBTUPDT-APPLY-UPDATE-1",
+      "programs": [
+        "COBTUPDT"
+      ],
+      "paragraph": "APPLY-UPDATE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF found -> rewrite ELSE write"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-0000-MAIN-1",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> send first page"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-0000-MAIN-2",
+      "programs": [
+        "COCRDLIC",
+        "COPAUS0C",
+        "COTRN00C",
+        "COTRTLIC",
+        "COUSR00C"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / PF7 / PF8 / ENTER"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-1200-SCREEN-ARRAY-INIT-1",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": "1200-SCREEN-ARRAY-INIT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop over page rows"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-9000-READ-FORWARD-1",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": "9000-READ-FORWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "STARTBR/READNEXT loop until page full or EOF"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-9100-READ-BACKWARDS-1",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": "9100-READ-BACKWARDS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "STARTBR/READPREV loop until page full or BOF"
+    },
+    {
+      "condition_id": "COND-COCRDLIC-9500-FILTER-RECORDS-1",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": "9500-FILTER-RECORDS",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF record matches filter -> include ELSE skip"
+    },
+    {
+      "condition_id": "COND-COCRDSLC-9000-READ-DATA-1",
+      "programs": [
+        "COCRDSLC"
+      ],
+      "paragraph": "9000-READ-DATA",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF card supplied -> by acct+card ELSE by acct"
+    },
+    {
+      "condition_id": "COND-COCRDUPC-0000-MAIN-2",
+      "programs": [
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": "0000-MAIN",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID and state"
+    },
+    {
+      "condition_id": "COND-COCRDUPC-1200-EDIT-MAP-INPUTS-1",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": "1200-EDIT-MAP-INPUTS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "one call per field edit"
+    },
+    {
+      "condition_id": "COND-COCRDUPC-2000-DECIDE-ACTION-1",
+      "programs": [
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": "2000-DECIDE-ACTION",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE state"
+    },
+    {
+      "condition_id": "COND-COCRDUPC-9200-WRITE-PROCESSING-2",
+      "programs": [
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": "9200-WRITE-PROCESSING",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE rewrite"
+    },
+    {
+      "condition_id": "COND-CODATE01-3000-GET-MESSAGE-1",
+      "programs": [
+        "CODATE01"
+      ],
+      "paragraph": "3000-GET-MESSAGE",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF MQ get reason = no-message -> NO-MORE-MSGS"
+    },
+    {
+      "condition_id": "COND-COMEN01C-PROCESS-ENTER-KEY-2",
+      "programs": [
+        "COMEN01C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE XCTL to option program"
+    },
+    {
+      "condition_id": "COND-COMEN01C-BUILD-MENU-OPTIONS-1",
+      "programs": [
+        "COMEN01C"
+      ],
+      "paragraph": "BUILD-MENU-OPTIONS",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop over defined options"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-MAIN-PARA-1",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "LIMIT_CHECK",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL no-more-messages OR WS-MSG-PROCESSED >= WS-REQSTS-PROCESS-LIMIT"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-GET-AUTH-REQUEST-1",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "GET-AUTH-REQUEST",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF MQ no-message -> stop"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-MAKE-AUTH-DECISION-1",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "MAKE-AUTH-DECISION",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF card inactive -> decline"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-MAKE-AUTH-DECISION-2",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "MAKE-AUTH-DECISION",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF card expired -> decline"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-MAKE-AUTH-DECISION-3",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "MAKE-AUTH-DECISION",
+      "category": "LIMIT_CHECK",
+      "first_pass_tier": "business",
+      "text": "IF amount > available credit -> decline (over-limit)"
+    },
+    {
+      "condition_id": "COND-COPAUA0C-MAKE-AUTH-DECISION-4",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": "MAKE-AUTH-DECISION",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "ELSE approve"
+    },
+    {
+      "condition_id": "COND-COPAUS0C-MAIN-PARA-1",
+      "programs": [
+        "COPAUS0C",
+        "COTRN00C",
+        "COTRTLIC",
+        "COUSR00C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> first page"
+    },
+    {
+      "condition_id": "COND-COPAUS0C-PROCESS-ENTER-KEY-1",
+      "programs": [
+        "COPAUS0C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF row selected -> XCTL detail"
+    },
+    {
+      "condition_id": "COND-COPAUS0C-PROCESS-PAGE-FORWARD-1",
+      "programs": [
+        "COPAUS0C"
+      ],
+      "paragraph": "PROCESS-PAGE-FORWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop until page full or end-of-db"
+    },
+    {
+      "condition_id": "COND-COPAUS0C-PROCESS-PAGE-BACKWARD-1",
+      "programs": [
+        "COPAUS0C"
+      ],
+      "paragraph": "PROCESS-PAGE-BACKWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "loop until page full or top-of-db"
+    },
+    {
+      "condition_id": "COND-COPAUS1C-MAIN-PARA-1",
+      "programs": [
+        "COPAUS1C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EIBCALEN = 0 -> read+display"
+    },
+    {
+      "condition_id": "COND-COPAUS1C-MAIN-PARA-2",
+      "programs": [
+        "COPAUS1C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / fraud action"
+    },
+    {
+      "condition_id": "COND-CORPT00C-PROCESS-ENTER-KEY-1",
+      "programs": [
+        "CORPT00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "EVALUATE report type: Monthly / Yearly / Custom"
+    },
+    {
+      "condition_id": "COND-CORPT00C-PROCESS-ENTER-KEY-4",
+      "programs": [
+        "CORPT00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "ELSE submit job"
+    },
+    {
+      "condition_id": "COND-COSGN00C-READ-USER-SEC-FILE-2",
+      "programs": [
+        "COSGN00C"
+      ],
+      "paragraph": "READ-USER-SEC-FILE",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF stored password != entered -> 'wrong password'"
+    },
+    {
+      "condition_id": "COND-COSGN00C-READ-USER-SEC-FILE-3",
+      "programs": [
+        "COSGN00C"
+      ],
+      "paragraph": "READ-USER-SEC-FILE",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF user type = Admin -> XCTL admin menu ELSE XCTL main menu"
+    },
+    {
+      "condition_id": "COND-COTRN00C-PROCESS-PAGE-FORWARD-1",
+      "programs": [
+        "COTRN00C",
+        "COUSR00C"
+      ],
+      "paragraph": "PROCESS-PAGE-FORWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "READNEXT loop until page full or EOF"
+    },
+    {
+      "condition_id": "COND-COTRN00C-PROCESS-PAGE-FORWARD-2",
+      "programs": [
+        "COTRN00C"
+      ],
+      "paragraph": "PROCESS-PAGE-FORWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EOF -> message"
+    },
+    {
+      "condition_id": "COND-COTRN00C-PROCESS-PAGE-BACKWARD-1",
+      "programs": [
+        "COTRN00C",
+        "COUSR00C"
+      ],
+      "paragraph": "PROCESS-PAGE-BACKWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "READPREV loop until page full or BOF"
+    },
+    {
+      "condition_id": "COND-COTRN00C-PROCESS-PAGE-BACKWARD-2",
+      "programs": [
+        "COTRN00C"
+      ],
+      "paragraph": "PROCESS-PAGE-BACKWARD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF BOF -> message"
+    },
+    {
+      "condition_id": "COND-COTRN02C-MAIN-PARA-2",
+      "programs": [
+        "COTRN02C",
+        "COUSR01C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / PF4 / ENTER"
+    },
+    {
+      "condition_id": "COND-COTRN02C-PROCESS-ENTER-KEY-1",
+      "programs": [
+        "COTRN02C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF key valid AND data valid -> add"
+    },
+    {
+      "condition_id": "COND-COTRN02C-VALIDATE-INPUT-DATA-FIELDS-2",
+      "programs": [
+        "COTRN02C"
+      ],
+      "paragraph": "VALIDATE-INPUT-DATA-FIELDS",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF amount not valid signed -> error"
+    },
+    {
+      "condition_id": "COND-COTRTLIC-9500-FILTER-RECORDS-1",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": "9500-FILTER-RECORDS",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF matches filter -> include ELSE skip"
+    },
+    {
+      "condition_id": "COND-COUSR00C-PROCESS-ENTER-KEY-1",
+      "programs": [
+        "COUSR00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF selection = 'U' -> XCTL update"
+    },
+    {
+      "condition_id": "COND-COUSR00C-PROCESS-ENTER-KEY-2",
+      "programs": [
+        "COUSR00C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF selection = 'D' -> XCTL delete"
+    },
+    {
+      "condition_id": "COND-COUSR01C-PROCESS-ENTER-KEY-7",
+      "programs": [
+        "COUSR01C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE write user"
+    },
+    {
+      "condition_id": "COND-COUSR02C-MAIN-PARA-2",
+      "programs": [
+        "COUSR02C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / PF4 / PF5 / ENTER"
+    },
+    {
+      "condition_id": "COND-COUSR02C-PROCESS-ENTER-KEY-4",
+      "programs": [
+        "COUSR02C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "ELSE rewrite user"
+    },
+    {
+      "condition_id": "COND-COUSR03C-MAIN-PARA-2",
+      "programs": [
+        "COUSR03C"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE EIBAID: PF3 / PF5 / ENTER"
+    },
+    {
+      "condition_id": "COND-COUSR03C-PROCESS-ENTER-KEY-3",
+      "programs": [
+        "COUSR03C"
+      ],
+      "paragraph": "PROCESS-ENTER-KEY",
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "IF confirmed -> delete user"
+    },
+    {
+      "condition_id": "COND-CSUTLDTC-MAIN-PARA-1",
+      "programs": [
+        "CSUTLDTC"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF CEEDAYS feedback severity <> 0 -> date invalid ELSE valid"
+    },
+    {
+      "condition_id": "COND-CSUTLDTC-SET-RESULT-1",
+      "programs": [
+        "CSUTLDTC"
+      ],
+      "paragraph": "SET-RESULT",
+      "category": "ROUTING",
+      "first_pass_tier": "technical",
+      "text": "EVALUATE feedback severity"
+    },
+    {
+      "condition_id": "COND-DBUNLDGS-MAIN-PARA-1",
+      "programs": [
+        "DBUNLDGS",
+        "PAUDBUNL"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL end-of-db"
+    },
+    {
+      "condition_id": "COND-DBUNLDGS-2000-GET-NEXT-RECORD-1",
+      "programs": [
+        "DBUNLDGS"
+      ],
+      "paragraph": "2000-GET-NEXT-RECORD",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF end -> END-OF-DB"
+    },
+    {
+      "condition_id": "COND-PAUDBLOD-MAIN-PARA-2",
+      "programs": [
+        "PAUDBLOD"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF summary record -> insert root"
+    },
+    {
+      "condition_id": "COND-PAUDBLOD-MAIN-PARA-3",
+      "programs": [
+        "PAUDBLOD"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF detail record -> insert child"
+    },
+    {
+      "condition_id": "COND-PAUDBLOD-2000-READ-INPUT-1",
+      "programs": [
+        "PAUDBLOD"
+      ],
+      "paragraph": "2000-READ-INPUT",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF EOF -> flag"
+    },
+    {
+      "condition_id": "COND-PAUDBUNL-MAIN-PARA-2",
+      "programs": [
+        "PAUDBUNL"
+      ],
+      "paragraph": "MAIN-PARA",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "PERFORM UNTIL no-more-details"
+    },
+    {
+      "condition_id": "COND-PAUDBUNL-2000-GET-NEXT-SUMMARY-1",
+      "programs": [
+        "PAUDBUNL"
+      ],
+      "paragraph": "2000-GET-NEXT-SUMMARY",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF IMS end -> END-OF-DB"
+    },
+    {
+      "condition_id": "COND-PAUDBUNL-3000-GET-NEXT-DETAIL-1",
+      "programs": [
+        "PAUDBUNL"
+      ],
+      "paragraph": "3000-GET-NEXT-DETAIL",
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "IF IMS end -> no-more-details"
+    },
+    {
+      "condition_id": "COND88-CCPAUERY-ERR-LEVEL",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on ERR-LEVEL: ERR-LOG, ERR-INFO, ERR-WARNING, ERR-CRITICAL",
+      "field": "ERR-LEVEL",
+      "values": {
+        "ERR-LOG": "'L'",
+        "ERR-INFO": "'I'",
+        "ERR-WARNING": "'W'",
+        "ERR-CRITICAL": "'C'"
+      }
+    },
+    {
+      "condition_id": "COND88-CCPAUERY-ERR-SUBSYSTEM",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on ERR-SUBSYSTEM: ERR-APP, ERR-CICS, ERR-IMS, ERR-DB2, ERR-MQ, ERR-FILE",
+      "field": "ERR-SUBSYSTEM",
+      "values": {
+        "ERR-APP": "'A'",
+        "ERR-CICS": "'C'",
+        "ERR-IMS": "'I'",
+        "ERR-DB2": "'D'",
+        "ERR-MQ": "'M'",
+        "ERR-FILE": "'F'"
+      }
+    },
+    {
+      "condition_id": "COND88-CIPAUDTY-PA-AUTH-RESP-CODE",
+      "programs": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "COPAUS2C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on PA-AUTH-RESP-CODE: PA-AUTH-APPROVED",
+      "field": "PA-AUTH-RESP-CODE",
+      "values": {
+        "PA-AUTH-APPROVED": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CIPAUDTY-PA-MATCH-STATUS",
+      "programs": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "COPAUS2C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on PA-MATCH-STATUS: PA-MATCH-PENDING, PA-MATCH-AUTH-DECLINED, PA-MATCH-PENDING-EXPIRED, PA-MATCHED-WITH-TRAN",
+      "field": "PA-MATCH-STATUS",
+      "values": {
+        "PA-MATCH-PENDING": "'P'",
+        "PA-MATCH-AUTH-DECLINED": "'D'",
+        "PA-MATCH-PENDING-EXPIRED": "'E'",
+        "PA-MATCHED-WITH-TRAN": "'M'"
+      }
+    },
+    {
+      "condition_id": "COND88-CIPAUDTY-PA-AUTH-FRAUD",
+      "programs": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "COPAUS2C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on PA-AUTH-FRAUD: PA-FRAUD-CONFIRMED, PA-FRAUD-REMOVED",
+      "field": "PA-AUTH-FRAUD",
+      "values": {
+        "PA-FRAUD-CONFIRMED": "'F'",
+        "PA-FRAUD-REMOVED": "'R'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSDB2RWY-WS-DB2-PROCESSING-FLAG",
+      "programs": [],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-DB2-PROCESSING-FLAG: WS-DB2-OK, WS-DB2-ERROR",
+      "field": "WS-DB2-PROCESSING-FLAG",
+      "values": {
+        "WS-DB2-OK": "'0'",
+        "WS-DB2-ERROR": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCOM01Y-CDEMO-USER-TYPE",
+      "programs": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on CDEMO-USER-TYPE: CDEMO-USRTYP-ADMIN, CDEMO-USRTYP-USER",
+      "field": "CDEMO-USER-TYPE",
+      "values": {
+        "CDEMO-USRTYP-ADMIN": "'A'",
+        "CDEMO-USRTYP-USER": "'U'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCOM01Y-CDEMO-PGM-CONTEXT",
+      "programs": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COBIL00C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-PGM-CONTEXT: CDEMO-PGM-ENTER, CDEMO-PGM-REENTER",
+      "field": "CDEMO-PGM-CONTEXT",
+      "values": {
+        "CDEMO-PGM-ENTER": "0",
+        "CDEMO-PGM-REENTER": "1"
+      }
+    },
+    {
+      "condition_id": "COND88-CODATECN-CODATECN-TYPE",
+      "programs": [
+        "CBACT01C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CODATECN-TYPE: YYYYMMDD-IN, YYYY-MM-DD-IN",
+      "field": "CODATECN-TYPE",
+      "values": {
+        "YYYYMMDD-IN": "\"1\"",
+        "YYYY-MM-DD-IN": "\"2\""
+      }
+    },
+    {
+      "condition_id": "COND88-CODATECN-CODATECN-OUTTYPE",
+      "programs": [
+        "CBACT01C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CODATECN-OUTTYPE: YYYY-MM-DD-OP, YYYYMMDD-OP",
+      "field": "CODATECN-OUTTYPE",
+      "values": {
+        "YYYY-MM-DD-OP": "\"1\"",
+        "YYYYMMDD-OP": "\"2\""
+      }
+    },
+    {
+      "condition_id": "COND88-CSLKPCDY-WS-US-PHONE-AREA-CODE-TO-EDIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-US-PHONE-AREA-CODE-TO-EDIT: VALID-PHONE-AREA-CODE, VALID-GENERAL-PURP-CODE, VALID-EASY-RECOG-AREA-CODE",
+      "field": "WS-US-PHONE-AREA-CODE-TO-EDIT",
+      "values": {
+        "VALID-PHONE-AREA-CODE": "'201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '212', '213', '214', '215', '216', '217', '218', '219', '220', '223', '224', '225', '226', '228', '229', '231', '234', '236', '239', '240', '242', '246', '248', '249', '250', '251', '252', '253', '254', '256', '260', '262', '264', '267', '268', '269', '270', '272', '276', '279', '281', '284', '289', '301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '323', '325', '326', '330', '331', '332', '334', '336', '337', '339', '340', '341', '343', '345', '346', '347', '351', '352', '360', '361', '364', '365', '367', '368', '380', '385', '386', '401', '402', '403', '404', '405', '406', '407', '408', '409', '410', '412', '413', '414', '415', '416', '417', '418', '419', '423', '424', '425', '430', '431', '432', '434', '435', '437', '438', '440', '441', '442', '443', '445', '447', '448', '450', '458', '463', '464', '469', '470', '473', '474', '475', '478', '479', '480', '484', '501', '502', '503', '504', '505', '506', '507', '508', '509', '510', '512', '513', '514', '515', '516', '517', '518', '519', '520', '530', '531', '534', '539', '540', '541', '548', '551', '559', '561', '562', '563', '564', '567', '570', '571', '572', '573', '574', '575', '579', '580', '581', '582', '585', '586', '587', '601', '602', '603', '604', '605', '606', '607', '608', '609', '610', '612', '613', '614', '615', '616', '617', '618', '619', '620', '623', '626', '628', '629', '630', '631', '636', '639', '640', '641', '646', '647', '649', '650', '651', '656', '657', '658', '659', '660', '661', '662', '664', '667', '669', '670', '671', '672', '678', '680', '681', '682', '683', '684', '689', '701', '702', '703', '704', '705', '706', '707', '708', '709', '712', '713', '714', '715', '716', '717', '718', '719', '720', '721', '724', '725', '726', '727', '731', '732', '734', '737', '740', '742', '743', '747', '753', '754', '757', '758', '760', '762', '763', '765', '767', '769', '770', '771', '772', '773', '774', '775', '778', '779', '780', '781', '782', '784', '785', '786', '787', '801', '802', '803', '804', '805', '806', '807', '808', '809', '810', '812', '813', '814', '815', '816', '817', '818', '819', '820', '825', '826', '828', '829', '830', '831', '832', '838', '839', '840', '843', '845', '847', '848', '849', '850', '854', '856', '857', '858', '859', '860', '862', '863', '864', '865', '867', '868', '869', '870', '872', '873', '876', '878', '901', '902', '903', '904', '905', '906', '907', '908', '909', '910', '912', '913', '914', '915', '916', '917', '918', '919', '920', '925', '928', '929', '930', '931', '934', '936', '937', '938', '939', '940', '941', '943', '945', '947', '948', '949', '951', '952', '954', '956', '959', '970', '971', '972', '973', '978', '979', '980', '983', '984', '985', '986', '989', '200', '211', '222', '233', '244', '255', '266', '277', '288', '299', '300', '311', '322', '333', '344', '355', '366', '377', '388', '399', '400', '411', '422', '433', '444', '455', '466', '477', '488', '499', '500', '511', '522', '533', '544', '555', '566', '577', '588', '599', '600', '611', '622', '633', '644', '655', '666', '677', '688', '699', '700', '711', '722', '733', '744', '755', '766', '777', '788', '799', '800', '811', '822', '833', '844', '855', '866', '877', '888', '899', '900', '911', '922', '933', '944', '955', '966', '977', '988', '999'",
+        "VALID-GENERAL-PURP-CODE": "'201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '212', '213', '214', '215', '216', '217', '218', '219', '220', '223', '224', '225', '226', '228', '229', '231', '234', '236', '239', '240', '242', '246', '248', '249', '250', '251', '252', '253', '254', '256', '260', '262', '264', '267', '268', '269', '270', '272', '276', '279', '281', '284', '289', '301', '302', '303', '304', '305', '306', '307', '308', '309', '310', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '323', '325', '326', '330', '331', '332', '334', '336', '337', '339', '340', '341', '343', '345', '346', '347', '351', '352', '360', '361', '364', '365', '367', '368', '380', '385', '386', '401', '402', '403', '404', '405', '406', '407', '408', '409', '410', '412', '413', '414', '415', '416', '417', '418', '419', '423', '424', '425', '430', '431', '432', '434', '435', '437', '438', '440', '441', '442', '443', '445', '447', '448', '450', '458', '463', '464', '469', '470', '473', '474', '475', '478', '479', '480', '484', '501', '502', '503', '504', '505', '506', '507', '508', '509', '510', '512', '513', '514', '515', '516', '517', '518', '519', '520', '530', '531', '534', '539', '540', '541', '548', '551', '559', '561', '562', '563', '564', '567', '570', '571', '572', '573', '574', '575', '579', '580', '581', '582', '585', '586', '587', '601', '602', '603', '604', '605', '606', '607', '608', '609', '610', '612', '613', '614', '615', '616', '617', '618', '619', '620', '623', '626', '628', '629', '630', '631', '636', '639', '640', '641', '646', '647', '649', '650', '651', '656', '657', '658', '659', '660', '661', '662', '664', '667', '669', '670', '671', '672', '678', '680', '681', '682', '683', '684', '689', '701', '702', '703', '704', '705', '706', '707', '708', '709', '712', '713', '714', '715', '716', '717', '718', '719', '720', '721', '724', '725', '726', '727', '731', '732', '734', '737', '740', '742', '743', '747', '753', '754', '757', '758', '760', '762', '763', '765', '767', '769', '770', '771', '772', '773', '774', '775', '778', '779', '780', '781', '782', '784', '785', '786', '787', '801', '802', '803', '804', '805', '806', '807', '808', '809', '810', '812', '813', '814', '815', '816', '817', '818', '819', '820', '825', '826', '828', '829', '830', '831', '832', '838', '839', '840', '843', '845', '847', '848', '849', '850', '854', '856', '857', '858', '859', '860', '862', '863', '864', '865', '867', '868', '869', '870', '872', '873', '876', '878', '901', '902', '903', '904', '905', '906', '907', '908', '909', '910', '912', '913', '914', '915', '916', '917', '918', '919', '920', '925', '928', '929', '930', '931', '934', '936', '937', '938', '939', '940', '941', '943', '945', '947', '948', '949', '951', '952', '954', '956', '959', '970', '971', '972', '973', '978', '979', '980', '983', '984', '985', '986', '989'",
+        "VALID-EASY-RECOG-AREA-CODE": "'200', '211', '222', '233', '244', '255', '266', '277', '288', '299', '300', '311', '322', '333', '344', '355', '366', '377', '388', '399', '400', '411', '422', '433', '444', '455', '466', '477', '488', '499', '500', '511', '522', '533', '544', '555', '566', '577', '588', '599', '600', '611', '622', '633', '644', '655', '666', '677', '688', '699', '700', '711', '722', '733', '744', '755', '766', '777', '788', '799', '800', '811', '822', '833', '844', '855', '866', '877', '888', '899', '900', '911', '922', '933', '944', '955', '966', '977', '988', '999'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSLKPCDY-US-STATE-CODE-TO-EDIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on US-STATE-CODE-TO-EDIT: VALID-US-STATE-CODE",
+      "field": "US-STATE-CODE-TO-EDIT",
+      "values": {
+        "VALID-US-STATE-CODE": "'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'DC', 'AS', 'GU', 'MP', 'PR', 'VI'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSLKPCDY-US-STATE-AND-FIRST-ZIP2",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on US-STATE-AND-FIRST-ZIP2: VALID-US-STATE-ZIP-CD2-COMBO",
+      "field": "US-STATE-AND-FIRST-ZIP2",
+      "values": {
+        "VALID-US-STATE-ZIP-CD2-COMBO": "'AA34', 'AE90', 'AE91', 'AE92', 'AE93', 'AE94', 'AE95', 'AE96', 'AE97', 'AE98', 'AK99', 'AL35', 'AL36', 'AP96', 'AR71', 'AR72', 'AS96', 'AZ85', 'AZ86', 'CA90', 'CA91', 'CA92', 'CA93', 'CA94', 'CA95', 'CA96', 'CO80', 'CO81', 'CT60', 'CT61', 'CT62', 'CT63', 'CT64', 'CT65', 'CT66', 'CT67', 'CT68', 'CT69', 'DC20', 'DC56', 'DC88', 'DE19', 'FL32', 'FL33', 'FL34', 'FM96', 'GA30', 'GA31', 'GA39', 'GU96', 'HI96', 'IA50', 'IA51', 'IA52', 'ID83', 'IL60', 'IL61', 'IL62', 'IN46', 'IN47', 'KS66', 'KS67', 'KY40', 'KY41', 'KY42', 'LA70', 'LA71', 'MA10', 'MA11', 'MA12', 'MA13', 'MA14', 'MA15', 'MA16', 'MA17', 'MA18', 'MA19', 'MA20', 'MA21', 'MA22', 'MA23', 'MA24', 'MA25', 'MA26', 'MA27', 'MA55', 'MD20', 'MD21', 'ME39', 'ME40', 'ME41', 'ME42', 'ME43', 'ME44', 'ME45', 'ME46', 'ME47', 'ME48', 'ME49', 'MH96', 'MI48', 'MI49', 'MN55', 'MN56', 'MO63', 'MO64', 'MO65', 'MO72', 'MP96', 'MS38', 'MS39', 'MT59', 'NC27', 'NC28', 'ND58', 'NE68', 'NE69', 'NH30', 'NH31', 'NH32', 'NH33', 'NH34', 'NH35', 'NH36', 'NH37', 'NH38', 'NJ70', 'NJ71', 'NJ72', 'NJ73', 'NJ74', 'NJ75', 'NJ76', 'NJ77', 'NJ78', 'NJ79', 'NJ80', 'NJ81', 'NJ82', 'NJ83', 'NJ84', 'NJ85', 'NJ86', 'NJ87', 'NJ88', 'NJ89', 'NM87', 'NM88', 'NV88', 'NV89', 'NY50', 'NY54', 'NY63', 'NY10', 'NY11', 'NY12', 'NY13', 'NY14', 'OH43', 'OH44', 'OH45', 'OK73', 'OK74', 'OR97', 'PA15', 'PA16', 'PA17', 'PA18', 'PA19', 'PR60', 'PR61', 'PR62', 'PR63', 'PR64', 'PR65', 'PR66', 'PR67', 'PR68', 'PR69', 'PR70', 'PR71', 'PR72', 'PR73', 'PR74', 'PR75', 'PR76', 'PR77', 'PR78', 'PR79', 'PR90', 'PR91', 'PR92', 'PR93', 'PR94', 'PR95', 'PR96', 'PR97', 'PR98', 'PW96', 'RI28', 'RI29', 'SC29', 'SD57', 'TN37', 'TN38', 'TX73', 'TX75', 'TX76', 'TX77', 'TX78', 'TX79', 'TX88', 'UT84', 'VA20', 'VA22', 'VA23', 'VA24', 'VI80', 'VI82', 'VI83', 'VI84', 'VI85', 'VT50', 'VT51', 'VT52', 'VT53', 'VT54', 'VT56', 'VT57', 'VT58', 'VT59', 'WA98', 'WA99', 'WI53', 'WI54', 'WV24', 'WV25', 'WV26', 'WY82', 'WY83'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-DATE-CC-N",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DATE-CC-N: THIS-CENTURY, LAST-CENTURY",
+      "field": "WS-EDIT-DATE-CC-N",
+      "values": {
+        "THIS-CENTURY": "20",
+        "LAST-CENTURY": "19"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-DATE-MM-N",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-EDIT-DATE-MM-N: WS-VALID-MONTH, WS-31-DAY-MONTH, WS-FEBRUARY",
+      "field": "WS-EDIT-DATE-MM-N",
+      "values": {
+        "WS-VALID-MONTH": "1 THROUGH 12",
+        "WS-31-DAY-MONTH": "1, 3, 5, 7, 8, 10, 12",
+        "WS-FEBRUARY": "2"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-DATE-DD-N",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-EDIT-DATE-DD-N: WS-VALID-DAY, WS-DAY-31, WS-DAY-30, WS-DAY-29, WS-VALID-FEB-DAY",
+      "field": "WS-EDIT-DATE-DD-N",
+      "values": {
+        "WS-VALID-DAY": "1 THROUGH 31",
+        "WS-DAY-31": "31",
+        "WS-DAY-30": "30",
+        "WS-DAY-29": "29",
+        "WS-VALID-FEB-DAY": "1 THROUGH 28"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-DATE-FLGS",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DATE-FLGS: WS-EDIT-DATE-IS-VALID, WS-EDIT-DATE-IS-INVALID",
+      "field": "WS-EDIT-DATE-FLGS",
+      "values": {
+        "WS-EDIT-DATE-IS-VALID": "LOW-VALUES",
+        "WS-EDIT-DATE-IS-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-YEAR-FLG",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-YEAR-FLG: FLG-YEAR-ISVALID, FLG-YEAR-NOT-OK, FLG-YEAR-BLANK",
+      "field": "WS-EDIT-YEAR-FLG",
+      "values": {
+        "FLG-YEAR-ISVALID": "LOW-VALUES",
+        "FLG-YEAR-NOT-OK": "'0'",
+        "FLG-YEAR-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-MONTH",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-MONTH: FLG-MONTH-ISVALID, FLG-MONTH-NOT-OK, FLG-MONTH-BLANK",
+      "field": "WS-EDIT-MONTH",
+      "values": {
+        "FLG-MONTH-ISVALID": "LOW-VALUES",
+        "FLG-MONTH-NOT-OK": "'0'",
+        "FLG-MONTH-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDWY-WS-EDIT-DAY",
+      "programs": [
+        "COTRTUPC",
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DAY: FLG-DAY-ISVALID, FLG-DAY-NOT-OK, FLG-DAY-BLANK",
+      "field": "WS-EDIT-DAY",
+      "values": {
+        "FLG-DAY-ISVALID": "LOW-VALUES",
+        "FLG-DAY-NOT-OK": "'0'",
+        "FLG-DAY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-CVCRD01Y-CCARD-AID",
+      "programs": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CCARD-AID: CCARD-AID-ENTER, CCARD-AID-CLEAR, CCARD-AID-PA1, CCARD-AID-PA2, CCARD-AID-PFK01, CCARD-AID-PFK02, CCARD-AID-PFK03, CCARD-AID-PFK04, CCARD-AID-PFK05, CCARD-AID-PFK06, CCARD-AID-PFK07, CCARD-AID-PFK08, CCARD-AID-PFK09, CCARD-AID-PFK10, CCARD-AID-PFK11, CCARD-AID-PFK12",
+      "field": "CCARD-AID",
+      "values": {
+        "CCARD-AID-ENTER": "'ENTER'",
+        "CCARD-AID-CLEAR": "'CLEAR'",
+        "CCARD-AID-PA1": "'PA1  '",
+        "CCARD-AID-PA2": "'PA2  '",
+        "CCARD-AID-PFK01": "'PFK01'",
+        "CCARD-AID-PFK02": "'PFK02'",
+        "CCARD-AID-PFK03": "'PFK03'",
+        "CCARD-AID-PFK04": "'PFK04'",
+        "CCARD-AID-PFK05": "'PFK05'",
+        "CCARD-AID-PFK06": "'PFK06'",
+        "CCARD-AID-PFK07": "'PFK07'",
+        "CCARD-AID-PFK08": "'PFK08'",
+        "CCARD-AID-PFK09": "'PFK09'",
+        "CCARD-AID-PFK10": "'PFK10'",
+        "CCARD-AID-PFK11": "'PFK11'",
+        "CCARD-AID-PFK12": "'PFK12'"
+      }
+    },
+    {
+      "condition_id": "COND88-CVCRD01Y-CCARD-RETURN-MSG",
+      "programs": [
+        "COTRTLIC",
+        "COTRTUPC",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CCARD-RETURN-MSG: CCARD-RETURN-MSG-OFF",
+      "field": "CCARD-RETURN-MSG",
+      "values": {
+        "CCARD-RETURN-MSG-OFF": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-CBACT01C-APPL-RESULT",
+      "programs": [
+        "CBACT01C",
+        "CBACT02C",
+        "CBACT03C",
+        "CBACT04C",
+        "CBCUS01C",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on APPL-RESULT: APPL-AOK, APPL-EOF",
+      "field": "APPL-RESULT",
+      "values": {
+        "APPL-AOK": "0",
+        "APPL-EOF": "16"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-CUSTOMER-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CUSTOMER-STATUS: WS-CUSTOMER-EOF, WS-CUSTOMER-OK",
+      "field": "WS-CUSTOMER-STATUS",
+      "values": {
+        "WS-CUSTOMER-EOF": "'10'",
+        "WS-CUSTOMER-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-ACCOUNT-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ACCOUNT-STATUS: WS-ACCOUNT-EOF, WS-ACCOUNT-OK",
+      "field": "WS-ACCOUNT-STATUS",
+      "values": {
+        "WS-ACCOUNT-EOF": "'10'",
+        "WS-ACCOUNT-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-XREF-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-XREF-STATUS: WS-XREF-EOF, WS-XREF-OK",
+      "field": "WS-XREF-STATUS",
+      "values": {
+        "WS-XREF-EOF": "'10'",
+        "WS-XREF-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-TRANSACTION-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-TRANSACTION-STATUS: WS-TRANSACTION-EOF, WS-TRANSACTION-OK",
+      "field": "WS-TRANSACTION-STATUS",
+      "values": {
+        "WS-TRANSACTION-EOF": "'10'",
+        "WS-TRANSACTION-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-CARD-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CARD-STATUS: WS-CARD-EOF, WS-CARD-OK",
+      "field": "WS-CARD-STATUS",
+      "values": {
+        "WS-CARD-EOF": "'10'",
+        "WS-CARD-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBEXPORT-WS-EXPORT-STATUS",
+      "programs": [
+        "CBEXPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EXPORT-STATUS: WS-EXPORT-OK",
+      "field": "WS-EXPORT-STATUS",
+      "values": {
+        "WS-EXPORT-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-EXPORT-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EXPORT-STATUS: WS-EXPORT-EOF, WS-EXPORT-OK",
+      "field": "WS-EXPORT-STATUS",
+      "values": {
+        "WS-EXPORT-EOF": "'10'",
+        "WS-EXPORT-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-CUSTOMER-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CUSTOMER-STATUS: WS-CUSTOMER-OK",
+      "field": "WS-CUSTOMER-STATUS",
+      "values": {
+        "WS-CUSTOMER-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-ACCOUNT-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ACCOUNT-STATUS: WS-ACCOUNT-OK",
+      "field": "WS-ACCOUNT-STATUS",
+      "values": {
+        "WS-ACCOUNT-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-XREF-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-XREF-STATUS: WS-XREF-OK",
+      "field": "WS-XREF-STATUS",
+      "values": {
+        "WS-XREF-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-TRANSACTION-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-TRANSACTION-STATUS: WS-TRANSACTION-OK",
+      "field": "WS-TRANSACTION-STATUS",
+      "values": {
+        "WS-TRANSACTION-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-CARD-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CARD-STATUS: WS-CARD-OK",
+      "field": "WS-CARD-STATUS",
+      "values": {
+        "WS-CARD-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBIMPORT-WS-ERROR-STATUS",
+      "programs": [
+        "CBIMPORT"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ERROR-STATUS: WS-ERROR-OK",
+      "field": "WS-ERROR-STATUS",
+      "values": {
+        "WS-ERROR-OK": "'00'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-ERR-FLG",
+      "programs": [
+        "CBPAUP0C",
+        "COADM01C",
+        "COBIL00C",
+        "COMEN01C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COSGN00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ERR-FLG: ERR-FLG-ON, ERR-FLG-OFF",
+      "field": "WS-ERR-FLG",
+      "values": {
+        "ERR-FLG-ON": "'Y'",
+        "ERR-FLG-OFF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-END-OF-AUTHDB-FLAG",
+      "programs": [
+        "CBPAUP0C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-END-OF-AUTHDB-FLAG: END-OF-AUTHDB, NOT-END-OF-AUTHDB",
+      "field": "WS-END-OF-AUTHDB-FLAG",
+      "values": {
+        "END-OF-AUTHDB": "'Y'",
+        "NOT-END-OF-AUTHDB": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-MORE-AUTHS-FLAG",
+      "programs": [
+        "CBPAUP0C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-MORE-AUTHS-FLAG: MORE-AUTHS, NO-MORE-AUTHS",
+      "field": "WS-MORE-AUTHS-FLAG",
+      "values": {
+        "MORE-AUTHS": "'Y'",
+        "NO-MORE-AUTHS": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-QUALIFY-DELETE-FLAG",
+      "programs": [
+        "CBPAUP0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-QUALIFY-DELETE-FLAG: QUALIFIED-FOR-DELETE, NOT-QUALIFIED-FOR-DELETE",
+      "field": "WS-QUALIFY-DELETE-FLAG",
+      "values": {
+        "QUALIFIED-FOR-DELETE": "'Y'",
+        "NOT-QUALIFIED-FOR-DELETE": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-CUSTID-STATUS",
+      "programs": [
+        "CBPAUP0C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CUSTID-STATUS: END-OF-FILE",
+      "field": "WS-CUSTID-STATUS",
+      "values": {
+        "END-OF-FILE": "'10'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-IMS-RETURN-CODE",
+      "programs": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on IMS-RETURN-CODE: STATUS-OK, SEGMENT-NOT-FOUND, DUPLICATE-SEGMENT-FOUND, WRONG-PARENTAGE, END-OF-DB, DATABASE-UNAVAILABLE, PSB-SCHEDULED-MORE-THAN-ONCE, COULD-NOT-SCHEDULE-PSB, RETRY-CONDITION",
+      "field": "IMS-RETURN-CODE",
+      "values": {
+        "STATUS-OK": "'  ', 'FW'",
+        "SEGMENT-NOT-FOUND": "'GE'",
+        "DUPLICATE-SEGMENT-FOUND": "'II'",
+        "WRONG-PARENTAGE": "'GP'",
+        "END-OF-DB": "'GB'",
+        "DATABASE-UNAVAILABLE": "'BA'",
+        "PSB-SCHEDULED-MORE-THAN-ONCE": "'TC'",
+        "COULD-NOT-SCHEDULE-PSB": "'TE'",
+        "RETRY-CONDITION": "'BA', 'FH', 'TE'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-WS-IMS-PSB-SCHD-FLG",
+      "programs": [
+        "CBPAUP0C",
+        "COPAUA0C",
+        "COPAUS0C",
+        "COPAUS1C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-IMS-PSB-SCHD-FLG: IMS-PSB-SCHD, IMS-PSB-NOT-SCHD",
+      "field": "WS-IMS-PSB-SCHD-FLG",
+      "values": {
+        "IMS-PSB-SCHD": "'Y'",
+        "IMS-PSB-NOT-SCHD": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBPAUP0C-P-DEBUG-FLAG",
+      "programs": [
+        "CBPAUP0C",
+        "DBUNLDGS",
+        "PAUDBLOD",
+        "PAUDBUNL"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on P-DEBUG-FLAG: DEBUG-ON, DEBUG-OFF",
+      "field": "P-DEBUG-FLAG",
+      "values": {
+        "DEBUG-ON": "'Y'",
+        "DEBUG-OFF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBSTM03A-WS-M03B-OPER",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-M03B-OPER: M03B-OPEN, M03B-CLOSE, M03B-READ, M03B-READ-K, M03B-WRITE, M03B-REWRITE",
+      "field": "WS-M03B-OPER",
+      "values": {
+        "M03B-OPEN": "'O'",
+        "M03B-CLOSE": "'C'",
+        "M03B-READ": "'R'",
+        "M03B-READ-K": "'K'",
+        "M03B-WRITE": "'W'",
+        "M03B-REWRITE": "'Z'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBSTM03A-HTML-FIXED-LN",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on HTML-FIXED-LN: HTML-L01, HTML-L02, HTML-L03, HTML-L04, HTML-L05, HTML-L06, HTML-L07, HTML-L08, HTML-LTRS, HTML-LTRE, HTML-LTDS, HTML-LTDE, HTML-L10, HTML-L15, HTML-L16, HTML-L17, HTML-L18, HTML-L22-35, HTML-L30-42, HTML-L31, HTML-L43, HTML-L47, HTML-L48, HTML-L50, HTML-L51, HTML-L53, HTML-L54, HTML-L58, HTML-L61, HTML-L64, HTML-L75, HTML-L78, HTML-L79, HTML-L80",
+      "field": "HTML-FIXED-LN",
+      "values": {
+        "HTML-L01": "'<!DOCTYPE html>'",
+        "HTML-L02": "'<html lang=\"en\">'",
+        "HTML-L03": "'<head>'",
+        "HTML-L04": "'<meta charset=\"utf-8\">'",
+        "HTML-L05": "'<title>HTML Table Layout</title>'",
+        "HTML-L06": "'</head>'",
+        "HTML-L07": "'<body style=\"margin:0px;\">'",
+        "HTML-L08": "'<table  align=\"center\" frame=\"box\" styl 'e=\"width:70%; font:12px Segoe UI,sans-serif;\">'",
+        "HTML-LTRS": "'<tr>'",
+        "HTML-LTRE": "'</tr>'",
+        "HTML-LTDS": "'<td>'",
+        "HTML-LTDE": "'</td>'",
+        "HTML-L10": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#1d1d96b3;\">'",
+        "HTML-L15": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#FFAF33;\">'",
+        "HTML-L16": "'<p style=\"font-size:16px\">Bank of XYZ</p>'",
+        "HTML-L17": "'<p>410 Terry Ave N</p>'",
+        "HTML-L18": "'<p>Seattle WA 99999</p>'",
+        "HTML-L22-35": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#f2f2f2;\">'",
+        "HTML-L30-42": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#33FFD1; text-align:center;\">'",
+        "HTML-L31": "'<p style=\"font-size:16px\">Basic Details</p>'",
+        "HTML-L43": "'<p style=\"font-size:16px\">Transaction Summary</p>'",
+        "HTML-L47": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+        "HTML-L48": "'<p style=\"font-size:16px\">Tran ID</p>'",
+        "HTML-L50": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+        "HTML-L51": "'<p style=\"font-size:16px\">Tran Details</p>'",
+        "HTML-L53": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#33FF5E; text-align:right;\">'",
+        "HTML-L54": "'<p style=\"font-size:16px\">Amount</p>'",
+        "HTML-L58": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+        "HTML-L61": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+        "HTML-L64": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#f2f2f2; text-align:right;\">'",
+        "HTML-L75": "'<h3>End of Statement</h3>'",
+        "HTML-L78": "'</table>'",
+        "HTML-L79": "'</body>'",
+        "HTML-L80": "'</html>'"
+      }
+    },
+    {
+      "condition_id": "COND88-CBSTM03A-UCB-ADDR",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on UCB-ADDR: NULL-UCB",
+      "field": "UCB-ADDR",
+      "values": {
+        "NULL-UCB": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-CBSTM03A-FILLER",
+      "programs": [
+        "CBSTM03A"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on FILLER: END-OF-TIOT",
+      "field": "FILLER",
+      "values": {
+        "END-OF-TIOT": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-CBSTM03B-LK-M03B-OPER",
+      "programs": [
+        "CBSTM03B"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on LK-M03B-OPER: M03B-OPEN, M03B-CLOSE, M03B-READ, M03B-READ-K, M03B-WRITE, M03B-REWRITE",
+      "field": "LK-M03B-OPER",
+      "values": {
+        "M03B-OPEN": "'O'",
+        "M03B-CLOSE": "'C'",
+        "M03B-READ": "'R'",
+        "M03B-READ-K": "'K'",
+        "M03B-WRITE": "'W'",
+        "M03B-REWRITE": "'Z'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACCT01-WS-MQ-MSG-FLAG",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-MQ-MSG-FLAG: NO-MORE-MSGS",
+      "field": "WS-MQ-MSG-FLAG",
+      "values": {
+        "NO-MORE-MSGS": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACCT01-WS-RESP-QUEUE-STS",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RESP-QUEUE-STS: RESP-QUEUE-OPEN",
+      "field": "WS-RESP-QUEUE-STS",
+      "values": {
+        "RESP-QUEUE-OPEN": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACCT01-WS-ERR-QUEUE-STS",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ERR-QUEUE-STS: ERR-QUEUE-OPEN",
+      "field": "WS-ERR-QUEUE-STS",
+      "values": {
+        "ERR-QUEUE-OPEN": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACCT01-WS-REPLY-QUEUE-STS",
+      "programs": [
+        "COACCT01",
+        "CODATE01"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-REPLY-QUEUE-STS: REPLY-QUEUE-OPEN",
+      "field": "WS-REPLY-QUEUE-STS",
+      "values": {
+        "REPLY-QUEUE-OPEN": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-FLG-SIGNED-NUMBER-EDIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-FLG-SIGNED-NUMBER-EDIT: FLG-SIGNED-NUMBER-ISVALID, FLG-SIGNED-NUMBER-NOT-OK, FLG-SIGNED-NUMBER-BLANK",
+      "field": "WS-FLG-SIGNED-NUMBER-EDIT",
+      "values": {
+        "FLG-SIGNED-NUMBER-ISVALID": "LOW-VALUES",
+        "FLG-SIGNED-NUMBER-NOT-OK": "'0'",
+        "FLG-SIGNED-NUMBER-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ALPHA-ONLY-FLAGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ALPHA-ONLY-FLAGS: FLG-ALPHA-ISVALID, FLG-ALPHA-NOT-OK, FLG-ALPHA-BLANK",
+      "field": "WS-EDIT-ALPHA-ONLY-FLAGS",
+      "values": {
+        "FLG-ALPHA-ISVALID": "LOW-VALUES",
+        "FLG-ALPHA-NOT-OK": "'0'",
+        "FLG-ALPHA-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ALPHANUM-ONLY-FLAGS",
+      "programs": [
+        "COACTUPC",
+        "COTRTLIC",
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ALPHANUM-ONLY-FLAGS: FLG-ALPHNANUM-ISVALID, FLG-ALPHNANUM-NOT-OK, FLG-ALPHNANUM-BLANK",
+      "field": "WS-EDIT-ALPHANUM-ONLY-FLAGS",
+      "values": {
+        "FLG-ALPHNANUM-ISVALID": "LOW-VALUES",
+        "FLG-ALPHNANUM-NOT-OK": "'0'",
+        "FLG-ALPHNANUM-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-MANDATORY-FLAGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-MANDATORY-FLAGS: FLG-MANDATORY-ISVALID, FLG-MANDATORY-NOT-OK, FLG-MANDATORY-BLANK",
+      "field": "WS-EDIT-MANDATORY-FLAGS",
+      "values": {
+        "FLG-MANDATORY-ISVALID": "LOW-VALUES",
+        "FLG-MANDATORY-NOT-OK": "'0'",
+        "FLG-MANDATORY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-YES-NO",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-YES-NO: FLG-YES-NO-ISVALID, FLG-YES-NO-NOT-OK, FLG-YES-NO-BLANK",
+      "field": "WS-EDIT-YES-NO",
+      "values": {
+        "FLG-YES-NO-ISVALID": "'Y', 'N'",
+        "FLG-YES-NO-NOT-OK": "'0'",
+        "FLG-YES-NO-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-PHONE-NUM-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-PHONE-NUM-FLGS: WS-EDIT-US-PHONE-IS-INVALID, WS-EDIT-US-PHONE-IS-VALID",
+      "field": "WS-EDIT-US-PHONE-NUM-FLGS",
+      "values": {
+        "WS-EDIT-US-PHONE-IS-INVALID": "'000'",
+        "WS-EDIT-US-PHONE-IS-VALID": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-PHONEA-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-PHONEA-FLG: FLG-EDIT-US-PHONEA-ISVALID, FLG-EDIT-US-PHONEA-NOT-OK, FLG-EDIT-US-PHONEA-BLANK",
+      "field": "WS-EDIT-US-PHONEA-FLG",
+      "values": {
+        "FLG-EDIT-US-PHONEA-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-PHONEA-NOT-OK": "'0'",
+        "FLG-EDIT-US-PHONEA-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-EDIT-US-PHONEB",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-EDIT-US-PHONEB: FLG-EDIT-US-PHONEB-ISVALID, FLG-EDIT-US-PHONEB-NOT-OK, FLG-EDIT-US-PHONEB-BLANK",
+      "field": "WS-EDIT-EDIT-US-PHONEB",
+      "values": {
+        "FLG-EDIT-US-PHONEB-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-PHONEB-NOT-OK": "'0'",
+        "FLG-EDIT-US-PHONEB-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-EDIT-PHONEC",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-EDIT-PHONEC: FLG-EDIT-US-PHONEC-ISVALID, FLG-EDIT-US-PHONEC-NOT-OK, FLG-EDIT-US-PHONEC-BLANK",
+      "field": "WS-EDIT-EDIT-PHONEC",
+      "values": {
+        "FLG-EDIT-US-PHONEC-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-PHONEC-NOT-OK": "'0'",
+        "FLG-EDIT-US-PHONEC-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-SSN-PART1-N",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-EDIT-US-SSN-PART1-N: INVALID-SSN-PART1",
+      "field": "WS-EDIT-US-SSN-PART1-N",
+      "values": {
+        "INVALID-SSN-PART1": "0, 666, 900 THRU 999"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-SSN-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-SSN-FLGS: WS-EDIT-US-SSN-IS-INVALID, WS-EDIT-US-SSN-IS-VALID",
+      "field": "WS-EDIT-US-SSN-FLGS",
+      "values": {
+        "WS-EDIT-US-SSN-IS-INVALID": "'000'",
+        "WS-EDIT-US-SSN-IS-VALID": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-SSN-PART1-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-SSN-PART1-FLGS: FLG-EDIT-US-SSN-PART1-ISVALID, FLG-EDIT-US-SSN-PART1-NOT-OK, FLG-EDIT-US-SSN-PART1-BLANK",
+      "field": "WS-EDIT-US-SSN-PART1-FLGS",
+      "values": {
+        "FLG-EDIT-US-SSN-PART1-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-SSN-PART1-NOT-OK": "'0'",
+        "FLG-EDIT-US-SSN-PART1-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-SSN-PART2-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-SSN-PART2-FLGS: FLG-EDIT-US-SSN-PART2-ISVALID, FLG-EDIT-US-SSN-PART2-NOT-OK, FLG-EDIT-US-SSN-PART2-BLANK",
+      "field": "WS-EDIT-US-SSN-PART2-FLGS",
+      "values": {
+        "FLG-EDIT-US-SSN-PART2-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-SSN-PART2-NOT-OK": "'0'",
+        "FLG-EDIT-US-SSN-PART2-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-US-SSN-PART3-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-US-SSN-PART3-FLGS: FLG-EDIT-US-SSN-PART3-ISVALID, FLG-EDIT-US-SSN-PART3-NOT-OK, FLG-EDIT-US-SSN-PART3-BLANK",
+      "field": "WS-EDIT-US-SSN-PART3-FLGS",
+      "values": {
+        "FLG-EDIT-US-SSN-PART3-ISVALID": "LOW-VALUES",
+        "FLG-EDIT-US-SSN-PART3-NOT-OK": "'0'",
+        "FLG-EDIT-US-SSN-PART3-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-DATACHANGED-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-DATACHANGED-FLAG: NO-CHANGES-FOUND, CHANGE-HAS-OCCURRED",
+      "field": "WS-DATACHANGED-FLAG",
+      "values": {
+        "NO-CHANGES-FOUND": "'0'",
+        "CHANGE-HAS-OCCURRED": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-INPUT-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INPUT-FLAG: INPUT-OK, INPUT-ERROR, INPUT-PENDING",
+      "field": "WS-INPUT-FLAG",
+      "values": {
+        "INPUT-OK": "'0'",
+        "INPUT-ERROR": "'1'",
+        "INPUT-PENDING": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-RETURN-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-FLAG: WS-RETURN-FLAG-OFF, WS-RETURN-FLAG-ON",
+      "field": "WS-RETURN-FLAG",
+      "values": {
+        "WS-RETURN-FLAG-OFF": "LOW-VALUES",
+        "WS-RETURN-FLAG-ON": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-PFK-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COTRTLIC",
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-PFK-FLAG: PFK-VALID, PFK-INVALID",
+      "field": "WS-PFK-FLAG",
+      "values": {
+        "PFK-VALID": "'0'",
+        "PFK-INVALID": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ACCT-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ACCT-FLAG: FLG-ACCTFILTER-ISVALID, FLG-ACCTFILTER-NOT-OK, FLG-ACCTFILTER-BLANK",
+      "field": "WS-EDIT-ACCT-FLAG",
+      "values": {
+        "FLG-ACCTFILTER-ISVALID": "'1'",
+        "FLG-ACCTFILTER-NOT-OK": "'0'",
+        "FLG-ACCTFILTER-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CUST-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CUST-FLAG: FLG-CUSTFILTER-ISVALID, FLG-CUSTFILTER-NOT-OK, FLG-CUSTFILTER-BLANK",
+      "field": "WS-EDIT-CUST-FLAG",
+      "values": {
+        "FLG-CUSTFILTER-ISVALID": "'1'",
+        "FLG-CUSTFILTER-NOT-OK": "'0'",
+        "FLG-CUSTFILTER-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ACCT-STATUS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ACCT-STATUS: FLG-ACCT-STATUS-ISVALID, FLG-ACCT-STATUS-NOT-OK, FLG-ACCT-STATUS-BLANK",
+      "field": "WS-EDIT-ACCT-STATUS",
+      "values": {
+        "FLG-ACCT-STATUS-ISVALID": "'Y', 'N'",
+        "FLG-ACCT-STATUS-NOT-OK": "'0'",
+        "FLG-ACCT-STATUS-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CREDIT-LIMIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CREDIT-LIMIT: FLG-CRED-LIMIT-ISVALID, FLG-CRED-LIMIT-NOT-OK, FLG-CRED-LIMIT-BLANK",
+      "field": "WS-EDIT-CREDIT-LIMIT",
+      "values": {
+        "FLG-CRED-LIMIT-ISVALID": "LOW-VALUES",
+        "FLG-CRED-LIMIT-NOT-OK": "'0'",
+        "FLG-CRED-LIMIT-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CASH-CREDIT-LIMIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CASH-CREDIT-LIMIT: FLG-CASH-CREDIT-LIMIT-ISVALID, FLG-CASH-CREDIT-LIMIT-NOT-OK, FLG-CASH-CREDIT-LIMIT-BLANK",
+      "field": "WS-EDIT-CASH-CREDIT-LIMIT",
+      "values": {
+        "FLG-CASH-CREDIT-LIMIT-ISVALID": "LOW-VALUES",
+        "FLG-CASH-CREDIT-LIMIT-NOT-OK": "'0'",
+        "FLG-CASH-CREDIT-LIMIT-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CURR-BAL",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CURR-BAL: FLG-CURR-BAL-ISVALID, FLG-CURR-BAL-NOT-OK, FLG-CURR-BAL-BLANK",
+      "field": "WS-EDIT-CURR-BAL",
+      "values": {
+        "FLG-CURR-BAL-ISVALID": "LOW-VALUES",
+        "FLG-CURR-BAL-NOT-OK": "'0'",
+        "FLG-CURR-BAL-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CURR-CYC-CREDIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CURR-CYC-CREDIT: FLG-CURR-CYC-CREDIT-ISVALID, FLG-CURR-CYC-CREDIT-NOT-OK, FLG-CURR-CYC-CREDIT-BLANK",
+      "field": "WS-EDIT-CURR-CYC-CREDIT",
+      "values": {
+        "FLG-CURR-CYC-CREDIT-ISVALID": "LOW-VALUES",
+        "FLG-CURR-CYC-CREDIT-NOT-OK": "'0'",
+        "FLG-CURR-CYC-CREDIT-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CURR-CYC-DEBIT",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CURR-CYC-DEBIT: FLG-CURR-CYC-DEBIT-ISVALID, FLG-CURR-CYC-DEBIT-NOT-OK, FLG-CURR-CYC-DEBIT-BLANK",
+      "field": "WS-EDIT-CURR-CYC-DEBIT",
+      "values": {
+        "FLG-CURR-CYC-DEBIT-ISVALID": "LOW-VALUES",
+        "FLG-CURR-CYC-DEBIT-NOT-OK": "'0'",
+        "FLG-CURR-CYC-DEBIT-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-DT-OF-BIRTH-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DT-OF-BIRTH-FLGS: WS-EDIT-DT-OF-BIRTH-INVALID, WS-EDIT-DT-OF-BIRTH-ISVALID",
+      "field": "WS-EDIT-DT-OF-BIRTH-FLGS",
+      "values": {
+        "WS-EDIT-DT-OF-BIRTH-INVALID": "'000'",
+        "WS-EDIT-DT-OF-BIRTH-ISVALID": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-DT-OF-BIRTH-YEAR-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DT-OF-BIRTH-YEAR-FLG: FLG-DT-OF-BIRTH-YEAR-ISVALID, FLG-DT-OF-BIRTH-YEAR-NOT-OK, FLG-DT-OF-BIRTH-YEAR-BLANK",
+      "field": "WS-EDIT-DT-OF-BIRTH-YEAR-FLG",
+      "values": {
+        "FLG-DT-OF-BIRTH-YEAR-ISVALID": "LOW-VALUES",
+        "FLG-DT-OF-BIRTH-YEAR-NOT-OK": "'0'",
+        "FLG-DT-OF-BIRTH-YEAR-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-DT-OF-BIRTH-MONTH",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DT-OF-BIRTH-MONTH: FLG-DT-OF-BIRTH-MONTH-ISVALID, FLG-DT-OF-BIRTH-MONTH-NOT-OK, FLG-DT-OF-BIRTH-MONTH-BLANK",
+      "field": "WS-EDIT-DT-OF-BIRTH-MONTH",
+      "values": {
+        "FLG-DT-OF-BIRTH-MONTH-ISVALID": "LOW-VALUES",
+        "FLG-DT-OF-BIRTH-MONTH-NOT-OK": "'0'",
+        "FLG-DT-OF-BIRTH-MONTH-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-DT-OF-BIRTH-DAY",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DT-OF-BIRTH-DAY: FLG-DT-OF-BIRTH-DAY-ISVALID, FLG-DT-OF-BIRTH-DAY-NOT-OK, FLG-DT-OF-BIRTH-DAY-BLANK",
+      "field": "WS-EDIT-DT-OF-BIRTH-DAY",
+      "values": {
+        "FLG-DT-OF-BIRTH-DAY-ISVALID": "LOW-VALUES",
+        "FLG-DT-OF-BIRTH-DAY-NOT-OK": "'0'",
+        "FLG-DT-OF-BIRTH-DAY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-FICO-SCORE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-FICO-SCORE-FLGS: FLG-FICO-SCORE-ISVALID, FLG-FICO-SCORE-NOT-OK, FLG-FICO-SCORE-BLANK",
+      "field": "WS-EDIT-FICO-SCORE-FLGS",
+      "values": {
+        "FLG-FICO-SCORE-ISVALID": "LOW-VALUES",
+        "FLG-FICO-SCORE-NOT-OK": "'0'",
+        "FLG-FICO-SCORE-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-OPEN-DATE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-OPEN-DATE-FLGS: WS-EDIT-OPEN-DATE-IS-INVALID",
+      "field": "WS-EDIT-OPEN-DATE-FLGS",
+      "values": {
+        "WS-EDIT-OPEN-DATE-IS-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-OPEN-YEAR-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-OPEN-YEAR-FLG: FLG-OPEN-YEAR-ISVALID, FLG-OPEN-YEAR-NOT-OK, FLG-OPEN-YEAR-BLANK",
+      "field": "WS-EDIT-OPEN-YEAR-FLG",
+      "values": {
+        "FLG-OPEN-YEAR-ISVALID": "LOW-VALUES",
+        "FLG-OPEN-YEAR-NOT-OK": "'0'",
+        "FLG-OPEN-YEAR-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-OPEN-MONTH",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-OPEN-MONTH: FLG-OPEN-MONTH-ISVALID, FLG-OPEN-MONTH-NOT-OK, FLG-OPEN-MONTH-BLANK",
+      "field": "WS-EDIT-OPEN-MONTH",
+      "values": {
+        "FLG-OPEN-MONTH-ISVALID": "LOW-VALUES",
+        "FLG-OPEN-MONTH-NOT-OK": "'0'",
+        "FLG-OPEN-MONTH-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-OPEN-DAY",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-OPEN-DAY: FLG-OPEN-DAY-ISVALID, FLG-OPEN-DAY-NOT-OK, FLG-OPEN-DAY-BLANK",
+      "field": "WS-EDIT-OPEN-DAY",
+      "values": {
+        "FLG-OPEN-DAY-ISVALID": "LOW-VALUES",
+        "FLG-OPEN-DAY-NOT-OK": "'0'",
+        "FLG-OPEN-DAY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EXPIRY-DATE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EXPIRY-DATE-FLGS: WS-EDIT-EXPIRY-IS-INVALID",
+      "field": "WS-EXPIRY-DATE-FLGS",
+      "values": {
+        "WS-EDIT-EXPIRY-IS-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-EXPIRY-YEAR-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-EXPIRY-YEAR-FLG: FLG-EXPIRY-YEAR-ISVALID, FLG-EXPIRY-YEAR-NOT-OK, FLG-EXPIRY-YEAR-BLANK",
+      "field": "WS-EDIT-EXPIRY-YEAR-FLG",
+      "values": {
+        "FLG-EXPIRY-YEAR-ISVALID": "LOW-VALUES",
+        "FLG-EXPIRY-YEAR-NOT-OK": "'0'",
+        "FLG-EXPIRY-YEAR-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-EXPIRY-MONTH",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-EXPIRY-MONTH: FLG-EXPIRY-MONTH-ISVALID, FLG-EXPIRY-MONTH-NOT-OK, FLG-EXPIRY-MONTH-BLANK",
+      "field": "WS-EDIT-EXPIRY-MONTH",
+      "values": {
+        "FLG-EXPIRY-MONTH-ISVALID": "LOW-VALUES",
+        "FLG-EXPIRY-MONTH-NOT-OK": "'0'",
+        "FLG-EXPIRY-MONTH-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-EXPIRY-DAY",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-EXPIRY-DAY: FLG-EXPIRY-DAY-ISVALID, FLG-EXPIRY-DAY-NOT-OK, FLG-EXPIRY-DAY-BLANK",
+      "field": "WS-EDIT-EXPIRY-DAY",
+      "values": {
+        "FLG-EXPIRY-DAY-ISVALID": "LOW-VALUES",
+        "FLG-EXPIRY-DAY-NOT-OK": "'0'",
+        "FLG-EXPIRY-DAY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-REISSUE-DATE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-REISSUE-DATE-FLGS: WS-EDIT-REISSUE-DATE-INVALID",
+      "field": "WS-EDIT-REISSUE-DATE-FLGS",
+      "values": {
+        "WS-EDIT-REISSUE-DATE-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-REISSUE-YEAR-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-REISSUE-YEAR-FLG: FLG-REISSUE-YEAR-ISVALID, FLG-REISSUE-YEAR-NOT-OK, FLG-REISSUE-YEAR-BLANK",
+      "field": "WS-EDIT-REISSUE-YEAR-FLG",
+      "values": {
+        "FLG-REISSUE-YEAR-ISVALID": "LOW-VALUES",
+        "FLG-REISSUE-YEAR-NOT-OK": "'0'",
+        "FLG-REISSUE-YEAR-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-REISSUE-MONTH",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-REISSUE-MONTH: FLG-REISSUE-MONTH-ISVALID, FLG-REISSUE-MONTH-NOT-OK, FLG-REISSUE-MONTH-BLANK",
+      "field": "WS-EDIT-REISSUE-MONTH",
+      "values": {
+        "FLG-REISSUE-MONTH-ISVALID": "LOW-VALUES",
+        "FLG-REISSUE-MONTH-NOT-OK": "'0'",
+        "FLG-REISSUE-MONTH-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-REISSUE-DAY",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-REISSUE-DAY: FLG-REISSUE-DAY-ISVALID, FLG-REISSUE-DAY-NOT-OK, FLG-REISSUE-DAY-BLANK",
+      "field": "WS-EDIT-REISSUE-DAY",
+      "values": {
+        "FLG-REISSUE-DAY-ISVALID": "LOW-VALUES",
+        "FLG-REISSUE-DAY-NOT-OK": "'0'",
+        "FLG-REISSUE-DAY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-FIRST-NAME-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-FIRST-NAME-FLGS: FLG-FIRST-NAME-ISVALID, FLG-FIRST-NAME-NOT-OK, FLG-FIRST-NAME-BLANK",
+      "field": "WS-EDIT-FIRST-NAME-FLGS",
+      "values": {
+        "FLG-FIRST-NAME-ISVALID": "LOW-VALUES",
+        "FLG-FIRST-NAME-NOT-OK": "'0'",
+        "FLG-FIRST-NAME-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-MIDDLE-NAME-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-MIDDLE-NAME-FLGS: FLG-MIDDLE-NAME-ISVALID, FLG-MIDDLE-NAME-NOT-OK, FLG-MIDDLE-NAME-BLANK",
+      "field": "WS-EDIT-MIDDLE-NAME-FLGS",
+      "values": {
+        "FLG-MIDDLE-NAME-ISVALID": "LOW-VALUES",
+        "FLG-MIDDLE-NAME-NOT-OK": "'0'",
+        "FLG-MIDDLE-NAME-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-LAST-NAME-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-LAST-NAME-FLGS: FLG-LAST-NAME-ISVALID, FLG-LAST-NAME-NOT-OK, FLG-LAST-NAME-BLANK",
+      "field": "WS-EDIT-LAST-NAME-FLGS",
+      "values": {
+        "FLG-LAST-NAME-ISVALID": "LOW-VALUES",
+        "FLG-LAST-NAME-NOT-OK": "'0'",
+        "FLG-LAST-NAME-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ADDRESS-LINE-1-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ADDRESS-LINE-1-FLGS: FLG-ADDRESS-LINE-1-ISVALID, FLG-ADDRESS-LINE-1-NOT-OK, FLG-ADDRESS-LINE-1-BLANK",
+      "field": "WS-EDIT-ADDRESS-LINE-1-FLGS",
+      "values": {
+        "FLG-ADDRESS-LINE-1-ISVALID": "LOW-VALUES",
+        "FLG-ADDRESS-LINE-1-NOT-OK": "'0'",
+        "FLG-ADDRESS-LINE-1-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ADDRESS-LINE-2-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ADDRESS-LINE-2-FLGS: FLG-ADDRESS-LINE-2-ISVALID, FLG-ADDRESS-LINE-2-NOT-OK, FLG-ADDRESS-LINE-2-BLANK",
+      "field": "WS-EDIT-ADDRESS-LINE-2-FLGS",
+      "values": {
+        "FLG-ADDRESS-LINE-2-ISVALID": "LOW-VALUES",
+        "FLG-ADDRESS-LINE-2-NOT-OK": "'0'",
+        "FLG-ADDRESS-LINE-2-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-CITY-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CITY-FLGS: FLG-CITY-ISVALID, FLG-CITY-NOT-OK, FLG-CITY-BLANK",
+      "field": "WS-EDIT-CITY-FLGS",
+      "values": {
+        "FLG-CITY-ISVALID": "LOW-VALUES",
+        "FLG-CITY-NOT-OK": "'0'",
+        "FLG-CITY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-STATE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-STATE-FLGS: FLG-STATE-ISVALID, FLG-STATE-NOT-OK, FLG-STATE-BLANK",
+      "field": "WS-EDIT-STATE-FLGS",
+      "values": {
+        "FLG-STATE-ISVALID": "LOW-VALUES",
+        "FLG-STATE-NOT-OK": "'0'",
+        "FLG-STATE-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-ZIPCODE-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-ZIPCODE-FLGS: FLG-ZIPCODE-ISVALID, FLG-ZIPCODE-NOT-OK, FLG-ZIPCODE-BLANK",
+      "field": "WS-EDIT-ZIPCODE-FLGS",
+      "values": {
+        "FLG-ZIPCODE-ISVALID": "LOW-VALUES",
+        "FLG-ZIPCODE-NOT-OK": "'0'",
+        "FLG-ZIPCODE-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-COUNTRY-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-COUNTRY-FLGS: FLG-COUNTRY-ISVALID, FLG-COUNTRY-NOT-OK, FLG-COUNTRY-BLANK",
+      "field": "WS-EDIT-COUNTRY-FLGS",
+      "values": {
+        "FLG-COUNTRY-ISVALID": "LOW-VALUES",
+        "FLG-COUNTRY-NOT-OK": "'0'",
+        "FLG-COUNTRY-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-1-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-1-FLGS: WS-EDIT-PHONE-NUM-1-IS-INVALID",
+      "field": "WS-EDIT-PHONE-NUM-1-FLGS",
+      "values": {
+        "WS-EDIT-PHONE-NUM-1-IS-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-1A-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-1A-FLG: FLG-PHONE-NUM-1A-ISVALID, FLG-PHONE-NUM-1A-NOT-OK, FLG-PHONE-NUM-1A-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-1A-FLG",
+      "values": {
+        "FLG-PHONE-NUM-1A-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-1A-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-1A-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-1B",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-1B: FLG-PHONE-NUM-1B-ISVALID, FLG-PHONE-NUM-1B-NOT-OK, FLG-PHONE-NUM-1B-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-1B",
+      "values": {
+        "FLG-PHONE-NUM-1B-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-1B-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-1B-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-1C",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-1C: FLG-PHONE-NUM-1C-ISVALID, FLG-PHONE-NUM-1C-NOT-OK, FLG-PHONE-NUM-1C-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-1C",
+      "values": {
+        "FLG-PHONE-NUM-1C-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-1C-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-1C-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-2-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-2-FLGS: WS-EDIT-PHONE-NUM-2-IS-INVALID",
+      "field": "WS-EDIT-PHONE-NUM-2-FLGS",
+      "values": {
+        "WS-EDIT-PHONE-NUM-2-IS-INVALID": "'000'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-2A-FLG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-2A-FLG: FLG-PHONE-NUM-2A-ISVALID, FLG-PHONE-NUM-2A-NOT-OK, FLG-PHONE-NUM-2A-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-2A-FLG",
+      "values": {
+        "FLG-PHONE-NUM-2A-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-2A-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-2A-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-2B",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-2B: FLG-PHONE-NUM-2B-ISVALID, FLG-PHONE-NUM-2B-NOT-OK, FLG-PHONE-NUM-2B-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-2B",
+      "values": {
+        "FLG-PHONE-NUM-2B-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-2B-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-2B-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PHONE-NUM-2C",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PHONE-NUM-2C: FLG-PHONE-NUM-2C-ISVALID, FLG-PHONE-NUM-2C-NOT-OK, FLG-PHONE-NUM-2C-BLANK",
+      "field": "WS-EDIT-PHONE-NUM-2C",
+      "values": {
+        "FLG-PHONE-NUM-2C-ISVALID": "LOW-VALUES",
+        "FLG-PHONE-NUM-2C-NOT-OK": "'0'",
+        "FLG-PHONE-NUM-2C-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EFT-ACCOUNT-ID-FLGS",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EFT-ACCOUNT-ID-FLGS: FLG-EFT-ACCOUNT-ID-ISVALID, FLG-EFT-ACCOUNT-ID-NOT-OK, FLG-EFT-ACCOUNT-ID-BLANK",
+      "field": "WS-EFT-ACCOUNT-ID-FLGS",
+      "values": {
+        "FLG-EFT-ACCOUNT-ID-ISVALID": "LOW-VALUES",
+        "FLG-EFT-ACCOUNT-ID-NOT-OK": "'0'",
+        "FLG-EFT-ACCOUNT-ID-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-EDIT-PRI-CARDHOLDER",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-PRI-CARDHOLDER: FLG-PRI-CARDHOLDER-ISVALID, FLG-PRI-CARDHOLDER-NOT-OK, FLG-PRI-CARDHOLDER-BLANK",
+      "field": "WS-EDIT-PRI-CARDHOLDER",
+      "values": {
+        "FLG-PRI-CARDHOLDER-ISVALID": "'Y', 'N'",
+        "FLG-PRI-CARDHOLDER-NOT-OK": "'0'",
+        "FLG-PRI-CARDHOLDER-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-ACCOUNT-MASTER-READ-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ACCOUNT-MASTER-READ-FLAG: FOUND-ACCT-IN-MASTER",
+      "field": "WS-ACCOUNT-MASTER-READ-FLAG",
+      "values": {
+        "FOUND-ACCT-IN-MASTER": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-CUST-MASTER-READ-FLAG",
+      "programs": [
+        "COACTUPC",
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CUST-MASTER-READ-FLAG: FOUND-CUST-IN-MASTER",
+      "field": "WS-CUST-MASTER-READ-FLAG",
+      "values": {
+        "FOUND-CUST-IN-MASTER": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-INFO-MSG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, FOUND-ACCOUNT-DATA, PROMPT-FOR-SEARCH-KEYS, PROMPT-FOR-CHANGES, PROMPT-FOR-CONFIRMATION, CONFIRM-UPDATE-SUCCESS, INFORM-FAILURE",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "FOUND-ACCOUNT-DATA": "'Details of selected account shown above'",
+        "PROMPT-FOR-SEARCH-KEYS": "'Enter or update id of account to update'",
+        "PROMPT-FOR-CHANGES": "'Update account details presented above.'",
+        "PROMPT-FOR-CONFIRMATION": "'Changes validated.Press F5 to save'",
+        "CONFIRM-UPDATE-SUCCESS": "'Changes committed to database'",
+        "INFORM-FAILURE": "'Changes unsuccessful. Please try again'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-WS-RETURN-MSG",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-PROMPT-FOR-ACCT, WS-PROMPT-FOR-LASTNAME, WS-NAME-MUST-BE-ALPHA, NO-SEARCH-CRITERIA-RECEIVED, NO-CHANGES-DETECTED, SEARCHED-ACCT-ZEROES, SEARCHED-ACCT-NOT-NUMERIC, DID-NOT-FIND-ACCT-IN-CARDXREF, DID-NOT-FIND-ACCT-IN-ACCTDAT, DID-NOT-FIND-CUST-IN-CUSTDAT, ACCT-STATUS-MUST-BE-YES-NO, CRED-LIMIT-IS-BLANK, CRED-LIMIT-IS-NOT-VALID, THIS-MONTH-NOT-VALID, THIS-YEAR-NOT-VALID, DID-NOT-FIND-ACCTCARD-COMBO, COULD-NOT-LOCK-ACCT-FOR-UPDATE, COULD-NOT-LOCK-CUST-FOR-UPDATE, DATA-WAS-CHANGED-BEFORE-UPDATE, LOCKED-BUT-UPDATE-FAILED, XREF-READ-ERROR, CODING-TO-BE-DONE",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed.Exiting              '",
+        "WS-PROMPT-FOR-ACCT": "'Account number not provided'",
+        "WS-PROMPT-FOR-LASTNAME": "'Last name not provided'",
+        "WS-NAME-MUST-BE-ALPHA": "'Name can only contain alphabets and spaces'",
+        "NO-SEARCH-CRITERIA-RECEIVED": "'No input received'",
+        "NO-CHANGES-DETECTED": "'No change detected with respect to values fetched.'",
+        "SEARCHED-ACCT-ZEROES": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-ACCT-NOT-NUMERIC": "'Account number must be a non zero 11 digit number'",
+        "DID-NOT-FIND-ACCT-IN-CARDXREF": "'Did not find this account in cards database'",
+        "DID-NOT-FIND-ACCT-IN-ACCTDAT": "'Did not find this account in account master file'",
+        "DID-NOT-FIND-CUST-IN-CUSTDAT": "'Did not find associated customer in master file'",
+        "ACCT-STATUS-MUST-BE-YES-NO": "'Account Active Status must be Y or N'",
+        "CRED-LIMIT-IS-BLANK": "'Credit Limit must be supplied'",
+        "CRED-LIMIT-IS-NOT-VALID": "'Credit Limit is not valid'",
+        "THIS-MONTH-NOT-VALID": "'Card expiry month must be between 1 and 12'",
+        "THIS-YEAR-NOT-VALID": "'Invalid card expiry year'",
+        "DID-NOT-FIND-ACCTCARD-COMBO": "'Did not find cards for this search condition'",
+        "COULD-NOT-LOCK-ACCT-FOR-UPDATE": "'Could not lock account record for update'",
+        "COULD-NOT-LOCK-CUST-FOR-UPDATE": "'Could not lock customer record for update'",
+        "DATA-WAS-CHANGED-BEFORE-UPDATE": "'Record changed by some one else. Please review'",
+        "LOCKED-BUT-UPDATE-FAILED": "'Update of record failed'",
+        "XREF-READ-ERROR": "'Error reading Card Data File'",
+        "CODING-TO-BE-DONE": "'Looks Good.... so far'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-ACUP-CHANGE-ACTION",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on ACUP-CHANGE-ACTION: ACUP-DETAILS-NOT-FETCHED, ACUP-SHOW-DETAILS, ACUP-CHANGES-MADE, ACUP-CHANGES-NOT-OK, ACUP-CHANGES-OK-NOT-CONFIRMED, ACUP-CHANGES-OKAYED-AND-DONE, ACUP-CHANGES-FAILED, ACUP-CHANGES-OKAYED-LOCK-ERROR, ACUP-CHANGES-OKAYED-BUT-FAILED",
+      "field": "ACUP-CHANGE-ACTION",
+      "values": {
+        "ACUP-DETAILS-NOT-FETCHED": "LOW-VALUES, SPACES",
+        "ACUP-SHOW-DETAILS": "'S'",
+        "ACUP-CHANGES-MADE": "'E', 'N' , 'C', 'L' , 'F'",
+        "ACUP-CHANGES-NOT-OK": "'E'",
+        "ACUP-CHANGES-OK-NOT-CONFIRMED": "'N'",
+        "ACUP-CHANGES-OKAYED-AND-DONE": "'C'",
+        "ACUP-CHANGES-FAILED": "'L', 'F'",
+        "ACUP-CHANGES-OKAYED-LOCK-ERROR": "'L'",
+        "ACUP-CHANGES-OKAYED-BUT-FAILED": "'F'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTUPC-ACUP-NEW-CUST-FICO-SCORE",
+      "programs": [
+        "COACTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on ACUP-NEW-CUST-FICO-SCORE: FICO-RANGE-IS-VALID",
+      "field": "ACUP-NEW-CUST-FICO-SCORE",
+      "values": {
+        "FICO-RANGE-IS-VALID": "300 THROUGH 850"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTVWC-WS-PFK-FLAG",
+      "programs": [
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-PFK-FLAG: PFK-VALID, PFK-INVALID, INPUT-PENDING",
+      "field": "WS-PFK-FLAG",
+      "values": {
+        "PFK-VALID": "'0'",
+        "PFK-INVALID": "'1'",
+        "INPUT-PENDING": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTVWC-WS-INFO-MSG",
+      "programs": [
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, WS-PROMPT-FOR-INPUT, WS-INFORM-OUTPUT",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "WS-PROMPT-FOR-INPUT": "'Enter or update id of account to display'",
+        "WS-INFORM-OUTPUT": "'Displaying details of given Account'"
+      }
+    },
+    {
+      "condition_id": "COND88-COACTVWC-WS-RETURN-MSG",
+      "programs": [
+        "COACTVWC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-PROMPT-FOR-ACCT, NO-SEARCH-CRITERIA-RECEIVED, SEARCHED-ACCT-ZEROES, SEARCHED-ACCT-NOT-NUMERIC, DID-NOT-FIND-ACCT-IN-CARDXREF, DID-NOT-FIND-ACCT-IN-ACCTDAT, DID-NOT-FIND-CUST-IN-CUSTDAT, XREF-READ-ERROR, CODING-TO-BE-DONE",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed.Exiting              '",
+        "WS-PROMPT-FOR-ACCT": "'Account number not provided'",
+        "NO-SEARCH-CRITERIA-RECEIVED": "'No input received'",
+        "SEARCHED-ACCT-ZEROES": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-ACCT-NOT-NUMERIC": "'Account number must be a non zero 11 digit number'",
+        "DID-NOT-FIND-ACCT-IN-CARDXREF": "'Did not find this account in account card xref file'",
+        "DID-NOT-FIND-ACCT-IN-ACCTDAT": "'Did not find this account in account master file'",
+        "DID-NOT-FIND-CUST-IN-CUSTDAT": "'Did not find associated customer in master file'",
+        "XREF-READ-ERROR": "'Error reading account card xref File'",
+        "CODING-TO-BE-DONE": "'Looks Good.... so far'"
+      }
+    },
+    {
+      "condition_id": "COND88-COBIL00C-WS-USR-MODIFIED",
+      "programs": [
+        "COBIL00C",
+        "COTRN01C",
+        "COTRN02C",
+        "COUSR02C",
+        "COUSR03C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-USR-MODIFIED: USR-MODIFIED-YES, USR-MODIFIED-NO",
+      "field": "WS-USR-MODIFIED",
+      "values": {
+        "USR-MODIFIED-YES": "'Y'",
+        "USR-MODIFIED-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COBIL00C-WS-CONF-PAY-FLG",
+      "programs": [
+        "COBIL00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CONF-PAY-FLG: CONF-PAY-YES, CONF-PAY-NO",
+      "field": "WS-CONF-PAY-FLG",
+      "values": {
+        "CONF-PAY-YES": "'Y'",
+        "CONF-PAY-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COBIL00C-CDEMO-CB00-NEXT-PAGE-FLG",
+      "programs": [
+        "COBIL00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CB00-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CB00-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-INPUT-FLAG",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INPUT-FLAG: INPUT-OK, INPUT-ERROR",
+      "field": "WS-INPUT-FLAG",
+      "values": {
+        "INPUT-OK": "'0' ' ' LOW-VALUES",
+        "INPUT-ERROR": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-EDIT-CARD-FLAG",
+      "programs": [
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CARD-FLAG: FLG-CARDFILTER-NOT-OK, FLG-CARDFILTER-ISVALID, FLG-CARDFILTER-BLANK",
+      "field": "WS-EDIT-CARD-FLAG",
+      "values": {
+        "FLG-CARDFILTER-NOT-OK": "'0'",
+        "FLG-CARDFILTER-ISVALID": "'1'",
+        "FLG-CARDFILTER-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-EDIT-SELECT",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-SELECT: SELECT-OK, VIEW-REQUESTED-ON, UPDATE-REQUESTED-ON, SELECT-BLANK",
+      "field": "WS-EDIT-SELECT",
+      "values": {
+        "SELECT-OK": "'S', 'U'",
+        "VIEW-REQUESTED-ON": "'S'",
+        "UPDATE-REQUESTED-ON": "'U'",
+        "SELECT-BLANK": "' ', LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-ROW-CRDSELECT-ERROR",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ROW-CRDSELECT-ERROR: WS-ROW-SELECT-ERROR",
+      "field": "WS-ROW-CRDSELECT-ERROR",
+      "values": {
+        "WS-ROW-SELECT-ERROR": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-I-SELECTED",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on I-SELECTED: DETAIL-WAS-REQUESTED",
+      "field": "I-SELECTED",
+      "values": {
+        "DETAIL-WAS-REQUESTED": "1 THRU 7"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-FLG-PROTECT-SELECT-ROWS",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on FLG-PROTECT-SELECT-ROWS: FLG-PROTECT-SELECT-ROWS-NO, FLG-PROTECT-SELECT-ROWS-YES",
+      "field": "FLG-PROTECT-SELECT-ROWS",
+      "values": {
+        "FLG-PROTECT-SELECT-ROWS-NO": "'0'",
+        "FLG-PROTECT-SELECT-ROWS-YES": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-INFO-MSG",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, WS-INFORM-REC-ACTIONS",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "WS-INFORM-REC-ACTIONS": "'TYPE S FOR DETAIL, U TO UPDATE ANY RECORD'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-ERROR-MSG",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ERROR-MSG: WS-ERROR-MSG-OFF, WS-EXIT-MESSAGE, WS-NO-RECORDS-FOUND, WS-MORE-THAN-1-ACTION, WS-INVALID-ACTION-CODE",
+      "field": "WS-ERROR-MSG",
+      "values": {
+        "WS-ERROR-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 PRESSED.EXITING'",
+        "WS-NO-RECORDS-FOUND": "'NO RECORDS FOUND FOR THIS SEARCH CONDITION.'",
+        "WS-MORE-THAN-1-ACTION": "'PLEASE SELECT ONLY ONE RECORD TO VIEW OR UPDATE'",
+        "WS-INVALID-ACTION-CODE": "'INVALID ACTION CODE'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-CONTEXT-FLAG",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CONTEXT-FLAG: WS-CONTEXT-FRESH-START, WS-CONTEXT-FRESH-START-NO",
+      "field": "WS-CONTEXT-FLAG",
+      "values": {
+        "WS-CONTEXT-FRESH-START": "'0'",
+        "WS-CONTEXT-FRESH-START-NO": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-FILTER-RECORD-FLAG",
+      "programs": [
+        "COCRDLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-FILTER-RECORD-FLAG: WS-EXCLUDE-THIS-RECORD, WS-DONOT-EXCLUDE-THIS-RECORD",
+      "field": "WS-FILTER-RECORD-FLAG",
+      "values": {
+        "WS-EXCLUDE-THIS-RECORD": "'0'",
+        "WS-DONOT-EXCLUDE-THIS-RECORD": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-RECORDS-TO-PROCESS-FLAG",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RECORDS-TO-PROCESS-FLAG: READ-LOOP-EXIT, MORE-RECORDS-TO-READ",
+      "field": "WS-RECORDS-TO-PROCESS-FLAG",
+      "values": {
+        "READ-LOOP-EXIT": "'0'",
+        "MORE-RECORDS-TO-READ": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-CA-SCREEN-NUM",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CA-SCREEN-NUM: CA-FIRST-PAGE",
+      "field": "WS-CA-SCREEN-NUM",
+      "values": {
+        "CA-FIRST-PAGE": "1"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-CA-LAST-PAGE-DISPLAYED",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CA-LAST-PAGE-DISPLAYED: CA-LAST-PAGE-SHOWN, CA-LAST-PAGE-NOT-SHOWN",
+      "field": "WS-CA-LAST-PAGE-DISPLAYED",
+      "values": {
+        "CA-LAST-PAGE-SHOWN": "0",
+        "CA-LAST-PAGE-NOT-SHOWN": "9"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDLIC-WS-CA-NEXT-PAGE-IND",
+      "programs": [
+        "COCRDLIC",
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CA-NEXT-PAGE-IND: CA-NEXT-PAGE-NOT-EXISTS, CA-NEXT-PAGE-EXISTS",
+      "field": "WS-CA-NEXT-PAGE-IND",
+      "values": {
+        "CA-NEXT-PAGE-NOT-EXISTS": "LOW-VALUES",
+        "CA-NEXT-PAGE-EXISTS": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDSLC-WS-INFO-MSG",
+      "programs": [
+        "COCRDSLC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, FOUND-CARDS-FOR-ACCOUNT, WS-PROMPT-FOR-INPUT",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "FOUND-CARDS-FOR-ACCOUNT": "'   Displaying requested details'",
+        "WS-PROMPT-FOR-INPUT": "'Please enter Account and Card Number'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDSLC-WS-RETURN-MSG",
+      "programs": [
+        "COCRDSLC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-PROMPT-FOR-ACCT, WS-PROMPT-FOR-CARD, NO-SEARCH-CRITERIA-RECEIVED, SEARCHED-ACCT-ZEROES, SEARCHED-ACCT-NOT-NUMERIC, SEARCHED-CARD-NOT-NUMERIC, DID-NOT-FIND-ACCT-IN-CARDXREF, DID-NOT-FIND-ACCTCARD-COMBO, XREF-READ-ERROR, CODING-TO-BE-DONE",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed.Exiting              '",
+        "WS-PROMPT-FOR-ACCT": "'Account number not provided'",
+        "WS-PROMPT-FOR-CARD": "'Card number not provided'",
+        "NO-SEARCH-CRITERIA-RECEIVED": "'No input received'",
+        "SEARCHED-ACCT-ZEROES": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-ACCT-NOT-NUMERIC": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-CARD-NOT-NUMERIC": "'Card number if supplied must be a 16 digit number'",
+        "DID-NOT-FIND-ACCT-IN-CARDXREF": "'Did not find this account in cards database'",
+        "DID-NOT-FIND-ACCTCARD-COMBO": "'Did not find cards for this search condition'",
+        "XREF-READ-ERROR": "'Error reading Card Data File'",
+        "CODING-TO-BE-DONE": "'Looks Good.... so far'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-EDIT-CARDNAME-FLAG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CARDNAME-FLAG: FLG-CARDNAME-NOT-OK, FLG-CARDNAME-ISVALID, FLG-CARDNAME-BLANK",
+      "field": "WS-EDIT-CARDNAME-FLAG",
+      "values": {
+        "FLG-CARDNAME-NOT-OK": "'0'",
+        "FLG-CARDNAME-ISVALID": "'1'",
+        "FLG-CARDNAME-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-EDIT-CARDSTATUS-FLAG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CARDSTATUS-FLAG: FLG-CARDSTATUS-NOT-OK, FLG-CARDSTATUS-ISVALID, FLG-CARDSTATUS-BLANK",
+      "field": "WS-EDIT-CARDSTATUS-FLAG",
+      "values": {
+        "FLG-CARDSTATUS-NOT-OK": "'0'",
+        "FLG-CARDSTATUS-ISVALID": "'1'",
+        "FLG-CARDSTATUS-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-EDIT-CARDEXPMON-FLAG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CARDEXPMON-FLAG: FLG-CARDEXPMON-NOT-OK, FLG-CARDEXPMON-ISVALID, FLG-CARDEXPMON-BLANK",
+      "field": "WS-EDIT-CARDEXPMON-FLAG",
+      "values": {
+        "FLG-CARDEXPMON-NOT-OK": "'0'",
+        "FLG-CARDEXPMON-ISVALID": "'1'",
+        "FLG-CARDEXPMON-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-EDIT-CARDEXPYEAR-FLAG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-CARDEXPYEAR-FLAG: FLG-CARDEXPYEAR-NOT-OK, FLG-CARDEXPYEAR-ISVALID, FLG-CARDEXPYEAR-BLANK",
+      "field": "WS-EDIT-CARDEXPYEAR-FLAG",
+      "values": {
+        "FLG-CARDEXPYEAR-NOT-OK": "'0'",
+        "FLG-CARDEXPYEAR-ISVALID": "'1'",
+        "FLG-CARDEXPYEAR-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-FLG-YES-NO-CHECK",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on FLG-YES-NO-CHECK: FLG-YES-NO-VALID",
+      "field": "FLG-YES-NO-CHECK",
+      "values": {
+        "FLG-YES-NO-VALID": "'Y', 'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-CARD-MONTH-CHECK-N",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on CARD-MONTH-CHECK-N: VALID-MONTH",
+      "field": "CARD-MONTH-CHECK-N",
+      "values": {
+        "VALID-MONTH": "1 THRU 12"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-CARD-YEAR-CHECK-N",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on CARD-YEAR-CHECK-N: VALID-YEAR",
+      "field": "CARD-YEAR-CHECK-N",
+      "values": {
+        "VALID-YEAR": "1950 THRU 2099"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-INFO-MSG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, FOUND-CARDS-FOR-ACCOUNT, PROMPT-FOR-SEARCH-KEYS, PROMPT-FOR-CHANGES, PROMPT-FOR-CONFIRMATION, CONFIRM-UPDATE-SUCCESS, INFORM-FAILURE",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "FOUND-CARDS-FOR-ACCOUNT": "'Details of selected card shown above'",
+        "PROMPT-FOR-SEARCH-KEYS": "'Please enter Account and Card Number'",
+        "PROMPT-FOR-CHANGES": "'Update card details presented above.'",
+        "PROMPT-FOR-CONFIRMATION": "'Changes validated.Press F5 to save'",
+        "CONFIRM-UPDATE-SUCCESS": "'Changes committed to database'",
+        "INFORM-FAILURE": "'Changes unsuccessful. Please try again'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-WS-RETURN-MSG",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-PROMPT-FOR-ACCT, WS-PROMPT-FOR-CARD, WS-PROMPT-FOR-NAME, WS-NAME-MUST-BE-ALPHA, NO-SEARCH-CRITERIA-RECEIVED, NO-CHANGES-DETECTED, SEARCHED-ACCT-ZEROES, SEARCHED-ACCT-NOT-NUMERIC, SEARCHED-CARD-NOT-NUMERIC, CARD-STATUS-MUST-BE-YES-NO, CARD-EXPIRY-MONTH-NOT-VALID, CARD-EXPIRY-YEAR-NOT-VALID, DID-NOT-FIND-ACCT-IN-CARDXREF, DID-NOT-FIND-ACCTCARD-COMBO, COULD-NOT-LOCK-FOR-UPDATE, DATA-WAS-CHANGED-BEFORE-UPDATE, LOCKED-BUT-UPDATE-FAILED, XREF-READ-ERROR, CODING-TO-BE-DONE",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed.Exiting              '",
+        "WS-PROMPT-FOR-ACCT": "'Account number not provided'",
+        "WS-PROMPT-FOR-CARD": "'Card number not provided'",
+        "WS-PROMPT-FOR-NAME": "'Card name not provided'",
+        "WS-NAME-MUST-BE-ALPHA": "'Card name can only contain alphabets and spaces'",
+        "NO-SEARCH-CRITERIA-RECEIVED": "'No input received'",
+        "NO-CHANGES-DETECTED": "'No change detected with respect to values fetched.'",
+        "SEARCHED-ACCT-ZEROES": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-ACCT-NOT-NUMERIC": "'Account number must be a non zero 11 digit number'",
+        "SEARCHED-CARD-NOT-NUMERIC": "'Card number if supplied must be a 16 digit number'",
+        "CARD-STATUS-MUST-BE-YES-NO": "'Card Active Status must be Y or N'",
+        "CARD-EXPIRY-MONTH-NOT-VALID": "'Card expiry month must be between 1 and 12'",
+        "CARD-EXPIRY-YEAR-NOT-VALID": "'Invalid card expiry year'",
+        "DID-NOT-FIND-ACCT-IN-CARDXREF": "'Did not find this account in cards database'",
+        "DID-NOT-FIND-ACCTCARD-COMBO": "'Did not find cards for this search condition'",
+        "COULD-NOT-LOCK-FOR-UPDATE": "'Could not lock record for update'",
+        "DATA-WAS-CHANGED-BEFORE-UPDATE": "'Record changed by some one else. Please review'",
+        "LOCKED-BUT-UPDATE-FAILED": "'Update of record failed'",
+        "XREF-READ-ERROR": "'Error reading Card Data File'",
+        "CODING-TO-BE-DONE": "'Looks Good.... so far'"
+      }
+    },
+    {
+      "condition_id": "COND88-COCRDUPC-CCUP-CHANGE-ACTION",
+      "programs": [
+        "COCRDUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CCUP-CHANGE-ACTION: CCUP-DETAILS-NOT-FETCHED, CCUP-SHOW-DETAILS, CCUP-CHANGES-MADE, CCUP-CHANGES-NOT-OK, CCUP-CHANGES-OK-NOT-CONFIRMED, CCUP-CHANGES-OKAYED-AND-DONE, CCUP-CHANGES-FAILED, CCUP-CHANGES-OKAYED-LOCK-ERROR, CCUP-CHANGES-OKAYED-BUT-FAILED",
+      "field": "CCUP-CHANGE-ACTION",
+      "values": {
+        "CCUP-DETAILS-NOT-FETCHED": "LOW-VALUES, SPACES",
+        "CCUP-SHOW-DETAILS": "'S'",
+        "CCUP-CHANGES-MADE": "'E', 'N' , 'C', 'L' , 'F'",
+        "CCUP-CHANGES-NOT-OK": "'E'",
+        "CCUP-CHANGES-OK-NOT-CONFIRMED": "'N'",
+        "CCUP-CHANGES-OKAYED-AND-DONE": "'C'",
+        "CCUP-CHANGES-FAILED": "'L', 'F'",
+        "CCUP-CHANGES-OKAYED-LOCK-ERROR": "'L'",
+        "CCUP-CHANGES-OKAYED-BUT-FAILED": "'F'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-AUTH-RESP-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-AUTH-RESP-FLG: AUTH-RESP-APPROVED, AUTH-RESP-DECLINED",
+      "field": "WS-AUTH-RESP-FLG",
+      "values": {
+        "AUTH-RESP-APPROVED": "'A'",
+        "AUTH-RESP-DECLINED": "'D'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-MSG-LOOP-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-MSG-LOOP-FLG: WS-LOOP-END",
+      "field": "WS-MSG-LOOP-FLG",
+      "values": {
+        "WS-LOOP-END": "'E'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-MSG-AVAILABLE-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-MSG-AVAILABLE-FLG: NO-MORE-MSG-AVAILABLE, MORE-MSG-AVAILABLE",
+      "field": "WS-MSG-AVAILABLE-FLG",
+      "values": {
+        "NO-MORE-MSG-AVAILABLE": "'N'",
+        "MORE-MSG-AVAILABLE": "'M'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-REQUEST-MQ-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-REQUEST-MQ-FLG: WS-REQUEST-MQ-OPEN, WS-REQUEST-MQ-CLSE",
+      "field": "WS-REQUEST-MQ-FLG",
+      "values": {
+        "WS-REQUEST-MQ-OPEN": "'O'",
+        "WS-REQUEST-MQ-CLSE": "'C'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-REPLY-MQ-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-REPLY-MQ-FLG: WS-REPLY-MQ-OPEN, WS-REPLY-MQ-CLSE",
+      "field": "WS-REPLY-MQ-FLG",
+      "values": {
+        "WS-REPLY-MQ-OPEN": "'O'",
+        "WS-REPLY-MQ-CLSE": "'C'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-XREF-READ-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-XREF-READ-FLG: CARD-NFOUND-XREF, CARD-FOUND-XREF",
+      "field": "WS-XREF-READ-FLG",
+      "values": {
+        "CARD-NFOUND-XREF": "'N'",
+        "CARD-FOUND-XREF": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-ACCT-MASTER-READ-FLG",
+      "programs": [
+        "COPAUA0C",
+        "COPAUS0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ACCT-MASTER-READ-FLG: FOUND-ACCT-IN-MSTR, NFOUND-ACCT-IN-MSTR",
+      "field": "WS-ACCT-MASTER-READ-FLG",
+      "values": {
+        "FOUND-ACCT-IN-MSTR": "'Y'",
+        "NFOUND-ACCT-IN-MSTR": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-CUST-MASTER-READ-FLG",
+      "programs": [
+        "COPAUA0C",
+        "COPAUS0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CUST-MASTER-READ-FLG: FOUND-CUST-IN-MSTR, NFOUND-CUST-IN-MSTR",
+      "field": "WS-CUST-MASTER-READ-FLG",
+      "values": {
+        "FOUND-CUST-IN-MSTR": "'Y'",
+        "NFOUND-CUST-IN-MSTR": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-PAUT-SMRY-SEG-FLG",
+      "programs": [
+        "COPAUA0C",
+        "COPAUS0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-PAUT-SMRY-SEG-FLG: FOUND-PAUT-SMRY-SEG, NFOUND-PAUT-SMRY-SEG",
+      "field": "WS-PAUT-SMRY-SEG-FLG",
+      "values": {
+        "FOUND-PAUT-SMRY-SEG": "'Y'",
+        "NFOUND-PAUT-SMRY-SEG": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-DECLINE-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-DECLINE-FLG: APPROVE-AUTH, DECLINE-AUTH",
+      "field": "WS-DECLINE-FLG",
+      "values": {
+        "APPROVE-AUTH": "'A'",
+        "DECLINE-AUTH": "'D'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUA0C-WS-DECLINE-REASON-FLG",
+      "programs": [
+        "COPAUA0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-DECLINE-REASON-FLG: INSUFFICIENT-FUND, CARD-NOT-ACTIVE, ACCOUNT-CLOSED, CARD-FRAUD, MERCHANT-FRAUD",
+      "field": "WS-DECLINE-REASON-FLG",
+      "values": {
+        "INSUFFICIENT-FUND": "'I'",
+        "CARD-NOT-ACTIVE": "'A'",
+        "ACCOUNT-CLOSED": "'C'",
+        "CARD-FRAUD": "'F'",
+        "MERCHANT-FRAUD": "'M'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS0C-WS-XREF-READ-FLG",
+      "programs": [
+        "COPAUS0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-XREF-READ-FLG: ACCT-NFOUND-XREF, ACCT-FOUND-XREF",
+      "field": "WS-XREF-READ-FLG",
+      "values": {
+        "ACCT-NFOUND-XREF": "'N'",
+        "ACCT-FOUND-XREF": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS0C-WS-AUTHS-EOF",
+      "programs": [
+        "COPAUS0C",
+        "COPAUS1C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-AUTHS-EOF: AUTHS-EOF, AUTHS-NOT-EOF",
+      "field": "WS-AUTHS-EOF",
+      "values": {
+        "AUTHS-EOF": "'Y'",
+        "AUTHS-NOT-EOF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS0C-WS-SEND-ERASE-FLG",
+      "programs": [
+        "COPAUS0C",
+        "COPAUS1C",
+        "CORPT00C",
+        "COTRN00C",
+        "COUSR00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-SEND-ERASE-FLG: SEND-ERASE-YES, SEND-ERASE-NO",
+      "field": "WS-SEND-ERASE-FLG",
+      "values": {
+        "SEND-ERASE-YES": "'Y'",
+        "SEND-ERASE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS0C-CDEMO-CPVS-NEXT-PAGE-FLG",
+      "programs": [
+        "COPAUS0C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CPVS-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CPVS-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS1C-WS-FRD-ACTION",
+      "programs": [
+        "COPAUS1C",
+        "COPAUS2C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "business",
+      "text": "88-level values on WS-FRD-ACTION: WS-REPORT-FRAUD, WS-REMOVE-FRAUD",
+      "field": "WS-FRD-ACTION",
+      "values": {
+        "WS-REPORT-FRAUD": "'F'",
+        "WS-REMOVE-FRAUD": "'R'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS1C-WS-FRD-UPDATE-STATUS",
+      "programs": [
+        "COPAUS1C",
+        "COPAUS2C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-FRD-UPDATE-STATUS: WS-FRD-UPDT-SUCCESS, WS-FRD-UPDT-FAILED",
+      "field": "WS-FRD-UPDATE-STATUS",
+      "values": {
+        "WS-FRD-UPDT-SUCCESS": "'S'",
+        "WS-FRD-UPDT-FAILED": "'F'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS1C-CDEMO-CPVD-NEXT-PAGE-FLG",
+      "programs": [
+        "COPAUS1C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CPVD-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CPVD-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COPAUS2C-WS-ERR-FLG",
+      "programs": [
+        "COPAUS2C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ERR-FLG: ERR-FLG-ON, ERR-FLG-OF",
+      "field": "WS-ERR-FLG",
+      "values": {
+        "ERR-FLG-ON": "'Y'",
+        "ERR-FLG-OF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CORPT00C-WS-TRANSACT-EOF",
+      "programs": [
+        "CORPT00C",
+        "COTRN00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-TRANSACT-EOF: TRANSACT-EOF, TRANSACT-NOT-EOF",
+      "field": "WS-TRANSACT-EOF",
+      "values": {
+        "TRANSACT-EOF": "'Y'",
+        "TRANSACT-NOT-EOF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CORPT00C-WS-END-LOOP",
+      "programs": [
+        "CORPT00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-END-LOOP: END-LOOP-YES, END-LOOP-NO",
+      "field": "WS-END-LOOP",
+      "values": {
+        "END-LOOP-YES": "'Y'",
+        "END-LOOP-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRN00C-CDEMO-CT00-NEXT-PAGE-FLG",
+      "programs": [
+        "COTRN00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CT00-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CT00-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRN01C-CDEMO-CT01-NEXT-PAGE-FLG",
+      "programs": [
+        "COTRN01C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CT01-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CT01-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRN02C-CDEMO-CT02-NEXT-PAGE-FLG",
+      "programs": [
+        "COTRN02C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CT02-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CT02-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-EDIT-TYPE-FLAG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-TYPE-FLAG: FLG-TYPEFILTER-NOT-OK, FLG-TYPEFILTER-ISVALID, FLG-TYPEFILTER-BLANK",
+      "field": "WS-EDIT-TYPE-FLAG",
+      "values": {
+        "FLG-TYPEFILTER-NOT-OK": "'0'",
+        "FLG-TYPEFILTER-ISVALID": "'1'",
+        "FLG-TYPEFILTER-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-EDIT-DESC-FLAG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DESC-FLAG: FLG-DESCFILTER-NOT-OK, FLG-DESCFILTER-ISVALID, FLG-DESCFILTER-BLANK",
+      "field": "WS-EDIT-DESC-FLAG",
+      "values": {
+        "FLG-DESCFILTER-NOT-OK": "'0'",
+        "FLG-DESCFILTER-ISVALID": "'1'",
+        "FLG-DESCFILTER-BLANK": "' '"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-TYPEFILTER-CHANGED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-TYPEFILTER-CHANGED: FLG-TYPEFILTER-CHANGED-NO, FLG-TYPEFILTER-CHANGED-YES",
+      "field": "WS-TYPEFILTER-CHANGED",
+      "values": {
+        "FLG-TYPEFILTER-CHANGED-NO": "LOW-VALUES",
+        "FLG-TYPEFILTER-CHANGED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-DESCFILTER-CHANGED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-DESCFILTER-CHANGED: FLG-DESCFILTER-CHANGED-NO, FLG-DESCFILTER-CHANGED-YES",
+      "field": "WS-DESCFILTER-CHANGED",
+      "values": {
+        "FLG-DESCFILTER-CHANGED-NO": "LOW-VALUES",
+        "FLG-DESCFILTER-CHANGED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-ROW-RECORDS-CHANGED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ROW-RECORDS-CHANGED: FLG-ROW-DESCR-CHANGED-NO, FLG-ROW-DESCR-CHANGED-YES",
+      "field": "WS-ROW-RECORDS-CHANGED",
+      "values": {
+        "FLG-ROW-DESCR-CHANGED-NO": "LOW-VALUES",
+        "FLG-ROW-DESCR-CHANGED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-DELETE-STATUS",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-DELETE-STATUS: FLG-DELETED-NO, FLG-DELETED-YES",
+      "field": "WS-DELETE-STATUS",
+      "values": {
+        "FLG-DELETED-NO": "LOW-VALUES",
+        "FLG-DELETED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-UPDATE-STATUS",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-UPDATE-STATUS: FLG-UPDATED-NO, FLG-UPDATE-COMPLETED",
+      "field": "WS-UPDATE-STATUS",
+      "values": {
+        "FLG-UPDATED-NO": "LOW-VALUES",
+        "FLG-UPDATE-COMPLETED": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-ROW-SELECTION-CHANGED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ROW-SELECTION-CHANGED: FLG-ROW-SELECTION-CHANGED-NO, FLG-ROW-SELECTION-CHANGED-YES",
+      "field": "WS-ROW-SELECTION-CHANGED",
+      "values": {
+        "FLG-ROW-SELECTION-CHANGED-NO": "LOW-VALUES",
+        "FLG-ROW-SELECTION-CHANGED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-BAD-SELECTION-ACTION",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-BAD-SELECTION-ACTION: FLG-BAD-ACTIONS-SELECTED-NO, FLG-BAD-ACTIONS-SELECTED-YES",
+      "field": "WS-BAD-SELECTION-ACTION",
+      "values": {
+        "FLG-BAD-ACTIONS-SELECTED-NO": "LOW-VALUES",
+        "FLG-BAD-ACTIONS-SELECTED-YES": "'Y'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-ARRAY-DESCRIPTION-FLGS",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ARRAY-DESCRIPTION-FLGS: FLG-ROW-DESCRIPTION-ISVALID, FLG-ROW-DESCRIPTION-NOT-OK, FLG-ROW-DESCRIPTION-BLANK",
+      "field": "WS-ARRAY-DESCRIPTION-FLGS",
+      "values": {
+        "FLG-ROW-DESCRIPTION-ISVALID": "LOW-VALUES SPACES",
+        "FLG-ROW-DESCRIPTION-NOT-OK": "'0'",
+        "FLG-ROW-DESCRIPTION-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-DATACHANGED-FLAG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-DATACHANGED-FLAG: NO-CHANGES-FOUND, CHANGES-HAVE-OCCURRED",
+      "field": "WS-DATACHANGED-FLAG",
+      "values": {
+        "NO-CHANGES-FOUND": "'0'",
+        "CHANGES-HAVE-OCCURRED": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-EDIT-SELECT",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-SELECT: SELECT-OK, DELETE-REQUESTED-ON, UPDATE-REQUESTED-ON, SELECT-BLANK",
+      "field": "WS-EDIT-SELECT",
+      "values": {
+        "SELECT-OK": "'D', 'U'",
+        "DELETE-REQUESTED-ON": "'D'",
+        "UPDATE-REQUESTED-ON": "'U'",
+        "SELECT-BLANK": "' ', LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-ROW-TRTSELECT-ERROR",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ROW-TRTSELECT-ERROR: WS-ROW-SELECT-ERROR",
+      "field": "WS-ROW-TRTSELECT-ERROR",
+      "values": {
+        "WS-ROW-SELECT-ERROR": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-ACTIONS-REQUESTED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-ACTIONS-REQUESTED: WS-ONLY-1-ACTION, WS-MORETHAN1ACTION",
+      "field": "WS-ACTIONS-REQUESTED",
+      "values": {
+        "WS-ONLY-1-ACTION": "1",
+        "WS-MORETHAN1ACTION": "2 THRU 7"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-VALID-ACTIONS-SELECTED",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-VALID-ACTIONS-SELECTED: WS-ONLY-1-VALID-ACTION",
+      "field": "WS-VALID-ACTIONS-SELECTED",
+      "values": {
+        "WS-ONLY-1-VALID-ACTION": "1"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-INFO-MSG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, WS-INFORM-REC-ACTIONS, WS-INFORM-DELETE, WS-INFORM-UPDATE, WS-INFORM-DELETE-SUCCESS, WS-INFORM-UPDATE-SUCCESS",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "WS-INFORM-REC-ACTIONS": "'Type U to update, D to delete any record'",
+        "WS-INFORM-DELETE": "'Delete HIGHLIGHTED row ? Press F10 to confirm'",
+        "WS-INFORM-UPDATE": "'Update HIGHLIGHTED row. Press F10 to save'",
+        "WS-INFORM-DELETE-SUCCESS": "'HIGHLIGHTED row deleted.Hit Enter to continue'",
+        "WS-INFORM-UPDATE-SUCCESS": "'HIGHLIGHTED row was updated'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-RETURN-MSG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-MESG-NO-RECORDS-FOUND, WS-MESG-NO-MORE-RECORDS, WS-MESG-MORE-THAN-1-ACTION, WS-MESG-INVALID-ACTION-CODE, WS-MESG-NO-CHANGES-DETECTED",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed. Exiting'",
+        "WS-MESG-NO-RECORDS-FOUND": "'No records found for this search condition.'",
+        "WS-MESG-NO-MORE-RECORDS": "'No more pages for these search conditions'",
+        "WS-MESG-MORE-THAN-1-ACTION": "'Please select only 1 action'",
+        "WS-MESG-INVALID-ACTION-CODE": "'Action code selected is invalid'",
+        "WS-MESG-NO-CHANGES-DETECTED": "'No change detected with respect to database values.'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-CA-DELETE-FLAG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CA-DELETE-FLAG: CA-DELETE-NOT-REQUESTED, CA-DELETE-REQUESTED, CA-DELETE-SUCCEEDED",
+      "field": "WS-CA-DELETE-FLAG",
+      "values": {
+        "CA-DELETE-NOT-REQUESTED": "LOW-VALUES",
+        "CA-DELETE-REQUESTED": "'Y'",
+        "CA-DELETE-SUCCEEDED": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTLIC-WS-CA-UPDATE-FLAG",
+      "programs": [
+        "COTRTLIC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-CA-UPDATE-FLAG: CA-UPDATE-NOT-REQUESTED, CA-UPDATE-REQUESTED, CA-UPDATE-SUCCEEDED",
+      "field": "WS-CA-UPDATE-FLAG",
+      "values": {
+        "CA-UPDATE-NOT-REQUESTED": "LOW-VALUES",
+        "CA-UPDATE-REQUESTED": "'Y'",
+        "CA-UPDATE-SUCCEEDED": "LOW-VALUES"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-WS-EDIT-TTYP-FLAG",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-TTYP-FLAG: FLG-TRANFILTER-ISVALID, FLG-TRANFILTER-NOT-OK, FLG-TRANFILTER-BLANK",
+      "field": "WS-EDIT-TTYP-FLAG",
+      "values": {
+        "FLG-TRANFILTER-ISVALID": "LOW-VALUES",
+        "FLG-TRANFILTER-NOT-OK": "'0'",
+        "FLG-TRANFILTER-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-WS-EDIT-DESC-FLAGS",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-EDIT-DESC-FLAGS: FLG-DESCRIPTION-ISVALID, FLG-DESCRIPTION-NOT-OK, FLG-DESCRIPTION-BLANK",
+      "field": "WS-EDIT-DESC-FLAGS",
+      "values": {
+        "FLG-DESCRIPTION-ISVALID": "LOW-VALUES",
+        "FLG-DESCRIPTION-NOT-OK": "'0'",
+        "FLG-DESCRIPTION-BLANK": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-WS-TRANTYPE-MASTER-READ-FLAG",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-TRANTYPE-MASTER-READ-FLAG: FOUND-TRANTYPE-IN-TABLE",
+      "field": "WS-TRANTYPE-MASTER-READ-FLAG",
+      "values": {
+        "FOUND-TRANTYPE-IN-TABLE": "'1'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-WS-INFO-MSG",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-INFO-MSG: WS-NO-INFO-MESSAGE, FOUND-TRANTYPE-DATA, PROMPT-FOR-SEARCH-KEYS, PROMPT-CREATE-NEW-RECORD, PROMPT-DELETE-CONFIRM, CONFIRM-DELETE-SUCCESS, PROMPT-FOR-CHANGES, PROMPT-FOR-NEWDATA, PROMPT-FOR-CONFIRMATION, CONFIRM-UPDATE-SUCCESS, INFORM-FAILURE",
+      "field": "WS-INFO-MSG",
+      "values": {
+        "WS-NO-INFO-MESSAGE": "SPACES LOW-VALUES",
+        "FOUND-TRANTYPE-DATA": "'Selected transaction type shown above'",
+        "PROMPT-FOR-SEARCH-KEYS": "'Enter transaction type to be maintained'",
+        "PROMPT-CREATE-NEW-RECORD": "'Press F05 to add. F12 to cancel'",
+        "PROMPT-DELETE-CONFIRM": "'Delete this record ? Press F4 to confirm'",
+        "CONFIRM-DELETE-SUCCESS": "'Delete successful.'",
+        "PROMPT-FOR-CHANGES": "'Update transaction type details shown.'",
+        "PROMPT-FOR-NEWDATA": "'Enter new transaction type details.'",
+        "PROMPT-FOR-CONFIRMATION": "'Changes validated.Press F5 to save'",
+        "CONFIRM-UPDATE-SUCCESS": "'Changes committed to database'",
+        "INFORM-FAILURE": "'Changes unsuccessful'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-WS-RETURN-MSG",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-RETURN-MSG: WS-RETURN-MSG-OFF, WS-EXIT-MESSAGE, WS-INVALID-KEY, WS-NAME-MUST-BE-ALPHA, WS-RECORD-NOT-FOUND, NO-SEARCH-CRITERIA-RECEIVED, NO-CHANGES-DETECTED, COULD-NOT-LOCK-REC-FOR-UPDATE, DATA-WAS-CHANGED-BEFORE-UPDATE, WS-UPDATE-WAS-CANCELLED, TABLE-UPDATE-FAILED, RECORD-DELETE-FAILED, WS-DELETE-WAS-CANCELLED, WS-INVALID-KEY-PRESSED, CODING-TO-BE-DONE",
+      "field": "WS-RETURN-MSG",
+      "values": {
+        "WS-RETURN-MSG-OFF": "SPACES",
+        "WS-EXIT-MESSAGE": "'PF03 pressed.Exiting              '",
+        "WS-INVALID-KEY": "'Invalid Key pressed. '",
+        "WS-NAME-MUST-BE-ALPHA": "'Name can only contain alphabets and spaces'",
+        "WS-RECORD-NOT-FOUND": "'No record found for this key in database'",
+        "NO-SEARCH-CRITERIA-RECEIVED": "'No input received'",
+        "NO-CHANGES-DETECTED": "'No change detected with respect to values fetched.'",
+        "COULD-NOT-LOCK-REC-FOR-UPDATE": "'Could not lock record for update'",
+        "DATA-WAS-CHANGED-BEFORE-UPDATE": "'Record changed by some one else. Please review'",
+        "WS-UPDATE-WAS-CANCELLED": "'Update was cancelled'",
+        "TABLE-UPDATE-FAILED": "'Update of record failed'",
+        "RECORD-DELETE-FAILED": "'Delete of record failed'",
+        "WS-DELETE-WAS-CANCELLED": "'Delete was cancelled'",
+        "WS-INVALID-KEY-PRESSED": "'Invalid key pressed'",
+        "CODING-TO-BE-DONE": "'Looks Good.... so far'"
+      }
+    },
+    {
+      "condition_id": "COND88-COTRTUPC-TTUP-CHANGE-ACTION",
+      "programs": [
+        "COTRTUPC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on TTUP-CHANGE-ACTION: TTUP-DETAILS-NOT-FETCHED, TTUP-INVALID-SEARCH-KEYS, TTUP-DETAILS-NOT-FOUND, TTUP-SHOW-DETAILS, TTUP-CREATE-NEW-RECORD, TTUP-REVIEW-NEW-RECORD, TTUP-DELETE-IN-PROGRESS, TTUP-CONFIRM-DELETE, TTUP-START-DELETE, TTUP-DELETE-DONE, TTUP-DELETE-FAILED, TTUP-CHANGES-MADE, TTUP-CHANGES-NOT-OK, TTUP-CHANGES-OK-NOT-CONFIRMED, TTUP-CHANGES-FAILED, TTUP-CHANGES-OKAYED-LOCK-ERROR, TTUP-CHANGES-OKAYED-BUT-FAILED, TTUP-CHANGES-OKAYED-AND-DONE, TTUP-CHANGES-BACKED-OUT",
+      "field": "TTUP-CHANGE-ACTION",
+      "values": {
+        "TTUP-DETAILS-NOT-FETCHED": "LOW-VALUES, SPACES",
+        "TTUP-INVALID-SEARCH-KEYS": "'K'",
+        "TTUP-DETAILS-NOT-FOUND": "'X'",
+        "TTUP-SHOW-DETAILS": "'S'",
+        "TTUP-CREATE-NEW-RECORD": "'R'",
+        "TTUP-REVIEW-NEW-RECORD": "'V'",
+        "TTUP-DELETE-IN-PROGRESS": "'9' , '8', '7' , '6'",
+        "TTUP-CONFIRM-DELETE": "'9'",
+        "TTUP-START-DELETE": "'8'",
+        "TTUP-DELETE-DONE": "'7'",
+        "TTUP-DELETE-FAILED": "'6'",
+        "TTUP-CHANGES-MADE": "'E', 'N' , 'L' , 'F'",
+        "TTUP-CHANGES-NOT-OK": "'E'",
+        "TTUP-CHANGES-OK-NOT-CONFIRMED": "'N'",
+        "TTUP-CHANGES-FAILED": "'L', 'F'",
+        "TTUP-CHANGES-OKAYED-LOCK-ERROR": "'L'",
+        "TTUP-CHANGES-OKAYED-BUT-FAILED": "'F'",
+        "TTUP-CHANGES-OKAYED-AND-DONE": "'C'",
+        "TTUP-CHANGES-BACKED-OUT": "'B'"
+      }
+    },
+    {
+      "condition_id": "COND88-COUSR00C-WS-USER-SEC-EOF",
+      "programs": [
+        "COUSR00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on WS-USER-SEC-EOF: USER-SEC-EOF, USER-SEC-NOT-EOF",
+      "field": "WS-USER-SEC-EOF",
+      "values": {
+        "USER-SEC-EOF": "'Y'",
+        "USER-SEC-NOT-EOF": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COUSR00C-CDEMO-CU00-NEXT-PAGE-FLG",
+      "programs": [
+        "COUSR00C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CU00-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CU00-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COUSR02C-CDEMO-CU02-NEXT-PAGE-FLG",
+      "programs": [
+        "COUSR02C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CU02-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CU02-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-COUSR03C-CDEMO-CU03-NEXT-PAGE-FLG",
+      "programs": [
+        "COUSR03C"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on CDEMO-CU03-NEXT-PAGE-FLG: NEXT-PAGE-YES, NEXT-PAGE-NO",
+      "field": "CDEMO-CU03-NEXT-PAGE-FLG",
+      "values": {
+        "NEXT-PAGE-YES": "'Y'",
+        "NEXT-PAGE-NO": "'N'"
+      }
+    },
+    {
+      "condition_id": "COND88-CSUTLDTC-FEEDBACK-TOKEN-VALUE",
+      "programs": [
+        "CSUTLDTC"
+      ],
+      "paragraph": null,
+      "category": "VALIDATION",
+      "first_pass_tier": "technical",
+      "text": "88-level values on FEEDBACK-TOKEN-VALUE: FC-INVALID-DATE, FC-INSUFFICIENT-DATA, FC-BAD-DATE-VALUE, FC-INVALID-ERA, FC-UNSUPP-RANGE, FC-INVALID-MONTH, FC-BAD-PIC-STRING, FC-NON-NUMERIC-DATA, FC-YEAR-IN-ERA-ZERO",
+      "field": "FEEDBACK-TOKEN-VALUE",
+      "values": {
+        "FC-INVALID-DATE": "X'0000000000000000'",
+        "FC-INSUFFICIENT-DATA": "X'000309CB59C3C5C5'",
+        "FC-BAD-DATE-VALUE": "X'000309CC59C3C5C5'",
+        "FC-INVALID-ERA": "X'000309CD59C3C5C5'",
+        "FC-UNSUPP-RANGE": "X'000309D159C3C5C5'",
+        "FC-INVALID-MONTH": "X'000309D559C3C5C5'",
+        "FC-BAD-PIC-STRING": "X'000309D659C3C5C5'",
+        "FC-NON-NUMERIC-DATA": "X'000309D859C3C5C5'",
+        "FC-YEAR-IN-ERA-ZERO": "X'000309D959C3C5C5'"
+      }
+    }
+  ]
+}

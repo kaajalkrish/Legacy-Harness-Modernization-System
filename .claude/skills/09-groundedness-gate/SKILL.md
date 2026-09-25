@@ -1,10 +1,11 @@
 ---
 name: groundedness-gate
 description: >
-  The harness's anti-hallucination check: verify every BR-/GAP-/RS- id and every program
-  the BRD cites actually exists in the upstream artifacts, plus cross-artifact consistency
-  checks. Deterministic and authoritative — an invented reference hard-floors the accuracy
-  score. Core of the Judge agent (Phase 9).
+  The harness's anti-hallucination check: verify every BR-/TR-/RS-/GAP- id the BRD cites
+  exists in the upstream artifacts, that business terms and counts in the prose are supported
+  by the analysis, plus cross-artifact consistency checks. Deterministic and authoritative —
+  an invented reference or ungrounded narrative caps the accuracy score. Core of the Judge
+  agent (Phase 10).
 ---
 
 # Skill: groundedness-gate
@@ -18,10 +19,16 @@ This is code, not opinion.
 `data_artifact.json`, `logic_artifact.json`, `rules_artifact.json`, diagrams index.
 
 ## Checks
-1. **Groundedness:** every `BR-`/`GAP-`/`RS-` id and every program name cited in the BRD
-   must resolve to a real entry in the artifacts.
-2. **Consistency:** counts and references in the prose agree with the artifacts (rules
-   count, program count, gap ids, etc.).
+1. **Groundedness:** every `BR-`/`TR-`/`RS-`/`GAP-` id cited in the BRD must resolve to a
+   real entry in the artifacts.
+2. **Narrative terms:** business terms in the prose (executive summary, business context,
+   capability intros, modernization) must appear in the evidence — program summaries,
+   pseudocode, rule text, capability names, data field/record names. 3+ unsupported terms
+   (e.g. "portfolio" in a card system) is high severity and caps accuracy at 2.
+3. **Narrative numbers:** every "N programs / rules / gaps / capabilities …" in the prose
+   must equal a count the artifacts support; otherwise accuracy is capped at 2.
+4. **Consistency:** chapters present, headline counts match, every rule and gap referenced,
+   diagrams embedded.
 
 ## Verdict contribution
 - Any unresolved reference → **hard-floor the accuracy dimension**, regardless of the

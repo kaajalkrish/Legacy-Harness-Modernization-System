@@ -1,0 +1,24 @@
+# System Context: COPAUS2C
+## 📝 Summary
+COPAUS2C is a online-type COBOL program, entered at MAIN-PARA, with 2 paragraph(s) across 0 section(s), sharing 1 copybook(s). It defines 1 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COPAUS2C
+- **Source Path**: app/app-authorization-ims-db2-mq/cbl/COPAUS2C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CIPAUDTY
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 10 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 2 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- FRAUD-UPDATE

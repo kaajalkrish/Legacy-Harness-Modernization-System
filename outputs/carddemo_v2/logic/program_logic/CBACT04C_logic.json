@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "program_id": "CBACT04C",
+    "source_file": "carddemo_input/app/cbl/CBACT04C.cbl",
+    "model": "ai-host",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "The interest & fee posting batch. Reads the transaction-category-balance file (TCATBAL) in account order; for each account it looks up account data, the card cross-reference, and the interest rate from the disclosure-group file (falling back to a DEFAULT group if the specific one is missing). It computes monthly interest as (category balance x rate) / 1200, writes an interest transaction record, accumulates the interest, and when the account changes it rewrites the account master with the accumulated interest added to the balance and the cycle credit/debit reset to zero. Receives the processing date as a linkage parameter. Fee computation is stubbed ('to be implemented').",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "pseudocode": "Receive the processing date parameter. Open all five files (transaction-category-balance, cross-reference, disclosure-group, account, transaction). Loop reading category-balance records. For each record: count it, display it, and if the account id changed from the previous one, first post the accumulated interest to the PREVIOUS account (unless this is the very first record), reset the running interest total to zero, remember the new account id, and load that account's data and cross-reference. Then set up the disclosure key from the account group + transaction category/type, look up the interest rate, and if the rate is non-zero compute interest and fees. At true end-of-file, post the final account's accumulated interest. Finally close all files and return.",
+      "branches": ["PERFORM UNTIL END-OF-FILE = 'Y'", "IF END-OF-FILE = 'N'", "IF TRANCAT-ACCT-ID NOT = WS-LAST-ACCT-NUM (account break)", "IF WS-FIRST-TIME NOT = 'Y'", "IF DIS-INT-RATE NOT = 0", "ELSE (EOF -> post final account)"],
+      "calls_made": ["0000-TCATBALF-OPEN", "0100-XREFFILE-OPEN", "0200-DISCGRP-OPEN", "0300-ACCTFILE-OPEN", "0400-TRANFILE-OPEN", "1000-TCATBALF-GET-NEXT", "1050-UPDATE-ACCOUNT", "1100-GET-ACCT-DATA", "1110-GET-XREF-DATA", "1200-GET-INTEREST-RATE", "1300-COMPUTE-INTEREST", "1400-COMPUTE-FEES", "9000-TCATBALF-CLOSE", "9100-XREFFILE-CLOSE", "9200-DISCGRP-CLOSE", "9300-ACCTFILE-CLOSE", "9400-TRANFILE-CLOSE"],
+      "field_references": ["TRANCAT-ACCT-ID", "WS-LAST-ACCT-NUM", "WS-FIRST-TIME", "WS-TOTAL-INT", "WS-RECORD-COUNT", "ACCT-GROUP-ID", "TRANCAT-CD", "TRANCAT-TYPE-CD", "DIS-INT-RATE", "END-OF-FILE"],
+      "complexity_score": 9,
+      "ambiguous": false,
+      "annotations": [{"line": 194, "note": "Control-break logic on account id: interest for an account is accumulated across its category-balance records and posted once when the account changes (and again at EOF for the last account)."}],
+      "notes": "Classic control-break batch; the account break is the key business pattern. BUSINESS-CRITICAL."
+    },
+    {
+      "name": "1050-UPDATE-ACCOUNT",
+      "pseudocode": "Post the run to the account master: add the accumulated interest total to the account's current balance, reset the current-cycle credit and current-cycle debit to zero, then rewrite the account record. On a non-'00' status, report a rewrite error and abend.",
+      "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["WS-TOTAL-INT", "ACCT-CURR-BAL", "ACCT-CURR-CYC-CREDIT", "ACCT-CURR-CYC-DEBIT", "ACCTFILE-STATUS"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [{"line": 352, "note": "BUSINESS RULE: accumulated monthly interest is added to the account balance and the cycle credit/debit counters are zeroed at posting time."}],
+      "notes": "BUSINESS-CRITICAL: the actual balance update from interest."
+    },
+    {
+      "name": "1200-GET-INTEREST-RATE",
+      "pseudocode": "Read the disclosure-group record keyed by account group + transaction category/type. Treat status '00' or '23' (not found) as acceptable; any other status is an error and abends. If the record was not found (status '23'), switch the group id to 'DEFAULT' and re-read using the default disclosure group to obtain a fallback rate.",
+      "branches": ["IF DISCGRP-STATUS = '00' OR '23' ... ELSE (error)", "IF APPL-AOK ... ELSE (abend)", "IF DISCGRP-STATUS = '23' -> use DEFAULT group"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM", "1200-A-GET-DEFAULT-INT-RATE"],
+      "field_references": ["DISCGRP-STATUS", "FD-DIS-ACCT-GROUP-ID", "DIS-INT-RATE"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [{"line": 436, "note": "BUSINESS RULE: if the specific disclosure group has no rate on file, fall back to the 'DEFAULT' group's rate."}],
+      "notes": "BUSINESS-CRITICAL: interest-rate sourcing with DEFAULT-group fallback."
+    },
+    {
+      "name": "1200-A-GET-DEFAULT-INT-RATE",
+      "pseudocode": "Re-read the disclosure-group file for the DEFAULT group to obtain the fallback interest rate. On a non-'00' status, report an error and abend.",
+      "branches": ["IF DISCGRP-STATUS = '00' ... ELSE (error)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["DISCGRP-STATUS", "DIS-GROUP-RECORD"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Fallback read helper for the DEFAULT disclosure group."
+    },
+    {
+      "name": "1300-COMPUTE-INTEREST",
+      "pseudocode": "Compute this category's monthly interest as (transaction-category balance x disclosure interest rate) / 1200, add it to the running interest total for the account, and write the corresponding interest transaction record.",
+      "branches": [],
+      "calls_made": ["1300-B-WRITE-TX"],
+      "field_references": ["WS-MONTHLY-INT", "TRAN-CAT-BAL", "DIS-INT-RATE", "WS-TOTAL-INT"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [{"line": 464, "note": "BUSINESS RULE (interest formula): monthly interest = (category balance x annual rate) / 1200. The 1200 = 100 (percent) x 12 (months), i.e. annual-percentage-rate converted to a monthly fraction."}],
+      "notes": "BUSINESS-CRITICAL: the core interest calculation."
+    },
+    {
+      "name": "1300-B-WRITE-TX",
+      "pseudocode": "Build and write an interest transaction: increment the transaction-id suffix and form the transaction id from the processing date + suffix; set transaction type '01', category '05', source 'System', and a description 'Int. for a/c <acct>'; set the amount to the computed monthly interest; clear merchant fields; copy the card number from the cross-reference; stamp DB2-format origin and processing timestamps; then write the transaction record. On a non-'00' status, report an error and abend.",
+      "branches": ["IF TRANFILE-STATUS = '00' ... ELSE (error)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["Z-GET-DB2-FORMAT-TIMESTAMP", "9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["TRAN-ID", "PARM-DATE", "WS-TRANID-SUFFIX", "TRAN-TYPE-CD", "TRAN-CAT-CD", "TRAN-SOURCE", "TRAN-DESC", "TRAN-AMT", "WS-MONTHLY-INT", "TRAN-CARD-NUM", "XREF-CARD-NUM", "TRAN-ORIG-TS", "TRAN-PROC-TS"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [{"line": 482, "note": "BUSINESS RULE: system-generated interest postings are recorded with transaction type '01', category '05', source 'System'."}],
+      "notes": "BUSINESS-CRITICAL: creation of the interest transaction record."
+    },
+    {
+      "name": "1400-COMPUTE-FEES",
+      "pseudocode": "Placeholder for fee computation -- currently does nothing ('to be implemented').",
+      "branches": [],
+      "calls_made": [],
+      "field_references": [],
+      "complexity_score": 1,
+      "ambiguous": true,
+      "annotations": [{"line": 519, "note": "GAP: fee computation is an empty stub marked 'To be implemented' -- a documented incomplete feature; flag for SME review."}],
+      "notes": "Ambiguous/incomplete: empty stub. Represents a known functional gap."
+    },
+    {
+      "name": "1000-TCATBALF-GET-NEXT",
+      "pseudocode": "Read the next transaction-category-balance record; status '10' means end-of-file, other non-'00' is an error and abends.",
+      "branches": ["IF TCATBALF-STATUS = '00' ... ELSE IF '10' ... ELSE (error)", "IF APPL-AOK ... ELSE IF APPL-EOF ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["TCATBALF-STATUS", "TRAN-CAT-BAL-RECORD", "END-OF-FILE"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Primary driving read."
+    },
+    {"name": "1100-GET-ACCT-DATA", "pseudocode": "Read the account master by account id (INVALID KEY -> display 'account not found'); on other errors abend.", "branches": ["READ ... INVALID KEY", "IF ACCTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["FD-ACCT-ID", "ACCOUNT-RECORD", "ACCTFILE-STATUS"], "complexity_score": 3, "ambiguous": false, "annotations": [], "notes": "Keyed random read of the account."},
+    {"name": "1110-GET-XREF-DATA", "pseudocode": "Read the cross-reference by account id to obtain the card number (INVALID KEY -> display 'account not found'); on other errors abend.", "branches": ["READ ... INVALID KEY", "IF XREFFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["FD-XREF-ACCT-ID", "CARD-XREF-RECORD", "XREFFILE-STATUS"], "complexity_score": 3, "ambiguous": false, "annotations": [], "notes": "Keyed random read of the cross-reference."},
+    {"name": "0000-TCATBALF-OPEN", "pseudocode": "Open the transaction-category-balance file for input; abend on failure.", "branches": ["IF TCATBALF-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TCATBALF-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0100-XREFFILE-OPEN", "pseudocode": "Open the cross-reference file for input; abend on failure.", "branches": ["IF XREFFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["XREFFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0200-DISCGRP-OPEN", "pseudocode": "Open the disclosure-group file for input; abend on failure.", "branches": ["IF DISCGRP-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DISCGRP-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "0300-ACCTFILE-OPEN", "pseudocode": "Open the account master for I-O (update); abend on failure.", "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["ACCTFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Opened I-O because the batch rewrites account records."},
+    {"name": "0400-TRANFILE-OPEN", "pseudocode": "Open the transaction file for output; abend on failure.", "branches": ["IF TRANFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TRANFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate open."},
+    {"name": "9000-TCATBALF-CLOSE", "pseudocode": "Close the transaction-category-balance file; abend on failure.", "branches": ["IF TCATBALF-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TCATBALF-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9100-XREFFILE-CLOSE", "pseudocode": "Close the cross-reference file; abend on failure.", "branches": ["IF XREFFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["XREFFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9200-DISCGRP-CLOSE", "pseudocode": "Close the disclosure-group file; abend on failure.", "branches": ["IF DISCGRP-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["DISCGRP-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9300-ACCTFILE-CLOSE", "pseudocode": "Close the account master; abend on failure.", "branches": ["IF ACCTFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["ACCTFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "9400-TRANFILE-CLOSE", "pseudocode": "Close the transaction file; abend on failure.", "branches": ["IF TRANFILE-STATUS = '00' ... ELSE (abend)"], "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"], "field_references": ["TRANFILE-STATUS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Boilerplate close."},
+    {"name": "Z-GET-DB2-FORMAT-TIMESTAMP", "pseudocode": "Obtain the current timestamp and reformat it into DB2 timestamp layout (YYYY-MM-DD-HH.MM.SS.mmmmmm) for stamping transaction records.", "branches": [], "calls_made": [], "field_references": ["COBOL-TS", "DB2-FORMAT-TS"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Timestamp-formatting helper."},
+    {"name": "9999-ABEND-PROGRAM", "pseudocode": "Set abend code 999 and call CEE3ABD to force an abnormal end.", "branches": [], "calls_made": ["CEE3ABD"], "field_references": ["ABCODE", "TIMING"], "complexity_score": 1, "ambiguous": false, "annotations": [], "notes": "Standard forced-abend helper."},
+    {"name": "9910-DISPLAY-IO-STATUS", "pseudocode": "Format and display the file status code, handling VSAM extended (9nn) codes.", "branches": ["IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"], "calls_made": [], "field_references": ["IO-STATUS", "IO-STATUS-04"], "complexity_score": 2, "ambiguous": false, "annotations": [], "notes": "Generic status-display helper."}
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

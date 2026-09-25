@@ -1,0 +1,42 @@
+# System Context: CORPT00C
+## 📝 Summary
+CORPT00C is a online-type COBOL program, entered at MAIN-PARA, with 10 paragraph(s) across 0 section(s), calling 2 other program(s), sharing 8 copybook(s). It defines 3 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CORPT00C
+- **Source Path**: app/cbl/CORPT00C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- COCOM01Y
+- CORPT00
+- COTTL01Y
+- CSDAT01Y
+- CSMSG01Y
+- CVTRA05Y
+- DFHAID
+- DFHBMSCA
+### 🔗 Execution Flow (Calls)
+- CSUTLDTC
+- CSUTLDTC
+## Key Data Structures
+- 01 WS-VARIABLES (group item, 21 sub-field(s))
+- 01 JOB-DATA (group item, 2 sub-field(s))
+- 01 CSUTLDTC-PARM (group item, 3 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 10 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- MAIN-PARA
+- PROCESS-ENTER-KEY
+- SUBMIT-JOB-TO-INTRDR
+- WIRTE-JOBSUB-TDQ
+- RETURN-TO-PREV-SCREEN
+- SEND-TRNRPT-SCREEN
+- RETURN-TO-CICS
+- RECEIVE-TRNRPT-SCREEN
+- POPULATE-HEADER-INFO
+- INITIALIZE-ALL-FIELDS

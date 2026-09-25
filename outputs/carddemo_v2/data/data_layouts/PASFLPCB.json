@@ -1,0 +1,119 @@
+{
+  "copybook": "PASFLPCB",
+  "used_by": [
+    "DBUNLDGS"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "PASFLPCB",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "PASFL-DBDNAME",
+          "line": 18,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-SEG-LEVEL",
+          "line": 19,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-PCB-STATUS",
+          "line": 20,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-PCB-PROCOPT",
+          "line": 21,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 22,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-SEG-NAME",
+          "line": 23,
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-KEYFB-NAME",
+          "line": 24,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-NUM-SENSEGS",
+          "line": 25,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PASFL-KEYFB",
+          "line": 26,
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

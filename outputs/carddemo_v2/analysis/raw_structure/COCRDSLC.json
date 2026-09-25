@@ -1,0 +1,2188 @@
+{
+  "meta": {
+    "program_id": "COCRDSLC",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\cbl\\COCRDSLC.cbl",
+    "total_lines": 887
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 22,
+    "end_line": 29,
+    "program_id": "COCRDSLC"
+  },
+  "environment_division": {
+    "start_line": 30,
+    "end_line": 32,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 33,
+    "end_line": 246,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-MISC-STORAGE",
+          "line": 36,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CICS-PROCESSNG-VARS",
+              "line": 40,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 7,
+                  "name": "WS-RESP-CD",
+                  "line": 41,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ZEROS",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-REAS-CD",
+                  "line": 43,
+                  "section": "WORKING-STORAGE",
+                  "pic": "S9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "ZEROS",
+                  "children": []
+                },
+                {
+                  "level": 7,
+                  "name": "WS-TRANID",
+                  "line": 45,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-INPUT-FLAG",
+              "line": 51,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "INPUT-OK",
+                  "line": 52,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INPUT-ERROR",
+                  "line": 53,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "INPUT-PENDING",
+                  "line": 54,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-ACCT-FLAG",
+              "line": 55,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-ACCTFILTER-NOT-OK",
+                  "line": 56,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ACCTFILTER-ISVALID",
+                  "line": 57,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-ACCTFILTER-BLANK",
+                  "line": 58,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' '",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-EDIT-CARD-FLAG",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "FLG-CARDFILTER-NOT-OK",
+                  "line": 60,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-CARDFILTER-ISVALID",
+                  "line": 61,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FLG-CARDFILTER-BLANK",
+                  "line": 62,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' '",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RETURN-FLAG",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-RETURN-FLAG-OFF",
+                  "line": 64,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-RETURN-FLAG-ON",
+                  "line": 65,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-PFK-FLAG",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": "X(1)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "PFK-VALID",
+                  "line": 67,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'0'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "PFK-INVALID",
+                  "line": 68,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'1'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "CICS-OUTPUT-EDIT-VARS",
+              "line": 72,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "CARD-ACCT-ID-X",
+                  "line": 73,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-ACCT-ID-N",
+                  "line": 74,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": "CARD-ACCT-ID-X",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-CVV-CD-X",
+                  "line": 76,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(03)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-CVV-CD-N",
+                  "line": 77,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(03)",
+                  "occurs": null,
+                  "redefines": "CARD-CVV-CD-X",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-CARD-NUM-X",
+                  "line": 79,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-CARD-NUM-N",
+                  "line": 80,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(16)",
+                  "occurs": null,
+                  "redefines": "CARD-CARD-NUM-X",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-NAME-EMBOSSED-X",
+                  "line": 82,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(50)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-STATUS-X",
+                  "line": 83,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-EXPIRAION-DATE-X",
+                  "line": 84,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 85,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": "CARD-EXPIRAION-DATE-X",
+                  "value": null,
+                  "children": [
+                    {
+                      "level": 20,
+                      "name": "CARD-EXPIRY-YEAR",
+                      "line": 86,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(4)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "FILLER",
+                      "line": 87,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "CARD-EXPIRY-MONTH",
+                      "line": 88,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(2)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "FILLER",
+                      "line": 89,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(1)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    },
+                    {
+                      "level": 20,
+                      "name": "CARD-EXPIRY-DAY",
+                      "line": 90,
+                      "section": "WORKING-STORAGE",
+                      "pic": "X(2)",
+                      "occurs": null,
+                      "redefines": null,
+                      "value": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "level": 10,
+                  "name": "CARD-EXPIRAION-DATE-N",
+                  "line": 91,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(10)",
+                  "occurs": null,
+                  "redefines": "CARD-EXPIRAION-DATE-X",
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-CARD-RID",
+              "line": 97,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CARDNUM",
+                  "line": 98,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID",
+                  "line": 99,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID-X",
+                  "line": 100,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(11)",
+                  "occurs": null,
+                  "redefines": "WS-CARD-RID-ACCT-ID",
+                  "value": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-FILE-ERROR-MESSAGE",
+              "line": 102,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 103,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(12)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'File Error: '",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ERROR-OPNAME",
+                  "line": 105,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(8)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 107,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(4)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' on '",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ERROR-FILE",
+                  "line": 109,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(9)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 111,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(15)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "' returned RESP '",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ERROR-RESP",
+                  "line": 114,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 116,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(7)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "',RESP2 '",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "ERROR-RESP2",
+                  "line": 118,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "FILLER",
+                  "line": 120,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(5)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-LONG-MSG",
+              "line": 125,
+              "section": "WORKING-STORAGE",
+              "pic": "X(500)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-INFO-MSG",
+              "line": 126,
+              "section": "WORKING-STORAGE",
+              "pic": "X(40)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-NO-INFO-MESSAGE",
+                  "line": 127,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES LOW-VALUES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "FOUND-CARDS-FOR-ACCOUNT",
+                  "line": 129,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'   Displaying requested details'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-PROMPT-FOR-INPUT",
+                  "line": 131,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Please enter Account and Card Number'",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 5,
+              "name": "WS-RETURN-MSG",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "X(75)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "WS-RETURN-MSG-OFF",
+                  "line": 135,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "SPACES",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-EXIT-MESSAGE",
+                  "line": 136,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PF03 pressed.Exiting              '",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-PROMPT-FOR-ACCT",
+                  "line": 138,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Account number not provided'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "WS-PROMPT-FOR-CARD",
+                  "line": 140,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Card number not provided'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "NO-SEARCH-CRITERIA-RECEIVED",
+                  "line": 142,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'No input received'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEARCHED-ACCT-ZEROES",
+                  "line": 144,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Account number must be a non zero 11 digit number'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEARCHED-ACCT-NOT-NUMERIC",
+                  "line": 146,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Account number must be a non zero 11 digit number'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "SEARCHED-CARD-NOT-NUMERIC",
+                  "line": 148,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Card number if supplied must be a 16 digit number'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "DID-NOT-FIND-ACCT-IN-CARDXREF",
+                  "line": 151,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Did not find this account in cards database'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "DID-NOT-FIND-ACCTCARD-COMBO",
+                  "line": 153,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Did not find cards for this search condition'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "XREF-READ-ERROR",
+                  "line": 155,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Error reading Card Data File'",
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CODING-TO-BE-DONE",
+                  "line": 157,
+                  "section": "WORKING-STORAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'Looks Good.... so far'",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-LITERALS",
+          "line": 162,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LIT-THISPGM",
+              "line": 163,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDSLC'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISTRANID",
+              "line": 165,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CCDL'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISMAPSET",
+              "line": 167,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDSL '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-THISMAP",
+              "line": 169,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CCRDSLA'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CCLISTPGM",
+              "line": 171,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDLIC'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CCLISTTRANID",
+              "line": 173,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CCLI'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CCLISTMAPSET",
+              "line": 175,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COCRDLI'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CCLISTMAP",
+              "line": 177,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CCRDSLA'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-MENUPGM",
+              "line": 179,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COMEN01C'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-MENUTRANID",
+              "line": 181,
+              "section": "WORKING-STORAGE",
+              "pic": "X(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CM00'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-MENUMAPSET",
+              "line": 183,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COMEN01'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-MENUMAP",
+              "line": 185,
+              "section": "WORKING-STORAGE",
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'COMEN1A'",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CARDFILENAME",
+              "line": 187,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CARDDAT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "LIT-CARDFILENAME-ACCT-PATH",
+              "line": 189,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CARDAIX '",
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVCRD01Y",
+                  "library": null,
+                  "line": 194,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                },
+                {
+                  "type": "copy_stub",
+                  "copybook": "COCOM01Y",
+                  "library": null,
+                  "line": 198,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-THIS-PROGCOMMAREA",
+          "line": 200,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "CA-CALL-CONTEXT",
+              "line": 201,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "CA-FROM-PROGRAM",
+                  "line": 202,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(08)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "CA-FROM-TRANID",
+                  "line": 203,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(04)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-COMMAREA",
+          "line": 205,
+          "section": "WORKING-STORAGE",
+          "pic": "X(2000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "DFHBMSCA",
+              "library": null,
+              "line": 208,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "DFHAID",
+              "library": null,
+              "line": 209,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "COTTL01Y",
+              "library": null,
+              "line": 213,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "COCRDSL",
+              "library": null,
+              "line": 215,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CSDAT01Y",
+              "library": null,
+              "line": 218,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CSMSG01Y",
+              "library": null,
+              "line": 221,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CSMSG02Y",
+              "library": null,
+              "line": 224,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CSUSR01Y",
+              "library": null,
+              "line": 227,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CVACT02Y",
+              "library": null,
+              "line": 234,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            },
+            {
+              "type": "copy_stub",
+              "copybook": "CVCUS01Y",
+              "library": null,
+              "line": 240,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        }
+      ],
+      "start_line": 35
+    },
+    "linkage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "DFHCOMMAREA",
+          "line": 243,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 244,
+              "section": "LINKAGE",
+              "pic": "X(1)",
+              "occurs": 1,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ],
+      "start_line": 242
+    }
+  },
+  "procedure_division": {
+    "start_line": 247,
+    "end_line": 887,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "0000-MAIN",
+        "section": null,
+        "start_line": 248,
+        "end_line": 393,
+        "has_perform": true,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "COMMON-RETURN",
+        "section": null,
+        "start_line": 394,
+        "end_line": 407,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "0000-MAIN-EXIT",
+        "section": null,
+        "start_line": 408,
+        "end_line": 411,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-SEND-MAP",
+        "section": null,
+        "start_line": 412,
+        "end_line": 422,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1000-SEND-MAP-EXIT",
+        "section": null,
+        "start_line": 423,
+        "end_line": 426,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-SCREEN-INIT",
+        "section": null,
+        "start_line": 427,
+        "end_line": 452,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1100-SCREEN-INIT-EXIT",
+        "section": null,
+        "start_line": 453,
+        "end_line": 456,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-SETUP-SCREEN-VARS",
+        "section": null,
+        "start_line": 457,
+        "end_line": 498,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1200-SETUP-SCREEN-VARS-EXIT",
+        "section": null,
+        "start_line": 499,
+        "end_line": 501,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1300-SETUP-SCREEN-ATTRS",
+        "section": null,
+        "start_line": 502,
+        "end_line": 558,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1300-SETUP-SCREEN-ATTRS-EXIT",
+        "section": null,
+        "start_line": 559,
+        "end_line": 562,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1400-SEND-SCREEN",
+        "section": null,
+        "start_line": 563,
+        "end_line": 577,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "1400-SEND-SCREEN-EXIT",
+        "section": null,
+        "start_line": 578,
+        "end_line": 581,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-PROCESS-INPUTS",
+        "section": null,
+        "start_line": 582,
+        "end_line": 592,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2000-PROCESS-INPUTS-EXIT",
+        "section": null,
+        "start_line": 593,
+        "end_line": 595,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-RECEIVE-MAP",
+        "section": null,
+        "start_line": 596,
+        "end_line": 604,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-RECEIVE-MAP-EXIT",
+        "section": null,
+        "start_line": 605,
+        "end_line": 607,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-EDIT-MAP-INPUTS",
+        "section": null,
+        "start_line": 608,
+        "end_line": 642,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2200-EDIT-MAP-INPUTS-EXIT",
+        "section": null,
+        "start_line": 643,
+        "end_line": 646,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2210-EDIT-ACCOUNT",
+        "section": null,
+        "start_line": 647,
+        "end_line": 680,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2210-EDIT-ACCOUNT-EXIT",
+        "section": null,
+        "start_line": 681,
+        "end_line": 684,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2220-EDIT-CARD",
+        "section": null,
+        "start_line": 685,
+        "end_line": 721,
+        "has_perform": false,
+        "has_goto": true,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2220-EDIT-CARD-EXIT",
+        "section": null,
+        "start_line": 722,
+        "end_line": 725,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-READ-DATA",
+        "section": null,
+        "start_line": 726,
+        "end_line": 731,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-READ-DATA-EXIT",
+        "section": null,
+        "start_line": 732,
+        "end_line": 735,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-GETCARD-BYACCTCARD",
+        "section": null,
+        "start_line": 736,
+        "end_line": 774,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9100-GETCARD-BYACCTCARD-EXIT",
+        "section": null,
+        "start_line": 775,
+        "end_line": 778,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9150-GETCARD-BYACCT",
+        "section": null,
+        "start_line": 779,
+        "end_line": 809,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9150-GETCARD-BYACCT-EXIT",
+        "section": null,
+        "start_line": 810,
+        "end_line": 819,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-LONG-TEXT",
+        "section": null,
+        "start_line": 820,
+        "end_line": 830,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-LONG-TEXT-EXIT",
+        "section": null,
+        "start_line": 831,
+        "end_line": 837,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-PLAIN-TEXT",
+        "section": null,
+        "start_line": 838,
+        "end_line": 848,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "SEND-PLAIN-TEXT-EXIT",
+        "section": null,
+        "start_line": 849,
+        "end_line": 856,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "ABEND-ROUTINE",
+        "section": null,
+        "start_line": 857,
+        "end_line": 887,
+        "has_perform": false,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": []
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CVCRD01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 194
+    },
+    {
+      "copybook": "COCOM01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 198
+    },
+    {
+      "copybook": "DFHBMSCA",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 208
+    },
+    {
+      "copybook": "DFHAID",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 209
+    },
+    {
+      "copybook": "COTTL01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 213
+    },
+    {
+      "copybook": "COCRDSL",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 215
+    },
+    {
+      "copybook": "CSDAT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 218
+    },
+    {
+      "copybook": "CSMSG01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 221
+    },
+    {
+      "copybook": "CSMSG02Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 224
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 227
+    },
+    {
+      "copybook": "CVACT02Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 234
+    },
+    {
+      "copybook": "CVCUS01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 240
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "0000-MAIN"
+    ],
+    "terminal_nodes": [],
+    "nodes": [
+      {
+        "id": "0000-MAIN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 248,
+        "end_line": 393,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "COMMON-RETURN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 394,
+        "end_line": 407,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "0000-MAIN-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 408,
+        "end_line": 411,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1000-SEND-MAP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 412,
+        "end_line": 422,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "1000-SEND-MAP-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 423,
+        "end_line": 426,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-SCREEN-INIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 427,
+        "end_line": 452,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1100-SCREEN-INIT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 453,
+        "end_line": 456,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-SETUP-SCREEN-VARS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 457,
+        "end_line": 498,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1200-SETUP-SCREEN-VARS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 499,
+        "end_line": 501,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1300-SETUP-SCREEN-ATTRS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 502,
+        "end_line": 558,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1300-SETUP-SCREEN-ATTRS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 559,
+        "end_line": 562,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1400-SEND-SCREEN",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 563,
+        "end_line": 577,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "1400-SEND-SCREEN-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 578,
+        "end_line": 581,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2000-PROCESS-INPUTS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 582,
+        "end_line": 592,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "2000-PROCESS-INPUTS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 593,
+        "end_line": 595,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-RECEIVE-MAP",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 596,
+        "end_line": 604,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-RECEIVE-MAP-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 605,
+        "end_line": 607,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2200-EDIT-MAP-INPUTS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 608,
+        "end_line": 642,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "2200-EDIT-MAP-INPUTS-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 643,
+        "end_line": 646,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2210-EDIT-ACCOUNT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 647,
+        "end_line": 680,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "2210-EDIT-ACCOUNT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 681,
+        "end_line": 684,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2220-EDIT-CARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 685,
+        "end_line": 721,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "GOTO"
+        ]
+      },
+      {
+        "id": "2220-EDIT-CARD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 722,
+        "end_line": 725,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-READ-DATA",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 726,
+        "end_line": 731,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": [
+          "PERFORM_THRU"
+        ]
+      },
+      {
+        "id": "9000-READ-DATA-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 732,
+        "end_line": 735,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-GETCARD-BYACCTCARD",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 736,
+        "end_line": 774,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9100-GETCARD-BYACCTCARD-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 775,
+        "end_line": 778,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9150-GETCARD-BYACCT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 779,
+        "end_line": 809,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9150-GETCARD-BYACCT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 810,
+        "end_line": 819,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-LONG-TEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 820,
+        "end_line": 830,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-LONG-TEXT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 831,
+        "end_line": 837,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-PLAIN-TEXT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 838,
+        "end_line": 848,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "SEND-PLAIN-TEXT-EXIT",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 849,
+        "end_line": 856,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "ABEND-ROUTINE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 857,
+        "end_line": 887,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "0000-MAIN",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 250,
+        "unstructured": true,
+        "to": "COMMON-RETURN"
+      },
+      {
+        "from": "1000-SEND-MAP",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 413,
+        "unstructured": true,
+        "to": "1100-SCREEN-INIT",
+        "implicit_thru_range": [
+          "1100-SCREEN-INIT",
+          "1100-SCREEN-INIT-EXIT"
+        ]
+      },
+      {
+        "from": "2000-PROCESS-INPUTS",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 583,
+        "unstructured": true,
+        "to": "2100-RECEIVE-MAP",
+        "implicit_thru_range": [
+          "2100-RECEIVE-MAP",
+          "2100-RECEIVE-MAP-EXIT"
+        ]
+      },
+      {
+        "from": "2200-EDIT-MAP-INPUTS",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 610,
+        "unstructured": true,
+        "to": "2210-EDIT-ACCOUNT",
+        "implicit_thru_range": [
+          "2210-EDIT-ACCOUNT",
+          "2210-EDIT-ACCOUNT-EXIT"
+        ]
+      },
+      {
+        "from": "2210-EDIT-ACCOUNT",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 648,
+        "unstructured": true,
+        "to": "2210-EDIT-ACCOUNT-EXIT"
+      },
+      {
+        "from": "2220-EDIT-CARD",
+        "type": "GOTO",
+        "resolved": true,
+        "source_line": 688,
+        "unstructured": true,
+        "to": "2220-EDIT-CARD-EXIT"
+      },
+      {
+        "from": "9000-READ-DATA",
+        "type": "PERFORM_THRU",
+        "resolved": true,
+        "source_line": 728,
+        "unstructured": true,
+        "to": "9100-GETCARD-BYACCTCARD",
+        "implicit_thru_range": [
+          "9100-GETCARD-BYACCTCARD",
+          "9100-GETCARD-BYACCTCARD-EXIT"
+        ]
+      }
+    ],
+    "dead_code_candidates": [
+      "0000-MAIN-EXIT",
+      "1000-SEND-MAP",
+      "1000-SEND-MAP-EXIT",
+      "1200-SETUP-SCREEN-VARS",
+      "1200-SETUP-SCREEN-VARS-EXIT",
+      "1300-SETUP-SCREEN-ATTRS",
+      "1300-SETUP-SCREEN-ATTRS-EXIT",
+      "1400-SEND-SCREEN",
+      "1400-SEND-SCREEN-EXIT",
+      "2000-PROCESS-INPUTS",
+      "2000-PROCESS-INPUTS-EXIT",
+      "2200-EDIT-MAP-INPUTS",
+      "2200-EDIT-MAP-INPUTS-EXIT",
+      "2220-EDIT-CARD",
+      "9000-READ-DATA",
+      "9000-READ-DATA-EXIT",
+      "9150-GETCARD-BYACCT",
+      "9150-GETCARD-BYACCT-EXIT",
+      "SEND-LONG-TEXT",
+      "SEND-LONG-TEXT-EXIT",
+      "SEND-PLAIN-TEXT",
+      "SEND-PLAIN-TEXT-EXIT",
+      "ABEND-ROUTINE"
+    ],
+    "unstructured_constructs": [
+      {
+        "type": "GOTO",
+        "paragraph": "0000-MAIN",
+        "target": "COMMON-RETURN",
+        "line": 250,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "1000-SEND-MAP",
+        "target": "1100-SCREEN-INIT",
+        "line": 413,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "2000-PROCESS-INPUTS",
+        "target": "2100-RECEIVE-MAP",
+        "line": 583,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "2200-EDIT-MAP-INPUTS",
+        "target": "2210-EDIT-ACCOUNT",
+        "line": 610,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "2210-EDIT-ACCOUNT",
+        "target": "2210-EDIT-ACCOUNT-EXIT",
+        "line": 648,
+        "severity": "warning"
+      },
+      {
+        "type": "GOTO",
+        "paragraph": "2220-EDIT-CARD",
+        "target": "2220-EDIT-CARD-EXIT",
+        "line": 688,
+        "severity": "warning"
+      },
+      {
+        "type": "PERFORM_THRU",
+        "paragraph": "9000-READ-DATA",
+        "target": "9100-GETCARD-BYACCTCARD",
+        "line": 728,
+        "severity": "warning"
+      }
+    ],
+    "cfg_issues": []
+  }
+}

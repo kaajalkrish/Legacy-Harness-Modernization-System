@@ -1,0 +1,184 @@
+{
+  "copybook": "CVTRA05Y",
+  "used_by": [
+    "CBACT04C",
+    "CBEXPORT",
+    "CBIMPORT",
+    "CBTRN01C",
+    "CBTRN02C",
+    "CBTRN03C",
+    "COBIL00C",
+    "CORPT00C",
+    "COTRN00C",
+    "COTRN01C",
+    "COTRN02C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "TRAN-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRAN-ID",
+          "line": 5,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-TYPE-CD",
+          "line": 6,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CAT-CD",
+          "line": 7,
+          "pic": "9(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-SOURCE",
+          "line": 8,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-DESC",
+          "line": 9,
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-AMT",
+          "line": 10,
+          "pic": "S9(09)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-ID",
+          "line": 11,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-NAME",
+          "line": 12,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-CITY",
+          "line": 13,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-ZIP",
+          "line": 14,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CARD-NUM",
+          "line": 15,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-ORIG-TS",
+          "line": 16,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-PROC-TS",
+          "line": 17,
+          "pic": "X(26)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 18,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

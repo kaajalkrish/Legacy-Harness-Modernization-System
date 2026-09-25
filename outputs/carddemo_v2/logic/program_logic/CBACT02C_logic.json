@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "program_id": "CBACT02C",
+    "source_file": "carddemo_input/app/cbl/CBACT02C.cbl",
+    "model": "ai-host",
+    "agent_version": "4_logic_python@1.0"
+  },
+  "summary": "Batch program that sequentially reads the indexed CARD master file (CARDFILE) and displays every card record. A simple browse/report utility: open the file, loop reading and displaying each record until end-of-file, then close. Any I/O error prints the file status and abends.",
+  "paragraphs": [
+    {
+      "name": "MAIN-PARA",
+      "pseudocode": "Announce start of CBACT02C. Open the card file. Loop until end-of-file: read the next card record and, while not at end-of-file, display it. When done, close the card file, announce end of execution, and return to the caller.",
+      "branches": ["PERFORM UNTIL END-OF-FILE = 'Y'", "IF END-OF-FILE = 'N' (guard read)", "IF END-OF-FILE = 'N' (guard display)"],
+      "calls_made": ["0000-CARDFILE-OPEN", "1000-CARDFILE-GET-NEXT", "9000-CARDFILE-CLOSE"],
+      "field_references": ["END-OF-FILE", "CARD-RECORD"],
+      "complexity_score": 3,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Driver paragraph; sequential read-and-display loop over the card master."
+    },
+    {
+      "name": "1000-CARDFILE-GET-NEXT",
+      "pseudocode": "Read the next card record into CARD-RECORD. If the read succeeded (status '00') set result OK. If status is '10' set end-of-file (16); any other status is an error (12). Then: if OK continue; if end-of-file mark END-OF-FILE = 'Y'; otherwise report the read error, save the status and abend.",
+      "branches": ["IF CARDFILE-STATUS = '00' ... ELSE IF '10' ... ELSE (error 12)", "IF APPL-AOK ... ELSE IF APPL-EOF ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["CARDFILE-STATUS", "CARD-RECORD", "APPL-RESULT", "END-OF-FILE", "IO-STATUS"],
+      "complexity_score": 4,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Uses status-code 88-levels APPL-AOK (0) and APPL-EOF (16) as control flags."
+    },
+    {
+      "name": "0000-CARDFILE-OPEN",
+      "pseudocode": "Open the card file for input. If status '00' set result OK, else error (12). If OK continue; otherwise print an open error, save the status and abend.",
+      "branches": ["IF CARDFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["CARDFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "9000-CARDFILE-CLOSE",
+      "pseudocode": "Close the card file. If status '00' clear the result to OK, else set error (12). If OK continue; otherwise print a close error, save the status and abend.",
+      "branches": ["IF CARDFILE-STATUS = '00' ... ELSE (error 12)", "IF APPL-AOK ... ELSE (abend)"],
+      "calls_made": ["9910-DISPLAY-IO-STATUS", "9999-ABEND-PROGRAM"],
+      "field_references": ["CARDFILE-STATUS", "APPL-RESULT", "IO-STATUS"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": ""
+    },
+    {
+      "name": "9999-ABEND-PROGRAM",
+      "pseudocode": "Print 'ABENDING PROGRAM', set timing to 0 and abend code to 999, and call the system routine CEE3ABD to terminate the job abnormally.",
+      "branches": [],
+      "calls_made": ["CEE3ABD"],
+      "field_references": ["TIMING", "ABCODE"],
+      "complexity_score": 1,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Standard forced-abend helper (Language Environment CEE3ABD)."
+    },
+    {
+      "name": "9910-DISPLAY-IO-STATUS",
+      "pseudocode": "Format and display the file status code. If non-numeric or its first byte is '9', decode the second byte as binary and show a 4-digit value; otherwise show the two-digit status right-justified in a 4-digit field.",
+      "branches": ["IF IO-STATUS NOT NUMERIC OR IO-STAT1 = '9' ... ELSE"],
+      "calls_made": [],
+      "field_references": ["IO-STATUS", "IO-STAT1", "IO-STAT2", "TWO-BYTES-BINARY", "TWO-BYTES-RIGHT", "IO-STATUS-04", "IO-STATUS-0403"],
+      "complexity_score": 2,
+      "ambiguous": false,
+      "annotations": [],
+      "notes": "Generic file-status display helper; handles VSAM extended (9nn) status codes."
+    }
+  ],
+  "usage": {"input_tokens": 0, "output_tokens": 0}
+}

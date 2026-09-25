@@ -33,8 +33,8 @@ Deterministic where possible, LLM only where needed, and it runs **with no API k
   - [Agent 5 — Data](#agent-5--data)
   - [Agent 6 — Logic](#agent-6--logic)
   - [Agent 7 — Rules](#agent-7--rules)
-  - [Agent 8 — Diagram + BRD](#agent-8--diagram--brd)
-  - [Agent 9 — Judge](#agent-9--judge)
+  - [Agents 8–9 — Diagram + BRD](#agents-89--diagram--brd)
+  - [Agent 10 — Judge](#agent-10--judge)
 - [7. Responsibility Matrix](#7-responsibility-matrix)
 - [8. Proven on Two Codebases](#8-proven-on-two-codebases)
 - [9. How to Run](#9-how-to-run)
@@ -121,7 +121,7 @@ stateDiagram-v2
         free, instant, safe to re-run.
     end note
     note right of Logic
-        Phases 6-9 use the LLM
+        Phases 6, 7, 9 and 10 use the LLM
         (no-key AI-host path).
         Default answer is "skip".
     end note
@@ -186,7 +186,7 @@ flowchart LR
 |---|---|
 | **Deterministic where we can** | Facts (file lists, structure, field types, rule *existence*) come from plain Python — free, instant, identical every run, and impossible to hallucinate. |
 | **LLM only where we must** | Only *meaning* (turning cryptic COBOL into readable English) uses an LLM. |
-| **Groundedness gate** | Every `BR-`/`GAP-`/`RS-` id and program the BRD cites must exist in the artifacts. An invented reference hard-floors the accuracy score — caught by code, not by the model. |
+| **Groundedness gate** | Every `BR-`/`TR-`/`RS-`/`GAP-` id the BRD cites must exist in the artifacts, and business terms and counts in the prose must be supported by the analysis. An invented reference or ungrounded narrative caps the accuracy score — caught by code, not by the model. |
 | **No API key needed** | LLM steps run through a no-key "AI-host" path, so the whole pipeline works offline. |
 
 > **In one line:** *Facts → Python. Meaning → LLM. And the closer a step gets to a claim someone will trust, the less we let the LLM near it.*
@@ -266,19 +266,20 @@ flowchart LR
 ```
 
 ### Agent 7 — Rules
-Python collects every branch + `88-level`, classifies each (category, pattern, signal strength), de-duplicates across programs, and groups them into rule sets. The LLM only writes the human-readable **name + description** (with a templated fallback).
+Python collects every branch + `88-level`, classifies each (category, pattern, signal strength), separates **business rules** (`BR-`) from **technical conditions** (`TR-`: loop/EOF control, screen handling, I/O status, flags) and de-duplicates across programs. The AI step (Claude Code writing `rules_ai.json`, or the API) groups programs into **business capabilities** and writes business-readable rule **names + descriptions**; without it, an honest templated fallback names each rule from its own condition.
 
 ```mermaid
 flowchart LR
     I["logic_artifact + data_artifact"] --> FIND["Python: find + classify + dedupe"]
-    FIND --> NAME["LLM (optional): name + describe"]
-    NAME --> O["rules_artifact.json<br/>+ classified_conditions.json"]
+    FIND --> BRIEF["rules_brief.json"]
+    BRIEF --> NAME["AI: capabilities + names + tiers<br/>(rules_ai.json)"]
+    NAME --> O["rules_artifact.json<br/>BR- / TR- / RS-"]
     classDef l fill:#fff3e0,stroke:#e08a17;
     class NAME l;
 ```
 
-### Agent 8 — Diagram + BRD
-The **Diagram** part is deterministic — it redraws the graph/data/logic into Mermaid (component overview, ERD, per-program flows). The **BRD** part assembles every chapter from the artifacts (facts, tables, rules catalogue, gaps) with Python; the LLM writes only the connecting narrative.
+### Agents 8–9 — Diagram + BRD
+The **Diagram** agent (Phase 8) is deterministic — it redraws the graph/data/logic into Mermaid (component overview, ERD, per-program flows). The **BRD** agent (Phase 9) assembles every fact, table and id with Python — at-a-glance facts, capabilities, key rules and catalogue, data model, processes, platform dependencies, gaps, structural risk indicators — and the AI step (Claude Code writing `brd_narratives.json`, or the API) writes only the narrative: executive summary, business context, capability intros, modernization considerations. Every narrative section is validated; one citing an id that does not exist is dropped.
 
 ```mermaid
 flowchart LR
@@ -287,7 +288,7 @@ flowchart LR
     end
     subgraph BRDAgent["BRD - hybrid"]
         ART["all artifacts + diagrams"] --> ASM["Python: assemble chapters + gaps"]
-        ASM --> NAR["LLM: exec summary + narratives"]
+        ASM --> NAR["AI: exec summary + narratives<br/>(brd_narratives.json)"]
         NAR --> DOC["brd.md + brd_summary.md<br/>+ gaps_register"]
     end
     MMD --> ART
@@ -297,13 +298,13 @@ flowchart LR
     class NAR l;
 ```
 
-### Agent 9 — Judge
-The quality gate. **Validation** (deterministic): the groundedness gate + consistency checks. **Judge** (LLM): scores 5 weighted dimensions. Then Python applies the gate, computes the weighted score, and rules **PASS / REVISE**.
+### Agent 10 — Judge
+The quality gate. **Validation** (deterministic): the groundedness gate (every `BR-`/`TR-`/`RS-`/`GAP-` id must exist), **narrative grounding** (business terms and counts in the prose must come from the analysis — e.g. "portfolio" in a card system fails), and consistency checks. **Judge** (AI: Claude Code writing `brd_scores.json`, or the API): scores 5 weighted dimensions against a strict rubric. Then Python applies the gate, computes the weighted score, and rules **PASS / REVISE**.
 
 ```mermaid
 flowchart LR
-    I["brd.md + artifacts + gaps"] --> V["Validation (Python)<br/>groundedness gate + consistency"]
-    V --> J["Judge (LLM)<br/>score 5 dimensions + feedback"]
+    I["brd.md + artifacts + gaps"] --> V["Validation (Python)<br/>groundedness + narrative grounding + consistency"]
+    V --> J["Judge (AI)<br/>score 5 dimensions + feedback"]
     J --> G["Python: apply gate → weight → rate"]
     G --> O["brd_judge.md / .json<br/>PASS / REVISE"]
     classDef d fill:#e8f1ff,stroke:#3b7dd8;
@@ -324,9 +325,10 @@ flowchart LR
 | 4 | **Context** | Pre-digest each program into a briefing | graph + AST | `*_context.txt`, `system_index.json` | Deterministic |
 | 5 | **Data** | Decode the full data dictionary | inventory + AST + copybooks | `data_artifact.json`, `data_layouts/*` | Deterministic |
 | 6 | **Logic** | Translate paragraphs → pseudocode | context + data + AST + source | `program_logic/*`, `logic_artifact.json` | LLM + Python |
-| 7 | **Rules** | Mine + classify business rules | logic + data | `rules_artifact.json`, `classified_conditions.json` | LLM + Python |
-| 8 | **Diagram + BRD** | Draw diagrams + assemble the BRD | all artifacts | `*.mmd`, `brd.md`, `gaps_register` | LLM + Python |
-| 9 | **Judge** | Validate groundedness + score the BRD | brd + artifacts | `brd_judge.md`, `brd_judge.json` | LLM + Python |
+| 7 | **Rules** | Mine business rules, separate technical conditions, group by capability | logic + data + inventory | `rules_brief.json`, `rules_artifact.json` | LLM + Python |
+| 8 | **Diagram** | Draw component, ERD and per-program flow diagrams | graph + data + logic | `*.mmd`, `diagrams_artifact.json` | Deterministic |
+| 9 | **BRD** | Assemble the BRD; AI writes the narrative | all artifacts + diagrams | `brd_brief.json`, `brd.md`, `brd_summary.md`, `gaps_register` | LLM + Python |
+| 10 | **Judge** | Validate groundedness + narrative, score the BRD | brd + artifacts | `brd_judge.md`, `brd_judge.json` | LLM + Python |
 
 **Type:** *Deterministic* = pure Python (no LLM). *LLM + Python* = a hybrid agent — Python does the factual work (finding, classifying, assembling) and the LLM handles only the "soft" part (meaning, wording, narrative, or scoring), so the facts can never be hallucinated.
 
@@ -357,6 +359,34 @@ The harness was **built on one system and validated on a completely different on
 
 **Takeaway:** the same pipeline documented a small custom system *and* a much larger unfamiliar one — CardDemo yielded ~3× the rules and 12× the fields — with the groundedness gate passing both times.
 
+### CardDemo v2 (version 1 of the enhanced harness) — `outputs/carddemo_v2`
+Trial 1 above (`outputs/carddemo`) is kept unchanged for comparison. Version 1 of the enhanced
+harness re-ran CardDemo with the Phase 7, 9 and 10 AI steps performed by the harness's own agents
+(`rules`, `brd`, `judge`) in AI-host mode (no API key). Phase 6 logic was reused from trial 1.
+
+| Metric | Trial 1 (`carddemo`) | **v2 (`carddemo_v2`)** |
+|---|---|---|
+| Executive summary | described a "portfolio" system (template leftover) | **credit-card system, agent-written from the analysis** |
+| Program run modes | 4 unknown, 2 misclassified | **0 unknown** (25 online · 17 batch · 2 shared) |
+| Business rules | 324, mixed with code mechanics | **44 business rules** + 295 technical conditions kept apart |
+| Grouping | 94 sets by field-name word | **10 business capabilities** |
+| Gaps | 253 (mostly IBM platform components) | **16 real gaps** + 17 platform dependencies listed separately |
+| Judge | PASS 3.85 (lenient, prose not checked) | **PASS 3.0 (medium)** — strict agent review, groundedness + narrative checks passed |
+
+### Known limitations (to address in the next version)
+- **Phase 6 logic is not yet verified against the source.** In the reused CardDemo logic, 80 of 514
+  paragraph names do not exist in the code (about 15 are harmless `MAIN-PARA` labels; the rest are
+  invented). Rules derived from them can be wrong — e.g. BR-037/BR-038 in `carddemo_v2` claim
+  COPAUA0C declines inactive/expired cards, which the code does not do (it declines only when the
+  amount exceeds available credit or the account is not found). Next: a deterministic Phase 6 check
+  (paragraph and field names must exist in the parsed source) and a logic re-run for those programs.
+- Key entities (BRD 5.1) include screen-map and working-storage layouts rather than only business
+  records.
+- A few rules are cited under different capabilities in chapters 3 and 4; rule-set program lists
+  are truncated.
+- The judge's narrative-term check is word-list based: it reliably catches wrong-domain wording
+  but can flag ordinary English words.
+
 ---
 
 ## 9. How to Run
@@ -367,7 +397,7 @@ python run_pipeline.py --input <path-to-cobol> --output <path-to-outputs>
 ```
 
 - Phases **1–5** are pure Python (no key, instant).
-- Phases **6–9** are the LLM/hybrid steps (run via the no-key AI-host path).
+- Phases **6, 7, 9 and 10** are the LLM/hybrid steps (run via the no-key AI-host path).
 - The run is interactive — answer `[y/n/s]` at each phase to run, stop, or skip.
 
 **Example (CardDemo):**
@@ -401,9 +431,9 @@ phases/                   # all pipeline agents, one folder per phase
   p05_data/               #   Agent 5 — data dictionary
   p06_logic/              #   Agent 6 — pseudocode (builder + agent prompt)
   p07_rules/              #   Agent 7 — business-rules miner
-  p08_diagram/            #   Agent 8a — Mermaid diagram generator
-  p09_brd/                #   Agent 8 — BRD builder (+ agent prompt)
-  p10_judge/              #   Agent 9 — BRD validation / judge (+ agent prompt)
+  p08_diagram/            #   Agent 8 — Mermaid diagram generator
+  p09_brd/                #   Agent 9 — BRD builder (+ agent prompt)
+  p10_judge/              #   Agent 10 — BRD validation / judge (+ agent prompt)
 .claude/                  # Claude Code harness
   agents/                 #   10 subagent definitions (01-discovery … 10-judge)
   skills/                 #   10 granular skill definitions

@@ -1,0 +1,1670 @@
+{
+  "meta": {
+    "program_id": "COACCT01",
+    "source_file": "D:\\VIRTUSA\\Work\\Legacy-Harness-Modernization-System\\inputs\\carddemo\\app\\app-vsam-mq\\cbl\\COACCT01.cbl",
+    "total_lines": 620
+  },
+  "parse_issues": [],
+  "identification_division": {
+    "start_line": 1,
+    "end_line": 6,
+    "program_id": "COACCT01",
+    "author": "AWS",
+    "date_written": "03/21"
+  },
+  "environment_division": {
+    "start_line": 7,
+    "end_line": 8,
+    "file_control_entries": []
+  },
+  "data_division": {
+    "start_line": 9,
+    "end_line": 175,
+    "file_section": {
+      "entries": [],
+      "start_line": null
+    },
+    "working_storage_section": {
+      "entries": [
+        {
+          "level": 1,
+          "name": "WS-MQ-MSG-FLAG",
+          "line": 13,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "NO-MORE-MSGS",
+              "line": 14,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-RESP-QUEUE-STS",
+          "line": 16,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "RESP-QUEUE-OPEN",
+              "line": 17,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-ERR-QUEUE-STS",
+          "line": 19,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "ERR-QUEUE-OPEN",
+              "line": 20,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-REPLY-QUEUE-STS",
+          "line": 22,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": [
+            {
+              "level": 88,
+              "name": "REPLY-QUEUE-OPEN",
+              "line": 23,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Y'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-CICS-RESP-CDS",
+          "line": 26,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-CICS-RESP1-CD",
+              "line": 27,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CICS-RESP2-CD",
+              "line": 28,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CICS-RESP1-CD-D",
+              "line": 29,
+              "section": "WORKING-STORAGE",
+              "pic": "9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CICS-RESP2-CD-D",
+              "line": 30,
+              "section": "WORKING-STORAGE",
+              "pic": "9(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-DATE-TIME",
+          "line": 35,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-ABS-TIME",
+              "line": 36,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(15)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZERO",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-MMDDYYYY",
+              "line": 37,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TIME",
+              "line": 38,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-QUEUE",
+          "line": 42,
+          "section": "WORKING-STORAGE",
+          "pic": "X(48)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-QUEUE-REPLY",
+          "line": 43,
+          "section": "WORKING-STORAGE",
+          "pic": "X(48)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-HCONN",
+          "line": 44,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-CONDITION-CODE",
+          "line": 45,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-REASON-CODE",
+          "line": 46,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-HOBJ",
+          "line": 47,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-OPTIONS",
+          "line": 48,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-BUFFER-LENGTH",
+          "line": 49,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-BUFFER",
+          "line": 50,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-DATA-LENGTH",
+          "line": 51,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-CORRELID",
+          "line": 52,
+          "section": "WORKING-STORAGE",
+          "pic": "X(24)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-MSG-ID",
+          "line": 53,
+          "section": "WORKING-STORAGE",
+          "pic": "X(24)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-MSG-COUNT",
+          "line": 54,
+          "section": "WORKING-STORAGE",
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "SAVE-CORELID",
+          "line": 55,
+          "section": "WORKING-STORAGE",
+          "pic": "X(24)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "SAVE-MSGID",
+          "line": 56,
+          "section": "WORKING-STORAGE",
+          "pic": "X(24)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "SAVE-REPLY2Q",
+          "line": 57,
+          "section": "WORKING-STORAGE",
+          "pic": "X(48)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "MQ-ERR-DISPLAY",
+          "line": 58,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "MQ-ERROR-PARA",
+              "line": 59,
+              "section": "WORKING-STORAGE",
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 60,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "MQ-APPL-RETURN-MESSAGE",
+              "line": 61,
+              "section": "WORKING-STORAGE",
+              "pic": "X(25)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 62,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "MQ-APPL-CONDITION-CODE",
+              "line": 63,
+              "section": "WORKING-STORAGE",
+              "pic": "9(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 64,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "MQ-APPL-REASON-CODE",
+              "line": 65,
+              "section": "WORKING-STORAGE",
+              "pic": "9(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "FILLER",
+              "line": 66,
+              "section": "WORKING-STORAGE",
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "MQ-APPL-QUEUE-NAME",
+              "line": 67,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-GET-MESSAGE-OPTIONS",
+          "line": 70,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQGMOV",
+              "library": null,
+              "line": 71,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-PUT-MESSAGE-OPTIONS",
+          "line": 74,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQPMOV",
+              "library": null,
+              "line": 75,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-MESSAGE-DESCRIPTOR",
+          "line": 78,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQMDV",
+              "library": null,
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-OBJECT-DESCRIPTOR",
+          "line": 82,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQODV",
+              "library": null,
+              "line": 83,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-CONSTANTS",
+          "line": 86,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQV",
+              "library": null,
+              "line": 87,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "MQ-GET-QUEUE-MESSAGE",
+          "line": 89,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "type": "copy_stub",
+              "copybook": "CMQTML",
+              "library": null,
+              "line": 90,
+              "section": "WORKING-STORAGE",
+              "parent_level": "01"
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "QUEUE-INFO",
+          "line": 92,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "QMGR-NAME",
+              "line": 93,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "INPUT-QUEUE-NAME",
+              "line": 94,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "REPLY-QUEUE-NAME",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "ERROR-QUEUE-NAME",
+              "line": 96,
+              "section": "WORKING-STORAGE",
+              "pic": "X(48)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "INPUT-QUEUE-HANDLE",
+          "line": 98,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "OUTPUT-QUEUE-HANDLE",
+          "line": 100,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ERROR-QUEUE-HANDLE",
+          "line": 102,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "QMGR-HANDLE-CONN",
+          "line": 104,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "QUEUE-MESSAGE",
+          "line": 105,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "REQUEST-MESSAGE",
+          "line": 106,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "REPLY-MESSAGE",
+          "line": 107,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "ERROR-MESSAGE",
+          "line": 108,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 1,
+          "name": "REQUEST-MSG-COPY",
+          "line": 109,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-FUNC",
+              "line": 110,
+              "section": "WORKING-STORAGE",
+              "pic": "X(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-KEY",
+              "line": 111,
+              "section": "WORKING-STORAGE",
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-FILLER",
+              "line": 112,
+              "section": "WORKING-STORAGE",
+              "pic": "X(985)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-VARIABLES",
+          "line": 114,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "LIT-ACCTFILENAME",
+              "line": 115,
+              "section": "WORKING-STORAGE",
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ACCTDAT '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-RESP-CD",
+              "line": 117,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REAS-CD",
+              "line": 119,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROS",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-XREF-RID",
+              "line": 121,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CARDNUM",
+                  "line": 122,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CUST-ID",
+                  "line": 123,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(09)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-CUST-ID-X",
+                  "line": 124,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(09)",
+                  "occurs": null,
+                  "redefines": "WS-CARD-RID-CUST-ID",
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID",
+                  "line": 126,
+                  "section": "WORKING-STORAGE",
+                  "pic": "9(11)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 10,
+                  "name": "WS-CARD-RID-ACCT-ID-X",
+                  "line": 127,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(11)",
+                  "occurs": null,
+                  "redefines": "WS-CARD-RID-ACCT-ID",
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "name": "WS-ACCT-RESPONSE",
+          "line": 130,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 5,
+              "name": "WS-ACCT-LBL",
+              "line": 132,
+              "section": "WORKING-STORAGE",
+              "pic": "X(13)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ACCOUNT ID : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-ID",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-STATUS-LBL",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "X(17)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'ACCOUNT STATUS : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-ACTIVE-STATUS",
+              "line": 137,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CURR-BAL-LBL",
+              "line": 138,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'BALANCE : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-CURR-BAL",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CRDT-LMT-LBL",
+              "line": 142,
+              "section": "WORKING-STORAGE",
+              "pic": "X(15)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CREDIT LIMIT : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-CREDIT-LIMIT",
+              "line": 144,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CASH-LIMIT-LBL",
+              "line": 146,
+              "section": "WORKING-STORAGE",
+              "pic": "X(13)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CASH LIMIT : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-CASH-CREDIT-LIMIT",
+              "line": 148,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-OPEN-DATE-LBL",
+              "line": 150,
+              "section": "WORKING-STORAGE",
+              "pic": "X(12)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'OPEN DATE : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-OPEN-DATE",
+              "line": 152,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-EXPR-DATE-LBL",
+              "line": 153,
+              "section": "WORKING-STORAGE",
+              "pic": "X(12)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'EXPR DATE : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-EXPIRAION-DATE",
+              "line": 155,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-REISSUE-DT-LBL",
+              "line": 156,
+              "section": "WORKING-STORAGE",
+              "pic": "X(12)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'REIS DATE : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-REISSUE-DATE",
+              "line": 158,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CURR-CYC-CREDIT-LBL",
+              "line": 159,
+              "section": "WORKING-STORAGE",
+              "pic": "X(13)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'CREDIT BAL : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-CURR-CYC-CREDIT",
+              "line": 161,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-CURR-CYC-DEBIT-LBL",
+              "line": 163,
+              "section": "WORKING-STORAGE",
+              "pic": "X(12)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'DEBIT BAL : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-CURR-CYC-DEBIT",
+              "line": 165,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(10)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": "ZEROES",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-GRP-LBL",
+              "line": 167,
+              "section": "WORKING-STORAGE",
+              "pic": "X(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'GROUP ID : '",
+              "children": []
+            },
+            {
+              "level": 5,
+              "name": "WS-ACCT-GROUP-ID",
+              "line": 169,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "children": [
+                {
+                  "type": "copy_stub",
+                  "copybook": "CVACT01Y",
+                  "library": null,
+                  "line": 171,
+                  "section": "WORKING-STORAGE",
+                  "parent_level": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "start_line": 11
+    },
+    "linkage_section": {
+      "entries": [],
+      "start_line": 174
+    }
+  },
+  "procedure_division": {
+    "start_line": 176,
+    "end_line": 620,
+    "sections": [],
+    "paragraphs": [
+      {
+        "name": "1000-CONTROL",
+        "section": null,
+        "start_line": 178,
+        "end_line": 221,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": true
+      },
+      {
+        "name": "2300-OPEN-INPUT-QUEUE",
+        "section": null,
+        "start_line": 222,
+        "end_line": 254,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2400-OPEN-OUTPUT-QUEUE",
+        "section": null,
+        "start_line": 255,
+        "end_line": 288,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "2100-OPEN-ERROR-QUEUE",
+        "section": null,
+        "start_line": 289,
+        "end_line": 324,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-MAIN-PROCESS",
+        "section": null,
+        "start_line": 325,
+        "end_line": 333,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "3000-GET-REQUEST",
+        "section": null,
+        "start_line": 334,
+        "end_line": 389,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4000-PROCESS-REQUEST-REPLY",
+        "section": null,
+        "start_line": 390,
+        "end_line": 461,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "4100-PUT-REPLY",
+        "section": null,
+        "start_line": 462,
+        "end_line": 500,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "9000-ERROR",
+        "section": null,
+        "start_line": 501,
+        "end_line": 537,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "8000-TERMINATION",
+        "section": null,
+        "start_line": 538,
+        "end_line": 551,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": false,
+        "has_stop_run": true,
+        "is_entry_point": false
+      },
+      {
+        "name": "5000-CLOSE-INPUT-QUEUE",
+        "section": null,
+        "start_line": 552,
+        "end_line": 573,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5100-CLOSE-OUTPUT-QUEUE",
+        "section": null,
+        "start_line": 574,
+        "end_line": 596,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      },
+      {
+        "name": "5200-CLOSE-ERROR-QUEUE",
+        "section": null,
+        "start_line": 597,
+        "end_line": 620,
+        "has_perform": true,
+        "has_goto": false,
+        "has_call": true,
+        "has_stop_run": false,
+        "is_entry_point": false
+      }
+    ],
+    "terminal_statements": [
+      {
+        "type": "GOBACK",
+        "line": 550
+      }
+    ]
+  },
+  "copy_stubs": [
+    {
+      "copybook": "CMQGMOV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 71
+    },
+    {
+      "copybook": "CMQPMOV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 75
+    },
+    {
+      "copybook": "CMQMDV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 79
+    },
+    {
+      "copybook": "CMQODV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 83
+    },
+    {
+      "copybook": "CMQV",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 87
+    },
+    {
+      "copybook": "CMQTML",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 90
+    },
+    {
+      "copybook": "CVACT01Y",
+      "division": "DATA",
+      "section": "WORKING_STORAGE",
+      "line": 171
+    }
+  ],
+  "control_flow_graph": {
+    "entry_points": [
+      "1000-CONTROL"
+    ],
+    "terminal_nodes": [
+      "8000-TERMINATION"
+    ],
+    "nodes": [
+      {
+        "id": "1000-CONTROL",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 178,
+        "end_line": 221,
+        "is_entry_point": true,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2300-OPEN-INPUT-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 222,
+        "end_line": 254,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2400-OPEN-OUTPUT-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 255,
+        "end_line": 288,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "2100-OPEN-ERROR-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 289,
+        "end_line": 324,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-MAIN-PROCESS",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 325,
+        "end_line": 333,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "3000-GET-REQUEST",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 334,
+        "end_line": 389,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4000-PROCESS-REQUEST-REPLY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 390,
+        "end_line": 461,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "4100-PUT-REPLY",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 462,
+        "end_line": 500,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "9000-ERROR",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 501,
+        "end_line": 537,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "8000-TERMINATION",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 538,
+        "end_line": 551,
+        "is_entry_point": false,
+        "is_terminal": true,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5000-CLOSE-INPUT-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 552,
+        "end_line": 573,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": false,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5100-CLOSE-OUTPUT-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 574,
+        "end_line": 596,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      },
+      {
+        "id": "5200-CLOSE-ERROR-QUEUE",
+        "type": "paragraph",
+        "section": null,
+        "start_line": 597,
+        "end_line": 620,
+        "is_entry_point": false,
+        "is_terminal": false,
+        "is_dead_code": true,
+        "unstructured_constructs": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "1000-CONTROL",
+        "type": "PERFORM_UNTIL",
+        "resolved": true,
+        "source_line": 180,
+        "unstructured": false,
+        "to": "4000-MAIN-PROCESS",
+        "condition_text": "NO-MORE-MSGS PERFORM 8000-TERMINATION."
+      },
+      {
+        "from": "2300-OPEN-INPUT-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 226,
+        "unstructured": false,
+        "to": "9000-ERROR"
+      },
+      {
+        "from": "2400-OPEN-OUTPUT-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 260,
+        "unstructured": false,
+        "to": "9000-ERROR"
+      },
+      {
+        "from": "2100-OPEN-ERROR-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 294,
+        "unstructured": false,
+        "to": "8000-TERMINATION"
+      },
+      {
+        "from": "4000-MAIN-PROCESS",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 326,
+        "unstructured": false,
+        "to": "3000-GET-REQUEST"
+      },
+      {
+        "from": "3000-GET-REQUEST",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 337,
+        "unstructured": false,
+        "to": "4000-PROCESS-REQUEST-REPLY"
+      },
+      {
+        "from": "4000-PROCESS-REQUEST-REPLY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 391,
+        "unstructured": false,
+        "to": "4100-PUT-REPLY"
+      },
+      {
+        "from": "4100-PUT-REPLY",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 467,
+        "unstructured": false,
+        "to": "9000-ERROR"
+      },
+      {
+        "from": "9000-ERROR",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 505,
+        "unstructured": false,
+        "to": "8000-TERMINATION"
+      },
+      {
+        "from": "8000-TERMINATION",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 540,
+        "unstructured": false,
+        "to": "5000-CLOSE-INPUT-QUEUE"
+      },
+      {
+        "from": "5000-CLOSE-INPUT-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 553,
+        "unstructured": false,
+        "to": "8000-TERMINATION"
+      },
+      {
+        "from": "5100-CLOSE-OUTPUT-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 575,
+        "unstructured": false,
+        "to": "8000-TERMINATION"
+      },
+      {
+        "from": "5200-CLOSE-ERROR-QUEUE",
+        "type": "PERFORM_SIMPLE",
+        "resolved": true,
+        "source_line": 598,
+        "unstructured": false,
+        "to": "9000-ERROR"
+      }
+    ],
+    "dead_code_candidates": [
+      "2300-OPEN-INPUT-QUEUE",
+      "2400-OPEN-OUTPUT-QUEUE",
+      "2100-OPEN-ERROR-QUEUE",
+      "5100-CLOSE-OUTPUT-QUEUE",
+      "5200-CLOSE-ERROR-QUEUE"
+    ],
+    "unstructured_constructs": [],
+    "cfg_issues": []
+  }
+}

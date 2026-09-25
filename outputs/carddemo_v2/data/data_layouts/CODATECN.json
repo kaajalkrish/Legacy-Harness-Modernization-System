@@ -1,0 +1,413 @@
+{
+  "copybook": "CODATECN",
+  "used_by": [
+    "CBACT01C"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CODATECN-REC",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CODATECN-IN-REC",
+          "line": 18,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CODATECN-TYPE",
+              "line": 19,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "YYYYMMDD-IN",
+                  "line": 20,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"1\"",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "YYYY-MM-DD-IN",
+                  "line": 21,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"2\"",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-INP-DATE",
+              "line": 22,
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-1INP",
+              "line": 23,
+              "pic": null,
+              "occurs": null,
+              "redefines": "CODATECN-INP-DATE",
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CODATECN-1YYYY",
+                  "line": 24,
+                  "pic": "XXXX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1MM",
+                  "line": 25,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1DD",
+                  "line": 26,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1FIL",
+                  "line": 27,
+                  "pic": "X(12)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-2INP",
+              "line": 28,
+              "pic": null,
+              "occurs": null,
+              "redefines": "CODATECN-INP-DATE",
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-YYYY",
+                  "line": 29,
+                  "pic": "XXXX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1I-S1",
+                  "line": 30,
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1MM",
+                  "line": 31,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1I-S2",
+                  "line": 32,
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-2YY",
+                  "line": 33,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-2FIL",
+                  "line": 34,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CODATECN-OUT-REC",
+          "line": 35,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CODATECN-OUTTYPE",
+              "line": 36,
+              "pic": "X",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "YYYY-MM-DD-OP",
+                  "line": 37,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"1\"",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "YYYYMMDD-OP",
+                  "line": 38,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "\"2\"",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-0UT-DATE",
+              "line": 39,
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-1OUT",
+              "line": 40,
+              "pic": null,
+              "occurs": null,
+              "redefines": "CODATECN-0UT-DATE",
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-YYYY",
+                  "line": 41,
+                  "pic": "XXXX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-S1",
+                  "line": 42,
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-MM",
+                  "line": 43,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-S2",
+                  "line": 44,
+                  "pic": "X",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1O-DD",
+                  "line": 45,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-1OFIL",
+                  "line": 46,
+                  "pic": "X(10)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CODATECN-2OUT",
+              "line": 47,
+              "pic": null,
+              "occurs": null,
+              "redefines": "CODATECN-0UT-DATE",
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "CODATECN-2O-YYYY",
+                  "line": 48,
+                  "pic": "XXXX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-2O-MM",
+                  "line": 49,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-2O-DD",
+                  "line": 50,
+                  "pic": "XX",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "CODATECN-2OFIL",
+                  "line": 51,
+                  "pic": "X(12)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "CODATECN-ERROR-MSG",
+          "line": 52,
+          "pic": "X(38)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

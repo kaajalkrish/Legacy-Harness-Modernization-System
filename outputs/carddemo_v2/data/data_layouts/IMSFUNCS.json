@@ -1,0 +1,132 @@
+{
+  "copybook": "IMSFUNCS",
+  "used_by": [
+    "DBUNLDGS",
+    "PAUDBLOD",
+    "PAUDBUNL"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "FUNC-CODES",
+      "line": 17,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FUNC-GU",
+          "line": 18,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GU  '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-GHU",
+          "line": 19,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GHU '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-GN",
+          "line": 20,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GN  '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-GHN",
+          "line": 21,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GHN '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-GNP",
+          "line": 22,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GNP '",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-GHNP",
+          "line": 23,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'GHNP'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-REPL",
+          "line": 24,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'REPL'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-ISRT",
+          "line": 25,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'ISRT'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FUNC-DLET",
+          "line": 26,
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'DLET'",
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "PARMCOUNT",
+          "line": 27,
+          "pic": "S9(05)",
+          "occurs": null,
+          "redefines": null,
+          "value": "+4 COMP-5",
+          "usage": "COMP-5",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

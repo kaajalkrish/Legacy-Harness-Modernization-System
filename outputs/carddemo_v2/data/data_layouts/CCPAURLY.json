@@ -1,0 +1,74 @@
+{
+  "copybook": "CCPAURLY",
+  "used_by": [
+    "COPAUA0C"
+  ],
+  "records": [
+    {
+      "level": 5,
+      "name": "PA-RL-CARD-NUM",
+      "line": 19,
+      "pic": "X(16)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RL-TRANSACTION-ID",
+      "line": 20,
+      "pic": "X(15)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RL-AUTH-ID-CODE",
+      "line": 21,
+      "pic": "X(06)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RL-AUTH-RESP-CODE",
+      "line": 22,
+      "pic": "X(02)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RL-AUTH-RESP-REASON",
+      "line": 23,
+      "pic": "X(04)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    },
+    {
+      "level": 5,
+      "name": "PA-RL-APPROVED-AMT",
+      "line": 24,
+      "pic": "+9(10).99",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": []
+    }
+  ]
+}

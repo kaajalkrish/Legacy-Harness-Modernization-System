@@ -1,0 +1,74 @@
+# System Context: COACTVWC
+## 📝 Summary
+COACTVWC is a online-type COBOL program, entered at 0000-MAIN, with 35 paragraph(s) across 0 section(s), sharing 15 copybook(s). It defines 4 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COACTVWC
+- **Source Path**: app/cbl/COACTVWC.cbl
+- **Main Entry Point**: 0000-MAIN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CVCRD01Y
+- COCOM01Y
+- DFHBMSCA
+- DFHAID
+- COTTL01Y
+- COACTVW
+- CSDAT01Y
+- CSMSG01Y
+- CSMSG02Y
+- CSUSR01Y
+- CVACT01Y
+- CVACT02Y
+- CVACT03Y
+- CVCUS01Y
+- CSSTRPFY
+### 🔗 Execution Flow (Calls)
+- None
+## Key Data Structures
+- 01 WS-MISC-STORAGE (group item, 11 sub-field(s))
+- 01 WS-LITERALS (group item, 29 sub-field(s))
+- 01 WS-THIS-PROGCOMMAREA (group item, 1 sub-field(s))
+- 01 WS-COMMAREA PIC X(2000)
+## Procedure Summary
+- **Entry Point(s)**: 0000-MAIN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 35 / 0
+- **Terminal Statements**: None
+- **Paragraph List**:
+- 0000-MAIN
+- COMMON-RETURN
+- 0000-MAIN-EXIT
+- 0000-MAIN-EXIT
+- 1000-SEND-MAP
+- 1000-SEND-MAP-EXIT
+- 1100-SCREEN-INIT
+- 1100-SCREEN-INIT-EXIT
+- 1200-SETUP-SCREEN-VARS
+- 1200-SETUP-SCREEN-VARS-EXIT
+- 1300-SETUP-SCREEN-ATTRS
+- 1300-SETUP-SCREEN-ATTRS-EXIT
+- 1400-SEND-SCREEN
+- 1400-SEND-SCREEN-EXIT
+- 2000-PROCESS-INPUTS
+- 2000-PROCESS-INPUTS-EXIT
+- 2100-RECEIVE-MAP
+- 2100-RECEIVE-MAP-EXIT
+- 2200-EDIT-MAP-INPUTS
+- 2200-EDIT-MAP-INPUTS-EXIT
+- 2210-EDIT-ACCOUNT
+- 2210-EDIT-ACCOUNT-EXIT
+- 9000-READ-ACCT
+- 9000-READ-ACCT-EXIT
+- 9200-GETCARDXREF-BYACCT
+- 9200-GETCARDXREF-BYACCT-EXIT
+- 9300-GETACCTDATA-BYACCT
+- 9300-GETACCTDATA-BYACCT-EXIT
+- 9400-GETCUSTDATA-BYCUST
+- 9400-GETCUSTDATA-BYCUST-EXIT
+- SEND-PLAIN-TEXT
+- SEND-PLAIN-TEXT-EXIT
+- SEND-LONG-TEXT
+- SEND-LONG-TEXT-EXIT
+- ABEND-ROUTINE

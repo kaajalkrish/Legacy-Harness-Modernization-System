@@ -1,0 +1,2510 @@
+{
+  "program": "CBSTM03A",
+  "records": [
+    {
+      "level": 1,
+      "name": "TRNX-RECORD",
+      "line": 20,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TRNX-KEY",
+          "line": 21,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRNX-CARD-NUM",
+              "line": 22,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-ID",
+              "line": 23,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "TRNX-REST",
+          "line": 24,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TRNX-TYPE-CD",
+              "line": 25,
+              "pic": "X(02)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-CAT-CD",
+              "line": 26,
+              "pic": "9(04)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-SOURCE",
+              "line": 27,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-DESC",
+              "line": 28,
+              "pic": "X(100)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-AMT",
+              "line": 29,
+              "pic": "S9(09)V99",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-MERCHANT-ID",
+              "line": 30,
+              "pic": "9(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-MERCHANT-NAME",
+              "line": 31,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-MERCHANT-CITY",
+              "line": 32,
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-MERCHANT-ZIP",
+              "line": 33,
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-ORIG-TS",
+              "line": 34,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TRNX-PROC-TS",
+              "line": 35,
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 36,
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CARD-XREF-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "XREF-CARD-NUM",
+          "line": 5,
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-CUST-ID",
+          "line": 6,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-ACCT-ID",
+          "line": 7,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 8,
+          "pic": "X(14)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "CUSTOMER-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CUST-ID",
+          "line": 5,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-FIRST-NAME",
+          "line": 6,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-MIDDLE-NAME",
+          "line": 7,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-LAST-NAME",
+          "line": 8,
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-1",
+          "line": 9,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-2",
+          "line": 10,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-LINE-3",
+          "line": 11,
+          "pic": "X(50)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-STATE-CD",
+          "line": 12,
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-COUNTRY-CD",
+          "line": 13,
+          "pic": "X(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-ADDR-ZIP",
+          "line": 14,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PHONE-NUM-1",
+          "line": 15,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PHONE-NUM-2",
+          "line": 16,
+          "pic": "X(15)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-SSN",
+          "line": 17,
+          "pic": "9(09)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-GOVT-ISSUED-ID",
+          "line": 18,
+          "pic": "X(20)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-DOB-YYYYMMDD",
+          "line": 19,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-EFT-ACCOUNT-ID",
+          "line": 20,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-PRI-CARD-HOLDER-IND",
+          "line": 21,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CUST-FICO-CREDIT-SCORE",
+          "line": 22,
+          "pic": "9(03)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 23,
+          "pic": "X(168)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "ACCOUNT-RECORD",
+      "line": 4,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ACCT-ID",
+          "line": 5,
+          "pic": "9(11)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ACTIVE-STATUS",
+          "line": 6,
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-BAL",
+          "line": 7,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CREDIT-LIMIT",
+          "line": 8,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CASH-CREDIT-LIMIT",
+          "line": 9,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-OPEN-DATE",
+          "line": 10,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-EXPIRAION-DATE",
+          "line": 11,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-REISSUE-DATE",
+          "line": 12,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-CREDIT",
+          "line": 13,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-DEBIT",
+          "line": 14,
+          "pic": "S9(10)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ADDR-ZIP",
+          "line": 15,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-GROUP-ID",
+          "line": 16,
+          "pic": "X(10)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 17,
+          "pic": "X(178)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "COMP-VARIABLES",
+      "line": 59,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CR-CNT",
+          "line": 60,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TR-CNT",
+          "line": 61,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "CR-JMP",
+          "line": 62,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TR-JMP",
+          "line": 63,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "COMP3-VARIABLES",
+      "line": 64,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-TOTAL-AMT",
+          "line": 65,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "MISC-VARIABLES",
+      "line": 66,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-FL-DD",
+          "line": 67,
+          "section": "WORKING-STORAGE",
+          "pic": "X(8)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'TRNXFILE'",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-TRN-AMT",
+          "line": 68,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(9)V99",
+          "occurs": null,
+          "redefines": null,
+          "value": "0",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-SAVE-CARD",
+          "line": 69,
+          "section": "WORKING-STORAGE",
+          "pic": "X(16)",
+          "occurs": null,
+          "redefines": null,
+          "value": "SPACES PIC X(16)",
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "END-OF-FILE",
+          "line": 70,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": "'N'",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-M03B-AREA",
+      "line": 71,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-M03B-DD",
+          "line": 72,
+          "section": "WORKING-STORAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-M03B-OPER",
+          "line": 73,
+          "section": "WORKING-STORAGE",
+          "pic": "X(01)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "M03B-OPEN",
+              "line": 74,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'O'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-CLOSE",
+              "line": 75,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'C'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-READ",
+              "line": 76,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'R'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-READ-K",
+              "line": 77,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'K'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-WRITE",
+              "line": 78,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'W'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "M03B-REWRITE",
+              "line": 79,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'Z'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "WS-M03B-RC",
+          "line": 80,
+          "section": "WORKING-STORAGE",
+          "pic": "X(02)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-M03B-KEY",
+          "line": 81,
+          "section": "WORKING-STORAGE",
+          "pic": "X(25)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-M03B-KEY-LN",
+          "line": 82,
+          "section": "WORKING-STORAGE",
+          "pic": "S9(4)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "WS-M03B-FLDT",
+          "line": 83,
+          "section": "WORKING-STORAGE",
+          "pic": "X(1000)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "STATEMENT-LINES",
+      "line": 85,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "ST-LINE0",
+          "line": 86,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 87,
+              "section": "WORKING-STORAGE",
+              "pic": "X(31)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '*'                PIC X(31)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 88,
+              "section": "WORKING-STORAGE",
+              "pic": "X(18)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL 'START OF STATEMENT' PIC X(18)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 89,
+              "section": "WORKING-STORAGE",
+              "pic": "X(31)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '*'                PIC X(31)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE1",
+          "line": 90,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ST-NAME",
+              "line": 91,
+              "section": "WORKING-STORAGE",
+              "pic": "X(75)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 92,
+              "section": "WORKING-STORAGE",
+              "pic": "X(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(05)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE2",
+          "line": 93,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ST-ADD1",
+              "line": 94,
+              "section": "WORKING-STORAGE",
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 95,
+              "section": "WORKING-STORAGE",
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(30)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE3",
+          "line": 96,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ST-ADD2",
+              "line": 97,
+              "section": "WORKING-STORAGE",
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 98,
+              "section": "WORKING-STORAGE",
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(30)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE4",
+          "line": 99,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ST-ADD3",
+              "line": 100,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE5",
+          "line": 101,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 102,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '-'                PIC X(80)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE6",
+          "line": 103,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 104,
+              "section": "WORKING-STORAGE",
+              "pic": "X(33)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(33)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 105,
+              "section": "WORKING-STORAGE",
+              "pic": "X(14)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Basic Details'        PIC X(14)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 106,
+              "section": "WORKING-STORAGE",
+              "pic": "X(33)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(33)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE7",
+          "line": 107,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 108,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Account ID         :' PIC X(20)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-ACCT-ID",
+              "line": 109,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 110,
+              "section": "WORKING-STORAGE",
+              "pic": "X(40)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(40)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE8",
+          "line": 111,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 112,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Current Balance    :' PIC X(20)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-CURR-BAL",
+              "line": 113,
+              "section": "WORKING-STORAGE",
+              "pic": "9(9).99-",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 114,
+              "section": "WORKING-STORAGE",
+              "pic": "X(07)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(07)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 115,
+              "section": "WORKING-STORAGE",
+              "pic": "X(40)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(40)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE9",
+          "line": 116,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 117,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'FICO Score         :' PIC X(20)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-FICO-SCORE",
+              "line": 118,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 119,
+              "section": "WORKING-STORAGE",
+              "pic": "X(40)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(40)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE10",
+          "line": 120,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 121,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '-'                PIC X(80)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE11",
+          "line": 122,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 123,
+              "section": "WORKING-STORAGE",
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(30)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 124,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'TRANSACTION SUMMARY ' PIC X(20)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 125,
+              "section": "WORKING-STORAGE",
+              "pic": "X(30)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES                 PIC X(30)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE12",
+          "line": 126,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 127,
+              "section": "WORKING-STORAGE",
+              "pic": "X(80)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '-'                PIC X(80)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE13",
+          "line": 128,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 129,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Tran ID         '     PIC X(16)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 130,
+              "section": "WORKING-STORAGE",
+              "pic": "X(51)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Tran Details    '     PIC X(51)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 131,
+              "section": "WORKING-STORAGE",
+              "pic": "X(13)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'  Tran Amount'        PIC X(13)",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE14",
+          "line": 132,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "ST-TRANID",
+              "line": 133,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 134,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "' '          PIC X(01)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-TRANDT",
+              "line": 135,
+              "section": "WORKING-STORAGE",
+              "pic": "X(49)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 136,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'$'          PIC X(01)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-TRANAMT",
+              "line": 137,
+              "section": "WORKING-STORAGE",
+              "pic": "Z(9).99-",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE14A",
+          "line": 138,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 139,
+              "section": "WORKING-STORAGE",
+              "pic": "X(10)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'Total EXP:' PIC X(10)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 140,
+              "section": "WORKING-STORAGE",
+              "pic": "X(56)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES       PIC X(56)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 141,
+              "section": "WORKING-STORAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'$'          PIC X(01)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "ST-TOTAL-TRAMT",
+              "line": 142,
+              "section": "WORKING-STORAGE",
+              "pic": "Z(9).99-",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "ST-LINE15",
+          "line": 143,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 144,
+              "section": "WORKING-STORAGE",
+              "pic": "X(32)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '*'                PIC X(32)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 145,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL 'END OF STATEMENT' PIC X(16)",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 146,
+              "section": "WORKING-STORAGE",
+              "pic": "X(32)",
+              "occurs": null,
+              "redefines": null,
+              "value": "ALL '*'                PIC X(32)",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "HTML-LINES",
+      "line": 148,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "HTML-FIXED-LN",
+          "line": 149,
+          "section": "WORKING-STORAGE",
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "HTML-L01",
+              "line": 150,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<!DOCTYPE html>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L02",
+              "line": 151,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<html lang=\"en\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L03",
+              "line": 152,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<head>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L04",
+              "line": 153,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<meta charset=\"utf-8\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L05",
+              "line": 154,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<title>HTML Table Layout</title>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L06",
+              "line": 155,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</head>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L07",
+              "line": 156,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<body style=\"margin:0px;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L08",
+              "line": 157,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<table  align=\"center\" frame=\"box\" styl 'e=\"width:70%; font:12px Segoe UI,sans-serif;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-LTRS",
+              "line": 159,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<tr>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-LTRE",
+              "line": 160,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</tr>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-LTDS",
+              "line": 161,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-LTDE",
+              "line": 162,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</td>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L10",
+              "line": 163,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#1d1d96b3;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L15",
+              "line": 165,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#FFAF33;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L16",
+              "line": 167,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Bank of XYZ</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L17",
+              "line": 169,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p>410 Terry Ave N</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L18",
+              "line": 171,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p>Seattle WA 99999</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L22-35",
+              "line": 173,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#f2f2f2;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L30-42",
+              "line": 176,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td colspan=\"3\" style=\"padding:0px 5px; 'background-color:#33FFD1; text-align:center;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L31",
+              "line": 179,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Basic Details</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L43",
+              "line": 181,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Transaction Summary</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L47",
+              "line": 183,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L48",
+              "line": 186,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Tran ID</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L50",
+              "line": 188,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#33FF5E; text-align:left;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L51",
+              "line": 191,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Tran Details</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L53",
+              "line": 193,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#33FF5E; text-align:right;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L54",
+              "line": 196,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">Amount</p>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L58",
+              "line": 198,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:25%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L61",
+              "line": 201,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:55%; padding:0px 5px; background- 'color:#f2f2f2; text-align:left;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L64",
+              "line": 204,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<td style=\"width:20%; padding:0px 5px; background- 'color:#f2f2f2; text-align:right;\">'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L75",
+              "line": 207,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'<h3>End of Statement</h3>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L78",
+              "line": 209,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</table>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L79",
+              "line": 210,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</body>'",
+              "children": []
+            },
+            {
+              "level": 88,
+              "name": "HTML-L80",
+              "line": 211,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "'</html>'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "HTML-L11",
+          "line": 212,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 213,
+              "section": "WORKING-STORAGE",
+              "pic": "X(34)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'<h3>Statement for Account Number: '",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "L11-ACCT",
+              "line": 215,
+              "section": "WORKING-STORAGE",
+              "pic": "X(20)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 216,
+              "section": "WORKING-STORAGE",
+              "pic": "X(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'</h3>'",
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "HTML-L23",
+          "line": 217,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 218,
+              "section": "WORKING-STORAGE",
+              "pic": "X(26)",
+              "occurs": null,
+              "redefines": null,
+              "value": "'<p style=\"font-size:16px\">'",
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "L23-NAME",
+              "line": 220,
+              "section": "WORKING-STORAGE",
+              "pic": "X(50)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "HTML-ADDR-LN",
+          "line": 221,
+          "section": "WORKING-STORAGE",
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "HTML-BSIC-LN",
+          "line": 222,
+          "section": "WORKING-STORAGE",
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "HTML-TRAN-LN",
+          "line": 223,
+          "section": "WORKING-STORAGE",
+          "pic": "X(100)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-TRNX-TABLE",
+      "line": 225,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-CARD-TBL",
+          "line": 226,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": 51,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-CARD-NUM",
+              "line": 227,
+              "section": "WORKING-STORAGE",
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "WS-TRAN-TBL",
+              "line": 228,
+              "section": "WORKING-STORAGE",
+              "pic": null,
+              "occurs": 10,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 15,
+                  "name": "WS-TRAN-NUM",
+                  "line": 229,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(16)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                },
+                {
+                  "level": 15,
+                  "name": "WS-TRAN-REST",
+                  "line": 230,
+                  "section": "WORKING-STORAGE",
+                  "pic": "X(318)",
+                  "occurs": null,
+                  "redefines": null,
+                  "value": null,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "WS-TRN-TBL-CNTR",
+      "line": 231,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "WS-TRN-TBL-CTR",
+          "line": 232,
+          "section": "WORKING-STORAGE",
+          "pic": null,
+          "occurs": 51,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "WS-TRCT",
+              "line": 233,
+              "section": "WORKING-STORAGE",
+              "pic": "S9(4)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "PSAPTR",
+      "line": 235,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "BUMP-TIOT",
+      "line": 236,
+      "section": "WORKING-STORAGE",
+      "pic": "S9(08)",
+      "occurs": null,
+      "redefines": null,
+      "value": "ZERO",
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "TIOT-INDEX",
+      "line": 237,
+      "section": "WORKING-STORAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": "BUMP-TIOT",
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "ALIGN-PSA",
+      "line": 240,
+      "section": "LINKAGE",
+      "pic": "9(16)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "PSA-BLOCK",
+      "line": 241,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 242,
+          "section": "LINKAGE",
+          "pic": "X(536)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TCB-POINT",
+          "line": 243,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TCB-BLOCK",
+      "line": 244,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 245,
+          "section": "LINKAGE",
+          "pic": "X(12)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TIOT-POINT",
+          "line": 246,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TIOT-BLOCK",
+      "line": 247,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TIOTNJOB",
+          "line": 248,
+          "section": "LINKAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TIOTJSTP",
+          "line": 249,
+          "section": "LINKAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        },
+        {
+          "level": 5,
+          "name": "TIOTPSTP",
+          "line": 250,
+          "section": "LINKAGE",
+          "pic": "X(08)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "TIOT-ENTRY",
+      "line": 251,
+      "section": "LINKAGE",
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "TIOT-SEG",
+          "line": 252,
+          "section": "LINKAGE",
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "TIO-LEN",
+              "line": 253,
+              "section": "LINKAGE",
+              "pic": "X(01)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 254,
+              "section": "LINKAGE",
+              "pic": "X(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "TIOCDDNM",
+              "line": 255,
+              "section": "LINKAGE",
+              "pic": "X(08)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "FILLER",
+              "line": 256,
+              "section": "LINKAGE",
+              "pic": "X(05)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "UCB-ADDR",
+              "line": 257,
+              "section": "LINKAGE",
+              "pic": "X(03)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "NULL-UCB",
+                  "line": 258,
+                  "section": "LINKAGE",
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "line": 259,
+          "section": "LINKAGE",
+          "pic": "X(04)",
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "children": [
+            {
+              "level": 88,
+              "name": "END-OF-TIOT",
+              "line": 260,
+              "section": "LINKAGE",
+              "pic": null,
+              "occurs": null,
+              "redefines": null,
+              "value": "LOW-VALUES",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "FD",
+      "file_name": "STMT-FILE",
+      "line": 44,
+      "end_line": 45,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    },
+    {
+      "type": "FD",
+      "file_name": "HTML-FILE",
+      "line": 46,
+      "end_line": 48,
+      "recording_mode": null,
+      "record_contains": null,
+      "block_contains": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "program": "COBSWAIT",
+  "records": [
+    {
+      "level": 1,
+      "name": "MVSWAIT-TIME",
+      "line": 30,
+      "section": "WORKING-STORAGE",
+      "pic": "9(8)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    },
+    {
+      "level": 1,
+      "name": "PARM-VALUE",
+      "line": 31,
+      "section": "WORKING-STORAGE",
+      "pic": "X(8)",
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "children": []
+    }
+  ]
+}

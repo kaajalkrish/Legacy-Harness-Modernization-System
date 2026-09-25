@@ -1,0 +1,65 @@
+# System Context: CBTRN01C
+## 📝 Summary
+CBTRN01C is a batch-type COBOL program, entered at MAIN-PARA, with 18 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 6 data file(s), sharing 6 copybook(s). It defines 16 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBTRN01C
+- **Source Path**: app/cbl/CBTRN01C.cbl
+- **Main Entry Point**: MAIN-PARA
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- DALYTRAN-FILE
+- CUSTOMER-FILE
+- XREF-FILE
+- CARD-FILE
+- ACCOUNT-FILE
+- TRANSACT-FILE
+### 📚 Shared Logic (Copybooks)
+- CVTRA06Y
+- CVCUS01Y
+- CVACT03Y
+- CVACT02Y
+- CVACT01Y
+- CVTRA05Y
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVTRA06Y (external structure, expanded via copybook)
+- 01 DALYTRAN-STATUS (group item, 2 sub-field(s))
+- 01 CUSTFILE-STATUS (group item, 2 sub-field(s))
+- 01 XREFFILE-STATUS (group item, 2 sub-field(s))
+- 01 CARDFILE-STATUS (group item, 2 sub-field(s))
+- 01 ACCTFILE-STATUS (group item, 2 sub-field(s))
+- 01 TRANFILE-STATUS (group item, 2 sub-field(s))
+- 01 IO-STATUS (group item, 2 sub-field(s))
+- 01 TWO-BYTES-BINARY PIC 9(4)
+- 01 TWO-BYTES-ALPHA (group item, 2 sub-field(s))
+- 01 IO-STATUS-04 (group item, 2 sub-field(s))
+- 01 APPL-RESULT PIC S9(9)
+- 01 END-OF-DAILY-TRANS-FILE PIC X(01)
+- 01 ABCODE PIC S9(9)
+- 01 TIMING PIC S9(9)
+- 01 WS-MISC-VARIABLES (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: MAIN-PARA
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 18 / 0
+- **Terminal Statements**: GOBACK (line 197)
+- **Paragraph List**:
+- MAIN-PARA
+- 1000-DALYTRAN-GET-NEXT
+- 2000-LOOKUP-XREF
+- 3000-READ-ACCOUNT
+- 0000-DALYTRAN-OPEN
+- 0100-CUSTFILE-OPEN
+- 0200-XREFFILE-OPEN
+- 0300-CARDFILE-OPEN
+- 0400-ACCTFILE-OPEN
+- 0500-TRANFILE-OPEN
+- 9000-DALYTRAN-CLOSE
+- 9100-CUSTFILE-CLOSE
+- 9200-XREFFILE-CLOSE
+- 9300-CARDFILE-CLOSE
+- 9400-ACCTFILE-CLOSE
+- 9500-TRANFILE-CLOSE
+- Z-ABEND-PROGRAM
+- Z-DISPLAY-IO-STATUS

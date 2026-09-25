@@ -1,0 +1,70 @@
+# System Context: CBACT04C
+## 📝 Summary
+CBACT04C is a batch-type COBOL program, entered at 0000-TCATBALF-OPEN, with 22 paragraph(s) across 0 section(s), calling 1 other program(s), reading/writing 5 data file(s), sharing 5 copybook(s). It defines 19 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: CBACT04C
+- **Source Path**: app/cbl/CBACT04C.cbl
+- **Main Entry Point**: 0000-TCATBALF-OPEN
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- TCATBAL-FILE
+- XREF-FILE
+- DISCGRP-FILE
+- ACCOUNT-FILE
+- TRANSACT-FILE
+### 📚 Shared Logic (Copybooks)
+- CVTRA01Y
+- CVACT03Y
+- CVTRA02Y
+- CVACT01Y
+- CVTRA05Y
+### 🔗 Execution Flow (Calls)
+- CEE3ABD
+## Key Data Structures
+- COPY CVTRA01Y (external structure, expanded via copybook)
+- 01 TCATBALF-STATUS (group item, 2 sub-field(s))
+- 01 XREFFILE-STATUS (group item, 2 sub-field(s))
+- 01 DISCGRP-STATUS (group item, 2 sub-field(s))
+- 01 ACCTFILE-STATUS (group item, 2 sub-field(s))
+- 01 TRANFILE-STATUS (group item, 2 sub-field(s))
+- 01 IO-STATUS (group item, 2 sub-field(s))
+- 01 TWO-BYTES-BINARY PIC 9(4)
+- 01 TWO-BYTES-ALPHA (group item, 2 sub-field(s))
+- 01 IO-STATUS-04 (group item, 2 sub-field(s))
+- 01 APPL-RESULT PIC S9(9)
+- 01 END-OF-FILE PIC X(01)
+- 01 ABCODE PIC S9(9)
+- 01 TIMING PIC S9(9)
+- 01 COBOL-TS (group item, 8 sub-field(s))
+- 01 DB2-FORMAT-TS PIC X(26)
+- 01 FILLER (group item, 14 sub-field(s))
+- 01 WS-MISC-VARS (group item, 4 sub-field(s))
+- 01 WS-COUNTERS (group item, 2 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 0000-TCATBALF-OPEN
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 22 / 0
+- **Terminal Statements**: GOBACK (line 232)
+- **Paragraph List**:
+- 0000-TCATBALF-OPEN
+- 0100-XREFFILE-OPEN
+- 0200-DISCGRP-OPEN
+- 0300-ACCTFILE-OPEN
+- 0400-TRANFILE-OPEN
+- 1000-TCATBALF-GET-NEXT
+- 1050-UPDATE-ACCOUNT
+- 1100-GET-ACCT-DATA
+- 1110-GET-XREF-DATA
+- 1200-GET-INTEREST-RATE
+- 1200-A-GET-DEFAULT-INT-RATE
+- 1300-COMPUTE-INTEREST
+- 1300-B-WRITE-TX
+- 1400-COMPUTE-FEES
+- 9000-TCATBALF-CLOSE
+- 9100-XREFFILE-CLOSE
+- 9200-DISCGRP-CLOSE
+- 9300-ACCTFILE-CLOSE
+- 9400-TRANFILE-CLOSE
+- Z-GET-DB2-FORMAT-TIMESTAMP
+- 9999-ABEND-PROGRAM
+- 9910-DISPLAY-IO-STATUS

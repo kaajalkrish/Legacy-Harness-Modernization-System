@@ -1,0 +1,359 @@
+{
+  "copybook": "CVCRD01Y",
+  "used_by": [
+    "COTRTLIC",
+    "COTRTUPC",
+    "COACTUPC",
+    "COACTVWC",
+    "COCRDLIC",
+    "COCRDSLC",
+    "COCRDUPC"
+  ],
+  "records": [
+    {
+      "level": 1,
+      "name": "CC-WORK-AREAS",
+      "line": 1,
+      "pic": null,
+      "occurs": null,
+      "redefines": null,
+      "value": null,
+      "usage": null,
+      "children": [
+        {
+          "level": 5,
+          "name": "CC-WORK-AREA",
+          "line": 2,
+          "pic": null,
+          "occurs": null,
+          "redefines": null,
+          "value": null,
+          "usage": null,
+          "children": [
+            {
+              "level": 10,
+              "name": "CCARD-AID",
+              "line": 3,
+              "pic": "X(5)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-ENTER",
+                  "line": 4,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'ENTER'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-CLEAR",
+                  "line": 5,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'CLEAR'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PA1",
+                  "line": 6,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PA1  '",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PA2",
+                  "line": 7,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PA2  '",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK01",
+                  "line": 8,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK01'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK02",
+                  "line": 9,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK02'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK03",
+                  "line": 10,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK03'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK04",
+                  "line": 11,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK04'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK05",
+                  "line": 12,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK05'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK06",
+                  "line": 13,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK06'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK07",
+                  "line": 14,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK07'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK08",
+                  "line": 15,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK08'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK09",
+                  "line": 16,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK09'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK10",
+                  "line": 17,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK10'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK11",
+                  "line": 18,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK11'",
+                  "usage": null,
+                  "children": []
+                },
+                {
+                  "level": 88,
+                  "name": "CCARD-AID-PFK12",
+                  "line": 19,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "'PFK12'",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CCARD-NEXT-PROG",
+              "line": 21,
+              "pic": "X(8)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CCARD-NEXT-MAPSET",
+              "line": 23,
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CCARD-NEXT-MAP",
+              "line": 24,
+              "pic": "X(7)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CCARD-ERROR-MSG",
+              "line": 28,
+              "pic": "X(75)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CCARD-RETURN-MSG",
+              "line": 29,
+              "pic": "X(75)",
+              "occurs": null,
+              "redefines": null,
+              "value": null,
+              "usage": null,
+              "children": [
+                {
+                  "level": 88,
+                  "name": "CCARD-RETURN-MSG-OFF",
+                  "line": 30,
+                  "pic": null,
+                  "occurs": null,
+                  "redefines": null,
+                  "value": "LOW-VALUES",
+                  "usage": null,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 10,
+              "name": "CC-ACCT-ID",
+              "line": 34,
+              "pic": "X(11)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CC-ACCT-ID-N",
+              "line": 36,
+              "pic": "9(11)",
+              "occurs": null,
+              "redefines": "CC-ACCT-ID",
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CC-CARD-NUM",
+              "line": 37,
+              "pic": "X(16)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CC-CARD-NUM-N",
+              "line": 39,
+              "pic": "9(16)",
+              "occurs": null,
+              "redefines": "CC-CARD-NUM",
+              "value": null,
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CC-CUST-ID",
+              "line": 40,
+              "pic": "X(09)",
+              "occurs": null,
+              "redefines": null,
+              "value": "SPACES",
+              "usage": null,
+              "children": []
+            },
+            {
+              "level": 10,
+              "name": "CC-CUST-ID-N",
+              "line": 42,
+              "pic": "9(9)",
+              "occurs": null,
+              "redefines": "CC-CUST-ID",
+              "value": null,
+              "usage": null,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

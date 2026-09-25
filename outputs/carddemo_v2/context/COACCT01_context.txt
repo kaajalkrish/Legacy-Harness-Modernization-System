@@ -1,0 +1,89 @@
+# System Context: COACCT01
+## 📝 Summary
+COACCT01 is a online-type COBOL program, entered at 1000-CONTROL, with 13 paragraph(s) across 0 section(s), calling 9 other program(s), sharing 7 copybook(s). It defines 41 top-level data structure(s) in WORKING-STORAGE.
+## 📌 Identification
+- **Program ID**: COACCT01
+- **Source Path**: app/app-vsam-mq/cbl/COACCT01.cbl
+- **Main Entry Point**: 1000-CONTROL
+## 🏗️ Architectural Dependencies
+### 📂 Data Files
+- None
+### 📚 Shared Logic (Copybooks)
+- CMQGMOV
+- CMQPMOV
+- CMQMDV
+- CMQODV
+- CMQV
+- CMQTML
+- CVACT01Y
+### 🔗 Execution Flow (Calls)
+- MQOPEN
+- MQOPEN
+- MQOPEN
+- MQGET
+- MQPUT
+- MQPUT
+- MQCLOSE
+- MQCLOSE
+- MQCLOSE
+## Key Data Structures
+- 01 WS-MQ-MSG-FLAG PIC X(01)
+- 01 WS-RESP-QUEUE-STS PIC X(01)
+- 01 WS-ERR-QUEUE-STS PIC X(01)
+- 01 WS-REPLY-QUEUE-STS PIC X(01)
+- 01 WS-CICS-RESP-CDS (group item, 4 sub-field(s))
+- 01 WS-DATE-TIME (group item, 3 sub-field(s))
+- 01 MQ-QUEUE PIC X(48)
+- 01 MQ-QUEUE-REPLY PIC X(48)
+- 01 MQ-HCONN PIC S9(09)
+- 01 MQ-CONDITION-CODE PIC S9(09)
+- 01 MQ-REASON-CODE PIC S9(09)
+- 01 MQ-HOBJ PIC S9(09)
+- 01 MQ-OPTIONS PIC S9(09)
+- 01 MQ-BUFFER-LENGTH PIC S9(09)
+- 01 MQ-BUFFER PIC X(1000)
+- 01 MQ-DATA-LENGTH PIC S9(09)
+- 01 MQ-CORRELID PIC X(24)
+- 01 MQ-MSG-ID PIC X(24)
+- 01 MQ-MSG-COUNT PIC 9(09)
+- 01 SAVE-CORELID PIC X(24)
+- 01 SAVE-MSGID PIC X(24)
+- 01 SAVE-REPLY2Q PIC X(48)
+- 01 MQ-ERR-DISPLAY (group item, 9 sub-field(s))
+- 01 MQ-GET-MESSAGE-OPTIONS (group item, 1 sub-field(s))
+- 01 MQ-PUT-MESSAGE-OPTIONS (group item, 1 sub-field(s))
+- 01 MQ-MESSAGE-DESCRIPTOR (group item, 1 sub-field(s))
+- 01 MQ-OBJECT-DESCRIPTOR (group item, 1 sub-field(s))
+- 01 MQ-CONSTANTS (group item, 1 sub-field(s))
+- 01 MQ-GET-QUEUE-MESSAGE (group item, 1 sub-field(s))
+- 01 QUEUE-INFO (group item, 4 sub-field(s))
+- 01 INPUT-QUEUE-HANDLE PIC S9(09)
+- 01 OUTPUT-QUEUE-HANDLE PIC S9(09)
+- 01 ERROR-QUEUE-HANDLE PIC S9(09)
+- 01 QMGR-HANDLE-CONN PIC S9(09)
+- 01 QUEUE-MESSAGE PIC X(1000)
+- 01 REQUEST-MESSAGE PIC X(1000)
+- 01 REPLY-MESSAGE PIC X(1000)
+- 01 ERROR-MESSAGE PIC X(1000)
+- 01 REQUEST-MSG-COPY (group item, 3 sub-field(s))
+- 01 WS-VARIABLES (group item, 4 sub-field(s))
+- 01 WS-ACCT-RESPONSE (group item, 22 sub-field(s))
+## Procedure Summary
+- **Entry Point(s)**: 1000-CONTROL
+- **Using Parameters (Linkage)**: None
+- **Paragraphs / Sections**: 13 / 0
+- **Terminal Statements**: GOBACK (line 550)
+- **Paragraph List**:
+- 1000-CONTROL
+- 2300-OPEN-INPUT-QUEUE
+- 2400-OPEN-OUTPUT-QUEUE
+- 2100-OPEN-ERROR-QUEUE
+- 4000-MAIN-PROCESS
+- 3000-GET-REQUEST
+- 4000-PROCESS-REQUEST-REPLY
+- 4100-PUT-REPLY
+- 9000-ERROR
+- 8000-TERMINATION
+- 5000-CLOSE-INPUT-QUEUE
+- 5100-CLOSE-OUTPUT-QUEUE
+- 5200-CLOSE-ERROR-QUEUE
