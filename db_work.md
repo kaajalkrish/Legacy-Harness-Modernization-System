@@ -1,238 +1,277 @@
-# COBOL Reverse Engineering Dashboard — Reference Guide
+# COBOL Reverse Engineering Dashboard — User Guide
 
-A plain-English walkthrough of the dashboard, what every section means, and how to explain it to anyone.
+## Overview
+
+The COBOL Reverse Engineering Dashboard is a web-based analytics interface for the 10-phase COBOL → BRD (Business Requirements Document) pipeline. It presents every artifact the harness produces — programs, data structures, business rules, diagrams, and the final BRD — in a single navigable view without requiring users to open any files manually.
+
+The dashboard runs entirely locally. No cloud services, no API keys, and no data leaves the machine.
 
 ---
 
-## What is this dashboard?
+## Quick Start
 
-This is a **live dashboard** for the COBOL → BRD (Business Requirements Document) reverse engineering pipeline. You point it at a folder of old COBOL source code, run the 10-phase harness, and the dashboard shows you everything the harness discovered — programs, data structures, business rules, a full BRD, and a quality verdict — all without touching a single line of the original code.
-
-**How to launch:**
-```
+```bash
 python dashboard/start.py --output outputs/carddemo
 ```
-Opens automatically at `http://localhost:8787`.
 
-**Current demo input:** `outputs/carddemo` — the IBM CardDemo COBOL sample with 44 programs and 62 copybooks. All 10 phases ran to completion and the BRD received a **PASS** verdict.
+The launcher validates the output directory, builds the frontend if needed, starts the server on port 8787, and opens the browser automatically. The dashboard is ready at:
 
----
+```
+http://localhost:8787?outputDir=outputs/carddemo
+```
 
-## Live polling — does it update automatically?
+To point the dashboard at a different harness run, change the `outputDir` parameter:
 
-**Yes.** The dashboard polls `/api/state` every **5 seconds**. The server reads artifact files from disk on every poll — it does not cache results.
+```
+http://localhost:8787?outputDir=outputs/my_other_run
+```
 
-**Practical workflow:**
-- Terminal 1: `python dashboard/start.py --output outputs/carddemo` — dashboard stays open
-- Terminal 2: `python run_pipeline.py` or individual phase commands — agents write artifacts to disk
-
-As each phase finishes and writes its output file, the dashboard picks it up within 5 seconds:
-- Sidebar phase circles turn green one by one
-- OVERALL % ticks up (e.g. 10% → 20% → … → 100%)
-- KPI tiles (programs, rules, records) update as each phase adds data
-- Timeline grows a new entry per completed phase
-- The "Live · updated HH:MM:SS" timestamp in the header refreshes every 5 seconds
-
-**No browser refresh needed at any point.**
+The dashboard is **plug-and-play**: it reads whatever output folder you specify and populates all tabs from the artifacts in that folder.
 
 ---
 
 ## Layout
 
 ```
-┌─────────────────────┬──────────────────────────────────────────────────┐
-│  Sidebar            │  Header: title, status badge, theme, export      │
-│  (phase list)       │  Meta strip: project dir, entry point, BRD name  │
-│                     │  Stats row: 6 KPI tiles                           │
-│  10 numbered        │  Tab bar: 9 tabs                                  │
-│  phase circles      │                                                   │
-│                     │  Tab content (changes per tab)                    │
-│  Collapse ‹         │                                                   │
-└─────────────────────┴──────────────────────────────────────────────────┘
+┌─────────────────────┬────────────────────────────────────────────────────┐
+│  Sidebar            │  Header: title · status · theme · export buttons   │
+│                     │  Meta strip: project dir · entry point · BRD name  │
+│  Phase list         │  Stats row: 6 KPI tiles                             │
+│  (numbered circles) │  Tab bar: 9 tabs                                    │
+│                     ├────────────────────────────────────────────────────┤
+│  ‹ collapse         │  Tab content                                        │
+└─────────────────────┴────────────────────────────────────────────────────┘
 ```
 
-- **Sidebar** — collapsible. Click `‹` to hide, `›` to show. When collapsed, only the yellow phase-number circles are visible so you can still track progress.
-- **Header** — shows overall pipeline status. Green `● live · complete` = all phases finished.
-- **Meta strip** — WHERE the code lives (project dir), what the harness started from (entry point), and what document was produced (BRD name).
-- **Stats row** — 6 top-level numbers at a glance (see below).
+**Sidebar** — lists all 10 pipeline phases with a status indicator (green = done, grey = pending) and a per-phase progress bar. Click `‹` to collapse to icon-only view; click `›` to expand.
+
+**Header** — shows the pipeline name, a live status badge, and the last poll timestamp. Updates every 5 seconds automatically.
+
+**Meta strip** — project directory, harness entry point, output directory, and BRD filename for the current run.
+
+**Stats row** — six KPI tiles summarising the run at a glance.
 
 ---
 
-## Stats Row — KPI tiles
+## Stats Row
 
-| Tile | What it counts | carddemo value |
-|---|---|---|
-| **OVERALL** | % of pipeline phases that finished | 100% |
-| **PROGRAMS** | COBOL programs found in the source | 44 |
-| **COPYBOOKS** | Copybook files (shared data definitions) | 62 |
-| **RECORDS** | Data records extracted from DATA DIVISIONs | 596 |
-| **RULES** | Business rules mined from branch conditions | 324 |
-| **ARTIFACTS** | Output files produced by the harness | ~310 |
-
----
-
-## Tabs — one by one
-
-### 1. Pipeline
-**What it shows:** The 10 phases of the harness in a grid. Click any phase card to expand its detail.
-
-**How to explain it:** "Each box is one agent. Green dot = done. You can see what file it produced, how big it is, and how long it took. At the bottom is the BRD Judge card — it shows the 5-dimension quality score and the final PASS/REVISE verdict."
-
-Key detail: the progress bar at the top reflects how many phases are complete.
+| Tile | What it measures |
+|---|---|
+| **OVERALL** | Percentage of the 10 phases that have completed |
+| **PROGRAMS** | COBOL programs found in the source repository |
+| **COPYBOOKS** | Shared copybook files (expanded data definitions) |
+| **RECORDS** | Data records extracted from DATA DIVISION sections |
+| **RULES** | Business rules mined from branch conditions and 88-levels |
+| **ARTIFACTS** | Total output files produced by the harness (.json, .md, .mmd) |
 
 ---
 
-### 2. Agents
-**What it shows:** A table of all 10 agents — what each one does, whether it's deterministic or LLM-assisted, and what file it outputs.
+## Live Updates
 
-**How to explain it:** "Row = one agent. The Type badge tells you if it ran pure code (Deterministic) or used an AI model (LLM + Python). Duration shows how long that agent took. The first phase has no duration because there's no previous phase to measure from."
+The dashboard polls the server every **5 seconds**. If the pipeline is running in a separate terminal, the dashboard reflects each completed phase within 5 seconds of the artifact being written to disk — no manual refresh required.
 
----
+As phases complete:
+- Sidebar phase circles turn green
+- OVERALL percentage increments
+- KPI tiles update (rules, records, programs)
+- The Timeline tab gains a new entry
+- The "updated HH:MM:SS" timestamp in the header refreshes
 
-### 3. Artifacts
-**What it shows:** Every file produced by the harness, filterable by phase or file name.
-
-**How to explain it:** "The harness writes hundreds of JSON, Markdown and diagram files. This tab lets you see all of them, how big they are, and which phase produced them. Filter by phase name to narrow down."
-
----
-
-### 4. Call Trace
-**What it shows:** Every operation a COBOL program performs — internal paragraph calls (PERFORM), program calls (CALL), and database queries (EXEC SQL) — in source-line order.
-
-**How to explain it:** "Imagine a flight recorder for the COBOL program. Every time it jumps to another paragraph, calls another program, or hits the database, it's one row in this table. Blue = stays inside this program, green = hits the database. The 'Returns?' column tells you if control comes back after that operation."
-
-Filter pills let you slice by operation category.
+**Two-terminal workflow:**
+- Terminal 1: `python dashboard/start.py --output outputs/<run>` — keep open
+- Terminal 2: `python run_pipeline.py` — watch the dashboard update live
 
 ---
 
-### 5. Synthetic Testing
-**What it shows:** A quality gate derived from the 324 business rules — how many are confirmed enough to be turned into test scenarios, and how many still need SME review.
+## Tabs
 
-**The quality score — what it is and how it's calculated:**
+### 1 · Pipeline
 
-The score (0–100) is a **weighted evidence coverage metric**:
+A full-width progress bar followed by a 5-column grid of phase cards (2 rows of 5 for the 10-phase harness). Click any card to expand its detail panel, which shows:
+
+- Agent name and backing Python module
+- Output artifact path and file size
+- Phase type badge: **Deterministic** or **LLM + Python**
+- Duration (time elapsed between this phase and the previous one)
+- Completion timestamp
+
+At the bottom of the tab, the **BRD Judge Verdict** card shows:
+- PASS or REVISE verdict
+- Weighted quality score (out of 5.0)
+- Five individual dimension scores: completeness, accuracy, coverage, clarity, actionability
+
+---
+
+### 2 · Agents
+
+A table of all 10 pipeline agents with one row per agent:
+
+| Column | Content |
+|---|---|
+| # | Phase number |
+| Agent | Name and one-line description |
+| Type | Deterministic or LLM + Python |
+| Backing module | Python file that implements the agent |
+| Output artifact | File the agent produces |
+| Status | done / pending |
+| Size | Artifact file size in KB |
+| Duration | Time the agent took to run |
+
+---
+
+### 3 · Artifacts
+
+A searchable, filterable catalogue of every file the harness produced. Use the phase pill buttons to narrow by producing phase, or type in the search box to filter by filename.
+
+Each row shows: filename · producing phase · file type (colour-coded) · size in KB · full path.
+
+---
+
+### 4 · Call Trace
+
+A source-ordered record of every operation each COBOL program performs: internal routine calls (PERFORM), external program calls (CALL), and database queries (EXEC SQL). Data is derived from the control-flow graph written by the Parser agent (Phase 2).
+
+**How to read it:**
+- **PERFORM / CALL / SQL** — control returns to this point after the operation
+- **GO TO** — control moves away permanently
+
+**Filter pills** — narrow to All, Control flow, Program call, or Database operations.
+
+**Columns:** STEP · PROGRAM · SOURCE LINE · IN PARAGRAPH · KIND · OPERATION · TARGET · RETURNS?
+
+Use the program selector dropdown to view the trace for a specific program or all programs combined.
+
+---
+
+### 5 · Synthetic Testing
+
+A quality gate that measures how many of the extracted business rules have sufficient evidence to be turned into automated test scenarios.
+
+**Quality score (0–100):**
 
 ```
 score = (confirmed×1.0 + high×0.9 + medium×0.5 + low×0.2) / total_rules × 100
 ```
 
-For carddemo:
-- 185 confirmed rules × 1.0 = 185.0
-- 20 high confidence × 0.9  = 18.0
-- 47 medium confidence × 0.5 = 23.5
-- 72 low confidence × 0.2   = 14.4
-- Total weighted = 240.9 / 324 × 100 = **74 / 100**
+The score reflects evidence strength across all rules:
+- **Confirmed** — both the condition and its business effect are unambiguous in the source
+- **High** — strong pattern match, business meaning likely correct
+- **Medium** — condition documented, business meaning uncertain
+- **Low** — weak pattern match, needs SME clarification
 
-**Is the score accurate?** Yes. The confidence level on each rule is set by the Rules agent (Phase 7) based on how clearly the COBOL source expresses the rule's business intent. "Confirmed" means both the branch condition and its business effect are unambiguous. "Low" means the condition is present in the code but the business meaning is uncertain. The score correctly reflects that 74% of this codebase's rules have strong enough evidence to write verifiable test cases — the remaining 26% need a subject-matter expert to clarify what the business effect actually is.
-
-**How to explain it in a demo:** "Before we can test this system, we need to know how many of the rules we extracted are actually testable. 74 out of 100 means most rules are solid — but 119 rules need someone with business knowledge to confirm what they actually mean before we can write a test for them."
+The tab also shows category and confidence breakdowns as horizontal bar charts, and a callout listing how many rules require subject-matter-expert review before they can be tested.
 
 ---
 
-### 6. Interactive Workflow
-**What it shows:** The program call graph — which COBOL programs call which other programs — rendered as a live Mermaid flowchart.
+### 6 · Interactive Workflow
 
-**How to explain it:** "Each box is one COBOL program. An arrow means 'Program A calls Program B'. You can click any box to see its metadata in the side panel. The diagram only shows direct program-to-program calls; copybook includes are hidden to keep it readable."
+The **program call graph** rendered as a live Mermaid flowchart. Each node is a COBOL program; each arrow is a direct CALL relationship. Copybook includes and file references are excluded to keep the diagram readable.
 
-carddemo has 44 programs and 62 CALLS_PROGRAM edges.
+Click any node to open a side panel showing that program's metadata (type, source path, entry points).
 
----
-
-### 7. Timeline
-**What it shows:** A vertical timeline of when each phase finished, how long it ran, and what it produced.
-
-**How to explain it:** "Each dot on the line is a phase completion event, stamped with the real time from when the harness ran. You can see whether the pipeline ran in minutes or hours, and which phases were the bottlenecks."
-
-Phases 6 and 7 (Logic + Rules) are the LLM phases and take the longest.
+The diagram renders using the same theme as the current dark/light mode setting.
 
 ---
 
-### 8. Rules Explorer (previously "Conversation")
-**What it shows:** Every one of the 324 business rules mined from the COBOL source, browsable and filterable.
+### 7 · Timeline
 
-**How to use it:**
-- Filter by category pill: VALIDATION (300), CALCULATION (4), LIMIT_CHECK (4), ROUTING (16)
-- Filter by confidence: confirmed / high / medium / low
-- Search by rule name, ID, or description text
-- Click any row → expands to show the exact COBOL condition text, pattern type, source program and paragraph, and whether SME review is flagged
+A vertical event timeline showing when each pipeline phase completed, derived from the `generated_at` timestamps embedded in each artifact.
 
-**How to explain it in a demo:** "These are the business rules the system extracted automatically from the COBOL code — no manual reading required. You can filter by type, see exactly where in the code each rule comes from, and flag the ones that need a business analyst to validate."
+Each entry shows:
+- Completion timestamp
+- Phase name and duration
+- Artifact produced and its file size
 
----
-
-### 9. State
-**What it shows:** The raw JSON that backs the entire dashboard — the same object served by `GET /api/state`.
-
-**How to explain it:** "This is everything the dashboard knows, in one JSON tree. You can copy it, export it, or hand it to another tool. It's the single source of truth for this run."
+The timeline gives a clear picture of which phases ran quickly (deterministic phases: seconds) and which took longer (LLM phases: minutes).
 
 ---
 
-## Export options and header buttons
+### 8 · Rules Explorer
 
-| Button | What it does |
+A full browser for all business rules extracted by the harness. Filter by:
+- **Category**: VALIDATION, CALCULATION, LIMIT_CHECK, ROUTING
+- **Confidence**: confirmed, high, medium, low
+- **Text search**: rule ID, name, or description
+
+Click any row to expand it and see:
+- The exact COBOL condition text that defines the rule
+- The condition pattern type
+- The source program and paragraph where it appears
+- Whether the rule requires SME review
+- Whether it is duplicated across multiple programs
+
+---
+
+### 9 · State
+
+The raw JSON object that backs the entire dashboard — the same response returned by `GET /api/state`. Use this to inspect the full data model, verify numbers, or export structured data for downstream tools.
+
+A **Copy JSON** button copies the full state to the clipboard.
+
+---
+
+## Header Buttons
+
+| Button | Action |
 |---|---|
-| **View BRD** | Opens the full Business Requirements Document in a modal overlay — properly rendered with headings, tables, blockquotes. Has a Download .md button to save the file |
-| **Export JSON** | Opens `/api/state` in a new tab — the full data model as JSON, save it as a file |
-| **Export PDF** | Triggers `window.print()` — sidebar and controls are hidden for a clean print |
-| **Light/Dark theme** | Toggles theme, persisted in `localStorage` |
-
-The **"Live · updated HH:MM:SS"** timestamp under the title shows when the dashboard last polled the server. It refreshes every 5 seconds.
+| **View BRD** | Opens the Business Requirements Document in a full-screen modal with proper formatting, rendered Mermaid diagrams, a chapter navigation panel, and a Download .md button |
+| **Export JSON** | Opens the raw state JSON in a new browser tab for saving |
+| **Export PDF** | Triggers the browser print dialog with sidebar and controls hidden for a clean output |
+| **Light / Dark theme** | Toggles the colour theme; preference is saved in browser storage |
 
 ---
 
-## Is carddemo good for demo?
+## BRD Viewer
 
-**Yes** — it is the best available input for demos because:
-- **44 programs, 62 copybooks** — substantial enough to show a real system graph
-- **324 business rules** extracted and classified
-- **596 data records** from the DATA DIVISION
-- **BRD verdict: PASS** with 5-dimension score
-- **All 10 phases complete** — every tab has live data
-- **IBM CardDemo** is a publicly known, well-understood COBOL sample — no IP concerns
+The BRD viewer renders the full auto-generated Business Requirements Document inside the browser:
+
+- **Chapter navigation** — a left panel lists all headings; clicking one scrolls to that section. The active chapter highlights as you scroll.
+- **Formatted content** — headings, tables, blockquotes, code blocks, and bullet lists are all styled consistently.
+- **Mermaid diagrams** — all embedded diagrams (system component flowchart, ER diagram, per-program control-flow diagrams) are rendered as interactive SVGs. Rendering status is shown in the modal header.
+- **Download** — the Download .md button saves the raw Markdown file to disk.
 
 ---
 
-## Technical stack (for developers)
+## Technical Reference
 
-| Layer | Tech |
+### Stack
+
+| Layer | Technology |
 |---|---|
-| Backend | FastAPI 0.142 · Python 3.11 · uvicorn on port 8787 |
+| Backend | FastAPI 0.142 · Python · uvicorn on port 8787 |
 | Frontend | React 18 · Vite 6 · TypeScript · Tailwind CSS 3 |
-| Diagrams | Mermaid.js 11 (flowchart) |
+| Diagrams | Mermaid.js 11 (Workflow tab + BRD viewer) |
+| Markdown | marked.js (BRD viewer) |
 | Charts | Recharts 3 |
-| State viewer | react-json-view-lite |
-| Launcher | `dashboard/start.py` — validates output dir, builds if needed, opens browser |
+| Launcher | `dashboard/start.py` |
 
----
+### API Endpoints
 
-## Enhancements over the reference images
-
-The reference screenshots showed an earlier 7-phase version of the pipeline. Our build adds:
-
-| Enhancement | Why it matters |
+| Endpoint | Returns |
 |---|---|
-| **10-phase pipeline support** | Full harness (Discovery → BRD Judge) vs. 7 phases in reference |
-| **BRD Judge verdict card** | 5-dimension quality scorecard (completeness, accuracy, coverage, clarity, actionability) + PASS/REVISE badge inside the Pipeline tab — not in reference |
-| **Phase type badges** | Agents tab shows "Deterministic" vs "LLM + Python" so you can see which phases used AI |
-| **Multi-program Call Trace** | Reference showed a single-program trace; our build has a dropdown to pick any of the 44 CardDemo programs |
-| **Workflow noise filtering** | Reference showed the raw full graph (hundreds of copybook edges); our build filters to CALLS\_PROGRAM only — 62 clean program-call edges vs 462 total |
-| **Artifact search + filter** | Phase pill filter + filename search + extension colour-coding (JSON blue, Markdown green, Mermaid yellow) |
-| **`start.py` one-command launcher** | `python dashboard/start.py --output outputs/carddemo` — auto-builds frontend if needed, auto-opens browser |
-| **Theme persisted across sessions** | Light/dark choice saved in `localStorage` |
-| **Live polling every 5 seconds** | Dashboard auto-updates as pipeline phases complete — no refresh needed |
-| **View BRD button** | Renders the full BRD in-browser with proper headings, tables, blockquotes via `marked.js` — plus a Download .md button |
-| **Synthetic Testing tab with real data** | Quality score (74/100 for carddemo), confidence and category breakdowns from actual rules — not a stub |
-| **Rules Explorer tab** | All 324 rules filterable by category and confidence, expandable rows with condition text and source location |
+| `GET /api/state?outputDir=` | Full dashboard data model (phases, stats, topology, timeline, verdict) |
+| `GET /api/artifacts?outputDir=` | List of all artifact files with size and phase |
+| `GET /api/call-trace?outputDir=&program=` | Control-flow trace for one or all programs |
+| `GET /api/brd?outputDir=` | BRD markdown content and metadata |
+| `GET /api/rules?outputDir=` | All business rules with stats |
+| `GET /api/topology?outputDir=` | Raw topology graph (nodes and edges) |
 
-## Accuracy vs. reference images
+### Output directory structure (required)
 
-Key differences vs. the reference screenshots (all intentional):
+The dashboard expects output from the 10-phase harness. The following paths are read:
 
-| Feature | Reference | This build |
-|---|---|---|
-| Title | "Mainframe-Source COBOL Reverse Engineering" | "COBOL Reverse Engineering" |
-| Logo badge | "RE" | "C→B" |
-| Phases | 7 phases (smaller harness) | 10 phases |
-| Synthetic Testing | Live test cycle data (separate pipeline) | Real rules coverage data from rules_artifact.json |
-| Conversation | Stub | Rules browser + SME annotation panel |
-| All other tabs | Matched | Matched |
+```
+<outputDir>/
+  discovery/inventory.json          Phase 1
+  analysis/parser_artifact.json     Phase 2
+  topology/graph.json               Phase 3
+  context/system_index.json         Phase 4
+  data/data_artifact.json           Phase 5
+  logic/logic_artifact.json         Phase 6
+  rules/rules_artifact.json         Phase 7
+  diagram/diagrams_artifact.json    Phase 8
+  final_report/brd.md               Phase 9
+  final_report/brd_judge.json       Phase 10
+```
+
+If a phase has not yet run, its tab either shows a pending state or omits that section gracefully.
