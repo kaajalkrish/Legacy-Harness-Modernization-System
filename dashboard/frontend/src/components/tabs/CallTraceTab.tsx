@@ -23,8 +23,14 @@ export default function CallTraceTab({ outputDir }: Props) {
       .catch(() => setLoading(false))
   }, [outputDir, program])
 
-  if (loading) return <div style={{ color: 'var(--color-text-muted)' }}>Loading call trace…</div>
-  if (!data) return <div style={{ color: 'var(--color-red)' }}>Failed to load call trace.</div>
+  if (loading) return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '80px 0', gap: 16 }}>
+      <div style={{ width: 36, height: 36, border: '3px solid var(--color-border)', borderTopColor: 'var(--color-accent)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div style={{ color: 'var(--color-text-muted)', fontSize: 13 }}>Reading control-flow graph for all programs…</div>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  )
+  if (!data) return <div style={{ color: 'var(--color-red)', padding: 24 }}>Failed to load call trace.</div>
 
   const entries: CallTraceEntry[] = category === 'all'
     ? data.entries

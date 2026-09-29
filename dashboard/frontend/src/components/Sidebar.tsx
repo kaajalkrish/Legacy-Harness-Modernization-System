@@ -9,28 +9,36 @@ interface Props {
 export default function Sidebar({ phases, open, onToggle }: Props) {
   return (
     <div className={`sidebar${open ? '' : ' collapsed'}`}>
-      {/* Logo */}
-      <div style={{ padding: '16px 14px 12px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{
-          width: 36, height: 36, borderRadius: 8, background: 'var(--color-accent)', color: '#111',
-          fontWeight: 800, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
-        }}>RE</div>
-        {open && (
-          <div>
-            <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--color-text)' }}>Harness Pipeline</div>
-            <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>Reverse Engineering</div>
+      {/* Header — full when open, just the expand button when collapsed */}
+      {open ? (
+        <div style={{ padding: '16px 14px 12px', borderBottom: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div style={{
+            width: 34, height: 34, borderRadius: 8, background: 'var(--color-accent)', color: '#111',
+            fontWeight: 800, fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, letterSpacing: '-0.5px'
+          }}>C→B</div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--color-text)' }}>COBOL → BRD</div>
+            <div style={{ fontSize: 11, color: 'var(--color-text-muted)' }}>Pipeline Dashboard</div>
           </div>
-        )}
-        <button
-          onClick={onToggle}
-          style={{
-            marginLeft: 'auto', background: 'none', border: 'none', cursor: 'pointer',
-            color: 'var(--color-text-muted)', fontSize: 16, padding: 4, flexShrink: 0,
-            transform: open ? 'none' : 'rotate(180deg)', transition: 'transform 0.2s'
-          }}
-          title={open ? 'Collapse sidebar' : 'Expand sidebar'}
-        >‹</button>
-      </div>
+          <button
+            onClick={onToggle}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-text-muted)', fontSize: 18, padding: '0 2px', flexShrink: 0 }}
+            title="Collapse sidebar"
+          >‹</button>
+        </div>
+      ) : (
+        <div style={{ padding: '12px 0', borderBottom: '1px solid var(--color-border)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: 6, background: 'var(--color-accent)', color: '#111',
+            fontWeight: 800, fontSize: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', letterSpacing: '-0.5px'
+          }}>C→B</div>
+          <button
+            onClick={onToggle}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-text-muted)', fontSize: 18, padding: '0 2px' }}
+            title="Expand sidebar"
+          >›</button>
+        </div>
+      )}
 
       {/* Phase list */}
       <div style={{ flex: 1, overflow: 'auto', padding: '12px 0' }}>

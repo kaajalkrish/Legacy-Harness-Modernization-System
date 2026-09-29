@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react'
 import { useAppState } from './useAppState'
 import Sidebar from './components/Sidebar'
 import StatsRow from './components/StatsRow'
+import BRDModal from './components/BRDModal'
 import PipelineTab from './components/tabs/PipelineTab'
 import AgentsTab from './components/tabs/AgentsTab'
 import ArtifactsTab from './components/tabs/ArtifactsTab'
 import CallTraceTab from './components/tabs/CallTraceTab'
+import SyntheticTestingTab from './components/tabs/SyntheticTestingTab'
 import TimelineTab from './components/tabs/TimelineTab'
 import WorkflowTab from './components/tabs/WorkflowTab'
+import RulesTab from './components/tabs/RulesTab'
 import StateTab from './components/tabs/StateTab'
-import StubTab from './components/tabs/StubTab'
 
 const TABS = [
   { id: 'pipeline',   label: 'Pipeline' },
@@ -19,14 +21,15 @@ const TABS = [
   { id: 'syntest',    label: 'Synthetic Testing' },
   { id: 'workflow',   label: 'Interactive Workflow' },
   { id: 'timeline',   label: 'Timeline' },
-  { id: 'conversation', label: 'Conversation' },
+  { id: 'rules',      label: 'Rules' },
   { id: 'state',      label: 'State' },
 ]
 
 export default function App() {
-  const { state, loading, error, outputDir } = useAppState()
+  const { state, loading, error, outputDir, lastUpdated } = useAppState()
   const [activeTab, setActiveTab] = useState('pipeline')
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [showBRD, setShowBRD] = useState(false)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     try { return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark' }
     catch { return 'dark' }
@@ -62,6 +65,7 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+      {showBRD && <BRDModal outputDir={outputDir} onClose={() => setShowBRD(false)} />}
       {/* Sidebar */}
       <Sidebar
         phases={state?.phases || []}
@@ -75,9 +79,16 @@ export default function App() {
         {/* Header */}
         <div style={{ padding: '16px 24px 0', background: 'var(--color-surface)', borderBottom: '1px solid var(--color-border)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 12 }}>
-            <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--color-text)' }}>
-              Mainframe-Source COBOL Reverse Engineering
-            </h1>
+            <div>
+              <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--color-text)' }}>
+                COBOL Reverse Engineering
+              </h1>
+              {lastUpdated && (
+                <div style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>
+                  Live · updated {lastUpdated.toLocaleTimeString()}
+                </div>
+              )}
+            </div>
             <div className="header-actions" style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0, marginLeft: 16 }}>
               <span className="badge badge-done" style={{ fontSize: 12 }}>
                 <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--color-green)', display: 'inline-block' }} />
@@ -88,6 +99,12 @@ export default function App() {
                 style={{ padding: '4px 12px', border: '1px solid var(--color-border)', borderRadius: 6, background: 'var(--color-surface-2)', color: 'var(--color-text)', cursor: 'pointer', fontSize: 12 }}
               >
                 {theme === 'dark' ? 'Light theme' : 'Dark theme'}
+              </button>
+              <button
+                onClick={() => setShowBRD(true)}
+                style={{ padding: '4px 12px', border: '1px solid var(--color-border)', borderRadius: 6, background: 'var(--color-surface-2)', color: 'var(--color-text)', cursor: 'pointer', fontSize: 12 }}
+              >
+                View BRD
               </button>
               <button
                 onClick={exportJson}
@@ -138,15 +155,15 @@ export default function App() {
 
         {/* Tab content */}
         <div style={{ flex: 1, overflow: 'auto', padding: '24px' }}>
-          {activeTab === 'pipeline'      && <PipelineTab phases={state?.phases || []} overallPct={state?.overall_pct || 0} verdict={state?.verdict} />}
-          {activeTab === 'agents'        && <AgentsTab phases={state?.phases || []} />}
-          {activeTab === 'artifacts'     && <ArtifactsTab outputDir={outputDir} />}
-          {activeTab === 'calltrace'     && <CallTraceTab outputDir={outputDir} />}
-          {activeTab === 'syntest'       && <StubTab title="Synthetic Testing" description="Automated Given/When/Then scenario generation and coverage scoring against business rules will appear here once Phase 11 (Synthetic Testing) is added to the pipeline." />}
-          {activeTab === 'workflow'      && <WorkflowTab topology={state?.topology} />}
-          {activeTab === 'timeline'      && <TimelineTab timeline={state?.timeline || []} />}
-          {activeTab === 'conversation'  && <StubTab title="Conversation & Feedback" description="SME feedback submissions and their pipeline corrections will appear here. The feedback-loop mechanism is planned for v2." />}
-          {activeTab === 'state'         && <StateTab state={state} />}
+          {activeTab === 'pipeline'  && <PipelineTab phases={state?.phases || []} overallPct={state?.overall_pct || 0} verdict={state?.verdict} />}
+          {activeTab === 'agents'    && <AgentsTab phases={state?.phases || []} />}
+          {activeTab === 'artifacts' && <ArtifactsTab outputDir={outputDir} />}
+          {activeTab === 'calltrace' && <CallTraceTab outputDir={outputDir} />}
+          {activeTab === 'syntest'   && <SyntheticTestingTab rulesByCategory={state?.rules_by_category || {}} rulesByConfidence={state?.rules_by_confidence || {}} totalRules={state?.stats.rules || 0} />}
+          {activeTab === 'workflow'  && <WorkflowTab topology={state?.topology} />}
+          {activeTab === 'timeline'  && <TimelineTab timeline={state?.timeline || []} />}
+          {activeTab === 'rules'     && <RulesTab outputDir={outputDir} />}
+          {activeTab === 'state'     && <StateTab state={state} />}
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@ export default function PipelineTab({ phases, overallPct, verdict }: Props) {
   const [expanded, setExpanded] = useState<string | null>(null)
 
   return (
-    <div style={{ maxWidth: 960 }}>
+    <div>
       <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>Pipeline overview</h2>
       <p style={{ margin: '0 0 16px', color: 'var(--color-text-muted)', fontSize: 13 }}>Overall progress</p>
 

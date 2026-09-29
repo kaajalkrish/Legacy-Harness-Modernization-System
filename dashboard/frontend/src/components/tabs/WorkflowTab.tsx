@@ -81,7 +81,11 @@ export default function WorkflowTab({ topology }: Props) {
         <div style={{ flex: 1, minWidth: 0 }}>
           <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>Interactive Workflow</h2>
           <p style={{ margin: '0 0 16px', color: 'var(--color-text-muted)', fontSize: 13 }}>
-            System dependency graph — {topology.nodes.length} nodes · {topology.edges.length} edges. Click a node for details.
+            Program call graph — {topology.nodes.length} programs · {topology.edges.length} call edges
+            {(topology as any).all_nodes_count && (topology as any).all_nodes_count > topology.nodes.length
+              ? ` (filtered from ${(topology as any).all_nodes_count} total nodes)`
+              : ''}
+            . Click a node for details.
           </p>
           {error && <div style={{ color: 'var(--color-red)', marginBottom: 12, fontSize: 13 }}>{error}</div>}
           <div

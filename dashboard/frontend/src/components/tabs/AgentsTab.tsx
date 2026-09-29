@@ -17,7 +17,7 @@ interface Props { phases: PhaseDef[] }
 
 export default function AgentsTab({ phases }: Props) {
   return (
-    <div style={{ maxWidth: 960 }}>
+    <div>
       <h2 style={{ margin: '0 0 16px', fontSize: 18, fontWeight: 700 }}>Agents</h2>
       <div style={{ overflowX: 'auto' }}>
         <table className="data-table">

@@ -46,14 +46,21 @@ def _iso(ts: str | None) -> str | None:
     return ts
 
 
+def _parse_ts(s: str) -> datetime:
+    s = s.strip()
+    if s.endswith("Z"):
+        s = s[:-1] + "+00:00"
+    dt = datetime.fromisoformat(s)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
 def _duration_sec(t1: str | None, t2: str | None) -> int | None:
     if not t1 or not t2:
         return None
     try:
-        def parse(s: str):
-            s = s.replace("Z", "+00:00")
-            return datetime.fromisoformat(s)
-        return int((parse(t2) - parse(t1)).total_seconds())
+        return int((_parse_ts(t2) - _parse_ts(t1)).total_seconds())
     except Exception:
         return None
 
@@ -127,12 +134,16 @@ def assemble_state(out_dir: Path) -> dict:
     }
 
     # --- stats ---
-    programs_list  = inv.get("programs", [])
-    copybooks_list = inv.get("copybooks", [])
+    inv_stats      = inv.get("stats", {})
     data_stats     = data.get("stats", {})
     logic_stats    = logic.get("stats", {})
     rules_stats    = rules.get("stats", {})
     diag_meta      = diag.get("meta", {})
+
+    programs_count  = (inv_stats.get("programs") or
+                       len(inv.get("file_registry", {})))
+    copybooks_count = (inv_stats.get("copybooks") or
+                       len(inv.get("copybook_registry", {})))
 
     records_count  = (data_stats.get("total_records") or
                       data_stats.get("records") or
@@ -148,8 +159,8 @@ def assemble_state(out_dir: Path) -> dict:
     artifact_count = sum(1 for _ in out_dir.rglob("*") if _.is_file() and _.suffix in {".json", ".md", ".mmd", ".txt"})
 
     stats = {
-        "programs":   len(programs_list),
-        "copybooks":  len(copybooks_list),
+        "programs":   programs_count,
+        "copybooks":  copybooks_count,
         "records":    records_count,
         "rules":      rules_count,
         "diagrams":   diag_meta.get("total_diagrams", len(diag.get("diagrams", []))),
@@ -219,9 +230,28 @@ def assemble_state(out_dir: Path) -> dict:
     }
 
     # --- topology for workflow tab ---
+    # Normalise edge field names (graph.json uses source/target; frontend expects from/to).
+    # Keep only CALLS_PROGRAM edges by default — including copybook edges (339) makes the
+    # diagram unreadable at 168 nodes.
+    CALL_TYPES = {"CALLS_PROGRAM", "CICS_LINK", "CICS_XCTL"}
+    raw_edges = topo.get("edges", [])
+    topo_edges = [
+        {
+            "from": e.get("source", e.get("from", "")),
+            "to":   e.get("target", e.get("to", "")),
+            "type": e.get("type", ""),
+        }
+        for e in raw_edges
+        if e.get("type") in CALL_TYPES
+    ]
+    # Keep only nodes that appear in the filtered edges
+    involved = {e["from"] for e in topo_edges} | {e["to"] for e in topo_edges}
+    topo_nodes = [n for n in topo.get("nodes", []) if n.get("id") in involved] or topo.get("nodes", [])
     topology = {
-        "nodes": topo.get("nodes", []),
-        "edges": topo.get("edges", []),
+        "nodes": topo_nodes,
+        "edges": topo_edges,
+        "all_nodes_count": len(topo.get("nodes", [])),
+        "all_edges_count": len(raw_edges),
     }
 
     return {
@@ -379,6 +409,30 @@ def get_topology(outputDir: str = Query(...)):
     out = Path(outputDir)
     topo = _read(out / "topology/graph.json") or {}
     return JSONResponse({"nodes": topo.get("nodes", []), "edges": topo.get("edges", [])})
+
+
+@app.get("/api/brd")
+def get_brd(outputDir: str = Query(...)):
+    out = Path(outputDir)
+    brd_path = out / "final_report/brd.md"
+    if not brd_path.exists():
+        raise HTTPException(404, "BRD not found")
+    return JSONResponse({
+        "content":  brd_path.read_text(encoding="utf-8", errors="replace"),
+        "size_kb":  _size_kb(brd_path),
+        "name":     brd_path.name,
+    })
+
+
+@app.get("/api/rules")
+def get_rules(outputDir: str = Query(...)):
+    out = Path(outputDir)
+    rules_data = _read(out / "rules/rules_artifact.json") or {}
+    return JSONResponse({
+        "business_rules": rules_data.get("business_rules", []),
+        "stats":          rules_data.get("stats", {}),
+        "rule_sets":      rules_data.get("rule_sets", []),
+    })
 
 
 # Mount built frontend (production mode)
