@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  --color-bg:           #111111;
+  --color-surface:      #1a1a1a;
+  --color-surface-2:    #222222;
+  --color-border:       #2a2a2a;
+  --color-text:         #f0f0f0;
+  --color-text-muted:   #888888;
+  --color-accent:       #e8b800;
+  --color-accent-dim:   #a07d00;
+  --color-green:        #22c55e;
+  --color-red:          #ef4444;
+  --color-orange:       #f97316;
+  --color-blue:         #3b82f6;
+  --color-blue-dim:     #1d4ed8;
+  --color-amber:        #f59e0b;
+  --sidebar-w:          272px;
+}
+
+[data-theme="light"] {
+  --color-bg:           #f4f6f9;
+  --color-surface:      #ffffff;
+  --color-surface-2:    #f0f2f5;
+  --color-border:       #e0e0e0;
+  --color-text:         #111111;
+  --color-text-muted:   #666666;
+  --color-accent:       #c49000;
+  --color-accent-dim:   #967000;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+/* ── Utility classes ────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-done    { background: rgba(34,197,94,0.15); color: var(--color-green); }
+.badge-pending { background: rgba(136,136,136,0.15); color: var(--color-text-muted); }
+.badge-llm     { background: rgba(59,130,246,0.15); color: var(--color-blue); }
+.badge-det     { background: rgba(232,184,0,0.15); color: var(--color-accent); }
+.badge-pass    { background: rgba(34,197,94,0.15); color: var(--color-green); }
+.badge-revise  { background: rgba(239,68,68,0.15); color: var(--color-red); }
+
+.pill {
+  cursor: pointer;
+  padding: 4px 14px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: all 0.15s;
+}
+.pill.active {
+  background: var(--color-accent);
+  color: #111;
+  border-color: var(--color-accent);
+}
+.pill.blue  { border-color: var(--color-blue); color: var(--color-blue); }
+.pill.green { border-color: var(--color-green); color: var(--color-green); }
+
+.kpi-tile {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.kpi-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.kpi-value {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text);
+}
+.kpi-sub {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+/* ── Tab bar ────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+}
+.tab-bar::-webkit-scrollbar { height: 0; }
+.tab-btn {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab-btn:hover { color: var(--color-text); }
+.tab-btn.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ── Sidebar ────────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.sidebar.collapsed { width: 52px; }
+
+/* ── Progress bar ───────────────────────────────────────────── */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-blue);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* ── Table ──────────────────────────────────────────────────── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.data-table th {
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-surface);
+}
+.data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+  color: var(--color-text);
+}
+.data-table tr:hover td { background: var(--color-surface-2); }
+
+/* ── Phase circle ───────────────────────────────────────────── */
+.phase-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.phase-circle.pending {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+@media print {
+  .sidebar, .tab-bar, .header-actions { display: none !important; }
+  .main-content { margin: 0 !important; }
+}
