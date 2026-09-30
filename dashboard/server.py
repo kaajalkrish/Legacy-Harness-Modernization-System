@@ -449,11 +449,12 @@ def get_syntest(outputDir: str = Query(...)):
     out = Path(outputDir)
     data = _read(out / "synthetic_tests/synthetic_tests.json") or {}
     return JSONResponse({
-        "scenarios":       data.get("scenarios", []),
-        "coverage":        data.get("coverage", []),
-        "score_breakdown": data.get("score_breakdown", {}),
-        "stats":           data.get("stats", {}),
-        "generated_at":    (data.get("meta") or {}).get("generated_at"),
+        "scenarios":         data.get("scenarios", []),
+        "coverage":          data.get("coverage", []),
+        "score_breakdown":   data.get("score_breakdown", {}),
+        "stats":             data.get("stats", {}),
+        "executive_summary": data.get("executive_summary", ""),
+        "generated_at":      (data.get("meta") or {}).get("generated_at"),
     })
 
 
