@@ -72,7 +72,7 @@ export interface DashboardState {
   phases: PhaseDef[]
   timeline: TimelineEntry[]
   verdict: Verdict
-  topology: { nodes: TopoNode[]; edges: TopoEdge[] }
+  topology: { nodes: TopoNode[]; edges: TopoEdge[]; all_nodes_count?: number; all_edges_count?: number }
   rules_by_category: Record<string, number>
   rules_by_confidence: Record<string, number>
 }

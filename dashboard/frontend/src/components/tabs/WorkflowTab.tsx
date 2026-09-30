@@ -40,6 +40,15 @@ export default function WorkflowTab({ topology }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const [error, setError] = useState<string | null>(null)
   const [selected, setSelected] = useState<TopoNode | null>(null)
+  const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'dark')
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setTheme(document.documentElement.getAttribute('data-theme') || 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     if (!topology || !ref.current) return
@@ -49,7 +58,7 @@ export default function WorkflowTab({ topology }: Props) {
     import('mermaid').then(m => {
       m.default.initialize({
         startOnLoad: false,
-        theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'default' : 'dark',
+        theme: theme === 'light' ? 'default' : 'dark',
         flowchart: { curve: 'basis', useMaxWidth: true },
         securityLevel: 'loose',
       })
@@ -57,7 +66,6 @@ export default function WorkflowTab({ topology }: Props) {
       m.default.render('workflow-svg', diagram).then(({ svg }) => {
         if (ref.current) {
           ref.current.innerHTML = svg
-          // Click handler on nodes
           ref.current.querySelectorAll('.node').forEach((el) => {
             (el as HTMLElement).style.cursor = 'pointer'
             el.addEventListener('click', () => {
@@ -69,7 +77,7 @@ export default function WorkflowTab({ topology }: Props) {
         }
       }).catch(e => setError(String(e)))
     }).catch(e => setError('Could not load Mermaid: ' + String(e)))
-  }, [topology])
+  }, [topology, theme])
 
   if (!topology || !topology.nodes.length) {
     return <div style={{ color: 'var(--color-text-muted)', padding: '40px 0', textAlign: 'center' }}>No topology data available.</div>
@@ -82,8 +90,8 @@ export default function WorkflowTab({ topology }: Props) {
           <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>Interactive Workflow</h2>
           <p style={{ margin: '0 0 16px', color: 'var(--color-text-muted)', fontSize: 13 }}>
             Program call graph — {topology.nodes.length} programs · {topology.edges.length} call edges
-            {(topology as any).all_nodes_count && (topology as any).all_nodes_count > topology.nodes.length
-              ? ` (filtered from ${(topology as any).all_nodes_count} total nodes)`
+            {topology.all_nodes_count && topology.all_nodes_count > topology.nodes.length
+              ? ` (filtered from ${topology.all_nodes_count} total nodes)`
               : ''}
             . Click a node for details.
           </p>
