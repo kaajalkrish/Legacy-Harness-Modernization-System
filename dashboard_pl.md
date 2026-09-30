@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A local web dashboard for the 10-phase COBOL → BRD reverse engineering harness. Reads artifacts produced by the pipeline and presents them as a structured analytics interface. Serves one output directory at a time; supports any harness run by changing the `outputDir` query parameter.
+A local web dashboard for the 11-phase COBOL → BRD reverse engineering harness. Reads artifacts produced by the pipeline and presents them as a structured analytics interface. Serves one output directory at a time; supports any harness run by changing the `outputDir` query parameter.
 
 ---
 
@@ -72,6 +72,7 @@ All endpoints accept `outputDir` as a required query parameter pointing to the h
 | `GET /api/brd` | BRD markdown content and file metadata |
 | `GET /api/rules` | All business rules with stats and rule sets |
 | `GET /api/topology` | Raw topology graph (nodes + edges) |
+| `GET /api/syntest` | Phase 11 synthetic test scenarios, coverage, score breakdown |
 
 Static files — production build is served from `dashboard/frontend/dist/` mounted at `/`.
 
@@ -87,15 +88,16 @@ src/
 ├── index.css                Design tokens, utility classes, dark/light theme
 ├── components/
 │   ├── Sidebar.tsx          Collapsible phase list
-│   ├── StatsRow.tsx         6-tile KPI bar
+│   ├── StatsRow.tsx         6-tile KPI bar (shows SCENARIOS tile once Phase 11 runs)
 │   ├── BRDModal.tsx         BRD viewer — marked.js + Mermaid rendering + TOC
+│   ├── ScenarioModal.tsx    Phase 11 scenario detail — BDD, checklist, requirements
 │   └── tabs/
 │       ├── PipelineTab.tsx        Phase cards + BRD Judge verdict
 │       ├── AgentsTab.tsx          Agent table
 │       ├── ArtifactsTab.tsx       Filterable artifact catalogue
 │       ├── CallTraceTab.tsx       CFG call trace with filters
-│       ├── SyntheticTestingTab.tsx Quality score from rules confidence
-│       ├── WorkflowTab.tsx        Mermaid program call graph
+│       ├── SyntheticTestingTab.tsx Quality gate — coverage bars, score, scenario list
+│       ├── WorkflowTab.tsx        Mermaid program call graph (theme-aware re-render)
 │       ├── TimelineTab.tsx        Phase completion timeline
 │       ├── RulesTab.tsx           Filterable business rules browser
 │       └── StateTab.tsx           Raw JSON viewer
@@ -144,14 +146,16 @@ Light theme overrides apply via `[data-theme="light"]` on `<html>`. Theme prefer
     updated: string          // ISO timestamp of last poll
   }
   stats: {
-    programs: number         // from inventory.stats.programs
-    copybooks: number        // from inventory.stats.copybooks
-    records: number          // from data_artifact
-    rules: number            // from rules_artifact
-    diagrams: number         // from diagrams_artifact
-    artifacts: number        // count of .json/.md/.mmd files
+    programs: number          // from inventory.stats.programs
+    copybooks: number         // from inventory.stats.copybooks
+    records: number           // from data_artifact
+    rules: number             // from rules_artifact
+    diagrams: number          // from diagrams_artifact
+    artifacts: number         // count of .json/.md/.mmd files
+    scenarios?: number        // Phase 11 — total generated scenarios
+    scenarios_passed?: number // Phase 11 — scenarios with status=pass
   }
-  overall_pct: number        // done_phases / 10 * 100
+  overall_pct: number         // done_phases / 11 * 100
   phases: PhaseDef[]         // 10 entries, one per phase
   timeline: TimelineEntry[]  // generated_at deltas per phase
   verdict: {
@@ -189,20 +193,61 @@ Light theme overrides apply via `[data-theme="light"]` on `<html>`. Theme prefer
 | 8 Diagram | `diagram` | `diagram/diagrams_artifact.json` | Deterministic |
 | 9 BRD | `brd` | `final_report/brd.md` | LLM + Python |
 | 10 Judge | `judge` | `final_report/brd_judge.json` | LLM + Python |
+| 11 Synthetic Tests | `syntest` | `synthetic_tests/synthetic_tests.json` | Deterministic |
 
 Phase status is derived by checking whether the artifact file exists. Duration is the delta between consecutive `meta.generated_at` timestamps.
 
 ---
 
-## Synthetic Testing — Quality Score
+## Phase 11 — Synthetic Testing
 
-The quality score (0–100) is computed in `SyntheticTestingTab.tsx` from the rules confidence distribution already present in `/api/state`:
+Phase 11 (`phases/p11_syntest/syntest_builder.py`) is a deterministic builder that generates test scenarios from the rules produced by Phase 7. It requires no API key and runs in seconds.
 
+### Scenario types
+
+| Type | Source rule category | Prefix |
+|---|---|---|
+| Happy path | ROUTING | SCN-H |
+| Negative path | VALIDATION | SCN-N |
+| Exception | VALIDATION | SCN-E |
+| Boundary | LIMIT_CHECK | SCN-B |
+| State transition | CALCULATION | SCN-S |
+| Integration | rule sets spanning 2+ programs | SCN-I |
+
+### Each scenario contains
+
+- BDD condition (Given / When / Then) derived from the rule's condition text
+- Expected result and why-generated rationale
+- Requirements linkage (BR-XXX rule IDs)
+- 10-point determinism checklist (actor, inputs, expected behavior, failure behavior, resulting state, downstream effects, etc.)
+- `pass` or `with_gaps` status based on confidence + checklist completeness
+
+### Quality score (0–100)
+
+Start at 100. Deductions are applied for:
+- Each scenario type below its minimum coverage threshold (deficit × weight)
+- Blocking findings — scenarios where `acceptance_test_ready = false` (−4 per finding, capped at −20)
+- Repeated evidence across duplicate rules (−2 flat)
+- Number of categories below threshold (−3 per category)
+
+### Coverage thresholds
+
+| Type | Minimum required |
+|---|---|
+| happy_path | 95% |
+| negative_path | 85% |
+| boundary | 80% |
+| exception | 80% |
+| state_transition | 90% |
+| integration | 85% |
+
+### Running Phase 11
+
+```bash
+python -m phases.p11_syntest.syntest_builder --output outputs/carddemo
 ```
-score = (confirmed×1.0 + high×0.9 + medium×0.5 + low×0.2) / total_rules × 100
-```
 
-This is a **weighted evidence coverage metric** — it measures what fraction of the extracted rules have strong enough evidence in the COBOL source to be directly expressed as verifiable test conditions. A score of 70+ indicates the majority of rules are test-ready. Rules at medium/low confidence require SME clarification before testing.
+Output: `<outputDir>/synthetic_tests/synthetic_tests.json`
 
 ---
 
@@ -224,17 +269,21 @@ python -m unittest discover -s tests -v
 
 ---
 
-## v1.1 Feature Summary
+## v1.2 Feature Summary
 
 | Feature | Status |
 |---|---|
 | 9 tabs — all with live data | ✓ |
 | Live polling (5s) | ✓ |
 | View BRD — marked.js + Mermaid + TOC | ✓ |
-| Synthetic Testing quality score | ✓ |
+| Phase 11 Synthetic Testing quality gate | ✓ |
+| Coverage bars with minimum-threshold marker | ✓ |
+| Score calculation with itemised deduction chips | ✓ |
+| SCN-XXX scenario list with type filters | ✓ |
+| Scenario detail modal (BDD + determinism checklist) | ✓ |
 | Rules Explorer (filterable) | ✓ |
 | Collapsible sidebar with expand button | ✓ |
-| Dark / light theme (persisted) | ✓ |
+| Dark / light theme (persisted + WorkflowTab re-renders) | ✓ |
 | Export JSON / Export PDF / Download BRD | ✓ |
 | Plug-and-play for any harness output dir | ✓ |
 | One-command launcher (`start.py`) | ✓ |
