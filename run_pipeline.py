@@ -487,7 +487,37 @@ def main():
         sys.exit(e.returncode)
 
     print("====================================================")
-    print("🎉 All phases complete.")
+
+    choice = ask_choice(
+    "Proceed to Phase 11 (Synthetic Test Scenario Generator — deterministic, no key needed)?",
+    "[y/n]",
+    default="y"
+    )
+
+    if choice in ("n", "no"):
+        print("Pipeline stopped after Phase 10.")
+        return
+
+    # --- PHASE 11: Synthetic Test Scenario Generator (deterministic) ---
+    print("Starting Phase 11: Synthetic Test Scenario Generator...")
+    rules_artifact = rules_output_dir / "rules_artifact.json"
+    if not rules_artifact.exists():
+        print("[ERROR] Cannot run Phase 11. Missing rules/rules_artifact.json (run Phase 7 first).")
+        sys.exit(1)
+
+    agent11_cmd = [
+        sys.executable, "-m", "phases.p11_syntest.syntest_builder",
+        "--output", str(out_dir),
+    ]
+    try:
+        subprocess.run(agent11_cmd, check=True)
+        print(f"[SUCCESS] Phase 11 (Synthetic Tests) wrote scenarios in: synthetic_tests/")
+    except subprocess.CalledProcessError as e:
+        print(f"\n[ERROR] Phase 11 failed with exit code {e.returncode}", file=sys.stderr)
+        sys.exit(e.returncode)
+
+    print("====================================================")
+    print("All phases complete.")
 
 if __name__ == "__main__":
     main()
