@@ -145,27 +145,38 @@ Use the program selector dropdown to view the trace for a specific program or al
 
 ### 5 · Synthetic Testing
 
-A quality gate driven by Phase 11 (`syntest_builder.py`). The tab has three sections and requires Phase 11 to have run first; if not, it shows a prompt with the command to run it.
+A quality gate driven by Phase 11 (`syntest_builder.py`). Requires Phase 11 to have run first; if not, the tab shows the command to run it.
 
-**KPI strip (top row)**
+**Executive Summary card (top)**
+
+A plain-English paragraph summarising the full run for business leaders and SMEs:
+- How many scenarios were generated and what percentage are fully test-ready
+- What work remains for scenarios that need detail or SME confirmation
+- Which coverage categories are below target and why
+- Overall quality score with an interpretation (solid / needs improvement / significant review required)
+
+Below the paragraph, three coloured pills show the readiness breakdown at a glance:
+- **test-ready** (green) — scenarios QA can run today
+- **needs detail** (yellow) — high-confidence rules with some missing post-conditions
+- **needs SME review** (orange) — medium/low confidence rules that need expert confirmation
+
+**KPI strip**
 
 | Tile | Meaning |
 |---|---|
 | QUALITY SCORE | 0–100 score after deductions |
-| BLOCKING FINDINGS | Scenarios that are not acceptance-test-ready (gate-impacting) |
+| BLOCKING | Scenarios not yet acceptance-test-ready (gate-impacting) |
 | SCENARIOS | Total generated SCN-XXX scenarios |
-| PASSED | Scenarios with full determinism checklist + confirmed/high confidence |
-| WITH GAPS | Scenarios needing SME review or missing checklist items |
+| PASSED | Scenarios with confirmed/high confidence |
+| WITH GAPS | Scenarios needing SME review or structural detail |
 | FAILED | Scenarios that could not be generated |
 
 **Coverage section**
 
 One row per scenario type. Each row shows:
-- A blue progress bar for the achieved coverage percentage
-- A green vertical line marking the minimum required threshold
+- A coloured progress bar (achieved %) and a green vertical line (minimum required threshold)
 - A PASS / FAIL label
-
-If the blue bar does not reach the green line, that category is below target and contributes a deduction to the score.
+- A plain-English **interpretation** sentence explaining what the coverage number means and what to do next
 
 | Type | Minimum threshold |
 |---|---|
@@ -178,21 +189,39 @@ If the blue bar does not reach the green line, that category is below target and
 
 **Score calculation panel**
 
-Shows starting score (100), all deductions as coloured chips, final score, and any blocking finding IDs (e.g. `FIND-ST-001`). An explanation paragraph describes how the score is calculated.
+Shows starting score (100), each deduction as a card with label, penalty, and an explanation sentence, final score, and blocking finding details. Blocking findings include a per-finding SME action directive.
+
+**Prioritised Next Steps panel**
+
+A collapsible list of actions ranked by impact, generated automatically from the score. Each step has:
+- A colour-coded priority circle (red = P1, orange = P2, yellow = P3+)
+- A title summarising the action
+- A detail paragraph explaining what to do
+- An **Impact** note showing how many score points the action could recover
+
+Click any step to expand it.
 
 **Scenario list (right panel)**
 
-A scrollable list of all SCN-XXX scenarios. Filter by type using the pill buttons at the top. Each row shows the scenario ID, name, type (colour coded), and PASS / WITH GAPS badge. Click any row to open the **Scenario Detail Modal**.
+A scrollable list of all SCN-XXX scenarios. Filter by type using the pill buttons. Each row shows:
+- Scenario ID · scenario name · type (colour-coded)
+- **Readiness badge**: test-ready (green), needs detail (yellow), needs SME (orange)
+- PASS / WITH GAPS status badge
+
+Click any row to open the **Scenario Detail Modal**.
 
 **Scenario Detail Modal**
 
 Opens on clicking a scenario row. Shows:
-- Header: SCN-ID, status badge, scenario type, persona, Test-ready badge
-- Requirements — the BR-XXX rule IDs linked to this scenario
+- Header: PASS/WITH GAPS badge · SCN-ID · type badge · persona · readiness badge
+- Checklist score fraction (e.g. 7/10) and full confidence label (plain English)
+- **SME Action callout** — orange banner with a single, concrete directive when SME review is needed
+- **Why this scenario has gaps** — red-tinted card(s) explaining each blocking or meaningful gap in plain English
+- Requirements — BR-XXX rule IDs linked to this scenario
 - **Condition** — full Given / When / Then BDD text
 - **Expected Result** — what the system should produce
 - **Why Generated** — rationale for including this scenario
-- **What it tests** — dimension tags (actor, inputs, business rules, etc.)
+- **What it tests** — dimension tags
 - **Determinism Checklist** — 10 green/grey checkmarks across two columns
 - Programs — list of COBOL programs involved
 

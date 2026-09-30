@@ -221,14 +221,33 @@ Phase 11 (`phases/p11_syntest/syntest_builder.py`) is a deterministic builder th
 - Requirements linkage (BR-XXX rule IDs)
 - 10-point determinism checklist (actor, inputs, expected behavior, failure behavior, resulting state, downstream effects, etc.)
 - `pass` or `with_gaps` status based on confidence + checklist completeness
+- `readiness_level` — `test_ready` / `needs_detail` / `needs_sme_review`
+- `checklist_score` — number of the 10 items that pass (0–10)
+- `confidence_label` — plain-English explanation of the confidence value
+- `gap_reasons` — list of plain-English strings explaining each blocking or meaningful gap (empty for fully test-ready scenarios)
+- `sme_action` — a single, concrete directive telling the SME exactly what to do (null when already test-ready)
+
+### Readiness levels
+
+| Level | Condition | Meaning |
+|---|---|---|
+| `test_ready` | `acceptance_test_ready = true` AND `checklist_score ≥ 6` | Can be handed to QA as a runnable test today |
+| `needs_detail` | `acceptance_test_ready = true` AND `checklist_score < 6` | QA can start; some post-conditions need documenting |
+| `needs_sme_review` | `acceptance_test_ready = false` | SME must confirm business meaning before testing |
 
 ### Quality score (0–100)
 
 Start at 100. Deductions are applied for:
-- Each scenario type below its minimum coverage threshold (deficit × weight)
-- Blocking findings — scenarios where `acceptance_test_ready = false` (−4 per finding, capped at −20)
+- Each scenario type below its minimum coverage threshold (deficit × weight); each deduction includes a plain-English `explanation`
+- Blocking findings — scenarios where `acceptance_test_ready = false` (−4 per finding, capped at −20); each finding includes an `action` field
 - Repeated evidence across duplicate rules (−2 flat)
 - Number of categories below threshold (−3 per category)
+
+The score_breakdown also contains a `next_steps` array: prioritised, actionable items with `title`, `detail`, and `impact` — ready to display in the dashboard.
+
+### Executive summary
+
+The artifact includes an `executive_summary` string — a plain-English paragraph for business leaders and SMEs, summarising total scenarios, readiness breakdown, coverage gaps, and overall score with interpretation.
 
 ### Coverage thresholds
 
@@ -269,7 +288,7 @@ python -m unittest discover -s tests -v
 
 ---
 
-## v1.2 Feature Summary
+## v1.3 Feature Summary
 
 | Feature | Status |
 |---|---|
@@ -277,10 +296,17 @@ python -m unittest discover -s tests -v
 | Live polling (5s) | ✓ |
 | View BRD — marked.js + Mermaid + TOC | ✓ |
 | Phase 11 Synthetic Testing quality gate | ✓ |
-| Coverage bars with minimum-threshold marker | ✓ |
-| Score calculation with itemised deduction chips | ✓ |
-| SCN-XXX scenario list with type filters | ✓ |
-| Scenario detail modal (BDD + determinism checklist) | ✓ |
+| Executive summary card (plain-English for business leaders) | ✓ |
+| Readiness breakdown pills (test-ready / needs detail / needs SME) | ✓ |
+| Coverage bars with threshold marker + interpretation text | ✓ |
+| Score calculation with itemised deductions + explanation text | ✓ |
+| Blocking findings with per-finding SME action text | ✓ |
+| Prioritised next-steps panel (collapsible, colour-coded priority) | ✓ |
+| SCN-XXX scenario list with type filters + readiness badge per row | ✓ |
+| Scenario detail modal — readiness badge, checklist score, confidence label | ✓ |
+| Scenario detail modal — SME action callout (orange banner) | ✓ |
+| Scenario detail modal — gap reasons section (red-tinted cards) | ✓ |
+| Scenario detail modal — BDD, determinism checklist, programs | ✓ |
 | Rules Explorer (filterable) | ✓ |
 | Collapsible sidebar with expand button | ✓ |
 | Dark / light theme (persisted + WorkflowTab re-renders) | ✓ |
