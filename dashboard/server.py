@@ -87,6 +87,7 @@ PHASE_META = [
     {"id": "diagram",    "num": 8,  "name": "Diagram",          "type": "Deterministic", "agent": "diagram",    "module": "phases/p08_diagram/diagram_builder.py"},
     {"id": "brd",        "num": 9,  "name": "Synthesis (BRD)",  "type": "LLM + Python",  "agent": "brd",        "module": "phases/p09_brd/brd_builder.py"},
     {"id": "judge",      "num": 10, "name": "BRD Judge",        "type": "LLM + Python",  "agent": "judge",      "module": "phases/p10_judge/brd_judge.py"},
+    {"id": "syntest",    "num": 11, "name": "Synthetic Tests",  "type": "Deterministic", "agent": "syntest",    "module": "phases/p11_syntest/syntest_builder.py"},
 ]
 
 PHASE_ARTIFACTS = {
@@ -100,6 +101,7 @@ PHASE_ARTIFACTS = {
     "diagram":   "diagram/diagrams_artifact.json",
     "brd":       "final_report/brd.md",
     "judge":     "final_report/brd_judge.json",
+    "syntest":   "synthetic_tests/synthetic_tests.json",
 }
 
 
@@ -108,14 +110,15 @@ PHASE_ARTIFACTS = {
 # ---------------------------------------------------------------------------
 
 def assemble_state(out_dir: Path) -> dict:
-    inv   = _read(out_dir / "discovery/inventory.json") or {}
-    par   = _read(out_dir / "analysis/parser_artifact.json") or {}
-    topo  = _read(out_dir / "topology/graph.json") or {}
-    data  = _read(out_dir / "data/data_artifact.json") or {}
-    logic = _read(out_dir / "logic/logic_artifact.json") or {}
-    rules = _read(out_dir / "rules/rules_artifact.json") or {}
-    diag  = _read(out_dir / "diagram/diagrams_artifact.json") or {}
-    judge = _read(out_dir / "final_report/brd_judge.json") or {}
+    inv     = _read(out_dir / "discovery/inventory.json") or {}
+    par     = _read(out_dir / "analysis/parser_artifact.json") or {}
+    topo    = _read(out_dir / "topology/graph.json") or {}
+    data    = _read(out_dir / "data/data_artifact.json") or {}
+    logic   = _read(out_dir / "logic/logic_artifact.json") or {}
+    rules   = _read(out_dir / "rules/rules_artifact.json") or {}
+    diag    = _read(out_dir / "diagram/diagrams_artifact.json") or {}
+    judge   = _read(out_dir / "final_report/brd_judge.json") or {}
+    syntest = _read(out_dir / "synthetic_tests/synthetic_tests.json") or {}
 
     # --- meta ---
     inv_meta  = inv.get("meta", {})
@@ -158,13 +161,19 @@ def assemble_state(out_dir: Path) -> dict:
     # Count produced artifact files
     artifact_count = sum(1 for _ in out_dir.rglob("*") if _.is_file() and _.suffix in {".json", ".md", ".mmd", ".txt"})
 
+    syntest_stats  = syntest.get("stats", {})
+    scenarios_total  = syntest_stats.get("total", len(syntest.get("scenarios", [])))
+    scenarios_passed = syntest_stats.get("passed", 0)
+
     stats = {
-        "programs":   programs_count,
-        "copybooks":  copybooks_count,
-        "records":    records_count,
-        "rules":      rules_count,
-        "diagrams":   diag_meta.get("total_diagrams", len(diag.get("diagrams", []))),
-        "artifacts":  artifact_count,
+        "programs":         programs_count,
+        "copybooks":        copybooks_count,
+        "records":          records_count,
+        "rules":            rules_count,
+        "diagrams":         diag_meta.get("total_diagrams", len(diag.get("diagrams", []))),
+        "artifacts":        artifact_count,
+        "scenarios":        scenarios_total,
+        "scenarios_passed": scenarios_passed,
     }
 
     # --- phases ---
@@ -432,6 +441,19 @@ def get_rules(outputDir: str = Query(...)):
         "business_rules": rules_data.get("business_rules", []),
         "stats":          rules_data.get("stats", {}),
         "rule_sets":      rules_data.get("rule_sets", []),
+    })
+
+
+@app.get("/api/syntest")
+def get_syntest(outputDir: str = Query(...)):
+    out = Path(outputDir)
+    data = _read(out / "synthetic_tests/synthetic_tests.json") or {}
+    return JSONResponse({
+        "scenarios":       data.get("scenarios", []),
+        "coverage":        data.get("coverage", []),
+        "score_breakdown": data.get("score_breakdown", {}),
+        "stats":           data.get("stats", {}),
+        "generated_at":    (data.get("meta") or {}).get("generated_at"),
     })
 
 
