@@ -38,8 +38,9 @@ Deterministic where possible, LLM only where needed, and it runs **with no API k
 - [7. Responsibility Matrix](#7-responsibility-matrix)
 - [8. Proven on Two Codebases](#8-proven-on-two-codebases)
 - [9. How to Run](#9-how-to-run)
-- [10. Repository Layout](#10-repository-layout)
-- [11. Notes and Credits](#11-notes-and-credits)
+- [10. Dashboard](#10-dashboard)
+- [11. Repository Layout](#11-repository-layout)
+- [12. Notes and Credits](#12-notes-and-credits)
 
 ---
 
@@ -417,7 +418,42 @@ outputs/carddemo/final_report/gaps_register.md  # items flagged for SME review
 
 ---
 
-## 10. Repository Layout
+## 10. Dashboard
+
+A local web dashboard visualises every artifact the pipeline produces — programs, data structures, business rules, diagrams, and the final BRD — in a single navigable interface.
+
+```bash
+# Launch with one command (starts server, opens browser)
+python dashboard/start.py --output outputs/carddemo
+```
+
+The dashboard is then available at `http://localhost:8787?outputDir=outputs/carddemo`.
+
+**What it shows:**
+
+| Tab | Content |
+|---|---|
+| Pipeline | Phase-by-phase progress cards + BRD Judge verdict |
+| Agents | All 10 agents with type, status, duration, and artifact size |
+| Artifacts | Filterable catalogue of every output file |
+| Call Trace | Source-ordered list of every PERFORM / CALL / SQL per program |
+| Synthetic Testing | Quality score (0–100) measuring how many rules are test-ready |
+| Interactive Workflow | Live Mermaid program call graph |
+| Timeline | Phase completion timeline derived from artifact timestamps |
+| Rules Explorer | Filterable browser for all extracted business rules |
+| State | Raw JSON from `/api/state` for inspection or downstream use |
+
+**Live updates** — the dashboard polls every 5 seconds. If the pipeline is running in a second terminal, each phase that completes appears in the dashboard automatically.
+
+**View BRD** — the header button opens the full Business Requirements Document rendered as a formatted document with a chapter navigation sidebar and all Mermaid diagrams rendered as interactive SVGs.
+
+**Plug-and-play** — works with any harness output directory by changing the `outputDir` URL parameter. No configuration required.
+
+See [db_work.md](db_work.md) for the full user guide and [dashboard_pl.md](dashboard_pl.md) for the technical specification.
+
+---
+
+## 11. Repository Layout
 
 ```
 run_pipeline.py           # orchestrator — chains all agents with y/n/s gates
@@ -447,11 +483,17 @@ outputs/
   sample/                 # Portfolio system results
 comparison.md             # agent-by-agent comparison of the reference harnesses
 flow.md                   # architecture / pipeline documentation
+dashboard/                # web dashboard
+  server.py               #   FastAPI backend (port 8787)
+  start.py                #   one-command launcher
+  frontend/               #   React 18 + Vite + TypeScript SPA
+db_work.md                # dashboard user guide
+dashboard_pl.md           # dashboard technical specification
 ```
 
 ---
 
-## 11. Notes and Credits
+## 12. Notes and Credits
 
 - **AWS CardDemo** (`inputs/carddemo/`) is an AWS sample codebase, Apache-2.0 licensed.
 - The harness combines ideas from two reference approaches — a deterministic, code-first migrator and an LLM-agent reverse-engineering harness. `comparison.md` documents the agent-by-agent differences.

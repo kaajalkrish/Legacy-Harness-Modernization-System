@@ -1,5 +1,6 @@
 # Python
 venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
@@ -15,3 +16,8 @@ Thumbs.db
 
 # Temp backups
 outputs_portfolio_backup/
+
+# Dashboard — generated / local-only
+ref_pics/
+dashboard/frontend/node_modules/
+dashboard/frontend/dist/
