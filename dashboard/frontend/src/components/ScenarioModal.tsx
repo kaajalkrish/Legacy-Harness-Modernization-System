@@ -23,6 +23,12 @@ const TYPE_COLORS: Record<string, string> = {
   integration:      'var(--color-accent)',
 }
 
+const READINESS_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
+  test_ready:       { label: '✓ Test-ready',       color: 'var(--color-green)',  bg: 'rgba(34,197,94,0.12)' },
+  needs_detail:     { label: '~ Needs detail',      color: 'var(--color-accent)', bg: 'rgba(232,184,0,0.12)' },
+  needs_sme_review: { label: '⚠ Needs SME review', color: 'var(--color-orange)', bg: 'rgba(249,115,22,0.12)' },
+}
+
 const CHECKLIST_LABELS: Array<[keyof DeterminismChecklist, string]> = [
   ['actor_defined',               'actor defined'],
   ['starting_state_defined',      'starting state defined'],
@@ -37,10 +43,11 @@ const CHECKLIST_LABELS: Array<[keyof DeterminismChecklist, string]> = [
 ]
 
 export default function ScenarioModal({ scenario: s, onClose }: Props) {
-  const color  = TYPE_COLORS[s.type] || 'var(--color-text-muted)'
-  const label  = TYPE_LABELS[s.type] || s.type
-  const passed = Object.values(s.determinism).filter(Boolean).length
-  const total  = Object.values(s.determinism).length
+  const color    = TYPE_COLORS[s.type] || 'var(--color-text-muted)'
+  const label    = TYPE_LABELS[s.type] || s.type
+  const passed   = Object.values(s.determinism).filter(Boolean).length
+  const total    = Object.values(s.determinism).length
+  const readConf = READINESS_CONFIG[s.readiness_level] || READINESS_CONFIG['needs_detail']
 
   return (
     <div
@@ -59,7 +66,7 @@ export default function ScenarioModal({ scenario: s, onClose }: Props) {
           border: `1px solid ${color}`,
           borderLeft: `4px solid ${color}`,
           borderRadius: 10,
-          width: '100%', maxWidth: 680,
+          width: '100%', maxWidth: 720,
           maxHeight: '90vh', overflowY: 'auto',
           padding: 28,
           position: 'relative',
@@ -71,7 +78,7 @@ export default function ScenarioModal({ scenario: s, onClose }: Props) {
           style={{ position: 'absolute', top: 14, right: 16, background: 'none', border: 'none', color: 'var(--color-text-muted)', cursor: 'pointer', fontSize: 20, lineHeight: 1 }}
         >×</button>
 
-        {/* Header */}
+        {/* Header row */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 14 }}>
           <span className={`badge badge-${s.status === 'pass' ? 'pass' : 'pending'}`} style={{ fontSize: 11, fontWeight: 700 }}>
             {s.status === 'pass' ? '✓ PASS' : '~ WITH GAPS'}
@@ -83,10 +90,71 @@ export default function ScenarioModal({ scenario: s, onClose }: Props) {
           <span style={{ fontSize: 12, color: 'var(--color-text-muted)', background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', padding: '2px 10px', borderRadius: 99 }}>
             {s.persona}
           </span>
-          {s.determinism.acceptance_test_ready && (
-            <span className="badge badge-done" style={{ fontSize: 11 }}>✓ Test-ready</span>
-          )}
+          {/* Readiness badge */}
+          <span style={{
+            fontSize: 11, fontWeight: 700, padding: '2px 10px', borderRadius: 99,
+            background: readConf.bg, color: readConf.color,
+            border: `1px solid ${readConf.color}44`,
+          }}>
+            {readConf.label}
+          </span>
         </div>
+
+        {/* Checklist score + confidence label row */}
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginBottom: 16 }}>
+          <div style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '8px 14px', fontSize: 12 }}>
+            <span style={{ color: 'var(--color-text-muted)' }}>Checklist score: </span>
+            <span style={{ fontWeight: 700, color: (s.checklist_score ?? passed) >= 7 ? 'var(--color-green)' : (s.checklist_score ?? passed) >= 5 ? 'var(--color-accent)' : 'var(--color-red)' }}>
+              {s.checklist_score ?? passed}/{total}
+            </span>
+          </div>
+          <div style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', borderRadius: 8, padding: '8px 14px', fontSize: 12 }}>
+            <span style={{ color: 'var(--color-text-muted)' }}>Confidence: </span>
+            <span style={{ fontWeight: 600 }}>{s.confidence_label || s.confidence}</span>
+          </div>
+        </div>
+
+        {/* SME Action callout — most prominent item when present */}
+        {s.sme_action && (
+          <div style={{
+            marginBottom: 18,
+            padding: '12px 16px',
+            background: 'rgba(249,115,22,0.08)',
+            border: '1px solid rgba(249,115,22,0.4)',
+            borderLeft: '4px solid var(--color-orange)',
+            borderRadius: 8,
+          }}>
+            <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-orange)', marginBottom: 6 }}>
+              ⚠ SME Action Required
+            </div>
+            <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--color-text)' }}>
+              {s.sme_action}
+            </div>
+          </div>
+        )}
+
+        {/* Gap reasons */}
+        {s.gap_reasons && s.gap_reasons.length > 0 && (
+          <div style={{ marginBottom: 18 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 8 }}>
+              Why this scenario has gaps
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {s.gap_reasons.map((reason, i) => (
+                <div key={i} style={{
+                  padding: '8px 12px',
+                  background: 'rgba(239,68,68,0.06)',
+                  border: '1px solid rgba(239,68,68,0.2)',
+                  borderRadius: 6,
+                  fontSize: 12, lineHeight: 1.6,
+                  color: 'var(--color-text)',
+                }}>
+                  {reason}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Requirements */}
         {s.requirements.length > 0 && (
@@ -134,10 +202,10 @@ export default function ScenarioModal({ scenario: s, onClose }: Props) {
         {/* Determinism checklist */}
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 10 }}>
-            Determinism Checklist — {passed}/{total}
+            Determinism Checklist — {s.checklist_score ?? passed}/{total}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px 24px' }}>
-            {CHECKLIST_LABELS.map(([key, label]) => {
+            {CHECKLIST_LABELS.map(([key, lbl]) => {
               const ok = s.determinism[key]
               return (
                 <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
@@ -150,7 +218,7 @@ export default function ScenarioModal({ scenario: s, onClose }: Props) {
                   }}>
                     {ok ? '✓' : '–'}
                   </span>
-                  <span style={{ color: ok ? 'var(--color-text)' : 'var(--color-text-muted)' }}>{label}</span>
+                  <span style={{ color: ok ? 'var(--color-text)' : 'var(--color-text-muted)' }}>{lbl}</span>
                 </div>
               )
             })}

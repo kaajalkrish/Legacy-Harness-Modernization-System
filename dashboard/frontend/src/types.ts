@@ -95,35 +95,42 @@ export interface DeterminismChecklist {
 }
 
 export interface Scenario {
-  id:              string
-  type:            'happy_path' | 'negative_path' | 'boundary' | 'exception' | 'state_transition' | 'integration'
-  status:          'pass' | 'with_gaps' | 'failed'
-  rule_id:         string
-  rule_set:        string
-  name:            string
-  confidence:      string
-  persona:         string
-  requirements:    string[]
-  condition:       string
-  expected_result: string
-  why_generated:   string
-  what_it_tests:   string[]
-  determinism:     DeterminismChecklist
-  programs:        string[]
+  id:               string
+  type:             'happy_path' | 'negative_path' | 'boundary' | 'exception' | 'state_transition' | 'integration'
+  status:           'pass' | 'with_gaps' | 'failed'
+  readiness_level:  'test_ready' | 'needs_detail' | 'needs_sme_review'
+  checklist_score:  number
+  rule_id:          string
+  rule_set:         string
+  name:             string
+  confidence:       string
+  confidence_label: string
+  persona:          string
+  requirements:     string[]
+  condition:        string
+  expected_result:  string
+  why_generated:    string
+  what_it_tests:    string[]
+  determinism:      DeterminismChecklist
+  gap_reasons:      string[]
+  sme_action:       string | null
+  programs:         string[]
 }
 
 export interface CoverageEntry {
-  type:         string
-  total:        number
-  passed:       number
-  achieved_pct: number
-  min_pct:      number
-  meets_target: boolean
+  type:            string
+  total:           number
+  passed:          number
+  achieved_pct:    number
+  min_pct:         number
+  meets_target:    boolean
+  interpretation:  string
 }
 
 export interface Deduction {
-  label:   string
-  penalty: number
+  label:       string
+  penalty:     number
+  explanation: string
 }
 
 export interface BlockingFinding {
@@ -132,6 +139,7 @@ export interface BlockingFinding {
   scenario: string
   rule_id:  string
   n:        number
+  action:   string
 }
 
 export interface ScoreBreakdown {
@@ -141,6 +149,7 @@ export interface ScoreBreakdown {
   blocking_count:    number
   blocking_findings: BlockingFinding[]
   quality_rating:    string
+  next_steps:        Array<{ priority: number; title: string; detail: string; impact: string }>
 }
 
 export interface SyntestStats {
@@ -149,16 +158,18 @@ export interface SyntestStats {
   with_gaps:          number
   failed:             number
   by_type:            Record<string, number>
+  by_readiness:       Record<string, number>
   quality_score:      number
   blocking_findings:  number
 }
 
 export interface SyntestData {
-  scenarios:       Scenario[]
-  coverage:        CoverageEntry[]
-  score_breakdown: ScoreBreakdown
-  stats:           SyntestStats
-  generated_at:    string | null
+  scenarios:         Scenario[]
+  coverage:          CoverageEntry[]
+  score_breakdown:   ScoreBreakdown
+  stats:             SyntestStats
+  executive_summary: string
+  generated_at:      string | null
 }
 
 export interface ArtifactEntry {
