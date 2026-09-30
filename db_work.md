@@ -147,6 +147,8 @@ Use the program selector dropdown to view the trace for a specific program or al
 
 A quality gate driven by Phase 11 (`syntest_builder.py`). Requires Phase 11 to have run first; if not, the tab shows the command to run it.
 
+The tab header shows the total scenario count, quality score, and the **last run timestamp** so you always know how fresh the data is. An **Export CSV** button in the top-right downloads all scenarios with every field (ID, name, type, status, readiness, confidence, rule ID, gap reasons, SME action) as a spreadsheet-ready file.
+
 **Executive Summary card (top)**
 
 A plain-English paragraph summarising the full run for business leaders and SMEs:
@@ -203,7 +205,13 @@ Click any step to expand it.
 
 **Scenario list (right panel)**
 
-A scrollable list of all SCN-XXX scenarios. Filter by type using the pill buttons. Each row shows:
+A scrollable list with three layers of filtering, all applied together:
+
+1. **Search box** — type any text to filter instantly by scenario ID, name, or rule ID
+2. **Readiness filter pills** — `All · Test-ready (N) · Needs SME (N) · Needs detail (N)` — each pill shows the count for that level so you can see the distribution at a glance
+3. **Type filter pills** — `All (N) · H · Happy Path (N) · N · Negative Path (N) …` — counts shown on every pill
+
+Each row shows:
 - Scenario ID · scenario name · type (colour-coded)
 - **Readiness badge**: test-ready (green), needs detail (yellow), needs SME (orange)
 - PASS / WITH GAPS status badge

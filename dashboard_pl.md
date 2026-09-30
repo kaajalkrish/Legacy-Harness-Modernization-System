@@ -307,6 +307,11 @@ python -m unittest discover -s tests -v
 | Scenario detail modal — SME action callout (orange banner) | ✓ |
 | Scenario detail modal — gap reasons section (red-tinted cards) | ✓ |
 | Scenario detail modal — BDD, determinism checklist, programs | ✓ |
+| Scenario list — search by ID / name / rule ID | ✓ |
+| Scenario list — readiness filter pills with counts | ✓ |
+| Scenario list — type filter pills with counts | ✓ |
+| Export CSV (all scenarios with all fields, browser-side) | ✓ |
+| Last-run timestamp displayed in tab header | ✓ |
 | Rules Explorer (filterable) | ✓ |
 | Collapsible sidebar with expand button | ✓ |
 | Dark / light theme (persisted + WorkflowTab re-renders) | ✓ |
