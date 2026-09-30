@@ -10,13 +10,17 @@ export default function StatsRow({ stats, overallPct, phases }: Props) {
   const done = phases.filter(p => p.status === 'done').length
   const total = phases.length
 
+  const scenarioTile = stats.scenarios != null
+    ? { label: 'SCENARIOS', value: stats.scenarios.toLocaleString(), sub: `${stats.scenarios_passed ?? 0} passed` }
+    : { label: 'ARTIFACTS', value: stats.artifacts.toLocaleString(), sub: 'produced' }
+
   const tiles = [
     { label: 'OVERALL',   value: `${overallPct}%`,                  sub: `${done}/${total} phases done` },
     { label: 'PROGRAMS',  value: stats.programs.toLocaleString(),    sub: 'reachable' },
     { label: 'COPYBOOKS', value: stats.copybooks.toLocaleString(),   sub: 'expanded' },
     { label: 'RECORDS',   value: stats.records.toLocaleString(),     sub: 'in dictionary' },
     { label: 'RULES',     value: stats.rules.toLocaleString(),       sub: 'catalogued' },
-    { label: 'ARTIFACTS', value: stats.artifacts.toLocaleString(),   sub: 'produced' },
+    scenarioTile,
   ]
 
   return (

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { TopoNode, TopoEdge } from '../../types'
 
 interface Props {
-  topology?: { nodes: TopoNode[]; edges: TopoEdge[] }
+  topology?: { nodes: TopoNode[]; edges: TopoEdge[]; all_nodes_count?: number; all_edges_count?: number }
 }
 
 function buildMermaid(nodes: TopoNode[], edges: TopoEdge[]): string {

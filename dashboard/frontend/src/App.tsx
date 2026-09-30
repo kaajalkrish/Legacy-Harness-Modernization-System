@@ -159,7 +159,7 @@ export default function App() {
           {activeTab === 'agents'    && <AgentsTab phases={state?.phases || []} />}
           {activeTab === 'artifacts' && <ArtifactsTab outputDir={outputDir} />}
           {activeTab === 'calltrace' && <CallTraceTab outputDir={outputDir} />}
-          {activeTab === 'syntest'   && <SyntheticTestingTab rulesByCategory={state?.rules_by_category || {}} rulesByConfidence={state?.rules_by_confidence || {}} totalRules={state?.stats.rules || 0} />}
+          {activeTab === 'syntest'   && <SyntheticTestingTab outputDir={outputDir} />}
           {activeTab === 'workflow'  && <WorkflowTab topology={state?.topology} />}
           {activeTab === 'timeline'  && <TimelineTab timeline={state?.timeline || []} />}
           {activeTab === 'rules'     && <RulesTab outputDir={outputDir} />}
