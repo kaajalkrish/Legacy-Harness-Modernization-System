@@ -124,12 +124,14 @@ def assemble_state(out_dir: Path) -> dict:
     brd_path  = out_dir / "final_report/brd.md"
     brd_name  = brd_path.name if brd_path.exists() else "—"
 
+    repo_root = inv_meta.get("repo_root") or inv_meta.get("source_root") or inv_meta.get("entry_point") or ""
     meta = {
-        "project":      inv_meta.get("project_name", "Mainframe-Source COBOL Reverse Engineering"),
-        "domain":       inv_meta.get("domain", ""),
-        "entry_point":  inv_meta.get("entry_point", str(out_dir)),
-        "project_dir":  inv_meta.get("source_root", ""),
-        "output_dir":   str(out_dir),
+        "project":        inv_meta.get("project_name", "Mainframe-Source COBOL Reverse Engineering"),
+        "domain":         inv_meta.get("domain", ""),
+        "entry_point":    repo_root,
+        "project_dir":    repo_root,
+        "output_dir":     str(out_dir),
+        "files_scanned":  inv_meta.get("total_files_scanned"),
         "brd_name":     brd_name,
         "status":       "complete" if (out_dir / "final_report/brd_judge.json").exists() else "in-progress",
         "updated":      datetime.now(timezone.utc).isoformat(),

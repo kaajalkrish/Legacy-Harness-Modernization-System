@@ -62,9 +62,10 @@ export interface DashboardState {
   meta: {
     project: string
     domain: string
-    entry_point: string
-    project_dir: string
-    output_dir: string
+    entry_point:   string
+    project_dir:   string
+    output_dir:    string
+    files_scanned: number | null
     brd_name: string
     status: string
     updated: string
