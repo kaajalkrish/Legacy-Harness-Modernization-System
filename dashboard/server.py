@@ -87,7 +87,6 @@ PHASE_META = [
     {"id": "diagram",    "num": 8,  "name": "Diagram",          "type": "Deterministic", "agent": "diagram",    "module": "phases/p08_diagram/diagram_builder.py"},
     {"id": "brd",        "num": 9,  "name": "Synthesis (BRD)",  "type": "LLM + Python",  "agent": "brd",        "module": "phases/p09_brd/brd_builder.py"},
     {"id": "judge",      "num": 10, "name": "BRD Judge",        "type": "LLM + Python",  "agent": "judge",      "module": "phases/p10_judge/brd_judge.py"},
-    {"id": "syntest",    "num": 11, "name": "Synthetic Tests",  "type": "Deterministic", "agent": "syntest",    "module": "phases/p11_syntest/syntest_builder.py"},
 ]
 
 PHASE_ARTIFACTS = {
