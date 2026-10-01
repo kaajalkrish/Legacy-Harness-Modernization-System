@@ -38,6 +38,15 @@ const READINESS_CONFIG: Record<string, { label: string; color: string; bg: strin
 const SCENARIO_TYPES = ['happy_path', 'negative_path', 'boundary', 'exception', 'state_transition', 'integration']
 const READINESS_LEVELS = ['test_ready', 'needs_sme_review', 'needs_detail']
 
+const TYPE_DESCRIPTIONS: Record<string, string> = {
+  happy_path:       'The rule fires and everything works correctly — no errors, no edge cases. Tests the normal success flow.',
+  negative_path:    'The rule is NOT satisfied — e.g. invalid input or a failed condition. Tests that the system correctly rejects or routes away.',
+  boundary:         'The value sits right at the edge of a limit (at, just above, or just below a threshold). Catches off-by-one and rounding errors.',
+  exception:        'Something unexpected happens in the error-handling path. Tests that the system fails gracefully without crashing.',
+  state_transition: 'After the rule fires, all downstream fields and records must update consistently. Tests that no stale values remain in the system.',
+  integration:      'The same business rule spans multiple COBOL programs. Tests that every program involved agrees on the outcome end-to-end.',
+}
+
 // ── CSV export ────────────────────────────────────────────────────────────────
 
 function exportCSV(scenarios: Scenario[]) {
@@ -196,6 +205,7 @@ export default function SyntheticTestingTab({ outputDir }: Props) {
   const [searchQuery, setSearchQuery]           = useState('')
   const [selectedScenario, setSelectedScenario] = useState<Scenario | null>(null)
   const [expandedStep, setExpandedStep]         = useState<number | null>(null)
+  const [showLegend, setShowLegend]             = useState(false)
 
   useEffect(() => {
     setLoading(true)
@@ -491,6 +501,39 @@ export default function SyntheticTestingTab({ outputDir }: Props) {
                 </button>
               )
             })}
+          </div>
+
+          {/* Scenario type legend */}
+          <div style={{ marginBottom: 10 }}>
+            <button
+              onClick={() => setShowLegend(v => !v)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontSize: 11, color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: 4 }}
+            >
+              <span>{showLegend ? '▲' : '▼'}</span>
+              <span>What do these scenario types mean?</span>
+            </button>
+            {showLegend && (
+              <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {SCENARIO_TYPES.map(t => (
+                  <div key={t} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <span style={{
+                      marginTop: 2, flexShrink: 0,
+                      width: 10, height: 10, borderRadius: '50%',
+                      background: TYPE_COLOR[t],
+                      display: 'inline-block',
+                    }} />
+                    <div>
+                      <span style={{ fontSize: 11, fontWeight: 700, color: TYPE_COLOR[t] }}>
+                        {TYPE_LABELS[t]}
+                      </span>
+                      <span style={{ fontSize: 11, color: 'var(--color-text-muted)', marginLeft: 6 }}>
+                        {TYPE_DESCRIPTIONS[t]}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <ScenarioList
