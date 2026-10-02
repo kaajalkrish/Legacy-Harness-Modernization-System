@@ -13,10 +13,6 @@ import WorkflowTab from './components/tabs/WorkflowTab'
 import RulesTab from './components/tabs/RulesTab'
 import StateTab from './components/tabs/StateTab'
 
-// ?dev=1 in URL unlocks the raw-state tab
-const IS_DEV = new URLSearchParams(window.location.search).get('dev') === '1'
-
-// Fix #4 — business-outcome tabs first, technical tabs last; State hidden unless dev
 const TABS = [
   { id: 'pipeline',  label: 'Pipeline' },
   { id: 'rules',     label: 'Rules' },
@@ -25,8 +21,8 @@ const TABS = [
   { id: 'workflow',  label: 'Interactive Workflow' },
   { id: 'calltrace', label: 'Call Trace' },
   { id: 'artifacts', label: 'Artifacts' },
-  { id: 'agents',    label: 'How It Works' },
-  ...(IS_DEV ? [{ id: 'state', label: 'State [dev]' }] : []),
+  { id: 'agents',    label: 'Agentic Workflow' },
+  { id: 'state',     label: 'State' },
 ]
 
 export default function App() {
@@ -193,7 +189,7 @@ export default function App() {
           {activeTab === 'workflow'  && <WorkflowTab topology={state?.topology} />}
           {activeTab === 'timeline'  && <TimelineTab timeline={state?.timeline || []} />}
           {activeTab === 'rules'     && <RulesTab outputDir={outputDir} />}
-          {activeTab === 'state'     && IS_DEV && <StateTab state={state} />}
+          {activeTab === 'state'     && <StateTab state={state} />}
         </div>
       </div>
     </div>

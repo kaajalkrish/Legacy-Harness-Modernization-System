@@ -34,7 +34,7 @@ export default function AgentsTab({ phases }: Props) {
 
   return (
     <div>
-      <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>How It Works</h2>
+      <h2 style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700 }}>Agentic Workflow</h2>
       <p style={{ margin: '0 0 20px', color: 'var(--color-text-muted)', fontSize: 13 }}>
         The pipeline runs {phases.length} automated agents in sequence — {phases.filter(p => p.type === 'Deterministic').length} deterministic and {phases.filter(p => p.type !== 'Deterministic').length} LLM-powered — to turn raw COBOL source into a validated Business Requirements Document.
         {done === phases.length && <span style={{ marginLeft: 8, color: 'var(--color-green)', fontWeight: 600 }}>All {done} agents complete.</span>}

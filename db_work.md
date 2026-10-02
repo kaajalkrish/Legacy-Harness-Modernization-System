@@ -100,8 +100,8 @@ Tabs are ordered to show business outcomes first, technical detail last:
 | 5 | **Interactive Workflow** | Technical — program call graph |
 | 6 | **Call Trace** | Technical — per-program operation trace |
 | 7 | **Artifacts** | Technical — all produced files |
-| 8 | **How It Works** | Everyone — what each agent does in plain English |
-| — | **State** [dev] | Engineers only — raw JSON; add `?dev=1` to URL to show |
+| 8 | **Agentic Workflow** | Everyone — what each agent does and how they chain |
+| 9 | **State** | Engineers — raw JSON snapshot of the dashboard data model |
 
 ---
 
@@ -124,7 +124,7 @@ At the bottom of the tab, the **BRD Judge Verdict** card shows:
 
 ---
 
-### 8 · How It Works
+### 8 · Agentic Workflow
 
 A card-per-agent view that explains each phase in plain English — what it does for the business, not how it is implemented. Each card shows:
 
