@@ -94,13 +94,13 @@ Tabs are ordered to show business outcomes first, technical detail last:
 | # | Tab | Audience |
 |---|---|---|
 | 1 | **Pipeline** | Everyone — phase status and BRD judge verdict |
-| 2 | **Rules** | Business / SME — extracted business rules |
-| 3 | **Synthetic Testing** | QA / Business — quality gate and test scenarios |
-| 4 | **Timeline** | Everyone — when each phase ran |
-| 5 | **Interactive Workflow** | Technical — program call graph |
-| 6 | **Call Trace** | Technical — per-program operation trace |
-| 7 | **Artifacts** | Technical — all produced files |
-| 8 | **Agentic Workflow** | Everyone — what each agent does and how they chain |
+| 2 | **Agentic Workflow** | Everyone — what each agent does, flow diagrams, inputs/outputs |
+| 3 | **Artifacts** | Technical — all produced files |
+| 4 | **Rules** | Business / SME — extracted business rules |
+| 5 | **Synthetic Testing** | QA / Business — quality gate and test scenarios |
+| 6 | **Timeline** | Everyone — when each phase ran |
+| 7 | **Interactive Workflow** | Technical — program call graph |
+| 8 | **Call Trace** | Technical — per-program operation trace |
 | 9 | **State** | Engineers — raw JSON snapshot of the dashboard data model |
 
 ---
@@ -124,7 +124,7 @@ At the bottom of the tab, the **BRD Judge Verdict** card shows:
 
 ---
 
-### 8 · Agentic Workflow
+### 2 · Agentic Workflow
 
 A card-per-agent view that explains each phase in plain English — what it does for the business, not how it is implemented. Each card shows:
 
@@ -134,7 +134,11 @@ A card-per-agent view that explains each phase in plain English — what it does
 - A plain-English description of what the agent contributes to the analysis
 - Output artifact size and runtime (when complete)
 
-The backing Python module paths are not shown in this view — they are available in the raw state at `?dev=1`.
+**Click any card to expand it.** The expanded panel shows:
+- A live Mermaid flow diagram for that phase (inputs → agent → outputs)
+- Inputs consumed (blue ↓) and outputs produced (green ↑) with file paths
+- A Deterministic / Hybrid note explaining what Python does vs what the LLM does
+- Artifact metadata: filename, size, duration, and completion timestamp
 
 ---
 
