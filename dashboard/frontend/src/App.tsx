@@ -15,13 +15,13 @@ import StateTab from './components/tabs/StateTab'
 
 const TABS = [
   { id: 'pipeline',  label: 'Pipeline' },
+  { id: 'agents',    label: 'Agentic Workflow' },
+  { id: 'artifacts', label: 'Artifacts' },
   { id: 'rules',     label: 'Rules' },
   { id: 'syntest',   label: 'Synthetic Testing' },
   { id: 'timeline',  label: 'Timeline' },
   { id: 'workflow',  label: 'Interactive Workflow' },
   { id: 'calltrace', label: 'Call Trace' },
-  { id: 'artifacts', label: 'Artifacts' },
-  { id: 'agents',    label: 'Agentic Workflow' },
   { id: 'state',     label: 'State' },
 ]
 
