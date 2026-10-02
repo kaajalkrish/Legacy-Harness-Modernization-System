@@ -13,16 +13,20 @@ import WorkflowTab from './components/tabs/WorkflowTab'
 import RulesTab from './components/tabs/RulesTab'
 import StateTab from './components/tabs/StateTab'
 
+// ?dev=1 in URL unlocks the raw-state tab
+const IS_DEV = new URLSearchParams(window.location.search).get('dev') === '1'
+
+// Fix #4 — business-outcome tabs first, technical tabs last; State hidden unless dev
 const TABS = [
-  { id: 'pipeline',   label: 'Pipeline' },
-  { id: 'agents',     label: 'Agents' },
-  { id: 'artifacts',  label: 'Artifacts' },
-  { id: 'calltrace',  label: 'Call Trace' },
-  { id: 'syntest',    label: 'Synthetic Testing' },
-  { id: 'workflow',   label: 'Interactive Workflow' },
-  { id: 'timeline',   label: 'Timeline' },
-  { id: 'rules',      label: 'Rules' },
-  { id: 'state',      label: 'State' },
+  { id: 'pipeline',  label: 'Pipeline' },
+  { id: 'rules',     label: 'Rules' },
+  { id: 'syntest',   label: 'Synthetic Testing' },
+  { id: 'timeline',  label: 'Timeline' },
+  { id: 'workflow',  label: 'Interactive Workflow' },
+  { id: 'calltrace', label: 'Call Trace' },
+  { id: 'artifacts', label: 'Artifacts' },
+  { id: 'agents',    label: 'How It Works' },
+  ...(IS_DEV ? [{ id: 'state', label: 'State [dev]' }] : []),
 ]
 
 export default function App() {
@@ -31,8 +35,8 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [showBRD, setShowBRD] = useState(false)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    try { return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark' }
-    catch { return 'dark' }
+    try { return (localStorage.getItem('theme') as 'dark' | 'light') || 'light' }
+    catch { return 'light' }
   })
 
   useEffect(() => {
@@ -48,8 +52,14 @@ export default function App() {
     window.print()
   }
 
-  const meta = state?.meta
+  const meta    = state?.meta
+  const verdict = state?.verdict
   const truncate = (s: string, n = 38) => s && s.length > n ? '…' + s.slice(-n) : s
+
+  // Fix #3 — derive verdict badge for header
+  const verdictBadge = verdict?.verdict && verdict.verdict !== '—'
+    ? verdict.verdict
+    : null
 
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', color: 'var(--color-text-muted)', fontSize: 15 }}>
@@ -77,28 +87,40 @@ export default function App() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0 }}>
 
         {/* Header */}
-        <div style={{ padding: '16px 24px 0', background: 'var(--color-surface)', borderBottom: '1px solid var(--color-border)' }}>
+        <div style={{ background: 'var(--color-surface)', borderBottom: '1px solid var(--color-border)', borderTop: '3px solid var(--color-accent)' }}>
+          <div style={{ padding: '14px 24px 0' }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 12 }}>
             <div>
-              <h1 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--color-text)' }}>
-                COBOL Reverse Engineering
-              </h1>
-              {lastUpdated && (
-                <div style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2 }}>
-                  Live · updated {lastUpdated.toLocaleTimeString()}
-                </div>
-              )}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <h1 style={{ margin: 0, fontSize: 22, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.5px' }}>
+                  COBOL Reverse Engineering
+                </h1>
+                {/* Fix #3 — live status + judge verdict side-by-side in header */}
+                <span className="badge badge-done" style={{ fontSize: 11 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--color-green)', display: 'inline-block' }} />
+                  live · {meta?.status || 'complete'}
+                </span>
+                {verdictBadge && (
+                  <span
+                    className={`badge ${verdictBadge === 'PASS' ? 'badge-pass' : 'badge-revise'}`}
+                    style={{ fontSize: 11, fontWeight: 800 }}
+                    title={`BRD Judge: ${verdictBadge} · Score ${verdict?.weighted_score?.toFixed(2)}/5.0`}
+                  >
+                    {verdictBadge === 'PASS' ? '✓' : '⚠'} BRD {verdictBadge}
+                  </span>
+                )}
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--color-text-muted)', marginTop: 3 }}>
+                Legacy Modernisation Intelligence Platform
+                {lastUpdated && <span style={{ marginLeft: 10, opacity: 0.7 }}>· updated {lastUpdated.toLocaleTimeString()}</span>}
+              </div>
             </div>
             <div className="header-actions" style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0, marginLeft: 16 }}>
-              <span className="badge badge-done" style={{ fontSize: 12 }}>
-                <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--color-green)', display: 'inline-block' }} />
-                live · {meta?.status || 'complete'}
-              </span>
               <button
                 onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
-                style={{ padding: '4px 12px', border: '1px solid var(--color-border)', borderRadius: 6, background: 'var(--color-surface-2)', color: 'var(--color-text)', cursor: 'pointer', fontSize: 12 }}
+                style={{ padding: '5px 12px', border: '1px solid var(--color-border)', borderRadius: 6, background: 'var(--color-surface-2)', color: 'var(--color-text)', cursor: 'pointer', fontSize: 12 }}
               >
-                {theme === 'dark' ? 'Light theme' : 'Dark theme'}
+                {theme === 'dark' ? '☀ Light' : '☾ Dark'}
               </button>
               <button
                 onClick={() => setShowBRD(true)}
@@ -122,16 +144,23 @@ export default function App() {
           </div>
 
           {/* Meta strip */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 14 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10, marginBottom: 14 }}>
             {[
-              ['SOURCE ROOT',       truncate(meta?.project_dir || '—')],
-              ['OUTPUT DIRECTORY',  truncate(meta?.output_dir || '—')],
-              ['FILES SCANNED',     meta?.files_scanned != null ? String(meta.files_scanned) : '—'],
-              ['BRD NAME',          meta?.brd_name || '—'],
-            ].map(([label, val]) => (
-              <div key={label}>
-                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)', marginBottom: 2 }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--color-text)', wordBreak: 'break-all' }}>{val}</div>
+              { label: 'SOURCE ROOT',      val: truncate(meta?.project_dir || '—'),                               icon: '📁' },
+              { label: 'OUTPUT DIRECTORY', val: truncate(meta?.output_dir || '—'),                                icon: '📂' },
+              { label: 'FILES SCANNED',    val: meta?.files_scanned != null ? String(meta.files_scanned) : '—',   icon: '🔍' },
+              { label: 'BRD NAME',         val: meta?.brd_name || '—',                                            icon: '📄' },
+            ].map(({ label, val, icon }) => (
+              <div key={label} style={{
+                padding: '8px 12px', borderRadius: 8,
+                background: 'var(--color-surface-2)',
+                border: '1px solid var(--color-border)',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 3 }}>
+                  <span style={{ fontSize: 11 }}>{icon}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)' }}>{label}</span>
+                </div>
+                <div style={{ fontSize: 12, color: 'var(--color-text)', wordBreak: 'break-all', fontFamily: 'monospace' }}>{val}</div>
               </div>
             ))}
           </div>
@@ -151,6 +180,7 @@ export default function App() {
               </button>
             ))}
           </div>
+          </div>
         </div>
 
         {/* Tab content */}
@@ -163,7 +193,7 @@ export default function App() {
           {activeTab === 'workflow'  && <WorkflowTab topology={state?.topology} />}
           {activeTab === 'timeline'  && <TimelineTab timeline={state?.timeline || []} />}
           {activeTab === 'rules'     && <RulesTab outputDir={outputDir} />}
-          {activeTab === 'state'     && <StateTab state={state} />}
+          {activeTab === 'state'     && IS_DEV && <StateTab state={state} />}
         </div>
       </div>
     </div>

@@ -109,7 +109,25 @@ src/
 
 Defined in `src/index.css` as CSS custom properties on `:root`.
 
-### Colour tokens (dark theme default)
+### Dual-tone layout
+
+The sidebar is always dark (`#16181d`) regardless of the active theme — a deliberate split so the navigation rail stays high-contrast while the content area uses the selected theme. The sidebar overrides all `--color-*` tokens for its children via CSS custom-property scoping on `.sidebar`, so `Sidebar.tsx` inline styles work unchanged.
+
+### Colour tokens
+
+**Light theme (default)** — applied via `[data-theme="light"]` on `<html>`:
+
+| Token | Value |
+|---|---|
+| `--color-bg` | `#f4f6f9` |
+| `--color-surface` | `#ffffff` |
+| `--color-surface-2` | `#f0f2f5` |
+| `--color-border` | `#e0e0e0` |
+| `--color-text` | `#111111` |
+| `--color-text-muted` | `#666666` |
+| `--color-accent` | `#c49000` |
+
+**Dark theme** — `:root` defaults:
 
 | Token | Value | Used for |
 |---|---|---|
@@ -120,12 +138,12 @@ Defined in `src/index.css` as CSS custom properties on `:root`.
 | `--color-text` | `#f0f0f0` | Primary text |
 | `--color-text-muted` | `#888888` | Labels, metadata |
 | `--color-accent` | `#e8b800` | Yellow accent, active states |
-| `--color-green` | `#22c55e` | Done status, confirmed |
-| `--color-blue` | `#3b82f6` | Control flow, info |
-| `--color-red` | `#ef4444` | Errors |
-| `--color-orange` | `#f97316` | Warnings, no-return |
+| `--color-green` | `#22c55e` | Done/deterministic phases |
+| `--color-blue` | `#3b82f6` | LLM phases, control flow, info |
+| `--color-red` | `#ef4444` | Errors, score deductions |
+| `--color-orange` | `#f97316` | Warnings |
 
-Light theme overrides apply via `[data-theme="light"]` on `<html>`. Theme preference is persisted in `localStorage`.
+Light theme default is persisted in `localStorage`. Users can toggle with the `☀/☾` button in the header. In light mode, `.card` and `.kpi-tile` gain a `box-shadow` for depth.
 
 ### Utility classes
 
@@ -288,11 +306,31 @@ python -m unittest discover -s tests -v
 
 ---
 
-## v1.3 Feature Summary
+## v1.4 Feature Summary
 
 | Feature | Status |
 |---|---|
-| 9 tabs — all with live data | ✓ |
+| 8 client-facing tabs + 1 dev-only tab | ✓ |
+| Tab order: business outcomes first (Pipeline → Rules → Synthetic Testing → Timeline → …) | ✓ |
+| State tab hidden by default; visible only at `?dev=1` | ✓ |
+| BRD Judge verdict badge surfaced in header (PASS / REVISE) next to live status | ✓ |
+| "How It Works" tab — card layout, business-friendly descriptions, no internal module paths | ✓ |
+| Light theme as default (first visit) | ✓ |
+| Dual-tone layout — sidebar always dark, main content uses active theme | ✓ |
+| Header: 3px amber accent stripe, 22px/800 title, subtitle, `☀/☾` toggle | ✓ |
+| Meta strip: icon + label + monospace value in `surface-2` cards | ✓ |
+| KPI tiles: per-tile colour accent (top border) + value tinted to match | ✓ |
+| Card + KPI tile `box-shadow` in light mode for depth | ✓ |
+| Tab bar: filled-background active state + rounded corners | ✓ |
+| Sidebar: always-dark vertical connector line between phase circles | ✓ |
+| Sidebar: phase circles green (Deterministic done) / blue (LLM done) / grey (pending) | ✓ |
+| Sidebar: inline colour legend (● Deterministic · ● LLM-powered) | ✓ |
+| Sidebar: `title` tooltip on each circle showing phase type and status | ✓ |
+| Sidebar: completion footer (`X/Y complete · N%`) | ✓ |
+| Pipeline tab: colour key above phase cards | ✓ |
+| Pipeline tab: phase cards with coloured left border + status icon + Det/LLM badge | ✓ |
+| Pipeline tab: Judge dimension cards — rationale text + "Improve:" suggestion per dimension | ✓ |
+| Synthetic Testing: "Why this score?" insight callout (score < 80) — drawbacks + improvements | ✓ |
 | Live polling (5s) | ✓ |
 | View BRD — marked.js + Mermaid + TOC | ✓ |
 | Phase 11 Synthetic Testing quality gate | ✓ |
@@ -303,18 +341,12 @@ python -m unittest discover -s tests -v
 | Blocking findings with per-finding SME action text | ✓ |
 | Prioritised next-steps panel (collapsible, colour-coded priority) | ✓ |
 | SCN-XXX scenario list with type filters + readiness badge per row | ✓ |
-| Scenario detail modal — readiness badge, checklist score, confidence label | ✓ |
-| Scenario detail modal — SME action callout (orange banner) | ✓ |
-| Scenario detail modal — gap reasons section (red-tinted cards) | ✓ |
-| Scenario detail modal — BDD, determinism checklist, programs | ✓ |
-| Scenario list — search by ID / name / rule ID | ✓ |
-| Scenario list — readiness filter pills with counts | ✓ |
-| Scenario list — type filter pills with counts | ✓ |
-| Export CSV (all scenarios with all fields, browser-side) | ✓ |
-| Last-run timestamp displayed in tab header | ✓ |
-| Rules Explorer (filterable) | ✓ |
-| Collapsible sidebar with expand button | ✓ |
-| Dark / light theme (persisted + WorkflowTab re-renders) | ✓ |
+| Scenario detail modal (BDD, checklist, SME action, gap reasons, programs) | ✓ |
+| Scenario list — search / readiness / type filters with counts | ✓ |
+| Export CSV (all scenarios, browser-side) | ✓ |
+| Rules Explorer (filterable by category, confidence, text) | ✓ |
+| Collapsible sidebar | ✓ |
+| Dark / light theme (persisted; WorkflowTab re-renders on switch) | ✓ |
 | Export JSON / Export PDF / Download BRD | ✓ |
 | Plug-and-play for any harness output dir | ✓ |
 | One-command launcher (`start.py`) | ✓ |

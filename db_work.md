@@ -33,23 +33,27 @@ The dashboard is **plug-and-play**: it reads whatever output folder you specify 
 ## Layout
 
 ```
-┌─────────────────────┬────────────────────────────────────────────────────┐
-│  Sidebar            │  Header: title · status · theme · export buttons   │
-│                     │  Meta strip: project dir · entry point · BRD name  │
-│  Phase list         │  Stats row: 6 KPI tiles                             │
-│  (numbered circles) │  Tab bar: 9 tabs                                    │
-│                     ├────────────────────────────────────────────────────┤
-│  ‹ collapse         │  Tab content                                        │
-└─────────────────────┴────────────────────────────────────────────────────┘
+┌──────────────────────┬───────────────────────────────────────────────────┐
+│  Sidebar (dark)      │  ▬▬▬ amber accent stripe ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬  │
+│                      │  Header: title · live badge · BRD verdict badge   │
+│  ● Deterministic     │  Subtitle · last-updated timestamp                │
+│  ● LLM-powered       │  Action buttons (View BRD · Export · Theme)       │
+│                      │  Meta strip: 4 info cards (source, output, …)     │
+│  1 → Discovery ✓     │  Stats row: 6 KPI tiles (colour-coded by metric)  │
+│  │                   │  Tab bar: 8 tabs (business-first order)            │
+│  2 → Parser    ✓     ├───────────────────────────────────────────────────┤
+│  │  …               │  Tab content                                       │
+│  X/Y complete · N%   │                                                   │
+└──────────────────────┴───────────────────────────────────────────────────┘
 ```
 
-**Sidebar** — lists all 11 pipeline phases with a status indicator (green = done, grey = pending) and a per-phase progress bar. Click `‹` to collapse to icon-only view; click `›` to expand.
+**Sidebar** — always dark regardless of theme. Lists all pipeline phases with coloured numbered circles (green = done Deterministic, blue = done LLM, grey = pending) connected by a vertical pipeline line. A colour legend sits below the "Pipeline · N Phases" heading. Hover any circle for a tooltip. A completion footer (`X/Y complete · N%`) sits at the bottom. Click `‹` to collapse to icon-only; click `›` to expand.
 
-**Header** — shows the pipeline name, a live status badge, and the last poll timestamp. Updates every 5 seconds automatically.
+**Header** — shows the pipeline name, a live status badge, and the **BRD Judge verdict badge** (green PASS or red REVISE) once Phase 10 completes. Subtitle shows "Legacy Modernisation Intelligence Platform" and last poll timestamp. Updates every 5 seconds automatically.
 
-**Meta strip** — project directory, harness entry point, output directory, and BRD filename for the current run.
+**Meta strip** — four info cards: SOURCE ROOT, OUTPUT DIRECTORY, FILES SCANNED, BRD NAME. Each card shows an icon, label, and monospace value.
 
-**Stats row** — six KPI tiles summarising the run at a glance.
+**Stats row** — six KPI tiles, each with a per-metric colour accent (amber = overall, blue = programs, purple = copybooks, green = records, orange = rules, red = scenarios).
 
 ---
 
@@ -83,6 +87,24 @@ As phases complete:
 
 ---
 
+## Tab Order
+
+Tabs are ordered to show business outcomes first, technical detail last:
+
+| # | Tab | Audience |
+|---|---|---|
+| 1 | **Pipeline** | Everyone — phase status and BRD judge verdict |
+| 2 | **Rules** | Business / SME — extracted business rules |
+| 3 | **Synthetic Testing** | QA / Business — quality gate and test scenarios |
+| 4 | **Timeline** | Everyone — when each phase ran |
+| 5 | **Interactive Workflow** | Technical — program call graph |
+| 6 | **Call Trace** | Technical — per-program operation trace |
+| 7 | **Artifacts** | Technical — all produced files |
+| 8 | **How It Works** | Everyone — what each agent does in plain English |
+| — | **State** [dev] | Engineers only — raw JSON; add `?dev=1` to URL to show |
+
+---
+
 ## Tabs
 
 ### 1 · Pipeline
@@ -102,20 +124,17 @@ At the bottom of the tab, the **BRD Judge Verdict** card shows:
 
 ---
 
-### 2 · Agents
+### 8 · How It Works
 
-A table of all 10 pipeline agents with one row per agent:
+A card-per-agent view that explains each phase in plain English — what it does for the business, not how it is implemented. Each card shows:
 
-| Column | Content |
-|---|---|
-| # | Phase number |
-| Agent | Name and one-line description |
-| Type | Deterministic or LLM + Python |
-| Backing module | Python file that implements the agent |
-| Output artifact | File the agent produces |
-| Status | done / pending |
-| Size | Artifact file size in KB |
-| Duration | Time the agent took to run |
+- Phase name in client-friendly language (e.g. "5 · Data Dictionary" not `data`)
+- A badge: **Deterministic** or **LLM-powered** (hybrid AI + Python)
+- A complete / pending status indicator
+- A plain-English description of what the agent contributes to the analysis
+- Output artifact size and runtime (when complete)
+
+The backing Python module paths are not shown in this view — they are available in the raw state at `?dev=1`.
 
 ---
 

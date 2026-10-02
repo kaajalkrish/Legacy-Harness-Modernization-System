@@ -319,6 +319,62 @@ export default function SyntheticTestingTab({ outputDir }: Props) {
         </div>
       )}
 
+      {/* "Why this score?" insight panel — shown when quality < 80 */}
+      {stats.quality_score < 80 && sb.deductions.length > 0 && (
+        <div style={{
+          marginBottom: 20, padding: '16px 20px',
+          background: stats.quality_score < 60 ? 'rgba(239,68,68,0.05)' : 'rgba(249,115,22,0.05)',
+          border: `1px solid ${stats.quality_score < 60 ? 'rgba(239,68,68,0.25)' : 'rgba(249,115,22,0.25)'}`,
+          borderLeft: `4px solid ${scoreColor}`,
+          borderRadius: 8,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+            <span style={{ fontSize: 16 }}>⚠</span>
+            <span style={{ fontWeight: 700, fontSize: 13, color: scoreColor }}>
+              Why this score is {stats.quality_score}/100
+            </span>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-text-muted)', marginBottom: 6 }}>
+                Drawbacks
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                {sb.deductions.slice(0, 3).map((d, i) => (
+                  <div key={i} style={{ fontSize: 12, display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--color-red)', fontWeight: 700, flexShrink: 0 }}>−{d.penalty}</span>
+                    <span style={{ color: 'var(--color-text)', lineHeight: 1.4 }}>{d.label}{d.explanation ? ` — ${d.explanation}` : ''}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {sb.next_steps && sb.next_steps.length > 0 && (
+              <div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-text-muted)', marginBottom: 6 }}>
+                  Suggested Improvements
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  {sb.next_steps.slice(0, 3).map(step => (
+                    <div key={step.priority} style={{ fontSize: 12, display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                      <span style={{
+                        width: 18, height: 18, borderRadius: '50%', flexShrink: 0, marginTop: 1,
+                        background: step.priority === 1 ? 'var(--color-red)' : step.priority === 2 ? 'var(--color-orange)' : 'var(--color-accent)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: 9, fontWeight: 800, color: '#111',
+                      }}>{step.priority}</span>
+                      <span style={{ color: 'var(--color-text)', lineHeight: 1.4 }}>
+                        <strong>{step.title}</strong>
+                        {step.impact && <span style={{ color: 'var(--color-text-muted)' }}> · {step.impact}</span>}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* KPI strip */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12, marginBottom: 20 }}>
         {[
