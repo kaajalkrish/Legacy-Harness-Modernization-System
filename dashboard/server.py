@@ -100,6 +100,7 @@ PHASE_ARTIFACTS = {
     "diagram":   "diagram/diagrams_artifact.json",
     "brd":       "final_report/brd.md",
     "judge":     "final_report/brd_judge.json",
+    "syntest":   "synthetic_tests/synthetic_tests.json",
 }
 
 
@@ -108,26 +109,29 @@ PHASE_ARTIFACTS = {
 # ---------------------------------------------------------------------------
 
 def assemble_state(out_dir: Path) -> dict:
-    inv   = _read(out_dir / "discovery/inventory.json") or {}
-    par   = _read(out_dir / "analysis/parser_artifact.json") or {}
-    topo  = _read(out_dir / "topology/graph.json") or {}
-    data  = _read(out_dir / "data/data_artifact.json") or {}
-    logic = _read(out_dir / "logic/logic_artifact.json") or {}
-    rules = _read(out_dir / "rules/rules_artifact.json") or {}
-    diag  = _read(out_dir / "diagram/diagrams_artifact.json") or {}
-    judge = _read(out_dir / "final_report/brd_judge.json") or {}
+    inv     = _read(out_dir / "discovery/inventory.json") or {}
+    par     = _read(out_dir / "analysis/parser_artifact.json") or {}
+    topo    = _read(out_dir / "topology/graph.json") or {}
+    data    = _read(out_dir / "data/data_artifact.json") or {}
+    logic   = _read(out_dir / "logic/logic_artifact.json") or {}
+    rules   = _read(out_dir / "rules/rules_artifact.json") or {}
+    diag    = _read(out_dir / "diagram/diagrams_artifact.json") or {}
+    judge   = _read(out_dir / "final_report/brd_judge.json") or {}
+    syntest = _read(out_dir / "synthetic_tests/synthetic_tests.json") or {}
 
     # --- meta ---
     inv_meta  = inv.get("meta", {})
     brd_path  = out_dir / "final_report/brd.md"
     brd_name  = brd_path.name if brd_path.exists() else "—"
 
+    repo_root = inv_meta.get("repo_root") or inv_meta.get("source_root") or inv_meta.get("entry_point") or ""
     meta = {
-        "project":      inv_meta.get("project_name", "Mainframe-Source COBOL Reverse Engineering"),
-        "domain":       inv_meta.get("domain", ""),
-        "entry_point":  inv_meta.get("entry_point", str(out_dir)),
-        "project_dir":  inv_meta.get("source_root", ""),
-        "output_dir":   str(out_dir),
+        "project":        inv_meta.get("project_name", "Mainframe-Source COBOL Reverse Engineering"),
+        "domain":         inv_meta.get("domain", ""),
+        "entry_point":    repo_root,
+        "project_dir":    repo_root,
+        "output_dir":     str(out_dir),
+        "files_scanned":  inv_meta.get("total_files_scanned"),
         "brd_name":     brd_name,
         "status":       "complete" if (out_dir / "final_report/brd_judge.json").exists() else "in-progress",
         "updated":      datetime.now(timezone.utc).isoformat(),
@@ -158,13 +162,19 @@ def assemble_state(out_dir: Path) -> dict:
     # Count produced artifact files
     artifact_count = sum(1 for _ in out_dir.rglob("*") if _.is_file() and _.suffix in {".json", ".md", ".mmd", ".txt"})
 
+    syntest_stats  = syntest.get("stats", {})
+    scenarios_total  = syntest_stats.get("total", len(syntest.get("scenarios", [])))
+    scenarios_passed = syntest_stats.get("passed", 0)
+
     stats = {
-        "programs":   programs_count,
-        "copybooks":  copybooks_count,
-        "records":    records_count,
-        "rules":      rules_count,
-        "diagrams":   diag_meta.get("total_diagrams", len(diag.get("diagrams", []))),
-        "artifacts":  artifact_count,
+        "programs":         programs_count,
+        "copybooks":        copybooks_count,
+        "records":          records_count,
+        "rules":            rules_count,
+        "diagrams":         diag_meta.get("total_diagrams", len(diag.get("diagrams", []))),
+        "artifacts":        artifact_count,
+        "scenarios":        scenarios_total,
+        "scenarios_passed": scenarios_passed,
     }
 
     # --- phases ---
@@ -432,6 +442,20 @@ def get_rules(outputDir: str = Query(...)):
         "business_rules": rules_data.get("business_rules", []),
         "stats":          rules_data.get("stats", {}),
         "rule_sets":      rules_data.get("rule_sets", []),
+    })
+
+
+@app.get("/api/syntest")
+def get_syntest(outputDir: str = Query(...)):
+    out = Path(outputDir)
+    data = _read(out / "synthetic_tests/synthetic_tests.json") or {}
+    return JSONResponse({
+        "scenarios":         data.get("scenarios", []),
+        "coverage":          data.get("coverage", []),
+        "score_breakdown":   data.get("score_breakdown", {}),
+        "stats":             data.get("stats", {}),
+        "executive_summary": data.get("executive_summary", ""),
+        "generated_at":      (data.get("meta") or {}).get("generated_at"),
     })
 
 

@@ -124,9 +124,9 @@ export default function App() {
           {/* Meta strip */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 14 }}>
             {[
-              ['PROJECT DIRECTORY', truncate(meta?.project_dir || meta?.output_dir || '—')],
-              ['ENTRY POINT',       truncate(meta?.entry_point || '—')],
+              ['SOURCE ROOT',       truncate(meta?.project_dir || '—')],
               ['OUTPUT DIRECTORY',  truncate(meta?.output_dir || '—')],
+              ['FILES SCANNED',     meta?.files_scanned != null ? String(meta.files_scanned) : '—'],
               ['BRD NAME',          meta?.brd_name || '—'],
             ].map(([label, val]) => (
               <div key={label}>
@@ -159,7 +159,7 @@ export default function App() {
           {activeTab === 'agents'    && <AgentsTab phases={state?.phases || []} />}
           {activeTab === 'artifacts' && <ArtifactsTab outputDir={outputDir} />}
           {activeTab === 'calltrace' && <CallTraceTab outputDir={outputDir} />}
-          {activeTab === 'syntest'   && <SyntheticTestingTab rulesByCategory={state?.rules_by_category || {}} rulesByConfidence={state?.rules_by_confidence || {}} totalRules={state?.stats.rules || 0} />}
+          {activeTab === 'syntest'   && <SyntheticTestingTab outputDir={outputDir} />}
           {activeTab === 'workflow'  && <WorkflowTab topology={state?.topology} />}
           {activeTab === 'timeline'  && <TimelineTab timeline={state?.timeline || []} />}
           {activeTab === 'rules'     && <RulesTab outputDir={outputDir} />}
